@@ -6,6 +6,7 @@
   <body>
     <h1>Hola, soy Hali.</h1>
 
+    <?php php_info(); ?>
     Este sitio está en construcción...
   </body>
 </html>
