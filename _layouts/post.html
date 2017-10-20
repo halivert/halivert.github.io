@@ -1,10 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <meta charset="UTF-8">
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.css">
   </head>
   <body>
-    <hr>
-    {{ content }}
+    {% include nav.html %}
+    <section class="section">
+      <div class="container">
+        <p class="title is-1 has-text-primary">
+        {{ page.title }}
+        </p>
+      </div>
+      <hr>
+      <div class="container">
+        {{ content }}
+      </div>
+    </section>
   </body>
 </html>

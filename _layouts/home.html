@@ -7,19 +7,21 @@
   </head>
   <body>
     {% include nav.html %}
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h3>Sitio en construcción...</h3>
-        </div>
-        <br>
-        <div class="container">
-          <progress class="progress is-medium is-primary" value="80" max="100"></progress>
-        </div><br>
-        <div class="container has-text-centered">
-          <img src="/img/pp.png">
+    <section class="section">
+      {% for post in site.posts %}
+      <div class="container-fluid">
+        <div class="columns">
+          <div class="column is-8" style="padding-bottom: 4rem;">
+            <p class="title is-1"> <a class="has-text-primary" href="{{ post.url }}">
+              {{ post.title }}
+            </a></p>
+            {{ post.author }}
+            <hr>
+            {{ post.content }}
+          </div>
         </div>
       </div>
+      {% endfor %}
     </section>
   </body>
 </html>

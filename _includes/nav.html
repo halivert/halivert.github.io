@@ -1,9 +1,9 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://halivert.github.io">
+    <a class="navbar-item" href="{{ site.baseurl }}/">
       <img class="image" src="{{ site.baseurl }}/img/hLetter.png">
     </a>
-
     <button class="button navbar-burger is-primary" data-target="navMenu">
       <span></span>
       <span></span>
@@ -13,29 +13,36 @@
 
   <div class="navbar-menu is-primary" id="navMenu">
     <div class="navbar-start">
-      <a class="navbar-item" href="#">
+      <a class="navbar-item" href="{{ site.baseurl }}/">
         Inicio
+      </a>
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item" href="http://github.com/halivert">
+        <span class="icon" style="color: #333;">
+          <i class="fa fa-lg fa-github"></i>
+        </span>
       </a>
     </div>
   </div>
 </nav>
 
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function(event) {
-    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+document.addEventListener('DOMContentLoaded', function(event) {
+  var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
 
-    if ($navbarBurgers.length > 0) {
+  if ($navbarBurgers.length > 0) {
 
-      $navbarBurgers.forEach(function ($el) {
-        $el.addEventListener('click', function () {
+  $navbarBurgers.forEach(function ($el) {
+  $el.addEventListener('click', function () {
 
-          var target = $el.dataset.target;
-          var $target = document.getElementById(target);
+  var target = $el.dataset.target;
+  var $target = document.getElementById(target);
 
-          $el.classList.toggle('is-active');
-          $target.classList.toggle('is-active');
-        });
-      });
-    }
-  });
+  $el.classList.toggle('is-active');
+  $target.classList.toggle('is-active');
+});
+});
+}
+});
 </script>
