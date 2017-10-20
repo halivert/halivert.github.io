@@ -1,24 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>{{ site.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.css">
-  </head>
-  <body>
-    {% include nav.html %}
-    <section class="hero">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h3>{{ page.title }}</h3>
-        </div>
-        <br>
-        <div class="container">
-          {{ content }}
-        </div>
-      </div>
-    </section>
-  </body>
-</html>
+---
+layout: header
+---
 
-
+{% include nav.html %}
+<section class="hero">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h3>{{ page.title }}</h3>
+    </div>
+    <br>
+    <div class="container">
+      {{ content }}
+    </div>
+  </div>
+</section>

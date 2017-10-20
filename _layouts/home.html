@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Halivert</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.css">
-  </head>
-  <body>
-    {% include nav.html %}
-    <section class="section">
-      {% for post in site.posts %}
-      <div class="container-fluid">
-        <div class="columns">
-          <div class="column is-8" style="padding-bottom: 4rem;">
-            <p class="title is-1"> <a class="has-text-primary" href="{{ post.url }}">
-              {{ post.title }}
-            </a></p>
-            {{ post.author }}
-            <hr>
-            {{ post.content }}
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </section>
-  </body>
-</html>
+---
+layout: header
+---
 
+{% include nav.html %}
+<section class="section">
+  {% for post in site.posts %}
+  <div class="container-fluid">
+    <div class="columns">
+      <div class="column is-8" style="padding-bottom: 4rem;">
+        <p class="title is-1"> <a class="has-text-primary" href="{{ post.url }}">
+          {{ post.title }}
+        </a></p>
+        {{ post.author }}
+        <hr>
+        {{ post.content }}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</section>
