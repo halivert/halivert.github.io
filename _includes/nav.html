@@ -1,0 +1,41 @@
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://halivert.github.io">
+      <img class="image" src="{{ site.baseurl }}/img/hLetter.png">
+    </a>
+
+    <button class="button navbar-burger is-primary" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="navbar-menu is-primary" id="navMenu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="#">
+        Inicio
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function(event) {
+    var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+    if ($navbarBurgers.length > 0) {
+
+      $navbarBurgers.forEach(function ($el) {
+        $el.addEventListener('click', function () {
+
+          var target = $el.dataset.target;
+          var $target = document.getElementById(target);
+
+          $el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+  });
+</script>
