@@ -4,18 +4,22 @@ layout: header
 
 {% include nav.html %}
 <section class="section">
-  {% for post in site.posts %}
   <div class="container-fluid">
     <div class="columns">
       <div class="column is-8" style="padding-bottom: 4rem;">
+        {% for post in site.posts %}
         <p class="title is-1"> <a class="has-text-primary" href="{{ post.url }}">
           {{ post.title }}
         </a></p>
         {{ post.author }}
         <hr>
         {{ post.content }}
+        <br><br>
+        {% endfor %}
+      </div>
+      <div class="column has-text-centered">
+        {% include sidebar.html %}
       </div>
     </div>
   </div>
-  {% endfor %}
 </section>

@@ -4,13 +4,22 @@ layout: header
 
 {% include nav.html %}
 <section class="section">
-  <div class="container">
-    <p class="title is-1 has-text-primary">
-    {{ page.title }}
-    </p>
-  </div>
-  <hr>
-  <div class="container">
-    {{ content }}
+  <div class="container-fluid">
+    <div class="columns">
+      <div class="column is-8" style="padding-bottom: 4rem;">
+        <div>
+          <p class="title is-1 has-text-primary">
+          {{ page.title }}
+          </p>
+        </div>
+        <hr>
+        <div class="container">
+          {{ content }}
+        </div>
+      </div>
+      <div class="column has-text-centered">
+        {% include sidebar.html %}
+      </div>
+    </div>
   </div>
 </section>
