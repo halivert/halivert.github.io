@@ -9,8 +9,12 @@ layout: html
     <div class="columns">
       <div class="column is-9" style="padding-bottom: 4rem;">
         {% assign bienvenida = site.posts.last %}
-        {{ bienvenida }}
-        {% for post in site.posts %}
+        <p class="title is-1">
+          <a class="has-text-primary" href="{{ bienvenida.url }}">{{ bienvenida.title }}</a>
+        </p><hr>
+        <p>{{ bienvenida.content }}</p><br>
+
+        {% for post in site.posts limit:{{ site.posts | length }} %}
           <p class="title is-1">
             <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
           </p><hr>
