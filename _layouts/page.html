@@ -1,7 +1,25 @@
 ---
-layout: default
+layout: html
 ---
 
-<hr>
+{% include nav.html %}
+<div class="container" style="padding-top: 1em; padding-bottom: 1em;">
+  <div class="has-text-centered">
+    <h3 class="title is-1 {{ page.style.title }}">{{ page.title }}</h3>
+    <p>
+      por
+      {% if site.data.authors[page.author] %}
+        {{ site.data.authors[page.author].fullname }}
+      {% else %}
+        {{ page.author }}
+      {% endif %}
+    </p>
+  </div>
+  <hr>
+  <div class="container-fluid columns">
+    <div class="column is-9">
+      {{ content }}
+    </div>
+  </div>
+</div>
 
-{{ content }}

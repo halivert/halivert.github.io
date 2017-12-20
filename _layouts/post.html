@@ -5,20 +5,37 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
+    <div>
+      <p class="title is-1 has-text-primary">
+      {{ page.title }}
+      </p>
+    </div>
+    <hr>
     <div class="columns">
       <div class="column is-9" style="padding-bottom: 4rem;">
-        <div>
-          <p class="title is-1 has-text-primary">
-          {{ page.title }}
-          </p>
-        </div>
-        <hr>
         <div class="container-fluid">
           {{ content }}
         </div>
       </div>
       <div class="column has-text-centered">
-        {% include sidebar.html %}
+        {% if site.data.authors[page.author] %}
+          {% assign author = site.data.authors[page.author] %}
+          {% assign ppic = author.picture %}
+          <img src="{{ ppic }}"" width="50px"><br>
+          {{ author.fullname }}
+          <hr>
+          {{ author.description }}
+          <br><br>
+          {% if author.twitter %}
+            <a href="http://twitter.com/{{ author.twitter }}">
+              <span class="icon" style="color: #333;">
+                <i class="fa fa-lg fa-twitter" aria-hidden="true"></i>
+              </span>
+            </a>
+          {% endif %}
+        {% else %}
+          {{ page.author }}
+        {% endif %}
       </div>
     </div>
   </div>
