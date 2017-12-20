@@ -27,10 +27,16 @@ plugins:
 defaults:
   -
     scope:
-      path: ''
       type: posts
     values:
-      permalink: /:year-:month-:day-:title.html
+      layout: "post"
+      author: "Anonymous"
+      permalink: /:year-:month-:day-:title
+  -
+    scope:
+      path: ""
+    values:
+      title: "Halivert"
 
 
 # Exclude from processing.
