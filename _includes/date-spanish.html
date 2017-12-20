@@ -1,0 +1,37 @@
+{% assign numDay = post.date | date: "%w" %}
+{% assign numMonth = post.date | date: "%m" %}
+
+{% case numDay %}
+  {% when '0' %}
+    {% assign day = 'Lun' %}
+  {% when '1' %}
+    {% assign day = 'Mar' %}
+  {% when '2' %}
+    {% assign day = 'Mié' %}
+  {% when '3' %}
+    {% assign day = 'Jue' %}
+  {% when '4' %}
+    {% assign day = 'Vie' %}
+  {% when '5' %}
+    {% assign day = 'Sáb' %}
+  {% when '6' %}
+    {% assign day = 'Dom' %}
+{% endcase %}
+{{ day }}
+
+{% case numMonth %}
+  {% when '00' %}
+    {% assign month = 'Ene' %}
+  {% when '01' %}
+    {% assign month = 'Feb' %}
+  {% when '02' %}
+    {% assign month = 'Mar' %}
+  {% when '03' %}
+    {% assign month = 'Abr' %}
+  {% when '04' %}
+    {% assign month = 'May' %}
+  {% when '05' %}
+    {% assign month = 'Jun' %}
+  {% when '06' %}
+    {% assign month = 'Jul' %}
+{% endcase %}

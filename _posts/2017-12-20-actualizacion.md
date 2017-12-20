@@ -2,7 +2,7 @@
 title: "Actualización"
 layout: "post"
 date: "2017-12-20 01:19"
-author: "Hali"
+author: hali
 ---
 
 En este sitio comenzaré a subir problemas con los que me he encontrado (en el ámbito de la programación, 

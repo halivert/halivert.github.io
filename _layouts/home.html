@@ -19,7 +19,12 @@ layout: html
             {{ post.content }}
           </p><br>
           <div class="container-fluid is-dark">
-            {{ post.author }} - {{ post.date | date:  "%a, %b %d, %Y" }}
+            {% if site.data.authors[post.author].fullname %}
+              {{ site.data.authors[post.author].fullname }}
+            {% else %}
+              {{ post.author }}
+            {% endif %}
+            - {{ post.date | date:  "%a, %b %d, %Y" }}
           </div>
           <br><br>
         {% endfor %}

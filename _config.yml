@@ -13,12 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Halivert"
-name: "Halivert"
+title: Halivert
+name: Halivert
 description: >- # this means to ignore newlines until "baseurl:"
   Sitio personal de Hali Velázquez
-url: "https://halivert.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
+url: https://halivert.github.io # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
@@ -30,14 +30,14 @@ defaults:
     scope:
       type: posts
     values:
-      layout: "post"
-      author: "Anonymous"
+      layout: post
+      author: Anonymous
       permalink: /:year/:month/:day/:title
   -
     scope:
       path: ""
     values:
-      title: "Halivert"
+      title: Halivert
 
 
 # Exclude from processing.
