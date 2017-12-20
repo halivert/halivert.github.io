@@ -20,13 +20,16 @@ layout: html
               <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
             </p><hr>
             <p>{{ post.content }}</p><br>
-            <div class="container-fluid">
+            <div class="box">
+              <i class="fa fa-user" aria-hidden="true"></i>
               {% if site.data.authors[post.author].fullname %}
                 {{ site.data.authors[post.author].fullname }}
               {% else %}
                 {{ post.author }}
               {% endif %}
-              - {{ post.date | date:  "%a, %b %d, %Y" }}
+              &nbsp;&nbsp;
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+              {% include date-spanish.html item=post %}
             </div>
             <br>
           </div>
