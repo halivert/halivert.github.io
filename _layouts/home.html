@@ -6,31 +6,16 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
-    <section class="hero is-light">
-      <div class="hero-body">
-        <div class="container">
-          <div class="title is-1">
-            Introducción
-          </div>
-          <div class="subtitle">
-            De verdad me llamo «Hali» y es un nombre raro para un tipo un poco más.
-          </div>
-        </div>
-      </div>
-    </section>
     <div class="columns">
       <div class="column is-9" style="padding-bottom: 4rem;">
+        {% assign bienvenida = site.posts.last %}
+        {{ bienvenida }}
         {% for post in site.posts %}
           <p class="title is-1">
-            <a class="has-text-primary" href="{{ post.url }}">
-            {{ post.title }}
-            </a>
-          </p>
-          <hr>
-          <p>
-            {{ post.content }}
-          </p><br>
-          <div class="container-fluid is-dark">
+            <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
+          </p><hr>
+          <p>{{ post.content }}</p><br>
+          <div class="container-fluid">
             {% if site.data.authors[post.author].fullname %}
               {{ site.data.authors[post.author].fullname }}
             {% else %}
@@ -38,7 +23,7 @@ layout: html
             {% endif %}
             - {{ post.date | date:  "%a, %b %d, %Y" }}
           </div>
-          <br><br>
+          <br>
         {% endfor %}
       </div>
       <div class="column">
