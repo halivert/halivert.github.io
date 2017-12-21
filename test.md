@@ -7,15 +7,13 @@ style:
   title: "has-text-warning"
 ---
 
-{% capture tam %}{{ site.posts | size | minus: 1 }}{% endcapture %}
-
-{% for post in site.posts limit: tam %}
- {{ post.title }}
-{% endfor %}
-
 {% highlight javascript linenos %}
-let v = [1, 2, 3];
-console.log(v);
+let var = [1, 2, 3];
+let obj = {
+  function help() {
+    console.log('Ayuda');
+  }
+};
 {% endhighlight %}
 
 {% highlight ruby %}

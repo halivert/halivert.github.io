@@ -22,12 +22,14 @@ url: https://halivert.github.io # the base hostname & protocol for your site, e.
 
 # Build settings
 markdown: kramdown
+
 plugins:
   - jekyll-feed
 
 defaults:
   -
     scope:
+      path: ""
       type: posts
     values:
       layout: post
