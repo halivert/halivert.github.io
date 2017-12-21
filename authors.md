@@ -1,5 +1,6 @@
 ---
-layout: html
+layout: construccion
+construccion: 0
 permalink: /authors
 ---
 
