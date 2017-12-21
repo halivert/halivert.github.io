@@ -11,10 +11,17 @@
   </div>
 
   <div class="navbar-menu is-primary" id="navMenu">
+    {% if include.construccion != 1 %}
     <div class="navbar-start">
       <a class="navbar-item" href="{{ site.baseurl }}/">
         Inicio
       </a>
+      <!--
+      <a class="navbar-item" href="{{ site.baseurl }}/authors">
+        Autores
+      </a>
+      -->
     </div>
+    {% endif %}
   </div>
 </nav>

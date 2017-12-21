@@ -1,14 +1,24 @@
 hali:
+  active: 1
   fullname: "Hali Velázquez"
   picture: /img/halivert.png
-  twitter: halivert
   description: >-
     Hali, 23 años, estudiando ingeniería en sistemas computacionales,
     su escuela lo ama tanto que no lo quiere dejar salir.
+  social:
+    -
+      url: https://twitter.com/halivert
+      type: twitter
+    -
+      url: https://github.com/halivert
+      type: github
+    -
+      url: https://telegram.me/halivert
+      type: telegram
 
 vere:
+  active: 0
   fullname: "Verenisse Serrano"
-  twitter: verenais01
   description: >-
     Verenisse, 30 años, maestra de secundaria,
     en sus ratos libres es wonder woman.

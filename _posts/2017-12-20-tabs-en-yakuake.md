@@ -1,7 +1,7 @@
 ---
 title: "Tabs en yakuake"
 author: hali
-date: 2017-12-20 19:54
+date: 2017-12-20 19:54 -0600
 category: "Ya me pasó"
 ---
 
@@ -11,7 +11,6 @@ Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña 
 pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada
 vez que se inicia una nueva instancia de Yakuake.
 <br><br>
-
 {% highlight bash linenos %}
 _Tx="$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))"
 if [ $_Tx = "yakuake" ]; then

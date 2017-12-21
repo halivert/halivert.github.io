@@ -10,13 +10,13 @@ layout: html
       <div class="column is-9" style="padding-bottom: 2rem;">
         {% assign bienvenida = site.posts.last %}
         <div>
-          <p class="title is-1 has-text-primary">{{ bienvenida.title }}</p><hr>
+          <p class="title is-size-1 has-text-primary">{{ bienvenida.title }}</p><hr>
           <p>{{ bienvenida.content }}</p><br>
         </div>
         {% capture lim %}{{ site.posts | size | minus: 1 }}{% endcapture %}
         {% for post in site.posts limit: lim %}
           <div>
-            <p class="title is-1">
+            <p class="title is-size-1">
               <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
             </p><hr>
             <p>{{ post.content }}</p><br>

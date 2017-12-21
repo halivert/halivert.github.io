@@ -1,6 +1,7 @@
 ---
 title: Vere
-layout: page
+layout: construccion
+construccion: 0
 author: hali
 permalink: /vere
 ---

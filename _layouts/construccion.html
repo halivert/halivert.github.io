@@ -1,8 +1,13 @@
 ---
-layout: header
+layout: html
 ---
 
-{% include nav.html %}
+{% assign construccion = 1 %}
+{% if page.construccion == 0 %}
+  {% assign construccion = 0 %}
+{% endif %}
+
+{% include nav.html construccion=construccion %}
 <section class="hero">
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -13,7 +18,7 @@ layout: header
       <progress class="progress is-medium is-primary" value="80" max="100"></progress>
     </div><br>
     <div class="container has-text-centered">
-      <img src="/img/pp.png">
+      <img src="/img/halivert.png">
     </div>
   </div>
 </section>
