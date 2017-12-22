@@ -7,8 +7,6 @@ $(function() {
     }, 50);
   });
 
-  console.log($('#footer').css('height'));
-  console.log($('#footer-hr').css('height'));
   if ($(document).height() > $(window).height()) {
     $('#footer').css('position', 'relative');
   }
