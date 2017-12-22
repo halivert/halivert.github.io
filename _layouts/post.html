@@ -6,14 +6,14 @@ layout: html
 <section class="section">
   <div class="container-fluid">
     <div class="columns">
-      <div class="column is-9 is-offset-1" style="padding-bottom: 4rem;">
+      <div class="column is-8 is-offset-1">
         <div>
           <p class="title is-size-1 has-text-primary">
           {{ page.title }}
           </p>
         </div>
         <hr>
-        <div class="container-fluid is-size-5">
+        <div class="container-fluid is-size-5 has-text-justified content">
           {{ content }}
         </div>
       </div>
@@ -31,7 +31,7 @@ layout: html
     {% if author.fullname %}
       {% assign authName = author.fullname %}
     {% else %}
-      {% assign authName = Anon %}
+      {% assign authName = 'Anon' %}
     {% endif %}
 
     {% if author.description %}
@@ -43,7 +43,7 @@ layout: html
     {% endif %}
 
     <div class="columns">
-      <div class="column is-9 is-offset-1">
+      <div class="column is-8 is-offset-1">
         <div class="box">
           <article class="media">
             <div class="media-left">

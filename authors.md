@@ -1,7 +1,8 @@
 ---
 layout: construccion
+class: content
 construccion: 0
-permalink: /authors
+permalink: /authors/
 ---
 
 {% include nav.html %}

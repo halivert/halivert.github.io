@@ -10,19 +10,19 @@ Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña 
 ([ACIDBOURBON](https://acidbourbon.wordpress.com/2016/12/03/a-quick-and-dirty-fix-for-yakuakes-open-new-tab-in-same-directory-issue/)) realizé un
 pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada
 vez que se inicia una nueva instancia de Yakuake.
-<br><br>
-<div class="code">
-{% highlight bash %}
+
+```bash
 _Tx="$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))"
 if [ $_Tx = "yakuake" ]; then
   alias cd=changeDir;
+
   changeDir() {
     \cd $1;
     pwd > ~/.currentDir
   }
+
   if [ -e ~/.currentDir ]; then
     cd $(cat ~/.currentDir)
   fi
 fi
-{% endhighlight %}
-</div>
+```

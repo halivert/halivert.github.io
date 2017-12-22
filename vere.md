@@ -1,9 +1,10 @@
 ---
 title: Vere
 layout: page
+class: content
 construccion: 0
 author: hali
-permalink: /vere
+permalink: /vere/
 ---
 
 {% capture she %}vere{% endcapture %}

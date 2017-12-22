@@ -2,10 +2,40 @@
 layout: html
 ---
 
-<div class="blog list">
-    <h1>Filed Under <small>#{{ page.tag }}</small></h1>
-
-    {% for post in site.categories[page.tag] %}
-        {% include post_preview.html %}
-    {% endfor %}
-</div>
+{% include nav.html %}
+<section class="section">
+  <div class="container-fluid">
+    <div class="columns">
+      <div class="column is-9">
+        {% assign category = page.category %}
+        {% for post in site.categories[category] %}
+        <div>
+          <p class="title is-size-1">
+            <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
+          </p><hr>
+          <div class="content has-text-justified">
+            <p>{{ post.content }}</p>
+          </div>
+          <br>
+          <div class="box">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            {% if site.data.authors[post.author].fullname %}
+            {{ site.data.authors[post.author].fullname }}
+            {% else %}
+            {{ post.author }}
+            {% endif %}
+            &nbsp;&nbsp;&nbsp;
+            <br class="mobile-separator">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+            {% include date-spanish.html item=post %}
+          </div>
+          <br>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="column">
+        {% include sidebar.html %}
+      </div>
+    </div>
+  </div>
+</section>

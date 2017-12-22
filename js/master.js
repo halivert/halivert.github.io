@@ -4,8 +4,17 @@ $(function() {
     if(this.resizeTO) clearTimeout(this.resizeTO);
     this.resizeTO = setTimeout(function() {
         $(this).trigger('resizeEnd');
-    }, 500);
+    }, 50);
   });
+
+  console.log($('#footer').css('height'));
+  console.log($('#footer-hr').css('height'));
+  if ($(document).height() > $(window).height()) {
+    $('#footer').css('position', 'relative');
+  }
+  else {
+    $('#footer').css('position', 'fixed');
+  }
 
   $(window).on('resizeEnd', cambioPantalla);
 });
@@ -13,6 +22,8 @@ $(function() {
 function cambioPantalla() {
   let width = $(window).width();
   let items;
+
+  $('.mobile-separator').attr('hidden', width >= 768);
   if (width < 768) {
     $('.is-size-1').each(function() {
       $(this).removeClass('is-size-1');

@@ -1,22 +1,24 @@
 ---
 title: Pruebas
 layout: page
+class: content
 author: hali
 permalink: /test/
 style:
   title: "has-text-warning"
 ---
 
-{% highlight javascript linenos %}
+```javascript
 let var = [1, 2, 3];
 let obj = {
   function help() {
     console.log('Ayuda');
   }
 };
-{% endhighlight %}
+```
+<br>
 
-{% highlight ruby %}
+```ruby
 def show
   @widget = Widget(params[:id])
   respond_to do |format|
@@ -24,4 +26,4 @@ def show
     format.json { render json: @widget }
   end
 end
-{% endhighlight %}
+```

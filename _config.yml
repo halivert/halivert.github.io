@@ -35,7 +35,7 @@ defaults:
     values:
       layout: post
       author: Anonymous
-      permalink: /:year-:month-:day-:title
+      permalink: /:year-:month-:day-:title/
   -
     scope:
       path: ""
