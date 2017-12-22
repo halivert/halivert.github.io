@@ -36,6 +36,7 @@ defaults:
       layout: post
       author: Anonymous
       permalink: /:year-:month-:day-:title/
+      truncatewords: 60
   -
     scope:
       path: ""

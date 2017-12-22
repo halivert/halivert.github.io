@@ -8,10 +8,12 @@ layout: html
   <div class="container-fluid">
     <div class="columns">
       <div class="column is-9">
-        {% assign bienvenida = site.posts.last %}
+        {% assign post = site.posts.last %}
         <div>
-          <p class="title is-size-1 has-text-primary">{{ bienvenida.title }}</p><hr>
-          <p>{{ bienvenida.content }}</p><br>
+          <p class="title is-size-1 has-text-primary">{{ post.title }}</p><hr>
+          <div class="content has-text-justified">
+            <p>{{ post.content }}</p>
+          </div>
         </div>
         {% capture lim %}{{ site.posts | size | minus: 1 }}{% endcapture %}
         {% for post in site.posts limit: lim %}
@@ -19,9 +21,7 @@ layout: html
             <p class="title is-size-1">
               <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
             </p><hr>
-            <div class="content has-text-justified">
-              <p>{{ post.content }}</p>
-            </div>
+            {% include post-show.html %}
             <br>
             <div class="box">
               <i class="fa fa-user" aria-hidden="true"></i>

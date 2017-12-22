@@ -13,9 +13,7 @@ layout: html
           <p class="title is-size-1">
             <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
           </p><hr>
-          <div class="content has-text-justified">
-            <p>{{ post.content }}</p>
-          </div>
+          {% include post-show.html %}
           <br>
           <div class="box">
             <i class="fa fa-user" aria-hidden="true"></i>

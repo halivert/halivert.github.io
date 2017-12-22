@@ -11,7 +11,7 @@ Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña 
 pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada
 vez que se inicia una nueva instancia de Yakuake.
 
-```bash
+```console
 _Tx="$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))"
 if [ $_Tx = "yakuake" ]; then
   alias cd=changeDir;
