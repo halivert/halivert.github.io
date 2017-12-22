@@ -65,4 +65,5 @@ Para la url se recomienda utilizar dominios como:
 - .invalid
 - .localhost
 
-Ahora ya podemos acceder a nuestro servidor virtual desde nuestro navegador.
+Por último tenemos que reiniciar nuestro servicio de apache y listo, ahora ya podemos 
+acceder a nuestro servidor virtual desde nuestro navegador.
