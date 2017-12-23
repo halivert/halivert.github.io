@@ -1,5 +1,4 @@
 hali:
-  active: 1
   fullname: "Hali Velázquez"
   picture: /img/halivert.png
   description: >-
@@ -17,7 +16,6 @@ hali:
       type: telegram
 
 vere:
-  active: 0
   fullname: "Verenisse Serrano"
   description: >-
     Verenisse, 30 años, maestra de secundaria,

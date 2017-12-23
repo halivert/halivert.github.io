@@ -8,7 +8,7 @@ truncatewords: 35
 
 **Vim** editor de texto que muchos odian y otros aman, pero que igual es bastante útil.
 
-Para hacer la experiencia menos traumante he decidido compartir el archivo de configuración
+Para hacer la experiencia menos traumática he decidido compartir el archivo de configuración
 que yo utilizo y les explicaré unas cuantas líneas:
 
 ```viml
