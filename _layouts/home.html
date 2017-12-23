@@ -6,13 +6,15 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
-    <div class="has-text-centered">
-      <h3 class="title is-size-1">Hola</h3>
-        Me llamo Hali, tengo 23 y estoy estudiando ingeniería en sistemas computacionales.
-        <br>
-        Bienvenido a mi blog personal.
-      <hr>
-    </div>
+    {% if paginator.page == 1 %}
+      <div class="has-text-centered">
+        <h3 class="title is-size-1">Hola</h3>
+          Me llamo Hali, tengo 23 y estoy estudiando ingeniería en sistemas computacionales.
+          <br>
+          Bienvenido a mi blog personal.
+        <hr>
+      </div>
+    {% endif %}
     <div class="columns">
       <div class="column is-9">
         {% for post in paginator.posts %}
