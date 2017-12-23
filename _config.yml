@@ -20,12 +20,15 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://halivert.github.io # the base hostname & protocol for your site, e.g. http://example.com
 emptyArray: []
+paginate: 7
+paginate_path: "/:num/"
 
 # Build settings
 markdown: kramdown
 
 plugins:
   - jekyll-feed
+  - jekyll-paginate
 
 defaults:
   -
@@ -42,17 +45,6 @@ defaults:
       path: ""
     values:
       title: Halivert
-  -
-    scope:
-      path: ""    
-      type: category
-    values:
-      layout: category
-
-collection:
-  category:
-    output: true
-
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

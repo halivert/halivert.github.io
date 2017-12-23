@@ -5,6 +5,11 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
+    <div class="has-text-centered">
+      <h3 class="title is-size-1">{{ page.category }}</h3>
+      {{ content }}
+      <hr>
+    </div>
     <div class="columns">
       <div class="column is-9">
         {% assign category = page.category %}

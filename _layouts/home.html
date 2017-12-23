@@ -8,15 +8,7 @@ layout: html
   <div class="container-fluid">
     <div class="columns">
       <div class="column is-9">
-        {% assign post = site.posts.last %}
-        <div>
-          <p class="title is-size-1 has-text-primary">{{ post.title }}</p><hr>
-          <div class="content has-text-justified">
-            <p>{{ post.content }}</p>
-          </div>
-        </div>
-        {% capture lim %}{{ site.posts | size | minus: 1 }}{% endcapture %}
-        {% for post in site.posts limit: lim %}
+        {% for post in paginator.posts %}
           <div>
             <p class="title is-size-1">
               <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
@@ -38,6 +30,64 @@ layout: html
             <br>
           </div>
         {% endfor %}
+        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path }}" class="pagination-previous">Anterior</a>
+          {% else %}
+            <a class="pagination-previous" disabled>Anterior</a>
+          {% endif %}
+
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="pagination-next">Siguiente</a>
+          {% else %}
+            <span class="pagination-next" disabled>Siguiente</span>
+          {% endif %}
+
+          {% assign pageBef = paginator.page | minus: 1 %}
+          {% assign pageAft = paginator.page | plus: 1 %}
+
+          {% if pageBef > 3 %}
+            {% assign pageBef = 3 %}
+          {% endif %}
+          {% assign c1 = paginator.total_pages | minus: pageAft %}
+          {% if c1 >= 3  %}
+            {% assign pageAft = paginator.total_pages | minus: 2 %}
+          {% endif %}
+
+          <ul class="pagination-list">
+            {% for i in (1 .. pageBef) %}
+              <li>
+                {% capture link %}
+                /{% if i != 1 %}{{ i }}{% endif %}
+                {% endcapture %}
+
+                <a href="{{ link }}" class="pagination-link" aria-label="Ir a página {{ i }}">
+                  {{ i }}
+                </a>
+              </li>
+            {% endfor %}
+            {% if paginator.page > 1 %}
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+            {% endif %}
+
+            <li>
+              <a class="pagination-link is-current" aria-current="page" aria-label="Ir a página {{ paginator.page }}">
+                {{ paginator.page }}
+              </a>
+            </li>
+
+            {% if paginator.page < paginator.total_pages %}
+              <li><span class="pagination-ellipsis">&hellip;</span></li>
+            {% endif %}
+            {% for i in (pageAft .. paginator.total_pages) %}
+              <li>
+                <a href="/{{ i }}" class="pagination-link" aria-label="Ir a página {{ i }}">
+                  {{ i }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
       </div>
       <div class="column">
         {% include sidebar.html %}

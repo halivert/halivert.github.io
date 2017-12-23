@@ -10,8 +10,10 @@ layout: html
       por
       {% if site.data.authors[page.author] %}
         {{ site.data.authors[page.author].fullname }}
-      {% else %}
+      {% elsif page.author %}
         {{ page.author }}
+      {% else %}
+        {{ 'Anon' }}
       {% endif %}
     </p>
   </div>
