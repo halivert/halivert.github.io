@@ -1,5 +1,6 @@
 ---
 layout: construccion
+sitemap: false
 class: content
 construccion: 0
 permalink: /authors/

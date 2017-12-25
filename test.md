@@ -2,6 +2,7 @@
 title: Pruebas
 layout: page
 author: hali
+sitemap: false
 class: content
 permalink: /test/
 style:
