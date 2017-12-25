@@ -19,6 +19,7 @@ gem "jekyll-theme-architect"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 gem "github-pages", group: :jekyll_plugins
 gem "jekyll-paginate"
+gem "jekyll-sitemap"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do

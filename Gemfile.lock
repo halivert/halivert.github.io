@@ -236,6 +236,7 @@ DEPENDENCIES
   jekyll (~> 3.6.0)
   jekyll-feed (~> 0.6)
   jekyll-paginate
+  jekyll-sitemap
   jekyll-theme-architect
   minima (~> 2.0)
   rouge

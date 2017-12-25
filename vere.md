@@ -1,8 +1,8 @@
 ---
-title: Vere
+title: 'Vere'
 layout: page
-class: content
-construccion: 0
+class: 'content'
+sitemap: false
 author: hali
 permalink: /vere/
 ---
