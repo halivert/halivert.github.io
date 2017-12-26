@@ -34,29 +34,30 @@ plugins:
 
 defaults:
   -
-scope:
-  path: ""
-  type: posts
-  values:
-    layout: post
-    author: Anonymous
-    permalink: /:year/:month/:title/
-    truncatewords: 60
-    lang: es_MX
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      author: Anonymous
+      permalink: /:year/:month/:title/
+      truncatewords: 60
+      lang: es_MX
   -
     scope:
       path: ""
-      values:
+    values:
         title: Halivert
+        lang: es_MX
 
-        # Exclude from processing.
-        # The following items will not be processed, by default. Create a custom list
-        # to override the default setting.
-        # exclude:
-        #   - Gemfile
-        #   - Gemfile.lock
-        #   - node_modules
-        #   - vendor/bundle/
-        #   - vendor/cache/
-        #   - vendor/gems/
-        #   - vendor/ruby/
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
