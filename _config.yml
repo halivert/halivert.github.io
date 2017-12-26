@@ -30,31 +30,33 @@ plugins:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
 
 defaults:
   -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-      author: Anonymous
-      permalink: /:year/:month/:title/
-      truncatewords: 60
+scope:
+  path: ""
+  type: posts
+  values:
+    layout: post
+    author: Anonymous
+    permalink: /:year/:month/:title/
+    truncatewords: 60
+    lang: es_MX
   -
     scope:
       path: ""
-    values:
-      title: Halivert
+      values:
+        title: Halivert
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+        # Exclude from processing.
+        # The following items will not be processed, by default. Create a custom list
+        # to override the default setting.
+        # exclude:
+        #   - Gemfile
+        #   - Gemfile.lock
+        #   - node_modules
+        #   - vendor/bundle/
+        #   - vendor/cache/
+        #   - vendor/gems/
+        #   - vendor/ruby/
