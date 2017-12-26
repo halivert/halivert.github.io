@@ -2,3 +2,14 @@ code {
   font-size: 0.9em;
   text-align: left;
 }
+
+nav.navbar {
+  z-index: 100;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+
+section.section {
+  padding-top: 5em;
+}
