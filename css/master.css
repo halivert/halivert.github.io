@@ -13,3 +13,7 @@ nav.navbar {
 section.section {
   padding-top: 5em;
 }
+
+section.hero {
+  padding-top: 2em;
+}
