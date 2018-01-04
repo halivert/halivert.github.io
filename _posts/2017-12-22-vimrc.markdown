@@ -3,16 +3,21 @@ title: Vimrc
 author: hali
 category: "Código!"
 date: 2017-12-23 00:45 -0600
-truncatewords: 35
+truncatewords: 70
 ---
 
 **Vim** editor de texto que muchos odian y otros aman, pero que igual es bastante útil.
 
-Para hacer la experiencia menos traumática he decidido compartir el archivo de configuración
+Si quieres dar tus primeros pasos en vim y te da miedo, solo escribe
+```shell
+vimtutor
+```
+y te llevará a una guía interactiva donde aprenderás los comandos básicos, en cualquier caso,
+para hacer la experiencia menos traumática he decidido compartir el archivo de configuración
 que yo utilizo y les explicaré unas cuantas líneas:
 
 ```viml
-set nocompatible 
+set nocompatible
 " Desactiva la compatibilidad con vi, es decir se pueden
 " usar las funcionalidades avanzadas de vim
 set rnu

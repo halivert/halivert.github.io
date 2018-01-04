@@ -11,9 +11,6 @@ hali:
     -
       url: https://github.com/halivert
       type: github
-    -
-      url: https://telegram.me/halivert
-      type: telegram
 
 vere:
   fullname: "Verenisse Serrano"
