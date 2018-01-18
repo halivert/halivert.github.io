@@ -34,5 +34,5 @@ Lo enterré en un pequeño agujero uno tan pequeño que, mientras cavaba, mi vec
 Después dejé caer su pequeño cuerpo ahí, en la tierra y lo despedí mientras lo cubría con tierra.
 
 Vivió con nosotros algo más de 1 año, pero todo tiene un fin, y aunque hasta ahora no sé por que murió, al menos me
-alegro de que no murió como el pez de mi primito...
+alegro de que no murió como el pez de mi sobrinito...
 
