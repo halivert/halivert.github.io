@@ -60,7 +60,10 @@ layout: html
                 <div class="level-left">
                   {% for item in social %}
                   <a class="level-item" href="{{ item.url }}">
-                    <span class="icon is-small" style="color: #7E0B80;"><i class="fa fa-{{ item.type }}"></i></span>
+                    <span class="icon is-small" style="color: #7E0B80;">
+                      <i class="fab fa-{{ item.type }}">
+                      </i>
+                    </span>
                   </a>
                   {% endfor %}
                 </div>

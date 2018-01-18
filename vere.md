@@ -13,4 +13,4 @@ permalink: /vere/
 {{ aut.description }}
 <br>
 Pero más que eso... es mi mejor amiga...
-<i class="fa fa-lg fa-heart"></i>
+<i class="has-text-danger fas fa-heart"></i>
