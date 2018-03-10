@@ -19,27 +19,27 @@ layout: html
       </div>
     </div>
     {% if site.data.authors[page.author] %}
-      {% assign author = site.data.authors[page.author] %}
+    {% assign author = site.data.authors[page.author] %}
     {% endif %}
 
     {% if author.picture %}
-      {% assign pict = author.picture %}
+    {% assign pict = author.picture %}
     {% else %}
-      {% assign pict = '/img/anon.png' %}
+    {% assign pict = '/img/anon.png' %}
     {% endif %}
 
     {% if author.fullname %}
-      {% assign authName = author.fullname %}
+    {% assign authName = author.fullname %}
     {% else %}
-      {% assign authName = 'Anon' %}
+    {% assign authName = 'Anon' %}
     {% endif %}
 
     {% if author.description %}
-      {% assign desc = author.description %}
+    {% assign desc = author.description %}
     {% endif %}
 
     {% if author.social %}
-      {% assign social = author.social %}
+    {% assign social = author.social %}
     {% endif %}
 
     <div class="columns">
@@ -52,8 +52,8 @@ layout: html
             <div class="media-content">
               <div class="content">
                 <p>
-                  <strong>{{ authName }}</strong><br>
-                  {{ desc }}
+                <strong>{{ authName }}</strong><br>
+                {{ desc }}
                 </p>
               </div>
               <nav class="level is-mobile">
@@ -61,8 +61,16 @@ layout: html
                   {% for item in social %}
                   <a class="level-item" href="{{ item.url }}">
                     <span class="icon is-small" style="color: #7E0B80;">
+                      {% if item.style == 'brand' %}
                       <i class="fab fa-{{ item.type }}">
                       </i>
+                      {% elsif item.style == 'regular' %}
+                      <i class="far fa-{{ item.type }}">
+                      </i>
+                      {% else %}
+                      <i class="fas fa-{{ item.type }}">
+                      </i>
+                      {% endif %}
                     </span>
                   </a>
                   {% endfor %}

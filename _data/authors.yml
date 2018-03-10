@@ -8,9 +8,14 @@ hali:
     -
       url: https://twitter.com/halivert
       type: twitter
+      style: brand
     -
       url: https://github.com/halivert
       type: github
+      style: brand
+    -
+      url: mailto:halivelazquez@outlook.com
+      type: envelope
 
 vere:
   fullname: "Verenisse Serrano"

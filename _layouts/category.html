@@ -16,7 +16,7 @@ layout: html
         {% for post in site.categories[category] %}
         <div>
           <p class="title is-size-1">
-            <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
+          <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
           </p><hr>
           {% include post-show.html %}
           <br>
