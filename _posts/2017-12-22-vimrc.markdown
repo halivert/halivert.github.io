@@ -51,7 +51,7 @@ este otro post, que me ha resultado muy útil.
 [Vim as IDE](http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/)
 
 Aquí está mi archivo de configuración
-[.vimrc](https://gist.github.com/halivert/b762eadb9afcf3c853697429228fc1df)
+[.vimrc](https://github.com/halivert/vimrc)
 
 Ah, y por cierto, no olviden el comando para salir:
 
