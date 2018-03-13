@@ -2,6 +2,7 @@
 author: hali
 title: 'Remedando a alguien'
 date: 2018-03-12 22:59:42 -0600
+truncatewords: 42
 categories: 'Divagando'
 ---
 
