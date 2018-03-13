@@ -45,4 +45,4 @@
     {% assign month = 'Diciembre' %}
 {% endcase %}
 
-{{ month }} {{ numDay }}, {{ include.item.date | date: "%y" }}
+{{ month }} {{ include.item.date | date: "%d, %y" }}
