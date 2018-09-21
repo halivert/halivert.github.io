@@ -26,8 +26,8 @@ layout: html
             <br>
             <div class="box">
               <i class="fas fa-user" aria-hidden="true"></i>
-              {% if site.data.authors[post.author].fullname %}
-                {{ site.data.authors[post.author].fullname }}
+              {% if site.data._authors[post.author].fullname %}
+                {{ site.data._authors[post.author].fullname }}
               {% else %}
                 {{ post.author }}
               {% endif %}

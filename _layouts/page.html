@@ -9,8 +9,8 @@ layout: html
       <h3 class="title is-size-1 {{ page.style.title }}">{{ page.title }}</h3>
       <p>
       por
-      {% if site.data.authors[page.author] %}
-      {{ site.data.authors[page.author].fullname }}
+      {% if site.data._authors[page.author] %}
+      {{ site.data._authors[page.author].fullname }}
       {% elsif page.author %}
       {{ page.author }}
       {% else %}

@@ -5,8 +5,8 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
-    {% if site.data.authors[page.author] %}
-    {% assign author = site.data.authors[page.author] %}
+    {% if site.data._authors[page.author] %}
+    {% assign author = site.data._authors[page.author] %}
     {% endif %}
 
     <div class="columns">
