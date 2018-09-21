@@ -5,11 +5,28 @@ layout: html
 {% include nav.html %}
 <section class="section">
   <div class="container-fluid">
+    {% if site.data.authors[page.author] %}
+    {% assign author = site.data.authors[page.author] %}
+    {% endif %}
+
     <div class="columns">
       <div class="column is-8 is-offset-1">
         <div>
           <p class="title is-size-1 has-text-primary">
           {{ page.title }}
+          </p>
+          <p>
+          {% if author.user %}
+          <i>por</i> {{ author.user }} -
+          {% endif %}
+          {% if page.date %}
+          <i>publicado:</i> {{ page.date | date: "%b %d, %y" }}
+          {% endif %}
+          </p>
+          <p>
+          {% if page.lastModification %}
+          <i>última modificación:</i> {{ page.lastModification | date: "%b %d, %y" }}
+          {% endif %}
           </p>
         </div>
         <hr>
@@ -18,10 +35,6 @@ layout: html
         </div>
       </div>
     </div>
-    {% if site.data.authors[page.author] %}
-    {% assign author = site.data.authors[page.author] %}
-    {% endif %}
-
     {% if author.picture %}
     {% assign pict = author.picture %}
     {% else %}

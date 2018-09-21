@@ -1,6 +1,7 @@
 ---
 title: Vimrc
 author: hali
+lastModification: 2018-09-21 02:02 -05:00
 category: "Código!"
 date: 2017-12-23 00:45 -0600
 truncatewords: 70
@@ -13,7 +14,7 @@ Si quieres dar tus primeros pasos en vim y te da miedo, solo escribe
 vimtutor
 ```
 y te llevará a una guía interactiva donde aprenderás los comandos básicos, en cualquier caso,
-para hacer la experiencia menos traumática he decidido compartir el archivo de configuración
+para hacer la experiencia "menos" traumática he decidido compartir el archivo de configuración
 que yo utilizo y les explicaré unas cuantas líneas:
 
 ```viml
