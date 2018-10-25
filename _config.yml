@@ -43,6 +43,7 @@ defaults:
       author: Anonymous
       permalink: /:year/:month/:title/
       truncatewords: 60
+      comments: true
       lang: es_MX
   -
     scope:

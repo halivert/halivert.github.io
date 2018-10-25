@@ -4,7 +4,7 @@ hali:
   user: "Hali"
   picture: /img/halivert.png
   description: >-
-    Hali, 23 años. JW. Está estudiando ingeniería en sistemas computacionales,
+    Hali, 23 años. Está estudiando ingeniería en sistemas computacionales,
     su escuela lo ama tanto que no lo quiere dejar salir.
   social:
     -
@@ -28,5 +28,5 @@ vere:
   fullname: "Verenisse Serrano"
   user: "Verenais"
   description: >-
-    Verenisse, 31 años, ex-maestra de secundaria, maestra de JW,
+    Verenisse, 31 años, profesora,
     en sus ratos libres es wonder woman.

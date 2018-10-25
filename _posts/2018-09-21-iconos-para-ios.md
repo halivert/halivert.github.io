@@ -1,6 +1,7 @@
 ---
 author: hali
 layout: post
+comments: true
 title: "Iconos para iOS"
 date: 2018-09-21 01:42 -05:00
 truncatewords: 42
