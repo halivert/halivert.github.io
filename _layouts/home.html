@@ -46,12 +46,6 @@ layout: html
             <a class="pagination-previous" disabled>Anterior</a>
           {% endif %}
 
-          {% if paginator.next_page %}
-            <a href="{{ paginator.next_page_path }}" class="pagination-next">Siguiente</a>
-          {% else %}
-            <span class="pagination-next" disabled>Siguiente</span>
-          {% endif %}
-
           {% assign pageBef = paginator.page | minus: 1 %}
           {% assign pageAft = paginator.page | plus: 1 %}
 
@@ -96,6 +90,13 @@ layout: html
               </li>
             {% endfor %}
           </ul>
+
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path }}" class="pagination-next">Siguiente</a>
+          {% else %}
+            <span class="pagination-next" disabled>Siguiente</span>
+          {% endif %}
+
         </nav>
       </div>
       <div class="column">
