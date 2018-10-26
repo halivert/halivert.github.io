@@ -1,14 +1,14 @@
 ---
 author: hali
 layout: post
-title: "Agregar fecha con vim"
+title: "Agregar fecha con Vim"
 date: 2018-10-26 00:23:39 -0500
 truncatewords: 17
 categories: ["Ya me pasó"]
 ---
 
 Mensaje para el Hali del futuro: no escribas las fechas manualmente para tus posts hechos con Jekyll... puedes
-simplemente utilizar dos funciones muy útiles de vim.
+simplemente utilizar dos funciones muy útiles de Vim.
 
 `put`: Sirve para poner un texto de un registro después de la línea actual.
 

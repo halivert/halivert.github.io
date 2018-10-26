@@ -9,7 +9,7 @@ truncatewords: 70
 
 **Vim** editor de texto que muchos odian y otros aman, pero que igual es bastante útil.
 
-Si quieres dar tus primeros pasos en vim y te da miedo, solo escribe
+Si quieres dar tus primeros pasos en Vim y te da miedo, solo escribe
 ```shell
 vimtutor
 ```
@@ -20,7 +20,7 @@ que yo utilizo y les explicaré unas cuantas líneas:
 ```viml
 set nocompatible
 " Desactiva la compatibilidad con vi, es decir se pueden
-" usar las funcionalidades avanzadas de vim
+" usar las funcionalidades avanzadas de Vim
 set rnu
 " Números relativos a la izquierda, facilitan muchas tareas
 syntax on

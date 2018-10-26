@@ -22,7 +22,7 @@ lineamientos que [apple recomienda](https://developer.apple.com/library/archive/
 - [`bc`](https://www.gnu.org/software/bc/manual/html_mono/bc.html), nos servirá para hacer algunos cálculos.
 - [`tail`](http://man7.org/linux/man-pages/man1/tail.1.html) y [`cut`](https://linux.die.net/man/1/cut), para
   manipular un par de cadenas.
-- Editor de texto. (Yo uso [vim](https://www.vim.org))
+- Editor de texto. (Yo uso [Vim](https://www.vim.org))
 
 ### Hora del código
 Primero revisaremos si la ejecución del script tiene parámetros, de no ser así, lo terminamos y ya.
