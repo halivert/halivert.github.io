@@ -29,8 +29,6 @@ el formato existen las variables:
 | %a, %d %b %Y %H:%M:%S %z | vie, 26 oct 2018 00:23:00 -0500 |
 |--------------------------|---------------------------------|
 
-<small>Nota: tabla hecha con vim-table-mode (luego habrá un post de eso).</small>
-
 Así, para obtener, por ejemplo la fecha `2018-10-26 00:23:21 -0500` (lo que seguramente estabas buscando), necesitas
 colocar:
 ```
