@@ -20,6 +20,10 @@ hali:
       type: telegram
       style: brand
     -
+      url: https://www.youtube.com/channel/UCpSmSB5cssHwgmlIWbX2ghA
+      type: youtube
+      style: brand
+    -
       url: mailto:halivelazquez@outlook.com
       type: envelope
 
