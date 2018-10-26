@@ -2,6 +2,7 @@
 author: hali
 title: 'Matrices en C++'
 date: 2018-03-10 02:26:45 -0600
+update: 2018-10-25 23:44:35 -0500
 truncatewords: 46
 categories: 'Código!'
 ---
@@ -10,8 +11,8 @@ Hace algún tiempo asistí al club de algoritmia de la ESCOM, en realidad nunca 
 personas de ahí, pero en ese lugar fue donde mejoré mi estilo de programación (aunque aún puede mejorar más... y
 mucho) y aprendí algunos trucos.
 
-Hice una clase de Matrices con sobrecarga de operadores, y con algunas funciones para resolver algunos problemas y
-gracias al club que les mencionaba tengo el código para resolver una matriz con
+Hice una clase de Matrices con sobrecarga de operadores y con algunas funciones para resolver algunos problemas,
+gracias al club que les mencionaba, sé el código para resolver una matriz con
 [Gauss-Jordan](https://es.wikipedia.org/wiki/Eliminación_de_Gauss-Jordan).
 
 Es mucho código para analizar pero les dejo el repositorio para que lo puedan ver, y cualquier duda pueden ponerse en
@@ -31,5 +32,5 @@ Cosas incluidas:
   - Suma.
   - Resta.
   - Multiplicación (por otra matriz o por un número).
-  - Accesso a elemento.
+  - Acceso a elemento.
 
