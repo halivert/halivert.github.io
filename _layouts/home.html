@@ -38,7 +38,9 @@ layout: html
               &nbsp;&nbsp;&nbsp;
               <br class="mobile-separator">
               <i class="fas fa-comments" aria-hidden="true"></i>
-              <a href="{{ post.url }}#disqus_thread">Comentarios</a>
+              <span class="disqus-comment-count" data-disqus-url="{{ post.url }}">
+                Comentarios
+              </span>
             </div>
             <br>
           </div>
@@ -108,4 +110,3 @@ layout: html
     </div>
   </div>
 </section>
-<script id="dsq-count-scr" src="//halivert.disqus.com/count.js" async></script>
