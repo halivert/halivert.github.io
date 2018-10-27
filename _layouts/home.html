@@ -38,9 +38,7 @@ layout: html
               &nbsp;&nbsp;&nbsp;
               <br class="mobile-separator">
               <i class="fas fa-comments" aria-hidden="true"></i>
-              <span class="disqus-comment-count" data-disqus-url="{{ post.url }}">
-                Comentarios
-              </span>
+              <a href="{{ post.url }}#disqus_thread" data-disqus-identifier="{{ post.id }}">Comentarios</a>
             </div>
             <br>
           </div>
