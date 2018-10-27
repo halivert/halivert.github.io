@@ -1,23 +1,28 @@
 $(function() {
-  cambioPantalla();
+  changeScreen();
   $(window).resize(function() {
     if(this.resizeTO) clearTimeout(this.resizeTO);
     this.resizeTO = setTimeout(function() {
-        $(this).trigger('resizeEnd');
+      $(this).trigger('resizeEnd');
     }, 50);
   });
 
+  changeFooterPosition();
+
+  $(window).on('resizeEnd', changeScreen);
+});
+
+function changeFooterPosition() {
   if ($(document).height() > $(window).height()) {
     $('#footer').css('position', 'relative');
   }
   else {
     $('#footer').css('position', 'fixed');
   }
+}
 
-  $(window).on('resizeEnd', cambioPantalla);
-});
-
-function cambioPantalla() {
+function changeScreen() {
+  changeFooterPosition();
   let width = $(window).width();
   let items;
 
