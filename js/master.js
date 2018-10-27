@@ -13,7 +13,7 @@ $(function() {
 });
 
 function changeFooterPosition() {
-  if ($(document).height() > $(window).height()) {
+  if ($(document).height() + 438 > $(window).height()) {
     $('#footer').css('position', 'relative');
   }
   else {
