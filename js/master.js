@@ -13,7 +13,8 @@ $(function() {
 });
 
 function changeFooterPosition() {
-  if ($(document).height() + 438 > $(window).height()) {
+  var commentsHeight = typeof hasComments !== 'undefined' ? (hasComments ? 400 : 0) : 0;
+  if ($(document).height() + commentsHeight > $(window).height()) {
     $('#footer').css('position', 'relative');
   }
   else {
