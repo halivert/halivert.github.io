@@ -9,10 +9,10 @@ categories: ["Divagando"]
 
 Que fácil es acostumbrarse a algo... y no lo digo a la ligera, según un [estudio][1] encabezado por la doctora
 Phillipa Lally en la _University College_ de Londres, el promedio de tiempo que toma automatizar un hábito es de
-*66 días*, aunque varía entre 18 a 254 días... pero bueno, incluso en el peor caso, los 254 días... resulta un número
-muy pequeño comparado con la esperanza de vida de una persona al nacer que, según los [Índices e indicadores de
-desarrollo humano][2] fue de *72.2 años* para el 2017, así que haciendo un poco de matemáticas... necesitamos solo un
-0.96% de nuestra vida para formar un hábito, para automatizar algo.
+**66 días**, aunque varía entre 18 a 254 días... pero bueno, incluso en el peor caso, los 254 días... resulta un
+número muy pequeño comparado con la esperanza de vida de una persona al nacer que, según los [Índices e indicadores
+de desarrollo humano][2] fue de **72.2 años** para el 2017, así que haciendo un poco de matemáticas... necesitamos
+solo un 0.96% de nuestra vida para formar un hábito, para automatizar algo.
 
 ### Vamonos de viaje
 Quieres ir de paseo, vas a un lugar que quizá no conoces, te subes al transporte (avión, tren, autobús, carro) y te
@@ -20,7 +20,7 @@ pones a pensar en las cosas que dejas, que vas a extrañar, pero espera... tú q
 ahora no está tan convencida? No importa, igual ya estás ahí, te queda disfrutar del viaje y pensar con ilusión en
 que vas a encontrar, que vas a aprender.
 
-### _Llegas a tu destino._
+### _Llegas a tu destino_
 
 Quizá si son más de 2 meses, te adaptas al lugar al que viajaste, te acostumbras a despertar en un entorno
 similar, convivir con las mismas personas, y realizar actividades que en determinado momento llegarán a formar parte
@@ -29,7 +29,7 @@ de tu vida o al menos de ese viaje, porque después volverás a casa... ¿cierto
 Bueno, ya te acostumbraste, ¿qué va a pasar cuando regreses?, ¿qué personas seguirán ahí esperandote?, ¿habrá
 cambiado mucho el lugar donde vivías?
 
-### Volver
+### **Volver**
 
 "Que exageración, solo fueron poco más de 2 meses", pero igual se siente como una eternidad, cuando llegas a casa
 tienes, como mínimo, que desempacar las maletas, saludar a las personas que hace tiempo que no ves y buscar esos
