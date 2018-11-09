@@ -13,7 +13,7 @@ Phillipa Lally en la _University College_ de Londres, el promedio de tiempo que 
 número muy pequeño comparado con la esperanza de vida de una persona al nacer que, según los [Índices e indicadores
 de desarrollo humano][2] fue de **72.2 años** para el 2017, así que haciendo un poco de matemáticas... necesitamos
 por mucho un 0.96%, y en promedio un 0.25% de nuestra vida para formar un hábito, para automatizar algo.<br>
-<small>Nota: Cursar la primaria es el 8.3% de una vida</small>
+<small><i>Nota: Cursar la primaria es el 8.3% de una vida.</i></small>
 
 ### Vamonos de viaje
 
