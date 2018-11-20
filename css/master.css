@@ -3,6 +3,10 @@ code {
   text-align: left;
 }
 
+.white-bg {
+  background: #FFF;
+}
+
 nav.navbar {
   z-index: 100;
   overflow: hidden;
@@ -16,4 +20,13 @@ section.section {
 
 section.hero {
   padding-top: 2em;
+}
+
+.title-container {
+  margin-top: 5em;
+  padding: 1em;
+  display: inline-block;
+  border-radius: 1em;
+  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.9);
 }
