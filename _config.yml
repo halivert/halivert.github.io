@@ -38,7 +38,6 @@ defaults:
       path: ""
       type: posts
     values:
-      image: https://halivert.github.io/img/halivert.png
       layout: post
       author: Anonymous
       permalink: /:year/:month/:title/
