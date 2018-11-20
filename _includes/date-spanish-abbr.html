@@ -1,0 +1,48 @@
+{% assign numDay = include.item | date: "%w" %}
+{% assign numMonth = include.item | date: "%m" %}
+
+{% case numDay %}
+  {% when '1' %}
+    {% assign day = 'Lun' %}
+  {% when '2' %}
+    {% assign day = 'Mar' %}
+  {% when '3' %}
+    {% assign day = 'Mié' %}
+  {% when '4' %}
+    {% assign day = 'Jue' %}
+  {% when '5' %}
+    {% assign day = 'Vie' %}
+  {% when '6' %}
+    {% assign day = 'Sáb' %}
+  {% when '0' %}
+    {% assign day = 'Dom' %}
+{% endcase %}
+
+{% case numMonth %}
+  {% when '01' %}
+    {% assign month = 'Ene' %}
+  {% when '02' %}
+    {% assign month = 'Feb' %}
+  {% when '03' %}
+    {% assign month = 'Mar' %}
+  {% when '04' %}
+    {% assign month = 'Abr' %}
+  {% when '05' %}
+    {% assign month = 'May' %}
+  {% when '06' %}
+    {% assign month = 'Jun' %}
+  {% when '07' %}
+    {% assign month = 'Jul' %}
+  {% when '08' %}
+    {% assign month = 'Ago' %}
+  {% when '09' %}
+    {% assign month = 'Sep' %}
+  {% when '10' %}
+    {% assign month = 'Oct' %}
+  {% when '11' %}
+    {% assign month = 'Nov' %}
+  {% when '12' %}
+    {% assign month = 'Dic' %}
+{% endcase %}
+
+{{ month }} {{ include.item | date: "%d, %y" }}

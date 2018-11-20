@@ -24,7 +24,8 @@ section.hero {
 
 .title-container {
   margin-top: 5em;
-  padding: 1em;
+  padding-top: 1em;
+  padding-right: 1em;
   display: inline-block;
   border-radius: 1em;
   background: rgb(255, 255, 255);

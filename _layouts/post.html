@@ -34,13 +34,14 @@ layout: html
             <i>por</i> {{ author.user }} -
             {% endif %}
             {% if page.date %}
-            <i>publicado:</i> {{ page.date | date: "%b %d, %y" }}
+            <i>publicado:</i>
+            {% include date-spanish-abbr.html item=page.date %}
             {% endif %}
             </p>
             <p>
             {% if page.lastModification %}
             <i>última modificación:</i>
-            {{ page.lastModification | date: "%b %d, %y" }}
+            {% include date-spanish-abbr.html item=page.lastModification %}
             {% endif %}
             </p>
           </div>
