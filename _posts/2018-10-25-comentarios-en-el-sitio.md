@@ -4,7 +4,7 @@ layout: post
 comments: true
 title: "Comentarios en el sitio"
 date: 2018-10-25 09:48 -05:00
-lastModification: 2018-10-26 00:28:09 -0500
+lastmodification: 2018-10-26 00:28:09 -0500
 truncatewords: 9
 categories: ["Novedades"]
 ---
