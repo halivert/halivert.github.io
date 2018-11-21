@@ -115,6 +115,21 @@ layout: html
 
     <div class="columns">
       <div class="column is-8 is-offset-1">
+        <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+          {% if page.previous.url %}
+            <a href="{{ page.previous.url }}" class="pagination-previous
+            button is-primary is-rounded">Anterior</a>
+          {% endif %}
+          {% if page.next.url %}
+            <a href="{{ page.next.url }}" class="pagination-next button
+              is-primary is-rounded">Siguiente</a>
+          {% endif %}
+        </nav>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-8 is-offset-1">
         <div class="box">
           {% if page.comments %}
           {% include disqus.html %}
