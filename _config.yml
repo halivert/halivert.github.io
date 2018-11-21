@@ -22,6 +22,7 @@ url: https://halivert.github.io # the base hostname & protocol for your site, e.
 emptyArray: []
 paginate: 7
 paginate_path: "/:num/"
+timezone: "America/Mexico_City"
 
 # Build settings
 markdown: kramdown
