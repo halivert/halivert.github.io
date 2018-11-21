@@ -3,6 +3,7 @@ hali:
   fullname: "Hali Velázquez"
   user: "Hali"
   picture: /img/halivert.png
+  age: 24
   description: >-
     Hali, 24 años. Está estudiando ingeniería en sistemas computacionales,
     su escuela lo ama tanto que no lo quiere dejar salir.
@@ -23,9 +24,6 @@ hali:
       url: https://www.youtube.com/channel/UCpSmSB5cssHwgmlIWbX2ghA
       type: youtube
       style: brand
-    -
-      url: mailto:halivelazquez@outlook.com
-      type: envelope
 
 vere:
   name: "Verenisse"
