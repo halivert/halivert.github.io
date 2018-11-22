@@ -11,10 +11,12 @@
   <i class="fas fa-calendar "
     aria-hidden="true"></i>
   {% include date-spanish.html item=post %}
+  {% if post.comments %}
   &nbsp;&nbsp;&nbsp;
   <br class="mobile-separator">
   <i class="fas fa-comments "
     aria-hidden="true"></i>
   <a href="{{ post.url }}#disqus_thread"
     data-disqus-identifier="{{ post.id }}">Comentarios</a>
+  {% endif %}
 </div>
