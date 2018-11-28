@@ -4,6 +4,7 @@ title: "Random thoughts: Ep. 1"
 date: 2018-11-27 17:16
 truncatewords: 27
 categories: ["Divagando"]
+image: /img/2018-11-27-random-thoughts/random-thoughts-title.gif
 ---
 
 La Internet es muy poderosa, y además increíblemente vasta; yo por mi
