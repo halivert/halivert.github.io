@@ -25,8 +25,10 @@ Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y lis
   </div>
 </div>
 <script type="text/javascript">
-  $('#textoOriginal').keyup(function(key) {
-    let texto = $('#textoOriginal').val();
+  let originalTextArea = document.getElementById('textoOriginal');
+  let newTextArea = document.getElementById('textoConvertido');
+  originalTextArea.onkeyup = function(key) {
+    let texto = originalTextArea.value;
     let nuevoTexto = '';
 
     for (let i in texto) {
@@ -42,8 +44,8 @@ Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y lis
         nuevoTexto += texto[i];
     }
 
-    $('#textoConvertido').val(nuevoTexto);
-  });
+    newTextArea.value = nuevoTexto;
+  };
 
   function isLowerVowel(c) {
     return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
