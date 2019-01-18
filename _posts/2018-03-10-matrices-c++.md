@@ -4,7 +4,7 @@ title: 'Matrices en C++'
 date: 2018-03-10 02:26:45 -0600
 update: 2018-10-25 23:44:35 -0500
 truncatewords: 46
-categories: 'Código!'
+categories: ['¡Código!']
 ---
 
 Hace algún tiempo asistí al club de algoritmia de la ESCOM, en realidad nunca llegué a ser tan bueno como las

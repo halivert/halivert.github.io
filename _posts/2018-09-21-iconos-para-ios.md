@@ -2,10 +2,10 @@
 author: hali
 layout: post
 comments: true
-title: "Iconos para iOS"
+title: 'Iconos para iOS'
 date: 2018-09-21 01:42 -05:00
 truncatewords: 42
-categories: ["Ya me pasó", "Código!"]
+categories: ['Ya me pasó', '¡Código!']
 ---
 
 Desarrollando una aplicación para iOS me encontré con que necesitas un icono diferente para cada dispositivo, debes
