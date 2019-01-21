@@ -1,5 +1,5 @@
 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
+  <section class="navbar-brand">
     <a class="navbar-item" href="{{ site.baseurl }}/">
       <img class="image" src="{{ site.baseurl }}/img/hLetter.png">
     </a>
@@ -8,16 +8,22 @@
       <span></span>
       <span></span>
     </button>
-  </div>
+  </section>
 
-  <div class="navbar-menu is-primary" id="navMenu">
+  <section class="navbar-menu is-primary" id="navMenu">
     {% if include.construccion != 1 %}
-    <div class="navbar-start">
-      <a class="navbar-item" href="{{ site.baseurl }}/">
-        Inicio
+    <section class="navbar-start">
+      <a class="navbar-item" href="{{ site.baseurl }}/blog">
+        Blog
       </a>
-    </div>
-    <div class="navbar-end">
+      <a class="navbar-item" href="{{ site.baseurl }}/">
+        Acerca de mí
+      </a>
+      <a class="navbar-item" href="{{ site.baseurl }}/skillset">
+        Skillset
+      </a>
+    </section>
+    <section class="navbar-end">
       <a class="navbar-item" href="{{ site.url }}/feed.xml">
         RSS&nbsp;
         <span class="icon">
@@ -29,7 +35,7 @@
         Autores
       </a>
       -->
-    </div>
+    </section>
     {% endif %}
-  </div>
+  </section>
 </nav>

@@ -1,6 +1,10 @@
-<nav class="pagination is-centered is-rounded" role="navigation" aria-label="pagination">
+<nav class="pagination is-centered is-rounded" role="navigation"
+  aria-label="pagination">
   {% if include.item.previous_page %}
-    <a href="{{ include.item.previous_page_path }}" class="pagination-previous">Anterior</a>
+    <a href="{{ include.item.previous_page_path }}"
+      class="pagination-previous">
+      Anterior
+    </a>
   {% else %}
     <a class="pagination-previous" disabled>Anterior</a>
   {% endif %}
@@ -20,10 +24,11 @@
     {% for i in (1 .. pageBef) %}
       <li>
         {% capture link %}
-        /{% if i != 1 %}{{ i }}{% endif %}
+        /blog/{% if i != 1 %}{{ i }}{% endif %}
         {% endcapture %}
 
-        <a href="{{ link }}" class="pagination-link" aria-label="Ir a página {{ i }}">
+        <a href="{{ link }}" class="pagination-link"
+          aria-label="Ir a página {{ i }}">
           {{ i }}
         </a>
       </li>
@@ -44,7 +49,8 @@
     {% endif %}
     {% for i in (pageAft .. include.item.total_pages) %}
       <li>
-        <a href="/{{ i }}" class="pagination-link" aria-label="Ir a página {{ i }}">
+        <a href="/blog/{{ i }}" class="pagination-link"
+          aria-label="Ir a página {{ i }}">
           {{ i }}
         </a>
       </li>
@@ -52,7 +58,10 @@
   </ul>
 
   {% if include.item.next_page %}
-    <a href="{{ include.item.next_page_path }}" class="pagination-next">Siguiente</a>
+    <a href="{{ include.item.next_page_path }}"
+      class="pagination-next">
+      Siguiente
+    </a>
   {% else %}
     <span class="pagination-next" disabled>Siguiente</span>
   {% endif %}

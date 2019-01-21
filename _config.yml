@@ -13,15 +13,15 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Halivert
-name: Halivert
+title: Hali
+name: Hali
 description: >- # this means to ignore newlines until "baseurl:"
   Sitio de Hali Velázquez
 baseurl: "" # the subpath of your site, e.g. /blog
 url: https://halivert.github.io # the base hostname & protocol for your site, e.g. http://example.com
 emptyArray: []
 paginate: 7
-paginate_path: "/:num/"
+paginate_path: "/blog/:num/"
 timezone: "America/Mexico_City"
 
 # Build settings
@@ -50,7 +50,7 @@ defaults:
     scope:
       path: ""
     values:
-        title: Halivert
+        title: Hali
         lang: es_MX
 
 # Exclude from processing.
