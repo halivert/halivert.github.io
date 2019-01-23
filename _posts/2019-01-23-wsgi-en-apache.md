@@ -12,9 +12,6 @@ ser en un «servidor» Windows y me puse a investigar.
 En esta publicación documentaré como utilizar el módulo WSGI, necesario para
 alojar una aplicación web escrita en Python.
 
-- [Prerrequisitos](#prerrequisitos)
-- [Instrucciones](#instrucciones)
-
 ### Prerrequisitos
 - [Python][1] (Usé Python 3.7)
 - [Apache][2] (Usé Apache Lounge 2.4)
