@@ -3,7 +3,7 @@ author: hali
 title: "WSGI en Apache"
 date: 2019-01-23 00:21
 categories: ["¡Código!", "Ya me pasó"]
-truncatewords: 25
+truncatewords: 43
 ---
 
 Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que
