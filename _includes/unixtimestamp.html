@@ -1,0 +1,3 @@
+{% if page.date %}
+<meta property="unix_timestamp" content="{{ page.date | date: '%s' }}">
+{% endif %}
