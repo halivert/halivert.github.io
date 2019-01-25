@@ -13,14 +13,14 @@ layout: html
         {% if page.image %}
         <style>
           .parallax {
-            background-image: url({{ page.image }});
             background-attachment: absolute;
             background-position: center;
             background-repeat: no-repeat;
             background-size: contain;
           }
         </style>
-        <div class="parallax">
+        <div class="parallax"
+          style="background-image: url({{ page.image }});">
           <header class="title-container">
         {% else %}
         <div>
