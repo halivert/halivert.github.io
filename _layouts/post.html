@@ -21,12 +21,12 @@ layout: html
           }
         </style>
         <div class="parallax">
-          <div class="title-container">
+          <header class="title-container">
         {% else %}
         <div>
-          <div>
+          <header>
         {% endif %}
-            <p class="title is-size-1 has-text-primary">
+            <p id="page-title" class="title is-size-1 has-text-primary">
             {{ page.title }}
             </p>
             <p>
@@ -44,13 +44,13 @@ layout: html
             {% include date-spanish-abbr.html item=page.lastmodification %}
             {% endif %}
             </p>
-          </div>
+          </header>
         </div>
         <hr>
-        <div class="container-fluid is-size-5 has-text-justified
-          content">
+        <main id="content" class="container-fluid is-size-5
+        has-text-justified content">
           {{ content }}
-        </div>
+        </main>
       </div>
     </div>
     {% if author.picture %}
