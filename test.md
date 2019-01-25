@@ -1,7 +1,7 @@
 ---
 title: Pruebas
 layout: page
-author: hali
+author: Hali
 sitemap: false
 class: content
 permalink: /test/

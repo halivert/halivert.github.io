@@ -2,7 +2,7 @@
 layout: post
 title: 'Innovación'
 date: 2017-12-22 02:45 -0600
-author: hali
+author: Hali
 category: 'Divagando'
 ---
 

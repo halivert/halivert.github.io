@@ -1,5 +1,5 @@
 ---
-author: hali
+author: Hali
 layout: post
 title: "Acostumbrarse (viaje)"
 date: 2018-11-09 01:09:03 -0600

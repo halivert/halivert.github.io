@@ -1,5 +1,5 @@
 ---
-author: hali
+author: Hali
 title: "WSGI en Apache"
 date: 2019-01-23 00:21
 categories: ["¡Código!", "Ya me pasó"]

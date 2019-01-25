@@ -1,4 +1,4 @@
-hali:
+Hali:
   name: "Hali"
   fullname: "Hali Velázquez"
   user: "Hali"
@@ -25,7 +25,7 @@ hali:
       type: youtube
       style: brand
 
-vere:
+Vere:
   name: "Verenisse"
   fullname: "Verenisse Serrano"
   user: "Verenais"

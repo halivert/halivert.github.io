@@ -1,5 +1,5 @@
 ---
-author: hali
+author: Hali
 layout: post
 comments: true
 title: 'Iconos para iOS'

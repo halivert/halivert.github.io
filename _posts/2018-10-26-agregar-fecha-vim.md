@@ -1,5 +1,5 @@
 ---
-author: hali
+author: Hali
 layout: post
 title: "Agregar fecha con Vim"
 date: 2018-10-26 00:23:39 -0500
