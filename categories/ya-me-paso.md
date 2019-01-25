@@ -1,7 +1,7 @@
 ---
 layout: category
 category: "Ya me pasó"
-permalink: "/ya-me-paso/"
+permalink: "/blog/ya-me-paso/"
 ---
 
 Esta categoría intenta ayudar a las personas que pasan por problemas,

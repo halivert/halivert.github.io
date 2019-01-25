@@ -14,6 +14,6 @@
     {% assign url = url | replace: 'é', 'e' | replace: 'í', 'i' %}
     {% assign url = url | replace: 'ó', 'o' | replace: 'ú', 'u' %}
     {% assign url = url | replace: 'ñ', 'ni' %}
-    <a href="/{{ url }}">{{ category[0] }}</a><br>
+    <a href="/blog/{{ url }}">{{ category[0] }}</a><br>
   {% endfor %}
 </div>
