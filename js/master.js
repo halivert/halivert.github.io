@@ -45,20 +45,22 @@ function changeScreen() {
   });
 
   mobilesizes = {
-    'is-size-2-mobile': 'is-size-1',
-    'is-size-3-mobile': 'is-size-2',
-    'is-size-4-mobile': 'is-size-3',
-    'is-size-5-mobile': 'is-size-4',
-    'is-size-6-mobile': 'is-size-5',
-    'is-size-7-mobile': 'is-size-6',
+    'is-size-1-mobile': 'is-size-1',
+    'is-size-2-mobile': 'is-size-2',
+    'is-size-3-mobile': 'is-size-3',
+    'is-size-4-mobile': 'is-size-4',
+    'is-size-5-mobile': 'is-size-5',
+    'is-size-6-mobile': 'is-size-6',
+    'is-size-7-mobile': 'is-size-7',
   };
 
   normalsizes = {
-    'is-size-1': 'is-size-2-mobile',
-    'is-size-2': 'is-size-3-mobile',
-    'is-size-3': 'is-size-4-mobile',
-    'is-size-4': 'is-size-5-mobile',
-    'is-size-5': 'is-size-6-mobile',
+    'is-size-1': 'is-size-1-mobile',
+    'is-size-2': 'is-size-2-mobile',
+    'is-size-3': 'is-size-3-mobile',
+    'is-size-4': 'is-size-4-mobile',
+    'is-size-5': 'is-size-5-mobile',
+    'is-size-6': 'is-size-6-mobile',
     'is-size-6': 'is-size-7-mobile',
   };
 
