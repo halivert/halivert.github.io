@@ -2,20 +2,15 @@
 layout: html
 ---
 
-{% assign construccion = 1 %}
-{% if page.construccion == 0 %}
-  {% assign construccion = 0 %}
-{% endif %}
-
-{% include nav.html construccion=construccion %}
-<section class="hero">
-  <div class="hero-body">
+<section class="container">
+  <div>
     <div class="container has-text-centered">
       <h3>Sitio en construcción...</h3>
     </div>
     <br>
     <div class="container">
-      <progress class="progress is-medium is-primary" value="80" max="100"></progress>
+      <progress class="progress is-medium is-primary" value="80" max="100">
+      </progress>
     </div><br>
     <div class="container has-text-centered">
       <img src="/img/halivert.png">

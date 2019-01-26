@@ -2,29 +2,26 @@
 layout: html
 ---
 
-{% include nav.html %}
-<section class="section">
-  <div class="container" style="padding-bottom: 3em;">
-    <div class="has-text-centered">
-      <h3 class="title is-size-1 {{ page.style.title }}">
-        {{ page.title }}
-      </h3>
-      <p>
-      por
-      {% if site.data._authors[page.author] %}
-      {{ site.data._authors[page.author].fullname }}
-      {% elsif page.author %}
-      {{ page.author }}
-      {% else %}
-      {{ "Anon" }}
-      {% endif %}
-      </p>
-    </div>
-    <hr>
-    <div class="container-fluid columns">
-      <div class="column is-9 {{ page.class }} has-text-justified">
-        {{ content }}
-      </div>
+<div class="container" style="padding-bottom: 3em;">
+  <div class="has-text-centered">
+    <h3 class="title is-size-1 {{ page.style.title }}">
+      {{ page.title }}
+    </h3>
+    <p>
+    por
+    {% if site.data._authors[page.author] %}
+    {{ site.data._authors[page.author].fullname }}
+    {% elsif page.author %}
+    {{ page.author }}
+    {% else %}
+    {{ "Anon" }}
+    {% endif %}
+    </p>
+  </div>
+  <hr>
+  <div class="container-fluid columns">
+    <div class="column is-9 {{ page.class }} has-text-justified">
+      {{ content }}
     </div>
   </div>
-</section>
+</div>

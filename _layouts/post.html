@@ -2,141 +2,139 @@
 layout: html
 ---
 
-{% include nav.html %}
-<section class="section">
-  <div class="container-fluid">
-    {% if site.data._authors[page.author] %}
-    {% assign author = site.data._authors[page.author] %}
-    {% endif %}
-    <div class="columns">
-      <div class="column is-8 is-offset-1">
-        <div class="columns is-vcentered is-gapless">
-          <header class="column">
-            <p id="page-title"
-            class="title is-size-1 has-text-primary">
-            {{ page.title }}
-            </p>
-            <p>
-            {% if author.user %}
-            <i>por</i> {{ author.user }} -
-            {% endif %}
-            {% if page.date %}
-            <i>publicado:</i>
-            {% include date-spanish-abbr.html item=page.date %}
-            {% endif %}
-            </p>
-            <p>
-            {% if page.lastmodification %}
-            <i>última modificación:</i>
-            {% include date-spanish-abbr.html
-            item=page.lastmodification %}
-            {% endif %}
-            </p>
-          </header>
-          {% if page.image %}
-          <div class="column has-text-right">
-            <img id="page-cover" src="{{ page.image }}">
+<div class="container-fluid">
+  {% if site.data._authors[page.author] %}
+  {% assign author = site.data._authors[page.author] %}
+  {% endif %}
+  <div class="columns">
+    <div class="column is-8 is-offset-1">
+      <div class="columns is-vcentered is-gapless">
+        <header class="column">
+          <p id="page-title"
+             class="title is-size-1 has-text-primary">
+          {{ page.title }}
+          </p>
+          <p class="">
+          {% if author.user %}
+          <i>por</i> {{ author.user }} -
+          {% endif %}
+          {% if page.date %}
+          <i>publicado:</i>
+          {% include date-spanish-abbr.html item=page.date %}
+          {% endif %}
+          </p>
+          <p>
+          {% if page.lastmodification %}
+          <i>última modificación:</i>
+          {% include date-spanish-abbr.html
+          item=page.lastmodification %}
+          {% endif %}
+          </p>
+        </header>
+        {% if page.image %}
+        <div class="column has-text-right">
+          <img id="page-cover" src="{{ page.image }}">
+        </div>
+        {% endif %}
+      </div>
+      <br>
+      <main id="content" class="container-fluid is-size-5
+      has-text-justified content">
+        {{ content }}
+      </main>
+    </div>
+  </div>
+  {% if author.picture %}
+  {% assign pict = author.picture %}
+  {% else %}
+  {% assign pict = '/img/anon.png' %}
+  {% endif %}
+
+  {% if author.fullname %}
+  {% assign authName = author.fullname %}
+  {% else %}
+  {% assign authName = 'Anon' %}
+  {% endif %}
+
+  {% if author.description %}
+  {% assign desc = author.description %}
+  {% endif %}
+
+  {% if author.social %}
+  {% assign social = author.social %}
+  {% endif %}
+
+  <div class="columns">
+    <div class="column is-8 is-offset-1">
+      <div class="box">
+        <article class="media">
+          <div class="media-left">
+            <img src="{{ pict }}" width="50px">
           </div>
-          {% endif %}
-        </div>
-        <br>
-        <main id="content" class="container-fluid is-size-5
-        has-text-justified content">
-          {{ content }}
-        </main>
-      </div>
-    </div>
-    {% if author.picture %}
-    {% assign pict = author.picture %}
-    {% else %}
-    {% assign pict = '/img/anon.png' %}
-    {% endif %}
-
-    {% if author.fullname %}
-    {% assign authName = author.fullname %}
-    {% else %}
-    {% assign authName = 'Anon' %}
-    {% endif %}
-
-    {% if author.description %}
-    {% assign desc = author.description %}
-    {% endif %}
-
-    {% if author.social %}
-    {% assign social = author.social %}
-    {% endif %}
-
-    <div class="columns">
-      <div class="column is-8 is-offset-1">
-        <div class="box">
-          <article class="media">
-            <div class="media-left">
-              <img src="{{ pict }}" width="50px">
+          <div class="media-content">
+            <div class="content">
+              <p class="">
+              <strong>{{ authName }}</strong><br>
+              {{ desc }}
+              </p>
             </div>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                <strong>{{ authName }}</strong><br>
-                {{ desc }}
-                </p>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                {% for item in social %}
+                <a class="level-item" href="{{ item.url }}">
+                  <span class="icon is-small">
+                    {% if item.style == 'brand' %}
+                    <i class="fab fa-{{ item.type }}">
+                    </i>
+                    {% elsif item.style == 'regular' %}
+                    <i class="far fa-{{ item.type }}">
+                    </i>
+                    {% else %}
+                    <i class="fas fa-{{ item.type }}">
+                    </i>
+                    {% endif %}
+                  </span>
+                </a>
+                {% endfor %}
               </div>
-              <nav class="level is-mobile">
-                <div class="level-left">
-                  {% for item in social %}
-                  <a class="level-item" href="{{ item.url }}">
-                    <span class="icon is-small">
-                      {% if item.style == 'brand' %}
-                      <i class="fab fa-{{ item.type }}">
-                      </i>
-                      {% elsif item.style == 'regular' %}
-                      <i class="far fa-{{ item.type }}">
-                      </i>
-                      {% else %}
-                      <i class="fas fa-{{ item.type }}">
-                      </i>
-                      {% endif %}
-                    </span>
-                  </a>
-                  {% endfor %}
-                </div>
-              </nav>
-            </div>
-          </article>
-        </div>
+            </nav>
+          </div>
+        </article>
       </div>
     </div>
+  </div>
 
-    <div class="columns">
-      <div class="column is-8 is-offset-1">
-        <nav class="pagination is-centered" role="navigation"
-          aria-label="pagination">
-          {% if page.previous.url %}
-            <a href="{{ page.previous.url }}" class="pagination-previous
-              button is-primary is-rounded">Anterior</a>
-          {% else %}
-            <a class="pagination-previous button is-rounded" disabled>
-              Anterior
-            </a>
-          {% endif %}
-          {% if page.next.url %}
-            <a href="{{ page.next.url }}" class="pagination-next button
-              is-primary is-rounded">Siguiente</a>
-          {% else %}
-            <a class="pagination-next button is-rounded" disabled>
-              Siguiente
-            </a>
-          {% endif %}
-        </nav>
-      </div>
+  <div class="columns">
+    <div class="column is-8 is-offset-1">
+      <nav class="pagination is-centered is-size-6" role="navigation"
+                                                    aria-label="pagination">
+        {% if page.previous.url %}
+        <a href="{{ page.previous.url }}" class="pagination-previous
+        button is-primary is-rounded">Anterior</a>
+        {% else %}
+        <a class="pagination-previous button is-rounded" disabled>
+          Anterior
+        </a>
+        {% endif %}
+        {% if page.next.url %}
+        <a href="{{ page.next.url }}" class="pagination-next button
+        is-primary is-rounded">Siguiente</a>
+        {% else %}
+        <a class="pagination-next button is-rounded" disabled>
+          Siguiente
+        </a>
+        {% endif %}
+      </nav>
     </div>
+  </div>
 
-    {% if page.comments %}
-    <div class="columns">
-      <div class="column is-8 is-offset-1">
-        <div class="box">
-          {% include disqus.html %}
-        </div>
+  {% if page.comments %}
+  <div class="columns">
+    <div class="column is-8 is-offset-1">
+      <div class="box">
+        {% include disqus.html %}
       </div>
     </div>
-    {% endif %}
-</section>
+  </div>
+  {% endif %}
+</div>

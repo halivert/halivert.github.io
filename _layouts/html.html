@@ -25,7 +25,10 @@
     {% include mathjax.html %}
   </head>
   <body class="has-background-light">
-    {{ content }}
+    {% include nav.html %}
+    <section id="main-container" class="section is-size-6">
+      {{ content }}
+    </section>
+    {% include footer.html %}
   </body>
-  {% include footer.html %}
 </html>

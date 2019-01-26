@@ -267,6 +267,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-sitemap
   jekyll-theme-architect
+  jemoji
   minima (~> 2.0)
   rouge
   tzinfo-data

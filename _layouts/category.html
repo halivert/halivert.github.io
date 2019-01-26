@@ -2,32 +2,29 @@
 layout: html
 ---
 
-{% include nav.html %}
-<section class="section">
-  <div class="container-fluid">
-    <div class="has-text-centered">
-      <h3 class="title is-size-1">{{ page.category }}</h3>
-      {{ content }}
-      <hr>
+<div class="container-fluid">
+  <div class="has-text-centered">
+    <h3 class="title is-size-1">{{ page.category }}</h3>
+    {{ content }}
+    <hr>
+  </div>
+  <div class="columns">
+    <div class="column is-9">
+      {% assign category = page.category %}
+      {% for post in site.categories[category] %}
+      <div>
+        <p class="title is-size-1">
+        <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
+        </p><hr>
+        {% include post-show.html %}
+        <br>
+        {% include post-info-show.html %}
+        <br>
+      </div>
+      {% endfor %}
     </div>
-    <div class="columns">
-      <div class="column is-9">
-        {% assign category = page.category %}
-        {% for post in site.categories[category] %}
-        <div>
-          <p class="title is-size-1">
-          <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
-          </p><hr>
-          {% include post-show.html %}
-          <br>
-          {% include post-info-show.html %}
-          <br>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="column">
-        {% include sidebar.html %}
-      </div>
+    <div class="column">
+      {% include sidebar.html %}
     </div>
   </div>
-</section>
+</div>

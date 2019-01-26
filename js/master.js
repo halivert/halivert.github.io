@@ -40,40 +40,58 @@ function changeScreen() {
     || document.body.clientWidth;
   let items;
 
-  let bodyHeight = document.body.clientHeight;
-  let windowHeight = window.innerHeight;
-  let footerHeight = document.getElementById('footer').clientHeight;
-
-  if (bodyHeight < windowHeight - footerHeight) {
-    document.body.style.height = windowHeight - footerHeight + "px";
-  }
-
   document.querySelectorAll('.mobile-separator').forEach(function(it) {
     it.style.display = width < 768 ? 'inline' : 'none';
   });
 
-  if (width < 768) {
-    document.querySelectorAll('.is-size-1').forEach(function(it) {
-      it.classList.remove('is-size-1');
-      it.classList.add('is-size-2-mobile');
-    });
+  mobilesizes = {
+    'is-size-2-mobile': 'is-size-1',
+    'is-size-3-mobile': 'is-size-2',
+    'is-size-4-mobile': 'is-size-3',
+    'is-size-5-mobile': 'is-size-4',
+    'is-size-6-mobile': 'is-size-5',
+    'is-size-7-mobile': 'is-size-6',
+  };
 
-    document.querySelectorAll('.is-size-5').forEach(function(it) {
-      it.classList.remove('is-size-5');
-      it.classList.add('is-size-5-mobile');
+  normalsizes = {
+    'is-size-1': 'is-size-2-mobile',
+    'is-size-2': 'is-size-3-mobile',
+    'is-size-3': 'is-size-4-mobile',
+    'is-size-4': 'is-size-5-mobile',
+    'is-size-5': 'is-size-6-mobile',
+    'is-size-6': 'is-size-7-mobile',
+  };
+
+  if (width < 768) {
+    Object.keys(normalsizes).forEach(function(key) {
+      var size = `.${key}`;
+      document.querySelectorAll(size).forEach(function(it) {
+        it.classList.remove(key);
+        it.classList.add(normalsizes[key]);
+      });
     });
   }
   else {
-    let size2mob = '.is-size-2-mobile';
-    document.querySelectorAll(size2mob).forEach(function(it) {
-      it.classList.remove('is-size-2-mobile');
-      it.classList.add('is-size-1');
-    });
-
-    let size5mob = '.is-size-5-mobile';
-    document.querySelectorAll(size5mob).forEach(function(it) {
-      it.classList.remove('is-size-5');
-      it.classList.add('is-size-5-mobile');
+    Object.keys(mobilesizes).forEach(function(key) {
+      var size = `.${key}`;
+      document.querySelectorAll(size).forEach(function(it) {
+        it.classList.remove(key);
+        it.classList.add(mobilesizes[key]);
+      });
     });
   }
+
+  let bodyHeight = document.body.clientHeight;
+  let windowHeight = window.innerHeight;
+  let footerHeight = document.getElementById('footer').clientHeight;
+
+  if (bodyHeight > windowHeight) {
+    footer.style.position = 'relative';
+  }
+  else if (bodyHeight < windowHeight) {
+    bodyHeight = windowHeight - footerHeight;
+    document.body.style.height = bodyHeight + 'px';
+    footer.style.position = 'fixed';
+  }
+
 }
