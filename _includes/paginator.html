@@ -2,7 +2,7 @@
   aria-label="pagination">
   {% if include.item.previous_page %}
     <a href="{{ include.item.previous_page_path }}"
-      class="pagination-previous">
+      class="pagination-previous button is-primary">
       Anterior
     </a>
   {% else %}
@@ -38,8 +38,9 @@
     {% endif %}
 
     <li>
-      <a class="pagination-link is-current" aria-current="page"
-        aria-label="Ir a página {{ include.item.page }}">
+      <a class="pagination-link button is-primary"
+         aria-current="page" aria-label="Ir a página {{
+         include.item.page }}">
         {{ include.item.page }}
       </a>
     </li>
@@ -59,7 +60,7 @@
 
   {% if include.item.next_page %}
     <a href="{{ include.item.next_page_path }}"
-      class="pagination-next">
+      class="pagination-next button is-primary">
       Siguiente
     </a>
   {% else %}

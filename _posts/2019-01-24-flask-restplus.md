@@ -68,9 +68,10 @@ class Task(Resource):
         # Si encontramos algo, devolvemos la tarea con el código 200
         return task[0], 200
 ```
-\\
+
 Ahora, tenemos que integrarlo en la aplicación que se ejecutará en el servidor\\
 Agregamos los recursos y ¡listo!
+
 ```python
 # Importamos los archivos necesarios
 from flask import (Flask)
@@ -90,12 +91,12 @@ api.add_resource(resources.Task, '/tasks/<int:task_id>')
 if __name__ == '__main__':
     app.run(debug=False)
 ```
-\\
-El código completo se encuentra en el [siguiente gist][4].
+
+También puedes encontrar el código en el [siguiente gist][4].
 
 Si tienes dudas o surgen errores, puedes dejar un comentario.
 
-[1]: https://halivert.github.io/blog/2019/01/wsgi-en-apache/
+[1]: {{ site.baseurl }}/blog/2019/01/wsgi-en-apache/
 [2]: https://www.python.org
 [3]: https://flask-restplus.readthedocs.io/en/stable/
 [4]: https://gist.github.com/halivert/7dc06a38b30c2f7093f5b841e893ec6a

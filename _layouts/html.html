@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/master.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/terminal.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.css">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax-github.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.min.css">
+    <link rel="stylesheet"
+    href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/solarized-dark.min.css">
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js">
+    </script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
     <script type="text/javascript" src="{{ site.baseurl }}/js/nav.js"></script>
     {% include unixtimestamp.html %}
@@ -20,7 +24,7 @@
     {% seo %}
     {% include mathjax.html %}
   </head>
-  <body>
+  <body class="has-background-light">
     {{ content }}
   </body>
   {% include footer.html %}

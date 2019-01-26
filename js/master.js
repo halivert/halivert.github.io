@@ -40,6 +40,14 @@ function changeScreen() {
     || document.body.clientWidth;
   let items;
 
+  let bodyHeight = document.body.clientHeight;
+  let windowHeight = window.innerHeight;
+  let footerHeight = document.getElementById('footer').clientHeight;
+
+  if (bodyHeight < windowHeight - footerHeight) {
+    document.body.style.height = windowHeight - footerHeight + "px";
+  }
+
   document.querySelectorAll('.mobile-separator').forEach(function(it) {
     it.style.display = width < 768 ? 'inline' : 'none';
   });

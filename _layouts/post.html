@@ -10,23 +10,10 @@ layout: html
     {% endif %}
     <div class="columns">
       <div class="column is-8 is-offset-1">
-        {% if page.image %}
-        <style>
-          .parallax {
-            background-attachment: absolute;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: contain;
-          }
-        </style>
-        <div class="parallax"
-          style="background-image: url({{ page.image }});">
-          <header class="title-container">
-        {% else %}
-        <div>
-          <header>
-        {% endif %}
-            <p id="page-title" class="title is-size-1 has-text-primary">
+        <div class="columns is-vcentered is-gapless">
+          <header class="column">
+            <p id="page-title"
+            class="title is-size-1 has-text-primary">
             {{ page.title }}
             </p>
             <p>
@@ -41,12 +28,18 @@ layout: html
             <p>
             {% if page.lastmodification %}
             <i>última modificación:</i>
-            {% include date-spanish-abbr.html item=page.lastmodification %}
+            {% include date-spanish-abbr.html
+            item=page.lastmodification %}
             {% endif %}
             </p>
           </header>
+          {% if page.image %}
+          <div class="column has-text-right">
+            <img src="{{ page.image }}">
+          </div>
+          {% endif %}
         </div>
-        <hr>
+        <br>
         <main id="content" class="container-fluid is-size-5
         has-text-justified content">
           {{ content }}
@@ -91,7 +84,7 @@ layout: html
                 <div class="level-left">
                   {% for item in social %}
                   <a class="level-item" href="{{ item.url }}">
-                    <span class="icon is-small" style="color: #7E0B80;">
+                    <span class="icon is-small">
                       {% if item.style == 'brand' %}
                       <i class="fab fa-{{ item.type }}">
                       </i>
@@ -119,7 +112,7 @@ layout: html
           aria-label="pagination">
           {% if page.previous.url %}
             <a href="{{ page.previous.url }}" class="pagination-previous
-            button is-primary is-rounded">Anterior</a>
+              button is-primary is-rounded">Anterior</a>
           {% else %}
             <a class="pagination-previous button is-rounded" disabled>
               Anterior
