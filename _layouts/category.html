@@ -4,7 +4,7 @@ layout: html
 
 <div class="container-fluid">
   <div class="has-text-centered">
-    <h3 class="title is-size-1">{{ page.category }}</h3>
+    <h3 class="title is-size-2">{{ page.category }}</h3>
     {{ content }}
     <hr>
   </div>
@@ -13,7 +13,7 @@ layout: html
       {% assign category = page.category %}
       {% for post in site.categories[category] %}
       <div>
-        <p class="title is-size-1">
+        <p class="title is-size-2">
         <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
         </p><hr>
         {% include post-show.html %}

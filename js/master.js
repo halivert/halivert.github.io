@@ -61,7 +61,7 @@ function changeScreen() {
     'is-size-4': 'is-size-4-mobile',
     'is-size-5': 'is-size-5-mobile',
     'is-size-6': 'is-size-6-mobile',
-    'is-size-6': 'is-size-7-mobile',
+    'is-size-7': 'is-size-7-mobile',
   };
 
   if (width < 768) {
@@ -95,5 +95,4 @@ function changeScreen() {
     document.body.style.height = bodyHeight + 'px';
     footer.style.position = 'fixed';
   }
-
 }
