@@ -52,12 +52,8 @@ function changeScreen() {
   let bodyHeight = mainContainerHeight + footerHeight + 1;
   document.body.style.height = bodyHeight + 'px';
 
-  if (bodyHeight > windowHeight) {
-    footer.style.position = 'relative';
-  }
-  else if (bodyHeight < windowHeight) {
+  if (bodyHeight < windowHeight) {
     bodyHeight = windowHeight - footerHeight;
     document.body.style.height = bodyHeight + 'px';
-    footer.style.position = 'fixed';
   }
 }
