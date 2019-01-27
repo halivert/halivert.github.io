@@ -4,7 +4,7 @@ El repositorio de mi página web
 
 [Website](https://halivert.github.io)
 
-### License
+## License
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
   <img alt="Creative Commons Licence" style="border-width:0"

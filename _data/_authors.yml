@@ -21,10 +21,6 @@ Hali:
       url: https://t.me/halivert
       type: telegram
       style: brand
-    -
-      url: https://www.youtube.com/channel/UCpSmSB5cssHwgmlIWbX2ghA
-      type: youtube
-      style: brand
 
 Vere:
   name: "Verenisse"
