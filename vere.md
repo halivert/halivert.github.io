@@ -10,7 +10,7 @@ permalink: /vere/
 
 {% capture she %}Vere{% endcapture %}
 {% assign aut = site.data._authors[she] %}
-<p><h1 class="title is-4">{{ aut.fullname }}</h1></p>
+<h1 class="title">{{ aut.fullname }}</h1>
 {{ aut.description }}
 <br>
 Pero más que eso... es mi mejor amiga...
