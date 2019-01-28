@@ -23,6 +23,28 @@
       </a>
     </section>
     <section class="navbar-end">
+      {% if page.searchbar %}
+      <form
+        class="navbar-item"
+        action="{{ site.baseurl }}/blog/search"
+        method="get">
+        <div class="field has-addons">
+          <div class="control">
+            <input
+              class="input"
+              type="text"
+              id="search-box"
+              placeholder="Escribe aquí para buscar..."
+              name="query">
+          </div>
+          <div class="control">
+            <button class="button" type="submit">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      {% endif %}
       <a class="navbar-item" href="{{ site.url }}/feed.xml">
         RSS&nbsp;
         <span class="icon">

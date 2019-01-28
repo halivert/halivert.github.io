@@ -2,11 +2,11 @@
 title: "Tabs en yakuake"
 author: Hali
 date: 2017-12-20 19:54 -0600
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 ---
 
 Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no se abre en el directorio
-“actual” por lo que busqué un poco en internet y basándome en esta página 
+“actual” por lo que busqué un poco en internet y basándome en esta página
 ([ACIDBOURBON](https://acidbourbon.wordpress.com/2016/12/03/a-quick-and-dirty-fix-for-yakuakes-open-new-tab-in-same-directory-issue/)) realizé un
 pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada
 vez que se inicia una nueva instancia de Yakuake.

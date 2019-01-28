@@ -2,7 +2,7 @@
 title: "Actualización"
 layout: "post"
 date: "2017-12-20 01:19 -0600"
-category: Divagando
+categories: ["Divagando"]
 author: Hali
 ---
 

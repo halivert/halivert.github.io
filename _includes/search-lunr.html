@@ -1,0 +1,53 @@
+<script>
+  window.store = {
+    {% for post in site.posts %}
+      {% assign words = post.truncatewords %}
+      {% assign postwords = post.content | number_of_words %}
+      {% if words > 0 %}
+        {% assign displayContent = post.content | truncatewords: words %}
+        {% capture continue %}
+          {% if postwords > words %}1{% else %}0{% endif %}
+        {% endcapture %}
+      {% endif %}
+      {% if site.data._authors[post.author].fullname %}
+        {% assign author = site.data._authors[post.author].fullname | strip %}
+      {% else %}
+        {% assign author = post.author | strip %}
+      {% endif %}
+      {% capture date %}
+        {% include date-spanish.html item=post %}
+      {% endcapture %}
+      {% capture hasComments %}
+        {% if post.comments %}1{% else %}0{% endif %}
+      {% endcapture %}
+      "{{ post.id | strip | xml_escape }}": {
+        "title": {{ post.title | strip | jsonify }},
+        "author": {{ author | strip | jsonify }},
+        "categories": {{ post.categories | jsonify }},
+        "content": {{ post.content | strip_html | strip_newlines | jsonify }},
+        "displayContent": {{ displayContent | strip | jsonify }},
+        "url": {{ post.url | strip | jsonify }},
+        "continue": {{ continue | strip }},
+        "date": {{ date | strip | jsonify }},
+        "hasComments": {{ hasComments | strip | jsonify }},
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+
+  var idx = lunr(function() {
+    this.field('id');
+    this.field('title', { boost: 10 });
+    this.field('categories');
+    this.field('content');
+
+    for (var key in window.store) {
+      this.add({
+        'id': key,
+        'title': window.store[key].title,
+        'categories': window.store[key].categories,
+        'content': window.store[key].content,
+      });
+    }
+  });
+</script>

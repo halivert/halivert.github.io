@@ -3,7 +3,7 @@ title: 'Se murió mi pez'
 date: 2018-01-18 01:51 -0600
 author: Hali
 truncatewords: 57
-categories: 'Divagando'
+categories: ["Divagando"]
 ---
 
 Hace poco se murió mi pez... y pues nada, vienen esos pensamientos de que la vida es efímera

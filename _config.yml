@@ -13,19 +13,19 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Halivert
-name: Hali
+title: "Halivert"
+name: "Hali"
 description: >- # this means to ignore newlines until "baseurl:"
-  Sitio de Hali Velázquez
+  "Sitio de Hali Velázquez"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: https://halivert.github.io # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://halivert.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 emptyArray: []
 paginate: 7
 paginate_path: "/blog/:num/"
 timezone: "America/Mexico_City"
 
 # Build settings
-markdown: kramdown
+markdown: "kramdown"
 
 plugins:
   - jekyll-feed
@@ -37,21 +37,21 @@ defaults:
   -
     scope:
       path: ""
-      type: posts
+      type: "posts"
     values:
-      layout: post
-      author: Anonymous
-      permalink: /blog/:year/:month/:title/
+      layout: "post"
+      author: "Anonymous"
+      permalink: "/blog/:year/:month/:title/"
       truncatewords: 60
       comments: true
-      lang: es_MX
+      lang: "es_MX"
       mathjax: false
   -
     scope:
       path: ""
     values:
-        title: Halivert
-        lang: es_MX
+      title: "Halivert"
+      lang: "es_MX"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

@@ -1,0 +1,20 @@
+---
+title: "Halivert"
+layout: html
+permalink: "/blog/search"
+---
+
+<section class="container-fluid">
+  <section class="columns">
+    <section class="column is-9">
+      <section id="search-results">
+      </section>
+    </section>
+    <section class="column">
+      {% include sidebar.html %}
+    </section>
+  </section>
+</section>
+
+{% include search-lunr.html %}
+<script src="{{ site.baseurl }}/js/search.js"></script>

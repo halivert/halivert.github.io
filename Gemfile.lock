@@ -262,13 +262,11 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll (>= 3.6.3)
   jekyll-feed
   jekyll-paginate
   jekyll-sitemap
   jekyll-theme-architect
-  jemoji
-  minima (~> 2.0)
+  minima
   rouge
   tzinfo-data
 

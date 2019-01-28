@@ -3,6 +3,7 @@ title: 'Vere'
 layout: page
 class: 'content'
 sitemap: false
+searchbar: false
 author: Hali
 permalink: /vere/
 ---
