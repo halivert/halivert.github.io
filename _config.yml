@@ -52,6 +52,7 @@ defaults:
     values:
       title: "Halivert"
       lang: "es_MX"
+      searchbar: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
