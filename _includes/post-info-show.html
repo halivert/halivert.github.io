@@ -1,6 +1,5 @@
 <div class="box">
-  <i class="fas fa-user "
-    aria-hidden="true"></i>
+  <i class="fas fa-user" aria-hidden="true"></i>
   {% if site.data._authors[post.author].fullname %}
     {{ site.data._authors[post.author].fullname }}
   {% else %}
@@ -8,15 +7,14 @@
   {% endif %}
   &nbsp;&nbsp;&nbsp;
   <br class="mobile-separator">
-  <i class="fas fa-calendar "
-    aria-hidden="true"></i>
+  <i class="fas fa-calendar" aria-hidden="true"></i>
   {% include date-spanish.html item=post %}
   {% if post.comments %}
   &nbsp;&nbsp;&nbsp;
   <br class="mobile-separator">
-  <i class="fas fa-comments "
-    aria-hidden="true"></i>
-  <a href="{{ post.url }}#disqus_thread"
+  <i class="fas fa-comments" aria-hidden="true"></i>
+  <a
+    href="{{ post.url }}#disqus_thread"
     data-disqus-identifier="{{ post.id }}">Comentarios</a>
   {% endif %}
 </div>

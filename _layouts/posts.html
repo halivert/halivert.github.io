@@ -1,18 +1,18 @@
 ---
-title: "Halivert"
 layout: html
 ---
 
-<section class="container-fluid">
-  <section class="columns">
-    <section class="column is-9">
+<div class="container-fluid">
+  <div class="columns">
+    <div class="column is-9">
       {% for post in paginator.posts %}
       <section>
         <p class="title is-size-2">
-        <a class="has-text-primary" href="{{ post.url }}">
-          {{ post.title }}
-        </a>
-        </p><hr>
+          <a class="has-text-primary" href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </p>
+        <hr>
         {% include post-show.html %}
         <br>
         {% include post-info-show.html %}
@@ -20,9 +20,9 @@ layout: html
       </section>
       {% endfor %}
       {% include paginator.html item=paginator%}
-    </section>
-    <section class="column">
+    </div>
+    <aside class="column">
       {% include sidebar.html %}
-    </section>
-  </section>
-</section>
+    </aside>
+  </div>
+</div>

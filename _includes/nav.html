@@ -1,5 +1,5 @@
 <nav class="navbar is-primary is-size-6" aria-label="main navigation">
-  <section class="navbar-brand">
+  <div class="navbar-brand">
     <a class="navbar-item" href="{{ site.baseurl }}/">
       <img class="image" src="{{ site.baseurl }}/img/hLetter.png"
       alt="Letra H">
@@ -9,10 +9,10 @@
       <span></span>
       <span></span>
     </button>
-  </section>
+  </div>
 
-  <section class="navbar-menu is-primary" id="navMenu">
-    <section class="navbar-start">
+  <div class="navbar-menu is-primary" id="navMenu">
+    <div class="navbar-start">
       <a class="navbar-item" href="{{ site.baseurl }}/blog/">
         Blog
       </a>
@@ -22,8 +22,8 @@
       <a class="navbar-item" href="{{ site.baseurl }}/skillset">
         Skillset
       </a>
-    </section>
-    <section class="navbar-end">
+    </div>
+    <div class="navbar-end">
       {% if page.searchbar %}
       <form
         class="navbar-item"
@@ -52,6 +52,6 @@
           <i class="fas fa-rss" aria-hidden="true"></i>
         </span>
       </a>
-    </section>
-  </section>
+    </div>
+  </div>
 </nav>
