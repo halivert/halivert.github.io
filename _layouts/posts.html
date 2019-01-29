@@ -7,11 +7,11 @@ layout: html
     <div class="column is-9">
       {% for post in paginator.posts %}
       <section>
-        <p class="title is-size-2">
+        <h2 class="title is-size-2">
           <a class="has-text-primary" href="{{ post.url }}">
             {{ post.title }}
           </a>
-        </p>
+        </h2>
         <hr>
         {% include post-show.html %}
         <br>
