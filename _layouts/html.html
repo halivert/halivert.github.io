@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ page.title }}</title>
     <link rel="stylesheet" href="{{ site.baseurl }}/css/master.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/bulma.min.css">
     <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
@@ -12,10 +11,10 @@
       {% assign author = site.data._authors[page.author] %}
       <meta property="author_url" content="https://t.me/{{ author.tme }}">
     {% endif %}
-    <script type="text/javascript" src="{{ site.baseurl }}/js/nav.js"></script>
+    <script src="{{ site.baseurl }}/js/nav.js"></script>
     <script id="dsq-count-scr" src="//halivert.disqus.com/count.js" async></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/js/master.js"></script>
-    <script type="text/javascript" src="{{site.baseurl }}/js/lunr.js"></script>
+    <script src="{{ site.baseurl }}/js/master.js"></script>
+    <script src="{{site.baseurl }}/js/lunr.js"></script>
     {% seo %}
     {% include mathjax.html %}
   </head>
