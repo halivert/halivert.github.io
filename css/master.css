@@ -75,13 +75,13 @@ section.hero {
 }
 
 img.image-left {
-  max-width: 400px;
+  max-width: 300px;
   margin-right: 15px;
   margin-bottom: 10px;
 }
 
 img.image-right {
-  max-width: 400px;
+  max-width: 300px;
   margin-left: 15px;
   margin-bottom: 10px;
 }

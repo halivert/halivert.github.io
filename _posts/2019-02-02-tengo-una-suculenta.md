@@ -14,9 +14,13 @@ La obtuve como un regalo, y es curioso que antes me habían regalado una similar
 también, solo que entendí mal los cuidados que debía darle.
 
 <img
-  class="is-pulled-right image-right"
+  class="image is-hidden-tablet"
   alt="Primera suculenta"
-  style="max-width: 360px;"
+  src="{{ site.baseurl }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+
+<img
+  class="is-pulled-right image-right is-hidden-mobile"
+  alt="Primera suculenta"
   src="{{ site.baseurl }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es

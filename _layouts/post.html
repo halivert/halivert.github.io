@@ -9,6 +9,13 @@ layout: html
   <div class="columns">
     <div class="column is-8 is-offset-1">
       <div class="columns is-vcentered is-gapless">
+        {% if page.image %}
+        <div class="column is-hidden-tablet">
+          <img id="page-cover" src="{{ page.image }}"
+          alt="{{ page.title }}" class="image"
+          style="margin-bottom: 0.5em;">
+        </div>
+        {% endif %}
         <header class="column">
           <p id="page-title"
              class="title is-size-1 has-text-primary">
@@ -32,7 +39,7 @@ layout: html
           </p>
         </header>
         {% if page.image %}
-        <div class="column has-text-centered">
+        <div class="column has-text-right is-hidden-mobile">
           <img id="page-cover" src="{{ page.image }}" style="max-height:
           200px; max-width: 200px;" alt="{{ page.title }}">
         </div>
