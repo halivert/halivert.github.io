@@ -112,3 +112,8 @@ img.image-right {
   border-top-style: solid;
   border-width: 1px;
 }
+
+.icon-2x {
+  max-width: 2em;
+  max-height: 2em;
+}
