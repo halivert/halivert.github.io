@@ -9,21 +9,6 @@ code {
   text-align: left;
 }
 
-nav.navbar {
-  z-index: 100;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
-
-section.section {
-  padding-top: 5em;
-}
-
-section.hero {
-  padding-top: 2em;
-}
-
 .image-container {
   display: inline-block;
 }
