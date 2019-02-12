@@ -16,12 +16,12 @@ también, solo que entendí mal los cuidados que debía darle.
 <img
   class="image is-hidden-tablet"
   alt="Primera suculenta"
-  src="{{ site.baseurl }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+  src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
 
 <img
   class="is-pulled-right image-right is-hidden-mobile"
   alt="Primera suculenta"
-  src="{{ site.baseurl }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+  src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es
 porque tiene hojas todo el año, esto debido a que almacenan agua en cantidades

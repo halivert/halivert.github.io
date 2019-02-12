@@ -74,4 +74,58 @@
     var results = idx.search(`${searchTerm}`);
     displaySearchResults(results, window.store);
   }
+  else {
+    var searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = `
+      <p class="title is-3">
+        Si no sabes que buscar, puedes comenzar con este post aleatorio
+      </p>
+    `;
+
+    var appendString = '';
+    var keys = Object.keys(window.store);
+    var i = Math.floor(Math.random() * keys.length);
+    var item = window.store[keys[i]];
+    appendString += `
+      <section><p class="title is-size-2">
+      <a class="has-text-primary" href="${item.url}">${item.title}</a>
+      </p><hr><div class="content has-text-justified"><p>
+      ${item.displayContent}
+      </p>
+    `;
+
+    if (item.continue === 1) {
+      appendString += `
+        <a class="subtitle is-5 has-text-link" href="${item.url}">
+        Seguir leyendo</a>
+      `;
+    }
+
+    appendString += `
+      </div><br>
+      <div class="box">
+      <i class="fas fa-user "aria-hidden="true"></i>
+      ${item.author}
+      &nbsp;&nbsp;&nbsp;<br class="mobile-separator">
+      <i class="fas fa-calendar "aria-hidden="true"></i>
+      ${item.date}
+    `;
+
+    if (item.hasComments == 1) {
+      appendString += `
+        &nbsp;&nbsp;&nbsp;
+        <br class="mobile-separator">
+        <i class="fas fa-comments "aria-hidden="true"></i>
+        <a
+          href="${item.url}#disqus_thread"
+          data-disqus-identifier="${keys[i]}">
+          Comentarios
+        </a>
+      `;
+    }
+
+    appendString += `</div><br></section>`;
+
+    searchResults.innerHTML += appendString;
+  }
 })();

@@ -96,7 +96,7 @@ También puedes encontrar el código en el [siguiente gist][4].
 
 Si tienes dudas o surgen errores, puedes dejar un comentario.
 
-[1]: {{ site.baseurl }}/blog/2019/01/wsgi-en-apache/
+[1]: /blog/2019/01/wsgi-en-apache/
 [2]: https://www.python.org
 [3]: https://flask-restplus.readthedocs.io/en/stable/
 [4]: https://gist.github.com/halivert/7dc06a38b30c2f7093f5b841e893ec6a

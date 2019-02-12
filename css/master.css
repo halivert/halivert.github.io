@@ -117,3 +117,13 @@ img.image-right {
   max-width: 2em;
   max-height: 2em;
 }
+
+::selection {
+  background: #00C0C0;
+  color: #FFFFFF;
+}
+
+::-moz-selection {
+  background: #00C0C0;
+  color: #FFFFFF;
+}
