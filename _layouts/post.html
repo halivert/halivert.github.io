@@ -74,46 +74,6 @@ layout: html
 
   <div class="columns">
     <div class="column is-8 is-offset-1">
-      <div class="box">
-        <article class="media">
-          <div class="media-left">
-            <img src="{{ pict }}" width="50px">
-          </div>
-          <div class="media-content">
-            <div class="content">
-              <p class="">
-              <strong>{{ authName }}</strong><br>
-              {{ desc }}
-              </p>
-            </div>
-            <nav class="level is-mobile">
-              <div class="level-left">
-                {% for item in social %}
-                <a class="level-item" href="{{ item.url }}">
-                  <span class="icon is-small">
-                    {% if item.style == 'brand' %}
-                    <i class="fab fa-{{ item.type }}">
-                    </i>
-                    {% elsif item.style == 'regular' %}
-                    <i class="far fa-{{ item.type }}">
-                    </i>
-                    {% else %}
-                    <i class="fas fa-{{ item.type }}">
-                    </i>
-                    {% endif %}
-                  </span>
-                </a>
-                {% endfor %}
-              </div>
-            </nav>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-
-  <div class="columns">
-    <div class="column is-8 is-offset-1">
       <nav class="pagination is-centered is-size-6" role="navigation"
         aria-label="pagination">
         {% if page.previous.url %}
