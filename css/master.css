@@ -112,3 +112,10 @@ img.image-right {
   background: #00C0C0;
   color: #FFFFFF;
 }
+
+.anchor {
+  display: block;
+  height: 54px;
+  margin-top: -54px;
+  visibility: hidden;
+}
