@@ -15,7 +15,9 @@
     <script src="/js/master.js"></script>
     <script src="/js/lunr.js"></script>
     {% seo %}
-    {% include mathjax.html %}
+    {% if page.mathjax %}
+      {% include mathjax.html %}
+    {% endif %}
   </head>
   <body class="has-background-light has-navbar-fixed-top">
     {% include nav.html %}
