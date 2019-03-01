@@ -67,7 +67,7 @@
     }
   }
 
-  var searchTerm = getQueryVariable('query');
+  var searchTerm = getQueryVariable('consulta');
 
   if (searchTerm) {
     document.getElementById('search-box').setAttribute("value", searchTerm);

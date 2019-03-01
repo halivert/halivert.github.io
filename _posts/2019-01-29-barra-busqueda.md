@@ -31,7 +31,7 @@ Ahora les explicaré un poco del código necesario para dicha tarea.
 Obviaremos el cuadro de búsqueda y la página donde se muestra el resultado de la
 búsqueda, lo único que necesitamos establecer ahí son: la acción del formulario
 (que será la ruta de la página donde se mostrará el resultado, en este caso
-`/blog/search`), y el id del elemento donde se mostrará (en este caso
+`/blog/busqueda`), y el id del elemento donde se mostrará (en este caso
 `search-results`).
 
 En el archivo [`search-lunr.html`][7] encontramos el objeto `idx`, que
