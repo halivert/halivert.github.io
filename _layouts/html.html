@@ -18,6 +18,8 @@
     {% if page.hasmath %}
       <!-- {% include mathjax.html %} -->
       {% include katex.html %}
+    {% else %}
+      <meta property="has_instant_view" content="true" />
     {% endif %}
   </head>
   <body class="has-background-light has-navbar-fixed-top">

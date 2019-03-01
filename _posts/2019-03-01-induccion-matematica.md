@@ -18,7 +18,7 @@ buen orden.
 ### Principio del buen orden
 Para que un conjunto \\(A\\) cumpla con el principio del buen orden tiene que
 cumplir con el siguiente enunciado \[[2][2]\]:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 A \ne \emptyset \Rightarrow \exists m \in A : \forall n \in A\text{ }m < n
@@ -59,7 +59,7 @@ números.
 
 Con esto en mente, vamos a hacer un ejemplo:<br>
 Probar que:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^0 + 2^1 + 2^2 + ... + 2^n = 2^{n+1} - 1
@@ -69,7 +69,7 @@ Probar que:
 Ahora vamos a realizar los dos pasos para demostrar que esa proposición es
 cierta, primero el caso base. Notamos que el primer término es \\(2^n\\) con
 \\(n = 0\\).
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^n &= 2^0 \\
@@ -78,7 +78,7 @@ cierta, primero el caso base. Notamos que el primer término es \\(2^n\\) con
 \]
 </p>
 Por otra parte:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^{n+1} - 1 &= 2^{0+1} - 1 \\
@@ -91,7 +91,7 @@ Por otra parte:
 Entonces nuestro caso base queda probado, ahora pasamos al paso inductivo,
 nuestra hipótesis de inducción es asumir que para \\(n = k\\) se cumple la
 proposición:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^0 + 2^1 + 2^2 + ... + 2^k = 2^{k + 1} - 1
@@ -100,7 +100,7 @@ proposición:
 </p>
 Y procedemos a añadir el siguiente término \\(2^{k + 1}\\), lo añadimos a ambos
 lados de la ecuación para no romper la igualdad:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^0 + 2^1 + 2^2 + ... + 2^k \textcolor{red}{ + 2^{k + 1}} &= 2^{k + 1} - 1
@@ -118,7 +118,7 @@ k + 1\\) por lo que damos por concluida la prueba por inducción.
 
 Vamos a hacer otro ejemplo.<br>
 Probar que:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^n \leq n!\text{ }\forall n \geq 4
@@ -126,7 +126,7 @@ Probar que:
 \]
 </p>
 El caso base es cuando \\(n = 4\\).
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^n &= 2^4 \\
@@ -135,7 +135,7 @@ El caso base es cuando \\(n = 4\\).
 \]
 </p>
 Por otra parte:
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 n!  &= 4! \\
@@ -145,7 +145,7 @@ n!  &= 4! \\
 </p>
 El paso base es cierto, ya que \\(16 \leq 24\\).<br>
 Hipótesis de inducción, asumimos que para \\(n = k\\) la proposición es cierta.
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^k \leq k!
@@ -154,7 +154,7 @@ Hipótesis de inducción, asumimos que para \\(n = k\\) la proposición es ciert
 </p>
 Ahora, en el paso inductivo, vamos a multiplicar ambos lados de la inecuación
 por \\(k + 1\\):
-<p>
+<p class="equation">
 \[
 \begin{aligned}
 2^k \textcolor{red}{\cdot (k + 1)} &\leq k! \textcolor{red}{\cdot (k +
