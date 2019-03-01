@@ -119,7 +119,7 @@ Ya sólo queda probar si funciona, pero bueno... Esa es una tarea para ti.
 [2]: https://learn.cloudcannon.com/jekyll/jekyll-search-using-lunr-js/
 [3]: https://jekyllcodex.org/without-plugin/search-lunr/
 [4]: https://github.com/halivert/halivert.github.io/blob/master/_includes/nav.html#L28-L47
-[5]: https://github.com/halivert/halivert.github.io/blob/master/search.html
+[5]: https://github.com/halivert/halivert.github.io/blob/master/busqueda.html
 [6]: https://github.com/halivert/halivert.github.io/blob/master/js/search.js
 [7]: https://github.com/halivert/halivert.github.io/blob/master/_includes/search-lunr.html
 
