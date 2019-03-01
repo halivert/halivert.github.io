@@ -119,3 +119,7 @@ img.image-right {
   margin-top: -54px;
   visibility: hidden;
 }
+
+.katex-display {
+  overflow-x: scroll;
+}
