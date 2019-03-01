@@ -1,11 +1,21 @@
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
+<script type="text/javascript">
+  window.MathJax = {
     tex2jax: {
-      inlineMath: [ ['\\(','\\)'] ],
+      inlineMath: [ ["\\(","\\)"] ],
       processEscapes: true
+    },
+    TeX: {
+      extensions: ["color.js"]
+    },
+    AuthorInit: function() {
+      MathJax.Hub.Register.StartupHook("TeX color Ready", function() {
+        MathJax.Extension["TeX/color"].colors["primary"] = '#00C0C0';
+      });
     }
-  });
+  };
+
 </script>
-<script type="text/javascript" async
+<script
+  type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=default">
 </script>
