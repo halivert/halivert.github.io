@@ -17,8 +17,8 @@
     {% seo %}
     {% if page.hasmath %}
       {% include katex.html %}
-    {% else %}
-      <meta property="has_instant_view" content="true" />
+    {% else if page.hasinstantview %}
+      <meta property="has_instant_view">
     {% endif %}
   </head>
   <body class="has-background-light has-navbar-fixed-top">
