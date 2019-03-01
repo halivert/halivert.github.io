@@ -5,6 +5,8 @@ date: 2019-01-29 10:38
 categories: ["Novedades", "¡Código!"]
 truncatewords: 46
 lastmodification: 2019-02-12 00:32
+hasinstantview: false
+
 ---
 
 #### Ahora hay una barra de búsqueda disponible en el blog
