@@ -13,6 +13,7 @@ oriunda de Tamaulipas, México.
 La obtuve como un regalo, y es curioso que antes me habían regalado una similar
 también, solo que entendí mal los cuidados que debía darle.
 
+<article>
 <img
   class="image is-hidden-tablet"
   alt="Primera suculenta"
@@ -22,6 +23,7 @@ también, solo que entendí mal los cuidados que debía darle.
   class="is-pulled-right image-right is-hidden-mobile"
   alt="Primera suculenta"
   src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+</article>
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es
 porque tiene hojas todo el año, esto debido a que almacenan agua en cantidades
