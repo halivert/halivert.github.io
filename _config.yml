@@ -48,7 +48,7 @@ defaults:
       truncatewords: 60
       comments: true
       lang: "es_MX"
-      mathjax: false
+      hasmath: false
   -
     scope:
       path: ""
