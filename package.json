@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url sass/halivert.scss css/bulma.min.css"
+  },
+  "dependencies": {
+    "bulma": "^0.7.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  },
+  "name": "halivert.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Hali V. <halivelazquez@outlook.com>",
+  "license": "MIT"
+}
