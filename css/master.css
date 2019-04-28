@@ -104,13 +104,13 @@ img.image-right {
 }
 
 ::selection {
-  background: #00C0C0;
-  color: #FFFFFF;
+  background: #97FB98;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 ::-moz-selection {
-  background: #00C0C0;
-  color: #FFFFFF;
+  background: #97FB98;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .anchor {
@@ -122,4 +122,11 @@ img.image-right {
 
 .katex-display {
   overflow-x: auto;
+}
+
+img.avatar {
+  vertical-align: middle;
+  border-radius: 50% !important;
+  max-width: 300px;
+  min-width: 50px;
 }
