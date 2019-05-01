@@ -1,13 +1,17 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import "../node_modules/@ibm/plex/scss/mono/regular/_index.scss";
 
-$primary: #97FB98;
-$primary-invert: findColorInvert($primary);
+@import "halivert-variables";
+$family-sans-serif: "Titillium Web", sans-serif;
+$family-monospace: "IBM Plex Mono", monospace;
+
+$hr-background-color: $grey-lighter;
+// $primary: #97FB98;
 // $secondary: #28E500;
 // $third: #1742CC;
 // $fourth: #00C0C0;
-
-$hr-background-color: $grey-lighter;
 
 @import "../node_modules/bulma/sass/utilities/derived-variables.sass";
 // $addColors: (

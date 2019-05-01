@@ -1,8 +1,11 @@
 {
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url sass/halivert.scss css/bulma.min.css"
+    "css-build": "yarn css-build-bulma-halivert && yarn css-build-master",
+    "css-build-bulma-halivert": "node-sass --omit-source-map-url --output-style compressed sass/halivert.scss css/halivert.min.css",
+    "css-build-master": "node-sass --omit-source-map-url --output-style compressed sass/master.scss css/master.min.css"
   },
   "dependencies": {
+    "@ibm/plex": "^1.4.1",
     "bulma": "^0.7.4"
   },
   "devDependencies": {
