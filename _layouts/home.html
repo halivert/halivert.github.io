@@ -58,11 +58,12 @@ layout: html
   </section>
   <section class="column has-text-centered">
     <img
+      onContextMenu="showColorPicker(event);"
       src="http://gravatar.com/avatar/1e7ee85ff90a24c0067beed802d2c6b7?s=200"
       class="avatar">
     <br><br>
-    <p>Selector con fines de prueba</p>
-    <div class="field">
+    <div class="field is-invisible" id="colorPicker">
+      <label class="label">Selector con fines de prueba</label>
       <div class="control">
         <input
           value="#00C0C0"
