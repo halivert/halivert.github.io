@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/css/master.min.css">
-    <link rel="stylesheet" href="/css/halivert.min.css">
-    <link rel="stylesheet" href="/css/fa.min.css">
+    {% assign file = site.static_files | where: "name", "master.min.css" | first %}
+    <link rel="stylesheet" href="{{ file.path }}?v={{ file.modified_time | date: '%s' }}">
+    {% assign file = site.static_files | where: "name", "halivert.min.css" | first %}
+    <link rel="stylesheet" href="{{ file.path }}?v={{ file.modified_time | date: '%s' }}">
+    {% assign file = site.static_files | where: "name", "fa.min.css" | first %}
+    <link rel="stylesheet" href="{{ file.path }}?v={{ file.modified_time | date: '%s' }}">
+
     {% include unixtimestamp.html %}
     {% if site.data._authors[page.author] %}
       {% assign author = site.data._authors[page.author] %}
       <meta property="author_url" content="https://t.me/{{ author.tme }}">
     {% endif %}
-    <script src="/js/nav.js"></script>
-    <script src="/js/master.js"></script>
-    <script src="/js/lunr.js"></script>
+
+    {% assign file = site.static_files | where: "name", "nav.js" | first %}
+    <script src="{{ file.path }}?v={{ file.modified_time | date: '%s' }}"></script>
+    {% assign file = site.static_files | where: "name", "master.js" | first %}
+    <script src="{{ file.path }}?v={{ file.modified_time | date: '%s' }}"></script>
+    {% assign file = site.static_files | where: "name", "lunr.js" | first %}
+    <script src="{{ file.path }}?v={{ file.modified_time | date: '%s' }}"></script>
+
     {% seo %}
     {% if page.hasmath %}
       {% include katex.html %}
