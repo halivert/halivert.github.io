@@ -8,18 +8,21 @@ $family-sans-serif: "Titillium Web", sans-serif;
 $family-monospace: "IBM Plex Mono", monospace;
 
 $hr-background-color: $grey-lighter;
+$widescreen-enabled: false;
+$fullhd-enabled: false;
 // $primary: #97FB98;
 // $secondary: #28E500;
 // $third: #1742CC;
 // $fourth: #00C0C0;
 
 @import "../node_modules/bulma/sass/utilities/derived-variables.sass";
-// $addColors: (
+$addColors: (
+  "purple": ($purple, findColorInvert($purple))
   // "secondary":($secondary, findColorInvert($secondary)),
   // "third":($third, findColorInvert($third)),
   // "fourth":($fourth, findColorInvert($fourth)),
-// );
-// $colors: map-merge($colors, $addColors);
+);
+$colors: map-merge($colors, $addColors);
 
 @import "../node_modules/bulma/sass/utilities/_all";
 @import "../node_modules/bulma/sass/base/_all";

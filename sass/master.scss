@@ -91,7 +91,8 @@ img.image-right {
   clear: both;
   padding-top: 1.2em;
   padding-bottom: 1.5em;
-  background: #EEE;
+  background: $light-bis;
+  color: $light-bis-invert;
   bottom: 0;
   width: 100%;
   border-top-color: #BBB;
