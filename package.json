@@ -9,7 +9,8 @@
     "bulma": "^0.7.4"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "uglify-js": "^3.5.15"
   },
   "name": "halivert.github.io",
   "version": "1.0.0",
