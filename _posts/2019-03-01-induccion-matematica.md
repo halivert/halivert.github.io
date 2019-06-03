@@ -39,7 +39,7 @@ caso \\(-5\\) tal que todos los otros elementos son mayores que este.
 Otro ejemplo de un conjunto que cumple con este principio es el de los números
 naturales \\(\mathbb{N}\\) que son los números enteros positivos, en algunas
 definiciones comienzan con \\(0\\), es decir: \\(0, 1, 2, 3,...\\) mientras que
-en otras comienzan con 1, o sea: \\(1, 2, 3,...\\). En cualquier caso, este
+en otras comienzan con \\(1\\), o sea: \\(1, 2, 3,...\\). En cualquier caso, este
 conjunto de números cumple con el principio del buen orden.
 
 ### Inducción matemática
