@@ -1,11 +1,11 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+@import url("https://fonts.googleapis.com/css?family=Raleway|Montserrat");
 @import "../node_modules/@ibm/plex/scss/mono/regular/_index.scss";
 
 @import "halivert-variables";
-$family-sans-serif: "Titillium Web", sans-serif;
-$title-family: "Titillium Web", sans-serif;
+$family-sans-serif: "Raleway", sans-serif;
+$title-family: "Montserrat", sans-serif;
 $family-monospace: "IBM Plex Mono", monospace;
 
 $hr-background-color: $grey-lighter;
