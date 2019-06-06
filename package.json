@@ -4,7 +4,8 @@
     "css-build": "yarn css-build-bulma-halivert && yarn css-build-master",
     "css-build-bulma-halivert": "node-sass --omit-source-map-url --output-style compressed resources/sass/halivert.scss css/halivert.min.css",
     "css-build-master": "node-sass --omit-source-map-url --output-style compressed resources/sass/master.scss css/master.min.css",
-    "minify": "babel resources/js/* -d js --minified"
+    "minify": "babel resources/js/* -d js && yarn minify-lunr",
+    "minify-lunr": "babel --config-file=./.wo-presets.babelrc resources/js/lunr.js resources/js/master.js -d js"
   },
   "dependencies": {
     "@ibm/plex": "^1.4.1",
@@ -17,7 +18,7 @@
     "node-sass": "^4.12.0"
   },
   "name": "halivert.github.io",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "Hali V. <halivelazquez@outlook.com>",
   "license": "MIT"

@@ -77,14 +77,14 @@ function eraseCookie(name) {
 }
 
 function showElement(element) {
-  element.classList.remove('is-hidden');
+  if (element) element.classList.remove('is-hidden');
 }
 
 function hideElement(element) {
-  element.classList.add('is-hidden');
+  if (element) element.classList.add('is-hidden');
 }
 
 function destroyElement(element) {
-  element.remove();
+  if (element) element.remove();
 }
 

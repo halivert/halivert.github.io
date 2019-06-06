@@ -16,8 +16,10 @@
       <meta property="author_url" content="https://t.me/{{ author.tme }}">
     {% endif %}
 
+    {% assign file = site.static_files | where: "name", "master.js" | first %}
+    <script src="{{ file.path }}"></script>
     {% if page.searchbar %}
-      {% assign file = site.static_files | where: "name", "lunr.min.js" | first %}
+      {% assign file = site.static_files | where: "name", "lunr.js" | first %}
       <script src="{{ file.path }}"></script>
     {% endif %}
 
@@ -40,8 +42,5 @@
 
     {% assign file = site.static_files | where: "name", "nav.js" | first %}
     <script src="{{ file.path }}"></script>
-    {% assign file = site.static_files | where: "name", "master.js" | first %}
-    <script src="{{ file.path }}"></script>
-
   </body>
 </html>
