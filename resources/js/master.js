@@ -72,6 +72,22 @@ function readCookie(name) {
   return null;
 }
 
+function removeClass(element, name) {
+  element.classList.remove(name);
+}
+
+function addClass(element, name) {
+  if (element.classList) {
+    element.classList.add(name);
+  }
+  else {
+    var arr = element.className.split(' ');
+    if (arr.indexOf(name) == -1) {
+      element.className += ' ' + name;
+    }
+  }
+}
+
 function eraseCookie(name) {
   createCookie(name, '', -1);
 }

@@ -1,68 +1,79 @@
 <nav class="pagination is-centered is-rounded" aria-label="pagination">
   {% if include.item.previous_page %}
-    <a href="{{ include.item.previous_page_path }}"
-      class="pagination-previous button is-primary">
-      Anterior
-    </a>
+  <a
+    href="{{ include.item.previous_page_path }}"
+    class="pagination-previous button is-primary">
+    <i class="far fa-hand-point-left"></i>
+  </a>
   {% else %}
-    <a class="pagination-previous" disabled>Anterior</a>
+  <a class="pagination-previous" disabled>
+    <i class="far fa-hand-point-left"></i>
+  </a>
   {% endif %}
 
   {% assign pageBef = include.item.page | minus: 1 %}
   {% assign pageAft = include.item.page | plus: 1 %}
 
   {% if pageBef > 3 %}
-    {% assign pageBef = 3 %}
+  {% assign pageBef = 3 %}
   {% endif %}
   {% assign c1 = include.item.total_pages | minus: pageAft %}
   {% if c1 >= 3  %}
-    {% assign pageAft = include.item.total_pages | minus: 2 %}
+  {% assign pageAft = include.item.total_pages | minus: 2 %}
   {% endif %}
 
   <ul class="pagination-list">
     {% for i in (1 .. pageBef) %}
-      <li>
-        {% capture link %}
-        /blog/{% if i != 1 %}{{ i }}{% endif %}
-        {% endcapture %}
+    <li>
+      {% capture link %}
+      /blog/{% if i != 1 %}{{ i }}{% endif %}
+      {% endcapture %}
 
-        <a href="{{ link }}" class="pagination-link"
-          aria-label="Ir a página {{ i }}">
-          {{ i }}
-        </a>
-      </li>
+      <a
+        href="{{ link }}"
+        class="pagination-link"
+        aria-label="Ir a página {{ i }}">
+        {{ i }}
+      </a>
+    </li>
     {% endfor %}
     {% if include.item.page > 1 %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
     {% endif %}
 
     <li>
-      <a class="pagination-link button is-primary"
-         aria-current="page" aria-label="Ir a página {{
-         include.item.page }}">
+      <a
+        class="pagination-link button is-primary"
+        aria-current="page"
+        aria-label="Ir a página {{ include.item.page }}">
         {{ include.item.page }}
       </a>
     </li>
 
     {% if include.item.page < include.item.total_pages %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
     {% endif %}
     {% for i in (pageAft .. include.item.total_pages) %}
-      <li>
-        <a href="/blog/{{ i }}" class="pagination-link"
-          aria-label="Ir a página {{ i }}">
-          {{ i }}
-        </a>
-      </li>
+    <li>
+      <a
+        href="/blog/{{ i }}"
+        class="pagination-link"
+        aria-label="Ir a página {{ i }}">
+        {{ i }}
+      </a>
+    </li>
     {% endfor %}
   </ul>
 
   {% if include.item.next_page %}
-    <a href="{{ include.item.next_page_path }}"
-      class="pagination-next button is-primary">
-      Siguiente
-    </a>
+  <a
+    href="{{ include.item.next_page_path }}"
+    class="pagination-next button is-primary">
+    <i class="far fa-hand-point-right"></i>
+  </a>
   {% else %}
-    <span class="pagination-next" disabled>Siguiente</span>
+  <span class="pagination-next" disabled>
+    <i class="far fa-hand-point-right"></i>
+  </span>
   {% endif %}
 </nav>
