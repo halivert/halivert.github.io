@@ -1,16 +1,20 @@
 {
   "scripts": {
+    "prod": "yarn css-build && yarn minify",
     "css-build": "yarn css-build-bulma-halivert && yarn css-build-master",
-    "css-build-bulma-halivert": "node-sass --omit-source-map-url --output-style compressed sass/halivert.scss css/halivert.min.css",
-    "css-build-master": "node-sass --omit-source-map-url --output-style compressed sass/master.scss css/master.min.css"
+    "css-build-bulma-halivert": "node-sass --omit-source-map-url --output-style compressed resources/sass/halivert.scss css/halivert.min.css",
+    "css-build-master": "node-sass --omit-source-map-url --output-style compressed resources/sass/master.scss css/master.min.css",
+    "minify": "babel resources/js/* -d js --minified"
   },
   "dependencies": {
     "@ibm/plex": "^1.4.1",
     "bulma": "^0.7.4"
   },
   "devDependencies": {
-    "node-sass": "^4.12.0",
-    "uglify-js": "^3.5.15"
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "node-sass": "^4.12.0"
   },
   "name": "halivert.github.io",
   "version": "1.0.0",

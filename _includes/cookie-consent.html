@@ -1,0 +1,39 @@
+<div class="notification is-warning is-inline-block is-hidden" id="cookie-notice">
+  <p>
+  Este sitio utiliza cookies de terceros para mejorar la funcionalidad.
+  <br>
+  ¿Las aceptas?
+  </p>
+  <div class="buttons are-small is-right">
+    <a id="cookie-notice-accept" class="button is-primary">Aceptar</a>
+    <a id="cookie-notice-cancel" class="button is-danger">Cancelar</a>
+  </div>
+</div>
+<script>
+  var notice = document.getElementById('cookie-notice');
+  if (readCookie('cookie-notice-dismissed') === 'true') {
+    destroyElement(notice);
+    const body = document.body;
+    var script = document.createElement('script');
+    script.src = "//halivert.disqus.com/count.js";
+    script.id = "dsq-count-scr";
+    script.async = true;
+    body.appendChild(script);
+  }
+  else if (readCookie('cookie-notice-canceled') === 'true') {
+    destroyElement(notice);
+  }
+  else {
+    showElement(notice);
+
+    document.getElementById('cookie-notice-accept').addEventListener('click', function() {
+      createCookie('cookie-notice-dismissed','true',31);
+      location.reload();
+    });
+
+    document.getElementById('cookie-notice-cancel').addEventListener('click', function() {
+      createCookie('cookie-notice-canceled','true', 31);
+      location.reload();
+    });
+  }
+</script>

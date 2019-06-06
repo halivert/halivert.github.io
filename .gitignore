@@ -7,3 +7,5 @@ _drafts
 .jekyll-metadata
 *.plsno
 .ignore
+yarn-error.log
+minified/
