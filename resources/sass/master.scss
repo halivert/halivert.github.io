@@ -131,3 +131,15 @@ img.avatar {
   max-width: 300px;
   min-width: 50px;
 }
+
+.auto-margin {
+  margin: auto;
+}
+
+article:not(:last-child) {
+  margin-bottom: 1em;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
