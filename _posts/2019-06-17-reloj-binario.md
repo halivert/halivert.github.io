@@ -4,6 +4,7 @@ title: "Reloj binario"
 date: "2019-06-17 10:39"
 categories: [ "Curiosidades" ]
 truncatewords: 20
+image: "img/2019-06-17-reloj-binario/binary-clock.png"
 ---
 
 En este post les comparto un tip para practicar la lectura de números
