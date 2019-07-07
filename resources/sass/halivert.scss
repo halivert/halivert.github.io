@@ -24,6 +24,11 @@ $addColors: (
 );
 $colors: map-merge($colors, $addColors);
 
+$brand-colors: (
+  "twitter": ($twitter, findColorInvert($twitter)),
+  "telegram": ($telegram, findColorInvert($telegram))
+);
+
 @import "../../node_modules/bulma/sass/utilities/_all";
 @import "../../node_modules/bulma/sass/base/_all";
 
@@ -88,4 +93,17 @@ $colors: map-merge($colors, $addColors);
   right: 10px;
   bottom: 5px;
   z-index: 900;
+}
+
+@each $name, $pair in $brand-colors {
+  $color: nth($pair, 1);
+  .#{$name} {
+    color: $color !important;
+  }
+  a.#{$name} {
+    &:hover,
+    &:focus {
+      color: darken($color, 10%) !important;
+    }
+  }
 }

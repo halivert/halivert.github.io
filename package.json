@@ -2,10 +2,13 @@
   "scripts": {
     "prod": "yarn css-build && yarn minify",
     "css-build": "yarn css-build-bulma-halivert && yarn css-build-master",
-    "css-build-bulma-halivert": "node-sass --omit-source-map-url --output-style compressed resources/sass/halivert.scss css/halivert.min.css",
-    "css-build-master": "node-sass --omit-source-map-url --output-style compressed resources/sass/master.scss css/master.min.css",
     "minify": "babel resources/js/* -d js && yarn minify-lunr",
-    "minify-lunr": "babel --config-file=./.wo-presets.babelrc resources/js/lunr.js resources/js/master.js -d js"
+    "minify-lunr": "babel --config-file=./.wo-presets.babelrc resources/js/lunr.js resources/js/master.js -d js",
+    "compile-master": "node-sass --omit-source-map-url resources/sass/master.scss css/master.css",
+    "compile-halivert": "node-sass --omit-source-map-url resources/sass/halivert.scss css/halivert.css",
+    "dev": "yarn compile-master && yarn compile-halivert",
+    "css-build-bulma-halivert": "yarn compile-halivert --output-style compressed",
+    "css-build-master": "yarn compile-master --output-style compressed"
   },
   "dependencies": {
     "@ibm/plex": "^1.4.1",

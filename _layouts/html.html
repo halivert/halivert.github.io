@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% assign file = site.static_files | where: "name", "master.min.css" | first %}
+    {% assign file = site.static_files | where: "name", "master.css" | first %}
     <link rel="stylesheet" href="{{ file.path }}">
-    {% assign file = site.static_files | where: "name", "halivert.min.css" | first %}
+    {% assign file = site.static_files | where: "name", "halivert.css" | first %}
     <link rel="stylesheet" href="{{ file.path }}">
     {% assign file = site.static_files | where: "name", "fa.min.css" | first %}
     <link rel="stylesheet" href="{{ file.path }}">
