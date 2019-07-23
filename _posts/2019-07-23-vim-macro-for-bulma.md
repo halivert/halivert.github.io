@@ -39,11 +39,7 @@ contienen caracteres de control y otros, debes sustituir los siguientes:
 Para hacer esto más sencillo puedes escribir `:%s/\V^[/[Ctrl + v, Esc]/g` y
 así con los otros dos caracteres de control.
 
-<div class="has-text-centered">
-<video autoplay loop muted>
-<source src="/assets/2019-07-23-vim-macro-for-bulma/vim-macro.mp4">
-</video>
-</div>
+![vim macro](/assets/2019-07-23-vim-macro-for-bulma/vim-macro.gif)
 
 <small>Nota: Tengo mapeada en el modo normal, la tecla `;` por `:` y
 viceversa.</small>
@@ -51,11 +47,7 @@ viceversa.</small>
 Cuando estés en el mismo directorio que el folder `node_modules`, puedes usar
 esos macros y hacer lo siguiente:
 
-<div class="has-text-centered">
-<video autoplay loop muted>
-<source src="/assets/2019-07-23-vim-macro-for-bulma/vim-macro-used.mp4">
-</video>
-</div>
+![vim macro used](/assets/2019-07-23-vim-macro-for-bulma/vim-macro-used.gif)
 <br>
 Hasta el próximo vim-tip 👋🏽
 
