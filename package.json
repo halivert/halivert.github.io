@@ -11,7 +11,7 @@
     "css-build-master": "yarn compile-master --output-style compressed"
   },
   "dependencies": {
-    "@ibm/plex": "^1.4.1",
+    "@ibm/plex": "^2.0.0",
     "bulma": "^0.7.4"
   },
   "devDependencies": {
