@@ -1,7 +1,7 @@
 ---
 author: "Hali"
 title: "Verificación en dos pasos"
-date: "2019-07-30 23:11:41 -0500"
+date: "2019-09-25 12:02"
 categories: [ "Divagando" ]
 truncatewords: 54
 ---
