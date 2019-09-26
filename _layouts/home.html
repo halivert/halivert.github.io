@@ -12,57 +12,58 @@ layout: html
   <section class="column is-7 is-offset-1">
     <section class="content">
       <p>
-      Soy <a href="https://www.jw.org/es/testigos-de-jehová/">testigo de
-        Jehová</a>, tengo 24 años y estudio una ingeniería en sistemas
-      computacionales.
+        Soy
+        <a href="https://www.jw.org/es/testigos-de-jehová/">testigo de Jehová</a
+        >, tengo 24 años y estudio una ingeniería en sistemas computacionales.
       </p>
       <p>
-      Me gusta mucho resolver problemas y tengo una gran afición por
-      las matemáticas. En mis ratos libres también me gusta
-      interpretar música y leer.
+        Me gusta mucho resolver problemas y tengo una gran afición por las
+        matemáticas. En mis ratos libres también me gusta interpretar música y
+        leer.
       </p>
       <p>
-      Soy desarrollador de software, y me gusta trabajar en equipo.
+        Soy desarrollador de software, y me gusta trabajar en equipo.
       </p>
       <p>
-      Hay más sobre mí y mi trabajo en mi
-      <a href="/blog">blog</a>.
+        Hay más sobre mí y mi trabajo en mi
+        <a href="/blog">blog</a>.
       </p>
       <p>
-      Puedes ver en que estoy trabajando justo
-      <a href="/now">ahora</a>.
+        Puedes ver en que estoy trabajando justo
+        <a href="/now">ahora</a>.
       </p>
       <p>
-      También puedes enviarme un mensaje:
+        También puedes enviarme un mensaje:
       </p>
       <p class="buttons">
-      <a class="button is-large telegram"
-         href="https://t.me/halivert">
-        <span class="icon">
-          <i class="fab fa-telegram" aria-hidden="true"></i>
-        </span>
-      </a>
-      <a class="button is-large twitter"
-         href="https://twitter.com/halivert">
-        <span class="icon">
-          <i class="fab fa-twitter" aria-hidden="true"></i>
-        </span>
-      </a>
-      <a class="button is-large has-text-danger"
-         href="mailto:{{ site.data._authors['Hali'].email }}">
-        <span class="icon">
-          <i class="fas fa-envelope-open" aria-hidden="true"></i>
-        </span>
-      </a>
+        <a class="button is-large telegram" href="https://t.me/halivert">
+          <span class="icon">
+            <i class="fab fa-telegram" aria-hidden="true"></i>
+          </span>
+        </a>
+        <a class="button is-large twitter" href="https://twitter.com/halivert">
+          <span class="icon">
+            <i class="fab fa-twitter" aria-hidden="true"></i>
+          </span>
+        </a>
+        <a
+          class="button is-large has-text-danger"
+          href="mailto:{{ site.data._authors['Hali'].email }}"
+        >
+          <span class="icon">
+            <i class="fas fa-envelope-open" aria-hidden="true"></i>
+          </span>
+        </a>
       </p>
     </section>
   </section>
   <section class="column has-text-centered">
     <img
-      onContextMenu="showColorPicker(event);"
       src="https://gravatar.com/avatar/1e7ee85ff90a24c0067beed802d2c6b7?s=200"
-      class="avatar">
-    <br><br>
+      class="avatar"
+      alt="Imagen de perfil de Halivert"
+    />
+    <br /><br />
     <div class="field is-invisible" id="colorPicker">
       <label class="label">Selector con fines de prueba</label>
       <div class="control">
@@ -71,7 +72,8 @@ layout: html
           id="color"
           class="input"
           type="color"
-          onChange="changeColor();">
+          onChange="changeColor();"
+        />
       </div>
       <script charset="utf-8" src="/js/colors.js"></script>
     </div>

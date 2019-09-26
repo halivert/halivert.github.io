@@ -50,6 +50,7 @@ defaults:
       lang: "es_MX"
       hasmath: false
       hasinstantview: true
+      imagealt: ""
   -
     scope:
       path: ""

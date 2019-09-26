@@ -5,6 +5,7 @@ date: 2019-02-02 22:48
 categories: ["Divagando"]
 truncatewords: 14
 image: /img/2019-02-02-tengo-una-suculenta/20190201.jpg
+imagealt: "Mi suculenta llamada 'Julieta'"
 ---
 
 _Graptopetalum paraguayense_ es el nombre que recibe una planta suculenta
@@ -16,12 +17,12 @@ también, solo que entendí mal los cuidados que debía darle.
 <article>
 <img
   class="image is-hidden-tablet"
-  alt="Primera suculenta"
+  alt="Mi primera suculenta"
   src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
 
 <img
   class="is-pulled-right image-right is-hidden-mobile"
-  alt="Primera suculenta"
+  alt="Mi primera suculenta"
   src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
 </article>
 

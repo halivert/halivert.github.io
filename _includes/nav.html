@@ -1,15 +1,10 @@
 <nav
   class="navbar is-primary is-size-6 is-fixed-top"
-  aria-label="main navigation">
+  aria-label="main navigation"
+>
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <!-- <picture>                                   -->
-      <!--   <source srcset="/img/halivert-logo.webp"> -->
-      <img
-        class="image"
-        src="/img/halivert-logo.webp"
-        alt="Logo">
-      <!-- </picture>                                  -->
+      <img class="image" src="/img/halivert-logo.webp" alt="Logo de Halivert" />
     </a>
     <button class="button navbar-burger is-primary" data-target="navMenu">
       <span></span>
@@ -35,10 +30,7 @@
     </div>
     <div class="navbar-end">
       {% if page.searchbar %}
-      <form
-        class="navbar-item"
-        action="/blog/busqueda"
-        method="get">
+      <form class="navbar-item" action="/blog/busqueda" method="get">
         <div class="field has-addons">
           <div class="control">
             <input
@@ -46,7 +38,8 @@
               type="text"
               id="search-box"
               placeholder="Buscar..."
-              name="consulta">
+              name="consulta"
+            />
           </div>
           <div class="control">
             <button class="button" type="submit">

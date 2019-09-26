@@ -2,7 +2,7 @@
 author: "Hali"
 title: "Verificación en dos pasos"
 date: "2019-09-25 12:02"
-categories: [ "Divagando" ]
+categories: ["Divagando"]
 truncatewords: 54
 ---
 
@@ -22,6 +22,7 @@ phishing, veamos que es y cómo evitarlo.
 </small>
 
 #### [Phishing][] 🎣
+
 Como su nombre lo dice, se trata de una técnica que busca hacer que caigas en
 un cebo, y esto lo intentan mediante mensajes que parecen provenir de fuentes
 seguras, pero que en realidad son todo lo contrario.
@@ -29,6 +30,7 @@ Una vez que obtienen de ti preguntas y códigos de seguridad, pueden acceder a
 tu cuenta simulando que eres tú, y que olvidaste tus credenciales.
 
 ##### ¿Cómo evitar el phishing?
+
 Lo más importante es verificar las fuentes de donde proviene un mensaje o
 email, para esto, muchas veces hace falta únicamente revisar el correo
 electrónico o la cuenta que te envía el mensaje. Si ves correos como...
@@ -36,23 +38,24 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
 <div class="columns">
 	<div class="column">
 		<img
+			alt="Ejemplo de phishing: Bank of America"
 			src="/img/2019-09-25-two-step-verification/phishing1.png">
 	</div>
 	<div class="column">
 		<img
-			alt="phishing 2"
+			alt="Ejemplo de phishing: iTunes"
 			src="/img/2019-09-25-two-step-verification/phishing2.png">
 	</div>
 </div>
 <div class="columns">
 	<div class="column">
 		<img
-			alt="phishing 3"
+			alt="Ejemplo de phishing: PayPal"
 			src="/img/2019-09-25-two-step-verification/phishing3.jpeg">
 	</div>
 	<div class="column">
 		<img
-			alt="phishing 4"
+			alt="Ejemplo de phishing: Microsoft"
 			src="/img/2019-09-25-two-step-verification/phishing4.png">
 	</div>
 </div>
@@ -68,6 +71,7 @@ Queda algo más que hacer para no ser víctima de alguno de estos robos de
 cuentas o datos, puedes activar la **verificación en dos pasos**.
 
 ###### Verificación en dos pasos
+
 Se trata de un método que hace necesario, además de introducir una contraseña,
 (que quizá te hayan robado con ayuda del phishing) introducir un código de
 seguridad que solo tú posees. (Es importante que no compartas dichos códigos
@@ -81,6 +85,7 @@ como [Authy][] o [Google Authenticator][] sirven para estos fines. Otras
 aplicaciones web te ofrecen enviar un código a tu celular por medio de SMS.
 
 #### Conclusión
+
 Mi recomendación personal es que actives la verificación en dos pasos de la
 mayoría de cuentas que tengas en Internet.
 
@@ -90,23 +95,23 @@ aplicaciones web como Github, Heroku, Google y Outlook también cuentan con
 ella.
 
 Es sencillo activar la verificación en dos pasos. Aquí muestro los nombres que
-tiene en Telegram, Twitter y Snapchat. 
+tiene en Telegram, Twitter y Snapchat.
 
 <div class="columns">
 	<div class="column">
 		<img
 			src="/img/2019-09-25-two-step-verification/telegram-2fa.jpg"
-			alt="Telegram 2fa">
+			alt="Configuración de privacidad y seguridad de Telegram">
 	</div>
 	<div class="column">
 		<img
 			src="/img/2019-09-25-two-step-verification/twitter-2fa.jpg"
-			alt="Twitter 2fa">
+			alt="Configuración de verificación de inicio de sesión de Twitter">
 	</div>
 	<div class="column">
 		<img
 			src="/img/2019-09-25-two-step-verification/snapchat-2fa.jpg"
-			alt="Snapchat 2fa">
+			alt="Ajustes de Snapchat (Autenticación de dos factores)">
 	</div>
 </div>
 
@@ -114,7 +119,7 @@ Basta con seguir los pasos de estas opciones, pero si tienes alguna duda no
 temas en enviarme un [mensaje][t.me]. Hasta la próxima 👋🏽
 
 [crackers]: https://dle.rae.es/?id=BBnPPfB
-[Phishing]: https://en.wikipedia.org/wiki/Phishing
-[Authy]: https://authy.com
-[Google Authenticator]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
+[phishing]: https://en.wikipedia.org/wiki/Phishing
+[authy]: https://authy.com
+[google authenticator]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
 [t.me]: https://t.me/halivert
