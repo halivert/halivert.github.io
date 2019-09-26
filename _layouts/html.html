@@ -23,7 +23,20 @@
       <script src="{{ file.path }}"></script>
     {% endif %}
 
-    {% seo %}
+		<title>{%
+			if paginator
+				%}Página {{ paginator.page }} de {{ paginator.total_pages }} de {%
+			endif
+			%}{%
+			if page.title
+				%}{{ page.title }} | {{ site.title }}{%
+			else
+				%}{{ site.title }} | {{ site.description }}{%
+			endif
+		%}</title>
+
+    {% seo title=false %}
+
     {% if page.hasmath %}
       {% include katex.html %}
     {% elsif page.hasinstantview %}
