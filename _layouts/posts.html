@@ -13,19 +13,18 @@ layout: html
             {{ post.title }}
           </a>
         </h2>
-        <hr>
+        <hr />
         {% include post-show.html %}
-        <br>
+        <br />
         {% include post-info-show.html %}
-        <br>
+        <br />
       </section>
-      {% endfor %}
-      {% include paginator.html item=paginator%}
+      {% endfor %} {% include paginator.html item=paginator%}
     </div>
     <aside class="column">
       {% include sidebar.html %}
     </aside>
   </div>
 </div>
-<br>
+<br />
 {% include cookie-consent-posts.html %}

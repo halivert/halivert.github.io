@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Reloj binario"
 date: "2019-06-17 10:39"
 categories: [ "Curiosidades" ]

@@ -1,6 +1,6 @@
 ---
 title: Vimrc
-author: Hali
+author: Halí
 lastmodification: 2018-09-21 02:02 -05:00
 categories: ["¡Código!"]
 date: 2017-12-23 00:45 -0600

@@ -1,5 +1,5 @@
 ---
-author: Hali
+author: Halí
 title: 'Matrices en C++'
 date: 2018-03-10 02:26:45 -0600
 update: 2018-10-25 23:44:35 -0500

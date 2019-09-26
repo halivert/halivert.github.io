@@ -1,5 +1,5 @@
 ---
-author: Hali
+author: Halí
 layout: post
 comments: true
 title: "Comentarios en el sitio"
@@ -19,6 +19,6 @@ De ahora en adelante encontrarás una sección de comentarios hasta abajo de cua
 Puedes iniciar sesión con Disqus, Facebook, Twitter o Google.
 
 Espero que todos podamos aprender de esto, puedes plasmar cualquier duda, aclaración, o mejora que tengas en mente,
-gracias por leerme y hasta pronto 👋
+gracias por leerme y hasta pronto 👋🏽
 
 P.D. si quieres que active las reacciones avísame.

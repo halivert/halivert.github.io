@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Verificación en dos pasos"
 date: "2019-09-25 12:02"
 categories: ["Divagando"]

@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Barra de búsqueda"
 date: 2019-01-29 10:38
 categories: ["Novedades", "¡Código!"]

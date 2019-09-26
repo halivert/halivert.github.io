@@ -1,5 +1,5 @@
 ---
-author: Hali
+author: Halí
 title: "Flask RESTPlus"
 date: 2019-01-24 00:31
 categories: ["¡Código!", "Ya me pasó"]

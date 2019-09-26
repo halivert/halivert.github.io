@@ -1,5 +1,5 @@
 ---
-author: Hali
+author: Halí
 title: "Random thoughts: Ep. 1"
 date: 2018-11-27 17:16
 truncatewords: 27

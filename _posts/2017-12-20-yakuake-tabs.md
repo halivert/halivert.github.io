@@ -1,6 +1,6 @@
 ---
 title: "Tabs en yakuake"
-author: Hali
+author: Halí
 date: 2017-12-20 19:54 -0600
 categories: ["Ya me pasó"]
 ---

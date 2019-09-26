@@ -1,7 +1,7 @@
 ---
 title: 'Se murió mi pez'
 date: 2018-01-18 01:51 -0600
-author: Hali
+author: Halí
 truncatewords: 57
 categories: ["Divagando"]
 ---

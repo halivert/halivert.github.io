@@ -4,7 +4,7 @@ layout: "page"
 class: "content"
 sitemap: false
 searchbar: false
-author: "Hali"
+author: "Halí"
 permalink: "/vere/"
 ---
 

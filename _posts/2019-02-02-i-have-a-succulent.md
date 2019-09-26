@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Tengo una suculenta"
 date: 2019-02-02 22:48
 categories: ["Divagando"]

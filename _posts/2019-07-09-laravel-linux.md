@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Laravel en Linux Pt. 1"
 date: 2019-07-09 07:36
 lastmodification: 2019-07-22 22:41

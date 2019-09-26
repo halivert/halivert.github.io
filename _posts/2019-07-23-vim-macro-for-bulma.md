@@ -1,5 +1,5 @@
 ---
-author: "Hali"
+author: "Halí"
 title: "Macros de Vim para Bulma"
 date: 2019-07-23 08:49
 categories: ["Ya me pasó", "Código"]
