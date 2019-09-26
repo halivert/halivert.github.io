@@ -1,9 +1,9 @@
-document.addEventListener('DOMContentLoaded', function(event) {
-  let resizeEnd = new Event('resizeEnd');
+document.addEventListener("DOMContentLoaded", function() {
+  let resizeEnd = new Event("resizeEnd");
 
   changeScreen();
 
-  window.addEventListener('resize', function(event) {
+  window.addEventListener("resize", function() {
     if (window.resizeTO) {
       clearTimeout(window.resizeTO);
     }
@@ -12,19 +12,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }, 50);
   });
 
-  window.addEventListener('resizeEnd', changeScreen, false);
+  window.addEventListener("resizeEnd", changeScreen, false);
 
-  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-    $notification = $delete.parentNode;
-    $delete.addEventListener('click', () => {
-      $notification.parentNode.removeChild($notification);
-    });
-  });
+  (document.querySelectorAll(".notification .delete") || []).forEach(
+    $delete => {
+      $notification = $delete.parentNode;
+      $delete.addEventListener("click", () => {
+        $notification.parentNode.removeChild($notification);
+      });
+    }
+  );
 });
 
 function showColorPicker(evt) {
   evt.preventDefault();
-  toggleClass(document.getElementById('colorPicker'), "is-invisible");
+  toggleClass(document.getElementById("colorPicker"), "is-invisible");
 }
 
 function toggleClass(element, className) {
@@ -41,32 +43,32 @@ function toggleClass(element, className) {
 }
 
 function changeScreen() {
-  let width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-  let items;
+  let width =
+    window.innerWidth ||
+    document.documentElement.clientWidth ||
+    document.body.clientWidth;
 
-  document.querySelectorAll('.mobile-separator').forEach(function(it) {
-    it.style.display = width < 768 ? 'inline' : 'none';
+  document.querySelectorAll(".mobile-separator").forEach(function(it) {
+    it.style.display = width < 768 ? "inline" : "none";
   });
 }
 
 function createCookie(name, value, days) {
-  var expires = '';
+  var expires = "";
   if (days) {
     var date = new Date();
-    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = ';expires=' + date.toUTCString();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = ";expires=" + date.toUTCString();
   }
-  document.cookie = name + '=' + value + expires + ';path=/';
+  document.cookie = name + "=" + value + expires + ";path=/";
 }
 
 function readCookie(name) {
-  var nameEQ = name + '=';
-  var ca = document.cookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(";");
+  for (var i = 0; i < ca.length; i++) {
     var c = ca[i];
-    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+    while (c.charAt(0) == " ") c = c.substring(1, c.length);
     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
   }
   return null;
@@ -79,28 +81,26 @@ function removeClass(element, name) {
 function addClass(element, name) {
   if (element.classList) {
     element.classList.add(name);
-  }
-  else {
-    var arr = element.className.split(' ');
+  } else {
+    var arr = element.className.split(" ");
     if (arr.indexOf(name) == -1) {
-      element.className += ' ' + name;
+      element.className += " " + name;
     }
   }
 }
 
 function eraseCookie(name) {
-  createCookie(name, '', -1);
+  createCookie(name, "", -1);
 }
 
 function showElement(element) {
-  if (element) element.classList.remove('is-hidden');
+  if (element) element.classList.remove("is-hidden");
 }
 
 function hideElement(element) {
-  if (element) element.classList.add('is-hidden');
+  if (element) element.classList.add("is-hidden");
 }
 
 function destroyElement(element) {
   if (element) element.remove();
 }
-

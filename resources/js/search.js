@@ -1,9 +1,9 @@
 (function() {
   function displaySearchResults(results, store) {
-    var searchResults = document.getElementById('search-results');
+    var searchResults = document.getElementById("search-results");
 
     if (results.length) {
-      var appendString = '';
+      var appendString = "";
 
       for (var i = 0; i < results.length; i++) {
         var item = store[results[i].ref];
@@ -56,33 +56,32 @@
 
   function getQueryVariable(variable) {
     var query = window.location.search.substring(1);
-    var vars = query.split('&');
+    var vars = query.split("&");
 
     for (var i = 0; i < vars.length; i++) {
-      var pair = vars[i].split('=');
+      var pair = vars[i].split("=");
 
       if (pair[0] === variable) {
-        return decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+        return decodeURIComponent(pair[1].replace(/\+/g, "%20"));
       }
     }
   }
 
-  var searchTerm = getQueryVariable('consulta');
+  var searchTerm = getQueryVariable("consulta");
 
   if (searchTerm) {
-    document.getElementById('search-box').setAttribute("value", searchTerm);
+    document.getElementById("search-box").setAttribute("value", searchTerm);
     var results = idx.search(`${searchTerm}`);
     displaySearchResults(results, window.store);
-  }
-  else {
-    var searchResults = document.getElementById('search-results');
+  } else {
+    var searchResults = document.getElementById("search-results");
     searchResults.innerHTML = `
       <p class="title is-3">
         Si no sabes que buscar, puedes comenzar con este post aleatorio
       </p>
     `;
 
-    var appendString = '';
+    var appendString = "";
     var keys = Object.keys(window.store);
     var i = Math.floor(Math.random() * keys.length);
     var item = window.store[keys[i]];
@@ -117,7 +116,7 @@
         <br class="mobile-separator">
         <i class="fas fa-comments "aria-hidden="true"></i>
         <a
-          href="${item.url}#disqus_thread"
+					href="${item.url}#disqus_thread"
           data-disqus-identifier="${keys[i]}">
           Comentarios
         </a>
