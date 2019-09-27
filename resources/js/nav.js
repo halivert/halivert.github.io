@@ -15,3 +15,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 });
+
+const changeTheme = () => {
+  toggleClass(document.documentElement, "dark");
+  var themeSwitcher = document.getElementById("theme-switcher");
+  var firstSpan = themeSwitcher.getElementsByTagName("span")[0];
+	var icon = firstSpan.getElementsByTagName("i")[0];
+
+	if (hasClass(document.documentElement, "dark")) {
+		localStorage.removeItem("halivertsTheme");
+		removeClass(icon, "fa-moon");
+		addClass(icon, "fa-sun");
+		removeClass(themeSwitcher, "is-dark");
+		addClass(themeSwitcher, "is-warning");
+	} else {
+		localStorage.halivertsTheme = "light";
+		addClass(icon, "fa-moon");
+		removeClass(icon, "fa-sun");
+		addClass(themeSwitcher, "is-dark");
+		removeClass(themeSwitcher, "is-warning");
+	}
+
+	closeAllNavbars();
+};

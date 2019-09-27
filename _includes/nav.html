@@ -49,12 +49,22 @@
         </div>
       </form>
       {% endif %}
-      <a class="navbar-item" href="{{ site.url }}/feed.xml">
-        RSS&nbsp;
-        <span class="icon">
-          <i class="fas fa-rss" aria-hidden="true"></i>
-        </span>
-      </a>
-    </div>
-  </div>
+			<div class="navbar-item">
+				<button
+					id="theme-switcher"
+					class="button theme-switcher is-invisible"
+					onclick="changeTheme()">
+					<span class="icon">
+						<i class="fas" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+			<a class="navbar-item" href="{{ site.url }}/feed.xml">
+				RSS&nbsp;
+				<span class="icon">
+					<i class="fas fa-rss" aria-hidden="true"></i>
+				</span>
+			</a>
+		</div>
+	</div>
 </nav>
