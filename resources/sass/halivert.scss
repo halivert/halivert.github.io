@@ -10,17 +10,10 @@ $family-monospace: "IBM Plex Mono", monospace;
 $hr-background-color: $grey-lighter;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
-// $primary: #97FB98;
-// $secondary: #28E500;
-// $third: #1742CC;
-// $fourth: #00C0C0;
 
 @import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
 $addColors: (
   "purple": ($purple, findColorInvert($purple))
-  // "secondary":($secondary, findColorInvert($secondary)),
-  // "third":($third, findColorInvert($third)),
-  // "fourth":($fourth, findColorInvert($fourth)),
 );
 $colors: map-merge($colors, $addColors);
 
@@ -76,14 +69,6 @@ $brand-colors: (
 // @import "sass/grid/tiles.sass";
 
 @import "../../node_modules/bulma/sass/layout/_all";
-
-// main.content > p:first-of-type:first-letter {
-//   font-size: 4rem;
-//   float: left;
-//   line-height: 40px;
-//   padding: 5px 5px 0 5px;
-//   color: $primary;
-// }
 
 #cookie-notice {
   position: fixed;

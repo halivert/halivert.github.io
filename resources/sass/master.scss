@@ -61,7 +61,7 @@ code {
   padding-left: 0.5em;
   padding-right: 0.5em;
   border-radius: 0.5em;
-  border: #DAA520 solid;
+  border: $golden solid;
 }
 
 img.image-left {
@@ -94,7 +94,7 @@ img.image-right {
   color: $light-bis-invert;
   bottom: 0;
   width: 100%;
-  border-top-color: #BBB;
+  border-top-color: $grey-light;
   border-top-style: solid;
   border-width: 1px;
 }
