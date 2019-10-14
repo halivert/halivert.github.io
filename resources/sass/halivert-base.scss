@@ -270,18 +270,25 @@ $brand-colors: (
 img {
   display: block;
   margin: 0 auto;
-}
 
-img.image-left {
-  max-width: 300px;
-  margin-right: 15px;
-  margin-bottom: 10px;
-}
+  &.image-left {
+    max-width: 300px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
 
-img.image-right {
-  max-width: 300px;
-  margin-left: 15px;
-  margin-bottom: 10px;
+  &.image-right {
+    max-width: 300px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  &.avatar {
+    vertical-align: middle;
+    border-radius: 50% !important;
+    max-width: 300px;
+    min-width: 50px;
+  }
 }
 
 .anchor {
@@ -293,13 +300,6 @@ img.image-right {
 
 .katex-display {
   overflow-x: auto;
-}
-
-img.avatar {
-  vertical-align: middle;
-  border-radius: 50% !important;
-  max-width: 300px;
-  min-width: 50px;
 }
 
 .auto-margin {
