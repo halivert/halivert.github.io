@@ -18,9 +18,8 @@ Vue.js][1] es recomendable nombrar los componentes de manera homogénea y se
 sugiere que tengan un prefijo específico, por ejemplo `Base`, `App` o `V`, en
 mi caso nombro mis componentes base con el prefijo `H`.
 
-Creamos el archivo y añadimos la instancia de Vue.js, crearemos también un
-componente para «envolver» el select. `HField` que solo contiene información
-para el usuario.
+Creamos un componente para «envolver» el select. `HField` que solo contiene
+información para el usuario.
 
 {% gist b7d9ba492e87836298e1b03fbf41f26f HField.vue %}
 
