@@ -12,6 +12,13 @@
     {% assign file = site.static_files | where: "name", "fa.min.css" | first %}
     <link rel="stylesheet" href="{{ file.path }}">
 
+		<link
+			rel="stylesheet"
+			href="https://cdn.rawgit.com/lonekorean/gist-syntax-themes/b737b139/stylesheets/solarized-dark.css"
+			type="text/css"
+			media="all"
+		/>
+
     {% include unixtimestamp.html %}
     {% if site.data._authors[page.author] %}
       {% assign author = site.data._authors[page.author] %}
