@@ -12,14 +12,16 @@ layout: html
   <section class="column is-7 is-offset-1">
     <section class="content">
       <p>
-        Soy
+        {% assign birth = "07/11/1994" | date: "%s" %} Soy
         <a href="https://www.jw.org/es/testigos-de-jehová/">testigo de Jehová</a
-        >, tengo 24 años y estudio una ingeniería en sistemas computacionales.
+        >, tengo
+        {{ "now" | date: "%s" | minus: birth | divided_by: 31557600 }} años y
+        estudio una ingeniería en sistemas computacionales.
       </p>
       <p>
-				Me encanta resolver problemas y tengo una gran afición por las
-				matemáticas. En mis ratos libres también me gusta interpretar música y
-				leer.
+        Me encanta resolver problemas y tengo una gran afición por las
+        matemáticas. En mis ratos libres también me gusta interpretar música y
+        leer.
       </p>
       <p>
         Soy desarrollador de software, y me gusta trabajar en equipo.
@@ -36,12 +38,18 @@ layout: html
         También puedes enviarme un mensaje:
       </p>
       <p class="buttons">
-        <a class="button is-outlined is-large telegram" href="https://t.me/halivert">
+        <a
+          class="button is-outlined is-large telegram"
+          href="https://t.me/halivert"
+        >
           <span class="icon">
             <i class="fab fa-telegram" aria-hidden="true"></i>
           </span>
         </a>
-        <a class="button is-outlined is-large twitter" href="https://twitter.com/halivert">
+        <a
+          class="button is-outlined is-large twitter"
+          href="https://twitter.com/halivert"
+        >
           <span class="icon">
             <i class="fab fa-twitter" aria-hidden="true"></i>
           </span>
