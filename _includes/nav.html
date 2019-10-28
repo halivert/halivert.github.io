@@ -4,16 +4,26 @@
 >
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <img class="image" src="/img/halivert-logo.webp" alt="Logo de Halivert" />
+      <img
+        class="image halivert-logo"
+        src="/img/halivert-logo.webp"
+        alt="Logo de halivert"
+      />
     </a>
-    <button class="button navbar-burger is-primary" data-target="navMenu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <a
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navMenu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
-  <div class="navbar-menu is-primary" id="navMenu">
+  <div class="navbar-menu" id="navMenu">
     <div class="navbar-start">
       <a class="navbar-item" href="/">
         Acerca de mí
@@ -49,22 +59,23 @@
         </div>
       </form>
       {% endif %}
-			<div class="navbar-item">
-				<button
-					id="theme-switcher"
-					class="button theme-switcher is-invisible"
-					onclick="changeTheme()">
-					<span class="icon">
-						<i class="fas" aria-hidden="true"></i>
-					</span>
-				</button>
-			</div>
-			<a class="navbar-item" href="{{ site.url }}/feed.xml">
-				RSS&nbsp;
-				<span class="icon">
-					<i class="fas fa-rss" aria-hidden="true"></i>
-				</span>
-			</a>
-		</div>
-	</div>
+      <div class="navbar-item">
+        <button
+          id="theme-switcher"
+          class="button theme-switcher is-invisible"
+          onclick="changeTheme()"
+        >
+          <span class="icon">
+            <i class="fas" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+      <a class="navbar-item" href="{{ site.url }}/feed.xml">
+        RSS&nbsp;
+        <span class="icon">
+          <i class="fas fa-rss" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
+  </div>
 </nav>

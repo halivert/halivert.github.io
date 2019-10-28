@@ -9,7 +9,7 @@
     "css-build": "yarn compile-halivert-dark --output-style compressed && yarn compile-halivert --output-style compressed"
   },
   "dependencies": {
-    "@ibm/plex": "^2.0.0",
+    "@ibm/plex": "^3.0.0",
     "bulma": "^0.7.4"
   },
   "devDependencies": {
