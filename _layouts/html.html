@@ -3,14 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% assign file = site.static_files | where: "name", "solarized.css" | first %}
-    <link rel="stylesheet" href="{{ file.path }}">
-    {% assign file = site.static_files | where: "name", "halivert.css" | first %}
-    <link rel="stylesheet" href="{{ file.path }}">
-    {% assign file = site.static_files | where: "name", "halivert-dark.css" | first %}
-    <link rel="stylesheet" href="{{ file.path }}">
-    {% assign file = site.static_files | where: "name", "fa.min.css" | first %}
-    <link rel="stylesheet" href="{{ file.path }}">
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/solarized.css">
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert.css">
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert-dark.css">
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/fa.min.css">
 
 		<link
 			rel="stylesheet"
@@ -25,11 +21,9 @@
       <meta property="author_url" content="https://t.me/{{ author.tme }}">
     {% endif %}
 
-    {% assign file = site.static_files | where: "name", "master.js" | first %}
-    <script src="{{ file.path }}"></script>
+		<script src="{{ site.url }}/assets/js/master.js"></script>
     {% if page.searchbar %}
-      {% assign file = site.static_files | where: "name", "lunr.js" | first %}
-      <script src="{{ file.path }}"></script>
+			<script src="{{ site.url }}/assets/js/lunr.js"></script>
     {% endif %}
 
 		<title>{%
@@ -53,16 +47,15 @@
     {% endif %}
   </head>
   <body class="has-background-light has-navbar-fixed-top">
-    {% include nav.html %}
-    <div id="container">
-      <section id="main-container" class="section is-size-6
-        has-background-light">
-        {{ content }}
-      </section>
-    </div>
-    {% include footer.html %}
+		{% include nav.html %}
+		<div id="container">
+		  <section id="main-container" class="section is-size-6
+		    has-background-light">
+		    {{ content }}
+		  </section>
+		</div>
+		{% include footer.html %}
 
-    {% assign file = site.static_files | where: "name", "nav.js" | first %}
-    <script src="{{ file.path }}"></script>
-  </body>
+		<script src="{{ site.url }}/assets/js/nav.js"></script>
+	</body>
 </html>

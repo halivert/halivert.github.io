@@ -1,26 +1,20 @@
 {
   "scripts": {
-    "prod": "yarn css-build && yarn minify",
-    "minify": "babel resources/js/* -d js && yarn minify-lunr",
-    "minify-lunr": "babel --config-file=./.wo-presets.babelrc resources/js/lunr.js resources/js/master.js -d js",
-    "dev": "yarn compile-halivert && yarn compile-halivert-dark",
-    "compile-halivert": "node-sass --omit-source-map-url resources/sass/halivert.scss css/halivert.css",
-    "compile-halivert-dark": "node-sass --omit-source-map-url resources/sass/halivert-dark.scss css/halivert-dark.css",
-    "css-build": "yarn compile-halivert-dark --output-style compressed && yarn compile-halivert --output-style compressed"
+    "prod": "yarn minify",
+    "minify": "babel _resources/js/* -d assets/js && yarn minify-lunr",
+    "minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
   },
   "dependencies": {
     "@ibm/plex": "^3.0.0",
-    "bulma": "^0.7.4"
+    "bulma": "^0.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5",
-    "node-sass": "^4.12.0"
+    "@babel/preset-env": "^7.4.5"
   },
   "name": "halivert.github.io",
-  "version": "2.0.0",
-  "main": "index.js",
+  "version": "2.1.0",
   "author": "Halí V. <halivelazquez@outlook.com>",
   "license": "MIT"
 }
