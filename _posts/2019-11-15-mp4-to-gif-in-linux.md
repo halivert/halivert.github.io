@@ -1,0 +1,62 @@
+---
+author: "Halí"
+title: "Convertir MP4 a GIF en Linux"
+date: "2019-11-15 13:14"
+categories: ["Ya me pasó"]
+tags: ["Linux", "MP4", "GIF", "gif", "mp4", "ImageMagick", "FFmpeg"]
+truncatewords: 35
+---
+
+En este post vamos a aprender a convertir un MP4 a GIF con dos sencillos
+pasos.
+
+### Requisitos
+
+- [ImageMagick][]
+- [FFmpeg][]
+
+### Instrucciones
+
+<a class="anchor" name="Extra1Up"></a>
+Primero convertimos nuestro vídeo a imagenes. FFmpeg puede realizarlo con el
+siguiente comando: [*](#Extra1)
+
+```shell
+ffmpeg -i video.mp4 -vf fps=5 frames/%03d.png
+```
+
+Los fps determinan la velocidad de reproducción del gif, sugiero (5 ~ 6) para
+una reproducción similar a la del vídeo.
+
+Después pegamos los frames juntos para hacer un gif,
+
+```shell
+convert frames/* output.gif
+```
+
+<a class="anchor" name="Extra2Up"></a>
+Con eso tenemos listo nuestro gif, si te parece que es muy pesado, entonces
+puedes realizar el siguiente paso, optimizar el gif. [*](#Extra2)
+
+```shell
+convert output.gif -fuzz 1% -layers Optimize optimized.gif
+```
+
+### Extra
+
+<a class="anchor" name="Extra1"></a>
+[↑](#Extra1Up) Para la parte de los nombres: `%03d.png` debemos multiplicar
+los fps por la duración en segundos que dura el vídeo, así, sí es un vídeo de
+hasta 166 segundos (2 minutos y 46 segundos) y usas 6 fps, puedes utilizar el
+`%03d.png`, sin embargo si el vídeo es más grande, puede ser necesario cambiar
+los nombres por `%04d.png`, esto con el fin de que el ordenamiento sea
+adecuado.
+
+<a class="anchor" name="Extra2"></a>
+[↑](#Extra2Up) El porcentaje de 'fuzz' determina en parte la calidad de tu gif
+optimizado, es por eso que utilizo el 1%, notarás que aumentando este
+porcentaje, la calidad bajará.
+
+
+[imagemagick]: https://imagemagick.org
+[ffmpeg]: https://ffmpeg.org
