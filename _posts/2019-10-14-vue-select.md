@@ -2,13 +2,14 @@
 author: "Halí"
 title: "Select en Vue.js"
 date: "2019-10-14 08:45:11 -0500"
+lastmodification: "2019-11-16 00:37"
 categories: ["¡Código!", "Ya me pasó"]
 truncatewords: 58
 ---
 
-Si utilizas [Vue.js][] seguramente sabrás que hacer componentes genéricos es una
-de las mejores inversiones de tiempo. Escribes código una vez (en el mejor de
-los casos) y las siguientes solo lo reutilizas.
+Si utilizas [Vue.js][] seguramente sabrás que hacer componentes genéricos es
+una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor
+de los casos) y las siguientes solo lo reutilizas.
 
 Sin embargo crear un componente que funcione adecuadamente no siempre es
 sencillo, es por eso que escribo esta guía para hacer un select personalizado.
@@ -16,12 +17,13 @@ sencillo, es por eso que escribo esta guía para hacer un select personalizado.
 Lo primero que haremos es nombrar el componente. Según la [guía de estilo de
 Vue.js][1] es recomendable nombrar los componentes de manera homogénea y se
 sugiere que tengan un prefijo específico, por ejemplo `Base`, `App` o `V`, en
-mi caso nombro mis componentes base con el prefijo `H`.
+mi caso nombro mis componentes base con el prefijo `H` y `B` para los
+especificos del framework [Bulma][].
 
 Creamos un componente para «envolver» el select. `HField` que solo contiene
 información para el usuario.
 
-{% gist b7d9ba492e87836298e1b03fbf41f26f HField.vue %}
+{% gist b7d9ba492e87836298e1b03fbf41f26f %}
 
 Y ahora pasamos al select:
 
@@ -243,7 +245,7 @@ Sin más aquí está el código del componente, queda mucho trabajo por hacer,
 pero sin duda simplifica mucho el trabajo de hacer un select en Laravel con
 Vue.js.
 
-{% gist b7d9ba492e87836298e1b03fbf41f26f HSelect.vue %}
+{% gist b34c22aa06007ead9b05df857e7ad1b6 %}
 
 Este es un ejemplo de caso de uso.
 {%raw%}
@@ -271,6 +273,7 @@ Adiós 👋🏽
 [1]: https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended
 
 [vue.js]: https://vuejs.org
+[bulma]: https://bulma.io
 
 
 
