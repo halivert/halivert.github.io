@@ -5,13 +5,13 @@
     "minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
   },
   "dependencies": {
-    "@ibm/plex": "^3.0.0",
+    "@ibm/plex": "^4.0.2",
     "bulma": "^0.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.4",
-    "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7"
   },
   "name": "halivert.github.io",
   "version": "2.1.0",
