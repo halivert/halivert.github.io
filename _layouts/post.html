@@ -99,13 +99,7 @@ layout: html
     </div>
   </div>
 
-  {% if page.comments %}
-  <div class="columns is-hidden" id="comments">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-      <div class="box">
-        <div id="disqus_thread"></div>
-      </div>
-    </div>
-  </div>
-  {% endif %} {% include cookie-consent-post.html %}
+	{% if page.comments %}
+		{% include cookie-consent-post.html %}
+	{% endif %}
 </div>
