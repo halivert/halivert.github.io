@@ -18,6 +18,7 @@
 	const notice = document.getElementById("cookie-notice");
 	if (readCookie("halivert-cookie-notice-dismissed") === "true") {
 		destroyElement(notice);
+		showElement(document.getElementById("comments-container"));
 
 		(function() {
 			const comments = document.getElementById("comments");
