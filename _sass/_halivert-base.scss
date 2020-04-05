@@ -409,19 +409,22 @@ code {
 	margin-bottom: $size-7 / 2;
 }
 
-section.bc-content {
-	background: $background;
-}
+// Useless styles intended for telegram comments, but they are embedded in an
+// iframe so this stuff doesn't work.
 
-.bc-header {
-	color: $text;
-}
+// section.bc-content {
+// 	background: $background;
+// }
 
-.bc-comments-footer {
-	background: $background;
-}
+// .bc-header {
+// 	color: $text;
+// }
 
-.input.bc-comment-input {
-	background: $background;
-	border-color: $white-bis;
-}
+// .bc-comments-footer {
+// 	background: $background;
+// }
+
+// .input.bc-comment-input {
+// 	background: $background;
+// 	border-color: $white-bis;
+// }
