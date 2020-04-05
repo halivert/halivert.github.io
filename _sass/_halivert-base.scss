@@ -408,3 +408,20 @@ code {
 	display: inline-block;
 	margin-bottom: $size-7 / 2;
 }
+
+section.bc-content {
+	background: $background;
+}
+
+.bc-header {
+	color: $text;
+}
+
+.bc-comments-footer {
+	background: $background;
+}
+
+.input.bc-comment-input {
+	background: $background;
+	border-color: $white-bis;
+}
