@@ -1,12 +1,11 @@
 ---
-author: "Halí"
+author: halivert
 title: "Barra de búsqueda"
-date: 2019-01-29 10:38
-categories: ["Novedades", "¡Código!"]
-truncatewords: 46
-lastmodification: 2019-02-12 00:32
+date: "2019-01-29 10:38"
+category: "Novedades"
+tags: ["¡Código!"]
+lastmodification: "2019-02-12 00:32"
 hasinstantview: false
-
 ---
 
 #### Ahora hay una barra de búsqueda disponible en el blog
@@ -14,7 +13,7 @@ hasinstantview: false
 Llega a ustedes gracias a la biblioteca [lunr.js][1] que funciona para crear
 un índice de búsqueda en un sitio (estático en este caso) y que no necesita
 servidores externos, u otros servicios de búsqueda.
-
+<!--Seguir leyendo-->
 Para hacerlo utilicé estos dos tutoriales: [Jekyll search using lunr.js][2] y
 [Search with Lunr.js][3].
 

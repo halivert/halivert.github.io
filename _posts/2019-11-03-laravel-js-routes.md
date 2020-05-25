@@ -1,16 +1,15 @@
 ---
-author: "Halí"
+author: halivert
 title: "Cómo utilizar rutas de Laravel en JS"
 date: "2019-11-03 20:24"
-categories: [ "Ya me pasó", "¡Código!" ]
-tags: [ "Laravel", "JavaScript", "Vue.js", "JSON", "JS" ]
-truncatewords: 56
+category: "Ya me pasó"
+tags: ["Laravel", "JavaScript", "Vue.js", "JSON", "JS", "Código!"]
 ---
 
 Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
 si además empleamos [Laravel][], notaremos que incluye un módulo muy útil
 llamado Webpack Mix, que nos ayuda a preprocesar nuestros archivos JS.
-
+<!--Seguir leyendo-->
 Un problema surge cuando queremos acceder a las rutas que definimos en Laravel
 desde cualquier módulo de JS. Una de las soluciones más sencillas es exportar
 todas nuestras rutas a un JSON y después utilizar una función que tenga un
@@ -28,7 +27,7 @@ class CreateJSRoutesCommand extends Command
 {
     public function handle()
     {
-      /* 
+      /*
        * Cuando llamamos a nuestro comando, esto se ejecuta primero.
        */
     }
@@ -37,14 +36,14 @@ class CreateJSRoutesCommand extends Command
     {
       /*
        * Crea un archivo con el nombre de $fileName y como contenido
-       * $contents, además pregunta si deseas sobreescribir el 
+       * $contents, además pregunta si deseas sobreescribir el
        * archivo en caso de que exista uno con el mismo nombre.
        */
     }
 
     private function includeRoute($value, $routeName)
     {
-      /* 
+      /*
        * Función que determina si una ruta debe incluirse o no en nuestro
        * JSON, por defecto (y por ahora), omite las rutas de "telescope".
        */

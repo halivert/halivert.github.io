@@ -1,20 +1,20 @@
 {
-  "scripts": {
-    "prod": "yarn minify",
-    "minify": "babel _resources/js/* -d assets/js && yarn minify-lunr",
-    "minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
-  },
-  "dependencies": {
-    "@ibm/plex": "^4.0.2",
-    "bulma": "^0.8.1"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.0"
-  },
-  "name": "halivert.github.io",
-  "version": "2.1.0",
-  "author": "Halí V. <halivelazquez@outlook.com>",
-  "license": "MIT"
+	"scripts": {
+		"prod": "yarn minify",
+		"minify": "babel _resources/js/* -d assets/js && yarn minify-lunr",
+		"minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
+	},
+	"dependencies": {
+		"@ibm/plex": "^4.0.2",
+		"bulma": "^0.8.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.9.6",
+		"@babel/preset-env": "^7.9.6"
+	},
+	"name": "halivert.github.io",
+	"version": "2.1.0",
+	"author": "Halí V. <halivelazquez@outlook.com>",
+	"license": "MIT"
 }

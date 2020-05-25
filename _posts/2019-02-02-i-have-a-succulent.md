@@ -1,10 +1,9 @@
 ---
-author: "Halí"
+author: halivert
 title: "Tengo una suculenta"
-date: 2019-02-02 22:48
-categories: ["Divagando"]
-truncatewords: 14
-image: /img/2019-02-02-tengo-una-suculenta/20190201.jpg
+date: "2019-02-02 22:48"
+category: "Divagando"
+image: "/img/2019-02-02-tengo-una-suculenta/20190201.jpg"
 imagealt: "Mi suculenta llamada 'Julieta'"
 ---
 
@@ -13,7 +12,7 @@ oriunda de Tamaulipas, México.
 
 La obtuve como un regalo, y es curioso que antes me habían regalado una similar
 también, solo que entendí mal los cuidados que debía darle.
-
+<!--Seguir leyendo-->
 <article>
 <img
   class="image is-hidden-tablet"

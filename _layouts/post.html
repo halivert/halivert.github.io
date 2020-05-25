@@ -3,110 +3,95 @@ layout: html
 ---
 
 <div class="container-fluid">
-	{% if site.data._authors[page.author] %}
-		{% assign author = site.data._authors[page.author] %}
-	{% endif %}
-	<div class="columns">
-		<div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-			<div class="columns is-vcentered is-gapless">
-				{% if page.image %}
-					<div class="column is-hidden-tablet">
-						<img
-							id="page-cover"
-							src="{{ page.image }}"
-							alt="{{ page.imagealt }}"
-							class="image"
-							style="margin-bottom: 0.5em;"
-							/>
-					</div>
-				{% endif %}
-				<header class="column">
-					<h1 class="title is-size-1 has-text-primary">
-						{{ page.title }}
-					</h1>
-					<p class="">
-					{% if author.user %}
-						<i>por</i> {{ author.user }} - {% endif %} {% if page.date %}
-						<i>publicado:</i>
-						{% include date-spanish-abbr.html item=page.date %} {% endif %}
-				</p>
-				<p>
-				{% if page.lastmodification %}
-					<i>última modificación:</i>
-					{% include date-spanish-abbr.html item=page.lastmodification %}
-				{% endif %}
-				</p>
-				</header>
-				{% if page.image %}
-					<div class="column has-text-right is-hidden-mobile">
-						<img
-							id="page-cover"
-							src="{{ page.image }}"
-							style="max-height:
-										 200px; max-width: 200px;"
-							alt="{{ page.imagealt }}"
-							/>
-					</div>
-				{% endif %}
-			</div>
-			<hr />
-			<main
-				id="content"
-				class="container-fluid is-size-5
-							 has-text-justified content"
-				>
-				{{ content }}
-			</main>
-		</div>
-	</div>
-{% if author.picture %} {% assign pict = author.picture %} {% else %} {%
-		assign pict = '/img/anon.png' %} {% endif %} {% if author.fullname %} {%
-	assign authName = author.fullname %} {% else %} {% assign authName = 'Anon' %}
-	{% endif %} {% if author.description %} {% assign desc = author.description %}
-	{% endif %} {% if author.social %} {% assign social = author.social %} {%
-		endif %}
+	{% assign author = site.data.authors[page.author] %}
 
-		<div class="columns">
-			<div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-				<nav
-					class="pagination is-centered is-size-6"
-					role="navigation"
-					aria-label="pagination"
-					>
-					{% if page.previous.url %}
-						<a
-							href="{{ page.previous.url }}"
-							class="pagination-previous
-										 button is-primary is-rounded"
-							>Anterior</a
-						>
-					{% else %}
-						<a class="pagination-previous button is-rounded" disabled>
-							Anterior
-						</a>
-						{% endif %} {% if page.next.url %}
-							<a
-								href="{{ page.next.url }}"
-								class="pagination-next button
-											 is-primary is-rounded"
-								>Siguiente</a
-							>
-						{% else %}
-							<a class="pagination-next button is-rounded" disabled>
-								Siguiente
-							</a>
-							{% endif %}
-				</nav>
-			</div>
-		</div>
+  <div class="columns">
+    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+      <div class="columns is-vcentered is-gapless">
+        {% if page.image %}
+          <div class="column is-hidden-tablet">
+            <img
+              id="page-cover"
+              src="{{ page.image }}"
+              alt="{{ page.imagealt }}"
+              class="image"
+              style="margin-bottom: 0.5em;"
+            />
+          </div>
+        {% endif %}
+        <header class="column">
+          <h1 class="title is-size-1 has-text-primary">
+            {{ page.title }}
+          </h1>
+          <p>
+          {% if author.name %}
+						<i>por</i>
+						<a href="/authors/{{ page.author }}">{{
+							author.name | append: " " | append: author.lastName
+						}}</a>
+						-
+          {% endif %}
+          {% if page.date %}
+            <i>publicado:</i>
+            {% include date-spanish-abbr.html item=page.date %}
+          {% endif %}
+          </p>
+          <p>
+          {% if page.lastmodification %}
+            <i>última modificación:</i>
+						{% include date-spanish-abbr.html item=page.lastmodification %}
+					{% endif %}
+          </p>
+        </header>
+        {% if page.image %}
+          <div class="column has-text-right is-hidden-mobile">
+            <img
+              id="page-cover"
+              src="{{ page.image }}"
+              style="max-height: 200px; max-width: 200px;"
+              alt="{{ page.imagealt }}"
+            />
+          </div>
+        {% endif %}
+      </div>
+      <hr />
+      <main
+        id="content"
+        class="container-fluid is-size-5 has-text-justified content"
+      >
+        {{ content }}
+      </main>
+    </div>
+  </div>
 
-		{% if page.comments %}
-			<div class="columns is-hidden" id="comments-container">
-				<div
-					class="column is-8-desktop is-11-tablet is-offset-1-desktop"
-					id="comments">
-				</div>
-			</div>
-			{% include cookie-consent-post.html %}
-		{% endif %}
+  <div class="columns">
+    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+      <nav
+        class="pagination is-centered is-size-6"
+        role="navigation"
+        aria-label="pagination"
+      >
+        {% if page.previous.url %}
+          <a
+            href="{{ page.previous.url }}"
+            class="pagination-previous button is-primary is-rounded"
+            >Anterior</a
+          >
+        {% else %}
+          <a class="pagination-previous button is-rounded" disabled
+             >Anterior</a
+          >
+        {% endif %}
+        {% if page.next.url %}
+          <a
+            href="{{ page.next.url }}"
+            class="pagination-next button is-primary is-rounded"
+            >Siguiente</a
+          >
+        {% else %}
+          <a class="pagination-next button is-rounded" disabled>Siguiente</a>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
 </div>

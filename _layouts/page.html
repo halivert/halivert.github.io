@@ -7,14 +7,14 @@ layout: html
     {{ page.title }}
   </h1>
   <h2 class="subtitle is-6">
-  por
-  {% if site.data._authors[page.author] %}
-  {{ site.data._authors[page.author].fullname }}
-  {% elsif page.author %}
-  {{ page.author }}
-  {% else %}
-  {{ "Anon" }}
-  {% endif %}
+    por
+    {% if site.data._authors[page.author] %}
+      {{ site.data._authors[page.author].fullname }}
+    {% elsif page.author %}
+      {{ page.author }}
+    {% else %}
+      {{ "Anon" }}
+    {% endif %}
   </h2>
 </div>
 <hr>

@@ -1,29 +1,42 @@
 ---
-author: Halí
-title: 'Remedando a alguien'
-date: 2018-03-12 22:59:42 -0600
-truncatewords: 42
-categories: ['Divagando']
+author: halivert
+title: "Remedando a alguien"
+date: 2018-03-12 22:59:42
+category: "Divagando"
 ---
 
-En este post traigo para ustedes una herramienta muy útil (no muy útil, la verdad) que sirve para cuando intentan
-remedar a alguien... o sea imitarlo o imitarla y agregar un toque de ridículo a su comentario.
+En este post traigo para ustedes una herramienta muy útil (no muy útil, la
+verdad) que sirve para cuando intentan remedar a alguien... o sea imitarlo o
+imitarla y agregar un toque de ridículo a su comentario.
+
+<!--Seguir leyendo-->
+
 (Cambia las vocales por "i").
 
-Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y listo.
+Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y
+listo.
 
 <div class="field columns">
   <div class="column">
     <div class="control">
-      <textarea class="textarea" id="textoOriginal" placeholder="Texto original"></textarea>
+      <textarea
+        class="textarea"
+        id="textoOriginal"
+        placeholder="Texto original"></textarea
+      >
     </div>
   </div>
   <div class="column">
     <div class="control">
-      <textarea class="textarea" id="textoConvertido" placeholder="Burla"></textarea>
+    <textarea
+      class="textarea"
+      id="textoConvertido"
+      placeholder="Burla"></textarea
+    >
     </div>
   </div>
 </div>
+
 <script type="text/javascript">
   let originalTextArea = document.getElementById('textoOriginal');
   let newTextArea = document.getElementById('textoConvertido');

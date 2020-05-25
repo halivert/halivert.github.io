@@ -4,6 +4,7 @@
  * @license MIT
  */
 
+// document.addEventListener("turbolinks:load", function() {
 ;(function(){
 
 /**

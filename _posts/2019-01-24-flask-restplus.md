@@ -1,9 +1,9 @@
 ---
-author: Halí
+author: halivert
 title: "Flask RESTPlus"
-date: 2019-01-24 00:31
-categories: ["¡Código!", "Ya me pasó"]
-truncatewords: 48
+date: "2019-01-24 00:31"
+category: "Ya me pasó"
+tags: ["¡Código!"]
 ---
 
 Si ya tienes el entorno listo para alojar una aplicación web escrita en Python
@@ -12,7 +12,7 @@ escribir dicha aplicación.
 
 Desde hace un tiempo, me volví aficionado a crear APIs, así que les mostraré
 cómo hacer una en Python.
-
+<!--Seguir leyendo-->
 ### Prerrequisitos
 - [Python][2] (Usé Python 3.7)
 - WSGI para Apache

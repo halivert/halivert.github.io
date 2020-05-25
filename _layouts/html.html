@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="es" class="dark">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="{{ site.url }}/assets/css/solarized.css">
-		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert.css">
-		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert-dark.css">
-		<link rel="stylesheet" href="{{ site.url }}/assets/css/fa.min.css">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/solarized.css" />
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert.css" />
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/halivert-dark.css" />
+		<link rel="stylesheet" href="{{ site.url }}/assets/css/fa.min.css" />
 
 		<link
 			rel="stylesheet"
@@ -15,49 +18,48 @@
 			media="all"
 		/>
 
-    {% include unixtimestamp.html %}
-    {% if site.data._authors[page.author] %}
-      {% assign author = site.data._authors[page.author] %}
-      <meta property="author_url" content="https://t.me/{{ author.tme }}">
-    {% endif %}
+		{% include unixtimestamp.html %}
+		{% if site.data._authors[page.author] %}
+			{% assign author = site.data._authors[page.author] %}
+			<meta property="author_url" content="https://t.me/{{ author.tme }}" />
+		{% endif %}
 
-		<meta name="telegram:channel" content="@halivertblog">
+		<meta name="telegram:channel" content="@halivertblog" />
 
 		<script src="{{ site.url }}/assets/js/master.js"></script>
-    {% if page.searchbar %}
+		{% if page.searchbar %}
 			<script src="{{ site.url }}/assets/js/lunr.js"></script>
-    {% endif %}
+		{% endif %}
+		<script src="https://unpkg.com/turbolinks"></script>
 
-		<title>{%
-			if paginator
-				%}Página {{ paginator.page }} de {{ paginator.total_pages }} de {%
-			endif
-			%}{%
-			if page.title
-				%}{{ page.title }} | {{ site.title }}{%
-			else
-				%}{{ site.title }} | {{ site.description }}{%
-			endif
-		%}</title>
+		<title>
+			{% if paginator %}
+				Página {{ paginator.page }} de {{ paginator.total_pages }} de
+			{% endif %}
 
-    {% seo title=false %}
+			{% if page.title %}
+				{{ page.title }} | {{ site.title }}
+			{% else %}
+				{{ site.title }} | {{ site.description }}
+			{% endif %}
+		</title>
 
-    {% if page.hasmath %}
-      {% include katex.html %}
-    {% elsif page.hasinstantview %}
-      <meta property="has_instant_view">
-    {% endif %}
-  </head>
-  <body class="has-background-light has-navbar-fixed-top">
+		{% seo title=false %}
+		{% if page.hasmath %}
+			{% include katex.html %}
+		{% elsif page.hasinstantview %}
+			<meta property="has_instant_view" />
+		{% endif %}
+	</head>
+
+	<body class="has-background-light">
 		{% include nav.html %}
-		<div id="container">
-		  <section id="main-container" class="section is-size-6
-		    has-background-light">
-		    {{ content }}
-		  </section>
-		</div>
-		{% include footer.html %}
 
+		<section id="main-container" class="section is-size-6 has-background-light">
+			{{ content }}
+		</section>
+
+		{% include footer.html %}
 		<script src="{{ site.url }}/assets/js/nav.js"></script>
 	</body>
 </html>

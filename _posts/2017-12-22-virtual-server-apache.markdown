@@ -1,10 +1,8 @@
 ---
-title: Hacer un vhost en Apache
-layout: post
-categories: ["Ya me pasó"]
-date: '2017-12-22 14:20 -0600'
-author: Halí
-truncatewords: 44
+title: "Hacer un vhost en Apache"
+category: "Ya me pasó"
+date: 2017-12-22 14:20
+author: halivert
 ---
 
 Un vhost o servidor virtual es útil cuando desarrollamos un sitio web y
@@ -12,19 +10,23 @@ necesitamos probarlo en nuestra computadora, podemos simular el entorno al
 que va a estar expuesto y será más fácil detectar problemas.
 
 En este post explicaré como hacer uno en Apache Linux
-
+<!--Seguir leyendo-->
 Requisitos:
+
 - [httpd](http://httpd.apache.org)
 - Un editor de texto
 
 Probablemente necesitaremos permisos de superusuario para editar los siguientes
 archivos, podemos hacerlo con el comando
+
 ```
 $ sudoedit [ruta del archivo]
 ```
+
 \\
 Comenzaremos editando el archivo **httpd-vhosts.conf** \\
-(En mi caso se encuentra en */etc/httpd/conf/extra/httpd-vhosts.conf*)
+(En mi caso se encuentra en _/etc/httpd/conf/extra/httpd-vhosts.conf_)
+
 ```conf
 # httpd-vhosts.conf
 <VirtualHost *:80>
@@ -44,26 +46,32 @@ Comenzaremos editando el archivo **httpd-vhosts.conf** \\
     CustomLog "[Bitácora de peticiones]" common
 </VirtualHost>
 ```
+
 \\
-Crearemos una etiqueta *VirtualHost \*.80* para cada servidor virtual que utilicemos.
-Las opciones en la etiqueta de directory sirven para poder usar un framework como 
-[Laravel](https://laravel.com) y también para poder utilizar un archivo *.htaccess*.
+Crearemos una etiqueta _VirtualHost \*.80_ para cada servidor virtual que
+utilicemos.
+Las opciones en la etiqueta de directory sirven para poder usar un framework
+como [Laravel](https://laravel.com) y también para poder utilizar un archivo
+_.htaccess_.
 
 El siguiente paso es editar el archivo **hosts** \\
-(Generalmente se encuentra en */etc/hosts*)
+(Generalmente se encuentra en _/etc/hosts_)
+
 ```conf
 # hosts
 127.0.0.1 [Url del sitio]
 ```
+
 \\
-Agregaremos una línea como la anterior para cada servidor virtual que hayamos agregado 
-en el archivo *httpd-vhosts.conf*
+Agregaremos una línea como la anterior para cada servidor virtual que hayamos
+agregado en el archivo _httpd-vhosts.conf_
 
 Para la url se recomienda utilizar dominios como:
-- .test 
+
+- .test
 - .example
 - .invalid
 - .localhost
 
-Por último tenemos que reiniciar nuestro servicio de apache y listo, ahora ya podemos 
-acceder a nuestro servidor virtual desde nuestro navegador.
+Por último tenemos que reiniciar nuestro servicio de apache y listo, ahora ya
+podemos acceder a nuestro servidor virtual desde nuestro navegador.

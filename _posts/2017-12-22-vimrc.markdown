@@ -1,22 +1,27 @@
 ---
-title: Vimrc
-author: Halí
-lastmodification: 2018-09-21 02:02 -05:00
-categories: ["¡Código!"]
-date: 2017-12-23 00:45 -0600
-truncatewords: 70
+title: "Vimrc"
+author: halivert
+category: "¡Código!"
+date: 2017-12-23 00:45
+lastmodification: 2018-09-21 02:02
 ---
 
-**Vim** editor de texto que muchos odian y otros aman, pero que igual es bastante útil.
+**Vim** editor de texto que muchos odian y otros aman, pero que igual es
+bastante útil.
 
 Si quieres dar tus primeros pasos en Vim y te da miedo, solo escribe
+
 ```shell
 vimtutor
 ```
+
 \\
-y te llevará a una guía interactiva donde aprenderás los comandos básicos, en cualquier caso,
-para hacer la experiencia "menos" traumática he decidido compartir el archivo de configuración
-que yo utilizo y les explicaré unas cuantas líneas:
+y te llevará a una guía interactiva donde aprenderás los comandos básicos, en
+cualquier caso, para hacer la experiencia "menos" traumática he decidido
+compartir el archivo de configuración que yo utilizo y les explicaré unas
+cuantas líneas:
+
+<!--Seguir leyendo-->
 
 ```viml
 set nocompatible
@@ -46,6 +51,7 @@ set hlsearch
 nnoremap Q <nop>
 " No opriman (shift + q) si no tienen esta línea en su .vimrc
 ```
+
 \\
 Las demás líneas son para algunos plugins, dejaré que eso se los explique
 este otro post, que me ha resultado muy útil.
@@ -60,5 +66,6 @@ Ah, y por cierto, no olviden el comando para salir:
 ```viml
 :q!
 ```
+
 \\
 pst... tienen que oprimir la tecla **Esc** primero.

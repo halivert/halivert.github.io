@@ -1,15 +1,14 @@
 ---
-author: "Hali"
+author: halivert
 title: "Atajos para Telegram Desktop"
 date: "2020-04-04 12:30 -0600"
-categories: ["Divagando", "MySpace"]
-truncatewords: 32
+category: "Divagando"
 ---
 
 [Telegram][], seguramente habrás escuchado hablar de esta aplicación de
 mensajería instantánea, y en este post no me concentraré en porqué es mejor que
 otras aplicaciones, sino en porque me gusta utilizarla.
-
+<!--Seguir leyendo-->
 Una de las características que me resulta sumamente útil es que cuenta con una
 aplicación de escritorio la cual es muy fácil de usar y puedes descargar del
 sitio oficial.

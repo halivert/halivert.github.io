@@ -1,10 +1,10 @@
 ---
-author: "Halí"
+author: halivert
 title: "Laravel en Linux Pt. 1"
-date: 2019-07-09 07:36
-lastmodification: 2019-07-22 22:41
-categories: ["¡Código!", "Ya me pasó"]
-truncatewords: 19
+date: "2019-07-09 07:36"
+lastmodification: "2019-07-22 22:41"
+category: "Ya me pasó"
+tags: ["¡Código!"]
 ---
 
 En esta ocasión vamos a ver por que y como instalar el framework [Laravel][1]
@@ -13,7 +13,7 @@ en un entorno Linux.
 ### Introducción
 Laravel es un framework escrito en [PHP][3]. Según la página oficial, está
 escrito para _«Web artisans»_.
-
+<!--Seguir leyendo-->
 ¿Por qué Laravel?
 - Puedes alcanzar velocidades de desarrollo bastante altas.
 - Está escrito en PHP, así que muchos servidores lo soportan.

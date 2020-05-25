@@ -1,17 +1,13 @@
 <div class="content has-text-justified">
-  {% assign postwords = post.content | number_of_words %}
-  {% if post.truncatewords > 0 %}
-    <p>
-      {{ post.content | truncatewords: post.truncatewords }}
-    </p>
-    {% if postwords > post.truncatewords %}
-      <a class="subtitle is-5 has-text-link" href="{{ post.url }}">
-        Seguir leyendo
-      </a>
-    {% endif %}
-  {% else  %}
-    <p>
-      {{ post.content }}
-    </p>
+  {% assign postWords = post.content | number_of_words %}
+  {% assign excerptWords = post.excerpt | number_of_words %}
+
+	<p>{{ post.excerpt }}</p>
+  {% if postWords > excerptWords %}
+		<p>&#8230;</p>
+
+    <a class="subtitle is-5 has-text-link" href="{{ post.url }}">
+      Seguir leyendo
+    </a>
   {% endif %}
 </div>

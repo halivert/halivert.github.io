@@ -1,24 +1,30 @@
 ---
-author: Halí
-layout: post
-comments: true
+author: halivert
 title: "Comentarios en el sitio"
-date: 2018-10-25 09:48 -05:00
-lastmodification: 2018-10-26 00:28:09 -0500
-truncatewords: 9
-categories: ["Novedades"]
-hasinstantview: false
-
+date: 2018-10-25 09:48
+lastmodification: 2020-05-25 00:33
+category: "Novedades"
 ---
 
 #### **¡Ya se pueden realizar comentarios en este sitio!**
 
+###### Actualización
+Ahora los comentarios se han mudado a Telegram y estoy tratando de unificarlos
+para que sean iguales en el sitio y en el [canal][1], si sabes cómo hacerlo, te
+agradeceré mucho que me envíes un [mensaje][2]. 
+<!--Seguir leyendo-->
+
+###### Lo siguiente está desactualizado...
 Esto se logró gracias a [Disqus](https://disqus.com).
-De ahora en adelante encontrarás una sección de comentarios hasta abajo de cualquier post.
+De ahora en adelante encontrarás una sección de comentarios hasta abajo de
+cualquier post.
 
 Puedes iniciar sesión con Disqus, Facebook, Twitter o Google.
 
-Espero que todos podamos aprender de esto, puedes plasmar cualquier duda, aclaración, o mejora que tengas en mente,
-gracias por leerme y hasta pronto 👋🏽
+Espero que todos podamos aprender de esto, puedes plasmar cualquier duda,
+aclaración, o mejora que tengas en mente, gracias por leerme y hasta pronto 👋🏽
 
 P.D. si quieres que active las reacciones avísame.
+
+[1]: https://t.me/halivertsblog
+[2]: https://t.me/halivert

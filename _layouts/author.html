@@ -2,15 +2,18 @@
 layout: html
 ---
 
+{% assign author = site.data._authors[page.author] %}
+
 <div class="container-fluid">
   <div class="has-text-centered">
-    <h3 class="title is-size-1">{{ page.category }}</h3>
+    <h3 class="title is-size-1">{{ author.fullname }}</h3>
     <div class="is-size-5">
-      {{ content }}
+      {{ author.description }}
     </div>
     <hr>
   </div>
   <div class="columns">
+    <!--
     <div class="column is-9">
       {% assign category = page.category %}
       {% for post in site.categories[category] %}
@@ -28,5 +31,6 @@ layout: html
     <div class="column">
       {% include sidebar.html %}
     </div>
+    -->
   </div>
 </div>

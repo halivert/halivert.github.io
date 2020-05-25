@@ -1,10 +1,9 @@
 ---
-author: Halí
+author: halivert
 title: "Random thoughts: Ep. 1"
-date: 2018-11-27 17:16
-truncatewords: 27
-categories: ["Divagando"]
-image: /img/2018-11-27-random-thoughts/random-thoughts-title.gif
+date: "2018-11-27 17:16"
+category: "Divagando"
+image: "/img/2018-11-27-random-thoughts/random-thoughts-title.gif"
 ---
 
 La Internet es muy poderosa, y además increíblemente vasta; yo por mi
@@ -12,15 +11,15 @@ parte consumo bastante contenido de esta bonita red y quiero contar un
 poco de eso.
 
 ## [YouTube][1]
-Hace como... bastante tiempo (la verdad es que soy muy malo calculando
-cuanto tiempo ha pasado desde cierto evento) comenzé a seguir algunos
-canales que me parecieron interesantes, el primero que recuerdo fue
-[El robot de platón][2] que es un canal que trata temas de ciencia de
-una manera sencilla y además está en español, también canales en inglés
-(no sé realmente por qué si nunca he sido fluido en ese idioma, y en ese
-entonces menos, pero igual los seguí) como [Vsauce][3], la cosa es que
-hacía mucho tiempo que no frecuentaba estos vídeos y tiempo después,
-hace pocas semanas, decidí volver a consumir dicho contenido.
+Hace como... bastante tiempo (la verdad es que soy muy malo calculando cuanto
+tiempo ha pasado desde cierto evento)<!--Seguir leyendo-->comenzé a seguir
+algunos canales que me parecieron interesantes, el primero que recuerdo fue [El
+robot de platón][2] que es un canal que trata temas de ciencia de una manera
+sencilla y además está en español, también canales en inglés (no sé realmente
+por qué si nunca he sido fluido en ese idioma, y en ese entonces menos, pero
+igual los seguí) como [Vsauce][3], la cosa es que hacía mucho tiempo que no
+frecuentaba estos vídeos y tiempo después, hace pocas semanas, decidí volver a
+consumir dicho contenido.
 
 Lo interesante de estos "youtubers" es que no son los típicos
 creadores de click-baits que tienen millones de suscriptores y views

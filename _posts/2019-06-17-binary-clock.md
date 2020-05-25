@@ -1,9 +1,8 @@
 ---
-author: "Halí"
+author: halivert
 title: "Reloj binario"
 date: "2019-06-17 10:39"
-categories: [ "Divagando" ]
-truncatewords: 20
+category: "Divagando"
 image: "/img/2019-06-17-reloj-binario/binary-clock.png"
 imagealt: "Reloj binario que marca las 23:53:49"
 ---
@@ -12,6 +11,7 @@ En este post les comparto un tip para practicar la lectura de números
 binarios.
 
 ### «La práctica hace al maestro»
+<!--Seguir leyendo-->
 Seguramente habrás notado que cuando utilizas cierta habilidad de manera
 cotidiana te cuesta menos trabajo cada vez.
 

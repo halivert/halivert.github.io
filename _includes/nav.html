@@ -1,81 +1,79 @@
-<nav
-  class="navbar is-primary is-size-6 is-fixed-top"
-  aria-label="main navigation"
->
-  <div class="navbar-brand">
-    <a class="navbar-item" href="/">
-      <img
-        class="image halivert-logo"
-        src="/img/halivert-logo.webp"
-        alt="Logo de halivert"
-      />
-    </a>
-    <a
-      role="button"
-      class="navbar-burger"
-      aria-label="menu"
-      aria-expanded="false"
-      data-target="navMenu"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="/">
+			<img src="/img/halivert-logo.webp" alt="Logo de halivert" />
+		</a>
+
+		<a
+			role="button"
+			class="navbar-burger"
+			aria-label="menu"
+			aria-expanded="false"
+			data-target="navMenu"
+		>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+			<span aria-hidden="true"></span>
+		</a>
+	</div>
 
   <div class="navbar-menu" id="navMenu">
-    <div class="navbar-start">
-      <a class="navbar-item" href="/">
-        Acerca de mí
-      </a>
-      <a class="navbar-item" href="/blog/">
-        Blog
-      </a>
-      <a class="navbar-item" href="/skills">
-        Habilidades
-      </a>
-      <a class="navbar-item" href="/now">
-        Ahora
-      </a>
-    </div>
-    <div class="navbar-end">
-      {% if page.searchbar %}
-      <form class="navbar-item" action="/blog/busqueda" method="get">
-        <div class="field has-addons">
-          <div class="control">
-            <input
-              class="input"
-              type="text"
-              id="search-box"
-              placeholder="Buscar..."
-              name="consulta"
-            />
-          </div>
-          <div class="control">
-            <button class="button" type="submit">
-              <i class="fas fa-search" aria-hidden="true"></i>
-            </button>
-          </div>
-        </div>
-      </form>
-      {% endif %}
-      <div class="navbar-item">
+		<div class="navbar-start">
+			<a class="navbar-item" href="/">
+				Acerca de mí
+			</a>
+			<a class="navbar-item" href="/blog/">
+				Blog
+			</a>
+			<a class="navbar-item" href="/skills">
+				Habilidades
+			</a>
+			<a class="navbar-item" href="/now">
+				Ahora
+			</a>
+		</div>
+
+		<div class="navbar-end">
+			{% if page.searchbar %}
+				<form class="navbar-item" action="/blog/busqueda">
+					<div class="field has-addons">
+						<div class="control">
+							<input
+								class="input is-small"
+								type="text"
+								id="search-box"
+								placeholder="Buscar..."
+								name="consulta"
+                data-turbolinks-permanent
+							/>
+						</div>
+						<div class="control">
+							<button class="button is-small" type="submit">
+								<i class="fas fa-search" aria-hidden="true"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			{% endif %}
+			<div class="navbar-item">
         <button
           id="theme-switcher"
-          class="button theme-switcher is-invisible"
+          class="button is-small theme-switcher is-invisible"
           onclick="changeTheme()"
-        >
-          <span class="icon">
-            <i class="fas" aria-hidden="true"></i>
-          </span>
-        </button>
-      </div>
-      <a class="navbar-item" href="{{ site.url }}/feed.xml">
-        RSS&nbsp;
-        <span class="icon">
-          <i class="fas fa-rss" aria-hidden="true"></i>
-        </span>
-      </a>
-    </div>
-  </div>
+          data-turbolinks-permanent
+				>
+					<span class="icon">
+						<i class="fas" aria-hidden="true"></i>
+					</span>
+				</button>
+			</div>
+
+			<a class="navbar-item" href="{{ site.url }}/feed.xml">
+				RSS&nbsp;
+				<span class="icon">
+					<i class="fas fa-rss" aria-hidden="true"></i>
+				</span>
+			</a>
+		</div>
+	</div>
 </nav>

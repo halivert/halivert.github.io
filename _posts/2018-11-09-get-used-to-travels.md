@@ -1,18 +1,20 @@
 ---
-author: Halí
-layout: post
+author: halivert
 title: "Acostumbrarse (viaje)"
-date: 2018-11-09 01:09:03 -0600
-truncatewords: 13
-categories: ["Divagando"]
+date: "2018-11-09 01:09:03 -0600"
+category: "Divagando"
 ---
 
-Que rápido es acostumbrarse a algo... y no lo digo a la ligera, según un [estudio][1] encabezado por la doctora
-Phillipa Lally en la _University College_ de Londres, el promedio de tiempo que toma automatizar un hábito es de
-**66 días**, aunque varía entre 18 a 254 días... pero bueno, incluso en el peor caso, los 254 días... resulta un
-número muy pequeño comparado con la esperanza de vida de una persona al nacer que, según los [Índices e indicadores
-de desarrollo humano][2] fue de **72.2 años** para el 2017, así que haciendo un poco de matemáticas... necesitamos
-por mucho un 0.96%, y en promedio un 0.25% de nuestra vida para formar un hábito, para automatizar algo.<br>
+Que rápido es acostumbrarse a algo... y no lo digo a la ligera, según un
+[estudio][1] encabezado por la doctora Phillipa Lally en la _University College_
+de Londres, el promedio de tiempo que toma automatizar un hábito es de **66
+días**<!--Seguir leyendo-->, aunque varía entre 18 a 254 días... pero bueno,
+incluso en el peor caso, los 254 días... resulta un número muy pequeño comparado
+con la esperanza de vida de una persona al nacer que, según los [Índices e
+indicadores de desarrollo humano][2] fue de **72.2 años** para el 2017, así que
+haciendo un poco de matemáticas... necesitamos por mucho un 0.96%, y en promedio
+un 0.25% de nuestra vida para formar un hábito, para automatizar algo.
+<br>
 <small><i>Nota: Cursar la primaria es el 8.3% de una vida.</i></small>
 
 ### Vamonos de viaje

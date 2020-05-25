@@ -26,18 +26,24 @@ defaults:
       layout: "post"
       author: "Anonymous"
       permalink: "/blog/:year/:month/:title/"
-      truncatewords: 60
+      excerpt_separator: <!--Seguir leyendo-->
       comments: true
       lang: "es_MX"
       hasmath: false
       hasinstantview: true
       imagealt: ""
+      searchbar: true
+  -
+      scope:
+        path: "blog"
+      values:
+        searchbar: true
   -
     scope:
       path: ""
     values:
       lang: "es_MX"
-      searchbar: true
+      searchbar: false
       logo: "/img/halivert-logo.png"
 
 # Exclude from processing.

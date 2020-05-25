@@ -1,2 +1,29 @@
-Halí: "Halí"
-Vere: "Verenisse"
+halivert:
+  name: "Halí"
+  lastName: "Velázquez"
+  picture: /img/halivert.png
+  age: 25
+  email:
+    at: halivelazquez+contacto@gmail.com
+    md5: 1e7ee85ff90a24c0067beed802d2c6b7
+  description: >-
+    Estudiando ingeniería en sistemas computacionales, su escuela lo ama
+    tanto que no lo quiere dejar salir.
+  social:
+    - url: "https://twitter.com/halivert"
+      type: twitter
+      icon: fab fa-twitter
+    - url: "https://github.com/halivert"
+      type: github
+      icon: fab fa-github
+    - url: "https://t.me/halivert"
+      type: telegram
+      icon: fab fa-telegram
+
+verenaiss:
+  name: "Verenisse"
+  lastName: "Serrano"
+  age: 33
+  description: >-
+    Profesora y capacitadora profesional, en sus ratos libres es
+    wonder woman.

@@ -1,10 +1,9 @@
 ---
-author: "Halí"
+author: halivert
 title: "Macros de Vim para Bulma"
 date: 2019-07-23 08:49
-categories: ["Ya me pasó", "¡Código!"]
-tags: ["Vim", "Bulma"]
-truncatewords: 72
+category: "Ya me pasó"
+tags: ["Vim", "Bulma", "¡Código!"]
 ---
 
 Cuando utilizas un framework de CSS tan flexible como [Bulma][1], deseas tener
@@ -16,7 +15,7 @@ cosa? **Importa todo** y despues comenta los que no son necesarios en ese
 momento.
 
 Pero ¿cómo importamos todos los elementos y componentes de Bulma, fácilmente?
-
+<!--Seguir leyendo-->
 He encontrado estos macros que pueden serte muy utiles:
 ```viml
 let @q='02t/"cyt"o^[;r ^Rc^Mdd.2kI// ^[2j0'

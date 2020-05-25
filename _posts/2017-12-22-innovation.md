@@ -1,9 +1,8 @@
 ---
-layout: post
-title: 'Innovación'
-date: 2017-12-22 02:45 -0600
-author: Halí
-categories: ["Divagando"]
+title: "Innovación"
+date: 2017-12-22 02:45
+author: halivert
+category: "Divagando"
 ---
 
 Para mi es difícil hablar sobre esta palabra en particular en estos tiempos.
@@ -14,6 +13,8 @@ Aunque me parece adecuada la descripción que hace la RAE sobre ella:
 
 > Innovación: Creación o modificación de un producto, y su introducción en un
 > mercado.
+
+<!--Seguir leyendo-->
 
 Creo que en la actualidad la parte sobre creación ya es algo complicada.
 
