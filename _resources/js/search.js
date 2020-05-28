@@ -73,6 +73,7 @@ document.addEventListener("turbolinks:load", function() {
 
 	function displaySearchResults(results, store) {
 		var searchResults = document.getElementById("search-results");
+		if (!searchResults) return;
 
 		if (results.length) {
 			var appendString = "";
@@ -109,6 +110,8 @@ document.addEventListener("turbolinks:load", function() {
 		displaySearchResults(results, window.store);
 	} else {
 		var searchResults = document.getElementById("search-results");
+		if (!searchResults) return;
+
 		searchResults.innerHTML = `
 			<p class="title is-3">
 				Si no sabes que buscar, puedes comenzar con este post aleatorio

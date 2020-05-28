@@ -1,22 +1,21 @@
-const removeClass = (element, name) => {
-	if (element.classList) element.classList.remove(name);
-	else {
-		var classes = element.className.split(" ");
-		var i = classes.indexOf(className);
-
-		if (i >= 0) classes.splice(i, 1);
-		element.className = classes.join(" ");
-	}
-};
-
 document.addEventListener("turbolinks:click", () => {
-	let progressBar = document.getElementById("progress-bar");
-	if (progressBar) removeClass(progressBar, "is-hidden");
-})
+	showElement(document.getElementById("progress-bar"));
+});
 
 document.addEventListener("turbolinks:load", () => {
-	let progressBar = document.getElementById("progress-bar");
-	if (progressBar) addClass(progressBar, "is-hidden");
+	hideElement(document.getElementById("progress-bar"));
+
+	var searchBox = document.getElementById("search-box");
+	if (searchBox) {
+		document.addEventListener("keypress", evt => {
+			if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
+				evt.preventDefault();
+				activateNavMenu();
+				searchBox.focus();
+				searchBox.select();
+			}
+		});
+	}
 
 	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
 		removeClass(document.documentElement, "dark");
@@ -53,6 +52,16 @@ document.addEventListener("turbolinks:load", () => {
 	);
 });
 
+const activateNavMenu = () => {
+	var menu = document.getElementById("nav-menu");
+	if (!menu) return;
+
+	var display = getComputedStyle(menu).getPropertyValue("display");
+	if (display === "none") {
+		addClass(menu, "is-active");
+	}
+};
+
 const toggleClass = (element, className) => {
 	if (element.classList) {
 		element.classList.toggle(className);
@@ -66,39 +75,9 @@ const toggleClass = (element, className) => {
 	}
 };
 
-// const changeScreen = () => {
-// 	let width =
-// 		window.innerWidth ||
-// 		document.documentElement.clientWidth ||
-// 		document.body.clientWidth;
-
-// 	document.querySelectorAll(".mobile-separator").forEach(function(it) {
-// 		it.style.display = width < 768 ? "inline" : "none";
-// 	});
-// };
-
-const createCookie = (name, value, days) => {
-	var expires = "";
-	if (days) {
-		var date = new Date();
-		date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-		expires = ";expires=" + date.toUTCString();
-	}
-	document.cookie = name + "=" + value + expires + ";path=/";
-};
-
-const readCookie = name => {
-	var nameEQ = name + "=";
-	var ca = document.cookie.split(";");
-	for (var i = 0; i < ca.length; i++) {
-		var c = ca[i];
-		while (c.charAt(0) == " ") c = c.substring(1, c.length);
-		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-	}
-	return null;
-};
-
 const addClass = (element, name) => {
+	if (!element) return;
+
 	if (element.classList) element.classList.add(name);
 	else {
 		var arr = element.className.split(" ");
@@ -106,10 +85,6 @@ const addClass = (element, name) => {
 			element.className += " " + name;
 		}
 	}
-};
-
-const eraseCookie = name => {
-	createCookie(name, "", -1);
 };
 
 const showElement = element => {
@@ -120,11 +95,9 @@ const hideElement = element => {
 	if (element) addClass(element, "is-hidden");
 };
 
-const destroyElement = element => {
-	if (element) element.remove();
-};
-
 const hasClass = (element, name) => {
+	if (!element) return;
+
 	if (element.classList) {
 		return element.classList.contains(name);
 	} else {
@@ -132,6 +105,24 @@ const hasClass = (element, name) => {
 		var i = classes.indexOf(name);
 		return i >= 0;
 	}
+};
+
+const removeClass = (element, name) => {
+	if (!element) return;
+
+	if (element.classList) element.classList.remove(name);
+	else {
+		var classes = element.className.split(" ");
+		var i = classes.indexOf(className);
+
+		if (i >= 0) classes.splice(i, 1);
+		element.className = classes.join(" ");
+	}
+};
+
+const isInput = name => {
+	let compare = name.toLowerCase();
+	return ["input", "textarea", "select"].includes(compare);
 };
 
 const closeAllNavbars = () => {
