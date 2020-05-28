@@ -24,10 +24,10 @@ layout: html
             {{ page.title }}
           </h1>
           <p>
-          {% if author.name %}
+          {% if author.fullName %}
 						<i>por</i>
 						<a href="/authors/{{ page.author }}">{{
-							author.name | append: " " | append: author.lastName
+							author.fullName
 						}}</a>
 						-
           {% endif %}

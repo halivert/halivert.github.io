@@ -16,12 +16,7 @@
 			{%- endif -%}
 
 			{%- if author -%}
-				{%-
-					assign authorName = author.name |
-					append: " " |
-					append: author.lastName |
-					strip
-				-%}
+				{%- assign authorName = author.fullName | strip -%}
 			{%- else -%}
 				{%- assign authorName = post.author | strip -%}
 			{%- endif -%}
