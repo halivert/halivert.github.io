@@ -12,7 +12,9 @@ escribir dicha aplicación.
 
 Desde hace un tiempo, me volví aficionado a crear APIs, así que les mostraré
 cómo hacer una en Python.
+
 <!--Seguir leyendo-->
+
 ### Prerrequisitos
 - [Python][2] (Usé Python 3.7)
 - WSGI para Apache

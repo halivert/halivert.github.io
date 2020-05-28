@@ -18,7 +18,9 @@ alojar una aplicación web escrita en Python.
 - [Apache][2] (Usé Apache Lounge 2.4)
 <a class="anchor" name="Nota1Up"></a>
 - [Microsoft Visual C++][3] [*]({{ page.url }}#Nota1)
+
 <!--Seguir leyendo-->
+
 ### Instrucciones
 Instalamos Python, Apache y Visual C++, una vez hecho esto, podemos comenzar con
 la instalación y configuración del módulo WSGI.

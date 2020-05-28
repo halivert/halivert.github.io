@@ -10,7 +10,9 @@ donde tienes que escribir un usuario y contraseña para iniciar sesión podemos
 decir que la tecnología ha avanzado bien, en la mayoría de los casos (en los
 que no se guarda la contraseña como texto plano) es prácticamente imposible
 descifrarla (hasta ahora...).
+
 <!--Seguir leyendo-->
+
 Pero aún así, siguen existiendo los [crackers][], y más aún, siguen teniendo
 éxito, ¿cómo es que hacen esto? Lo cierto es que no soy un experto en
 seguridad web, pero seguramente también habrás escuchado hablar sobre el

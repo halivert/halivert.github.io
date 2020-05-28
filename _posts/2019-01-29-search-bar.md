@@ -13,7 +13,9 @@ hasinstantview: false
 Llega a ustedes gracias a la biblioteca [lunr.js][1] que funciona para crear
 un índice de búsqueda en un sitio (estático en este caso) y que no necesita
 servidores externos, u otros servicios de búsqueda.
+
 <!--Seguir leyendo-->
+
 Para hacerlo utilicé estos dos tutoriales: [Jekyll search using lunr.js][2] y
 [Search with Lunr.js][3].
 

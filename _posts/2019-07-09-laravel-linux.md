@@ -13,7 +13,9 @@ en un entorno Linux.
 ### Introducción
 Laravel es un framework escrito en [PHP][3]. Según la página oficial, está
 escrito para _«Web artisans»_.
+
 <!--Seguir leyendo-->
+
 ¿Por qué Laravel?
 - Puedes alcanzar velocidades de desarrollo bastante altas.
 - Está escrito en PHP, así que muchos servidores lo soportan.

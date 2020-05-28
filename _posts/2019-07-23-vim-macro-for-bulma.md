@@ -15,7 +15,9 @@ cosa? **Importa todo** y despues comenta los que no son necesarios en ese
 momento.
 
 Pero ¿cómo importamos todos los elementos y componentes de Bulma, fácilmente?
+
 <!--Seguir leyendo-->
+
 He encontrado estos macros que pueden serte muy utiles:
 ```viml
 let @q='02t/"cyt"o^[;r ^Rc^Mdd.2kI// ^[2j0'

@@ -10,7 +10,9 @@ necesitamos probarlo en nuestra computadora, podemos simular el entorno al
 que va a estar expuesto y será más fácil detectar problemas.
 
 En este post explicaré como hacer uno en Apache Linux
+
 <!--Seguir leyendo-->
+
 Requisitos:
 
 - [httpd](http://httpd.apache.org)

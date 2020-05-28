@@ -12,6 +12,7 @@ category: "Novedades"
 Ahora los comentarios se han mudado a Telegram y estoy tratando de unificarlos
 para que sean iguales en el sitio y en el [canal][1], si sabes cómo hacerlo, te
 agradeceré mucho que me envíes un [mensaje][2]. 
+
 <!--Seguir leyendo-->
 
 ###### Lo siguiente está desactualizado...

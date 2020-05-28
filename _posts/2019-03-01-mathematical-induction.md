@@ -9,7 +9,9 @@ category: "Matemáticas"
 En esta entrega del primer artículo de la sección [Matemáticas][1] les voy a
 mostrar una herramienta muy poderosa en el pensamiento matemático, la
 **inducción matemática**.
+
 <!--Seguir leyendo-->
+
 Antes de entrar de lleno a esta, vamos a revisar lo que dice el principio del
 buen orden.
 

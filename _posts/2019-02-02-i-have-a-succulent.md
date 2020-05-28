@@ -12,7 +12,9 @@ oriunda de Tamaulipas, México.
 
 La obtuve como un regalo, y es curioso que antes me habían regalado una similar
 también, solo que entendí mal los cuidados que debía darle.
+
 <!--Seguir leyendo-->
+
 <article>
 <img
   class="image is-hidden-tablet"
