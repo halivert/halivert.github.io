@@ -13,6 +13,9 @@ $footer-padding: 1.5rem 1.5rem 3rem;
 
 @import "../node_modules/bulma/sass/utilities/derived-variables.sass";
 
+$progress-bar-background-color: rgba($background, 0);
+$progress-border-radius: 0;
+
 // @import "../node_modules/bulma/sass/utilities/_all.sass";
 
 @import "../node_modules/bulma/sass/utilities/mixins.sass";
@@ -78,187 +81,193 @@ $footer-padding: 1.5rem 1.5rem 3rem;
 @import "_social-buttons";
 
 body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .image-art-title {
-  border-radius: 0.5em;
-  border: $golden solid;
-  @media screen and (min-width: $tablet) {
-    width: 50%;
-  }
-  margin: auto;
+	border-radius: 0.5em;
+	border: $golden solid;
+	@media screen and (min-width: $tablet) {
+		width: 50%;
+	}
+	margin: auto;
 }
 
 ::selection {
-  background: $turquoise;
-  color: $turquoise-invert;
+	background: $turquoise;
+	color: $turquoise-invert;
 }
 
 ::-moz-selection {
-  background: $turquoise;
-  color: $turquoise-invert;
+	background: $turquoise;
+	color: $turquoise-invert;
 }
 
 #cookie-notice {
-  position: fixed;
-  @media screen and (max-width: $tablet - 1px) {
-    left: 10px;
-  }
-  right: 10px;
-  bottom: 5px;
-  z-index: 900;
+	position: fixed;
+	@media screen and (max-width: $tablet - 1px) {
+		left: 10px;
+	}
+	right: 10px;
+	bottom: 5px;
+	z-index: 900;
 }
 
 img {
-  display: block;
-  margin: 0 auto;
+	display: block;
+	margin: 0 auto;
 
-  &.image-left {
-    max-width: 300px;
-    margin-right: 15px;
-    margin-bottom: 10px;
-  }
+	&.image-left {
+		max-width: 300px;
+		margin-right: 15px;
+		margin-bottom: 10px;
+	}
 
-  &.image-right {
-    max-width: 300px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-  }
+	&.image-right {
+		max-width: 300px;
+		margin-left: 15px;
+		margin-bottom: 10px;
+	}
 
-  &.avatar {
-    vertical-align: middle;
-    border-radius: 100%;
-    max-width: 300px;
-    min-width: 50px;
-  }
+	&.avatar {
+		vertical-align: middle;
+		border-radius: 100%;
+		max-width: 300px;
+		min-width: 50px;
+	}
 }
 
 .anchor {
-  display: block;
-  height: 54px;
-  margin-top: -54px;
-  visibility: hidden;
+	display: block;
+	height: 54px;
+	margin-top: -54px;
+	visibility: hidden;
 }
 
 .katex-display {
-  overflow-x: auto;
+	overflow-x: auto;
 }
 
 .auto-margin {
-  margin: auto;
+	margin: auto;
 }
 
 article:not(:last-child) {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 .line-through {
-  text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 .icon-2x {
-  max-width: 2em;
-  max-height: 2em;
+	max-width: 2em;
+	max-height: 2em;
 }
 
 div.highlighter-rouge {
-  &:not(:last-child) {
-    margin-bottom: 1rem;
-  }
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
 }
 
 code {
-  text-align: left;
+	text-align: left;
 }
 
 .image-container {
-  display: inline-block;
+	display: inline-block;
 }
 
 .red-velvet-bg {
-  background-image: url(/img/backgrounds/red-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(/img/backgrounds/red-velvet.jpg);
+	background-attachment: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .blue-velvet-bg {
-  background-image: url(/img/backgrounds/blue-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(/img/backgrounds/blue-velvet.jpg);
+	background-attachment: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .purple-velvet-bg {
-  background-image: url(/img/backgrounds/purple-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(/img/backgrounds/purple-velvet.jpg);
+	background-attachment: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .green-velvet-bg {
-  background-image: url(/img/backgrounds/green-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-image: url(/img/backgrounds/green-velvet.jpg);
+	background-attachment: absolute;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 footer.footer {
-  display: block;
-  margin-top: auto;
+	display: block;
+	margin-top: auto;
+}
+
+#progress-bar {
+	z-index: 500;
+	margin-top: calc(#{$size-small} / -2);
+	margin-bottom: calc(#{$size-small} / -2);
 }
 
 .mobile-separator {
-  display: block;
-  margin: 0 0.5rem;
-  @media screen and (min-width: $tablet) {
-    display: inline-block;
-  }
+	display: block;
+	margin: 0 0.5rem;
+	@media screen and (min-width: $tablet) {
+		display: inline-block;
+	}
 }
 
 #main-container {
-  overflow: auto;
-  display: block;
+	overflow: auto;
+	display: block;
 }
 
 .gist {
-  table td {
-    border: initial;
-    font-family: $family-monospace;
-  }
+	table td {
+		border: initial;
+		font-family: $family-monospace;
+	}
 
-  .blob-num {
-    text-align: right;
-  }
+	.blob-num {
+		text-align: right;
+	}
 
-  &-meta {
-    background-color: $background;
-    color: $text;
-  }
+	&-meta {
+		background-color: $background;
+		color: $text;
+	}
 
-  &-file {
-    border-color: $white-bis;
-  }
+	&-file {
+		border-color: $white-bis;
+	}
 
-  &-data {
-    border-color: $white-bis;
-  }
+	&-data {
+		border-color: $white-bis;
+	}
 }
 
 .license-link {
-  display: inline-block;
-  margin-bottom: $size-7 / 2;
+	display: inline-block;
+	margin-bottom: $size-7 / 2;
 }
 
 .is-full-rounded {
-  border-radius: 100%;
+	border-radius: 100%;
 }
 
 // Useless styles intended for telegram comments, but they are embedded in an

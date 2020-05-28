@@ -9,7 +9,15 @@ const removeClass = (element, name) => {
 	}
 };
 
+document.addEventListener("turbolinks:click", () => {
+	let progressBar = document.getElementById("progress-bar");
+	if (progressBar) removeClass(progressBar, "is-hidden");
+})
+
 document.addEventListener("turbolinks:load", () => {
+	let progressBar = document.getElementById("progress-bar");
+	if (progressBar) addClass(progressBar, "is-hidden");
+
 	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
 		removeClass(document.documentElement, "dark");
 		localStorage.halivertsTheme = "light";
@@ -34,21 +42,6 @@ document.addEventListener("turbolinks:load", () => {
 	}
 
 	removeClass(themeSwitcher, "is-invisible");
-
-	let resizeEnd = new Event("resizeEnd");
-
-	// changeScreen();
-
-	window.addEventListener("resize", () => {
-		if (window.resizeTO) {
-			clearTimeout(window.resizeTO);
-		}
-		window.resizeTO = setTimeout(() => {
-			window.dispatchEvent(resizeEnd);
-		}, 50);
-	});
-
-	// window.addEventListener("resizeEnd", changeScreen, false);
 
 	(document.querySelectorAll(".notification .delete") || []).forEach(
 		$delete => {

@@ -24,13 +24,14 @@
 			<meta property="author_url" content="https://t.me/{{ author.tme }}" />
 		{% endif %}
 
-		<meta name="telegram:channel" content="@halivertblog" />
+		<meta name="telegram:channel" content="@halivertsblog" />
 
+		<script src="https://unpkg.com/turbolinks" defer></script>
 		<script src="{{ site.url }}/assets/js/master.js"></script>
 		{% if page.searchbar %}
-			<script src="{{ site.url }}/assets/js/lunr.js"></script>
+			<script src="{{ site.url }}/assets/js/lunr.js" defer></script>
 		{% endif %}
-		<script src="https://unpkg.com/turbolinks"></script>
+		<script src="{{ site.url }}/assets/js/nav.js" defer></script>
 
 		<title>
 			{% if paginator %}
@@ -54,12 +55,16 @@
 
 	<body class="has-background-light">
 		{% include nav.html %}
+		<progress
+			id="progress-bar"
+			class="progress is-small is-danger"
+			data-turbolinks-permanent
+		></progress>
 
 		<section id="main-container" class="section is-size-6 has-background-light">
 			{{ content }}
 		</section>
 
 		{% include footer.html %}
-		<script src="{{ site.url }}/assets/js/nav.js"></script>
 	</body>
 </html>
