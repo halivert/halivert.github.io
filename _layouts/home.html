@@ -8,7 +8,7 @@ title: Halí
 
 <section class="columns">
 	<section class="column is-7 is-offset-1">
-		<p class="title is-size-2">{{ author.fullName }}</p>
+		<p class="title is-size-2">{{ author.firstName }} {{ author.lastName }}</p>
 	</section>
 </section>
 <section class="columns">
@@ -66,6 +66,7 @@ title: Halí
 			src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=200"
 			class="avatar"
 			alt="Imagen de perfil de {{ layout.author }}"
+			onContextMenu="vibrate([150, 30, 150]);"
 		/>
 	</section>
 </section>

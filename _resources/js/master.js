@@ -139,3 +139,7 @@ const closeAllNavbars = () => {
 		});
 	}
 };
+
+const vibrate = pattern => {
+	window.navigator.vibrate(pattern);
+};

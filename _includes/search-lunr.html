@@ -16,7 +16,7 @@
 			{%- endif -%}
 
 			{%- if author -%}
-				{%- assign authorName = author.fullName | strip -%}
+				{%- assign authorName = author.firstName | strip -%}
 			{%- else -%}
 				{%- assign authorName = post.author | strip -%}
 			{%- endif -%}

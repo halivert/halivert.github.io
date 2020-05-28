@@ -1,12 +1,12 @@
 <div class="box">
 	<i class="fas fa-user" aria-hidden="true"></i>
-  {% assign author = site.data.authors[post.author] %}
-  {% if author %}
-		{{ author.fullName }}
-  {% else %}
+	{% assign author = site.data.authors[post.author] %}
+	{% if author %}
+		{{ author.firstName }}
+	{% else %}
 		{{ post.author }}
 	{% endif %}
-  <span class="mobile-separator"></span>
+	<span class="mobile-separator"></span>
 	<i class="fas fa-calendar" aria-hidden="true"></i>
 	{% include date-spanish.html item=post %}
 </div>

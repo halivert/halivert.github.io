@@ -20,10 +20,15 @@
 
 		{% include unixtimestamp.html %}
 		{%- assign author = site.data.authors[page.author] -%}
-		{% if author and author.social %}
-			{%- assign telegram = author.social | where: "type", "telegram" -%}
-			{% if telegram.first and telegram.first.url %}
-				<meta property="telegram:author" content="{{ telegram.first.url }}" />
+		{% if author %}
+			{% if author.firstName %}
+				<meta property="author:name" content="{{ author.firstName }}" />
+			{% endif %}
+			{% if author.social %}
+				{%- assign telegram = author.social | where: "type", "telegram" -%}
+				{% if telegram.first and telegram.first.url %}
+					<meta property="telegram:author" content="{{ telegram.first.url }}" />
+				{% endif %}
 			{% endif %}
 		{% endif %}
 
