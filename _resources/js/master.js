@@ -1,11 +1,5 @@
-document.addEventListener("turbolinks:click", () => {
-	showElement(document.getElementById("progress-bar"));
-});
-
 document.addEventListener("turbolinks:load", () => {
-	hideElement(document.getElementById("progress-bar"));
-
-	var searchBox = document.getElementById("search-box");
+	let searchBox = document.getElementById("search-box");
 	if (searchBox) {
 		document.addEventListener("keypress", evt => {
 			if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
@@ -24,9 +18,9 @@ document.addEventListener("turbolinks:load", () => {
 		localStorage.removeItem("halivertsTheme");
 	}
 
-	var themeSwitcher = document.getElementById("theme-switcher");
-	var firstSpan = themeSwitcher.getElementsByTagName("span")[0];
-	var icon = firstSpan.getElementsByTagName("i")[0];
+	let themeSwitcher = document.getElementById("theme-switcher");
+	let firstSpan = themeSwitcher.getElementsByTagName("span")[0];
+	let icon = firstSpan.getElementsByTagName("i")[0];
 
 	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
 		addClass(icon, "fa-moon");
@@ -53,10 +47,10 @@ document.addEventListener("turbolinks:load", () => {
 });
 
 const activateNavMenu = () => {
-	var menu = document.getElementById("nav-menu");
+	let menu = document.getElementById("nav-menu");
 	if (!menu) return;
 
-	var display = getComputedStyle(menu).getPropertyValue("display");
+	let display = getComputedStyle(menu).getPropertyValue("display");
 	if (display === "none") {
 		addClass(menu, "is-active");
 	}
@@ -66,8 +60,8 @@ const toggleClass = (element, className) => {
 	if (element.classList) {
 		element.classList.toggle(className);
 	} else {
-		var classes = element.className.split(" ");
-		var i = classes.indexOf(className);
+		let classes = element.className.split(" ");
+		let i = classes.indexOf(className);
 
 		if (i >= 0) classes.splice(i, 1);
 		else classes.push(className);
@@ -80,7 +74,7 @@ const addClass = (element, name) => {
 
 	if (element.classList) element.classList.add(name);
 	else {
-		var arr = element.className.split(" ");
+		let arr = element.className.split(" ");
 		if (arr.indexOf(name) === -1) {
 			element.className += " " + name;
 		}
@@ -101,8 +95,8 @@ const hasClass = (element, name) => {
 	if (element.classList) {
 		return element.classList.contains(name);
 	} else {
-		var classes = element.className.split(" ");
-		var i = classes.indexOf(name);
+		let classes = element.className.split(" ");
+		let i = classes.indexOf(name);
 		return i >= 0;
 	}
 };
@@ -112,8 +106,8 @@ const removeClass = (element, name) => {
 
 	if (element.classList) element.classList.remove(name);
 	else {
-		var classes = element.className.split(" ");
-		var i = classes.indexOf(className);
+		let classes = element.className.split(" ");
+		let i = classes.indexOf(className);
 
 		if (i >= 0) classes.splice(i, 1);
 		element.className = classes.join(" ");
@@ -126,14 +120,14 @@ const isInput = name => {
 };
 
 const closeAllNavbars = () => {
-	var $navbarBurgers = Array.prototype.slice.call(
+	let $navbarBurgers = Array.prototype.slice.call(
 		document.querySelectorAll(".navbar-burger"),
 		0
 	);
 
 	if ($navbarBurgers.length > 0) {
 		$navbarBurgers.forEach($el => {
-			var $target = document.getElementById($el.dataset.target);
+			let $target = document.getElementById($el.dataset.target);
 			removeClass($el, "is-active");
 			removeClass($target, "is-active");
 		});

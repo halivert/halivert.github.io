@@ -11,13 +11,9 @@ $fullhd-enabled: false;
 $hr-background-color: $grey-lighter;
 $footer-padding: 1.5rem 1.5rem 3rem;
 
-@import "../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "../node_modules/bulma/sass/utilities/derived-variables.scss";
 
-$progress-bar-background-color: rgba($background, 0);
-$progress-border-radius: 0;
-
-// @import "../node_modules/bulma/sass/utilities/_all.sass";
-
+@import "../node_modules/bulma/sass/utilities/animations.sass";
 @import "../node_modules/bulma/sass/utilities/mixins.sass";
 @import "../node_modules/bulma/sass/utilities/controls.sass";
 
@@ -25,7 +21,6 @@ $progress-border-radius: 0;
 
 @import "../node_modules/bulma/sass/base/minireset.sass";
 @import "../node_modules/bulma/sass/base/generic.sass";
-@import "../node_modules/bulma/sass/base/helpers.sass";
 
 // @import "../node_modules/bulma/sass/elements/_all.sass";
 
@@ -36,18 +31,19 @@ $progress-border-radius: 0;
 @import "../node_modules/bulma/sass/elements/icon.sass";
 @import "../node_modules/bulma/sass/elements/image.sass";
 @import "../node_modules/bulma/sass/elements/notification.sass";
-@import "../node_modules/bulma/sass/elements/progress.sass";
+// @import "../node_modules/bulma/sass/elements/progress.sass";
 @import "../node_modules/bulma/sass/elements/table.sass";
-@import "../node_modules/bulma/sass/elements/tag.sass";
+// @import "../node_modules/bulma/sass/elements/tag.sass";
 @import "../node_modules/bulma/sass/elements/title.sass";
+
 @import "../node_modules/bulma/sass/elements/other.sass";
 
 // @import "../node_modules/bulma/sass/form/_all.sass";
 
 @import "../node_modules/bulma/sass/form/shared.sass";
 @import "../node_modules/bulma/sass/form/input-textarea.sass";
-// @import "../node_modules/bulma/sass/form/checkbox-radio.sass";
-// @import "../node_modules/bulma/sass/form/select.sass";
+@import "../node_modules/bulma/sass/form/checkbox-radio.sass";
+@import "../node_modules/bulma/sass/form/select.sass";
 // @import "../node_modules/bulma/sass/form/file.sass";
 @import "../node_modules/bulma/sass/form/tools.sass";
 
@@ -56,27 +52,39 @@ $progress-border-radius: 0;
 // @import "../node_modules/bulma/sass/components/breadcrumb.sass";
 // @import "../node_modules/bulma/sass/components/card.sass";
 // @import "../node_modules/bulma/sass/components/dropdown.sass";
-@import "../node_modules/bulma/sass/components/level.sass";
-// @import "../node_modules/bulma/sass/components/list.sass";
+// @import "../node_modules/bulma/sass/components/level.sass";
 // @import "../node_modules/bulma/sass/components/media.sass";
 // @import "../node_modules/bulma/sass/components/menu.sass";
-// @import "../node_modules/bulma/sass/components/message.sass";
-// @import "../node_modules/bulma/sass/components/modal.sass";
+@import "../node_modules/bulma/sass/components/message.sass";
+@import "../node_modules/bulma/sass/components/modal.sass";
 @import "../node_modules/bulma/sass/components/navbar.sass";
 @import "../node_modules/bulma/sass/components/pagination.sass";
-// @import "../node_modules/bulma/sass/components/panel.sass";
-// @import "../node_modules/bulma/sass/components/tabs.sass";
+@import "../node_modules/bulma/sass/components/panel.sass";
+@import "../node_modules/bulma/sass/components/tabs.sass";
 
 // @import "../node_modules/bulma/sass/grid/_all.sass";
 
 @import "../node_modules/bulma/sass/grid/columns.sass";
-// @import "../node_modules/bulma/sass/grid/tiles.sass";
+@import "../node_modules/bulma/sass/grid/tiles.sass";
+
+// @import "../node_modules/bulma/sass/helpers/_all.sass";
+
+@import "../node_modules/bulma/sass/helpers/color.sass";
+@import "../node_modules/bulma/sass/helpers/float.sass";
+@import "../node_modules/bulma/sass/helpers/other.sass";
+@import "../node_modules/bulma/sass/helpers/overflow.sass";
+@import "../node_modules/bulma/sass/helpers/position.sass";
+@import "../node_modules/bulma/sass/helpers/spacing.sass";
+@import "../node_modules/bulma/sass/helpers/typography.sass";
+@import "../node_modules/bulma/sass/helpers/visibility.sass";
 
 // @import "../node_modules/bulma/sass/layout/_all.sass";
 
 @import "../node_modules/bulma/sass/layout/hero.sass";
 @import "../node_modules/bulma/sass/layout/section.sass";
 @import "../node_modules/bulma/sass/layout/footer.sass";
+
+// End of bulma imports
 
 @import "_social-buttons";
 
@@ -218,10 +226,9 @@ footer.footer {
 	margin-top: auto;
 }
 
-#progress-bar {
-	z-index: 500;
-	margin-top: calc(#{$size-small} / -2);
-	margin-bottom: calc(#{$size-small} / -2);
+.turbolinks-progress-bar {
+	height: 5px;
+	background-color: $red;
 }
 
 .mobile-separator {
@@ -269,23 +276,3 @@ footer.footer {
 .is-full-rounded {
 	border-radius: 100%;
 }
-
-// Useless styles intended for telegram comments, but they are embedded in an
-// iframe so this stuff doesn't work.
-
-// section.bc-content {
-// 	background: $background;
-// }
-
-// .bc-header {
-// 	color: $text;
-// }
-
-// .bc-comments-footer {
-// 	background: $background;
-// }
-
-// .input.bc-comment-input {
-// 	background: $background;
-// 	border-color: $white-bis;
-// }
