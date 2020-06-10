@@ -4,7 +4,7 @@ document.addEventListener("turbolinks:load", function() {
 
 		/*
 		<section>
-			<h2 class="title is-size-2">
+			<h2 class="title is-2">
 			<a class="has-text-primary" href="{{ post.url }}">
 				{{ post.title }}
 			</a>
@@ -19,7 +19,7 @@ document.addEventListener("turbolinks:load", function() {
 
 		appendString += `
 			<section>
-				<p class="title is-size-2">
+				<p class="title is-2">
 					<a class="has-text-primary" href="${item.url}">${item.title}</a>
 				</p>
 				<hr>

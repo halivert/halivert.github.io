@@ -2,11 +2,11 @@
 layout: html
 ---
 
-<section id="main-container" class="section is-size-6 has-background-light">
+<section id="main-container" class="section has-background-light">
   <div class="container-fluid">
     <div class="has-text-centered">
-      <h3 class="title is-size-1">{{ page.category }}</h3>
-      <div class="is-size-5">
+      <h3 class="title is-1">{{ page.category }}</h3>
+      <div class="subtitle">
         {{ content }}
       </div>
       <hr>
@@ -16,7 +16,7 @@ layout: html
         {% assign category = page.category %}
         {% for post in site.categories[category] %}
           <div>
-            <p class="title is-size-2">
+            <p class="title is-2">
               <a class="has-text-primary" href="{{ post.url }}">
                 {{ post.title }}
               </a>

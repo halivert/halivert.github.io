@@ -2,7 +2,7 @@
 layout: html
 ---
 
-<section id="main-container" class="section is-size-6 has-background-light">
+<section id="main-container" class="section has-background-light">
   <div class="container-fluid">
     {% assign author = site.data.authors[page.author] %}
 
@@ -21,7 +21,7 @@ layout: html
             </div>
           {% endif %}
           <header class="column">
-            <h1 class="title is-size-1 has-text-primary">
+            <h1 class="title is-1 has-text-primary">
               {{ page.title }}
             </h1>
             <p>
@@ -55,7 +55,7 @@ layout: html
           {% endif %}
         </div>
         <hr />
-        <main id="content" class="container-fluid is-size-5 content">
+        <main id="content" class="container-fluid content">
           {{ content }}
         </main>
       </div>
@@ -64,7 +64,7 @@ layout: html
     <div class="columns">
       <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
         <nav
-          class="pagination is-centered is-size-6"
+          class="pagination is-centered"
           role="navigation"
           aria-label="pagination"
           >
