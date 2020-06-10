@@ -16,9 +16,9 @@ document.addEventListener("turbolinks:load", function() {
 	}
 });
 
-const changeTheme = () => {
+const changeTheme = (id) => {
 	toggleClass(document.documentElement, "dark");
-	var themeSwitcher = document.getElementById("theme-switcher");
+	var themeSwitcher = document.getElementById(id);
 	var firstSpan = themeSwitcher.getElementsByTagName("span")[0];
 	var icon = firstSpan.getElementsByTagName("i")[0];
 
