@@ -1,5 +1,5 @@
 - title: "Árbol AVL"
   slug: avl-tree
-  img_type: jpg
+  img_type: png
   description: >-
     Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.
