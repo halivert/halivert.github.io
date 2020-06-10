@@ -19,9 +19,6 @@
 
   <div class="navbar-menu" id="nav-menu">
 		<div class="navbar-start">
-			<a class="navbar-item" href="/">
-				Acerca de mí
-			</a>
 			<a class="navbar-item" href="/blog/">
 				Blog
 			</a>
@@ -31,10 +28,13 @@
 			<a class="navbar-item" href="/now">
 				Ahora
 			</a>
+			<a class="navbar-item" href="/projects">
+				Proyectos
+			</a>
 		</div>
 
 		<div class="navbar-end">
-			{% if page.searchbar %}
+			{% if page.search_bar %}
 				<form class="navbar-item" action="/blog/busqueda">
 					<div class="field has-addons">
 						<div class="control">

@@ -1,23 +1,24 @@
 ---
-layout: html
+layout: construcción
 ---
 
 {% assign author = site.data._authors[page.author] %}
 
-<div class="container-fluid">
-  <div class="has-text-centered">
-    <h3 class="title is-size-1">{{ author.fullname }}</h3>
-    <div class="is-size-5">
-      {{ author.description }}
+<section id="main-container" class="section is-size-6 has-background-light">
+  <div class="container-fluid">
+    <div class="has-text-centered">
+      <h3 class="title is-size-1">{{ author.fullname }}</h3>
+      <div class="is-size-5">
+        {{ author.description }}
+      </div>
+      <hr>
     </div>
-    <hr>
-  </div>
-  <div class="columns">
-    <!--
-    <div class="column is-9">
-      {% assign category = page.category %}
-      {% for post in site.categories[category] %}
-        <div>
+    <div class="columns">
+      <!--
+        <div class="column is-9">
+        {% assign category = page.category %}
+        {% for post in site.categories[category] %}
+          <div>
           <p class="title is-size-2">
           <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
           </p><hr>
@@ -25,12 +26,13 @@ layout: html
           <br>
           {% include post-info-show.html %}
           <br>
+          </div>
+        {% endfor %}
         </div>
-      {% endfor %}
+        <div class="column">
+        {% include sidebar.html %}
+        </div>
+      -->
     </div>
-    <div class="column">
-      {% include sidebar.html %}
-    </div>
-    -->
   </div>
-</div>
+</section>

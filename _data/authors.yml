@@ -1,6 +1,6 @@
 halivert:
-  firstName: "Halí"
-  lastName: "Velázquez"
+  first_name: "Halí"
+  last_name: "Velázquez"
   picture: /img/halivert.png
   age: 25
   email:
@@ -22,8 +22,8 @@ halivert:
 
 verenaiss:
   name: verenais01 # For jekyll-seo twitter author
-  firstName: "Verenisse"
-  lastName: "Serrano"
+  first_name: "Verenisse"
+  last_name: "Serrano"
   age: 33
   description: >-
     Profesora y capacitadora profesional, en sus ratos libres es

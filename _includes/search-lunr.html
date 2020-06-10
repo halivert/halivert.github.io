@@ -16,7 +16,7 @@
 			{%- endif -%}
 
 			{%- if author -%}
-				{%- assign authorName = author.firstName | strip -%}
+				{%- assign authorName = author.first_name | strip -%}
 			{%- else -%}
 				{%- assign authorName = post.author | strip -%}
 			{%- endif -%}
@@ -25,15 +25,7 @@
 	      "title": {{ post.title | strip | jsonify }},
 	      "author": {{ authorName | strip | jsonify }},
 	      "categories": {{ post.categories | jsonify }},
-				"content": {{
-					post.content |
-					newline_to_br |
-					strip_newlines |
-					replace: "<br />", " " |
-					strip_html |
-					strip |
-					jsonify
-				}},
+	      "tags": {{ post.tags | jsonify }},
 	      "displayContent": {{ post.excerpt | strip | jsonify }},
 	      "url": {{ post.url | strip | jsonify }},
 	      "continue": {{ continue | strip }},
@@ -47,14 +39,14 @@
 	  this.field('id');
 	  this.field('title', { boost: 10 });
 	  this.field('categories');
-	  this.field('content');
+	  this.field('tags');
 
 	  for (var key in window.store) {
 	    this.add({
 	      'id': key,
 	      'title': window.store[key].title,
 	      'categories': window.store[key].categories,
-	      'content': window.store[key].content,
+	      'tags': window.store[key].tags,
 	    });
 	  }
 	});

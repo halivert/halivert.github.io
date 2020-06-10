@@ -2,96 +2,94 @@
 layout: html
 ---
 
-<div class="container-fluid">
-	{% assign author = site.data.authors[page.author] %}
+<section id="main-container" class="section is-size-6 has-background-light">
+  <div class="container-fluid">
+    {% assign author = site.data.authors[page.author] %}
 
-  <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-      <div class="columns is-vcentered is-gapless">
-        {% if page.image %}
-          <div class="column is-hidden-tablet">
-            <img
-              id="page-cover"
-              src="{{ page.image }}"
-              alt="{{ page.imagealt }}"
-              class="image"
-              style="margin-bottom: 0.5em;"
-            />
-          </div>
-        {% endif %}
-        <header class="column">
-          <h1 class="title is-size-1 has-text-primary">
-            {{ page.title }}
-          </h1>
-          <p>
-          {% if author.firstName %}
-						<i>por</i>
-						<a href="/authors/{{ page.author }}">{{
-							author.firstName
-						}}</a>
-						-
+    <div class="columns">
+      <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+        <div class="columns is-vcentered is-gapless">
+          {% if page.image %}
+            <div class="column is-hidden-tablet">
+              <img
+                id="page-cover"
+                src="{{ page.image }}"
+                alt="{{ page.imagealt }}"
+                class="image"
+                style="margin-bottom: 0.5em;"
+                />
+            </div>
           {% endif %}
-          {% if page.date %}
-            <i>publicado:</i>
-            {% include date-spanish-abbr.html item=page.date %}
+          <header class="column">
+            <h1 class="title is-size-1 has-text-primary">
+              {{ page.title }}
+            </h1>
+            <p>
+              {% if author.first_name %}
+                <i>por</i>
+                <a href="/authors/{{ page.author }}">{{
+                  author.first_name
+								}}</a>
+              {% endif %}
+              {% if page.date %}
+                <i>publicado:</i>
+                {% include date-spanish-abbr.html item=page.date %}
+              {% endif %}
+            </p>
+            <p>
+              {% if page.lastmodification %}
+                <i>última modificación:</i>
+                {% include date-spanish-abbr.html item=page.lastmodification %}
+              {% endif %}
+            </p>
+          </header>
+          {% if page.image %}
+            <div class="column has-text-right is-hidden-mobile">
+              <img
+                id="page-cover"
+                src="{{ page.image }}"
+                style="max-height: 200px; max-width: 200px;"
+                alt="{{ page.imagealt }}"
+                />
+            </div>
           {% endif %}
-          </p>
-          <p>
-          {% if page.lastmodification %}
-            <i>última modificación:</i>
-						{% include date-spanish-abbr.html item=page.lastmodification %}
-					{% endif %}
-          </p>
-        </header>
-        {% if page.image %}
-          <div class="column has-text-right is-hidden-mobile">
-            <img
-              id="page-cover"
-              src="{{ page.image }}"
-              style="max-height: 200px; max-width: 200px;"
-              alt="{{ page.imagealt }}"
-            />
-          </div>
-        {% endif %}
+        </div>
+        <hr />
+        <main id="content" class="container-fluid is-size-5 content">
+          {{ content }}
+        </main>
       </div>
-      <hr />
-      <main
-        id="content"
-        class="container-fluid is-size-5 has-text-justified content"
-      >
-        {{ content }}
-      </main>
     </div>
-  </div>
 
-  <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-      <nav
-        class="pagination is-centered is-size-6"
-        role="navigation"
-        aria-label="pagination"
-      >
-        {% if page.previous.url %}
-          <a
-            href="{{ page.previous.url }}"
-            class="pagination-previous button is-primary is-rounded"
-            >Anterior</a
+    <div class="columns">
+      <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+        <nav
+          class="pagination is-centered is-size-6"
+          role="navigation"
+          aria-label="pagination"
           >
-        {% else %}
-          <a class="pagination-previous button is-rounded" disabled
-             >Anterior</a
-          >
-        {% endif %}
-        {% if page.next.url %}
-          <a
-            href="{{ page.next.url }}"
-            class="pagination-next button is-primary is-rounded"
-            >Siguiente</a
-          >
-        {% else %}
-          <a class="pagination-next button is-rounded" disabled>Siguiente</a>
-        {% endif %}
-      </nav>
+          {% if page.previous.url %}
+            <a
+              href="{{ page.previous.url }}"
+              class="pagination-previous button is-primary is-rounded"
+              >Anterior</a
+            >
+          {% else %}
+            <a class="pagination-previous button is-rounded" disabled
+               >Anterior</a
+             >
+           {% endif %}
+           {% if page.next.url %}
+             <a
+               href="{{ page.next.url }}"
+               class="pagination-next button is-primary is-rounded"
+               >Siguiente</a
+             >
+           {% else %}
+             <a class="pagination-next button is-rounded" disabled>Siguiente</a>
+           {% endif %}
+        </nav>
+      </div>
     </div>
   </div>
-</div>
+</section>

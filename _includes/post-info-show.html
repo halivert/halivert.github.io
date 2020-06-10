@@ -2,7 +2,7 @@
 	<i class="fas fa-user" aria-hidden="true"></i>
 	{% assign author = site.data.authors[post.author] %}
 	{% if author %}
-		{{ author.firstName }}
+		{{ author.first_name }}
 	{% else %}
 		{{ post.author }}
 	{% endif %}

@@ -6,67 +6,69 @@ title: Halí
 
 {% assign author = site.data.authors[layout.author] %}
 
-<section class="columns">
-	<section class="column is-7 is-offset-1">
-		<p class="title is-size-2">{{ author.firstName }} {{ author.lastName }}</p>
-	</section>
-</section>
-<section class="columns">
-	<section class="column is-7 is-offset-1">
-		<section class="content">
-			<p>
-				Soy
-				<a href="https://www.jw.org/es/testigos-de-jehová/"
-					>testigo de Jehová </a
-				>, tengo 25 años y estudio una ingeniería en sistemas computacionales.
-			</p>
-			<p>
-				Me encanta resolver problemas y tengo una gran afición por las
-				matemáticas. En mis ratos libres también me gusta interpretar música y
-				leer.
-			</p>
-			<p>
-				Soy desarrollador de software, y me gusta trabajar en equipo.
-			</p>
-			<p>
-				Hay más sobre mí y mi trabajo en mi
-				<a href="/blog">blog</a>.
-			</p>
-			<p>
-				Puedes ver en que estoy trabajando justo
-				<a href="/now">ahora</a>.
-			</p>
-			<p>
-				También puedes enviarme un mensaje:
-			</p>
-			<p class="buttons is-centered">
-				<a
-					target="_blank"
-					class="button is-large is-inverted gmail"
-					href="mailto:{{ author.email.at }}">
-					<span class="icon">
-						<i class="fas fa-envelope-open" aria-hidden="true"></i>
-					</span>
-				</a>
-				{% for item in author.social %}
-					<a
-						target="_blank"
-						class="button is-inverted is-large {{ item.type }}"
-						href="{{ item.url }}">
-						<span class="icon">
-							<i class="{{ item.icon }}" aria-hidden="true"></i>
-						</span>
-					</a>
-				{% endfor %}
-			</p>
-		</section>
-	</section>
-	<section class="column has-text-centered">
-		<img
-			src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=200"
-			class="avatar"
-			alt="Imagen de perfil de {{ layout.author }}"
-			onContextMenu="vibrate([150, 30, 150]);"
-		/>
-	</section>
+<section id="main-container" class="section is-size-6 has-background-light">
+  <section class="columns">
+    <section class="column is-7 is-offset-1">
+      <p class="title is-size-2">
+        {{ author.first_name }} {{ author.last_name }}
+      </p>
+    </section>
+  </section>
+  <section class="columns">
+    <section class="column is-7 is-offset-1">
+      <section class="content">
+        <p>
+          Soy
+          <a href="https://www.jw.org/es/testigos-de-jehová/"
+             >testigo de Jehová </a
+           >, tengo 25 años y estudio una ingeniería en sistemas
+           computacionales.
+        </p>
+            <p>
+              Me encanta resolver problemas y tengo una gran afición por las
+              matemáticas. En mis ratos libres también me gusta interpretar
+              música y leer.
+            </p>
+            <p>
+              Desarrollo software, y me gusta trabajar en equipo.
+            </p>
+            <p>
+              Hay más sobre mí y mi trabajo en mi <a href="/blog">blog</a>.
+            </p>
+            <p>
+              Puedes ver en que estoy trabajando <a href="/now">ahora</a>.
+              <br />
+              Y algunos de mis <a href="/projects">proyectos</a>.
+            </p>
+            <p class="buttons is-centered">
+              <a
+                target="_blank"
+                class="button is-large is-inverted gmail"
+                href="mailto:{{ author.email.at }}">
+                <span class="icon">
+                  <i class="fas fa-envelope-open" aria-hidden="true"></i>
+                </span>
+              </a>
+              {% for item in author.social %}
+                <a
+                  target="_blank"
+                  class="button is-inverted is-large {{ item.type }}"
+                  href="{{ item.url }}">
+                  <span class="icon">
+                    <i class="{{ item.icon }}" aria-hidden="true"></i>
+                  </span>
+                </a>
+              {% endfor %}
+            </p>
+      </section>
+    </section>
+    <section class="column has-text-centered">
+      <img
+        src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=200"
+        class="avatar"
+        alt="Imagen de perfil de {{ layout.author }}"
+        onContextMenu="vibrate([150, 30, 150]);"
+      />
+    </section>
+  </section>
 </section>

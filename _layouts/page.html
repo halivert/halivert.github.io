@@ -2,24 +2,26 @@
 layout: html
 ---
 
-<div class="container has-text-centered">
-  <h1 class="title {{ page.style.title }}">
-    {{ page.title }}
-  </h1>
-  <h2 class="subtitle is-6">
-    por
-    {% if site.data._authors[page.author] %}
-      {{ site.data._authors[page.author].fullname }}
-    {% elsif page.author %}
-      {{ page.author }}
-    {% else %}
-      {{ "Anon" }}
-    {% endif %}
-  </h2>
-</div>
-<hr>
-<div class="container">
-  <div class="{{ page.class }} has-text-justified">
-    {{ content }}
+<section id="main-container" class="section is-size-6 has-background-light">
+  <div class="container has-text-centered">
+    <h1 class="title {{ page.style.title }}">
+      {{ page.title }}
+    </h1>
+    <h2 class="subtitle is-6">
+      por
+      {% if site.data.authors[page.author] %}
+        {{ site.data.authors[page.author].first_name }}
+      {% elsif page.author %}
+        {{ page.author }}
+      {% else %}
+        {{ "Anon" }}
+      {% endif %}
+    </h2>
   </div>
-</div>
+  <hr>
+  <div class="container">
+    <div class="{{ page.class }} has-text-justified">
+      {{ content }}
+    </div>
+  </div>
+</section>

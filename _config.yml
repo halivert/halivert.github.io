@@ -4,7 +4,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Sitio de Halí Velázquez
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://halivert.github.io"
-emptyArray: []
+empty_array: []
 paginate: 7
 paginate_path: "/blog/:num/"
 timezone: "America/Mexico_City"
@@ -29,21 +29,21 @@ defaults:
       excerpt_separator: <!--Seguir leyendo-->
       comments: true
       lang: "es_MX"
-      hasmath: false
-      hasinstantview: true
-      imagealt: ""
-      searchbar: true
+      has_math: false
+      has_instant_view: true
+      img_alt: ""
+      search_bar: true
   -
       scope:
         path: "blog"
       values:
-        searchbar: true
+        search_bar: true
   -
     scope:
       path: ""
     values:
       lang: "es_MX"
-      searchbar: false
+      search_bar: false
       logo: "/img/halivert-logo.png"
 
 # Exclude from processing.

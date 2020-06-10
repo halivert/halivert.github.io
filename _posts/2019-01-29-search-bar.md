@@ -5,7 +5,7 @@ date: "2019-01-29 10:38"
 category: "Novedades"
 tags: ["¡Código!"]
 lastmodification: "2019-02-12 00:32"
-hasinstantview: false
+has_instant_view: false
 ---
 
 #### Ahora hay una barra de búsqueda disponible en el blog

@@ -2,7 +2,7 @@
 author: halivert
 title: "Inducción matemática"
 date: "2019-03-01 11:03"
-hasmath: true
+has_math: true
 category: "Matemáticas"
 ---
 

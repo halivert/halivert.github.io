@@ -1,25 +1,37 @@
 ---
-layout: default
-title: Error
+permalink: /404.html
 ---
 
-<style type="text/css" media="screen">
-.container {
-  margin: 10px auto;
-  max-width: 600px;
-  text-align: center;
-}
-h1 {
-  margin: 30px 0;
-  font-size: 4em;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-</style>
+<!DOCTYPE html>
+<html lang="es" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="{{ site.url }}/assets/css/halivert.css" />
+    <link rel="stylesheet" href="{{ site.url }}/assets/css/halivert-dark.css" />
 
-<div class="container">
-  <h1>404</h1>
+    <script src="https://unpkg.com/turbolinks" defer></script>
 
-  <p><strong>Página no encontrada :(</strong></p>
-  <p>La página solicitada no pudo ser encontrada.</p>
-</div>
+    <title>Página no encontrada</title>
+  </head>
+
+  <body class="has-background-light">
+    <section class="hero is-fullheight">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Error 404
+          </h1>
+          <h2 class="subtitle">
+            Página no encontrada 😅
+            <br />
+            <a href="javascript:window.history.back()">Volver</a>
+          </h2>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

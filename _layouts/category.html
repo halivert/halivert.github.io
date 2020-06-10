@@ -2,31 +2,35 @@
 layout: html
 ---
 
-<div class="container-fluid">
-  <div class="has-text-centered">
-    <h3 class="title is-size-1">{{ page.category }}</h3>
-    <div class="is-size-5">
-      {{ content }}
+<section id="main-container" class="section is-size-6 has-background-light">
+  <div class="container-fluid">
+    <div class="has-text-centered">
+      <h3 class="title is-size-1">{{ page.category }}</h3>
+      <div class="is-size-5">
+        {{ content }}
+      </div>
+      <hr>
     </div>
-    <hr>
+    <div class="columns">
+      <div class="column is-9">
+        {% assign category = page.category %}
+        {% for post in site.categories[category] %}
+          <div>
+            <p class="title is-size-2">
+              <a class="has-text-primary" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </p><hr>
+            {% include post-show.html %}
+            <br>
+            {% include post-info-show.html %}
+            <br>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="column">
+        {% include sidebar.html %}
+      </div>
+    </div>
   </div>
-  <div class="columns">
-    <div class="column is-9">
-      {% assign category = page.category %}
-      {% for post in site.categories[category] %}
-        <div>
-          <p class="title is-size-2">
-          <a class="has-text-primary" href="{{ post.url }}">{{ post.title }}</a>
-          </p><hr>
-          {% include post-show.html %}
-          <br>
-          {% include post-info-show.html %}
-          <br>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="column">
-      {% include sidebar.html %}
-    </div>
-  </div>
-</div>
+</section>
