@@ -1,0 +1,47 @@
+---
+layout: html
+hide_nav: true
+hide_foot: true
+---
+
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">{{ page.title }}</h1>
+      <h2 class="subtitle">{{ page.description }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column is-8-desktop is-11-tablet">
+      <div class="container content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<button
+  id="theme-switcher"
+  class="button theme-switcher is-invisible fixed-left-corner"
+  onclick="changeTheme()"
+  data-turbolinks-permanent
+  style="border-radius: 0"
+>
+  <span class="icon">
+    <i class="fas" aria-hidden="true"></i>
+  </span>
+</button>
+
+<a
+  href="{{ page.github_url }}"
+  class="button github fixed-right-corner"
+  style="border-radius: 0"
+>
+  <span>Ver en github</span>
+  <span class="icon">
+    <i class="fab fa-github" aria-hidden="true"></i>
+  </span>
+</a>
