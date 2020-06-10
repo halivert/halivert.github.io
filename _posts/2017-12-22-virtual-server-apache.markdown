@@ -11,7 +11,7 @@ que va a estar expuesto y será más fácil detectar problemas.
 
 En este post explicaré como hacer uno en Apache Linux
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Requisitos:
 

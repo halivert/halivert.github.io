@@ -12,7 +12,7 @@ poco de eso.
 
 ## [YouTube][1]
 Hace como... bastante tiempo (la verdad es que soy muy malo calculando cuanto
-tiempo ha pasado desde cierto evento)<!--Seguir leyendo-->comenzé a seguir
+tiempo ha pasado desde cierto evento)<!-- Seguir leyendo -->comenzé a seguir
 algunos canales que me parecieron interesantes, el primero que recuerdo fue [El
 robot de platón][2] que es un canal que trata temas de ciencia de una manera
 sencilla y además está en español, también canales en inglés (no sé realmente

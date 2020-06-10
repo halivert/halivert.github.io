@@ -11,7 +11,7 @@ llegué a ser tan bueno como las personas de ahí, pero en ese lugar fue donde
 mejoré mi estilo de programación (aunque aún puede mejorar más... y mucho) y
 aprendí algunos trucos.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Hice una clase de Matrices con sobrecarga de operadores y con algunas funciones
 para resolver algunos problemas, gracias al club que les mencionaba, sé el

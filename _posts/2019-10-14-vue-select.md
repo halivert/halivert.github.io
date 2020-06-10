@@ -13,7 +13,7 @@ de los casos) y las siguientes solo lo reutilizas.
 
 Sin embargo crear un componente que funcione adecuadamente no siempre es
 sencillo, es por eso que escribo esta guía para hacer un select personalizado.
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Lo primero que haremos es nombrar el componente. Según la [guía de estilo de
 Vue.js][1] es recomendable nombrar los componentes de manera homogénea y se

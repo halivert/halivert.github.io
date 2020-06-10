@@ -10,7 +10,7 @@ Mensaje para el Halí del futuro: no escribas las fechas manualmente para
 tus posts hechos con Jekyll... puedes simplemente utilizar dos funciones
 muy útiles de Vim.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 `put`: Sirve para poner un texto de un registro después de la línea
 actual.

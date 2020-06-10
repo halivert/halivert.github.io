@@ -11,7 +11,7 @@ En este post les comparto un tip para practicar la lectura de números
 binarios.
 
 ### «La práctica hace al maestro»
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 Seguramente habrás notado que cuando utilizas cierta habilidad de manera
 cotidiana te cuesta menos trabajo cada vez.
 

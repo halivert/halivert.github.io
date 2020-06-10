@@ -11,7 +11,7 @@ basándome en esta página ([ACIDBOURBON][1]) realizé un pequeño script que
 (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa
 cada vez que se inicia una nueva instancia de Yakuake.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 ```console
 _Tx="$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))"

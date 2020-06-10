@@ -11,7 +11,7 @@ decidí utilizar el `QUEUE_CONNECTION=database` en el archivo de configuración
 (.env) y así comienza ese "largo" camino a usar una cola en Laravel para ciertas
 tareas que llevan poco más de 1 segundo, en este caso notificaciones.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Suponiendo que tenemos las notificaciones que deseamos utilizar, creamos las
 migraciones (en caso que no existan) para las tablas que utilizaremos para

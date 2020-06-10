@@ -16,7 +16,7 @@ momento.
 
 Pero ¿cómo importamos todos los elementos y componentes de Bulma, fácilmente?
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 He encontrado estos macros que pueden serte muy utiles:
 ```viml

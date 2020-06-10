@@ -9,7 +9,7 @@ En este post traigo para ustedes una herramienta muy útil (no muy útil, la
 verdad) que sirve para cuando intentan remedar a alguien... o sea imitarlo o
 imitarla y agregar un toque de ridículo a su comentario.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 (Cambia las vocales por "i").
 

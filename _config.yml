@@ -26,7 +26,7 @@ defaults:
       layout: "post"
       author: "Anonymous"
       permalink: "/blog/:year/:month/:title/"
-      excerpt_separator: <!--Seguir leyendo-->
+      excerpt_separator: "<!-- Seguir leyendo -->"
       comments: true
       lang: "es_MX"
       has_math: false

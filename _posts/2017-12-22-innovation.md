@@ -14,7 +14,7 @@ Aunque me parece adecuada la descripción que hace la RAE sobre ella:
 > Innovación: Creación o modificación de un producto, y su introducción en un
 > mercado.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Creo que en la actualidad la parte sobre creación ya es algo complicada.
 

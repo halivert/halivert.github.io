@@ -12,7 +12,7 @@ Su nombre era "Memo" (mamá se lo puso porque "Nemo" era too mainstream), un pez
 beta de color azul, que desde cierta perspectiva podía verse verde y turquesa.
 
 Ese pez nunca hizo nada por el mundo y aún así lo voy a recordar
-siempre,<!--Seguir leyendo--> creo que sí tenía emociones y que se alegraba un
+siempre,<!-- Seguir leyendo --> creo que sí tenía emociones y que se alegraba un
 poco al verme... quizá sólo porque yo lo alimentaba pero me "hacía fiesta".
 
 En una ocasión anterior también estuvo a punto de morir, en ese entonces no lo

@@ -21,7 +21,7 @@ cualquier caso, para hacer la experiencia "menos" traumática he decidido
 compartir el archivo de configuración que yo utilizo y les explicaré unas
 cuantas líneas:
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 ```viml
 set nocompatible

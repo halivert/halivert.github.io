@@ -10,7 +10,7 @@ Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
 si además empleamos [Laravel][], notaremos que incluye un módulo muy útil
 llamado Webpack Mix, que nos ayuda a preprocesar nuestros archivos JS.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Un problema surge cuando queremos acceder a las rutas que definimos en Laravel
 desde cualquier módulo de JS. Una de las soluciones más sencillas es exportar

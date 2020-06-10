@@ -19,7 +19,7 @@ alojar una aplicación web escrita en Python.
 <a class="anchor" name="Nota1Up"></a>
 - [Microsoft Visual C++][3] [*]({{ page.url }}#Nota1)
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 ### Instrucciones
 Instalamos Python, Apache y Visual C++, una vez hecho esto, podemos comenzar con

@@ -9,7 +9,7 @@ category: "Divagando"
 mensajería instantánea, y en este post no me concentraré en porqué es mejor que
 otras aplicaciones, sino en porque me gusta utilizarla.
 
-<!--Seguir leyendo-->
+<!-- Seguir leyendo -->
 
 Una de las características que me resulta sumamente útil es que cuenta con una
 aplicación de escritorio la cual es muy fácil de usar y puedes descargar del
