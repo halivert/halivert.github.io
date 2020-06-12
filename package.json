@@ -1,24 +1,24 @@
 {
-  "scripts": {
-    "prod": "yarn minify",
-    "minify": "babel _resources/js/* -d assets/js && yarn minify-lunr",
-    "minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
-  },
-  "dependencies": {
-    "@ibm/plex": "^5.0.0",
-    "bulma": "^0.9.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.10.1",
-    "@babel/core": "^7.10.2",
-    "@babel/preset-env": "^7.10.2"
-  },
-  "name": "halivert.github.io",
-  "version": "2.1.0",
-  "author": "Halí V. <halivelazquez@outlook.com>",
-  "license": "MIT",
-  "prettier": {
-    "semi": false,
-    "tabs": true
-  }
+	"scripts": {
+		"prod": "yarn minify",
+		"minify": "babel _resources/js/* -d assets/js && yarn minify-lunr",
+		"minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js"
+	},
+	"dependencies": {
+		"@ibm/plex": "^5.0.0",
+		"bulma": "^0.9.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.10.1",
+		"@babel/core": "^7.10.2",
+		"@babel/preset-env": "^7.10.2"
+	},
+	"name": "halivert.github.io",
+	"version": "2.1.0",
+	"author": "Halí V. <halivelazquez@outlook.com>",
+	"license": "MIT",
+	"prettier": {
+		"semi": false,
+		"tabs": true
+	}
 }
