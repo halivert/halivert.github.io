@@ -1,20 +1,18 @@
 ---
 title: "Búsqueda"
-layout: html
+layout: container
 permalink: "/blog/busqueda"
 ---
 
-<section id="main-container" class="section has-background-light">
-	<section class="container-fluid">
-		<section class="columns">
-			<section class="column is-9">
-				<section id="search-results"></section>
-			</section>
-			<section class="column">
-				{% include sidebar.html %}
-			</section>
-		</section>
-	</section>
+<section class="container-fluid">
+  <section class="columns">
+    <section class="column is-9">
+      <section id="search-results"></section>
+    </section>
+    <section class="column">
+      {% include sidebar.html %}
+    </section>
+  </section>
 </section>
 
 {% include search-lunr.html %}

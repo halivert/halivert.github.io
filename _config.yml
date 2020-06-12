@@ -33,6 +33,7 @@ defaults:
       has_instant_view: true
       img_alt: ""
       search_bar: true
+      font_size: is-size-5
   -
       scope:
         path: "blog"

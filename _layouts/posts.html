@@ -1,30 +1,28 @@
 ---
-layout: html
+layout: container
 ---
 
-<section id="main-container" class="section has-background-light">
-  <div class="container-fluid">
-    <div class="columns is-desktop">
-      <div class="column is-9-desktop">
-        {% for post in paginator.posts %}
-          <section>
-            <h2 class="title is-2">
-              <a class="has-text-primary" href="{{ post.url }}">
-                {{ post.title }}
-              </a>
-            </h2>
-            <hr />
-            {% include post-show.html %}
-            <br />
-            {% include post-info-show.html %}
-            <br />
-          </section>
-        {% endfor %}
-        {% include paginator.html item=paginator%}
-      </div>
-      <aside class="column">
-        {% include sidebar.html %}
-      </aside>
+<div class="container-fluid">
+  <div class="columns is-desktop">
+    <div class="column is-9-desktop">
+      {% for post in paginator.posts %}
+        <section>
+          <h2 class="title is-2">
+            <a class="has-text-primary" href="{{ post.url }}">
+              {{ post.title }}
+            </a>
+          </h2>
+          <hr />
+          {% include post-show.html %}
+          <br />
+          {% include post-info-show.html %}
+          <br />
+        </section>
+      {% endfor %}
+      {% include paginator.html item=paginator%}
     </div>
+    <aside class="column">
+      {% include sidebar.html %}
+    </aside>
   </div>
-</section>
+</div>

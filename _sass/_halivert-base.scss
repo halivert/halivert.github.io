@@ -89,7 +89,6 @@ $footer-padding: 1rem 1rem 2rem;
 @import "_social-buttons";
 
 body {
-	font-size: 17px;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -268,18 +267,20 @@ footer.footer {
 	border-radius: 100%;
 }
 
-.fixed-right-corner {
-	position: fixed;
-	top: 0;
-	right: 0;
-	z-index: 100;
-	display: inline-block;
-}
+.repo {
+	&.fixed-top-bar {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		display: flex;
+		z-index: 100;
+		background: $primary;
+		justify-content: space-between;
+	}
 
-.fixed-left-corner {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 100;
-	display: inline-block;
+	&.hero {
+		@media screen and (max-width: $desktop) {
+			margin-top: 0.75rem;
+		}
+	}
 }
