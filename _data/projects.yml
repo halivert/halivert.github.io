@@ -3,3 +3,10 @@
   img_type: png
   description: >-
     Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.
+
+- title: "Rutas de Laravel en JS"
+  slug: laravel-js-routes
+  img_type: png
+  description: >-
+    Paquete composer para utilizar rutas de Laravel en archivos
+    JS con un comando.
