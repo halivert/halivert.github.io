@@ -1,46 +1,20 @@
-document.addEventListener("turbolinks:load", () => {
-	let searchBox = document.getElementById("search-box")
-	if (searchBox) {
-		document.addEventListener("keypress", evt => {
-			if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
-				evt.preventDefault()
-				activateNavMenu()
-				searchBox.focus()
-				searchBox.select()
-			}
-		})
-	}
+const addClass = (element, name) => {
+	if (!element) return
 
-	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
-		removeClass(document.documentElement, "dark")
-		localStorage.halivertsTheme = "light"
+	if (element.classList) {
+		element.classList.add(name)
 	} else {
-		localStorage.removeItem("halivertsTheme")
+		let arr = element.className.split(" ")
+		if (arr.indexOf(name) === -1) element.className += " " + name
 	}
-
-	initThemeSwitcher(document.getElementById("theme-switcher"), localStorage)
-	initThemeSwitcher(
-		document.getElementById("theme-switcher-corner"),
-		localStorage
-	)
-	;(document.querySelectorAll(".notification .delete") || []).forEach(
-		$delete => {
-			$notification = $delete.parentNode
-			$delete.addEventListener("click", () => {
-				$notification.parentNode.removeChild($notification)
-			})
-		}
-	)
-})
+}
 
 const activateNavMenu = () => {
 	let menu = document.getElementById("nav-menu")
 	if (!menu) return
 
 	let display = getComputedStyle(menu).getPropertyValue("display")
-	if (display === "none") {
-		addClass(menu, "is-active")
-	}
+	if (display === "none") addClass(menu, "is-active")
 }
 
 const toggleClass = (element, className) => {
@@ -50,30 +24,14 @@ const toggleClass = (element, className) => {
 		let classes = element.className.split(" ")
 		let i = classes.indexOf(className)
 
-		if (i >= 0) classes.splice(i, 1)
-		else classes.push(className)
+		if (i >= 0) {
+			classes.splice(i, 1)
+		} else {
+			classes.push(className)
+		}
+
 		element.className = classes.join(" ")
 	}
-}
-
-const addClass = (element, name) => {
-	if (!element) return
-
-	if (element.classList) element.classList.add(name)
-	else {
-		let arr = element.className.split(" ")
-		if (arr.indexOf(name) === -1) {
-			element.className += " " + name
-		}
-	}
-}
-
-const showElement = element => {
-	if (element) removeClass(element, "is-hidden")
-}
-
-const hideElement = element => {
-	if (element) addClass(element, "is-hidden")
 }
 
 const hasClass = (element, name) => {
@@ -91,8 +49,9 @@ const hasClass = (element, name) => {
 const removeClass = (element, name) => {
 	if (!element) return
 
-	if (element.classList) element.classList.remove(name)
-	else {
+	if (element.classList) {
+		element.classList.remove(name)
+	} else {
 		let classes = element.className.split(" ")
 		let i = classes.indexOf(className)
 
@@ -125,23 +84,61 @@ const vibrate = pattern => {
 	window.navigator.vibrate(pattern)
 }
 
-const initThemeSwitcher = (element, storage) => {
+const initThemeSwitcher = element => {
 	if (!element) return
 
 	let firstSpan = element.getElementsByTagName("span")[0]
 	let icon = firstSpan.getElementsByTagName("i")[0]
 
-	if (storage.halivertsTheme && storage.halivertsTheme === "light") {
-		addClass(icon, "fa-moon")
-		removeClass(icon, "fa-sun")
-		addClass(element, "is-dark")
-		removeClass(element, "is-warning")
-	} else {
+	if (hasClass(document.documentElement, "dark")) {
 		removeClass(icon, "fa-moon")
 		addClass(icon, "fa-sun")
 		removeClass(element, "is-dark")
 		addClass(element, "is-warning")
+	} else {
+		addClass(icon, "fa-moon")
+		removeClass(icon, "fa-sun")
+		addClass(element, "is-dark")
+		removeClass(element, "is-warning")
 	}
 
 	removeClass(element, "is-invisible")
 }
+
+document.addEventListener("turbolinks:load", () => {
+	let searchBox = document.getElementById("search-box")
+	if (searchBox) {
+		document.addEventListener("keypress", evt => {
+			if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
+				evt.preventDefault()
+				activateNavMenu()
+				searchBox.focus()
+				searchBox.select()
+			}
+		})
+	}
+
+	initThemeSwitcher(document.getElementById("theme-switcher"))
+	initThemeSwitcher(document.getElementById("theme-switcher-corner"))
+	;(document.querySelectorAll(".notification .delete") || []).forEach(
+		$delete => {
+			$notification = $delete.parentNode
+			$delete.addEventListener("click", () => {
+				$notification.parentNode.removeChild($notification)
+			})
+		}
+	)
+})
+
+const setTheme = () => {
+	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
+		removeClass(document.documentElement, "dark")
+		localStorage.halivertsTheme = "light"
+	} else {
+		localStorage.removeItem("halivertsTheme")
+	}
+}
+
+setTheme()
+
+document.addEventListener("turbolinks:visit", setTheme)
