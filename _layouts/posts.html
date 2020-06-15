@@ -8,7 +8,7 @@ layout: container
       {% for post in paginator.posts %}
         <section>
           <h2 class="title is-2">
-            <a class="has-text-primary" href="{{ post.url }}">
+            <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
               {{ post.title }}
             </a>
           </h2>

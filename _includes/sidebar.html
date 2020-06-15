@@ -3,9 +3,9 @@
 
   <div class="columns is-multiline is-centered is-gapless">
     {% for post in site.posts limit: 7 %}
-    <a class="column is-full" href="{{ post.url }}">
-      {{ post.title }}
-    </a>
+      <a class="column is-full" href="{{ site.url }}{{ post.url }}">
+        {{ post.title }}
+      </a>
     {% endfor %}
   </div>
 
@@ -13,13 +13,13 @@
   <h1 class="subtitle">Categorías</h1>
   <div class="columns is-multiline is-centered is-gapless">
     {% for category in site.categories %}
-    {% assign url = category[0] | slugify | replace: 'á', 'a' %}
-    {% assign url = url | replace: 'é', 'e' | replace: 'í', 'i' %}
-    {% assign url = url | replace: 'ó', 'o' | replace: 'ú', 'u' %}
-    {% assign url = url | replace: 'ñ', 'ni' %}
-    <a class="column is-full" href="/blog/{{ url }}">
-      {{ category[0] }}
-    </a>
+      {% assign url = category[0] | slugify | replace: 'á', 'a' %}
+      {% assign url = url | replace: 'é', 'e' | replace: 'í', 'i' %}
+      {% assign url = url | replace: 'ó', 'o' | replace: 'ú', 'u' %}
+      {% assign url = url | replace: 'ñ', 'ni' %}
+      <a class="column is-full" href="{{ site.url }}/blog/{{ url }}">
+        {{ category[0] }}
+      </a>
     {% endfor %}
   </div>
 </div>

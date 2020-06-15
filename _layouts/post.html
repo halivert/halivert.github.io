@@ -12,7 +12,7 @@ layout: container
           <div class="column is-hidden-tablet">
             <img
               id="page-cover"
-              src="{{ page.image }}"
+              src="{{ site.url}}{{ page.image }}"
               alt="{{ page.imagealt }}"
               class="image"
               style="margin-bottom: 0.5em;"
@@ -26,7 +26,7 @@ layout: container
           <small>
             {% if author.first_name %}
               <i>por</i>
-              <a href="/authors/{{ page.author }}">{{
+              <a href="{{ site.url }}/authors/{{ page.author }}">{{
                 author.first_name
               }}</a>
             {% endif %}
@@ -44,7 +44,7 @@ layout: container
           <div class="column has-text-right is-hidden-mobile">
             <img
               id="page-cover"
-              src="{{ page.image }}"
+              src="{{ site.url}}{{ page.image }}"
               style="max-height: 200px; max-width: 200px;"
               alt="{{ page.imagealt }}"
             />
@@ -67,7 +67,7 @@ layout: container
         >
         {% if page.previous.url %}
           <a
-            href="{{ page.previous.url }}"
+            href="{{ site.url }}{{ page.previous.url }}"
             class="pagination-previous button is-primary is-rounded"
             >Anterior</a
           >
@@ -78,7 +78,7 @@ layout: container
          {% endif %}
          {% if page.next.url %}
            <a
-             href="{{ page.next.url }}"
+             href="{{ site.url }}{{ page.next.url }}"
              class="pagination-next button is-primary is-rounded"
              >Siguiente</a
            >
