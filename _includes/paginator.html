@@ -1,88 +1,123 @@
-<nav class="pagination is-centered is-rounded" aria-label="pagination">
-  {% if include.item.previous_page %}
-    <a
-      href="{{ site.url }}{{ include.item.previous_page_path }}"
-      class="pagination-previous button is-primary"
-    >
-      <i class="far fa-hand-point-left"></i>
-    </a>
-  {% else %}
-    <a class="pagination-previous" disabled>
-      <i class="far fa-hand-point-left"></i>
-    </a>
-  {% endif %}
+<nav class="pagination is-rounded is-centered" aria-label="pagination">
+	{% if include.item.previous_page %}
+		<a
+			href="{{ site.url }}{{ include.item.previous_page_path }}"
+			class="pagination-previous button is-primary is-hidden-mobile"
+			><i class="far fa-hand-point-left"></i></a
+		>
+	{% else %}
+		<a class="pagination-previous is-hidden-mobile" disabled>
+			<i class="far fa-hand-point-left"></i>
+		</a>
+	{% endif %}
 
-  {% assign pageBef = include.item.page | minus: 1 %}
-  {% assign pageAft = include.item.page | plus: 1 %}
+	{% assign actualPage = include.item.page %}
+	{% assign lastPage = include.item.total_pages %}
 
-  {% if pageBef > 3 %}
-    {% assign pageBef = 3 %}
-  {% endif %}
+	<ul class="pagination-list">
+		{% if actualPage > 1 %}
+			<li>
+				<a
+					href="{{ site.url }}/blog/"
+					class="pagination-link"
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
+		{% endif %}
 
-  {% assign c1 = include.item.total_pages | minus: pageAft %}
+		{% assign final = actualPage | minus: 1 %}
+		{% assign start = actualPage | minus: 2 | at_least: 2 %}
+		{% assign startMob = actualPage | minus: 1 | at_least: 2 %}
 
-  {% if c1 >= 3 %}
-    {% assign pageAft = include.item.total_pages | minus: 2 %}
-  {% endif %}
+		{% if start > 2 %}
+			<li>
+				<span class="pagination-ellipsis is-hidden-mobile">&hellip;</span>
+			</li>
+		{% endif %}
 
-  <ul class="pagination-list">
-    {% for i in (1 .. pageBef) %}
-      <li>
-        {% capture link %}
-          {{ site.url }}/blog/{% if i != 1 %}{{ i }}{% endif %}
-        {% endcapture %}
+		{% if startMob > 2 %}
+			<li>
+				<span class="pagination-ellipsis is-hidden-tablet">&hellip;</span>
+			</li>
+		{% endif %}
 
-        <a
-          href="{{ link }}"
-          class="pagination-link"
-          aria-label="Ir a página {{ i }}"
-          >
-          {{ i }}
-        </a>
-      </li>
-    {% endfor %}
 
-    {% if include.item.page > 1 %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-    {% endif %}
+		{% for i in (start .. final) %}
+			<li>
+				<a
+					href="{{ site.url }}/blog/{{ i }}"
+					class="pagination-link
+					{% if forloop.last == false %}
+						is-hidden-mobile
+					{% endif %}"
+				  aria-label="Ir a página {{ i }}"
+				  >{{ i }}</a
+				>
+			</li>
+		{% endfor %}
 
-    <li>
-      <a
-        class="pagination-link button is-primary"
-        aria-current="page"
-        aria-label="Ir a página {{ include.item.page }}"
-        >
-        {{ include.item.page }}
-      </a>
-    </li>
+		<li>
+			<a
+				class="pagination-link button is-primary"
+				aria-current="page"
+				aria-label="Ir a página {{ actualPage }}"
+				>{{ actualPage }}</a
+			>
+		</li>
 
-    {% if include.item.page < include.item.total_pages %}
-      <li><span class="pagination-ellipsis">&hellip;</span></li>
-    {% endif %}
+		{% assign at_most = lastPage | minus: 1 %}
+		{% assign start = actualPage | plus: 1 %}
+		{% assign final = actualPage | plus: 2 | at_most: at_most %}
+		{% assign finalMob = actualPage | plus: 1 | at_most: at_most %}
 
-    {% for i in (pageAft .. include.item.total_pages) %}
-      <li>
-        <a
-          href="{{ site.url }}/blog/{{ i }}"
-          class="pagination-link"
-          aria-label="Ir a página {{ i }}"
-          >
-          {{ i }}
-        </a>
-      </li>
-    {% endfor %}
-  </ul>
+		{% for i in (start .. final) %}
+			<li>
+				<a
+					href="{{ site.url }}/blog/{{ i }}"
+				  class="pagination-link
+					{% if forloop.first == false %}
+						is-hidden-mobile
+					{% endif %}"
+				  aria-label="Ir a página {{ i }}"
+				  >{{ i }}</a
+				>
+			</li>
+		{% endfor %}
 
-  {% if include.item.next_page %}
-    <a
-      href="{{ site.url }}{{ include.item.next_page_path }}"
-      class="pagination-next button is-primary"
-      >
-      <i class="far fa-hand-point-right"></i>
-    </a>
-  {% else %}
-    <span class="pagination-next" disabled>
-      <i class="far fa-hand-point-right"></i>
-    </span>
-  {% endif %}
+		{% if finalMob < at_most %}
+			<li>
+				<span class="pagination-ellipsis is-hidden-tablet">&hellip;</span>
+			</li>
+		{% endif %}
+
+		{% if final < at_most %}
+			<li>
+				<span class="pagination-ellipsis is-hidden-mobile">&hellip;</span>
+			</li>
+		{% endif %}
+
+		{% if actualPage < lastPage %}
+			<li>
+				<a
+					href="{{ site.url }}/blog/{{ lastPage }}"
+					class="pagination-link"
+					aria-label="Ir a página {{ lastPage }}"
+					>{{ lastPage }}</a
+				>
+			</li>
+		{% endif %}
+	</ul>
+
+	{% if include.item.next_page %}
+		<a
+			href="{{ site.url }}{{ include.item.next_page_path }}"
+			class="pagination-next button is-primary is-hidden-mobile"
+			><i class="far fa-hand-point-right"></i></a
+		>
+	{% else %}
+		<span class="pagination-next is-hidden-mobile" disabled>
+			<i class="far fa-hand-point-right"></i>
+		</span>
+	{% endif %}
 </nav>

@@ -3,7 +3,7 @@ name: "Halí"
 description: >- # this means to ignore newlines until "baseurl:"
   Sitio de Halí Velázquez
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://halivert.github.io"
+url: "https://halivert.dev"
 empty_array: []
 paginate: 7
 paginate_path: "/blog/:num/"
