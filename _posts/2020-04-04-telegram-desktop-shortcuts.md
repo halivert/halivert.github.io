@@ -5,7 +5,7 @@ date: "2020-04-04 12:30 -0600"
 category: "Divagando"
 ---
 
-[Telegram][], seguramente habrás escuchado hablar de esta aplicación de
+[Telegram][1], seguramente habrás escuchado hablar de esta aplicación de
 mensajería instantánea, y en este post no me concentraré en porqué es mejor que
 otras aplicaciones, sino en porque me gusta utilizarla.
 
@@ -16,7 +16,7 @@ aplicación de escritorio la cual es muy fácil de usar y puedes descargar del
 sitio oficial.
 
 Esta aplicación a su vez cuenta con algunos atajos de teclado y quiero hacer
-mención de algunos de ellos (si quieres puedes verlos todos [aquí][1]).
+mención de algunos de ellos (si quieres puedes verlos todos [aquí][2]).
 
 El primero es poder bloquear la sesión, para ello debes tener registrado un
 código de acceso, una vez que lo tienes puedes presionar `Ctrl+l` y pum, se
@@ -29,7 +29,7 @@ Una parte importante de enviar mensajes son los emojis, y Telegram Desktop es
 bastante amigable al respecto, no tienes que despegar las manos del teclado (si
 no quieres) para enviar emojis, y no lo considero 100 % un atajo de teclado,
 pero es bastante útil para comunicarse más rápido. Esto lo logras escribiendo el
-código del emoji que puedes consultar en [emojipedia][], estos son algunos de
+código del emoji que puedes consultar en [emojipedia][3], estos son algunos de
 los que más uso.
 
 |-------|-----------------------|
@@ -55,6 +55,6 @@ completamente, entre otros.
 En fin, ¿ya usas Telegram Desktop? Dime cuales son tus atajos favoritos.
 Hasta pronto 👋🏽
 
-[telegram]: https://telegram.org
-[emojipedia]: https://emojipedia.org
-[1]: https://github.com/telegramdesktop/tdesktop/wiki/Keyboard-Shortcuts
+[1]: https://telegram.org
+[2]: https://github.com/telegramdesktop/tdesktop/wiki/Keyboard-Shortcuts
+[3]: https://emojipedia.org

@@ -1,9 +1,9 @@
 ---
 title: "Vimrc"
-author: halivert
+author: "halivert"
 category: "¡Código!"
-date: 2017-12-23 00:45
-lastmodification: 2018-09-21 02:02
+date: "2017-12-23 00:45"
+last_modification: "2018-09-21 02:02"
 ---
 
 **Vim** editor de texto que muchos odian y otros aman, pero que igual es
@@ -56,10 +56,10 @@ nnoremap Q <nop>
 Las demás líneas son para algunos plugins, dejaré que eso se los explique
 este otro post, que me ha resultado muy útil.
 
-[Vim as IDE](http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/)
+[Vim as IDE][1]
 
 Aquí está mi archivo de configuración
-[.vimrc](https://github.com/halivert/vimrc)
+[.vimrc][2]
 
 Ah, y por cierto, no olviden el comando para salir:
 
@@ -69,3 +69,6 @@ Ah, y por cierto, no olviden el comando para salir:
 
 \\
 pst... tienen que oprimir la tecla **Esc** primero.
+
+[1]: http://yannesposito.com/Scratch/en/blog/Vim-as-IDE/
+[2]: https://github.com/halivert/vimrc

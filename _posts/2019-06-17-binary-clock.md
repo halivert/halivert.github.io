@@ -1,5 +1,5 @@
 ---
-author: halivert
+author: "halivert"
 title: "Reloj binario"
 date: "2019-06-17 10:39"
 category: "Divagando"
@@ -22,7 +22,8 @@ de una forma... diferente, con un **reloj binario**.
   <img
     class="image auto-margin"
     alt="Reloj binario que marca las 23:53:49"
-    src="/img/2019-06-17-reloj-binario/binary-clock.png">
+    src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock.png"
+  />
 </article>
 
 ¿Pero qué está pasando aquí? Bueno, este artefacto que estás viendo es un
@@ -49,7 +50,8 @@ Ahora vienen las diferencias.
   <img
     class="image auto-margin"
     alt="Reloj binario que marca las 23:53:49"
-    src="/img/2019-06-17-reloj-binario/binary-clock.png">
+    src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock.png"
+  />
 </article>
 
 Se ve como el de aquí arriba, y el primer número (la primer potencia de dos)
@@ -59,7 +61,8 @@ es el cuadrito de hasta abajo en la segunda columna de cada bloque...
     <img
       class="image auto-margin"
       alt="Las 23 horas en un reloj binario"
-      src="/img/2019-06-17-reloj-binario/binary-clock-hr.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-hr.png"
+    />
   </div>
   <p class="column">
     Utilizamos solo los primeros 5 espacios, ya que tendremos 23 horas al día
@@ -74,13 +77,15 @@ Análogamente con los minutos y segundos.
     <img
       class="image auto-margin"
       alt="53 minutos en un reloj binario"
-      src="/img/2019-06-17-reloj-binario/binary-clock-min.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-min.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="49 segundos en un reloj binario"
-      src="/img/2019-06-17-reloj-binario/binary-clock-seg.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-seg.png"
+    />
   </div>
 </article>
 
@@ -91,7 +96,8 @@ En resumen, este reloj dice que son las: **23:53:49**.
   <img
     class="image auto-margin"
     alt="Reloj binario BCD que marca las 00:23:21"
-    src="/img/2019-06-17-reloj-binario/binary-clock-bcd.png">
+    src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-bcd.png"
+  />
 </article>
 
 Mencionabamos que son muy similares, salvo que en este formato, cada columna
@@ -103,7 +109,8 @@ sucesivamente.
     <img
       class="image auto-margin"
       alt="0 horas en un reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/binary-clock-bcd-hr.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-bcd-hr.png"
+    />
   </div>
   <p class="column">
     Es fácil ver que este reloj marca las 0 horas.
@@ -115,13 +122,15 @@ sucesivamente.
     <img
       class="image auto-margin"
       alt="23 minutos en un reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/binary-clock-bcd-min.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-bcd-min.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="21 segundos en un reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/binary-clock-bcd-seg.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/binary-clock-bcd-seg.png"
+    />
   </div>
 </article>
 
@@ -135,25 +144,29 @@ Te dejo otras capturas de relojes binarios para que practiques.
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario"
-      src="/img/2019-06-17-reloj-binario/20190617-bin-1.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bin-1.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario"
-      src="/img/2019-06-17-reloj-binario/20190617-bin-2.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bin-2.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario"
-      src="/img/2019-06-17-reloj-binario/20190617-bin-3.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bin-3.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario"
-      src="/img/2019-06-17-reloj-binario/20190617-bin-4.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bin-4.png"
+    />
   </div>
 </div>
 
@@ -163,25 +176,29 @@ Te dejo otras capturas de relojes binarios para que practiques.
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/20190617-bcd-1.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bcd-1.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/20190617-bcd-2.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bcd-2.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/20190617-bcd-3.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bcd-3.png"
+    />
   </div>
   <div class="column">
     <img
       class="image auto-margin"
       alt="Ejercicio de reloj binario BCD"
-      src="/img/2019-06-17-reloj-binario/20190617-bcd-4.png">
+      src="{{ site.url }}/img/2019-06-17-reloj-binario/20190617-bcd-4.png"
+    />
   </div>
 </div>
 

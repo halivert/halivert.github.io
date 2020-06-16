@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "Remedando a alguien"
-date: 2018-03-12 22:59:42
+date: "2018-03-12 22:59:42"
 category: "Divagando"
 ---
 

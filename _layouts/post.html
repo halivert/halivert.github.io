@@ -31,9 +31,9 @@ layout: container
               }}</a>
             {% endif %}
 
-            {% if page.lastmodification %}
+            {% if page.last_modification %}
               <i>última modificación:</i>
-              {% include date-spanish-abbr.html item=page.lastmodification %}
+              {% include date-spanish-abbr.html item=page.last_modification %}
             {% elsif page.date %}
               <i>publicado:</i>
               {% include date-spanish-abbr.html item=page.date %}

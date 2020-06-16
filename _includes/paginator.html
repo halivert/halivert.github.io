@@ -29,11 +29,11 @@
     {% for i in (1 .. pageBef) %}
       <li>
         {% capture link %}
-          /blog/{% if i != 1 %}{{ i }}{% endif %}
+          {{ site.url }}/blog/{% if i != 1 %}{{ i }}{% endif %}
         {% endcapture %}
 
         <a
-          href="{{ site.url }}{{ link }}"
+          href="{{ link }}"
           class="pagination-link"
           aria-label="Ir a página {{ i }}"
           >

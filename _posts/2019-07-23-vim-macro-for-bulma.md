@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "Macros de Vim para Bulma"
-date: 2019-07-23 08:49
+date: "2019-07-23 08:49"
 category: "Ya me pasó"
 tags: ["Vim", "Bulma", "¡Código!"]
 ---

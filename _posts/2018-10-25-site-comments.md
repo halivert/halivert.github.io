@@ -1,8 +1,8 @@
 ---
 author: halivert
 title: "Comentarios en el sitio"
-date: 2018-10-25 09:48
-lastmodification: 2020-05-25 00:33
+date: "2018-10-25 09:48"
+last_modification: "2020-05-25 00:33"
 category: "Novedades"
 ---
 
@@ -11,12 +11,12 @@ category: "Novedades"
 ###### Actualización
 Ahora los comentarios se han mudado a Telegram y estoy tratando de unificarlos
 para que sean iguales en el sitio y en el [canal][1], si sabes cómo hacerlo, te
-agradeceré mucho que me envíes un [mensaje][2]. 
+agradeceré mucho que me envíes un [mensaje][2].
 
 <!-- Seguir leyendo -->
 
 ###### Lo siguiente está desactualizado...
-Esto se logró gracias a [Disqus](https://disqus.com).
+Esto se logró gracias a [Disqus][3].
 De ahora en adelante encontrarás una sección de comentarios hasta abajo de
 cualquier post.
 
@@ -29,3 +29,4 @@ P.D. si quieres que active las reacciones avísame.
 
 [1]: https://t.me/halivertsblog
 [2]: https://t.me/halivert
+[3]: https://disqus.com

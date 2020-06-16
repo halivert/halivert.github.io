@@ -1,5 +1,5 @@
 ---
-author: halivert
+author: "halivert"
 title: "Verificación en dos pasos"
 date: "2019-09-25 12:02"
 category: "Divagando"
@@ -13,7 +13,7 @@ descifrarla (hasta ahora...).
 
 <!-- Seguir leyendo -->
 
-Pero aún así, siguen existiendo los [crackers][], y más aún, siguen teniendo
+Pero aún así, siguen existiendo los [crackers][1], y más aún, siguen teniendo
 éxito, ¿cómo es que hacen esto? Lo cierto es que no soy un experto en
 seguridad web, pero seguramente también habrás escuchado hablar sobre el
 phishing, veamos que es y cómo evitarlo.
@@ -22,7 +22,7 @@ phishing, veamos que es y cómo evitarlo.
 **Nota:** La Wikipedia en inglés es algo confiable
 </small>
 
-#### [Phishing][] 🎣
+#### [Phishing][2] 🎣
 
 Como su nombre lo dice, se trata de una técnica que busca hacer que caigas en
 un cebo, y esto lo intentan mediante mensajes que parecen provenir de fuentes
@@ -37,28 +37,32 @@ email, para esto, muchas veces hace falta únicamente revisar el correo
 electrónico o la cuenta que te envía el mensaje. Si ves correos como...
 
 <div class="columns">
-	<div class="column">
-		<img
-			alt="Ejemplo de phishing: Bank of America"
-			src="/img/2019-09-25-two-step-verification/phishing1.png">
-	</div>
-	<div class="column">
-		<img
-			alt="Ejemplo de phishing: iTunes"
-			src="/img/2019-09-25-two-step-verification/phishing2.png">
-	</div>
+  <div class="column">
+    <img
+      alt="Ejemplo de phishing: Bank of America"
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing1.png"
+    />
+  </div>
+  <div class="column">
+    <img
+      alt="Ejemplo de phishing: iTunes"
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing2.png"
+    />
+  </div>
 </div>
 <div class="columns">
-	<div class="column">
-		<img
-			alt="Ejemplo de phishing: PayPal"
-			src="/img/2019-09-25-two-step-verification/phishing3.jpeg">
-	</div>
-	<div class="column">
-		<img
-			alt="Ejemplo de phishing: Microsoft"
-			src="/img/2019-09-25-two-step-verification/phishing4.png">
-	</div>
+  <div class="column">
+    <img
+      alt="Ejemplo de phishing: PayPal"
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing3.jpeg"
+    />
+  </div>
+  <div class="column">
+    <img
+      alt="Ejemplo de phishing: Microsoft"
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing4.png"
+    />
+  </div>
 </div>
 
 Revisa el dominio y si, evidentemente no tienen que ver con la empresa a la
@@ -82,7 +86,7 @@ Algunas redes sociales te permiten usar aplicaciones móviles que generan
 códigos de un solo uso que se recargan automáticamente cada cierto tiempo (1
 minuto, 30 segundos) y que sirven como método para afirmar que eres tú quien
 está accediendo a tu cuenta, y no alguien que robó tu contraseña. Aplicaciones
-como [Authy][] o [Google Authenticator][] sirven para estos fines. Otras
+como [Authy][3] o [Google Authenticator][4] sirven para estos fines. Otras
 aplicaciones web te ofrecen enviar un código a tu celular por medio de SMS.
 
 #### Conclusión
@@ -99,28 +103,29 @@ Es sencillo activar la verificación en dos pasos. Aquí muestro los nombres que
 tiene en Telegram, Twitter y Snapchat.
 
 <div class="columns">
-	<div class="column">
-		<img
-			src="/img/2019-09-25-two-step-verification/telegram-2fa.jpg"
-			alt="Configuración de privacidad y seguridad de Telegram">
-	</div>
-	<div class="column">
-		<img
-			src="/img/2019-09-25-two-step-verification/twitter-2fa.jpg"
-			alt="Configuración de verificación de inicio de sesión de Twitter">
-	</div>
-	<div class="column">
-		<img
-			src="/img/2019-09-25-two-step-verification/snapchat-2fa.jpg"
-			alt="Ajustes de Snapchat (Autenticación de dos factores)">
-	</div>
+  <div class="column">
+    <img
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/telegram-2fa.jpg"
+      alt="Configuración de privacidad y seguridad de Telegram"
+    />
+  </div>
+  <div class="column">
+    <img
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/twitter-2fa.jpg"
+      alt="Configuración de verificación de inicio de sesión de Twitter"
+    />
+  </div>
+  <div class="column">
+    <img
+      src="{{ site.url }}/img/2019-09-25-two-step-verification/snapchat-2fa.jpg"
+      alt="Ajustes de Snapchat (Autenticación de dos factores)"
+    />
+  </div>
 </div>
 
-Basta con seguir los pasos de estas opciones, pero si tienes alguna duda no
-temas en enviarme un [mensaje][t.me]. Hasta la próxima 👋🏽
+Hasta la próxima 👋🏽
 
-[crackers]: https://dle.rae.es/?id=BBnPPfB
-[phishing]: https://en.wikipedia.org/wiki/Phishing
-[authy]: https://authy.com
-[google authenticator]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
-[t.me]: https://t.me/halivert
+[1]: https://dle.rae.es/?id=BBnPPfB
+[2]: https://en.wikipedia.org/wiki/Phishing
+[3]: https://authy.com
+[4]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2

@@ -1,7 +1,7 @@
 ---
+author: "halivert"
 title: "Se murió mi pez"
-date: 2018-01-18 01:51
-author: halivert
+date: "2018-01-18 01:51"
 category: "Divagando"
 ---
 

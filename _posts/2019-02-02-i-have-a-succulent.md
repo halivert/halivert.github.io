@@ -1,5 +1,5 @@
 ---
-author: halivert
+author: "halivert"
 title: "Tengo una suculenta"
 date: "2019-02-02 22:48"
 category: "Divagando"
@@ -19,12 +19,14 @@ también, solo que entendí mal los cuidados que debía darle.
 <img
   class="image is-hidden-tablet"
   alt="Mi primera suculenta"
-  src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+  src="{{ site.url }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg"
+/>
 
 <img
   class="is-pulled-right image-right is-hidden-mobile"
   alt="Mi primera suculenta"
-  src="/img/2019-02-02-tengo-una-suculenta/20180508.jpg">
+  src="{{ site.url }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg"
+/>
 </article>
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es

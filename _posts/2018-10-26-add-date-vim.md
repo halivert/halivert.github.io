@@ -2,7 +2,7 @@
 author: halivert
 title: "Agregar fecha con Vim"
 date: "2018-10-26 00:23:39 -0500"
-lastmodification: "2018-11-20 22:29"
+last_modification: "2018-11-20 22:29"
 category: "Ya me pasó"
 ---
 

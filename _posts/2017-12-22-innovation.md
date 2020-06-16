@@ -1,7 +1,7 @@
 ---
 title: "Innovación"
-date: 2017-12-22 02:45
-author: halivert
+date: "2017-12-22 02:45"
+author: "halivert"
 category: "Divagando"
 ---
 

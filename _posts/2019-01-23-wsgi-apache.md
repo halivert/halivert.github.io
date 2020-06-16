@@ -4,7 +4,7 @@ title: "WSGI en Apache"
 date: "2019-01-23 00:21"
 category: "Ya me pasó"
 tags: ["¡Código!"]
-lastmodification: "2019-02-21 00:15"
+last_modification: "2019-02-21 00:15"
 ---
 
 Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que
@@ -17,7 +17,7 @@ alojar una aplicación web escrita en Python.
 - [Python][1] (Usé Python 3.7)
 - [Apache][2] (Usé Apache Lounge 2.4)
 <a class="anchor" name="Nota1Up"></a>
-- [Microsoft Visual C++][3] [*]({{ page.url }}#Nota1)
+- [Microsoft Visual C++][3] [*]({{ site.url }}{{ page.url }}#Nota1)
 
 <!-- Seguir leyendo -->
 
@@ -80,10 +80,10 @@ publicación.
 
 ### Notas
 <a class="anchor" name="Nota1"></a>
-[*]({{ page.url }}#Nota1Up) Necesitas instalar el Visual C++ con el que esté
-compilado el servidor de Apache que utilizarás. Si utilizas, por ejemplo, Apache
-Lounge httpd-2.4.38-win64-**VC15**.zip, necesitas el Visual C++ 15, que puedes
-encontrar en la página [versiones anteriores][6], en el apartado
+[*]({{ site.url }}{{ page.url }}#Nota1Up) Necesitas instalar el Visual C++ con
+el que esté compilado el servidor de Apache que utilizarás. Si utilizas, por
+ejemplo, Apache Lounge httpd-2.4.38-win64-**VC15**.zip, necesitas el Visual C++
+15, que puedes encontrar en la página [versiones anteriores][6], en el apartado
 _Redistribuibles y herramientas de compilación_ con el nombre _Microsoft Build
 Tools 2015 Update 3_.
 

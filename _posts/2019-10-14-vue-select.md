@@ -2,12 +2,12 @@
 author: halivert
 title: "Select en Vue.js"
 date: "2019-10-14 08:45:11 -0500"
-lastmodification: "2019-11-16 00:37"
+last_modification: "2019-11-16 00:37"
 category: "Ya me pasó"
 tags: ["Código!"]
 ---
 
-Si utilizas [Vue.js][] seguramente sabrás que hacer componentes genéricos es
+Si utilizas [Vue.js][1] seguramente sabrás que hacer componentes genéricos es
 una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor
 de los casos) y las siguientes solo lo reutilizas.
 
@@ -16,10 +16,10 @@ sencillo, es por eso que escribo esta guía para hacer un select personalizado.
 <!-- Seguir leyendo -->
 
 Lo primero que haremos es nombrar el componente. Según la [guía de estilo de
-Vue.js][1] es recomendable nombrar los componentes de manera homogénea y se
+Vue.js][2] es recomendable nombrar los componentes de manera homogénea y se
 sugiere que tengan un prefijo específico, por ejemplo `Base`, `App` o `V`, en
 mi caso nombro mis componentes base con el prefijo `H` y `B` para los
-especificos del framework [Bulma][].
+especificos del framework [Bulma][3].
 
 Creamos un componente para «envolver» el select. `HField` que solo contiene
 información para el usuario.
@@ -266,15 +266,11 @@ Este es un ejemplo de caso de uso.
 
 Podemos ver que asignar una etiqueta, elementos en forma de json, un
 placeholder, ademas de una seleccion previa o «vieja» y mostrar errores se
-vuelve mucho más sencillo. 
+vuelve mucho más sencillo.
 
 Espero que este código te sea de ayuda.
 Adiós 👋🏽
 
-[1]: https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended
-
-[vue.js]: https://vuejs.org
-[bulma]: https://bulma.io
-
-
-
+[1]: https://vuejs.org
+[2]: https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended
+[3]: https://bulma.io

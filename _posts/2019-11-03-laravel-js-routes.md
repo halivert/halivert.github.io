@@ -7,7 +7,7 @@ tags: ["Laravel", "JavaScript", "Vue.js", "JSON", "JS", "Código!"]
 ---
 
 Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
-si además empleamos [Laravel][], notaremos que incluye un módulo muy útil
+si además empleamos [Laravel][1], notaremos que incluye un módulo muy útil
 llamado Webpack Mix, que nos ayuda a preprocesar nuestros archivos JS.
 
 <!-- Seguir leyendo -->
@@ -159,4 +159,4 @@ composer require halivert/laravel-js-routes
 
 Dudas al teléfono en pantalla 👋🏽
 
-[Laravel]: https://laravel.com
+[1]: https://laravel.com

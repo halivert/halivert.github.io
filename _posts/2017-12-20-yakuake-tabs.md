@@ -1,7 +1,7 @@
 ---
 title: "Tabs en yakuake"
-author: halivert
-date: 2017-12-20 19:54
+author: "halivert"
+date: "2017-12-20 19:54"
 category: "Ya me pasó"
 ---
 

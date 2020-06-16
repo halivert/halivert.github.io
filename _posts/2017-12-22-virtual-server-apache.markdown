@@ -1,8 +1,8 @@
 ---
 title: "Hacer un vhost en Apache"
 category: "Ya me pasó"
-date: 2017-12-22 14:20
-author: halivert
+date: "2017-12-22 14:20"
+author: "halivert"
 ---
 
 Un vhost o servidor virtual es útil cuando desarrollamos un sitio web y
@@ -15,7 +15,7 @@ En este post explicaré como hacer uno en Apache Linux
 
 Requisitos:
 
-- [httpd](http://httpd.apache.org)
+- [httpd][1]
 - Un editor de texto
 
 Probablemente necesitaremos permisos de superusuario para editar los siguientes
@@ -53,7 +53,7 @@ Comenzaremos editando el archivo **httpd-vhosts.conf** \\
 Crearemos una etiqueta _VirtualHost \*.80_ para cada servidor virtual que
 utilicemos.
 Las opciones en la etiqueta de directory sirven para poder usar un framework
-como [Laravel](https://laravel.com) y también para poder utilizar un archivo
+como [Laravel][2] y también para poder utilizar un archivo
 _.htaccess_.
 
 El siguiente paso es editar el archivo **hosts** \\
@@ -77,3 +77,6 @@ Para la url se recomienda utilizar dominios como:
 
 Por último tenemos que reiniciar nuestro servicio de apache y listo, ahora ya
 podemos acceder a nuestro servidor virtual desde nuestro navegador.
+
+[1]: http://httpd.apache.org
+[2]: https://laravel.com

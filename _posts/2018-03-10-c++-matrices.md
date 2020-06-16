@@ -1,8 +1,8 @@
 ---
 author: halivert
 title: "Matrices en C++"
-date: 2018-03-10 02:26:45
-update: 2018-10-25 23:44:35
+date: "2018-03-10 02:26:45"
+last_update: "2018-10-25 23:44:35"
 category: "¡Código!"
 ---
 
@@ -20,7 +20,7 @@ código para resolver una matriz con [Gauss-Jordan][1].
 Es mucho código para analizar pero les dejo el repositorio para que lo puedan
 ver, y cualquier duda pueden ponerse en contacto conmigo.
 
-[Matrices](https://github.com/halivert/hali-matrices)
+[Matrices][2]
 
 Cosas incluidas:
 
@@ -38,3 +38,4 @@ Cosas incluidas:
   - Acceso a elemento.
 
 [1]: https://es.wikipedia.org/wiki/Eliminación_de_Gauss-Jordan
+[2]: https://github.com/halivert/hali-matrices

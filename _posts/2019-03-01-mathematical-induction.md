@@ -1,5 +1,5 @@
 ---
-author: halivert
+author: "halivert"
 title: "Inducción matemática"
 date: "2019-03-01 11:03"
 has_math: true
@@ -104,10 +104,10 @@ lados de la ecuación para no romper la igualdad:
 \[
 \begin{aligned}
 2^0 + 2^1 + 2^2 + ... + 2^k \textcolor{red}{ + 2^{k + 1}} &= 2^{k + 1} - 1
-\textcolor{red}{ + 2^{k + 1}} \\ 
-  &= 2^{k + 1} + 2^{k + 1} - 1 \\ 
-  &= 2 \cdot 2^{k + 1} - 1 \\ 
-  &= 2^{(k + 1) + 1} - 1 \\ 
+\textcolor{red}{ + 2^{k + 1}} \\
+  &= 2^{k + 1} + 2^{k + 1} - 1 \\
+  &= 2 \cdot 2^{k + 1} - 1 \\
+  &= 2^{(k + 1) + 1} - 1 \\
 \end{aligned}
 \]
 </p>

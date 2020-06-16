@@ -4,7 +4,7 @@ title: "Barra de búsqueda"
 date: "2019-01-29 10:38"
 category: "Novedades"
 tags: ["¡Código!"]
-lastmodification: "2019-02-12 00:32"
+last_modification: "2019-02-12 00:32"
 has_instant_view: false
 ---
 
