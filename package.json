@@ -2,7 +2,6 @@
 	"scripts": {
 		"prod": "yarn minify",
 		"minify": "babel --config-file=./.wo-presets.babelrc _resources/js/* -d assets/js",
-		"minify-lunr": "babel --config-file=./.wo-presets.babelrc _resources/js/lunr.js _resources/js/master.js -d assets/js",
 		"watch": "babel --no-comments --no-babelrc _resources/js/* -d assets/js -w"
 	},
 	"dependencies": {
