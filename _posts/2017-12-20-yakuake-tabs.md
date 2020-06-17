@@ -1,8 +1,9 @@
 ---
-title: "Tabs en yakuake"
-author: "halivert"
-date: "2017-12-20 19:54"
+author: halivert
 category: "Ya me pasó"
+date: "2017-12-20 19:54"
+tags: ["Yakuake", "Linux", "Tabs"]
+title: "Tabs en yakuake"
 ---
 
 Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no

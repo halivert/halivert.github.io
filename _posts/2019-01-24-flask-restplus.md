@@ -1,9 +1,9 @@
 ---
 author: halivert
-title: "Flask RESTPlus"
-date: "2019-01-24 00:31"
 category: "Ya me pasó"
-tags: ["¡Código!"]
+date: "2019-01-24 00:31"
+tags: ["Python", "Flask", "API"]
+title: "Flask RESTPlus"
 ---
 
 Si ya tienes el entorno listo para alojar una aplicación web escrita en Python

@@ -1,9 +1,9 @@
 ---
-author: "halivert"
-title: "Tareas en cola, Laravel (Servidor compartido)"
-date: "2020-05-31 00:50"
+author: halivert
 category: "Ya me pasó"
-tags: ["Laravel", "Host", "Server"]
+date: "2020-05-31 00:50"
+tags: ["Laravel", "Host", "Servidor"]
+title: "Tareas en cola, Laravel (Servidor compartido)"
 ---
 
 No quería demasiado retraso en las peticiones que enviaban un correo, así que

@@ -1,8 +1,9 @@
 ---
 author: halivert
-title: "Remedando a alguien"
-date: "2018-03-12 22:59:42"
 category: "Divagando"
+date: "2018-03-12 22:59:42"
+tags: ["JavaScript", "Remedando"]
+title: "Remedando a alguien"
 ---
 
 En este post traigo para ustedes una herramienta muy útil (no muy útil, la

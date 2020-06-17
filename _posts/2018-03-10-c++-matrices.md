@@ -1,9 +1,10 @@
 ---
 author: halivert
-title: "Matrices en C++"
+category: "¡Código!"
 date: "2018-03-10 02:26:45"
 last_update: "2018-10-25 23:44:35"
-category: "¡Código!"
+tags: ["C++", "Matrices", "Gauss-Jordan"]
+title: "Matrices en C++"
 ---
 
 Hace algún tiempo asistí al club de algoritmia de la ESCOM, en realidad nunca

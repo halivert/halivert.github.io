@@ -1,8 +1,9 @@
 ---
 author: "halivert"
-title: "Verificación en dos pasos"
-date: "2019-09-25 12:02"
 category: "Divagando"
+date: "2019-09-25 12:02"
+tags: ["Seguridad", "Verificación"]
+title: "Verificación en dos pasos"
 ---
 
 Muchos sistemas son realmente seguros. Hablando de redes sociales y sitios en

@@ -1,10 +1,11 @@
 ---
 author: "halivert"
-title: "Reloj binario"
-date: "2019-06-17 10:39"
 category: "Divagando"
+date: "2019-06-17 10:39"
 image: "/img/2019-06-17-reloj-binario/binary-clock.png"
 imagealt: "Reloj binario que marca las 23:53:49"
+tags: ["Reloj", "Binario", "Hora", "Aprender"]
+title: "Reloj binario"
 ---
 
 En este post les comparto un tip para practicar la lectura de números

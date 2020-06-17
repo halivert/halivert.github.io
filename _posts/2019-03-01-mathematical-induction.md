@@ -1,9 +1,10 @@
 ---
-author: "halivert"
-title: "Inducción matemática"
+author: halivert
+category: "Matemáticas"
 date: "2019-03-01 11:03"
 has_math: true
-category: "Matemáticas"
+tags: ["Matemáticas", "Inducción"]
+title: "Inducción matemática"
 ---
 
 En esta entrega del primer artículo de la sección [Matemáticas][1] les voy a

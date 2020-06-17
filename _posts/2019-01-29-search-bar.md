@@ -1,11 +1,11 @@
 ---
 author: halivert
-title: "Barra de búsqueda"
-date: "2019-01-29 10:38"
 category: "Novedades"
-tags: ["¡Código!"]
-last_modification: "2019-02-12 00:32"
+date: "2019-01-29 10:38"
 has_instant_view: false
+last_modification: "2019-02-12 00:32"
+tags: ["Búsqueda", "Jekyll", "Lunr", "JavaScript"]
+title: "Barra de búsqueda"
 ---
 
 #### Ahora hay una barra de búsqueda disponible en el blog

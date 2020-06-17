@@ -1,10 +1,10 @@
 ---
 author: halivert
-title: "Select en Vue.js"
+category: "Ya me pasó"
 date: "2019-10-14 08:45:11 -0500"
 last_modification: "2019-11-16 00:37"
-category: "Ya me pasó"
-tags: ["Código!"]
+tags: ["Vue.js", "Select"]
+title: "Select en Vue.js"
 ---
 
 Si utilizas [Vue.js][1] seguramente sabrás que hacer componentes genéricos es

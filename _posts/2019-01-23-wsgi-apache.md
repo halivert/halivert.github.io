@@ -1,10 +1,10 @@
 ---
 author: halivert
-title: "WSGI en Apache"
-date: "2019-01-23 00:21"
 category: "Ya me pasó"
-tags: ["¡Código!"]
+date: "2019-01-23 00:21"
 last_modification: "2019-02-21 00:15"
+tags: ["Python", "Apache", "Servidor", "Windows"]
+title: "WSGI en Apache"
 ---
 
 Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que

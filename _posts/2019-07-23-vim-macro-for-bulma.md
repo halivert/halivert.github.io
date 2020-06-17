@@ -1,9 +1,9 @@
 ---
 author: halivert
-title: "Macros de Vim para Bulma"
-date: "2019-07-23 08:49"
 category: "Ya me pasó"
-tags: ["Vim", "Bulma", "¡Código!"]
+date: "2019-07-23 08:49"
+tags: ["Vim", "Bulma", "CSS"]
+title: "Macros de Vim para Bulma"
 ---
 
 Cuando utilizas un framework de CSS tan flexible como [Bulma][1], deseas tener

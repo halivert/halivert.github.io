@@ -1,9 +1,10 @@
 ---
-title: "Vimrc"
-author: "halivert"
+author: halivert
 category: "¡Código!"
 date: "2017-12-23 00:45"
 last_modification: "2018-09-21 02:02"
+tags: ["Vimrc", "Vim", "Configuración"]
+title: "Vimrc"
 ---
 
 **Vim** editor de texto que muchos odian y otros aman, pero que igual es

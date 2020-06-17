@@ -1,9 +1,10 @@
 ---
 author: halivert
-title: "Agregar fecha con Vim"
+category: "Ya me pasó"
 date: "2018-10-26 00:23:39 -0500"
 last_modification: "2018-11-20 22:29"
-category: "Ya me pasó"
+tags: ["Vim", "Fechas", "Jekyll"]
+title: "Agregar fecha con Vim"
 ---
 
 Mensaje para el Halí del futuro: no escribas las fechas manualmente para

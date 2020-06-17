@@ -1,9 +1,10 @@
 ---
 author: halivert
-title: "Comentarios en el sitio"
+category: "Novedades"
 date: "2018-10-25 09:48"
 last_modification: "2020-05-25 00:33"
-category: "Novedades"
+tags: ["Comentarios", "Novedades"]
+title: "Comentarios en el sitio"
 ---
 
 #### **¡Ya se pueden realizar comentarios en este sitio!**

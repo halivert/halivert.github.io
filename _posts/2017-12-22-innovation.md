@@ -1,8 +1,9 @@
 ---
-title: "Innovación"
-date: "2017-12-22 02:45"
 author: "halivert"
 category: "Divagando"
+date: "2017-12-22 02:45"
+tags: ["Innovación", "Genio"]
+title: "Innovación"
 ---
 
 Para mi es difícil hablar sobre esta palabra en particular en estos tiempos.

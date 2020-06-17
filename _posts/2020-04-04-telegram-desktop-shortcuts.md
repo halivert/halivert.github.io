@@ -1,8 +1,9 @@
 ---
 author: halivert
-title: "Atajos para Telegram Desktop"
-date: "2020-04-04 12:30 -0600"
 category: "Divagando"
+date: "2020-04-04 12:30 -0600"
+tags: ["Telegram", "Atajos"]
+title: "Atajos para Telegram Desktop"
 ---
 
 [Telegram][1], seguramente habrás escuchado hablar de esta aplicación de

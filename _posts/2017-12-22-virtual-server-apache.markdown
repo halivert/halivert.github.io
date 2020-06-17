@@ -1,8 +1,9 @@
 ---
-title: "Hacer un vhost en Apache"
+author: halivert
 category: "Ya me pasó"
 date: "2017-12-22 14:20"
-author: "halivert"
+tags: ["Apache", "Servidor virtual", "Linux"]
+title: "Hacer un vhost en Apache"
 ---
 
 Un vhost o servidor virtual es útil cuando desarrollamos un sitio web y

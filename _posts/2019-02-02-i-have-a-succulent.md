@@ -1,10 +1,11 @@
 ---
 author: "halivert"
-title: "Tengo una suculenta"
-date: "2019-02-02 22:48"
 category: "Divagando"
-image: "/img/2019-02-02-tengo-una-suculenta/20190201.jpg"
+date: "2019-02-02 22:48"
+image: "/img/2019-02-02-i-have-a-succulent/20190201.jpg"
 imagealt: "Mi suculenta llamada 'Julieta'"
+tags: ["Suculenta", "Planta", "Julieta"]
+title: "Tengo una suculenta"
 ---
 
 _Graptopetalum paraguayense_ es el nombre que recibe una planta suculenta
@@ -19,13 +20,13 @@ también, solo que entendí mal los cuidados que debía darle.
 <img
   class="image is-hidden-tablet"
   alt="Mi primera suculenta"
-  src="{{ site.url }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg"
+  src="{{ site.url }}/img/2019-02-02-i-have-a-succulent/20180508.jpg"
 />
 
 <img
   class="is-pulled-right image-right is-hidden-mobile"
   alt="Mi primera suculenta"
-  src="{{ site.url }}/img/2019-02-02-tengo-una-suculenta/20180508.jpg"
+  src="{{ site.url }}/img/2019-02-02-i-have-a-succulent/20180508.jpg"
 />
 </article>
 

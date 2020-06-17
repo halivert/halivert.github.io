@@ -1,10 +1,10 @@
 ---
 author: halivert
-title: "Laravel en Linux Pt. 1"
+category: "Ya me pasó"
 date: "2019-07-09 07:36"
 last_modification: "2019-07-22 22:41"
-category: "Ya me pasó"
-tags: ["¡Código!"]
+tags: ["Laravel", "Linux", "PHP"]
+title: "Laravel en Linux Pt. 1"
 ---
 
 En esta ocasión vamos a ver por que y como instalar el framework [Laravel][1]

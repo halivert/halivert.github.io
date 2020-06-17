@@ -1,8 +1,9 @@
 ---
 author: halivert
-title: "Acostumbrarse (viaje)"
-date: "2018-11-09 01:09:03 -0600"
 category: "Divagando"
+date: "2018-11-09 01:09:03 -0600"
+tags: ["Viaje", "Acostumbrarse"]
+title: "Acostumbrarse (viaje)"
 ---
 
 Que rápido es acostumbrarse a algo... y no lo digo a la ligera, según un

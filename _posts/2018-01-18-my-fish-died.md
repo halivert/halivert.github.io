@@ -1,8 +1,9 @@
 ---
 author: "halivert"
-title: "Se murió mi pez"
-date: "2018-01-18 01:51"
 category: "Divagando"
+date: "2018-01-18 01:51"
+tags: ["Pez", "Memo"]
+title: "Se murió mi pez"
 ---
 
 Hace poco se murió mi pez... y pues nada, vienen esos pensamientos de que la

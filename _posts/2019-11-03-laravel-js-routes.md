@@ -1,9 +1,9 @@
 ---
 author: halivert
-title: "Cómo utilizar rutas de Laravel en JS"
-date: "2019-11-03 20:24"
 category: "Ya me pasó"
-tags: ["Laravel", "JavaScript", "Vue.js", "JSON", "JS", "Código!"]
+date: "2019-11-03 20:24"
+tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
+title: "Cómo utilizar rutas de Laravel en JS"
 ---
 
 Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
