@@ -1,27 +1,27 @@
 halivert:
   first_name: "Halí"
   last_name: "Velázquez"
-  picture: /img/halivert.png
+  picture: "/img/halivert.png"
   age: 25
   email:
-    at: halivelazquez+halivert@gmail.com
-    md5: 1e7ee85ff90a24c0067beed802d2c6b7
+    at: "hali@halivert.dev"
+    md5: "d87b7db565e6223a84b72a5194c5d803"
   description: >-
     Estudiando ingeniería en sistemas computacionales, su escuela lo ama
     tanto que no lo quiere dejar salir.
   social:
     - url: "https://twitter.com/halivert"
-      type: twitter
-      icon: fab fa-twitter
+      type: "twitter"
+      icon: "fab fa-twitter"
     - url: "https://github.com/halivert"
-      type: github
-      icon: fab fa-github
+      type: "github"
+      icon: "fab fa-github"
     - url: "https://t.me/halivert"
-      type: telegram
-      icon: fab fa-telegram
+      type: "telegram"
+      icon: "fab fa-telegram"
 
 verenaiss:
-  name: verenais01 # For jekyll-seo twitter author
+  name: "verenais01" # For jekyll-seo twitter author
   first_name: "Verenisse"
   last_name: "Serrano"
   age: 33
