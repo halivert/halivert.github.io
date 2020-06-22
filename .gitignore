@@ -9,3 +9,4 @@ _drafts
 .ignore
 yarn-error.log
 minified/
+test.md
