@@ -135,6 +135,11 @@ img {
 		max-width: 200px;
 		min-width: 50px;
 	}
+
+	// Debug images without alt
+	&:not([alt]) {
+		outline: 2px dashed rebeccapurple;
+	}
 }
 
 .anchor {
