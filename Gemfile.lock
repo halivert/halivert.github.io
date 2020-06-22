@@ -243,8 +243,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll-avatar
-  jekyll-feed
 
 BUNDLED WITH
    2.1.4
