@@ -138,7 +138,7 @@ img {
 
   // Debug images without alt
   &:not([alt]) {
-    outline: 2px dashed rebeccapurple;
+    outline: 1rem dashed rebeccapurple;
   }
 }
 

@@ -67,6 +67,8 @@ llevando un buen ritmo.
 En fin que hay que intentar cosas nuevas porque algunas de ellas son buenas.
 Espero que con esto te animes a escribir con la distribución Dvorak.
 
+Adiós 👋🏽
+
 [1]: https://en.wikipedia.org/wiki/Dvorak_keyboard_layout
 [2]: https://halivert.wordpress.com/2016/04/13/dvorak/
 [10fastfingers]: https://10fastfingers.com/typing-test/english
