@@ -2,8 +2,8 @@
 author: "halivert"
 category: "Divagando"
 date: "2019-02-02 22:48"
-image: "/img/2019-02-02-i-have-a-succulent/20190201.jpg"
-imagealt: "Mi suculenta llamada 'Julieta'"
+img: "/img/2019-02-02-i-have-a-succulent/20190201.jpg"
+img_alt: "Mi suculenta llamada 'Julieta'"
 tags: ["Suculenta", "Planta", "Julieta"]
 title: "Tengo una suculenta"
 ---

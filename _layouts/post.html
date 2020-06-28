@@ -8,12 +8,12 @@ layout: container
   <div class="columns">
     <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
       <div class="columns is-vcentered is-gapless">
-        {% if page.image %}
+        {% if page.img %}
           <div class="column is-hidden-tablet">
             <img
               id="page-cover"
-              src="{{ site.url}}{{ page.image }}"
-              alt="{{ page.imagealt }}"
+              src="{{ site.url}}{{ page.img }}"
+              alt="{{ page.img_alt }}"
               class="image"
               style="margin-bottom: 0.5em;"
             />
@@ -40,13 +40,13 @@ layout: container
             {% endif %}
           </small>
         </header>
-        {% if page.image %}
+        {% if page.img %}
           <div class="column has-text-right is-hidden-mobile">
             <img
               id="page-cover"
-              src="{{ site.url}}{{ page.image }}"
+              src="{{ site.url}}{{ page.img }}"
               style="max-height: 200px; max-width: 200px;"
-              alt="{{ page.imagealt }}"
+              alt="{{ page.img_alt }}"
             />
           </div>
         {% endif %}

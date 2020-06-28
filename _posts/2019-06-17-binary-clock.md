@@ -2,8 +2,8 @@
 author: "halivert"
 category: "Divagando"
 date: "2019-06-17 10:39"
-image: "/img/2019-06-17-reloj-binario/binary-clock.png"
-imagealt: "Reloj binario que marca las 23:53:49"
+img: "/img/2019-06-17-reloj-binario/binary-clock.png"
+img_alt: "Reloj binario que marca las 23:53:49"
 tags: ["Reloj", "Binario", "Hora", "Aprender"]
 title: "Reloj binario"
 ---
