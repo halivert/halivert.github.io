@@ -299,3 +299,22 @@ sup.ref {
     content: "]";
   }
 }
+
+.latest-posts {
+  &:nth-of-type(odd) {
+    flex-direction: row-reverse;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.is-flex-column {
+  display: flex;
+  flex-flow: column nowrap;
+
+  &.space-between {
+    justify-content: space-between;
+  }
+}
