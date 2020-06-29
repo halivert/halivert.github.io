@@ -1,87 +1,91 @@
 ---
 author: halivert
-layout: container
+layout: html
 title: "Halí"
 ---
 
 {% assign author = site.data.authors[layout.author] %}
 
-<section class="hero is-fullheight-with-navbar">
-  <div class="hero-body is-flex-column">
-    <h1 class="title is-1 has-text-centered normal-wrap">
-      {{ author.first_name }} {{ author.last_name }}
-    </h1>
-    <section class="columns is-centered">
-      <section class="column content is-two-thirds">
-        <p>
-          <a href="https://www.jw.org/es/testigos-de-jehová/">JW</a>, 25 años,
-          <a href="https://www.escom.ipn.mx/"
-            >ingeniería en sistemas computacionales</a
-             >.
-        </p>
-        <div class="mb-4">
-          <strong>Componentes:</strong>
-          <ul class="has-text-left-mobile">
-            <li>Música.</li>
-            <li>Matemáticas.</li>
-            <li>Programación.</li>
-          </ul>
-        </div>
-        <p class="buttons is-centered">
-          <a
-            target="_blank"
-            class="button is-large is-inverted gmail"
-            href="mailto:{{ author.email.at }}"
-            >
-            <span class="icon">
-              <i class="fas fa-envelope-open" aria-hidden="true"></i>
-            </span>
-          </a>
-          {% for item in author.social %}
+<section id="main-container" class="has-background-light">
+  <section class="hero is-fullheight-with-navbar">
+    <div class="hero-body is-flex-column">
+      <h1 class="title is-1 has-text-centered normal-wrap">
+        {{ author.first_name }} {{ author.last_name }}
+      </h1>
+      <section class="columns is-centered">
+        <section class="column content is-two-thirds">
+          <p>
+            <a href="https://www.jw.org/es/testigos-de-jehová/">JW</a>, 25 años,
+            <a href="https://www.escom.ipn.mx/"
+              >ingeniería en sistemas computacionales</a
+            >.
+          </p>
+          <div class="mb-4">
+            <strong>Componentes:</strong>
+            <ul class="has-text-left-mobile">
+              <li>Música.</li>
+              <li>Matemáticas.</li>
+              <li>Programación.</li>
+            </ul>
+          </div>
+          <p class="buttons is-centered">
             <a
               target="_blank"
-              class="button is-inverted is-large {{ item.type }}"
-              href="{{ item.url }}"
+              class="button is-inverted gmail"
+              href="mailto:{{ author.email.at }}"
               >
               <span class="icon">
-                <i class="{{ item.icon }}" aria-hidden="true"></i>
+                <i class="fas fa-envelope-open" aria-hidden="true"></i>
               </span>
             </a>
-          {% endfor %}
-        </p>
+            {% for item in author.social %}
+              <a
+                target="_blank"
+                class="button is-inverted {{ item.type }}"
+                href="{{ item.url }}"
+                >
+                <span class="icon">
+                  <i class="{{ item.icon }}" aria-hidden="true"></i>
+                </span>
+              </a>
+            {% endfor %}
+          </p>
+        </section>
+
+        <figure class="column is-one-third">
+          <img
+            src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=400"
+            class="avatar has-background-grey"
+            loading="lazy"
+            alt="Imagen de perfil de {{ layout.author }}"
+            onContextMenu="vibrate([150, 30, 150]);"
+          />
+        </figure>
       </section>
 
-      <figure class="column is-one-third">
-        <img
-          src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=400"
-          class="avatar has-background-grey"
-          loading="lazy"
-          alt="Imagen de perfil de {{ layout.author }}"
-          onContextMenu="vibrate([150, 30, 150]);"
-        />
-      </figure>
-    </section>
-
-    <a href="{{ site.url }}#projects" class="down-arrow animated-arrow"></a>
-  </div>
-</section>
-
-<hr />
-
-<section class="hero is-fullheight" id="projects">
-  <div class="hero-body container is-flex-column">
-    {% include projects.html %}
-
-    <a href="{{ site.url }}#latest-posts" class="down-arrow animated-arrow"></a>
-  </div>
-</section>
-
-<hr />
-
-<section class="hero is-fullheight" id="latest-posts">
-  <div class="hero-body">
-    <div class="container">
-      {% include latest_posts.html %}
+      <a href="{{ site.url }}#projects" class="down-arrow animated-arrow"></a>
     </div>
-  </div>
+  </section>
+
+  <hr />
+
+  <section class="hero is-fullheight" id="projects">
+    <div class="hero-body container is-flex-column">
+      <section class="mb-6">
+        {% include projects.html %}
+      </section>
+
+      <a href="{{ site.url }}#latest-posts" class="down-arrow animated-arrow"></a>
+    </div>
+  </section>
+
+  <hr />
+
+  <section class="hero is-fullheight" id="latest-posts">
+    <div class="hero-body">
+      <div class="container">
+        {% include latest_posts.html %}
+      </div>
+    </div>
+  </section>
 </section>

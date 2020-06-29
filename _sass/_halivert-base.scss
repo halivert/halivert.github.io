@@ -97,7 +97,7 @@ body {
 .image-art-title {
   border-radius: 0.5em;
   border: $golden solid;
-  @media screen and (min-width: $tablet) {
+  @include tablet {
     width: 50%;
   }
   margin: auto;
@@ -228,7 +228,7 @@ footer.footer {
 .mobile-separator {
   display: block;
   margin: 0 0.5rem;
-  @media screen and (min-width: $tablet) {
+  @include tablet {
     display: inline-block;
   }
 }
@@ -283,7 +283,7 @@ footer.footer {
   }
 
   &.hero {
-    @media screen and (max-width: $desktop) {
+    @include touch {
       margin-top: 0.75rem;
     }
   }
@@ -319,11 +319,10 @@ sup.ref {
     display: flex;
     flex-flow: row nowrap;
   }
+}
 
-  &-column.space-between,
-  &-row.space-between {
-    justify-content: space-between;
-  }
+.space-between {
+  justify-content: space-between;
 }
 
 .normal-wrap {
@@ -332,8 +331,12 @@ sup.ref {
 
 .down-arrow {
   display: inline-block;
-  position: absolute;
-  bottom: 40px;
+
+  @include desktop {
+    position: absolute;
+    bottom: 40px;
+  }
+
   border: solid $primary;
   border-width: 0 0.5rem 0.5rem 0;
   padding: 1rem;
