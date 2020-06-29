@@ -1,0 +1,41 @@
+<h2 class="title is-2">Últimas entradas en el blog</h2>
+{% for post in site.posts limit: 3 %}
+  <article class="columns latest-posts">
+    <div class="column is-one-third is-flex-column space-between">
+      <h3 class="title is-3">
+        <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </h3>
+
+      {% if post.img %}
+        <img
+          class="mb-4"
+          src="{{ site.url }}{{ post.img }}"
+          alt="{{ post.img_alt }}" />
+      {% endif %}
+
+      <div class="is-flex">
+        <span class="icon mr-2">
+          <i class="fas fa-user" aria-hidden="true"></i>
+        </span>
+        <span>
+          {% assign author = site.data.authors[post.author] %}
+          {% if author %} {{ author.first_name }}
+          {% else %} {{ post.author }}
+          {% endif %}
+        </span>
+        <span class="icon mx-2">
+          <i class="fas fa-calendar" aria-hidden="true"></i>
+        </span>
+        <span>{% include date-spanish.html item=post %}</span>
+      </div>
+    </div>
+    <div class="column">
+      {% include post-show.html %}
+    </div>
+  </article>
+  {% if loop.last != true %}
+    <hr />
+  {% endif %}
+{% endfor %}
