@@ -31,7 +31,7 @@ title: "Halí"
           <p class="buttons is-centered">
             <a
               target="_blank"
-              class="button is-inverted gmail"
+              class="button is-inverted gmail is-large is-medium-touch"
               href="mailto:{{ author.email.at }}"
               >
               <span class="icon">
@@ -41,7 +41,9 @@ title: "Halí"
             {% for item in author.social %}
               <a
                 target="_blank"
-                class="button is-inverted {{ item.type }}"
+                class="button is-inverted {{
+                  item.type
+                }} is-large is-medium-touch"
                 href="{{ item.url }}"
                 >
                 <span class="icon">
