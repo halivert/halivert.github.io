@@ -18,10 +18,8 @@ El repositorio de mi página web
 
 Las entradas escritas en este blog están bajo la licencia
 
-<a
-  rel="license"
-  href="http://creativecommons.org/licenses/by/4.0/"
-  >Creative Commons Attribution 4.0 International License</a
->.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+  Creative Commons Attribution 4.0 International License
+</a>.
 
 [1]: https://halivert.dev
