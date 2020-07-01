@@ -17,6 +17,7 @@ El repositorio de mi página web
 <br />
 
 Las entradas escritas en este blog están bajo la licencia
+
 <a
   rel="license"
   href="http://creativecommons.org/licenses/by/4.0/"
