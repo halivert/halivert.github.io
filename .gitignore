@@ -10,3 +10,4 @@ _drafts
 yarn-error.log
 minified/
 test.md
+.jekyll-cache

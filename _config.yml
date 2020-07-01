@@ -16,6 +16,9 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-gist
+  - jekyll-github-metadata
+  - jemoji
 
 defaults:
   -
