@@ -4,8 +4,11 @@ category: "Ya me pasó"
 date: "2019-11-03 20:24"
 tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 title: "Cómo utilizar rutas de Laravel en JS"
-last_modification: "2020-07-05 00:11"
+last_modification: "2020-07-05 00:18"
 ---
+
+TL;DR Con un paquete<br>
+<https://github.com/halivert/laravel-js-routes>
 
 Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
 si además empleamos [Laravel][1], notaremos que incluye un módulo muy útil
@@ -99,15 +102,15 @@ $content .= file_get_contents(
 
 // Esta funcion recibe un nombre de ruta y un arrreglo de parámetros.
 const route = (routeName, params = []) => {
-  // Busca en las rutas guardadas la que tenga ese nombre y si no existe arroja
-  // un error
+  // Busca en las rutas guardadas la que tenga ese nombre y si no existe
+  // arroja un error
   const _route = routes[routeName];
   if (_route == null) throw "Requested route doesn't exist";
 
   let uri = _route.uri;
 
-  // Si se encuentra una URI, reemplaza los parámetros con una RegEx (no sé como
-  // la hice) y arroja otro error si faltan parámetros.
+  // Si se encuentra una URI, reemplaza los parámetros con una RegEx
+  // (no sé como la hice) y arroja otro error si faltan parámetros.
   // Los parámetros que sobran son ignorados.
 
   const matches = uri.match(/{[\w]+}/g) || [];
