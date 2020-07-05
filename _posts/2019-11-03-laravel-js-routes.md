@@ -4,6 +4,7 @@ category: "Ya me pasó"
 date: "2019-11-03 20:24"
 tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 title: "Cómo utilizar rutas de Laravel en JS"
+last_modification: "2020-07-05 00:11"
 ---
 
 Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,
@@ -18,8 +19,8 @@ todas nuestras rutas a un JSON y después utilizar una función que tenga un
 comportamiento similar a la función `route` de Laravel pero en JS.
 
 ### Código
-Para ello propongo lo siguiente, se trata de un comando de Laravel (se puede
-utilizar con `php artisan`) y está compuesto por lo siguiente:
+Para ello creé un comando de Laravel (se puede utilizar con `php artisan`)
+compuesto por lo siguiente:
 
 ```php
 use Illuminate\Console\Command;
@@ -47,7 +48,7 @@ class CreateJSRoutesCommand extends Command
     {
       /*
        * Función que determina si una ruta debe incluirse o no en nuestro
-       * JSON, por defecto (y por ahora), omite las rutas de "telescope".
+       * JSON, por defecto omite las rutas de "telescope".
        */
     }
 
@@ -80,61 +81,97 @@ El contenido de nuestro archivo JS va a componerse del JSON y la función
 `route` así que comenzamos agregando el nombre de la variable que usaremos y
 el contenido.
 ```php
-$content = "var routes = ";
-$content .= json_encode($routes, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+$jsonFlags = JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE;
+
+$content = 'const routes = ';
+$content .= json_encode($routes, $jsonFlags);
 $content .= ";\n\n";
 ```
 
-Después construimos la función que utilizaremos para obtener las rutas.
+Después construimos la función `route` (en un archivo aparte)
 ```php
-$content .= "const route = (routeName, params = []) => {\n";
-$content .= "  var _route = routes[routeName];\n";
-$content .= "  if (_route == null) {\n";
-$content .= "    throw \"Requested route doesn't exist\";\n";
-$content .= "  }\n";
-$content .= "  var uri = _route.uri;\n";
-$content .= "  for (var i = 0; i < params.length; i++) {\n";
-$content .= "    uri = uri.replace(/{[\w]+}/, params[i]);\n";
-$content .= "  }\n";
-$content .= "  if (uri.includes(\"}\")) {\n";
-$content .= "    throw \"Missing parameters\";\n";
-$content .= "  }\n";
-$content .= "  return '/' + uri;\n";
-$content .= "}\n";
+$content .= file_get_contents(
+    __DIR__ . '/../assets/js/routeFunction.js'
+);
+```
+```js
+// assets/js/routeFunction.js
+
+// Esta funcion recibe un nombre de ruta y un arrreglo de parámetros.
+const route = (routeName, params = []) => {
+  // Busca en las rutas guardadas la que tenga ese nombre y si no existe arroja
+  // un error
+  const _route = routes[routeName];
+  if (_route == null) throw "Requested route doesn't exist";
+
+  let uri = _route.uri;
+
+  // Si se encuentra una URI, reemplaza los parámetros con una RegEx (no sé como
+  // la hice) y arroja otro error si faltan parámetros.
+  // Los parámetros que sobran son ignorados.
+
+  const matches = uri.match(/{[\w]+}/g) || [];
+  const requiredParametersCount = matches.length;
+
+  if (params instanceof Array) {
+    if (params.length < requiredParametersCount) throw "Missing parameters";
+
+    for (let i = 0; i < requiredParametersCount; i++)
+      uri = uri.replace(/{[\w]+}/, params.shift());
+
+    for (let i = 0; i < params.length; i++)
+      uri += (i ? "&" : "?") + params[i] + "=" + params[i];
+  } else if (params instanceof Object) {
+    let extraParams = matches.reduce((ac, match) => {
+      let key = match.substring(1, match.length - 1);
+      if (params.hasOwnProperty(key)) {
+        uri = uri.replace(new RegExp(match, "g"), params[key]);
+        delete ac[key];
+      }
+      return ac;
+    }, params);
+
+    Object.keys(extraParams).forEach((key, i) => {
+      uri += (i ? "&" : "?") + key + "=" + extraParams[key];
+    });
+  }
+
+  if (uri.includes("}")) throw "Missing parameters";
+
+  return "/" + uri;
+};
+
+export { route };
 ```
 
-Esta función recibe el nombre de la ruta y un arreglo de parámetros, después
-busca en las rutas creadas una que coincida con el nombre que le enviamos y si
-no existe arroja un error, de lo contrario obtiene la URI, sustituye con una
-regex (que no sé como hice) los parámetros uno a uno y arroja un error si
-faltan parámetros, en caso de que sobren simplemente los ignorará.
+Por último creamos el archivo.
 
 ```php
-$content .= "\nexport { route };";
-
-$fileName = $this->option("name");
+$fileName = $this->option('name') ?? config('app.jsroutes.name');
 if ($this->createFile($fileName, $content)) {
-  $this->info("{$fileName} created");
+  $this->info("$fileName created");
 }
 ```
 
-Por último exporta la función y crea el archivo.
+### Instalación
+```shell
+composer require halivert/laravel-js-routes
+```
 
 ### Antes de usar
-Ya que hemos agregado el comando a Laravel, entonces lo ejecutamos
+Ya que hemos agregado el comando a Laravel, entonces lo ejecutamos con:
 ```shell
-php artisan create:routes
+php artisan route:tojs
 ```
 
 Posterioremente debemos agregar el archivo a nuestro `webpack.mix.js`, para
-que sea preprocesado.
+que sea procesado.
 ```js
 mix.js("resources/js/routes", "public/js");
 ```
 
 Y después de un `yarn prod` o `npm prod` podremos hacer uso de nuestra nueva
-función, cuando queramos llamar una ruta por su nombre dentro de un archivo
-JS, debemos importarla.
+función `route`, cuando queramos llamar una ruta por su nombre en un archivo JS.
 ```js
 import { route } from "./routes.js";
 ```
@@ -147,14 +184,6 @@ axios
   .then(response => {
     console.log(response.data);
   });
-```
-
-
-### Extra
-Sí te parece una buena solución, solo debes agregar el siguiente paquete a tu
-proyecto:
-```shell
-composer require halivert/laravel-js-routes
 ```
 
 Dudas al teléfono en pantalla 👋🏽
