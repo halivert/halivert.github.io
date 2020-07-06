@@ -1,30 +1,16 @@
-{% assign numMonth = include.item | date: "%m" %}
-
-{% case numMonth %}
-  {% when '01' %}
-    {% assign month = 'Ene' %}
-  {% when '02' %}
-    {% assign month = 'Feb' %}
-  {% when '03' %}
-    {% assign month = 'Mar' %}
-  {% when '04' %}
-    {% assign month = 'Abr' %}
-  {% when '05' %}
-    {% assign month = 'May' %}
-  {% when '06' %}
-    {% assign month = 'Jun' %}
-  {% when '07' %}
-    {% assign month = 'Jul' %}
-  {% when '08' %}
-    {% assign month = 'Ago' %}
-  {% when '09' %}
-    {% assign month = 'Sep' %}
-  {% when '10' %}
-    {% assign month = 'Oct' %}
-  {% when '11' %}
-    {% assign month = 'Nov' %}
-  {% when '12' %}
-    {% assign month = 'Dic' %}
-{% endcase %}
-
+{%- assign numMonth = include.item | date: "%m" -%}
+{%- case numMonth -%}
+{%- when '01' -%} {%- assign month = 'Ene' -%}
+{%- when '02' -%} {%- assign month = 'Feb' -%}
+{%- when '03' -%} {%- assign month = 'Mar' -%}
+{%- when '04' -%} {%- assign month = 'Abr' -%}
+{%- when '05' -%} {%- assign month = 'May' -%}
+{%- when '06' -%} {%- assign month = 'Jun' -%}
+{%- when '07' -%} {%- assign month = 'Jul' -%}
+{%- when '08' -%} {%- assign month = 'Ago' -%}
+{%- when '09' -%} {%- assign month = 'Sep' -%}
+{%- when '10' -%} {%- assign month = 'Oct' -%}
+{%- when '11' -%} {%- assign month = 'Nov' -%}
+{%- when '12' -%} {%- assign month = 'Dic' -%}
+{%- endcase -%}
 {{ month }} {{ include.item | date: "%d, %y" }}
