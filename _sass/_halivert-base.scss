@@ -1,7 +1,3 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway|Montserrat");
-$font-prefix: "../webfonts";
-@import "../node_modules/@ibm/plex/scss/mono/regular/index";
-
 $family-sans-serif: "Raleway", sans-serif;
 $title-family: "Montserrat", sans-serif;
 $family-monospace: "IBM Plex Mono", monospace;
@@ -13,23 +9,18 @@ $footer-padding: 1rem 1rem 2rem;
 
 @import "../node_modules/bulma/sass/utilities/derived-variables.scss";
 
-@import "../node_modules/bulma/sass/utilities/animations.sass";
 @import "../node_modules/bulma/sass/utilities/mixins.sass";
 @import "../node_modules/bulma/sass/utilities/controls.sass";
 
 // @import "../node_modules/bulma/sass/base/_all.sass";
 
-@import "../node_modules/bulma/sass/base/minireset.sass";
 @import "../node_modules/bulma/sass/base/generic.sass";
 
 // @import "../node_modules/bulma/sass/elements/_all.sass";
 
 @import "../node_modules/bulma/sass/elements/box.sass";
 @import "../node_modules/bulma/sass/elements/button.sass";
-@import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/content.sass";
-@import "../node_modules/bulma/sass/elements/icon.sass";
-@import "../node_modules/bulma/sass/elements/image.sass";
 @import "../node_modules/bulma/sass/elements/notification.sass";
 @import "../node_modules/bulma/sass/elements/progress.sass";
 @import "../node_modules/bulma/sass/elements/table.sass";
@@ -62,26 +53,13 @@ $footer-padding: 1rem 1rem 2rem;
 @import "../node_modules/bulma/sass/components/panel.sass";
 @import "../node_modules/bulma/sass/components/tabs.sass";
 
-// @import "../node_modules/bulma/sass/grid/_all.sass";
-
-@import "../node_modules/bulma/sass/grid/columns.sass";
-@import "../node_modules/bulma/sass/grid/tiles.sass";
-
 // @import "../node_modules/bulma/sass/helpers/_all.sass";
 
 @import "../node_modules/bulma/sass/helpers/color.sass";
-@import "../node_modules/bulma/sass/helpers/float.sass";
-@import "../node_modules/bulma/sass/helpers/other.sass";
-@import "../node_modules/bulma/sass/helpers/overflow.sass";
-@import "../node_modules/bulma/sass/helpers/position.sass";
-@import "../node_modules/bulma/sass/helpers/spacing.sass";
-@import "../node_modules/bulma/sass/helpers/typography.sass";
-@import "../node_modules/bulma/sass/helpers/visibility.sass";
 
 // @import "../node_modules/bulma/sass/layout/_all.sass";
 
 @import "../node_modules/bulma/sass/layout/hero.sass";
-@import "../node_modules/bulma/sass/layout/section.sass";
 @import "../node_modules/bulma/sass/layout/footer.sass";
 
 // End of bulma imports
