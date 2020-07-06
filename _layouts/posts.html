@@ -17,11 +17,11 @@ layout: container
             <div class="column">
               {% include post-show.html %}
             </div>
-            {% if post.img %}
+            {% if post.image %}
               <div class="column is-3">
                 <img
-                  src="{{ site.url }}{{ post.img }}"
-                  alt="{{ post.img_alt }}">
+                  src="{{ site.url }}{{ post.image }}"
+                  alt="{{ post.image_alt }}">
               </div>
             {% endif %}
           </div>

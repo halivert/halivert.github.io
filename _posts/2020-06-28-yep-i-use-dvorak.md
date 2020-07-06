@@ -4,8 +4,8 @@ title: "Sí, uso Dvorak"
 date: "2020-06-28 00:26"
 category: "Divagando"
 tags: ["Teclado", "Distribución", "Dvorak", "QWERTY"]
-img: "/img/2020-06-28-yep-i-use-dvorak/cover.jpg"
-img_alt: "Teclado Dvorak"
+image: "/img/2020-06-28-yep-i-use-dvorak/cover.jpg"
+image_alt: "Teclado Dvorak"
 ---
 
 Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es
