@@ -33,7 +33,10 @@
     {% endif %}
 
     <meta name="telegram:channel" content="@halivertsblog" />
-    <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
+
+    {% if page.layout == "post" or page.layout == "posts" %}
+      <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
+    {% endif %}
 
     <script src="https://unpkg.com/turbolinks" defer></script>
     <script src="{{ site.url }}/assets/js/main.js"></script>
