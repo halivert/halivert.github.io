@@ -1,12 +1,17 @@
 <div class="box">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	{% assign author = site.data.authors[post.author] %}
-	{% if author %}
-		{{ author.first_name }}
-	{% else %}
-		{{ post.author }}
-	{% endif %}
-	<span class="mobile-separator"></span>
-	<i class="fas fa-calendar" aria-hidden="true"></i>
-	{% include date-spanish.html item=post %}
+  <i class="fas fa-user" aria-hidden="true"></i>
+  {% assign author = site.data.authors[post.author] %}
+  {% if author %}
+    {{ author.first_name }}
+  {% else %}
+    {{ post.author }}
+  {% endif %}
+  <span class="mobile-separator"></span>
+  {% if post.last_modification %}
+    <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+    {% include date-spanish.html item=post.last_modification %}
+  {% else %}
+    <i class="fas fa-calendar" aria-hidden="true"></i>
+    {% include date-spanish.html item=post.date %}
+  {% endif %}
 </div>

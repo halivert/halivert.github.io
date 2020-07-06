@@ -8,11 +8,11 @@
         </a>
       </h3>
 
-      {% if post.img %}
+      {% if post.image %}
         <img
           class="mb-4"
-          src="{{ site.url }}{{ post.img }}"
-          alt="{{ post.img_alt }}" />
+          src="{{ site.url }}{{ post.image }}"
+          alt="{{ post.image_alt }}" />
       {% endif %}
 
       <div class="is-flex">
@@ -26,18 +26,32 @@
           {% endif %}
         </div>
         <div>
-          <span class="icon">
-            <i class="fas fa-calendar" aria-hidden="true"></i>
-          </span>
-          {% include date-spanish.html item=post %}
+          {% if post.last_modification %}
+            <span class="icon">
+              <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+            </span>
+            {% include date-spanish.html item=post.last_modification %}
+          {% else %}
+            <span class="icon">
+              <i class="fas fa-calendar" aria-hidden="true"></i>
+            </span>
+            {% include date-spanish.html item=post.date %}
+          {% endif %}
         </div>
       </div>
     </div>
-    <div class="column">
+    <div class="column is-flex is-vcentered">
       {% include post-show.html %}
     </div>
   </article>
-  {% if loop.last != true %}
-    <hr />
-  {% endif %}
+  <hr />
 {% endfor %}
+
+<div class="buttons is-right">
+  <a class="button is-primary" href="{{ site.url }}/blog">
+    <span>Ver más...</span>
+    <span class="icon">
+      <i class="fas fa-hand-point-right"></i>
+    </span>
+  </a>
+</div>

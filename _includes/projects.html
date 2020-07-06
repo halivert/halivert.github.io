@@ -1,6 +1,6 @@
 <h2 class="title is-2">Proyectos en los que he trabajado 👨🏽‍💻</h2>
 
-<section class="container-fluid">
+<div class="container-fluid">
   <div class="columns is-multiline">
     {% for project in site.data.projects %}
       <div class="column is-narrow is-one-third">
@@ -8,22 +8,25 @@
           <div class="card-content">
             <div class="media">
               {% if project.img_type %}
-              <div class="media-left">
-                <figure class="image is-48x48">
-                  <img
-                    src="{{ site.url }}/img/projects/{{ project.slug }}.{{
-                          project.img_type
-                        }}"
-                    alt="Imagen de projecto"
-                  />
-                </figure>
-              </div>
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img
+                      src="{{ site.url }}/img/projects/{{ project.slug }}.{{
+                      project.img_type
+                      }}"
+                      alt="Imagen de projecto"
+                    />
+                  </figure>
+                </div>
               {% endif %}
               <div class="media-content">
                 <p class="title is-5">{{ project.title }}</p>
                 <p class="subtitle is-6">
                   <a href="https://github.com/halivert/{{ project.slug }}">
-                    Ver en github
+                    <span>Ver en github</span>
+                    <span class="icon is-small">
+                      <i class="fab fa-github"></i>
+                    </span>
                   </a>
                 </p>
               </div>
@@ -36,9 +39,8 @@
                 <a
                   class="button is-primary"
                   href="{{ site.url }}/{{ project.slug }}"
+                  >Ver más...</a
                 >
-                  Ver más
-                </a>
               </div>
             </div>
           </div>
@@ -46,4 +48,4 @@
       </div>
     {% endfor %}
   </div>
-</section>
+</div>

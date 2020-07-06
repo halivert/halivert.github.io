@@ -1,53 +1,64 @@
 <script>
-	window.store = {
-		{%- for post in site.posts -%}
-			{%- assign postWords = post.content | number_of_words -%}
-			{%- assign excerptWords = post.excerpt | number_of_words -%}
-			{%- assign author = site.data.authors[post.author] -%}
+  window.store = {
+    {%- for post in site.posts -%}
+      {%- assign postWords = post.content | number_of_words -%}
+      {%- assign excerptWords = post.excerpt | number_of_words -%}
+      {%- assign author = site.data.authors[post.author] -%}
 
-			{%- capture date -%}
-				{%- include date-spanish.html item=post -%}
-			{%- endcapture -%}
+      {%- capture date -%}
+        {%- include date-spanish.html item=post.date -%}
+      {%- endcapture -%}
 
-			{%- if postWords > excerptWords -%}
-				{%- assign continue = 1 -%}
-			{%- else -%}
-				{%- assign continue = 0 -%}
-			{%- endif -%}
+      {%- capture last_modification -%}
+        {%- if post.last_modification -%}
+          {%- include date-spanish.html item=post.last_modification -%}
+        {%- endif -%}
+      {%- endcapture -%}
 
-			{%- if author -%}
-				{%- assign authorName = author.first_name | strip -%}
-			{%- else -%}
-				{%- assign authorName = post.author | strip -%}
-			{%- endif -%}
+      {%- if postWords > excerptWords -%}
+        {%- assign continue = 1 -%}
+      {%- else -%}
+        {%- assign continue = 0 -%}
+      {%- endif -%}
 
-	    "{{ post.id | strip | xml_escape }}": {
-	      "title": {{ post.title | strip | jsonify }},
-	      "author": {{ authorName | strip | jsonify }},
-	      "categories": {{ post.categories | jsonify }},
-	      "tags": {{ post.tags | jsonify }},
-	      "displayContent": {{ post.excerpt | strip | jsonify }},
-	      "url": {{ post.url | strip | jsonify }},
-	      "continue": {{ continue | strip }},
-	      "date": {{ date | strip | jsonify }}
-	    }{%- unless forloop.last -%},{%- endunless -%}
+      {%- if author -%}
+        {%- assign authorName = author.first_name | strip -%}
+      {%- else -%}
+        {%- assign authorName = post.author | strip -%}
+      {%- endif -%}
 
-	  {%- endfor -%}
-	};
+      "{{ post.id | strip | xml_escape }}": {
+        "title": {{ post.title | strip | jsonify }},
+        "author": {{ authorName | strip | jsonify }},
+        "categories": {{ post.categories | jsonify }},
+        "tags": {{ post.tags | jsonify }},
+        "display_content": {{ post.excerpt | strip | jsonify }},
+        "image": {{ post.image | prepend: site.url | strip | jsonify }},
+        "image_alt": {{ post.image_alt | strip | jsonify }},
+        "url": {{ post.url | prepend: site.url | strip | jsonify }},
+        "continue": {{ continue | strip }},
+        "date": {{ date | strip | jsonify }},
+        "last_modification": {{ last_modification | strip | jsonify }}
+      }{%- unless forloop.last -%},{%- endunless -%}
 
-	var idx = lunr(function() {
-	  this.field('id');
-	  this.field('title', { boost: 10 });
-	  this.field('categories');
-	  this.field('tags');
+    {%- endfor -%}
+  };
 
-	  for (var key in window.store) {
-	    this.add({
-	      'id': key,
-	      'title': window.store[key].title,
-	      'categories': window.store[key].categories,
-	      'tags': window.store[key].tags,
-	    });
-	  }
-	});
+  var idx = lunr(function() {
+    this.field('id');
+    this.field('title', { boost: 10 });
+    this.field('categories');
+    this.field('tags');
+    this.field('author');
+
+    for (var key in window.store) {
+      this.add({
+        'id': key,
+        'title': window.store[key].title,
+        'categories': window.store[key].categories,
+        'tags': window.store[key].tags,
+        'author': window.store[key].author,
+      });
+    }
+  });
 </script>
