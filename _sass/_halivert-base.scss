@@ -380,3 +380,7 @@ sup.ref {
     transform: translateY(-10px) rotate(45deg);
   }
 }
+
+span[title] {
+  cursor: help;
+}

@@ -28,15 +28,20 @@ layout: container
               <i>por</i>
               <a href="{{ site.url }}/authors/{{ page.author }}">{{
                 author.first_name
-              }}</a>
+              }}</a> -
             {% endif %}
 
-            {% if page.last_modification %}
-              <i>última modificación:</i>
-              {% include date-spanish-abbr.html item=page.last_modification %}
-            {% elsif page.date %}
-              <i>publicado:</i>
+            {%- capture post_date -%}
               {% include date-spanish-abbr.html item=page.date %}
+            {%- endcapture -%}
+
+            {% if page.last_modification %}
+              <span title="Fecha original: {{ post_date }}">
+                <i>última modificación:</i>
+                {% include date-spanish-abbr.html item=page.last_modification %}
+              </span>
+            {% else %}
+              <i>publicado:</i> {{ post_date }}
             {% endif %}
           </small>
         </header>
