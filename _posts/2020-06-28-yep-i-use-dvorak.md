@@ -4,7 +4,7 @@ title: "Sí, uso Dvorak"
 date: "2020-06-28 00:26"
 category: "Divagando"
 tags: ["Teclado", "Distribución", "Dvorak", "QWERTY"]
-image: "/img/2020-06-28-yep-i-use-dvorak/cover.jpg"
+image: "/assets/2020-06-28-yep-i-use-dvorak/cover.webp"
 image_alt: "Teclado Dvorak"
 ---
 
@@ -74,7 +74,7 @@ Adiós 👋🏽
 [10fastfingers]: https://10fastfingers.com/typing-test/english
 [typespeed]: http://typespeed.sourceforge.net/
 
-{% include img_path.html %}
-[dvorak-layout]: {{ img_path }}/dvorak.png
-[score-typespeed]: {{ img_path }}/score-typespeed.png
-[score-10fastfingers]: {{ img_path }}/score-10fastfingers.png
+{% include assets_path.html %}
+[dvorak-layout]: {{ assets_path }}/dvorak.webp
+[score-typespeed]: {{ assets_path }}/score-typespeed.webp
+[score-10fastfingers]: {{ assets_path }}/score-10fastfingers.webp

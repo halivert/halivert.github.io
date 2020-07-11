@@ -15,6 +15,7 @@ Laravel es un framework escrito en [PHP][3]. Según la página oficial, está
 escrito para _«Web artisans»_.
 
 <!-- Seguir leyendo -->
+{% include assets_path.html %}
 
 ¿Por qué Laravel?
 - Puedes alcanzar velocidades de desarrollo bastante altas.
@@ -41,7 +42,7 @@ laravel new [Nombre de la aplicación]
 ```
 al final resultará algo como esto...
 
-![laravel new indigo-toupee](/img/2019-07-09-laravel-linux/laravel-new.png)
+![laravel new indigo-toupee]({{ assets_path }}/laravel-new.webp)
 
 ahora cambiamos al nuevo directorio que acabamos de crear, y escribiendo:
 ```shell
@@ -49,11 +50,11 @@ php artisan serve
 ```
 podemos entrar al vínculo que nos dice para ver nuestra aplicación.
 
-![php artisan serve](/img/2019-07-09-laravel-linux/php-artisan-serve.png)
+![php artisan serve]({{ assets_path }}/php-artisan-serve.webp)
 
 y la aplicación vacía se ve...
 
-![localhost:8000](/img/2019-07-09-laravel-linux/laravel-app.png)
+![localhost:8000]({{ assets_path }}/laravel-app.webp)
 
 En el siguiente artículo de esta serie, veremos como utilizar esta aplicación
 en un servidor Apache y que otras cosas podemos hacer con Laravel.

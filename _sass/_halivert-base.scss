@@ -56,6 +56,13 @@ $footer-padding: 1rem 1rem 2rem;
 // @import "../node_modules/bulma/sass/helpers/_all.sass";
 
 @import "../node_modules/bulma/sass/helpers/color.sass";
+@import "../node_modules/bulma/sass/helpers/float.sass";
+// @import "../node_modules/bulma/sass/helpers/other.sass";
+// @import "../node_modules/bulma/sass/helpers/overflow.sass";
+// @import "../node_modules/bulma/sass/helpers/position.sass";
+// @import "../node_modules/bulma/sass/helpers/spacing.sass";
+// @import "../node_modules/bulma/sass/helpers/typography.sass";
+// @import "../node_modules/bulma/sass/helpers/visibility.sass";
 
 // @import "../node_modules/bulma/sass/layout/_all.sass";
 
@@ -161,32 +168,7 @@ code {
   display: inline-block;
 }
 
-.red-velvet-bg {
-  background-image: url(/img/backgrounds/red-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.blue-velvet-bg {
-  background-image: url(/img/backgrounds/blue-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.purple-velvet-bg {
-  background-image: url(/img/backgrounds/purple-velvet.jpg);
-  background-attachment: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.green-velvet-bg {
-  background-image: url(/img/backgrounds/green-velvet.jpg);
+.art-gallery {
   background-attachment: absolute;
   background-position: center;
   background-repeat: no-repeat;
