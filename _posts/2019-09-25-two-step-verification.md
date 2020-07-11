@@ -13,6 +13,7 @@ que no se guarda la contraseña como texto plano) es prácticamente imposible
 descifrarla (hasta ahora...).
 
 <!-- Seguir leyendo -->
+{% include assets_path.html %}
 
 Pero aún así, siguen existiendo los [crackers][1], y más aún, siguen teniendo
 éxito, ¿cómo es que hacen esto? Lo cierto es que no soy un experto en
@@ -41,13 +42,13 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
   <div class="column">
     <img
       alt="Ejemplo de phishing: Bank of America"
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing1.png"
+      src="{{ assets_path }}/phishing1.webp"
     />
   </div>
   <div class="column">
     <img
       alt="Ejemplo de phishing: iTunes"
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing2.png"
+      src="{{ assets_path }}/phishing2.webp"
     />
   </div>
 </div>
@@ -55,13 +56,13 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
   <div class="column">
     <img
       alt="Ejemplo de phishing: PayPal"
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing3.jpeg"
+      src="{{ assets_path }}/phishing3.webp"
     />
   </div>
   <div class="column">
     <img
       alt="Ejemplo de phishing: Microsoft"
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/phishing4.png"
+      src="{{ assets_path }}/phishing4.webp"
     />
   </div>
 </div>
@@ -106,19 +107,19 @@ tiene en Telegram, Twitter y Snapchat.
 <div class="columns">
   <div class="column">
     <img
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/telegram-2fa.jpg"
+      src="{{ assets_path }}/telegram-2fa.webp"
       alt="Configuración de privacidad y seguridad de Telegram"
     />
   </div>
   <div class="column">
     <img
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/twitter-2fa.jpg"
+      src="{{ assets_path }}/twitter-2fa.webp"
       alt="Configuración de verificación de inicio de sesión de Twitter"
     />
   </div>
   <div class="column">
     <img
-      src="{{ site.url }}/img/2019-09-25-two-step-verification/snapchat-2fa.jpg"
+      src="{{ assets_path }}/snapchat-2fa.webp"
       alt="Ajustes de Snapchat (Autenticación de dos factores)"
     />
   </div>

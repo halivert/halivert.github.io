@@ -2,11 +2,13 @@
 author: "halivert"
 category: "Divagando"
 date: "2019-02-02 22:48"
-image: "/img/2019-02-02-i-have-a-succulent/20190201.jpg"
+image: "/assets/2019-02-02-i-have-a-succulent/20190201.webp"
 image_alt: "Mi suculenta llamada 'Julieta'"
 tags: ["Suculenta", "Planta", "Julieta"]
 title: "Tengo una suculenta"
 ---
+
+{% include assets_path.html %}
 
 _Graptopetalum paraguayense_ es el nombre que recibe una planta suculenta
 oriunda de Tamaulipas, México.
@@ -17,17 +19,17 @@ también, solo que entendí mal los cuidados que debía darle.
 <!-- Seguir leyendo -->
 
 <article>
-<img
-  class="image is-hidden-tablet"
-  alt="Mi primera suculenta"
-  src="{{ site.url }}/img/2019-02-02-i-have-a-succulent/20180508.jpg"
-/>
+  <img
+    class="image is-hidden-tablet"
+    alt="Mi primera suculenta"
+    src="{{ assets_path }}/20180508.webp"
+  />
 
-<img
-  class="is-pulled-right image-right is-hidden-mobile"
-  alt="Mi primera suculenta"
-  src="{{ site.url }}/img/2019-02-02-i-have-a-succulent/20180508.jpg"
-/>
+  <img
+    class="is-pulled-right image-right is-hidden-mobile"
+    alt="Mi primera suculenta"
+    src="{{ assets_path }}/20180508.webp"
+  />
 </article>
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es

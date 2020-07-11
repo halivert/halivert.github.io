@@ -10,13 +10,14 @@ layout: container
       <div class="columns is-vcentered is-gapless">
         {% if page.image %}
           <div class="column is-hidden-tablet">
-            <img
-              id="page-cover"
-              src="{{ site.url}}{{ page.image }}"
-              alt="{{ page.image_alt }}"
-              class="image"
-              style="margin-bottom: 0.5em;"
-            />
+            <picture>
+              <img
+                src="{{ site.url}}{{ page.image }}"
+                alt="{{ page.image_alt }}"
+                class="image"
+                style="margin-bottom: 0.5em;"
+              />
+            </picture>
           </div>
         {% endif %}
         <header class="column">
@@ -47,12 +48,13 @@ layout: container
         </header>
         {% if page.image %}
           <div class="column has-text-right is-hidden-mobile">
-            <img
-              id="page-cover"
-              src="{{ site.url}}{{ page.image }}"
-              style="max-height: 200px; max-width: 200px;"
-              alt="{{ page.image_alt }}"
-            />
+            <picture>
+              <img
+                src="{{ site.url}}{{ page.image }}"
+                alt="{{ page.image_alt }}"
+                style="max-height: 200px; max-width: 200px;"
+              />
+            </picture>
           </div>
         {% endif %}
       </div>
