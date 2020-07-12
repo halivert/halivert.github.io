@@ -40,6 +40,9 @@ defaults:
       has_instant_view: true
       search_bar: true
       font_size: "is-size-5"
+      image_types:
+        - webp: "image/webp"
+        - png: "image/png"
   -
       scope:
         path: "blog"

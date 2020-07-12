@@ -9,9 +9,9 @@
       | absolute_url
   -%}
   <source
-    srcset="{{ include.name | append: ".webp" | prepend: path }}"
+    srcset="{{ include.src | append: ".webp" | prepend: path }}"
     type="image/webp">
   <img
-    src="{{ include.name | append: ".png" | prepend: path }}"
+    src="{{ include.src | append: ".png" | prepend: path }}"
     alt="{{ include.alt }}">
 </picture>

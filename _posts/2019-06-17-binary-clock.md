@@ -2,7 +2,7 @@
 author: "halivert"
 category: "Divagando"
 date: "2019-06-17 10:39"
-image: "/assets/2019-06-17-binary-clock/binary-clock.webp"
+image: "/assets/2019-06-17-binary-clock/binary-clock"
 image_alt: "Reloj binario que marca las 23:53:49"
 tags: ["Reloj", "Binario", "Hora", "Aprender"]
 title: "Reloj binario"
@@ -25,7 +25,7 @@ de una forma... diferente, con un **reloj binario**.
   {%
     include picture.html
       alt="Reloj binario que marca las 23:53:49"
-      name="binary-clock"
+      src="binary-clock"
   %}
 </article>
 
@@ -53,7 +53,7 @@ Ahora vienen las diferencias.
   {%
     include picture.html
       alt="Reloj binario que marca las 23:53:49"
-      name="binary-clock"
+      src="binary-clock"
   %}
 </article>
 
@@ -64,7 +64,7 @@ es el cuadrito de hasta abajo en la segunda columna de cada bloque...
     {%
       include picture.html
         alt="Las 23 horas en un reloj binario"
-        name="binary-clock-hr"
+        src="binary-clock-hr"
     %}
   </div>
   <p class="column">
@@ -80,14 +80,14 @@ Análogamente con los minutos y segundos.
     {%
       include picture.html
         alt="53 minutos en un reloj binario"
-        name="binary-clock-min"
+        src="binary-clock-min"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="49 segundos en un reloj binario"
-        name="binary-clock-seg"
+        src="binary-clock-seg"
     %}
   </div>
 </article>
@@ -99,7 +99,7 @@ En resumen, este reloj dice que son las: **23:53:49**.
   {%
     include picture.html
       alt="Reloj binario BCD que marca las 00:23:21"
-      name="binary-clock-bcd"
+      src="binary-clock-bcd"
   %}
 </article>
 
@@ -112,7 +112,7 @@ sucesivamente.
     {%
       include picture.html
         alt="0 horas en un reloj binario BCD"
-        name="binary-clock-bcd-hr"
+        src="binary-clock-bcd-hr"
     %}
   </div>
   <p class="column">
@@ -125,14 +125,14 @@ sucesivamente.
     {%
       include picture.html
         alt="23 minutos en un reloj binario BCD"
-        name="binary-clock-bcd-min"
+        src="binary-clock-bcd-min"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="21 segundos en un reloj binario BCD"
-        name="binary-clock-bcd-seg"
+        src="binary-clock-bcd-seg"
     %}
   </div>
 </article>
@@ -147,28 +147,28 @@ Te dejo otras capturas de relojes binarios para que practiques.
     {%
       include picture.html
         alt="Ejercicio de reloj binario"
-        name="20190617-bin-1"
+        src="20190617-bin-1"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario"
-        name="20190617-bin-2"
+        src="20190617-bin-2"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario"
-        name="20190617-bin-3"
+        src="20190617-bin-3"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario"
-        name="20190617-bin-4"
+        src="20190617-bin-4"
     %}
   </div>
 </div>
@@ -179,28 +179,28 @@ Te dejo otras capturas de relojes binarios para que practiques.
     {%
       include picture.html
         alt="Ejercicio de reloj binario BCD"
-        name="20190617-bcd-1"
+        src="20190617-bcd-1"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario BCD"
-        name="20190617-bcd-2"
+        src="20190617-bcd-2"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario BCD"
-        name="20190617-bcd-3"
+        src="20190617-bcd-3"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
         alt="Ejercicio de reloj binario BCD"
-        name="20190617-bcd-4"
+        src="20190617-bcd-4"
     %}
   </div>
 </div>

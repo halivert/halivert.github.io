@@ -4,7 +4,7 @@ title: "Sí, uso Dvorak"
 date: "2020-06-28 00:26"
 category: "Divagando"
 tags: ["Teclado", "Distribución", "Dvorak", "QWERTY"]
-image: "/assets/2020-06-28-yep-i-use-dvorak/cover.webp"
+image: "/assets/2020-06-28-yep-i-use-dvorak/cover"
 image_alt: "Teclado Dvorak"
 ---
 

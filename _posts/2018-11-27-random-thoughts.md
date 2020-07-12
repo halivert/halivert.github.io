@@ -2,8 +2,11 @@
 author: halivert
 category: "Divagando"
 date: "2018-11-27 17:16"
-image: "/assets/2018-11-27-random-thoughts/random-thoughts-title.webp"
+image: "/assets/2018-11-27-random-thoughts/random-thoughts-title"
 image_alt: "Persona surfeando"
+image_types:
+  - webp: "image/webp"
+  - gif: "image/gif"
 tags: ["Internet", "Divagando", "Quora", "Compartir", "Conocimiento"]
 title: "Random thoughts: Ep. 1"
 ---

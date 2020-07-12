@@ -10,13 +10,20 @@ layout: container
       <div class="columns is-vcentered is-gapless">
         {% if page.image %}
           <div class="column is-hidden-tablet">
-            <picture>
-              <img
-                src="{{ site.url}}{{ page.image }}"
-                alt="{{ page.image_alt }}"
-                class="image"
-                style="margin-bottom: 0.5em;"
-              />
+            <picture style="margin-bottom: 0.5em;" class="image">
+              {%- for type in page.image_types -%}
+                {%- if forloop.last != true -%}
+                  <source
+                    srcset="{{ page.image | absolute_url }}.{{ type.first[0] }}"
+                    type="{{ type.first[1] }}"
+                  />
+                {%- else -%}
+                  <img
+                    src="{{ page.image | absolute_url }}.{{ type.first[0] }}"
+                    alt="{{ page.image_alt }}"
+                  />
+                {%- endif -%}
+              {%- endfor -%}
             </picture>
           </div>
         {% endif %}
@@ -48,12 +55,20 @@ layout: container
         </header>
         {% if page.image %}
           <div class="column has-text-right is-hidden-mobile">
-            <picture>
-              <img
-                src="{{ site.url}}{{ page.image }}"
-                alt="{{ page.image_alt }}"
-                style="max-height: 200px; max-width: 200px;"
-              />
+            <picture style="max-height: 200px; max-width: 200px;">
+              {%- for type in page.image_types -%}
+                {%- if forloop.last != true -%}
+                  <source
+                    srcset="{{ page.image | absolute_url }}.{{ type.first[0] }}"
+                    type="{{ type.first[1] }}"
+                  />
+                {%- else -%}
+                  <img
+                    src="{{ page.image | absolute_url }}.{{ type.first[0] }}"
+                    alt="{{ page.image_alt }}"
+                  />
+                {%- endif -%}
+              {%- endfor -%}
             </picture>
           </div>
         {% endif %}
