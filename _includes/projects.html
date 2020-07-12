@@ -14,20 +14,13 @@
             <div class="media">
               {% if project.img_type %}
                 <div class="media-left">
-                  <figure class="image is-48x48">
-                    {% for ext in project.img_type %}
-                      {% if forloop.last == false %}
-                        <source
-                          srcset="{{ img_path }}.{{ ext.first[0] }}"
-                          type="image/{{ ext.first[1] }}">
-                      {% else %}
-                        <img
-                          src="{{ img_path }}.{{ ext.first[0] }}"
-                          alt="Imagen de projecto"
-                        >
-                      {% endif %}
-                    {% endfor %}
-                  </figure>
+                  {%- assign path = img_path -%}
+                  {%
+                    include picture.html
+                      class="image is-48x48"
+                      path=path
+                      alt="Imagen de proyecto"
+                  %}
                 </div>
               {% endif %}
               <div class="media-content">

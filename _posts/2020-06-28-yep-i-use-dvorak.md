@@ -22,7 +22,11 @@ tanto cómo lo hace la <i>r</i>.
 Sin embargo, como los lenguajes de programación que utilizo se escriben en
 inglés, me decanté por la distribución en este idioma.
 
-![Distribución dvorak][dvorak-layout]
+{%
+  include picture.html
+    alt="Distribución dvorak"
+    src="dvorak"
+%}
 
 ## Velocidad
 
@@ -43,9 +47,17 @@ velocidad y el tratar de evitar los errores lo más que pudiera.
 Actualmente escribo en promedio 80 wps y aunque tampoco es lo más rápido que me
 gustaría escribir, me siento cómodo con ello.
 
-![Puntuación typespeed][score-typespeed]
-
-![Puntuación 10fastfingers][score-10fastfingers]
+{%
+  include picture.html
+    alt="Puntuación typespeed"
+    src="score-typespeed"
+%}
+<br>
+{%
+  include picture.html
+    alt="Puntuación 10fastfingers"
+    src="score-10fastfingers"
+%}
 
 ## Facilidad
 

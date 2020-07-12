@@ -19,17 +19,20 @@ también, solo que entendí mal los cuidados que debía darle.
 <!-- Seguir leyendo -->
 
 <article>
-  <img
-    class="image is-hidden-tablet"
-    alt="Mi primera suculenta"
-    src="{{ assets_path }}/20180508.webp"
-  />
-
-  <img
-    class="is-pulled-right image-right is-hidden-mobile"
-    alt="Mi primera suculenta"
-    src="{{ assets_path }}/20180508.webp"
-  />
+  {%
+    include picture.html
+      class="image is-hidden-tablet"
+      alt="Mi primera suculenta"
+      src="20180508"
+      types="webp:image/webp,jpg:image/jpeg"
+  %}
+  {%
+    include picture.html
+      class="is-pulled-right image-right is-hidden-mobile"
+      alt="Mi primera suculenta"
+      src="20180508"
+      types="webp:image/webp,jpg:image/jpeg"
+  %}
 </article>
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es

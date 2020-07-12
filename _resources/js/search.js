@@ -1,115 +1,106 @@
 document.addEventListener("turbolinks:load", () => {
-	function postHtmlString(item) {
-		let images = ""
+  function htmlPostElement(item, template) {
+    let newElement = template.content.cloneNode(true)
 
-		if (item.image_types && item.image) {
-			images = item.image_types.reduce((str, o, idx, arr) => {
-				let ext = Object.keys(o)[0]
-				if (idx === arr.length - 1)
-					return (
-						str + `<img src="${item.image}.${ext}" alt="${item.image_alt}">`
-					)
-				return (
-					str +
-					`
-				<source
-					srcset="${item.image}.${ext}"
-					type="${o[ext]}">
-				`
-				)
-			}, '<picture class="column is-3">')
-			images += "</picture>"
-		}
+    let pictureEl = newElement.querySelector("picture.post-picture")
+    if (item.image_types && item.image) {
+      item.image_types.split(",").forEach((type, idx, arr) => {
+        let [ext, mime] = type.split(":"),
+          imgEl
+        if (idx === arr.length - 1) {
+          imgEl = pictureEl.appendChild(document.createElement("img"))
+          imgEl.src = `${item.image}.${ext}`
+          imgEl.alt = item.image_alt
+        } else {
+          imgEl = pictureEl.appendChild(document.createElement("source"))
+          imgEl.srcset = `${item.image}.${ext}`
+          imgEl.type = mime
+        }
+      })
+    } else {
+      pictureEl.remove()
+    }
 
-		return (
-			`<section>
-			<h2 class="title is-2">
-				<a class="has-text-primary" href="${item.url}">${item.title}</a>
-			</h2>
-			<hr />
-			<div class="columns">
-				<div class="column">
-					<div class="content has-text-justified">
-						<div>${item.display_content}` +
-			(item.continue === 1
-				? `<p>&#8230;</p>
+    let titleEl = newElement.querySelector("a.post-title")
+    titleEl.href = item.url
+    titleEl.text = item.title
 
-				<a class="subtitle is-5 has-text-link" href="${item.url}">
-					Seguir leyendo
-				</a>`
-				: "") +
-			`</div></div>
-				</div>` +
-			images +
-			`</div>
-			<br />
-			<div class="box">
-				<i class="fas fa-user" aria-hidden="true"></i>
-				${item.author}
-				<span class="mobile-separator"></span>` +
-			(item.last_modification
-				? `<i class="fas fa-calendar-plus" aria-hidden="true"></i>
-					<span>${item.last_modification}</span>`
-				: `<i class="fas fa-calendar" aria-hidden="true"></i>
-					<span>${item.date}</span>`) +
-			`</div>
-			<br />
-		</section>`
-		)
-	}
+    newElement.querySelector("span.post-author").innerText = item.author
+    newElement.querySelector("span.post-date").innerText = item.date
 
-	function displaySearchResults(results, store) {
-		var searchResults = document.getElementById("search-results")
-		if (!searchResults) return
+    let contentEl = newElement.querySelector("div.post-content")
+    contentEl.innerHTML = item.content
 
-		if (results.length) {
-			var appendString = ""
+    if (item.continue === 1) {
+      contentEl.appendChild(document.createElement("p")).innerHTML = "&#8230;"
 
-			for (var i = 0; i < results.length; i++) {
-				var item = store[results[i].ref]
-				appendString += postHtmlString(item)
-			}
+      let keepReadingEl = contentEl.appendChild(document.createElement("a"))
+      keepReadingEl.classList.add("subtitle", "is-5", "has-text-link")
+      keepReadingEl.href = item.url
+      keepReadingEl.text = "Seguir leyendo"
+    }
 
-			searchResults.innerHTML = appendString
-		} else {
-			searchResults.innerHTML = '<p class="title is-3">No encontré nada :(</p>'
-		}
-	}
+    return newElement
+  }
 
-	function getQueryVariable(variable) {
-		var query = window.location.search.substring(1)
-		var vars = query.split("&")
+  function displaySearchResults(results, store) {
+    let searchResults = document.getElementById("search-results")
+    let template = document.getElementById("post-template")
+    if (!searchResults) return
 
-		for (var i = 0; i < vars.length; i++) {
-			var pair = vars[i].split("=")
+    if (results.length) {
+      for (let i = 0; i < results.length; i++) {
+        let item = store[results[i].ref]
+        searchResults.appendChild(htmlPostElement(item, template))
+      }
+    } else {
+      let nothingEl = searchResults.appendChild(document.createElement("p"))
+      nothingEl.classList.add("title", "is-3")
+      nothingEl.appendChild(document.createTextNode("No encontré nada :("))
+      nothingEl.appendChild(document.createElement("br"))
+      nothingEl.appendChild(
+        document.createTextNode("Pero quizá esto pueda interesarte")
+      )
 
-			if (pair[0] === variable) {
-				return decodeURIComponent(pair[1].replace(/\+/g, "%20"))
-			}
-		}
-	}
+      let template = document.getElementById("post-template")
+      searchResults.appendChild(htmlPostElement(getRandomPost(), template))
+    }
+  }
 
-	var searchTerm = getQueryVariable("consulta")
+  function getQueryVariable(variable) {
+    let query = window.location.search.substring(1)
+    let vars = query.split("&")
 
-	if (searchTerm) {
-		document.getElementById("search-box").setAttribute("value", searchTerm)
-		var results = idx.search(`${searchTerm}`)
-		displaySearchResults(results, window.store)
-	} else {
-		var searchResults = document.getElementById("search-results")
-		if (!searchResults) return
+    for (let i = 0; i < vars.length; i++) {
+      let pair = vars[i].split("=")
 
-		searchResults.innerHTML = `
-			<p class="title is-3">
-				Si no sabes que buscar, puedes comenzar con este post aleatorio
-			</p>
-		`
+      if (pair[0] === variable)
+        return decodeURIComponent(pair[1].replace(/\+/g, "%20"))
+    }
+  }
 
-		var appendString = ""
-		var keys = Object.keys(window.store)
-		var i = Math.floor(Math.random() * keys.length)
-		appendString += postHtmlString(window.store[keys[i]])
+  function getRandomPost() {
+    let keys = Object.keys(window.store)
+    let i = Math.floor(Math.random() * keys.length)
+    return window.store[keys[i]]
+  }
 
-		searchResults.innerHTML += appendString
-	}
+  let searchTerm = getQueryVariable("consulta")
+
+  if (searchTerm) {
+    document.getElementById("search-box").setAttribute("value", searchTerm)
+    let results = idx.search(searchTerm)
+    displaySearchResults(results, window.store)
+  } else {
+    let searchResults = document.getElementById("search-results")
+    if (!searchResults) return
+
+    let textEl = searchResults.appendChild(document.createElement("p"))
+    textEl.classList.add("title", "is-3")
+    textEl.innerText =
+      "Si no sabes que buscar, puedes comenzar con este post aleatorio"
+
+    let template = document.getElementById("post-template")
+    searchResults.appendChild(htmlPostElement(getRandomPost(), template))
+  }
 })

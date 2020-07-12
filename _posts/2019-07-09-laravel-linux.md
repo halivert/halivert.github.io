@@ -42,7 +42,11 @@ laravel new [Nombre de la aplicación]
 ```
 al final resultará algo como esto...
 
-![laravel new indigo-toupee]({{ assets_path }}/laravel-new.webp)
+{%
+  include picture.html
+    src="laravel-new"
+    alt="laravel new indigo-toupee"
+%}
 
 ahora cambiamos al nuevo directorio que acabamos de crear, y escribiendo:
 ```shell
@@ -50,11 +54,19 @@ php artisan serve
 ```
 podemos entrar al vínculo que nos dice para ver nuestra aplicación.
 
-![php artisan serve]({{ assets_path }}/php-artisan-serve.webp)
+{%
+  include picture.html
+    src="php-artisan-serve"
+    alt="php artisan serve"
+%}
 
 y la aplicación vacía se ve...
 
-![localhost:8000]({{ assets_path }}/laravel-app.webp)
+{%
+  include picture.html
+    src="laravel-app"
+    alt="localhost:8000"
+%}
 
 En el siguiente artículo de esta serie, veremos como utilizar esta aplicación
 en un servidor Apache y que otras cosas podemos hacer con Laravel.
