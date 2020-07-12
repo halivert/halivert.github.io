@@ -9,10 +9,21 @@
       </h3>
 
       {% if post.image %}
-        <img
-          class="mb-4"
-          src="{{ site.url }}{{ post.image }}"
-          alt="{{ post.image_alt }}" />
+        <picture>
+          {%- for type in post.image_types -%}
+            {%- if forloop.last != true -%}
+              <source
+                srcset="{{ post.image | absolute_url }}.{{ type.first[0] }}"
+                type="{{ type.first[1] }}"
+              />
+            {%- else -%}
+              <img
+                src="{{ post.image | absolute_url }}.{{ type.first[0] }}"
+                alt="{{ post.image_alt }}"
+              />
+            {%- endif -%}
+          {%- endfor -%}
+        </picture>
       {% endif %}
 
       <div class="is-flex">

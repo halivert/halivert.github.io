@@ -18,11 +18,23 @@ layout: container
               {% include post-show.html %}
             </div>
             {% if post.image %}
-              <div class="column is-3">
-                <img
-                  src="{{ site.url }}{{ post.image }}"
-                  alt="{{ post.image_alt }}">
-              </div>
+              <picture class="column is-3">
+                {%- for type in post.image_types -%}
+                  {%- if forloop.last != true -%}
+                    <source
+                      srcset="{{
+                        post.image | absolute_url
+                      }}.{{ type.first[0] }}"
+                      type="{{ type.first[1] }}"
+                    />
+                  {%- else -%}
+                    <img
+                      src="{{ post.image | absolute_url }}.{{ type.first[0] }}"
+                      alt="{{ post.image_alt }}"
+                    />
+                  {%- endif -%}
+                {%- endfor -%}
+              </picture>
             {% endif %}
           </div>
           <br />

@@ -1,5 +1,26 @@
 document.addEventListener("turbolinks:load", () => {
 	function postHtmlString(item) {
+		let images = ""
+
+		if (item.image_types && item.image) {
+			images = item.image_types.reduce((str, o, idx, arr) => {
+				let ext = Object.keys(o)[0]
+				if (idx === arr.length - 1)
+					return (
+						str + `<img src="${item.image}.${ext}" alt="${item.image_alt}">`
+					)
+				return (
+					str +
+					`
+				<source
+					srcset="${item.image}.${ext}"
+					type="${o[ext]}">
+				`
+				)
+			}, '<picture class="column is-3">')
+			images += "</picture>"
+		}
+
 		return (
 			`<section>
 			<h2 class="title is-2">
@@ -19,11 +40,7 @@ document.addEventListener("turbolinks:load", () => {
 				: "") +
 			`</div></div>
 				</div>` +
-			(item.image
-				? `<div class="column is-3">
-						<img src="${item.image}" alt="${item.image_alt}">
-					</div>`
-				: "") +
+			images +
 			`</div>
 			<br />
 			<div class="box">
