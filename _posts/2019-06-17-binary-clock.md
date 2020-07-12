@@ -22,11 +22,11 @@ Pues hoy te propongo que para aprender números binarios intentes leer la hora
 de una forma... diferente, con un **reloj binario**.
 
 <article>
-  <img
-    class="image auto-margin"
-    alt="Reloj binario que marca las 23:53:49"
-    src="{{ assets_path }}/binary-clock.webp"
-  />
+  {%
+    include picture.html
+      alt="Reloj binario que marca las 23:53:49"
+      name="binary-clock"
+  %}
 </article>
 
 ¿Pero qué está pasando aquí? Bueno, este artefacto que estás viendo es un
@@ -50,22 +50,22 @@ Ahora vienen las diferencias.
 
 ### Binario
 <article>
-  <img
-    class="image auto-margin"
-    alt="Reloj binario que marca las 23:53:49"
-    src="{{ assets_path }}/binary-clock.webp"
-  />
+  {%
+    include picture.html
+      alt="Reloj binario que marca las 23:53:49"
+      name="binary-clock"
+  %}
 </article>
 
 Se ve como el de aquí arriba, y el primer número (la primer potencia de dos)
 es el cuadrito de hasta abajo en la segunda columna de cada bloque...
 <article class="columns">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Las 23 horas en un reloj binario"
-      src="{{ assets_path }}/binary-clock-hr.webp"
-    />
+    {%
+      include picture.html
+        alt="Las 23 horas en un reloj binario"
+        name="binary-clock-hr"
+    %}
   </div>
   <p class="column">
     Utilizamos solo los primeros 5 espacios, ya que tendremos 23 horas al día
@@ -77,18 +77,18 @@ Este reloj marca las 23 horas: 2⁰ + 2¹ + 2² + 2⁴ = 23.
 Análogamente con los minutos y segundos.
 <article class="columns">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="53 minutos en un reloj binario"
-      src="{{ assets_path }}/binary-clock-min.webp"
-    />
+    {%
+      include picture.html
+        alt="53 minutos en un reloj binario"
+        name="binary-clock-min"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="49 segundos en un reloj binario"
-      src="{{ assets_path }}/binary-clock-seg.webp"
-    />
+    {%
+      include picture.html
+        alt="49 segundos en un reloj binario"
+        name="binary-clock-seg"
+    %}
   </div>
 </article>
 
@@ -96,11 +96,11 @@ En resumen, este reloj dice que son las: **23:53:49**.
 
 ### BCD
 <article>
-  <img
-    class="image auto-margin"
-    alt="Reloj binario BCD que marca las 00:23:21"
-    src="{{ assets_path }}/binary-clock-bcd.webp"
-  />
+  {%
+    include picture.html
+      alt="Reloj binario BCD que marca las 00:23:21"
+      name="binary-clock-bcd"
+  %}
 </article>
 
 Mencionabamos que son muy similares, salvo que en este formato, cada columna
@@ -109,11 +109,11 @@ horas, la segunda a sus unidades, la tercera, decimas de los minutos, y así
 sucesivamente.
 <article class="columns">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="0 horas en un reloj binario BCD"
-      src="{{ assets_path }}/binary-clock-bcd-hr.webp"
-    />
+    {%
+      include picture.html
+        alt="0 horas en un reloj binario BCD"
+        name="binary-clock-bcd-hr"
+    %}
   </div>
   <p class="column">
     Es fácil ver que este reloj marca las 0 horas.
@@ -122,18 +122,18 @@ sucesivamente.
 
 <article class="columns">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="23 minutos en un reloj binario BCD"
-      src="{{ assets_path }}/binary-clock-bcd-min.webp"
-    />
+    {%
+      include picture.html
+        alt="23 minutos en un reloj binario BCD"
+        name="binary-clock-bcd-min"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="21 segundos en un reloj binario BCD"
-      src="{{ assets_path }}/binary-clock-bcd-seg.webp"
-    />
+    {%
+      include picture.html
+        alt="21 segundos en un reloj binario BCD"
+        name="binary-clock-bcd-seg"
+    %}
   </div>
 </article>
 
@@ -144,64 +144,64 @@ Te dejo otras capturas de relojes binarios para que practiques.
 #### Práctica binario
 <div class="columns is-multiline">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario"
-      src="{{ assets_path }}/20190617-bin-1.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario"
+        name="20190617-bin-1"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario"
-      src="{{ assets_path }}/20190617-bin-2.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario"
+        name="20190617-bin-2"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario"
-      src="{{ assets_path }}/20190617-bin-3.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario"
+        name="20190617-bin-3"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario"
-      src="{{ assets_path }}/20190617-bin-4.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario"
+        name="20190617-bin-4"
+    %}
   </div>
 </div>
 
 #### Práctica BCD
 <div class="columns is-multiline">
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario BCD"
-      src="{{ assets_path }}/20190617-bcd-1.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario BCD"
+        name="20190617-bcd-1"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario BCD"
-      src="{{ assets_path }}/20190617-bcd-2.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario BCD"
+        name="20190617-bcd-2"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario BCD"
-      src="{{ assets_path }}/20190617-bcd-3.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario BCD"
+        name="20190617-bcd-3"
+    %}
   </div>
   <div class="column">
-    <img
-      class="image auto-margin"
-      alt="Ejercicio de reloj binario BCD"
-      src="{{ assets_path }}/20190617-bcd-4.webp"
-    />
+    {%
+      include picture.html
+        alt="Ejercicio de reloj binario BCD"
+        name="20190617-bcd-4"
+    %}
   </div>
 </div>
 

@@ -3,6 +3,11 @@
 <div class="container-fluid">
   <div class="columns is-multiline">
     {% for project in site.data.projects %}
+    {%-
+      assign img_path = site.url
+        | append: '/img/projects/'
+        | append: project.slug
+    -%}
       <div class="column is-narrow is-one-third">
         <div class="card">
           <div class="card-content">
@@ -10,12 +15,18 @@
               {% if project.img_type %}
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <img
-                      src="{{ site.url }}/img/projects/{{ project.slug }}.{{
-                      project.img_type
-                      }}"
-                      alt="Imagen de projecto"
-                    />
+                    {% for ext in project.img_type %}
+                      {% if forloop.last == false %}
+                        <source
+                          srcset="{{ img_path }}.{{ ext.first[0] }}"
+                          type="image/{{ ext.first[1] }}">
+                      {% else %}
+                        <img
+                          src="{{ img_path }}.{{ ext.first[0] }}"
+                          alt="Imagen de projecto"
+                        >
+                      {% endif %}
+                    {% endfor %}
                   </figure>
                 </div>
               {% endif %}
