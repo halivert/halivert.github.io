@@ -1,12 +1,16 @@
 - title: "Árbol AVL"
   slug: avl-tree
-  img_type: png
+  img_type:
+    - webp: "image/webp"
+    - png: "image/png"
   description: >-
     Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.
 
 - title: "Rutas de Laravel en JS"
   slug: laravel-js-routes
-  img_type: png
+  img_type:
+    - webp: "image/webp"
+    - png: "image/png"
   description: >-
     Paquete composer para utilizar rutas de Laravel en archivos
     JS con un comando.
