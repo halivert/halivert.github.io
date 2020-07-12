@@ -40,30 +40,34 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
 
 <div class="columns">
   <div class="column">
-    <img
-      alt="Ejemplo de phishing: Bank of America"
-      src="{{ assets_path }}/phishing1.webp"
-    />
+    {%
+      include picture.html
+        name="phishing1"
+        alt="Ejemplo de phishing: Bank of America"
+    %}
   </div>
   <div class="column">
-    <img
-      alt="Ejemplo de phishing: iTunes"
-      src="{{ assets_path }}/phishing2.webp"
-    />
+    {%
+      include picture.html
+        name="phishing2"
+        alt="Ejemplo de phishing: iTunes"
+    %}
   </div>
 </div>
 <div class="columns">
   <div class="column">
-    <img
-      alt="Ejemplo de phishing: PayPal"
-      src="{{ assets_path }}/phishing3.webp"
-    />
+    {%
+      include picture.html
+        name="phishing3"
+        alt="Ejemplo de phishing: PayPal"
+    %}
   </div>
   <div class="column">
-    <img
-      alt="Ejemplo de phishing: Microsoft"
-      src="{{ assets_path }}/phishing4.webp"
-    />
+    {%
+      include picture.html
+        name="phishing4"
+        alt="Ejemplo de phishing: Microsoft"
+    %}
   </div>
 </div>
 
@@ -106,22 +110,25 @@ tiene en Telegram, Twitter y Snapchat.
 
 <div class="columns">
   <div class="column">
-    <img
-      src="{{ assets_path }}/telegram-2fa.webp"
-      alt="Configuración de privacidad y seguridad de Telegram"
-    />
+    {%
+      include picture.html
+        name="telegram-2fa"
+        alt="Configuración de privacidad y seguridad de Telegram"
+    %}
   </div>
   <div class="column">
-    <img
-      src="{{ assets_path }}/twitter-2fa.webp"
-      alt="Configuración de verificación de inicio de sesión de Twitter"
-    />
+    {%
+      include picture.html
+        name="twitter-2fa"
+        alt="Configuración de verificación de inicio de sesión de Twitter"
+    %}
   </div>
   <div class="column">
-    <img
-      src="{{ assets_path }}/snapchat-2fa.webp"
-      alt="Ajustes de Snapchat (Autenticación de dos factores)"
-    />
+    {%
+      include picture.html
+        name="snapchat-2fa"
+        alt="Ajustes de Snapchat (Autenticación de dos factores)"
+    %}
   </div>
 </div>
 
