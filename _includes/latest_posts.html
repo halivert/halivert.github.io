@@ -9,10 +9,13 @@
       </h3>
 
       {% if post.image %}
-        <img
-          class="mb-4"
-          src="{{ site.url }}{{ post.image }}"
-          alt="{{ post.image_alt }}" />
+        {%- assign path = post.image | absolute_url -%}
+        {%
+          include picture.html
+            types=post.image_types
+            path=path
+            alt=post.image_alt
+        %}
       {% endif %}
 
       <div class="is-flex">

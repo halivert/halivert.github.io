@@ -42,14 +42,14 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
   <div class="column">
     {%
       include picture.html
-        name="phishing1"
+        src="phishing1"
         alt="Ejemplo de phishing: Bank of America"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
-        name="phishing2"
+        src="phishing2"
         alt="Ejemplo de phishing: iTunes"
     %}
   </div>
@@ -58,14 +58,14 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
   <div class="column">
     {%
       include picture.html
-        name="phishing3"
+        src="phishing3"
         alt="Ejemplo de phishing: PayPal"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
-        name="phishing4"
+        src="phishing4"
         alt="Ejemplo de phishing: Microsoft"
     %}
   </div>
@@ -112,21 +112,21 @@ tiene en Telegram, Twitter y Snapchat.
   <div class="column">
     {%
       include picture.html
-        name="telegram-2fa"
+        src="telegram-2fa"
         alt="Configuración de privacidad y seguridad de Telegram"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
-        name="twitter-2fa"
+        src="twitter-2fa"
         alt="Configuración de verificación de inicio de sesión de Twitter"
     %}
   </div>
   <div class="column">
     {%
       include picture.html
-        name="snapchat-2fa"
+        src="snapchat-2fa"
         alt="Ajustes de Snapchat (Autenticación de dos factores)"
     %}
   </div>

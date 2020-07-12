@@ -18,11 +18,14 @@ layout: container
               {% include post-show.html %}
             </div>
             {% if post.image %}
-              <div class="column is-3">
-                <img
-                  src="{{ site.url }}{{ post.image }}"
-                  alt="{{ post.image_alt }}">
-              </div>
+              {%- assign path = post.image | absolute_url -%}
+              {%
+                include picture.html
+                  class="column is-3"
+                  path=path
+                  alt=post.image_alt
+                  types=post.image_types
+              %}
             {% endif %}
           </div>
           <br />

@@ -6,22 +6,53 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/solarized.css" />
+
+    {%- assign cssAssets = "/assets/css" | absolute_url -%}
+
     <link
-      rel="stylesheet"
-      href="{{ site.url }}/assets/css/halivert-layout.css"
-    />
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/halivert.css" />
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/halivert-dark.css" />
-    <link rel="stylesheet" href="{{ site.url }}/assets/css/fa.min.css" async />
+      rel="preload"
+      href="{{ cssAssets }}/solarized.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
+    </noscript>
 
     <link
       rel="stylesheet"
-      href="https://cdn.rawgit.com/lonekorean/gist-syntax-themes/b737b139/stylesheets/solarized-dark.css"
-      type="text/css"
-      media="all"
-      async
+      href="{{ cssAssets }}/halivert-layout.css"
     />
+
+    <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
+    <link rel="stylesheet" href="{{ cssAssets }}/halivert-dark.css" />
+
+    <link
+      rel="preload"
+      href="{{ cssAssets }}/fa.min.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link rel="stylesheet" href="{{ cssAssets }}/fa.min.css"/>
+    </noscript>
+
+    {%-
+      assign gistTheme = "https://cdn.rawgit.com"
+      | append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
+      | append: "/solarized-dark.css"
+    -%}
+
+    <link
+      rel="preload"
+      href="{{ gistTheme }}"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="{{ gistTheme }}"
+        type="text/css"
+        media="all" />
+    </noscript>
 
     {% include unix_timestamp.html %}
     {%- assign author = site.data.authors[page.author] -%}

@@ -1,17 +1,35 @@
-<picture>
-  {%-
-    assign path = page.date
-      | date: "%Y-%m-%d-"
-      | prepend: "/assets/"
-      | append: page.slug
-      | append: "/"
-      | append: include.subpath
-      | absolute_url
-  -%}
-  <source
-    srcset="{{ include.name | append: ".webp" | prepend: path }}"
-    type="image/webp">
-  <img
-    src="{{ include.name | append: ".png" | prepend: path }}"
-    alt="{{ include.alt }}">
+<picture {% if include.class %} class="{{ include.class }}" {%- endif -%}>
+  {%- if include.path -%}
+    {%- assign path = include.path -%}
+  {%- else -%}
+    {%-
+      assign path = page.date
+        | date: "%Y-%m-%d-"
+        | prepend: "/assets/"
+        | append: page.slug
+        | append: "/"
+        | append: include.subpath
+        | absolute_url
+    -%}
+  {%- endif -%}
+
+  {%- if include.types -%}
+    {%- assign types = include.types | split: "," -%}
+  {%- else -%}
+    {%- assign types = "webp:image/webp,png:image/png" | split: "," -%}
+  {%- endif -%}
+
+  {% assign src = include.src %}
+  {%- for type in types -%}
+    {%- assign pair = type | split: ":" -%}
+    {%- if forloop.last != true -%}
+      <source
+        srcset="{{ src | append: "." | append: pair[0] | prepend: path }}"
+        type="{{ pair[1] }}">
+    {%- else -%}
+      <img
+        src="{{ src | append: "." | append: pair[0] | prepend: path }}"
+        alt="{{ include.alt }}">
+    {%- endif -%}
+  {%- endfor -%}
 </picture>

@@ -7,17 +7,17 @@ layout: container
 
   <div class="columns">
     <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-      <div class="columns is-vcentered is-gapless">
+      <div id="title-div" class="columns is-vcentered is-gapless">
         {% if page.image %}
-          <div class="column is-hidden-tablet">
-            <picture>
-              <img
-                src="{{ site.url}}{{ page.image }}"
-                alt="{{ page.image_alt }}"
-                class="image"
-                style="margin-bottom: 0.5em;"
-              />
-            </picture>
+          <div class="column has-text-centered is-hidden-tablet">
+            {%- assign path = page.image | absolute_url -%}
+            {%
+              include picture.html
+                class="image post-image"
+                path=path
+                alt=page.image_alt
+                types=page.image_types
+            %}
           </div>
         {% endif %}
         <header class="column">
@@ -48,13 +48,14 @@ layout: container
         </header>
         {% if page.image %}
           <div class="column has-text-right is-hidden-mobile">
-            <picture>
-              <img
-                src="{{ site.url}}{{ page.image }}"
-                alt="{{ page.image_alt }}"
-                style="max-height: 200px; max-width: 200px;"
-              />
-            </picture>
+            {%- assign path = page.image | absolute_url -%}
+            {%
+              include picture.html
+                class="image post-image"
+                path=path
+                alt=page.image_alt
+                types=page.image_types
+            %}
           </div>
         {% endif %}
       </div>
