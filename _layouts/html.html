@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es-MX" class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -9,14 +9,7 @@
 
 		{%- assign cssAssets = "/assets/css" | absolute_url -%}
 
-		<link
-			rel="preload"
-			href="{{ cssAssets }}/solarized.css"
-			as="style"
-			onload="this.onload=null;this.rel='stylesheet'">
-		<noscript>
-			<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
-		</noscript>
+		<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 
 		<link
 			rel="stylesheet"
@@ -30,22 +23,11 @@
 
 		{%-
 			assign gistTheme = "https://cdn.rawgit.com"
-			| append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
-			| append: "/solarized-dark.css"
+				| append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
+				| append: "/solarized-dark.css"
 		-%}
 
-		<link
-			rel="preload"
-			href="{{ gistTheme }}"
-			as="style"
-			onload="this.onload=null;this.rel='stylesheet'">
-		<noscript>
-			<link
-				rel="stylesheet"
-				href="{{ gistTheme }}"
-				type="text/css"
-				media="all" />
-		</noscript>
+		<link rel="stylesheet" href="{{ gistTheme }}" type="text/css"/>
 
 		{% include unix_timestamp.html %}
 		{%- assign author = site.data.authors[page.author] -%}

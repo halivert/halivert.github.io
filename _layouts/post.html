@@ -2,6 +2,10 @@
 layout: container
 ---
 
+{%- capture pageImage -%}
+{%- include remove_ext.html file=page.image -%}
+{%- endcapture -%}
+
 <div class="container-fluid">
   {% assign author = site.data.authors[page.author] %}
 
@@ -10,7 +14,7 @@ layout: container
       <div id="title-div" class="columns is-vcentered is-gapless">
         {% if page.image %}
           <div class="column has-text-centered is-hidden-tablet">
-            {%- assign path = page.image | absolute_url -%}
+            {%- assign path = pageImage | absolute_url -%}
             {%
               include picture.html
                 class="image post-image"
@@ -48,7 +52,7 @@ layout: container
         </header>
         {% if page.image %}
           <div class="column has-text-right is-hidden-mobile">
-            {%- assign path = page.image | absolute_url -%}
+            {%- assign path = pageImage | absolute_url -%}
             {%
               include picture.html
                 class="image post-image"

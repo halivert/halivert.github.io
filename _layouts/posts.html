@@ -18,7 +18,11 @@ layout: container
               {% include post-show.html %}
             </div>
             {% if post.image %}
-              {%- assign path = post.image | absolute_url -%}
+              {%- capture postImage -%}{%-
+                include remove_ext.html file=post.image
+              -%}{%- endcapture -%}
+
+              {%- assign path = postImage | absolute_url -%}
               {%
                 include picture.html
                   class="column is-3"
