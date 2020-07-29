@@ -14,42 +14,42 @@ title: "Halí"
       </h1>
       <div class="columns is-centered">
         <div class="column content is-two-thirds">
-          <p>
+          <p class="has-text-centered-mobile">
             <a href="https://www.jw.org/es/testigos-de-jehová/">JW</a>, 25 años,
             <a href="https://www.escom.ipn.mx/"
                >ingeniería en sistemas computacionales</a
              >.
           </p>
-              <div class="mb-4">
-                <strong>Componentes:</strong>
-                <ul class="has-text-left-mobile">
-                  <li>Música.</li>
-                  <li>Matemáticas.</li>
-                  <li>Programación.</li>
-                </ul>
-              </div>
-              <p class="buttons is-centered">
-                <a
-                  class="button is-inverted gmail is-large is-medium-touch"
-                  href="mailto:{{ author.email.at }}"
-                  >
-                  <span class="icon">
-                    <i class="fas fa-envelope-open" aria-hidden="true"></i>
-                  </span>
-                </a>
-                {% for item in author.social %}
-                  <a
-                    class="button is-inverted {{
-                    item.type
-                    }} is-large is-medium-touch"
-                    href="{{ item.url }}"
-                    >
-                    <span class="icon">
-                      <i class="{{ item.icon }}" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                {% endfor %}
-              </p>
+          <div class="mb-4">
+            <strong>Componentes:</strong>
+            <ul class="has-text-left-mobile">
+              <li>Música.</li>
+              <li>Matemáticas.</li>
+              <li>Programación.</li>
+            </ul>
+          </div>
+          <p class="buttons is-centered">
+            <a
+              class="button is-inverted gmail is-large is-medium-touch"
+              href="mailto:{{ author.email.at }}"
+              >
+              <span class="icon">
+                <i class="fas fa-envelope-open" aria-hidden="true"></i>
+              </span>
+            </a>
+            {% for item in author.social %}
+              <a
+                class="button is-inverted {{
+                item.type
+                }} is-large is-medium-touch"
+                href="{{ item.url }}"
+                >
+                <span class="icon">
+                  <i class="{{ item.icon }}" aria-hidden="true"></i>
+                </span>
+              </a>
+            {% endfor %}
+          </p>
         </div>
 
         <figure class="column is-one-third">

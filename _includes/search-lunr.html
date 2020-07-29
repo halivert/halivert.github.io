@@ -34,7 +34,10 @@
         "tags": {{ post.tags | jsonify }},
         "content": {{ post.excerpt | strip | jsonify }},
         {%- if post.image -%}
-          "image": {{ post.image | prepend: site.url | strip | jsonify }},
+          {%- capture postImage -%}{%-
+            include remove_ext.html file=post.image
+          -%}{%- endcapture -%}
+          "image": {{ postImage | prepend: site.url | strip | jsonify }},
           "image_types": {{ post.image_types | strip | jsonify }},
         {%- endif -%}
         {%- if post.image_alt -%}
