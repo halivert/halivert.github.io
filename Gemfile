@@ -11,4 +11,5 @@ group :jekyll_plugins do
   gem 'jekyll-github-metadata'
   gem 'jekyll-mentions'
   gem 'jemoji'
+  gem 'jekyll-remote-theme'
 end
