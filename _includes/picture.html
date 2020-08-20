@@ -9,7 +9,7 @@
         | append: page.slug
         | append: "/"
         | append: include.subpath
-        | absolute_url
+        | prepend: site.url
     -%}
   {%- endif -%}
 

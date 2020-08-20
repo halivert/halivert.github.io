@@ -22,7 +22,7 @@ layout: container
                 include remove_ext.html file=post.image
               -%}{%- endcapture -%}
 
-              {%- assign path = postImage | absolute_url -%}
+              {%- assign path = postImage | prepend: site.url -%}
               {%
                 include picture.html
                   class="column is-3"

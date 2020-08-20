@@ -7,7 +7,7 @@
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
 
-		{%- assign cssAssets = "/assets/css" | absolute_url -%}
+		{%- assign cssAssets = "/assets/css" | prepend: site.url -%}
 
 		<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 
