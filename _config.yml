@@ -23,7 +23,6 @@ plugins:
   - jekyll-gist
   - jekyll-github-metadata
   - jemoji
-  - jekyll-remote-theme
 
 defaults:
   -
