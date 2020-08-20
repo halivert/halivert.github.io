@@ -16,7 +16,7 @@ El repositorio de mi página web
 
 <br />
 
-Las entradas escritas en este blog están bajo la licencia
+Los artículos escritos en este blog están bajo la licencia
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
   Creative Commons Attribution 4.0 International License

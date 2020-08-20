@@ -10,3 +10,9 @@
   description: >-
     Paquete composer para utilizar rutas de Laravel en archivos
     JS con un comando.
+
+# - title: "Este sitio web y blog personal"
+#   slug: halivert.github.io
+#   img_type: "webp:image/webp,png:image/png"
+#   description: >-
+#     Sitio web hecho con Jekyll, HTML, JavaScript y CSS.

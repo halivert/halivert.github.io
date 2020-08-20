@@ -9,7 +9,7 @@ paginate: 7
 paginate_path: "/blog/:num/"
 timezone: "America/Mexico_City"
 logo: "/img/halivert-logo.png"
-tagline: "Blog personal de un dev"
+tagline: "Blog personal de un desarrollador"
 lang: "es_MX"
 twitter:
   username: "halivert"
@@ -23,6 +23,7 @@ plugins:
   - jekyll-gist
   - jekyll-github-metadata
   - jemoji
+  - jekyll-remote-theme
 
 defaults:
   -
