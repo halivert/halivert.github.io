@@ -14,7 +14,7 @@ layout: container
       <div id="title-div" class="columns is-vcentered is-gapless">
         {% if page.image %}
           <div class="column has-text-centered is-hidden-tablet">
-            {%- assign path = pageImage | absolute_url -%}
+            {%- assign path = pageImage | prepend: site.url -%}
             {%
               include picture.html
                 class="image post-image"
@@ -52,7 +52,7 @@ layout: container
         </header>
         {% if page.image %}
           <div class="column has-text-right is-hidden-mobile">
-            {%- assign path = pageImage | absolute_url -%}
+            {%- assign path = pageImage | prepend: site.url -%}
             {%
               include picture.html
                 class="image post-image"
