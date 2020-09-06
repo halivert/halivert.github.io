@@ -2,92 +2,135 @@
 author: halivert
 layout: html
 title: "Halí"
+hide_foot: true
 ---
 
 {% assign author = site.data.authors[layout.author] %}
 
-<main id="main-container" class="has-background-light">
-  <section class="hero is-fullheight-with-navbar">
-    <div class="hero-body is-flex-column">
-      <h1 class="title is-1 has-text-centered normal-wrap">
+<main id="main-container" class="section">
+  <div class="columns is-centered">
+    <div class="column is-8 has-text-centered">
+      <h1 class="title is-1 normal-wrap">
         {{ author.first_name }} {{ author.last_name }}
       </h1>
-      <div class="columns is-centered">
-        <div class="column content is-two-thirds">
-          <p class="has-text-centered-mobile">
-            <a href="https://www.jw.org/es/testigos-de-jehová/">JW</a>,
-            <a href="https://www.escom.ipn.mx/"
-               >ingeniería en sistemas computacionales</a
-             >.
-          </p>
-          <div class="mb-4">
-            <strong>Componentes:</strong>
-            <ul class="has-text-left-mobile">
-              <li>Música.</li>
-              <li>Matemáticas.</li>
-              <li>Programación.</li>
-            </ul>
-          </div>
-          <p class="buttons is-centered">
-            <a
-              class="button is-inverted gmail is-large is-medium-touch"
-              href="mailto:{{ author.email.at }}"
-              >
-              <span class="icon">
-                <i class="fas fa-envelope-open" aria-hidden="true"></i>
-              </span>
-            </a>
-            {% for item in author.social %}
-              <a
-                class="button is-inverted {{
-                item.type
-                }} is-large is-medium-touch"
-                href="{{ item.url }}"
+
+      <main>
+        <p class="mb-2">
+          <a href="https://jw.org">JW</a>,
+          estudiando una
+          <a href="https://www.escom.ipn.mx/"
+            >ingeniería en sistemas computacionales</a
+          >.
+        </p>
+
+        <p>
+          Me dedico al desarrollo web y me encantan los algoritmos y las
+          matemáticas.
+        </p>
+
+        <p>
+          Encontrarás más sobre mí en mi
+          <a href="{{ site.url }}/blog">blog</a>.
+        </p>
+
+        <p class="mt-2">
+          También puedo ayudarte a resolver algunos problemas de programación.
+        </p>
+
+        <p>
+          Puedes ponerte en contacto conmigo
+          {% if author.kofi %}
+            y también
+            <a href="{{ author.kofi }}">dispararme un café</a>
+            si quieres.
+          {%- endif -%}
+        </p>
+      </main>
+
+      <p class="buttons is-centered mt-4">
+        <a
+          class="button is-inverted gmail is-large is-medium-touch"
+          href="mailto:{{ author.email.at }}"
+        >
+          <span class="icon">
+            <i class="fas fa-envelope-open" aria-hidden="true"></i>
+          </span>
+        </a>
+        {% for item in author.social %}
+          <a
+            class="button is-inverted {{ item.type }} is-large is-medium-touch"
+            href="{{ item.url }}">
+            <span class="icon">
+              <i class="{{ item.icon }}" aria-hidden="true"></i>
+            </span>
+          </a>
+        {% endfor %}
+      </p>
+
+      <figure>
+        <img
+          src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
+          class="avatar"
+          loading="lazy"
+          alt="Imagen de perfil de {{ layout.author }}"
+          onContextMenu="vibrate([150, 30, 150]);"
+        />
+      </figure>
+    </div>
+
+    <div class="column">
+      <h2 class="subtitle is-2">
+        <a href="https://github.com/halivert?tab=repositories">
+          Proyectos 👨🏽‍💻
+        </a>
+      </h2>
+      {% for project in site.data.projects %}
+        {%-
+          assign img_path = site.url
+            | append: '/img/projects/'
+            | append: project.slug
+        -%}
+        <div class="card project-card">
+          <div class="card-content">
+            <div class="media">
+              {% if project.img_type %}
+                <div class="media-left">
+                  {%- assign path = img_path -%}
+                  {%
+                    include picture.html
+                      class="image is-48x48"
+                      path=path
+                      alt="Imagen de proyecto"
+                  %}
+                </div>
+              {% endif %}
+              <div class="media-content">
+                <p class="title is-5">{{ project.title }}</p>
+                <p class="subtitle is-6">
+                  <a href="https://github.com/halivert/{{ project.slug }}">
+                    <span>Ver en github</span>
+                    <span class="icon is-small">
+                      <i class="fab fa-github"></i>
+                    </span>
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="content">
+              <p>{{ project.description }}</p>
+
+              <div class="buttons is-right">
+                <a
+                  class="button is-primary"
+                  href="{{ site.url }}/{{ project.slug }}"
+                  >Ver más...</a
                 >
-                <span class="icon">
-                  <i class="{{ item.icon }}" aria-hidden="true"></i>
-                </span>
-              </a>
-            {% endfor %}
-          </p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <figure class="column is-one-third">
-          <img
-            src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=200"
-            class="avatar has-background-grey"
-            loading="lazy"
-            alt="Imagen de perfil de {{ layout.author }}"
-            onContextMenu="vibrate([150, 30, 150]);"
-            />
-        </figure>
-      </div>
-
-      <a data-target="#projects" class="down-arrow animated-arrow"></a>
+      {% endfor %}
     </div>
-  </section>
-
-  <hr />
-
-  <section class="hero is-fullheight" id="projects">
-    <div class="hero-body container is-flex-column">
-      <div class="mb-6">
-        {% include projects.html %}
-      </div>
-
-      <a
-        data-target="#latest-posts"
-        class="down-arrow animated-arrow"></a>
-    </div>
-  </section>
-
-  <hr />
-
-  <section class="hero is-fullheight" id="latest-posts">
-    <div class="hero-body">
-      <div class="container">
-        {% include latest_posts.html %}
-      </div>
-    </div>
-  </section>
+  </div>
 </main>

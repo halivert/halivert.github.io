@@ -2,9 +2,10 @@ halivert:
   first_name: "Halí"
   last_name: "Velázquez"
   picture: "/img/halivert.png"
+  kofi: "https://ko-fi.com/halivert"
   email:
-    at: "hali@halivert.dev"
-    md5: "d87b7db565e6223a84b72a5194c5d803"
+    at: "hi@halivert.dev"
+    md5: "ef78513325e3391167f441f930067fef"
   description: >-
     Estudiando ingeniería en sistemas computacionales, su escuela lo ama
     tanto que no lo quiere dejar salir.

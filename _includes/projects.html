@@ -3,11 +3,11 @@
 <div class="container-fluid">
   <div class="columns is-multiline">
     {% for project in site.data.projects %}
-    {%-
-      assign img_path = site.url
-        | append: '/img/projects/'
-        | append: project.slug
-    -%}
+      {%-
+        assign img_path = site.url
+          | append: '/img/projects/'
+          | append: project.slug
+      -%}
       <div class="column is-narrow is-one-third">
         <div class="card">
           <div class="card-content">

@@ -60,7 +60,7 @@ const removeClass = (element, name) => {
   }
 }
 
-const isInput = name => {
+const isInput = (name) => {
   let compare = name.toLowerCase()
   return ["input", "textarea", "select"].includes(compare)
 }
@@ -72,7 +72,7 @@ const closeAllNavbars = () => {
   )
 
   if ($navbarBurgers.length > 0) {
-    $navbarBurgers.forEach($el => {
+    $navbarBurgers.forEach(($el) => {
       let $target = document.getElementById($el.dataset.target)
       removeClass($el, "is-active")
       removeClass($target, "is-active")
@@ -80,11 +80,11 @@ const closeAllNavbars = () => {
   }
 }
 
-const vibrate = pattern => {
+const vibrate = (pattern) => {
   window.navigator.vibrate(pattern)
 }
 
-const initThemeSwitcher = element => {
+const initThemeSwitcher = (element) => {
   if (!element) return
 
   let firstSpan = element.getElementsByTagName("span")[0]
@@ -119,7 +119,7 @@ setTheme()
 document.addEventListener("turbolinks:load", () => {
   let searchBox = document.getElementById("search-box")
   if (searchBox) {
-    document.addEventListener("keypress", evt => {
+    document.addEventListener("keypress", (evt) => {
       if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
         evt.preventDefault()
         activateNavMenu()
@@ -133,19 +133,11 @@ document.addEventListener("turbolinks:load", () => {
   initThemeSwitcher(document.getElementById("theme-switcher-corner"))
 
   const deletes = document.querySelectorAll(".notification .delete") || []
-  deletes.forEach($delete => {
+
+  deletes.forEach(($delete) => {
     $notification = $delete.parentNode
     $delete.addEventListener("click", () => {
       $notification.parentNode.removeChild($notification)
-    })
-  })
-
-  const downArrows = document.querySelectorAll(".down-arrow") || []
-  downArrows.forEach(arrow => {
-    const target = arrow.dataset.target
-    arrow.addEventListener("click", () => {
-      const targetElement = document.querySelector(target)
-      if (targetElement) targetElement.scrollIntoView({ behavior: "smooth" })
     })
   })
 })

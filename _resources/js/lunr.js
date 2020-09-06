@@ -214,7 +214,7 @@
 
 		contains: function() {
 			return true
-		}
+		},
 	}
 
 	/**
@@ -235,7 +235,7 @@
 
 		contains: function() {
 			return false
-		}
+		},
 	}
 
 	/**
@@ -974,7 +974,7 @@
 				aliti: "al",
 				iviti: "ive",
 				biliti: "ble",
-				logi: "log"
+				logi: "log",
 			},
 			step3list = {
 				icate: "ic",
@@ -983,7 +983,7 @@
 				iciti: "ic",
 				ical: "ic",
 				ful: "",
-				ness: ""
+				ness: "",
 			},
 			c = "[^aeiou]", // consonant
 			v = "[aeiouy]", // vowel
@@ -1319,7 +1319,7 @@
 		"would",
 		"yet",
 		"you",
-		"your"
+		"your",
 	])
 
 	lunr.Pipeline.registerFunction(lunr.stopWordFilter, "stopWordFilter")
@@ -1450,8 +1450,8 @@
 			{
 				node: root,
 				editsRemaining: editDistance,
-				str: str
-			}
+				str: str,
+			},
 		]
 
 		while (stack.length) {
@@ -1476,7 +1476,7 @@
 				stack.push({
 					node: noEditNode,
 					editsRemaining: frame.editsRemaining,
-					str: frame.str.slice(1)
+					str: frame.str.slice(1),
 				})
 			}
 
@@ -1499,7 +1499,7 @@
 			stack.push({
 				node: insertionNode,
 				editsRemaining: frame.editsRemaining - 1,
-				str: frame.str
+				str: frame.str,
 			})
 
 			// deletion
@@ -1509,7 +1509,7 @@
 				stack.push({
 					node: frame.node,
 					editsRemaining: frame.editsRemaining - 1,
-					str: frame.str.slice(1)
+					str: frame.str.slice(1),
 				})
 			}
 
@@ -1537,7 +1537,7 @@
 				stack.push({
 					node: substitutionNode,
 					editsRemaining: frame.editsRemaining - 1,
-					str: frame.str.slice(1)
+					str: frame.str.slice(1),
 				})
 			}
 
@@ -1563,7 +1563,7 @@
 				stack.push({
 					node: transposeNode,
 					editsRemaining: frame.editsRemaining - 1,
-					str: charA + frame.str.slice(2)
+					str: charA + frame.str.slice(2),
 				})
 			}
 		}
@@ -1628,8 +1628,8 @@
 		var stack = [
 			{
 				prefix: "",
-				node: this
-			}
+				node: this,
+			},
 		]
 
 		while (stack.length) {
@@ -1651,7 +1651,7 @@
 
 				stack.push({
 					prefix: frame.prefix.concat(edge),
-					node: frame.node.edges[edge]
+					node: frame.node.edges[edge],
 				})
 			}
 		}
@@ -1714,8 +1714,8 @@
 			{
 				qNode: b,
 				output: output,
-				node: this
-			}
+				node: this,
+			},
 		]
 
 		while (stack.length) {
@@ -1760,7 +1760,7 @@
 						stack.push({
 							qNode: qNode,
 							output: next,
-							node: node
+							node: node,
 						})
 					}
 				}
@@ -1806,7 +1806,7 @@
 			this.uncheckedNodes.push({
 				parent: node,
 				char: char,
-				child: nextNode
+				child: nextNode,
 			})
 
 			node = nextNode
@@ -2011,7 +2011,7 @@
 
 			if (clause.usePipeline) {
 				terms = this.pipeline.runString(clause.term, {
-					fields: clause.fields
+					fields: clause.fields,
 				})
 			} else {
 				terms = [clause.term]
@@ -2260,7 +2260,7 @@
 				var match = {
 					ref: docRef,
 					score: score,
-					matchData: matchingFields[fieldRef]
+					matchData: matchingFields[fieldRef],
 				}
 				matches[docRef] = match
 				results.push(match)
@@ -2299,7 +2299,7 @@
 			fields: this.fields,
 			fieldVectors: fieldVectors,
 			invertedIndex: invertedIndex,
-			pipeline: this.pipeline.toJSON()
+			pipeline: this.pipeline.toJSON(),
 		}
 	}
 
@@ -2518,7 +2518,7 @@
 				extractor = this._fields[fieldName].extractor,
 				field = extractor ? extractor(doc) : doc[fieldName],
 				tokens = this.tokenizer(field, {
-					fields: [fieldName]
+					fields: [fieldName],
 				}),
 				terms = this.pipeline.run(tokens),
 				fieldRef = new lunr.FieldRef(docRef, fieldName),
@@ -2706,7 +2706,7 @@
 			fieldVectors: this.fieldVectors,
 			tokenSet: this.tokenSet,
 			fields: Object.keys(this._fields),
-			pipeline: this.searchPipeline
+			pipeline: this.searchPipeline,
 		})
 	}
 
@@ -2912,7 +2912,7 @@
 		 * Term's presence in a document is prohibited, documents that do contain
 		 * this term will not be returned.
 		 */
-		PROHIBITED: 3
+		PROHIBITED: 3,
 	}
 
 	/**
@@ -3083,7 +3083,7 @@
 			type: type,
 			str: this.sliceString(),
 			start: this.start,
-			end: this.pos
+			end: this.pos,
 		})
 
 		this.start = this.pos

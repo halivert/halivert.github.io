@@ -3,9 +3,9 @@ $title-family: "Montserrat", sans-serif;
 $family-monospace: "IBM Plex Mono", monospace;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+$footer-padding: 1rem 1rem 2rem;
 
 $hr-background-color: $grey-lighter;
-$footer-padding: 1rem 1rem 2rem;
 
 @import "../node_modules/bulma/sass/utilities/derived-variables.scss";
 
@@ -73,290 +73,45 @@ $footer-padding: 1rem 1rem 2rem;
 
 @import "_social-buttons";
 
-body {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
 .image-art-title {
-	border-radius: 0.5em;
-	border: $golden solid;
-	@include tablet {
-		width: 50%;
-	}
-	margin: auto;
+  border-radius: 0.5em;
+  border: $golden solid;
+  @include tablet {
+    width: 50%;
+  }
+  margin: auto;
 }
 
 ::selection {
-	background: $turquoise;
-	color: $turquoise-invert;
+  background: $turquoise;
+  color: $turquoise-invert;
 }
 
 ::-moz-selection {
-	background: $turquoise;
-	color: $turquoise-invert;
-}
-
-img,
-picture {
-	display: block;
-	margin: 0 auto;
-
-	&.image-left {
-		max-width: 300px;
-		margin-right: 15px;
-		margin-bottom: 10px;
-	}
-
-	&.image-right {
-		max-width: 300px;
-		margin-left: 15px;
-		margin-bottom: 10px;
-	}
-
-	&.avatar {
-		vertical-align: middle;
-		border-radius: 100%;
-		width: 200px;
-	}
-}
-
-img {
-	// Debug images without alt
-	&:not([alt]) {
-		outline: 1rem dashed rebeccapurple;
-	}
-}
-
-.image.post-image {
-	display: inline-block;
-
-	@include tablet {
-		max-height: 200px;
-		max-width: 200px;
-	}
-
-	@include mobile {
-		margin-bottom: 0.5em;
-	}
-}
-
-.anchor {
-	display: block;
-	height: 54px;
-	margin-top: -54px;
-	visibility: hidden;
-}
-
-.katex-display {
-	overflow-x: auto;
-}
-
-.auto-margin {
-	margin: auto;
-}
-
-article:not(:last-child) {
-	margin-bottom: 1em;
-}
-
-.line-through {
-	text-decoration: line-through;
-}
-
-.icon-2x {
-	max-width: 2em;
-	max-height: 2em;
-}
-
-div.highlighter-rouge {
-	&:not(:last-child) {
-		margin-bottom: 1rem;
-	}
-}
-
-code {
-	text-align: left;
-}
-
-.image-container {
-	display: inline-block;
-}
-
-.art-gallery {
-	background-attachment: absolute;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-footer.footer {
-	display: block;
-	margin-top: auto;
+  background: $turquoise;
+  color: $turquoise-invert;
 }
 
 .turbolinks-progress-bar {
-	height: 5px;
-	background-color: $red;
-}
-
-.mobile-separator {
-	display: block;
-	margin: 0 0.5rem;
-	@include tablet {
-		display: inline-block;
-	}
-}
-
-#main-container {
-	overflow: auto;
-	display: block;
+  height: 5px;
+  background-color: $red;
 }
 
 .gist {
-	table td {
-		border: initial;
-		font-family: $family-monospace;
-	}
+  &-meta {
+    background-color: $background;
+    color: $text;
+  }
 
-	.blob-num {
-		text-align: right;
-	}
+  &-file {
+    border-color: $white-bis;
+  }
 
-	&-meta {
-		background-color: $background;
-		color: $text;
-	}
-
-	&-file {
-		border-color: $white-bis;
-	}
-
-	&-data {
-		border-color: $white-bis;
-	}
+  &-data {
+    border-color: $white-bis;
+  }
 }
 
-.license-link {
-	display: inline-block;
-	margin-bottom: $size-7 / 2;
-}
-
-.is-full-rounded {
-	border-radius: 100%;
-}
-
-.repo {
-	&.fixed-top-bar {
-		width: 100%;
-		position: absolute;
-		top: 0;
-		display: flex;
-		z-index: 100;
-		background: $primary;
-		justify-content: space-between;
-	}
-
-	&.hero {
-		@include touch {
-			margin-top: 0.75rem;
-		}
-	}
-}
-
-sup.ref {
-	&::before {
-		content: "[";
-	}
-
-	&::after {
-		content: "]";
-	}
-}
-
-.latest-posts {
-	&:nth-of-type(odd) {
-		flex-direction: row-reverse;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 1rem;
-	}
-}
-
-.is-flex {
-	display: flex;
-	flex-flow: row nowrap;
-
-	&.is-vcentered {
-		align-items: center;
-	}
-
-	&-column {
-		display: flex;
-		flex-flow: column nowrap;
-
-		&.is-vcentered {
-			justify-content: center;
-		}
-	}
-}
-
-.space-between {
-	justify-content: space-between;
-}
-
-.normal-wrap {
-	word-wrap: normal;
-}
-
-.down-arrow {
-	display: inline-block;
-
-	@include desktop {
-		position: absolute;
-		bottom: 40px;
-	}
-
-	border: solid $primary;
-	border-width: 0 0.5rem 0.5rem 0;
-	padding: 1rem;
-	transform: rotate(45deg);
-
-	&.animated-arrow {
-		animation: fade-in 4s, bounce-down 2.5s 4s 2;
-	}
-}
-
-@keyframes fade-in {
-	0%,
-	50% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-@keyframes bounce-down {
-	0%,
-	20%,
-	50%,
-	80%,
-	100% {
-		transform: translateY(0) rotate(45deg);
-	}
-
-	40% {
-		transform: translateY(-20px) rotate(45deg);
-	}
-
-	60% {
-		transform: translateY(-10px) rotate(45deg);
-	}
-}
-
-span[title] {
-	cursor: help;
+.repo.fixed-top-bar {
+  background: $primary;
 }

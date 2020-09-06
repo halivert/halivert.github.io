@@ -1,9 +1,9 @@
 <div class="container is-fluid has-text-centered">
-  <h1 class="subtitle">Últimas entradas</h1>
+  <h1 class="subtitle">Últimos artículos</h1>
 
-  <div class="columns is-multiline is-centered is-gapless">
+  <div>
     {% for post in site.posts limit: 7 %}
-      <a class="column is-full" href="{{ site.url }}{{ post.url }}">
+      <a class="sidebar-item" href="{{ site.url }}{{ post.url }}">
         {{ post.title }}
       </a>
     {% endfor %}
@@ -11,13 +11,13 @@
 
   <hr>
   <h1 class="subtitle">Categorías</h1>
-  <div class="columns is-multiline is-centered is-gapless">
+  <div>
     {% for category in site.categories %}
       {% assign url = category[0] | slugify | replace: 'á', 'a' %}
       {% assign url = url | replace: 'é', 'e' | replace: 'í', 'i' %}
       {% assign url = url | replace: 'ó', 'o' | replace: 'ú', 'u' %}
       {% assign url = url | replace: 'ñ', 'ni' %}
-      <a class="column is-full" href="{{ site.url }}/blog/{{ url }}">
+      <a class="sidebar-item" href="{{ site.url }}/blog/{{ url }}">
         {{ category[0] }}
       </a>
     {% endfor %}
