@@ -2,10 +2,18 @@
 author: halivert
 category: "Ya me pasó"
 date: "2019-10-14 08:45:11 -0500"
-last_modification: "2019-11-16 00:37"
+last_modification: "2021-01-15 19:19"
 tags: ["Vue.js", "Select"]
 title: "Select en Vue.js"
 ---
+
+<div class="notification is-warning" markdown="1">
+Este artículo fue escrito hace más de un año; en la actualidad
+utilizo la biblioteca [Buefy](https://buefy.org/), que resulta más práctica y mejor implementada,
+sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene
+que ser tan extrema como la planteada en este artículo y de la que escribiré
+pronto.
+</div>
 
 Si utilizas [Vue.js][1] seguramente sabrás que hacer componentes genéricos es
 una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor
