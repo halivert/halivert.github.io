@@ -1,0 +1,57 @@
+.navbar {
+  max-height: nth($sizes, 1) + nth($sizes, 7);
+  background-color: var(--primary-color);
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  padding: 0 nth($sizes, 3);
+
+  @include touch {
+    flex-flow: column;
+  }
+
+  > * {
+    height: 100%;
+  }
+
+  img {
+    max-height: nth($sizes, 3);
+  }
+
+  .navbar-brand,
+  .navbar-menu {
+    display: flex;
+  }
+
+  .navbar-menu {
+    flex-flow: inherit;
+    flex: 1;
+
+    .navbar-start {
+      flex: 1;
+    }
+
+    .navbar-start,
+    .navbar-end {
+      display: flex;
+      justify-content: center;
+    }
+
+    .navbar-end {
+      flex: 0 1;
+    }
+  }
+
+  .navbar-item {
+    height: 100%;
+    padding: nth($sizes, 7);
+    text-decoration: none;
+    color: var(--color);
+    display: flex;
+    align-items: center;
+  }
+
+  a.navbar-item:hover {
+    background-color: var(--primary-color-200);
+  }
+}

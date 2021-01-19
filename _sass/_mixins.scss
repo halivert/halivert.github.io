@@ -1,0 +1,14 @@
+$gap: 32px !default;
+$desktop: 960px + (2 * $gap) !default;
+
+@mixin touch {
+  @media screen and (max-width: $desktop - 1px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $desktop) {
+    @content;
+  }
+}

@@ -11,13 +11,7 @@
 
 		<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 
-		<link
-			rel="stylesheet"
-			href="{{ cssAssets }}/halivert-layout.css"
-		/>
-
 		<link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
-		<link rel="stylesheet" href="{{ cssAssets }}/halivert-dark.css" />
 
 		<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css"/>
 
@@ -76,7 +70,7 @@
 		{% endif %}
 	</head>
 
-	<body class="has-background-light">
+	<body>
 		{% unless page.hide_nav or layout.hide_nav %}
 			{% include nav.html %}
 		{% endunless %}
