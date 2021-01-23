@@ -1,57 +1,86 @@
 .navbar {
-  max-height: nth($sizes, 1) + nth($sizes, 7);
-  background-color: var(--primary-color);
-  grid-area: nav;
-  display: flex;
-  align-items: center;
-  padding: 0 nth($sizes, 3);
+	position: sticky;
+	min-height: nth($sizes, 1) + nth($sizes, 7);
+	background-color: var(--primary-color-100);
+	// grid-area: nav;
+	display: flex;
+	align-items: center;
+	padding: 0 nth($sizes, 1) 0 nth($sizes, 3);
 
-  @include touch {
-    flex-flow: column;
-  }
+	@include touch {
+		flex-flow: column;
+	}
 
-  > * {
-    height: 100%;
-  }
+	> * {
+		height: 100%;
+	}
 
-  img {
-    max-height: nth($sizes, 3);
-  }
+	img {
+		max-height: nth($sizes, 3);
+	}
 
-  .navbar-brand,
-  .navbar-menu {
-    display: flex;
-  }
+	.navbar-brand,
+	.navbar-menu {
+		display: flex;
+	}
 
-  .navbar-menu {
-    flex-flow: inherit;
-    flex: 1;
+	.navbar-menu {
+		width: 100%;
+		flex-flow: inherit;
+		display: flex;
+		flex: 1;
 
-    .navbar-start {
-      flex: 1;
-    }
+		.navbar-start {
+			flex: 1;
+		}
 
-    .navbar-start,
-    .navbar-end {
-      display: flex;
-      justify-content: center;
-    }
+		.navbar-start,
+		.navbar-end {
+			display: flex;
+			justify-content: center;
 
-    .navbar-end {
-      flex: 0 1;
-    }
-  }
+			@include touch {
+				justify-content: space-around;
+			}
+		}
 
-  .navbar-item {
-    height: 100%;
-    padding: nth($sizes, 7);
-    text-decoration: none;
-    color: var(--color);
-    display: flex;
-    align-items: center;
-  }
+		// .navbar-end {
+		// 	flex: 1;
+		// }
+	}
 
-  a.navbar-item:hover {
-    background-color: var(--primary-color-200);
-  }
+	.navbar-item {
+		height: 100%;
+		padding: nth($sizes, 7);
+		text-decoration: none;
+		color: var(--text-color);
+		display: flex;
+		align-items: center;
+	}
+
+	a.navbar-item:hover {
+		background-color: var(--primary-color-200);
+	}
+}
+
+.theme-switcher {
+	@include control-small;
+
+	position: fixed;
+	top: nth($sizes, 3);
+	right: nth($sizes, 7);
+	transform: translateY(-50%);
+	z-index: 3;
+
+	.icon:first-child:last-child {
+		margin-left: calc(-0.5em - var(--control-border-width));
+		margin-right: calc(-0.5em - var(--control-border-width));
+		height: 1.5em;
+		width: 1.5em;
+	}
+
+	@include touch {
+		position: absolute;
+		right: nth($sizes, 6);
+	}
 }

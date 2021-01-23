@@ -13,7 +13,7 @@
 		"@babel/preset-env": "^7.11.5"
 	},
 	"name": "halivert.github.io",
-	"version": "2.1.0",
+	"version": "3.0.0",
 	"author": "Halí V. <halivelazquez@outlook.com>",
 	"license": "MIT",
 	"prettier": {

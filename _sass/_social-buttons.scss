@@ -1,0 +1,25 @@
+.button {
+	&.gmail {
+		--button-background: #f5ab00;
+		--button-color: var(--background-color);
+		--button-border-color: transparent;
+	}
+
+	&.twitter {
+		--button-background: #f5ab00;
+		--button-color: var(--background-color);
+		--button-border-color: transparent;
+	}
+
+	&.github {
+		--button-background: #f5ab00;
+		--button-color: var(--background-color);
+		--button-border-color: transparent;
+	}
+
+	&.telegram {
+		--button-background: #f5ab00;
+		--button-color: var(--background-color);
+		--button-border-color: transparent;
+	}
+}
