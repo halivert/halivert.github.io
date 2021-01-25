@@ -1,86 +1,96 @@
 .navbar {
-	position: sticky;
-	min-height: nth($sizes, 1) + nth($sizes, 7);
-	background-color: var(--primary-color-100);
-	// grid-area: nav;
-	display: flex;
-	align-items: center;
-	padding: 0 nth($sizes, 1) 0 nth($sizes, 3);
+  position: sticky;
+  min-height: var(--navbar-height);
+  background-color: var(--primary-color-100);
+  grid-area: nav;
+  display: flex;
+  align-items: center;
+  padding: 0 nth($sizes, 1) 0 nth($sizes, 3);
 
-	@include touch {
-		flex-flow: column;
-	}
+  @include touch {
+    flex-flow: column;
+  }
 
-	> * {
-		height: 100%;
-	}
+  > * {
+    height: 100%;
+  }
 
-	img {
-		max-height: nth($sizes, 3);
-	}
+  img {
+    max-height: nth($sizes, 3);
+  }
 
-	.navbar-brand,
-	.navbar-menu {
-		display: flex;
-	}
+  .navbar-brand,
+  .navbar-menu {
+    display: flex;
+  }
 
-	.navbar-menu {
-		width: 100%;
-		flex-flow: inherit;
-		display: flex;
-		flex: 1;
+  .navbar-menu {
+    width: 100%;
+    flex-flow: inherit;
+    display: flex;
+    flex: 1;
 
-		.navbar-start {
-			flex: 1;
-		}
+    .navbar-start {
+      flex: 1;
+    }
 
-		.navbar-start,
-		.navbar-end {
-			display: flex;
-			justify-content: center;
+    .navbar-start,
+    .navbar-end {
+      display: flex;
+      justify-content: center;
 
-			@include touch {
-				justify-content: space-around;
-			}
-		}
+      @include touch {
+        justify-content: space-around;
+      }
+    }
+  }
 
-		// .navbar-end {
-		// 	flex: 1;
-		// }
-	}
+  .navbar-item {
+    height: 100%;
+    padding: nth($sizes, 7);
+    text-decoration: none;
+    color: var(--text-color-100);
+    display: flex;
+    align-items: center;
+  }
 
-	.navbar-item {
-		height: 100%;
-		padding: nth($sizes, 7);
-		text-decoration: none;
-		color: var(--text-color);
-		display: flex;
-		align-items: center;
-	}
-
-	a.navbar-item:hover {
-		background-color: var(--primary-color-200);
-	}
+  a.navbar-item {
+    &:hover,
+    &:focus {
+      background-color: var(--primary-color-200);
+    }
+  }
 }
 
 .theme-switcher {
-	@include control-small;
+  @include control-small;
 
-	position: fixed;
-	top: nth($sizes, 3);
-	right: nth($sizes, 7);
-	transform: translateY(-50%);
-	z-index: 3;
+  position: fixed;
+  top: nth($sizes, 3);
+  right: nth($sizes, 7);
+  transform: translateY(-50%);
+  z-index: 3;
 
-	.icon:first-child:last-child {
-		margin-left: calc(-0.5em - var(--control-border-width));
-		margin-right: calc(-0.5em - var(--control-border-width));
-		height: 1.5em;
-		width: 1.5em;
-	}
+  @include touch {
+    position: absolute;
+    right: nth($sizes, 6);
+  }
+}
 
-	@include touch {
-		position: absolute;
-		right: nth($sizes, 6);
-	}
+.skip-link {
+  color: var(--accent-color-300) !important;
+  text-decoration: none !important;
+  background: var(--background-color-200);
+  font-size: nth($sizes, 5);
+  position: absolute;
+  left: 10%;
+  padding: 4px;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 3;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0%);
+  }
 }

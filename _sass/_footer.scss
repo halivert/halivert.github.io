@@ -1,5 +1,28 @@
 footer.footer {
   grid-area: footer;
-  display: block;
+  display: flex;
   margin-top: auto;
+  padding: var(--footer-padding);
+  height: 100%;
+
+  border-top: solid var(--background-color-200);
+
+  @include touch {
+    flex-flow: column-reverse;
+  }
+
+  .content {
+    flex: 13;
+  }
+
+  .footer-end {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include touch {
+      margin-bottom: 0.75rem;
+    }
+  }
 }

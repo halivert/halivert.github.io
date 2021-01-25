@@ -1,3 +1,11 @@
+<a
+  class="skip-link"
+  href="#main-container"
+  data-turbolinks="false"
+  tab-index="0"
+  >Ir al contenido</a
+>
+
 <nav class="navbar" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ site.url }}">
@@ -18,6 +26,7 @@
       </a>
     </div>
 
+    {% comment %}
     {% if page.search_bar %}
       <div class="navbar-end">
         <form class="navbar-item" action="/blog/busqueda">
@@ -41,6 +50,7 @@
         </form>
       </div>
     {% endif %}
+    {% endcomment %}
   </div>
 </nav>
 

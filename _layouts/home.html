@@ -10,7 +10,7 @@ hide_foot: true
 <main id="main-container" class="section">
   <div class="columns is-centered">
     <div class="column is-8 has-text-centered">
-      <h1 class="title is-1 normal-wrap">
+      <h1 class="title is-2 normal-wrap">
         {{ author.first_name }} {{ author.last_name }}
       </h1>
 
@@ -49,7 +49,7 @@ hide_foot: true
 
       <p class="buttons is-centered mt-3">
         <a
-          class="button is-inverted gmail is-large is-medium-touch"
+          class="button gmail"
           href="mailto:{{ author.email.at }}"
         >
           <span class="icon">
@@ -58,7 +58,7 @@ hide_foot: true
         </a>
         {% for item in author.social %}
           <a
-            class="button is-inverted {{ item.type }} is-large is-medium-touch"
+            class="button {{ item.type }}"
             href="{{ item.url }}">
             <span class="icon">
               <i class="{{ item.icon }}" aria-hidden="true"></i>
