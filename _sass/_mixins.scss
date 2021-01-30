@@ -73,3 +73,16 @@ $desktop: 960px + (2 * $gap) !default;
   -ms-user-select: none;
   user-select: none;
 }
+
+@mixin reset {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  color: currentColor;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}

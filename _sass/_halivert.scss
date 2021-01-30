@@ -1,10 +1,14 @@
-$sizes: (3rem, 2.5rem, 2rem, 1.5rem, 1.25rem, 1rem, 0.75rem, 0.5rem);
+$sizes: (3rem, 2.5rem, 2rem, 1.5rem, 1.25rem, 1rem, 0.75rem);
 $navbar-height: 3.5em;
 $footer-height: 5em;
 $colors: (
   "warning": (
     var(--background-color-100),
     #f5ab00,
+  ),
+  "primary": (
+    var(--text-color-100),
+    var(--primary-color-100),
   ),
 );
 
@@ -44,34 +48,25 @@ $colors: (
   &.dark {
     --dark: 1;
 
-    --rich-black-fogra-39: hsl(240, 23%, 5%);
-    --rich-black-fogra-40: hsl(240, 23%, 10%);
-    --rich-black-fogra-41: hsl(240, 23%, 15%);
+    --background-color-100: hsl(240, 23%, 5%);
+    --background-color-200: hsl(240, 23%, 11%);
+    --background-color-300: hsl(240, 23%, 17%);
 
-    // --rich-black-fogra-29: hsla(206, 47%, 9%, 1);
-    // --oxford-blue: hsla(216, 41%, 18%, 1);
-    // --maximum-red-purple: hsla(322, 42%, 46%, 1);
-    // --languid-lavender: hsla(249, 21%, 83%, 1);
+    --text-color-100: hsl(249, 21%, 83%);
+    --text-color-200: hsl(249, 21%, 77%);
+    --text-color-300: hsl(249, 21%, 71%);
 
-    --background-color-100: #0a0a10;
-    --background-color-200: #181826;
-    --background-color-300: #1f1f32;
+    --primary-color-100: hsl(216, 41%, 18%);
+    --primary-color-200: hsl(216, 41%, 24%);
+    --primary-color-300: hsl(216, 41%, 30%);
 
-    --text-color-100: #ccc9dc;
-    --text-color-200: #c5c1d7;
-    --text-color-300: #b9b5cf;
+    --contrast-color-100: hsl(206, 47%, 60%);
+    --contrast-color-200: hsl(206, 47%, 54%);
+    --contrast-color-300: hsl(206, 47%, 48%);
 
-    --primary-color-100: #1b2a41;
-    --primary-color-200: #243853;
-    --primary-color-300: #2a4265;
-
-    --contrast-color-100: #699fc9;
-    --contrast-color-200: #5a96c4;
-    --contrast-color-300: #4b8cbe;
-
-    --accent-color-100: #a74482;
-    --accent-color-200: #b85192;
-    --accent-color-300: #be609b;
+    --accent-color-100: hsl(322, 42%, 46%);
+    --accent-color-200: hsl(322, 42%, 44%);
+    --accent-color-300: hsl(322, 42%, 42%);
 
     --gmail-primary: #eb4132;
     --twitter-primary: #1da1f2;
@@ -198,6 +193,10 @@ strong {
 
 .section {
   padding: 1rem 3rem 1rem 3rem;
+
+  @include touch {
+    padding: 0.5rem 1.5rem;
+  }
 }
 
 .columns {
@@ -251,7 +250,27 @@ strong {
   height: 100%;
 }
 
+.reader {
+  max-width: 70ch;
+
+  font-size: nth($sizes, 5);
+
+  @include touch {
+    font-size: nth($sizes, 6);
+  }
+}
+
+// .container-fluid {
+//   max-width: none !important;
+//   padding-left: 32px;
+//   padding-right: 32px;
+//   width: 100%;
+// }
+
+@import "card";
+
 @import "navbar";
+
 @import "footer";
 
 // End of my styles
@@ -260,6 +279,7 @@ img,
 picture {
   display: block;
   margin: 0 auto;
+  max-width: 100%;
 
   &.image-left {
     max-width: 300px;
@@ -290,14 +310,14 @@ img {
 .image.post-image {
   display: inline-block;
 
-  // @include tablet {
-  //   max-height: 200px;
-  //   max-width: 200px;
-  // }
+  @include desktop {
+    max-height: 200px;
+    max-width: 200px;
+  }
 
-  // @include mobile {
-  //   margin-bottom: 0.5em;
-  // }
+  @include touch {
+    margin-bottom: 0.5em;
+  }
 }
 
 .anchor {
@@ -454,9 +474,6 @@ span[title] {
   cursor: help;
 }
 
-.card.project-card:not(:last-child) {
-  margin-bottom: 0.5em;
-}
 // $footer-padding: 1rem 1rem 2rem;
 // $hr-background-color: $grey-lighter;
 
@@ -476,7 +493,7 @@ span[title] {
 
 .turbolinks-progress-bar {
   height: 5px;
-  // background-color: $red;
+  background-color: var(--accent-color-300);
 }
 
 .gist {

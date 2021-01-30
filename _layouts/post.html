@@ -10,20 +10,8 @@ layout: container
   {% assign author = site.data.authors[page.author] %}
 
   <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+    <div class="column is-offset-1 reader">
       <div id="title-div" class="columns is-vcentered is-gapless">
-        {% if page.image %}
-          <div class="column has-text-centered is-hidden-tablet">
-            {%- assign path = pageImage | prepend: site.url -%}
-            {%
-              include picture.html
-                class="image post-image"
-                path=path
-                alt=page.image_alt
-                types=page.image_types
-            %}
-          </div>
-        {% endif %}
         <header class="column">
           <h1 class="title is-size-1-desktop has-text-primary">{{
             page.title
@@ -51,7 +39,7 @@ layout: container
           </small>
         </header>
         {% if page.image %}
-          <div class="column has-text-right is-hidden-mobile">
+          <div class="column has-text-right">
             {%- assign path = pageImage | prepend: site.url -%}
             {%
               include picture.html
