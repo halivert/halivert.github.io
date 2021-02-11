@@ -5,6 +5,8 @@ title: "Halí"
 hide_foot: true
 ---
 
+{% include menu.html %}
+
 {% assign author = site.data.authors[layout.author] %}
 
 <main id="main-container" class="section">
@@ -76,61 +78,6 @@ hide_foot: true
           onContextMenu="vibrate([150, 30, 150]);"
         />
       </figure>
-    </div>
-
-    <div class="column">
-      <h2 class="subtitle is-2">
-        <a href="https://github.com/halivert?tab=repositories">
-          Proyectos 👨🏽‍💻
-        </a>
-      </h2>
-      {% for project in site.data.projects %}
-        {%-
-          assign img_path = site.url
-            | append: '/img/projects/'
-            | append: project.slug
-        -%}
-        <div class="card project-card mb-2">
-          <div class="card-content">
-            <div class="media">
-              {% if project.img_type %}
-                <div class="media-left">
-                  {%- assign path = img_path -%}
-                  {%
-                    include picture.html
-                      class="image is-48x48"
-                      path=path
-                      alt="Imagen de proyecto"
-                  %}
-                </div>
-              {% endif %}
-              <div class="media-content">
-                <p class="title is-5">{{ project.title }}</p>
-                <p class="subtitle is-6">
-                  <a href="https://github.com/halivert/{{ project.slug }}">
-                    <span>Ver en github</span>
-                    <span class="icon is-small">
-                      <i class="fab fa-github"></i>
-                    </span>
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <div class="content">
-              <p>{{ project.description }}</p>
-
-              <div class="buttons is-right">
-                <a
-                  class="button is-primary is-small"
-                  href="{{ site.url }}/{{ project.slug }}"
-                  >Ver más...</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
     </div>
   </div>
 </main>

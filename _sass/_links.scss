@@ -6,7 +6,7 @@ a {
     outline: none;
   }
 
-  &:not(.button):not(.navbar-item) {
+  &:not(.button) {
     color: var(--contrast-color-300);
 
     &:hover,

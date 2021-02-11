@@ -52,32 +52,9 @@ const removeClass = (element, name) => {
 	}
 }
 
-const activateNavMenu = () => {
-	let menu = document.getElementById("nav-menu")
-	if (!menu) return
-
-	let display = getComputedStyle(menu).getPropertyValue("display")
-	if (display === "none") addClass(menu, "is-active")
-}
-
 const isInput = (name) => {
 	let compare = name.toLowerCase()
 	return ["input", "textarea", "select"].includes(compare)
-}
-
-const closeAllNavbars = () => {
-	let navBurger = Array.prototype.slice.call(
-		document.querySelectorAll(".navbar-burger"),
-		0
-	)
-
-	if (navBurger.length > 0) {
-		navBurger.forEach((el) => {
-			const target = document.getElementById(el.dataset.target)
-			removeClass(el, "is-active")
-			removeClass(target, "is-active")
-		})
-	}
 }
 
 const vibrate = (pattern) => {

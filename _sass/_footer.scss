@@ -4,6 +4,7 @@ footer.footer {
   margin-top: auto;
   padding: var(--footer-padding);
   height: 100%;
+  z-index: 1;
 
   border-top: solid var(--background-color-200);
 

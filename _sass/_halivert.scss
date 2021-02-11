@@ -1,5 +1,4 @@
 $sizes: (3rem, 2.5rem, 2rem, 1.5rem, 1.25rem, 1rem, 0.75rem);
-$navbar-height: 3.5em;
 $footer-height: 5em;
 $colors: (
   "warning": (
@@ -21,8 +20,6 @@ $colors: (
 
   --footer-padding: 1rem 1rem 2rem;
   --footer-height: #{$footer-height};
-
-  --navbar-height: #{$navbar-height};
 
   --button-padding-vertical: calc(0.5em - var(--control-border-width));
   --button-padding-horizontal: 1em;
@@ -83,6 +80,8 @@ $colors: (
 
 @import "links";
 
+@import "menu";
+
 @import "buttons";
 
 html {
@@ -99,11 +98,22 @@ body {
   color: var(--text-color-100);
   font-size: var(--font-size);
 
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 5fr;
+
   grid-template-areas:
-    "nav"
-    "main"
-    "footer";
+    "menu main"
+    "footer footer";
+
+  @include touch {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+
+    grid-template-areas:
+      "menu"
+      "main"
+      "footer";
+  }
 }
 
 .title,
@@ -191,8 +201,23 @@ strong {
   visibility: hidden !important;
 }
 
+main#main-container {
+  grid-area: main;
+}
+
+aside.menu {
+  grid-area: menu;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  position: sticky;
+  max-height: 100vh;
+  top: 0;
+  z-index: -1;
+}
+
 .section {
-  padding: 1rem 3rem 1rem 3rem;
+  padding: 1rem 3rem;
 
   @include touch {
     padding: 0.5rem 1.5rem;
@@ -268,8 +293,6 @@ strong {
 // }
 
 @import "card";
-
-@import "navbar";
 
 @import "footer";
 
@@ -474,9 +497,6 @@ span[title] {
   cursor: help;
 }
 
-// $footer-padding: 1rem 1rem 2rem;
-// $hr-background-color: $grey-lighter;
-
 .image-art-title {
   border-radius: 0.5em;
   // border: $golden solid;
@@ -498,19 +518,52 @@ span[title] {
 
 .gist {
   &-meta {
-    // background-color: $background;
-    // color: $text;
+    background-color: var(--background-color-100);
+    color: var(--text-color-100);
   }
 
   &-file {
-    // border-color: $white-bis;
+    border-color: var(--background-color-200);
   }
 
   &-data {
-    // border-color: $white-bis;
+    border-color: var(--background-color-200);
   }
 }
 
 .repo.fixed-top-bar {
-  // background: $primary;
+  background: var(--background-color-100);
+}
+
+.theme-switcher {
+  @include control-small;
+
+  position: fixed;
+  top: nth($sizes, 3);
+  right: nth($sizes, 7);
+  transform: translateY(-50%);
+  z-index: 3;
+
+  @include touch {
+    position: absolute;
+    right: nth($sizes, 6);
+  }
+}
+
+.skip-link {
+  color: var(--accent-color-300) !important;
+  text-decoration: none !important;
+  background: var(--background-color-200);
+  font-size: nth($sizes, 5);
+  position: absolute;
+  left: 10%;
+  padding: 4px;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 3;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0%);
+  }
 }

@@ -48,7 +48,7 @@
     {% if page.search_bar %}
       <script src="{{ site.url }}/assets/js/lunr.js"></script>
     {% endif %}
-    <script src="{{ site.url }}/assets/js/nav.js" defer></script>
+    <script src="{{ site.url }}/assets/js/themeSwitcher.js" defer></script>
 
     <title>
       {% if paginator %}
@@ -71,9 +71,24 @@
   </head>
 
   <body>
-    {% unless page.hide_nav or layout.hide_nav %}
-      {% include nav.html %}
-    {% endunless %}
+    <a
+      class="skip-link"
+      href="#main-container"
+      data-turbolinks="false"
+      tab-index="0"
+      >Ir al contenido</a
+    >
+
+    <button
+      id="theme-switcher"
+      class="button theme-switcher"
+      onclick="changeTheme('theme-switcher')"
+      data-turbolinks-permanent
+    >
+      <span class="icon">
+        <i class="fas" aria-hidden="true"></i>
+      </span>
+    </button>
 
     {{ content }}
 

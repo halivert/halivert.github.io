@@ -1,0 +1,53 @@
+.menu {
+  font-size: 1.75rem;
+  font-family: var(--title-font);
+
+  @include touch {
+    font-size: 1.5rem;
+  }
+}
+
+.menu-list {
+  line-height: 1.25;
+  display: flex;
+  flex-flow: column nowrap;
+  padding-left: 0.5rem;
+
+  @include touch {
+    flex-flow: row wrap;
+  }
+
+  a {
+    color: var(--contrast-color-300);
+    display: block;
+    padding: 0.5em 0.75em;
+    &:hover {
+      background-color: var(--background-color-200);
+      color: var(--contrast-color-100);
+    }
+    &.is-active {
+      background-color: var(--background-color-200);
+      color: var(--contrast-color-200);
+    }
+
+    &,
+    &:hover,
+    &:focus,
+    &.is-active {
+      border-radius: 200rem;
+    }
+
+    img {
+      @include touch {
+        height: 2rem;
+      }
+    }
+  }
+  li {
+    ul {
+      border: 1px solid var(--text-color-300);
+      margin: 0.75em;
+      padding: 0.75em;
+    }
+  }
+}
