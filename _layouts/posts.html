@@ -2,45 +2,43 @@
 layout: container
 ---
 
-<div class="container-fluid">
-  <div class="columns">
-    <div class="column is-9">
-      {% for post in paginator.posts %}
-        <section>
-          <h2 class="title is-2">
-            <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
-              {{ post.title }}
-            </a>
-          </h2>
-          <hr />
-          <div class="columns">
-            <div class="column">
-              {% include post-show.html %}
-            </div>
-            {% if post.image %}
-              {%- capture postImage -%}{%-
-                include remove_ext.html file=post.image
-              -%}{%- endcapture -%}
-
-              {%- assign path = postImage | prepend: site.url -%}
-              {%
-                include picture.html
-                  class="column is-3"
-                  path=path
-                  alt=post.image_alt
-                  types=post.image_types
-              %}
-            {% endif %}
+<div class="columns">
+  <div class="column is-9">
+    {% for post in paginator.posts %}
+      <section class="post-section">
+        <h2 class="title is-2">
+          <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </h2>
+        <hr />
+        <div class="columns">
+          <div class="column">
+            {% include post-show.html %}
           </div>
-          <br />
-          {% include post-info-show.html %}
-          <br />
-        </section>
-      {% endfor %}
-      {% include paginator.html item=paginator%}
-    </div>
-    <aside class="column">
-      {% include sidebar.html %}
-    </aside>
+          {% if post.image %}
+            {%- capture postImage -%}{%-
+              include remove_ext.html file=post.image
+            -%}{%- endcapture -%}
+
+            {%- assign path = postImage | prepend: site.url -%}
+            {%
+              include picture.html
+                class="column is-3"
+                path=path
+                alt=post.image_alt
+                types=post.image_types
+            %}
+          {% endif %}
+        </div>
+        <br />
+        {% include post-info-show.html %}
+        <br />
+      </section>
+    {% endfor %}
+    {% include paginator.html item=paginator%}
   </div>
+  <aside class="column">
+    {% include sidebar.html %}
+  </aside>
 </div>

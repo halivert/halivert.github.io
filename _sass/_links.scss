@@ -1,43 +1,26 @@
 a {
   text-decoration: none;
+  color: var(--contrast-color-300);
 
   &:focus,
   &:focus-visible {
     outline: none;
   }
 
-  &:not(.button) {
-    color: var(--contrast-color-300);
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--contrast-color-100);
+    border-radius: var(--control-border-radius, 4px);
+  }
 
-    &:hover,
-    &:focus,
-    &:focus-visible {
-      color: var(--contrast-color-100);
-      border-radius: 4px;
-    }
+  &:focus,
+  &:focus-visible {
+    background: var(--background-color-200);
+    text-decoration: underline;
+  }
 
-    &:focus,
-    &:focus-visible {
-      background: var(--background-color-200);
-      text-decoration: underline;
-    }
-
-    &:active {
-      color: var(--contrast-color-200);
-    }
-
-    &:visited {
-      color: var(--accent-color-300);
-
-      &:hover,
-      &:focus,
-      &:focus-visible {
-        color: var(--accent-color-100);
-      }
-
-      &:active {
-        color: var(--accent-color-200);
-      }
-    }
+  &:active {
+    color: var(--contrast-color-200);
   }
 }

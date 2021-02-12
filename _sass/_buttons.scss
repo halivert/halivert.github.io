@@ -70,10 +70,7 @@ $social: (
   &:hover,
   &:focus {
     filter: brightness(
-      calc(
-        (100% - (var(--dark) * 40%))
-        + ((var(--dark) - 1) * 40%)
-      )
+      calc((100% - (var(--dark) * 40%)) + ((var(--dark) - 1) * 40%))
     );
   }
 
@@ -89,6 +86,7 @@ $social: (
       --button-background: var(--background-color-200);
       --button-color: #{$color};
       --button-border-color: transparent;
+      --contrast-color-100: #{$color};
 
       &:focus {
         --button-border-color: var(--text-color-100);

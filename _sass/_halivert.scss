@@ -1,5 +1,6 @@
 $sizes: (3rem, 2.5rem, 2rem, 1.5rem, 1.25rem, 1rem, 0.75rem);
 $footer-height: 5em;
+$radius-rounded: 42rem;
 $colors: (
   "warning": (
     var(--background-color-100),
@@ -72,13 +73,13 @@ $colors: (
   }
 }
 
+@import "links";
+
 @import "reset";
 
 @import "mixins";
 
 @import "spacing";
-
-@import "links";
 
 @import "menu";
 
@@ -99,7 +100,7 @@ body {
   font-size: var(--font-size);
 
   grid-template-rows: 1fr auto;
-  grid-template-columns: auto 5fr;
+  grid-template-columns: auto 1fr;
 
   grid-template-areas:
     "menu main"
@@ -205,22 +206,11 @@ main#main-container {
   grid-area: main;
 }
 
-aside.menu {
-  grid-area: menu;
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  position: sticky;
-  max-height: 100vh;
-  top: 0;
-  z-index: -1;
-}
-
 .section {
   padding: 1rem 3rem;
 
   @include touch {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem;
   }
 }
 
@@ -285,14 +275,68 @@ aside.menu {
   }
 }
 
-// .container-fluid {
-//   max-width: none !important;
-//   padding-left: 32px;
-//   padding-right: 32px;
-//   width: 100%;
-// }
+.post-section {
+  padding: 1rem 1rem 0 1rem;
+
+  &:not(last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+@include desktop {
+  .is-hidden-desktop {
+    display: none !important;
+  }
+}
+
+@include touch {
+  .is-hidden-touch {
+    display: none !important;
+  }
+}
+
+.theme-switcher {
+  @include control-small;
+
+  position: fixed;
+  top: nth($sizes, 3);
+  right: nth($sizes, 7);
+  transform: translateY(-50%);
+  z-index: 3;
+
+  @include touch {
+    position: absolute;
+    right: 0.5rem;
+  }
+}
+
+.skip-link {
+  color: var(--accent-color-300) !important;
+  text-decoration: none !important;
+  background: var(--background-color-200);
+  font-size: nth($sizes, 5);
+  position: absolute;
+  left: 10%;
+  padding: 4px;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+  z-index: 3;
+
+  &:focus,
+  &:focus-visible {
+    transform: translateY(0%);
+  }
+}
+
+p:not(last-child) {
+  margin-bottom: 0.25rem;
+}
+
+@import "content";
 
 @import "card";
+
+@import "pagination";
 
 @import "footer";
 
@@ -303,6 +347,14 @@ picture {
   display: block;
   margin: 0 auto;
   max-width: 100%;
+
+  &:not(first-child) {
+    margin-top: 0.5rem;
+  }
+
+  &:not(last-child) {
+    margin-bottom: 0.5rem;
+  }
 
   &.image-left {
     max-width: 300px;
@@ -377,10 +429,26 @@ div.highlighter-rouge {
   }
 }
 
+pre {
+  font-size: 0.875em;
+  overflow-x: auto;
+  padding: 1.25rem 1.5rem;
+  white-space: pre;
+  word-wrap: normal;
+  code {
+    background-color: transparent;
+    color: currentColor;
+    font-size: 0.875em;
+    padding: 0;
+  }
+}
+
 code,
 pre {
   text-align: left;
   font-family: var(--monospace-font);
+  overflow: auto;
+  max-width: calc(100vw - 1.5rem);
 }
 
 .image-container {
@@ -423,7 +491,7 @@ pre {
 
 .license-link {
   display: inline-block;
-  // margin-bottom: $size-7 / 2;
+  margin-bottom: nth($sizes, 7) / 2;
 }
 
 .is-full-rounded {
@@ -533,37 +601,4 @@ span[title] {
 
 .repo.fixed-top-bar {
   background: var(--background-color-100);
-}
-
-.theme-switcher {
-  @include control-small;
-
-  position: fixed;
-  top: nth($sizes, 3);
-  right: nth($sizes, 7);
-  transform: translateY(-50%);
-  z-index: 3;
-
-  @include touch {
-    position: absolute;
-    right: nth($sizes, 6);
-  }
-}
-
-.skip-link {
-  color: var(--accent-color-300) !important;
-  text-decoration: none !important;
-  background: var(--background-color-200);
-  font-size: nth($sizes, 5);
-  position: absolute;
-  left: 10%;
-  padding: 4px;
-  transform: translateY(-100%);
-  transition: transform 0.3s;
-  z-index: 3;
-
-  &:focus,
-  &:focus-visible {
-    transform: translateY(0%);
-  }
 }

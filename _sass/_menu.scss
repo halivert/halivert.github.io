@@ -1,9 +1,19 @@
 .menu {
+  grid-area: menu;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  position: sticky;
+  max-height: 100vh;
+  top: 0;
+  z-index: 1;
   font-size: 1.75rem;
   font-family: var(--title-font);
+  background: var(--background-color-100);
 
   @include touch {
     font-size: 1.5rem;
+    border-bottom: 2px dashed var(--accent-color-100);
   }
 }
 
@@ -34,7 +44,7 @@
     &:hover,
     &:focus,
     &.is-active {
-      border-radius: 200rem;
+      border-radius: $radius-rounded;
     }
 
     img {

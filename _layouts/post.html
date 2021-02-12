@@ -6,86 +6,84 @@ layout: container
 {%- include remove_ext.html file=page.image -%}
 {%- endcapture -%}
 
-<div class="container-fluid">
-  {% assign author = site.data.authors[page.author] %}
+{% assign author = site.data.authors[page.author] %}
 
-  <div class="columns">
-    <div class="column is-offset-1 reader">
-      <div id="title-div" class="columns is-vcentered is-gapless">
-        <header class="column">
-          <h1 class="title is-size-1-desktop has-text-primary">{{
-            page.title
-          }}</h1>
-          <small>
-            {% if author.first_name %}
-              <i>por</i>
-              <a href="{{ site.url }}/authors/{{ page.author }}">{{
-                author.first_name
-              }}</a> -
-            {% endif %}
+<div class="columns">
+  <div class="column is-offset-1 reader">
+    <div id="title-div" class="columns is-vcentered is-gapless">
+      <header class="column">
+        <h1 class="title is-size-1-desktop has-text-primary">{{
+          page.title
+        }}</h1>
+        <small>
+          {% if author.first_name %}
+            <i>por</i>
+            <a href="{{ site.url }}/authors/{{ page.author }}">{{
+              author.first_name
+            }}</a> -
+          {% endif %}
 
-            {%- capture post_date -%}
-              {% include date-spanish-abbr.html item=page.date %}
-            {%- endcapture -%}
+          {%- capture post_date -%}
+            {% include date-spanish-abbr.html item=page.date %}
+          {%- endcapture -%}
 
-            {% if page.last_modification %}
-              <span title="Fecha original: {{ post_date }}">
-                <i>última modificación:</i>
-                {% include date-spanish-abbr.html item=page.last_modification %}
-              </span>
-            {% else %}
-              <i>publicado:</i> {{ post_date }}
-            {% endif %}
-          </small>
-        </header>
-        {% if page.image %}
-          <div class="column has-text-right">
-            {%- assign path = pageImage | prepend: site.url -%}
-            {%
-              include picture.html
-                class="image post-image"
-                path=path
-                alt=page.image_alt
-                types=page.image_types
-            %}
-          </div>
-        {% endif %}
-      </div>
-      <hr />
-      <main id="content" class="container-fluid content">
-        {{ content }}
-      </main>
+          {% if page.last_modification %}
+            <span title="Fecha original: {{ post_date }}">
+              <i>última modificación:</i>
+              {% include date-spanish-abbr.html item=page.last_modification %}
+            </span>
+          {% else %}
+            <i>publicado:</i> {{ post_date }}
+          {% endif %}
+        </small>
+      </header>
+      {% if page.image %}
+        <div class="column has-text-right">
+          {%- assign path = pageImage | prepend: site.url -%}
+          {%
+            include picture.html
+              class="image post-image"
+              path=path
+              alt=page.image_alt
+              types=page.image_types
+          %}
+        </div>
+      {% endif %}
     </div>
+    <hr />
+    <main id="content" class="content">
+      {{ content }}
+    </main>
   </div>
+</div>
 
-  <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
-      <nav
-        class="pagination is-centered"
-        role="navigation"
-        aria-label="pagination"
+<div class="columns">
+  <div class="column is-offset-1 reader">
+    <nav
+      class="pagination is-centered"
+      role="navigation"
+      aria-label="pagination"
+      >
+      {% if page.previous.url %}
+        <a
+          href="{{ site.url }}{{ page.previous.url }}"
+          class="pagination-previous button is-primary is-rounded"
+          >Anterior</a
         >
-        {% if page.previous.url %}
-          <a
-            href="{{ site.url }}{{ page.previous.url }}"
-            class="pagination-previous button is-primary is-rounded"
-            >Anterior</a
-          >
-        {% else %}
-          <a class="pagination-previous button is-rounded" disabled
-             >Anterior</a
-           >
-         {% endif %}
-         {% if page.next.url %}
-           <a
-             href="{{ site.url }}{{ page.next.url }}"
-             class="pagination-next button is-primary is-rounded"
-             >Siguiente</a
-           >
-         {% else %}
-           <a class="pagination-next button is-rounded" disabled>Siguiente</a>
-         {% endif %}
-      </nav>
-    </div>
+      {% else %}
+        <a class="pagination-previous button is-rounded" disabled
+           >Anterior</a
+         >
+       {% endif %}
+       {% if page.next.url %}
+         <a
+           href="{{ site.url }}{{ page.next.url }}"
+           class="pagination-next button is-primary is-rounded"
+           >Siguiente</a
+         >
+       {% else %}
+         <a class="pagination-next button is-rounded" disabled>Siguiente</a>
+       {% endif %}
+    </nav>
   </div>
 </div>

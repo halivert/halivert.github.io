@@ -74,6 +74,12 @@ $desktop: 960px + (2 * $gap) !default;
   user-select: none;
 }
 
+@mixin block($spacing: 1.5rem) {
+  &:not(:last-child) {
+    margin-bottom: $spacing;
+  }
+}
+
 @mixin reset {
   -moz-appearance: none;
   -webkit-appearance: none;

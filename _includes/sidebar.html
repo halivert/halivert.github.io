@@ -1,15 +1,4 @@
 <div class="container is-fluid has-text-centered">
-  <h1 class="subtitle">Últimos artículos</h1>
-
-  <div>
-    {% for post in site.posts limit: 7 %}
-      <a class="sidebar-item" href="{{ site.url }}{{ post.url }}">
-        {{ post.title }}
-      </a>
-    {% endfor %}
-  </div>
-
-  <hr>
   <h1 class="subtitle">Categorías</h1>
   <div>
     {% for category in site.categories %}
