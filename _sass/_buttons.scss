@@ -1,114 +1,120 @@
+@import "delete";
+
 $social: (
-  "gmail": var(--gmail-primary),
-  "twitter": var(--twitter-primary),
-  "github": var(--github-primary),
-  "telegram": var(--telegram-primary),
+	"gmail": var(--gmail-primary),
+	"twitter": var(--twitter-primary),
+	"github": var(--github-primary),
+	"telegram": var(--telegram-primary),
 );
 
 .button {
-  @include control;
-  @include unselectable;
+	@include control;
+	@include unselectable;
 
-  color: var(--button-color);
-  background: var(--button-background);
-  border-color: var(--button-border-color);
-  cursor: pointer;
-  justify-content: center;
-  text-align: center;
-  white-space: nowrap;
-  padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+	color: var(--button-color);
+	background: var(--button-background);
+	border-color: var(--button-border-color);
+	cursor: pointer;
+	justify-content: center;
+	text-align: center;
+	white-space: nowrap;
+	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
 
-  &.is-small {
-    @include control-small;
-  }
+	&.is-small {
+		@include control-small;
+	}
 
-  .icon {
-    height: 1.5em;
-    width: 1.5em;
+	.icon {
+		height: 1.5em;
+		width: 1.5em;
 
-    &:first-child:not(:last-child) {
-      margin-left: calc(
-        (-1 / 2 * var(--button-padding-horizontal)) -
-          var(--control-border-width)
-      );
-      margin-right: calc(var(--button-padding-horizontal) / 4);
-    }
+		&:first-child:not(:last-child) {
+			margin-left: calc(
+				(-1 / 2 * var(--button-padding-horizontal)) -
+					var(--control-border-width)
+			);
+			margin-right: calc(var(--button-padding-horizontal) / 4);
+		}
 
-    &:last-child:not(:first-child) {
-      margin-right: calc(
-        (-1 / 2 * var(--button-padding-horizontal)) -
-          var(--control-border-width)
-      );
-      margin-left: calc(var(--button-padding-horizontal) / 4);
-    }
+		&:last-child:not(:first-child) {
+			margin-right: calc(
+				(-1 / 2 * var(--button-padding-horizontal)) -
+					var(--control-border-width)
+			);
+			margin-left: calc(var(--button-padding-horizontal) / 4);
+		}
 
-    &:first-child:last-child {
-      margin-left: calc(-0.5em - var(--control-border-width));
-      margin-right: calc(-0.5em - var(--control-border-width));
-    }
-  }
+		&:first-child:last-child {
+			margin-left: calc(-0.5em - var(--control-border-width));
+			margin-right: calc(-0.5em - var(--control-border-width));
+		}
+	}
 
-  @each $name, $pair in $colors {
-    $color: nth($pair, 1);
-    $background: nth($pair, 2);
+	@each $name, $pair in $colors {
+		$color: nth($pair, 1);
+		$background: nth($pair, 2);
 
-    &.is-#{$name} {
-      --button-background: #{$background};
-      --button-color: #{$color};
-      --button-border-color: transparent;
+		&.is-#{$name} {
+			--button-background: #{$background};
+			--button-color: #{$color};
+			--button-border-color: transparent;
 
-      &:focus {
-        --button-border-color: #{scale($background, -30%)};
-      }
-    }
-  }
+			&:focus {
+				--button-border-color: #{scale($background, -30%)};
+			}
+		}
+	}
 
-  strong {
-    color: inherit;
-  }
+	strong {
+		color: inherit;
+	}
 
-  &:hover,
-  &:focus {
-    filter: brightness(
-      calc((100% - (var(--dark) * 40%)) + ((var(--dark) - 1) * 40%))
-    );
-  }
+	// When theme is dark brightness 0.6
+	// When theme is light brightness would be 1.4, but it's too bright, so I need
+	// to subtract 0.2 and now we're happy
 
-  &:focus {
-    --button-border-color: var(--contrast-color-300);
-  }
+	&:hover,
+	&:focus {
+		filter: brightness(
+			calc(100% - (var(--dark) * 40%) + (var(--dark) - 1) * 10%)
+		);
+	}
 
-  @each $name, $color in $social {
-    &.#{$name} {
-      @include control-medium;
+	&:focus {
+		--button-border-color: var(--contrast-color-300);
+	}
 
-      --control-border-radius: 100%;
-      --button-background: var(--background-color-200);
-      --button-color: #{$color};
-      --button-border-color: transparent;
-      --contrast-color-100: #{$color};
+	@each $name, $color in $social {
+		&.#{$name} {
+			@include control-medium;
 
-      &:focus {
-        --button-border-color: var(--text-color-100);
-      }
-    }
-  }
+			--control-border-radius: 100%;
+			--button-background: var(--background-color-200);
+			--button-color: #{$color};
+			--button-border-color: transparent;
+			--contrast-color-100: #{$color};
+
+			&:focus {
+				--button-border-color: var(--text-color-100);
+			}
+		}
+	}
 }
 
 .buttons {
-  display: inline-flex;
-  flex-flow: row wrap;
+	display: inline-flex;
+	flex-flow: row wrap;
 
-  &:not(last-child) {
-    margin-bottom: 1rem;
-  }
+	&:not(last-child) {
+		margin-bottom: 1rem;
+	}
 
-  &:last-child {
-    margin-bottom: -0.5rem;
-  }
+	&:last-child {
+		margin-bottom: -0.5rem;
+	}
 
-  > .button:not(last-child) {
-    margin-right: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
+	> .button:not(last-child) {
+		margin-right: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
 }

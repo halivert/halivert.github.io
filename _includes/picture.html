@@ -29,6 +29,7 @@
     {%- else -%}
       <img
         src="{{ src | append: "." | append: pair[0] | prepend: path }}"
+        {% if include.class %} class="{{ include.class }}" {% endif %}
         alt="{{ include.alt }}">
     {%- endif -%}
   {%- endfor -%}

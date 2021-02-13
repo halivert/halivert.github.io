@@ -1,0 +1,72 @@
+.title,
+.subtitle {
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  word-break: break-word;
+
+  em,
+  span {
+    font-weight: inherit;
+  }
+
+  sub {
+    font-size: 0.75em;
+  }
+
+  sup {
+    font-size: 0.75em;
+  }
+
+  .tag {
+    vertical-align: middle;
+  }
+}
+
+.title {
+  font-family: var(--title-font);
+  font-size: nth($sizes, 3);
+  font-weight: 600;
+  line-height: 1.125;
+
+  strong {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  & + .highlight {
+    margin-top: -0.75rem;
+  }
+
+  &:not(.is-spaced) + .subtitle {
+    margin-top: -1.25rem;
+  }
+
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    &.is-#{$i} {
+      font-size: $size;
+    }
+  }
+}
+
+.subtitle {
+  font-size: nth($sizes, 5);
+  line-height: 1.25;
+
+  strong {
+    font-weight: 600;
+  }
+
+  &:not(.is-spaced) + .title {
+    margin-top: -1.25rem;
+  }
+
+  @each $size in $sizes {
+    $i: index($sizes, $size);
+    &.is-#{$i} {
+      font-size: $size;
+    }
+  }
+}

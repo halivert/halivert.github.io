@@ -5,6 +5,8 @@ a {
   &:focus,
   &:focus-visible {
     outline: none;
+    background: var(--background-color-200);
+    text-decoration: underline;
   }
 
   &:hover,
@@ -12,12 +14,6 @@ a {
   &:focus-visible {
     color: var(--contrast-color-100);
     border-radius: var(--control-border-radius, 4px);
-  }
-
-  &:focus,
-  &:focus-visible {
-    background: var(--background-color-200);
-    text-decoration: underline;
   }
 
   &:active {

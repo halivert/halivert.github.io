@@ -1,0 +1,18 @@
+$sizes: (3rem, 2.5rem, 2rem, 1.5rem, 1.25rem, 1rem, 0.75rem);
+$gap: 32px !default;
+$footer-height: 5em;
+$radius-rounded: 42rem;
+$colors: (
+  "warning": (
+    var(--background-color-100),
+    #f5ab00,
+  ),
+  "primary": (
+    var(--text-color-100),
+    var(--primary-color-100),
+  ),
+  "golden": (
+    var(--text-color-100),
+    #daa520,
+  ),
+);

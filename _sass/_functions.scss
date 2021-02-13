@@ -1,0 +1,3 @@
+@function n-hsla($string, $opacity: 1) {
+  @return #{"hsla(#{$string}, #{$opacity})"};
+}

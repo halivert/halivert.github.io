@@ -1,29 +1,33 @@
 footer.footer {
   grid-area: footer;
-  display: flex;
-  margin-top: auto;
-  padding: var(--footer-padding);
-  height: 100%;
+  display: grid;
   z-index: 2;
-
-  border-top: solid var(--background-color-200);
+  border-top: 2px solid var(--background-color-200);
+  grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
+  grid-template-areas: "right content";
 
   @include touch {
-    flex-flow: column-reverse;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 100%;
+
+    grid-template-areas:
+      "right"
+      "content";
   }
 
   .content {
-    flex: 13;
+    grid-area: content;
+    padding: var(--footer-padding);
   }
 
-  .footer-end {
-    flex: 5;
+  .start {
+    grid-area: right;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     @include touch {
-      margin-bottom: 0.75rem;
+      margin-top: 0.75rem;
     }
   }
 }

@@ -45,8 +45,9 @@
 
     <script src="https://unpkg.com/turbolinks" defer></script>
     <script src="{{ site.url }}/assets/js/main.js"></script>
+    <script src="{{ site.url }}/assets/js/lunr.js"></script>
     {% if page.search_bar %}
-      <script src="{{ site.url }}/assets/js/lunr.js"></script>
+      <script src="{{ site.url }}/assets/js/search.js"></script>
     {% endif %}
     <script src="{{ site.url }}/assets/js/themeSwitcher.js" defer></script>
 
@@ -71,13 +72,15 @@
   </head>
 
   <body>
-    <a
-      class="skip-link"
-      href="#main-container"
-      data-turbolinks="false"
-      tab-index="0"
-      >Ir al contenido</a
-    >
+    {% unless page.hide_skip_link or layout.hide_skip_link %}
+      <a
+        class="skip-link"
+        href="#main-container"
+        data-turbolinks="false"
+        tab-index="0"
+        >Ir al contenido</a
+      >
+    {% endunless %}
 
     <button
       id="theme-switcher"

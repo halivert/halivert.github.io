@@ -1,5 +1,4 @@
 .menu {
-  grid-area: menu;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -12,7 +11,7 @@
   background: var(--background-color-100);
 
   @include touch {
-    font-size: 1.5rem;
+    font-size: 1rem;
     border-bottom: 2px dashed var(--accent-color-100);
   }
 }
@@ -27,24 +26,38 @@
     flex-flow: row wrap;
   }
 
-  a {
+  button.menu-item {
+    border: none;
+    text-decoration: none;
+    background: var(--background-color-100);
+    font-size: inherit;
+    font-family: inherit;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      outline: none;
+      background: var(--background-color-200);
+    }
+  }
+
+  a,
+  .menu-item {
     color: var(--contrast-color-300);
     display: block;
     padding: 0.5em 0.75em;
-    &:hover {
-      background-color: var(--background-color-200);
-      color: var(--contrast-color-100);
-    }
-    &.is-active {
-      background-color: var(--background-color-200);
-      color: var(--contrast-color-200);
-    }
+    border-radius: $radius-rounded;
 
-    &,
     &:hover,
     &:focus,
+    &:focus-visible,
     &.is-active {
-      border-radius: $radius-rounded;
+      background: var(--background-color-200);
+      color: var(--contrast-color-200);
     }
 
     img {
@@ -53,11 +66,16 @@
       }
     }
   }
+
   li {
     ul {
       border: 1px solid var(--text-color-300);
       margin: 0.75em;
       padding: 0.75em;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.125em;
     }
   }
 }
