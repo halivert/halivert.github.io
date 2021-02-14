@@ -18,14 +18,15 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
           yarnpkg/dev:latest /bin/bash \
-          -c "chmod 777 -R /srv/halivert && cd /srv/halivert && yarn"
+          -c "chmod 777 -R /srv/halivert"
 
       - name: Build yarn files
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
+          -v ${{ github.workspace }}/assets/js:/srv/halivert/assets/js \
           yarnpkg/dev:latest /bin/bash \
-          -c "cd /srv/halivert && yarn prod"
+          -c "cd /srv/halivert && yarn && yarn prod"
 
       - name: Build the site with jekyll
         env:
@@ -34,5 +35,6 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
           -v ${{ github.workspace }}/_site:/srv/halivert/_site \
+          -v ${{ github.workspace }}/assets/js:/srv/halivert/assets/js \
           jekyll/builder:latest /bin/bash \
           -c "cd /srv/halivert && jekyll build"
