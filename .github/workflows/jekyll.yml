@@ -24,7 +24,6 @@ jobs:
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
-          -v ${{ github.workspace }}/assets/js:/srv/halivert/assets/js \
           yarnpkg/dev:latest /bin/bash \
           -c "cd /srv/halivert && yarn && yarn prod"
 
@@ -35,6 +34,8 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
           -v ${{ github.workspace }}/_site:/srv/halivert/_site \
-          -v ${{ github.workspace }}/assets/js:/srv/halivert/assets/js \
           jekyll/builder:latest /bin/bash \
           -c "cd /srv/halivert && jekyll build"
+
+      - name: Display info for jekyll
+        run: ls _site/assets/js
