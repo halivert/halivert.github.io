@@ -11,13 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v2
+      - uses: yarnpkg/dev:latest
+      - uses: actions/checkout@v2
+
       - name: Build yarn files
-        uses: actions/checkout@v2
-        uses: yarnpkg/dev:latest
         run: yarn prod
 
       - name: Build the site in the jekyll/builder container
-        uses: actions/checkout@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
