@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/chekcout@v2
+      - uses: actions/checkout@v2
       - name: Build yarn files
         run: |
           docker run \
