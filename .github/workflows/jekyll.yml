@@ -11,16 +11,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
       - name: Build yarn files
-        run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/jekyll \
-          yarnpkg/dev:latest /bin/bash \
-          -c "chmod 775 /srv/jekyll && yarn prod"
+        uses: actions/checkout@v2
+        uses: yarnpkg/dev:latest
+        run: yarn prod
 
-      - uses: actions/checkout@v2
       - name: Build the site in the jekyll/builder container
+        uses: actions/checkout@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll \
