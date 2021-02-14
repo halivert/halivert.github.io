@@ -18,7 +18,7 @@ jobs:
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \
           yarnpkg/dev:latest /bin/bash \
-          -c "chmod 777 -R /srv/halivert"
+          -c "chmod 777 -R /srv/halivert && cd /srv/halivert && yarn"
 
       - name: Build yarn files
         run: |
