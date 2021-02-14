@@ -17,7 +17,7 @@ jobs:
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll \
-          /bin/bash -c "ls && ls -l /srv/jekyll"
+          ls
 
       - name: Build yarn files
         run: |
