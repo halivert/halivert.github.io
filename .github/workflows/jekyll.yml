@@ -12,10 +12,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Set yarn environment
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/yarn \
+          yarnpkg/dev:latest /bin/bash \
+          -c "chmod 775 -R /srv/yarn && cd /srv/yarn && yarn"
+
+      - name: Build yarn files
+        run: |
+          docker run \
+          -v ${{ github.workspace }}:/srv/yarn \
+          yarnpkg/dev:latest /bin/bash \
+          -c "cd /srv/yarn && yarn prod"
+
       - name: Build the site in the jekyll/builder container
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/jekyll \
           -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash \
-          -c "chmod 777 /srv/jekyll && jekyll build --future"
+          -c "chmod 777 -R /srv/jekyll && jekyll build"
