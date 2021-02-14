@@ -13,17 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Echo information
+      - name: Build yarn files
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/yarn \
-          yarnpkg/dev:latest ls /srv/yarn
-
-      # - name: Build yarn files
-      #   run: |
-      #     docker run \
-      #     yarnpkg/dev:latest /bin/bash \
-      #     -c "chmod 775 /srv/yarn && yarn prod"
+          yarnpkg/dev:latest /bin/bash \
+          -c "chmod 775 -R /srv/yarn && cd /srv/yarn && yarn && yarn prod"
 
       - name: Build the site in the jekyll/builder container
         env:
@@ -33,4 +28,4 @@ jobs:
           -v ${{ github.workspace }}:/srv/jekyll \
           -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
           jekyll/builder:latest /bin/bash \
-          -c "chmod 775 /srv/jekyll && jekyll build --future"
+          -c "chmod 775 -R /srv/jekyll && jekyll build --future"
