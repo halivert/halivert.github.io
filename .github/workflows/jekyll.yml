@@ -16,15 +16,13 @@ jobs:
       - name: Echo information
         run: |
           docker run \
-          -v ${{ github.workspace }}:/srv/jekyll \
-          ls
+          yarnpkg/dev:latest ls
 
       - name: Build yarn files
         run: |
           docker run \
-          -v ${{ github.workspace }}:/srv/jekyll \
           yarnpkg/dev:latest /bin/bash \
-          -c "chmod 775 /srv/jekyll && yarn prod"
+          -c "yarn prod"
 
       - name: Build the site in the jekyll/builder container
         env:
