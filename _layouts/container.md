@@ -2,8 +2,8 @@
 layout: html
 ---
 
-<section
-  id="main-container"
-  class="section has-background-light {{ page.font_size }}">
+{% include menu.html %}
+
+<main id="main-container" class="section {{ page.font_size }}">
   {{ content }}
-</section>
+</main>

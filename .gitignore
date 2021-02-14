@@ -8,8 +8,10 @@ _drafts
 *.plsno
 .ignore
 yarn-error.log
+.jekyll-cache
+
 minified/
 test.md
-.jekyll-cache
 convert
 todo.md
+_config.dev.yml

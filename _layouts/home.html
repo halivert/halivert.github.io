@@ -5,12 +5,14 @@ title: "Halí"
 hide_foot: true
 ---
 
+{% include menu.html %}
+
 {% assign author = site.data.authors[layout.author] %}
 
 <main id="main-container" class="section">
   <div class="columns is-centered">
     <div class="column is-8 has-text-centered">
-      <h1 class="title is-1 normal-wrap">
+      <h1 class="title is-2 normal-wrap">
         {{ author.first_name }} {{ author.last_name }}
       </h1>
 
@@ -33,7 +35,7 @@ hide_foot: true
           <a href="{{ site.url }}/blog">blog</a>.
         </p>
 
-        <p class="mt-2">
+        <p class="mt-1">
           También puedo ayudarte a resolver algunos problemas de programación.
         </p>
 
@@ -47,9 +49,9 @@ hide_foot: true
         </p>
       </main>
 
-      <p class="buttons is-centered mt-4">
+      <p class="buttons is-centered mt-3">
         <a
-          class="button is-inverted gmail is-large is-medium-touch"
+          class="button gmail"
           href="mailto:{{ author.email.at }}"
         >
           <span class="icon">
@@ -58,7 +60,7 @@ hide_foot: true
         </a>
         {% for item in author.social %}
           <a
-            class="button is-inverted {{ item.type }} is-large is-medium-touch"
+            class="button {{ item.type }}"
             href="{{ item.url }}">
             <span class="icon">
               <i class="{{ item.icon }}" aria-hidden="true"></i>
@@ -76,61 +78,6 @@ hide_foot: true
           onContextMenu="vibrate([150, 30, 150]);"
         />
       </figure>
-    </div>
-
-    <div class="column">
-      <h2 class="subtitle is-2">
-        <a href="https://github.com/halivert?tab=repositories">
-          Proyectos 👨🏽‍💻
-        </a>
-      </h2>
-      {% for project in site.data.projects %}
-        {%-
-          assign img_path = site.url
-            | append: '/img/projects/'
-            | append: project.slug
-        -%}
-        <div class="card project-card">
-          <div class="card-content">
-            <div class="media">
-              {% if project.img_type %}
-                <div class="media-left">
-                  {%- assign path = img_path -%}
-                  {%
-                    include picture.html
-                      class="image is-48x48"
-                      path=path
-                      alt="Imagen de proyecto"
-                  %}
-                </div>
-              {% endif %}
-              <div class="media-content">
-                <p class="title is-5">{{ project.title }}</p>
-                <p class="subtitle is-6">
-                  <a href="https://github.com/halivert/{{ project.slug }}">
-                    <span>Ver en github</span>
-                    <span class="icon is-small">
-                      <i class="fab fa-github"></i>
-                    </span>
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            <div class="content">
-              <p>{{ project.description }}</p>
-
-              <div class="buttons is-right">
-                <a
-                  class="button is-primary"
-                  href="{{ site.url }}/{{ project.slug }}"
-                  >Ver más...</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
     </div>
   </div>
 </main>

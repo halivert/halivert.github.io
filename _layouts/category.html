@@ -2,33 +2,32 @@
 layout: container
 ---
 
-<div class="container-fluid">
-  <div class="has-text-centered">
-    <h3 class="title is-1">{{ page.category }}</h3>
-    <div class="subtitle">
-      {{ content }}
-    </div>
-    <hr>
+<div class="has-text-centered">
+  <h3 class="title is-1">{{ page.category }}</h3>
+  <div class="subtitle">
+    {{ content }}
   </div>
-  <div class="columns">
-    <div class="column is-9">
-      {% assign category = page.category %}
-      {% for post in site.categories[category] %}
-        <div>
-          <p class="title is-2">
-            <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
-              {{ post.title }}
-            </a>
-          </p><hr>
-          {% include post-show.html %}
-          <br>
-          {% include post-info-show.html %}
-          <br>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="column">
-      {% include sidebar.html %}
-    </div>
+  <hr>
+</div>
+
+<div class="columns">
+  <div class="column is-9">
+    {% assign category = page.category %}
+    {% for post in site.categories[category] %}
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </p><hr>
+        {% include post-show.html %}
+        <br>
+        {% include post-info-show.html %}
+        <br>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="column">
+    {% include sidebar.html %}
   </div>
 </div>

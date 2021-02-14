@@ -22,14 +22,14 @@ también, solo que entendí mal los cuidados que debía darle.
 <article>
   {%
     include picture.html
-      class="image is-hidden-tablet"
+      class="image is-hidden-desktop"
       alt="Mi primera suculenta"
       src="20180508"
       types="webp:image/webp,jpg:image/jpeg"
   %}
   {%
     include picture.html
-      class="is-pulled-right image-right is-hidden-mobile"
+      class="is-pulled-right image-right is-hidden-touch"
       alt="Mi primera suculenta"
       src="20180508"
       types="webp:image/webp,jpg:image/jpeg"

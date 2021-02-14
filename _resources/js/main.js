@@ -1,143 +1,132 @@
-const addClass = (element, name) => {
-	if (!element) return
+function addClass(element, name) {
+  if (!element) return
 
-	if (element.classList) {
-		element.classList.add(name)
-	} else {
-		let arr = element.className.split(" ")
-		if (arr.indexOf(name) === -1) element.className += " " + name
-	}
+  if (element.classList) {
+    element.classList.add(name)
+  } else {
+    let arr = element.className.split(" ")
+    if (arr.indexOf(name) === -1) element.className += " " + name
+  }
 }
 
-const toggleClass = (element, className) => {
-	if (element.classList) {
-		element.classList.toggle(className)
-	} else {
-		let classes = element.className.split(" ")
-		let i = classes.indexOf(className)
+function toggleClass(element, className) {
+  if (element.classList) {
+    element.classList.toggle(className)
+  } else {
+    let classes = element.className.split(" ")
+    let i = classes.indexOf(className)
 
-		if (i >= 0) {
-			classes.splice(i, 1)
-		} else {
-			classes.push(className)
-		}
+    if (i >= 0) {
+      classes.splice(i, 1)
+    } else {
+      classes.push(className)
+    }
 
-		element.className = classes.join(" ")
-	}
+    element.className = classes.join(" ")
+  }
 }
 
-const hasClass = (element, name) => {
-	if (!element) return
+function hasClass(element, name) {
+  if (!element) return
 
-	if (element.classList) {
-		return element.classList.contains(name)
-	} else {
-		let classes = element.className.split(" ")
-		let i = classes.indexOf(name)
-		return i >= 0
-	}
+  if (element.classList) {
+    return element.classList.contains(name)
+  } else {
+    let classes = element.className.split(" ")
+    let i = classes.indexOf(name)
+    return i >= 0
+  }
 }
 
-const removeClass = (element, name) => {
-	if (!element) return
+function removeClass(element, name) {
+  if (!element) return
 
-	if (element.classList) {
-		element.classList.remove(name)
-	} else {
-		let classes = element.className.split(" ")
-		let i = classes.indexOf(className)
+  if (element.classList) {
+    element.classList.remove(name)
+  } else {
+    let classes = element.className.split(" ")
+    let i = classes.indexOf(className)
 
-		if (i >= 0) classes.splice(i, 1)
-		element.className = classes.join(" ")
-	}
+    if (i >= 0) classes.splice(i, 1)
+    element.className = classes.join(" ")
+  }
 }
 
-const activateNavMenu = () => {
-	let menu = document.getElementById("nav-menu")
-	if (!menu) return
-
-	let display = getComputedStyle(menu).getPropertyValue("display")
-	if (display === "none") addClass(menu, "is-active")
+function isInput(name) {
+  let compare = name.toLowerCase()
+  return ["input", "textarea", "select"].includes(compare)
 }
 
-const isInput = (name) => {
-	let compare = name.toLowerCase()
-	return ["input", "textarea", "select"].includes(compare)
+function vibrate(pattern) {
+  window.navigator.vibrate(pattern)
 }
 
-const closeAllNavbars = () => {
-	let navBurger = Array.prototype.slice.call(
-		document.querySelectorAll(".navbar-burger"),
-		0
-	)
-
-	if (navBurger.length > 0) {
-		navBurger.forEach((el) => {
-			const target = document.getElementById(el.dataset.target)
-			removeClass(el, "is-active")
-			removeClass(target, "is-active")
-		})
-	}
+function toggleTheme(element, icon, isDark) {
+  removeClass(icon, isDark ? "fa-moon" : "fa-sun")
+  addClass(icon, isDark ? "fa-sun" : "fa-moon")
+  removeClass(element, isDark ? "is-dark" : "is-warning")
+  addClass(element, isDark ? "is-warning" : "is-dark")
 }
 
-const vibrate = (pattern) => {
-	window.navigator.vibrate(pattern)
+function initThemeSwitcher(element) {
+  if (!element) return
+
+  const firstSpan = element.getElementsByTagName("span")[0]
+  const icon = firstSpan.getElementsByTagName("i")[0]
+  const isDark = hasClass(document.documentElement, "dark")
+
+  toggleTheme(element, icon, isDark)
+
+  removeClass(element, "is-invisible")
 }
 
-const toggleTheme = (element, icon, isDark) => {
-	removeClass(icon, isDark ? "fa-moon" : "fa-sun")
-	addClass(icon, isDark ? "fa-sun" : "fa-moon")
-	removeClass(element, isDark ? "is-dark" : "is-warning")
-	addClass(element, isDark ? "is-warning" : "is-dark")
+function setTheme() {
+  if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
+    removeClass(document.documentElement, "dark")
+    localStorage.halivertsTheme = "light"
+  } else {
+    localStorage.removeItem("halivertsTheme")
+  }
 }
 
-const initThemeSwitcher = (element) => {
-	if (!element) return
+function hideModal(evt) {
+  if (!evt) return
 
-	const firstSpan = element.getElementsByTagName("span")[0]
-	const icon = firstSpan.getElementsByTagName("i")[0]
-	const isDark = hasClass(document.documentElement, "dark")
+  const modal = evt.closest(".modal")
+  if (!modal) return
 
-	toggleTheme(element, icon, isDark)
-
-	removeClass(element, "is-invisible")
-}
-
-const setTheme = () => {
-	if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
-		removeClass(document.documentElement, "dark")
-		localStorage.halivertsTheme = "light"
-	} else {
-		localStorage.removeItem("halivertsTheme")
-	}
+  removeClass(document.documentElement, "is-clipped")
+  addClass(modal, "is-hidden")
 }
 
 setTheme()
 
 document.addEventListener("turbolinks:load", () => {
-	let searchBox = document.getElementById("search-box")
-	if (searchBox) {
-		document.addEventListener("keypress", (evt) => {
-			if (!isInput(evt.target.nodeName) && evt.charCode === 47) {
-				evt.preventDefault()
-				activateNavMenu()
-				searchBox.focus()
-				searchBox.select()
-			}
-		})
-	}
+  removeClass(document.documentElement, "is-clipped")
+  initThemeSwitcher(document.getElementById("theme-switcher"))
+  initThemeSwitcher(document.getElementById("theme-switcher-corner"))
 
-	initThemeSwitcher(document.getElementById("theme-switcher"))
-	initThemeSwitcher(document.getElementById("theme-switcher-corner"))
+  const deletes = document.querySelectorAll(".notification .delete") || []
 
-	const deletes = document.querySelectorAll(".notification .delete") || []
+  deletes.forEach((deleteElement) => {
+    notification = deleteElement.parentNode
+    deleteElement.addEventListener("click", () => {
+      notification.parentNode.removeChild(notification)
+    })
+  })
 
-	deletes.forEach((deleteElement) => {
-		notification = deleteElement.parentNode
-		deleteElement.addEventListener("click", () => {
-			notification.parentNode.removeChild(notification)
-		})
-	})
+  const modals = document.querySelectorAll(".modal") || []
+  modals.forEach((modal) => {
+    modal.addEventListener("click", (evt) => {
+      if (evt.target !== modal) {
+        return
+      }
+
+      evt.preventDefault();
+      toggleClass(modal, "is-hidden")
+      removeClass(document.documentElement, "is-clipped")
+    })
+  })
 })
 
 document.addEventListener("turbolinks:visit", setTheme)

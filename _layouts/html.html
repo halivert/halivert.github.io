@@ -1,90 +1,102 @@
 <!DOCTYPE html>
 <html lang="es-MX" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-		{%- assign cssAssets = "/assets/css" | prepend: site.url -%}
+    {%- assign cssAssets = "/assets/css" | prepend: site.url -%}
 
-		<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
+    <link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 
-		<link
-			rel="stylesheet"
-			href="{{ cssAssets }}/halivert-layout.css"
-		/>
+    <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
 
-		<link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
-		<link rel="stylesheet" href="{{ cssAssets }}/halivert-dark.css" />
+    <link rel="stylesheet" href="{{ cssAssets }}/fa.min.css"/>
 
-		<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css"/>
+    {%-
+      assign gistTheme = "https://cdn.rawgit.com"
+        | append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
+        | append: "/solarized-dark.css"
+    -%}
 
-		{%-
-			assign gistTheme = "https://cdn.rawgit.com"
-				| append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
-				| append: "/solarized-dark.css"
-		-%}
+    <link rel="stylesheet" href="{{ gistTheme }}" type="text/css"/>
 
-		<link rel="stylesheet" href="{{ gistTheme }}" type="text/css"/>
+    {% include unix_timestamp.html %}
+    {%- assign author = site.data.authors[page.author] -%}
+    {% if author %}
+      {% if author.first_name %}
+        <meta property="author:name" content="{{ author.first_name }}" />
+      {% endif %}
+      {% if author.social %}
+        {%- assign telegram = author.social | where: "type", "telegram" -%}
+        {% if telegram.first and telegram.first.url %}
+          <meta property="telegram:author" content="{{ telegram.first.url }}" />
+        {% endif %}
+      {% endif %}
+    {% endif %}
 
-		{% include unix_timestamp.html %}
-		{%- assign author = site.data.authors[page.author] -%}
-		{% if author %}
-			{% if author.first_name %}
-				<meta property="author:name" content="{{ author.first_name }}" />
-			{% endif %}
-			{% if author.social %}
-				{%- assign telegram = author.social | where: "type", "telegram" -%}
-				{% if telegram.first and telegram.first.url %}
-					<meta property="telegram:author" content="{{ telegram.first.url }}" />
-				{% endif %}
-			{% endif %}
-		{% endif %}
+    <meta name="telegram:channel" content="@halivertsblog" />
 
-		<meta name="telegram:channel" content="@halivertsblog" />
+    {% if page.layout == "post" or page.layout == "posts" %}
+      <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
+    {% endif %}
 
-		{% if page.layout == "post" or page.layout == "posts" %}
-			<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
-		{% endif %}
+    <script src="https://unpkg.com/turbolinks" defer></script>
+    <script src="{{ site.url }}/assets/js/main.js"></script>
+    <script src="{{ site.url }}/assets/js/lunr.js"></script>
+    {% if page.search_bar %}
+      <script src="{{ site.url }}/assets/js/search.js"></script>
+    {% endif %}
+    <script src="{{ site.url }}/assets/js/themeSwitcher.js" defer></script>
 
-		<script src="https://unpkg.com/turbolinks" defer></script>
-		<script src="{{ site.url }}/assets/js/main.js"></script>
-		{% if page.search_bar %}
-			<script src="{{ site.url }}/assets/js/lunr.js"></script>
-		{% endif %}
-		<script src="{{ site.url }}/assets/js/nav.js" defer></script>
+    <title>
+      {% if paginator %}
+        Página {{ paginator.page }} de {{ paginator.total_pages }} de
+      {% endif %}
 
-		<title>
-			{% if paginator %}
-				Página {{ paginator.page }} de {{ paginator.total_pages }} de
-			{% endif %}
+      {% if page.title %}
+        {{ page.title }} | {{ site.title }}
+      {% else %}
+        {{ site.title }} | {{ site.description }}
+      {% endif %}
+    </title>
 
-			{% if page.title %}
-				{{ page.title }} | {{ site.title }}
-			{% else %}
-				{{ site.title }} | {{ site.description }}
-			{% endif %}
-		</title>
+    {% seo title=false %}
+    {% if page.has_math %}
+      {% include katex.html %}
+    {% elsif page.has_instant_view %}
+      <meta property="has_instant_view" />
+    {% endif %}
+  </head>
 
-		{% seo title=false %}
-		{% if page.has_math %}
-			{% include katex.html %}
-		{% elsif page.has_instant_view %}
-			<meta property="has_instant_view" />
-		{% endif %}
-	</head>
+  <body>
+    {% unless page.hide_skip_link or layout.hide_skip_link %}
+      <a
+        class="skip-link"
+        href="#main-container"
+        data-turbolinks="false"
+        tab-index="0"
+        >Ir al contenido</a
+      >
+    {% endunless %}
 
-	<body class="has-background-light">
-		{% unless page.hide_nav or layout.hide_nav %}
-			{% include nav.html %}
-		{% endunless %}
+    <button
+      id="theme-switcher"
+      class="button theme-switcher"
+      onclick="changeTheme('theme-switcher')"
+      data-turbolinks-permanent
+    >
+      <span class="icon">
+        <i class="fas" aria-hidden="true"></i>
+      </span>
+    </button>
 
-		{{ content }}
+    {{ content }}
 
-		{% unless page.hide_foot or layout.hide_foot %}
-			{% include footer.html %}
-		{% endunless %}
-	</body>
+    {% unless page.hide_foot or layout.hide_foot %}
+      {% include footer.html %}
+    {% endunless %}
+  </body>
 </html>

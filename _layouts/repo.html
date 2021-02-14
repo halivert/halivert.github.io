@@ -1,36 +1,31 @@
 ---
 layout: html
-hide_nav: true
 hide_foot: true
 ---
 
 <nav class="repo fixed-top-bar">
-	<button
-		id="theme-switcher-corner"
-		class="button theme-switcher is-invisible"
-		onclick="changeTheme('theme-switcher-corner')"
-		data-turbolinks-permanent
-		style="border-radius: 0"
-	>
-		<span class="icon">
-			 <i class="fas" aria-hidden="true"></i>
-		</span>
-	</button>
-
 	<a
 		href="{{ site.github.repository_url }}"
-		class="button github"
-		style="border-radius: 0"
+		class="button github is-hidden-touch"
 	>
 		<span>Ver en github</span>
 		<span class="icon">
 			 <i class="fab fa-github" aria-hidden="true"></i>
 		</span>
 	</a>
+
+	<a
+		href="{{ site.github.repository_url }}"
+		class="button github is-hidden-desktop"
+	>
+		<span class="icon">
+			 <i class="fab fa-github" aria-hidden="true"></i>
+		</span>
+	</a>
 </nav>
 
-<main class="is-size-5">
-	<section class="hero is-primary repo">
+<main class="mb-6">
+	<section class="hero repo">
 		<div class="hero-body">
 			<div class="container">
 				<h1 class="title is-2">{{ page.title }}</h1>
@@ -40,7 +35,7 @@ hide_foot: true
 	</section>
 
 	<section class="section">
-		<div class="container content">
+		<div class="container content reader">
 			{{ content }}
 		</div>
 	</section>

@@ -3,29 +3,17 @@ layout: container
 ---
 
 {%- capture pageImage -%}
-{%- include remove_ext.html file=page.image -%}
+  {%- include remove_ext.html file=page.image -%}
 {%- endcapture -%}
 
-<div class="container-fluid">
-  {% assign author = site.data.authors[page.author] %}
+{% assign author = site.data.authors[page.author] %}
 
-  <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+<div class="columns">
+  <div class="column is-offset-1">
+    <div class="reader">
       <div id="title-div" class="columns is-vcentered is-gapless">
-        {% if page.image %}
-          <div class="column has-text-centered is-hidden-tablet">
-            {%- assign path = pageImage | prepend: site.url -%}
-            {%
-              include picture.html
-                class="image post-image"
-                path=path
-                alt=page.image_alt
-                types=page.image_types
-            %}
-          </div>
-        {% endif %}
         <header class="column">
-          <h1 class="title is-size-1-desktop has-text-primary">{{
+          <h1 class="title is-2 has-text-primary">{{
             page.title
           }}</h1>
           <small>
@@ -51,11 +39,17 @@ layout: container
           </small>
         </header>
         {% if page.image %}
-          <div class="column has-text-right is-hidden-mobile">
+          <div class="column has-text-right">
             {%- assign path = pageImage | prepend: site.url -%}
+            {%- assign dark_img = "" -%}
+            {%- if page.image_dark -%}
+              {%- assign dark_img = "dark" -%}
+            {%- endif -%}
+
+            {%- assign class_name = "image post-image " | append: dark_img -%}
             {%
               include picture.html
-                class="image post-image"
+                class=class_name
                 path=path
                 alt=page.image_alt
                 types=page.image_types
@@ -64,14 +58,16 @@ layout: container
         {% endif %}
       </div>
       <hr />
-      <main id="content" class="container-fluid content">
+      <section id="content" class="content">
         {{ content }}
-      </main>
+      </section>
     </div>
   </div>
+</div>
 
-  <div class="columns">
-    <div class="column is-8-desktop is-11-tablet is-offset-1-desktop">
+<div class="columns">
+  <div class="column is-offset-1">
+    <div class="reader">
       <nav
         class="pagination is-centered"
         role="navigation"
@@ -85,18 +81,18 @@ layout: container
           >
         {% else %}
           <a class="pagination-previous button is-rounded" disabled
-             >Anterior</a
-           >
-         {% endif %}
-         {% if page.next.url %}
-           <a
-             href="{{ site.url }}{{ page.next.url }}"
-             class="pagination-next button is-primary is-rounded"
-             >Siguiente</a
-           >
-         {% else %}
-           <a class="pagination-next button is-rounded" disabled>Siguiente</a>
-         {% endif %}
+            >Anterior</a
+          >
+        {% endif %}
+        {% if page.next.url %}
+          <a
+            href="{{ site.url }}{{ page.next.url }}"
+            class="pagination-next button is-primary is-rounded"
+            >Siguiente</a
+          >
+        {% else %}
+          <a class="pagination-next button is-rounded" disabled>Siguiente</a>
+        {% endif %}
       </nav>
     </div>
   </div>
