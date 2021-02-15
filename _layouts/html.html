@@ -43,13 +43,21 @@
       <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
     {% endif %}
 
+    {%- capture js_ext -%}
+      {%- if jekyll.environment == 'production' -%}
+        .min.js
+      {%- else -%}
+        .js
+      {%- endif -%}
+    {%- endcapture -%}
+
     <script src="https://unpkg.com/turbolinks" defer></script>
-    <script src="{{ site.url }}/assets/js/main.js"></script>
-    <script src="{{ site.url }}/assets/js/lunr.js"></script>
+    <script src="{{ site.url }}/assets/js/main{{ js_ext }}"></script>
+    <script src="{{ site.url }}/assets/js/lunr{{ js_ext }}"></script>
     {% if page.search_bar %}
-      <script src="{{ site.url }}/assets/js/search.js"></script>
+      <script src="{{ site.url }}/assets/js/search{{ js_ext }}"></script>
     {% endif %}
-    <script src="{{ site.url }}/assets/js/themeSwitcher.js" defer></script>
+    <script src="{{ site.url }}/assets/js/themeSwitcher{{ js_ext }}" defer></script>
 
     <title>
       {% if paginator %}

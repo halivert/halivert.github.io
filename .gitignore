@@ -16,3 +16,4 @@ convert
 todo.md
 _config.dev.yml
 assets/js/*.js
+!assets/js/*.min.js
