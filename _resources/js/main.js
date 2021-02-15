@@ -101,7 +101,7 @@ function hideModal(evt) {
 
 setTheme()
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   removeClass(document.documentElement, "is-clipped")
   initThemeSwitcher(document.getElementById("theme-switcher"))
   initThemeSwitcher(document.getElementById("theme-switcher-corner"))
@@ -122,11 +122,13 @@ document.addEventListener("turbolinks:load", () => {
         return
       }
 
-      evt.preventDefault();
+      evt.preventDefault()
       toggleClass(modal, "is-hidden")
       removeClass(document.documentElement, "is-clipped")
     })
   })
 })
 
-document.addEventListener("turbolinks:visit", setTheme)
+document.addEventListener("turbo:visit", () => {
+  setTheme()
+})

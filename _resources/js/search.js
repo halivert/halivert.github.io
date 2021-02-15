@@ -90,7 +90,7 @@ function htmlPostElement(item, template) {
   return newElement
 }
 
-document.addEventListener("turbolinks:load", () => {
+document.addEventListener("turbo:load", () => {
   document.addEventListener("keydown", (evt) => {
     if (!isInput(evt.target.nodeName)) {
       if (evt.key === "/") {

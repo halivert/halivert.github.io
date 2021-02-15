@@ -51,7 +51,9 @@
       {%- endif -%}
     {%- endcapture -%}
 
-    <script src="https://unpkg.com/turbolinks" defer></script>
+    <script type="module">
+      import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+    </script>
     <script src="{{ site.url }}/assets/js/main{{ js_ext }}"></script>
     <script src="{{ site.url }}/assets/js/lunr{{ js_ext }}"></script>
     {% if page.search_bar %}
@@ -84,7 +86,7 @@
       <a
         class="skip-link"
         href="#main-container"
-        data-turbolinks="false"
+        data-turbo="false"
         tab-index="0"
         >Ir al contenido</a
       >
@@ -94,7 +96,7 @@
       id="theme-switcher"
       class="button theme-switcher"
       onclick="changeTheme('theme-switcher')"
-      data-turbolinks-permanent
+      data-turbo-permanent
     >
       <span class="icon">
         <i class="fas" aria-hidden="true"></i>
