@@ -8,9 +8,9 @@ _drafts
 *.plsno
 .ignore
 yarn-error.log
+.yarnclean
 .jekyll-cache
 
-minified/
 test.md
 convert
 todo.md
