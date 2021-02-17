@@ -9,11 +9,7 @@
 
     {%- assign cssAssets = "/assets/css" | prepend: site.url -%}
 
-    <link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
-
     <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
-
-    <link rel="stylesheet" href="{{ cssAssets }}/fa.min.css"/>
 
     {%-
       assign gistTheme = "https://cdn.rawgit.com"
@@ -21,7 +17,35 @@
         | append: "/solarized-dark.css"
     -%}
 
-    <link rel="stylesheet" href="{{ gistTheme }}" type="text/css"/>
+    <link
+      rel="stylesheet"
+      href="{{ gistTheme }}"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+    />
+    <noscript>
+      <link rel="stylesheet" href="{{ gistTheme }}" />
+    </noscript>
+
+    <link
+      rel="stylesheet"
+      href="{{ cssAssets }}/fa.min.css"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+    />
+    <noscript>
+      <link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
+    </noscript>
+
+    <link
+      rel="stylesheet"
+      href="{{ cssAssets }}/solarized.css"
+      media="print"
+      onload="this.media='all'; this.onload=null;"
+    />
+    <noscript>
+      <link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
+    </noscript>
 
     {% include unix_timestamp.html %}
     {%- assign author = site.data.authors[page.author] -%}
