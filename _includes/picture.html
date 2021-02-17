@@ -21,14 +21,15 @@
 
   {% assign src = include.src %}
   {%- for type in types -%}
-    {%- assign pair = type | split: ":" -%}
+    {%- assign pair = type | split: ':' -%}
+    {%- assign img = src | append: '.' | prepend: path | remove: ' ' -%}
     {%- if forloop.last != true -%}
       <source
-        srcset="{{ src | append: "." | append: pair[0] | prepend: path }}"
+        srcset="{{ img | append: pair[0] | strip_newlines }}"
         type="{{ pair[1] }}">
     {%- else -%}
       <img
-        src="{{ src | append: "." | append: pair[0] | prepend: path }}"
+        src="{{ img | append: pair[0] | strip_newlines }}"
         {% if include.class %} class="{{ include.class }}" {% endif %}
         alt="{{ include.alt }}">
     {%- endif -%}
