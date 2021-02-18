@@ -89,6 +89,8 @@
   --primary-color-300: hsl(var(--primary-hsl-300));
 }
 
+@import "colors";
+
 @import "links";
 
 @import "reset";
@@ -115,6 +117,8 @@
 @import "form";
 
 @import "modal";
+
+@import "notification";
 
 @import "footer";
 

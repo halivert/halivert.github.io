@@ -1,0 +1,58 @@
+$notification-colors: $colors;
+
+.notification {
+	@extend %block;
+	background-color: var(--background-color-100);
+	border-radius: 4px;
+	position: relative;
+	padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+	a:not(.button):not(.dropdown-item) {
+		color: currentColor;
+		text-decoration: underline;
+	}
+
+	strong {
+		color: currentColor;
+	}
+
+	code,
+	pre {
+		background: var(--background-color-100);
+	}
+
+	pre code {
+		background: transparent;
+	}
+
+	& > .delete {
+		// +ltr-position(0.5rem);
+		position: absolute;
+		top: 0.5rem;
+	}
+
+	.title,
+	.subtitle,
+	.content {
+		color: currentColor;
+	}
+
+	// Colors
+	@each $name, $pair in $notification-colors {
+		$background: nth($pair, 1);
+		$color: nth($pair, 2);
+
+		&.is-#{$name} {
+			background-color: $background;
+			color: $color;
+			@if length($pair) >= 4 {
+				$color-light: nth($pair, 3);
+				$color-dark: nth($pair, 4);
+
+				&.is-light {
+					background-color: $color-light;
+					color: $color-dark;
+				}
+			}
+		}
+	}
+}

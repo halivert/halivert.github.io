@@ -1,0 +1,14 @@
+$colors: (
+	"warning": (
+		#f5ab00,
+		var(--background-color-100),
+	),
+	"primary": (
+		var(--text-color-100),
+		var(--primary-color-100),
+	),
+	"golden": (
+		var(--text-color-100),
+		#daa520,
+	),
+);
