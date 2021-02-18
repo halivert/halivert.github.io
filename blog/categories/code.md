@@ -1,7 +1,7 @@
 ---
 layout: category
 category: "¡Código!"
-permalink: "/blog/codigo/"
+permalink: "/blog/code/"
 ---
 
 Aquí comparto snippets de código que me ha servido, también intento

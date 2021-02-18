@@ -3,7 +3,7 @@ author: halivert
 category: "Novedades"
 date: "2019-01-29 10:38"
 has_instant_view: false
-last_modification: "2019-02-12 00:32"
+last_modification: "2021-02-17 21:32"
 tags: ["Búsqueda", "Jekyll", "Lunr", "JavaScript"]
 title: "Barra de búsqueda"
 ---
@@ -22,7 +22,6 @@ Para hacerlo utilicé estos dos tutoriales: [Jekyll search using lunr.js][2] y
 En pocas palabras necesitamos:
 - La biblioteca [lunr.js][1].
 - Un cuadro de búsqueda \[[1][4]\].
-- Una página donde se mostrará el resultado de la búsqueda \[[2][5]\].
 - Un script para procesar y mostrar los datos \[[3][6]\].
 - Un script donde estará el objeto `idx`, que será el índice de todos nuestros
   artículos \[[4][7]\].
@@ -31,9 +30,8 @@ Ahora les explicaré un poco del código necesario para dicha tarea.
 
 Obviaremos el cuadro de búsqueda y la página donde se muestra el resultado de
 la búsqueda, lo único que necesitamos establecer ahí son: la acción del
-formulario (que será la ruta de la página donde se mostrará el resultado, en
-este caso `/blog/busqueda`), y el id del elemento donde se mostrará (en este
-caso `search-results`).
+formulario (que será la ruta de la página donde se mostrará el resultado), y el
+id del elemento donde se mostrará (en este caso `search-results`).
 
 En el archivo [`search-lunr.html`][7] encontramos el objeto `idx`, que
 iniciaremos con la variable `window.store`. (Es importante que tenga la
@@ -120,7 +118,6 @@ Ya sólo queda probar si funciona, pero bueno... Esa es una tarea para ti.
 [2]: https://learn.cloudcannon.com/jekyll/jekyll-search-using-lunr-js/
 [3]: https://jekyllcodex.org/without-plugin/search-lunr/
 [4]: https://github.com/halivert/halivert.github.io/blob/master/_includes/nav.html#L28-L47
-[5]: https://github.com/halivert/halivert.github.io/blob/master/search.html
 [6]: https://github.com/halivert/halivert.github.io/blob/master/js/search.js
 [7]: https://github.com/halivert/halivert.github.io/blob/master/_includes/search-lunr.html
 
