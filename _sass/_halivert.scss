@@ -9,56 +9,53 @@
   --monospace-font: "IBM Plex Mono", monospace;
   --font-size: 1em;
 
-  --footer-padding: 1rem 1rem 2rem;
-  --footer-height: #{$footer-height};
-
   --button-padding-vertical: calc(0.5em - var(--control-border-width));
   --button-padding-horizontal: 1em;
 
   --column-gap: 0.75rem;
 
-  --background-hsl-100: 249, 21%, 87%;
-  --background-hsl-200: 249, 21%, 81%;
-  --background-hsl-300: 249, 21%, 75%;
+  --background-h: 249;
+  --background-s: 21%;
+  --background-l: 88%;
 
-  --text-hsl-100: 240, 23%, 5%;
-  --text-hsl-200: 240, 23%, 10%;
-  --text-hsl-300: 240, 23%, 15%;
+  --text-h: 240;
+  --text-s: 23%;
+  --text-l: 5%;
 
-  --primary-hsl-100: 206, 47%, 49%;
-  --primary-hsl-200: 206, 47%, 63%;
-  --primary-hsl-300: 206, 47%, 77%;
+  --primary-h: 206;
+  --primary-s: 47%;
+  --primary-l: 49%;
 
-  --contrast-hsl-100: 216, 41%, 31%;
-  --contrast-hsl-200: 216, 41%, 33%;
-  --contrast-hsl-300: 216, 41%, 35%;
+  --contrast-h: 216;
+  --contrast-s: 41%;
+  --contrast-l: 31%;
 
-  --accent-hsl-100: 322, 42%, 74%;
-  --accent-hsl-200: 322, 42%, 64%;
-  --accent-hsl-300: 322, 42%, 54%;
+  --accent-h: 322;
+  --accent-s: 42%;
+  --accent-l: 66%;
 
   &.dark {
     --dark: 1;
 
-    --background-hsl-100: 240, 23%, 5%;
-    --background-hsl-200: 240, 23%, 11%;
-    --background-hsl-300: 240, 23%, 17%;
+    --background-h: 240;
+    --background-s: 23%;
+    --background-l: 5%;
 
-    --text-hsl-100: 249, 21%, 83%;
-    --text-hsl-200: 249, 21%, 77%;
-    --text-hsl-300: 249, 21%, 71%;
+    --text-h: 249;
+    --text-s: 21%;
+    --text-l: 83%;
 
-    --primary-hsl-100: 216, 41%, 18%;
-    --primary-hsl-200: 216, 41%, 24%;
-    --primary-hsl-300: 216, 41%, 30%;
+    --primary-h: 216;
+    --primary-s: 41%;
+    --primary-l: 30%;
 
-    --contrast-hsl-100: 206, 47%, 60%;
-    --contrast-hsl-200: 206, 47%, 54%;
-    --contrast-hsl-300: 206, 47%, 48%;
+    --contrast-h: 206;
+    --contrast-s: 47%;
+    --contrast-l: 60%;
 
-    --accent-hsl-100: 322, 42%, 46%;
-    --accent-hsl-200: 322, 42%, 44%;
-    --accent-hsl-300: 322, 42%, 42%;
+    --accent-h: 322;
+    --accent-s: 42%;
+    --accent-l: 46%;
 
     --github-primary: #f0f6fc;
   }
@@ -67,26 +64,6 @@
   --gmail-primary: #eb4132;
   --twitter-primary: #1da1f2;
   --telegram-primary: #28a8ea;
-
-  --background-color-100: hsl(var(--background-hsl-100));
-  --background-color-200: hsl(var(--background-hsl-200));
-  --background-color-300: hsl(var(--background-hsl-300));
-
-  --text-color-100: hsl(var(--text-hsl-100));
-  --text-color-200: hsl(var(--text-hsl-200));
-  --text-color-300: hsl(var(--text-hsl-300));
-
-  --contrast-color-100: hsl(var(--contrast-hsl-100));
-  --contrast-color-200: hsl(var(--contrast-hsl-200));
-  --contrast-color-300: hsl(var(--contrast-hsl-300));
-
-  --accent-color-100: hsl(var(--accent-hsl-100));
-  --accent-color-200: hsl(var(--accent-hsl-200));
-  --accent-color-300: hsl(var(--accent-hsl-300));
-
-  --primary-color-100: hsl(var(--primary-hsl-100));
-  --primary-color-200: hsl(var(--primary-hsl-200));
-  --primary-color-300: hsl(var(--primary-hsl-300));
 }
 
 @import "colors";
@@ -215,6 +192,16 @@ main#main-container {
     position: absolute;
     right: 0.5rem;
   }
+
+  &.is-light {
+    background: var(--text-color-100);
+    color: var(--background-color-100);
+  }
+
+  &.is-dark {
+    background: hsl(42, 100%, 40%);
+    color: var(--background-color-100);
+  }
 }
 
 .skip-link {
@@ -341,7 +328,7 @@ pre {
   white-space: pre;
   word-wrap: normal;
   code {
-    color: var(--text-color-100);
+    color: var(--code-color);
     font-size: 1em;
     padding: 0;
   }
@@ -363,19 +350,28 @@ pre {
   }
 }
 
+.dark {
+  .art-container .art-gallery {
+    filter: brightness(60%);
+
+    img {
+      background: var(--background-color-100);
+    }
+  }
+}
+
 .art-container {
   .art-gallery {
     background-attachment: absolute;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: brightness(60%);
     padding: 0.5rem 1rem;
     border-radius: 4px;
 
     img {
       padding: 1em 2em;
-      background: var(--background-color-100);
+      background: var(--text-color-100);
     }
 
     &:not(:last-child) {
@@ -385,7 +381,7 @@ pre {
 
     .image-art-title {
       border-radius: 0.5em;
-      border: nth(map-get($colors, "golden"), 2) solid;
+      border: nth(map-get($colors, "golden"), 1) solid;
       margin: auto;
       background: var(--background-color-100);
     }

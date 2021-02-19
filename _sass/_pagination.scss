@@ -45,7 +45,7 @@
 .pagination-next,
 .pagination-link {
   border-color: var(--background-color-300);
-  color: var(--text-color-200);
+  color: var(--text-color-100);
   min-width: 2.5em;
 
   &:hover {
@@ -68,7 +68,8 @@
     background-color: var(--background-color-200);
     border-color: var(--background-color-300);
     box-shadow: none;
-    color: var(--text-color-300);
+    color: var(--text-color-100);
+    filter: unset;
     opacity: 0.5;
   }
 }

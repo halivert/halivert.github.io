@@ -8,13 +8,13 @@ function changeTheme(id) {
     localStorage.removeItem("halivertsTheme")
     removeClass(icon, "fa-moon")
     addClass(icon, "fa-sun")
-    removeClass(themeSwitcher, "is-dark")
-    addClass(themeSwitcher, "is-warning")
+    removeClass(themeSwitcher, "is-light")
+    addClass(themeSwitcher, "is-dark")
   } else {
     localStorage.halivertsTheme = "light"
     addClass(icon, "fa-moon")
     removeClass(icon, "fa-sun")
-    addClass(themeSwitcher, "is-dark")
-    removeClass(themeSwitcher, "is-warning")
+    addClass(themeSwitcher, "is-light")
+    removeClass(themeSwitcher, "is-dark")
   }
 }
