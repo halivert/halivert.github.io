@@ -7,6 +7,10 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <script type="module">
+      import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+    </script>
+
     {%- assign cssAssets = "/assets/css" | prepend: site.url -%}
 
     <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
@@ -49,41 +53,42 @@
 
     {% include unix_timestamp.html %}
     {%- assign author = site.data.authors[page.author] -%}
-    {% if author %}
-      {% if author.first_name %}
-        <meta property="author:name" content="{{ author.first_name }}" />
+    {%- if author and author.first_name -%}
+      <meta property="author:name" content="{{ author.first_name }}" />
+    {%- else -%}
+      <meta property="author:name" content="" />
+    {%- endif -%}
+
+    {%- if author and author.social -%}
+      {%- assign telegram = author.social | where: "type", "telegram" -%}
+      {% if telegram.first and telegram.first.url %}
+        <meta property="telegram:author" content="{{ telegram.first.url }}" />
+      {% else %}
+        <meta property="telegram:author" content="" />
       {% endif %}
-      {% if author.social %}
-        {%- assign telegram = author.social | where: "type", "telegram" -%}
-        {% if telegram.first and telegram.first.url %}
-          <meta property="telegram:author" content="{{ telegram.first.url }}" />
-        {% endif %}
-      {% endif %}
-    {% endif %}
+    {%- else -%}
+      <meta property="telegram:author" content="" />
+    {%- endif -%}
 
     <meta name="telegram:channel" content="@halivertsblog" />
 
-    {% if page.layout == "post" or page.layout == "posts" %}
-      <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi">
-    {% endif %}
+    <meta
+      name="monetization"
+      content="$ilp.uphold.com/yJJL4YrpRMQi"
+    />
 
     {%- capture js_ext -%}
-      {%- if jekyll.environment == 'production' -%}
-        .min.js
-      {%- else -%}
-        .js
+      {%- if jekyll.environment == 'production' -%} .min.js
+      {%- else -%} .js
       {%- endif -%}
     {%- endcapture -%}
 
-    <script type="module">
-      import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
-    </script>
-    <script src="{{ site.url }}/assets/js/main{{ js_ext }}"></script>
-    <script src="{{ site.url }}/assets/js/lunr{{ js_ext }}"></script>
-    {% if page.search_bar %}
-      <script src="{{ site.url }}/assets/js/search{{ js_ext }}"></script>
-    {% endif %}
-    <script src="{{ site.url }}/assets/js/themeSwitcher{{ js_ext }}" defer></script>
+    {%- assign jsAssets = "/assets/js" | prepend: site.url -%}
+
+    <script src="{{ jsAssets }}/main{{ js_ext }}"></script>
+    <script src="{{ jsAssets }}/lunr{{ js_ext }}" defer></script>
+    <script src="{{ jsAssets }}/search{{ js_ext }}" defer></script>
+    <script src="{{ jsAssets }}/themeSwitcher{{ js_ext }}" defer></script>
 
     <title>
       {% if paginator %}

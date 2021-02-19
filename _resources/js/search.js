@@ -90,18 +90,24 @@ function htmlPostElement(item, template) {
   return newElement
 }
 
-document.addEventListener("turbo:load", () => {
+function addEventListeners() {
   document.addEventListener("keydown", (evt) => {
-    if (!isInput(evt.target.nodeName)) {
-      if (evt.key === "/") {
+    const modal = document.getElementById("search-modal")
+
+    if (modal) {
+      if (!isInput(evt.target.nodeName)) {
+        if (evt.key === "/") {
+          evt.preventDefault()
+          return showSearchModal()
+        }
+      }
+
+      if (evt.key === "Escape" || evt.key === "Esc") {
         evt.preventDefault()
-        return showSearchModal()
+        return hideSearchModal()
       }
     }
-
-    if (evt.key === "Escape" || evt.key === "Esc") {
-      evt.preventDefault()
-      return hideSearchModal()
-    }
   })
-})
+}
+
+addEventListeners()
