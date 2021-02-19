@@ -1,3 +1,7 @@
 @function n-hsla($string, $opacity: 1) {
   @return #{"hsla(#{$string}, #{$opacity})"};
 }
+
+@function n-rgba($string, $opacity: 1) {
+  @return #{"rgba(#{$string}, #{$opacity})"};
+}

@@ -1,0 +1,79 @@
+$colors: (
+	"warning": (
+		var(--warning-color),
+		var(--warning-invert),
+	),
+	"primary": (
+		var(--primary-color-100),
+		var(--text-color-100),
+	),
+	"golden": (
+		hsl(43, 74%, 49%),
+		var(--text-color-100),
+	),
+);
+
+:root {
+	--background-hsl-100: var(--background-h), var(--background-s),
+		var(--background-l);
+	--background-hsl-200: var(--background-h), var(--background-s),
+		calc(var(--background-l) + (6% * var(--dark)));
+	--background-hsl-300: var(--background-h), var(--background-s),
+		calc(var(--background-l) + (12% * var(--dark)));
+
+	--text-hsl-100: var(--text-h), var(--text-s), var(--text-l);
+	--text-hsl-200: var(--text-h), var(--text-s),
+		calc(var(--text-l) - (6% * var(--dark)));
+	--text-hsl-300: var(--text-h), var(--text-s),
+		calc(var(--text-l) - (12% * var(--dark)));
+
+	--primary-hsl-100: var(--primary-h), var(--primary-s), var(--primary-l);
+	--primary-hsl-200: var(--primary-h), var(--primary-s),
+		calc(var(--primary-l) + (6% * var(--dark)));
+	--primary-hsl-300: var(--primary-h), var(--primary-s),
+		calc(var(--primary-l) + (12% * var(--dark)));
+
+	--contrast-hsl-100: var(--contrast-h), var(--contrast-s), var(--contrast-l);
+	--contrast-hsl-200: var(--contrast-h), var(--contrast-s),
+		calc(var(--contrast-l) - (6% * var(--dark)));
+	--contrast-hsl-300: var(--contrast-h), var(--contrast-s),
+		calc(var(--contrast-l) - (12% * var(--dark)));
+
+	--accent-hsl-100: var(--accent-h), var(--accent-s), var(--accent-l);
+	--accent-hsl-200: var(--accent-h), var(--accent-s),
+		calc(var(--accent-l) - (6%));
+	--accent-hsl-300: var(--accent-h), var(--accent-s),
+		calc(var(--accent-l) - (12%));
+
+	--background-color-100: hsl(var(--background-hsl-100));
+	--background-color-200: hsl(var(--background-hsl-200));
+	--background-color-300: hsl(var(--background-hsl-300));
+
+	--text-color-100: hsl(var(--text-hsl-100));
+	--text-color-200: hsl(var(--text-hsl-200));
+	--text-color-300: hsl(var(--text-hsl-300));
+
+	--primary-color-100: hsl(var(--primary-hsl-100));
+	--primary-color-200: hsl(var(--primary-hsl-200));
+	--primary-color-300: hsl(var(--primary-hsl-300));
+
+	--contrast-color-100: hsl(var(--contrast-hsl-100));
+	--contrast-color-200: hsl(var(--contrast-hsl-200));
+	--contrast-color-300: hsl(var(--contrast-hsl-300));
+
+	--accent-color-100: hsl(var(--accent-hsl-100));
+	--accent-color-200: hsl(var(--accent-hsl-200));
+	--accent-color-300: hsl(var(--accent-hsl-300));
+
+	--code-color: var(--background-color-100);
+
+	--warning-hsl: 42, 100%, 48%;
+	--warning-color: hsl(var(--warning-hsl));
+
+	&.dark {
+		--code-color: var(--text-color-100);
+
+		--warning-hsl: 42, 100%, 8%;
+		--warning-invert: var(--text-color-100);
+	}
+}

@@ -51,16 +51,17 @@ $social: (
 	}
 
 	@each $name, $pair in $colors {
-		$color: nth($pair, 1);
-		$background: nth($pair, 2);
+		$background: nth($pair, 1);
+		$color: nth($pair, 2);
 
 		&.is-#{$name} {
-			--button-background: #{$background};
-			--button-color: #{$color};
-			--button-border-color: transparent;
+			background: $background;
+			color: $color;
+			border-color: transparent;
 
-			&:focus {
-				--button-border-color: #{scale($background, -30%)};
+			&:focus,
+			&:focus-visible {
+				border-color: scale($background, -30%);
 			}
 		}
 	}

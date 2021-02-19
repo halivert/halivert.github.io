@@ -1,7 +1,7 @@
 ---
 layout: category
 category: "Novedades"
-permalink: "/blog/novedades/"
+permalink: "/blog/news/"
 ---
 
 Enterate de las noticias más recientes relacionadas con... cualquier cosa.

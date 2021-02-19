@@ -11,9 +11,21 @@
     </li>
   </ul>
 
+  {%- if page.url == '/blog/' -%}
+    {%- assign blogClass = 'is-active' -%}
+  {%- endif -%}
+
   <ul class="menu-list my-1">
-    <li><a href="{{ site.url }}/blog">Blog</a></li>
-    <!--li><a href="{{ site.url }}/proyectos">Proyectos</a></li-->
+    <li>
+      <a 
+        class="{{ blogClass }}"
+        href="{{ site.url }}/blog"
+        >Blog</a
+      >
+    </li>
+    <!--li>
+      <a href="{{ site.url }}/projects">Proyectos</a>
+    </li-->
     {%- if page.search_bar -%}
       <li>
         <button type="button" class="menu-item" onclick="showSearchModal()">
