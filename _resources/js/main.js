@@ -70,8 +70,8 @@ function initThemeSwitcher(element) {
 
 	removeClass(icon, isDark ? "fa-moon" : "fa-sun")
 	addClass(icon, isDark ? "fa-sun" : "fa-moon")
-	removeClass(element, isDark ? "is-dark" : "is-warning")
-	addClass(element, isDark ? "is-warning" : "is-dark")
+	removeClass(element, isDark ? "is-light" : "is-dark")
+	addClass(element, isDark ? "is-dark" : "is-light")
 
 	removeClass(element, "is-invisible")
 }
