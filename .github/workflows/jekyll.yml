@@ -20,17 +20,9 @@ jobs:
           jekyll/builder:latest /bin/bash \
           -c "chmod 777 -R /srv/halivert"
 
-      # - name: Build yarn files
-      #   run: |
-      #     docker run \
-      #     -v ${{ github.workspace }}:/srv/halivert \
-      #     yarnpkg/dev:latest /bin/bash \
-      #     -c "cd /srv/halivert && yarn && yarn prod"
-
       - name: Build the site with jekyll
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          JEKYLL_ENV: production
         run: |
           docker run \
           -v ${{ github.workspace }}:/srv/halivert \

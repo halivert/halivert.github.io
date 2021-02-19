@@ -78,7 +78,7 @@
     />
 
     {%- capture js_ext -%}
-      {%- if jekyll.environment == 'production' -%} .min.js
+      {%- if jekyll.environment != 'local' -%} .min.js
       {%- else -%} .js
       {%- endif -%}
     {%- endcapture -%}
