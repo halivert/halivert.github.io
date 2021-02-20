@@ -1,9 +1,9 @@
 repository: "halivert/halivert.github.io"
 title: "Halivert"
 name: "Halí"
-description: >- # this means to ignore newlines until "baseurl:"
+description: >-
   Sitio de Halí Velázquez
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: ""
 url: "https://halivert.dev"
 timezone: "America/Mexico_City"
 logo: "/img/halivert-logo.png"
@@ -19,10 +19,6 @@ pagination:
   sort_field: "date"
   sort_reverse: true
   per_page: 7
-  # offset: 2
-  # permalink: '/page/:num/'
-  # title: ':title - page :num of :max'
-  # limit: 0
 
 plugins:
   - jekyll-feed
