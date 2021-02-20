@@ -69,3 +69,4 @@ exclude:
   - yarn-error.log
   - CNAME
   - /README.md
+  - release-notes.md
