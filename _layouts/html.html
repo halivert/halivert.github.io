@@ -97,7 +97,11 @@
       {% endif %}
 
       {% if page.title %}
-        {{ page.title }} | {{ site.title }}
+        {% if page.title != site.title %}
+          {{ page.title }} | {{ site.title }}
+        {% else %}
+          {{ page.title }}
+        {% endif %}
       {% else if site.description %}
         {{ site.title }} | {{ site.description }}
       {% else %}
