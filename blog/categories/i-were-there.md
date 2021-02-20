@@ -1,7 +1,11 @@
 ---
 layout: category
-category: "Ya me pasó"
+category: &category "Ya me pasó"
 permalink: "/blog/i-were-there/"
+pagination:
+  enabled: true
+  category: *category
+  per_page: 3
 ---
 
 Esta categoría intenta ayudar a las personas que pasan por problemas,

@@ -5,16 +5,24 @@ description: >- # this means to ignore newlines until "baseurl:"
   Sitio de Halí Velázquez
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://halivert.dev"
-paginate: 7
-paginate_path: "/blog/:num/"
 timezone: "America/Mexico_City"
 logo: "/img/halivert-logo.png"
 tagline: "Blog personal de un desarrollador"
 lang: "es_MX"
+markdown: "kramdown"
 twitter:
   username: "halivert"
 
-markdown: "kramdown"
+pagination:
+  enabled: true
+  permalink: "/:num/"
+  sort_field: "date"
+  sort_reverse: true
+  per_page: 7
+  # offset: 2
+  # permalink: '/page/:num/'
+  # title: ':title - page :num of :max'
+  # limit: 0
 
 plugins:
   - jekyll-feed
@@ -25,8 +33,7 @@ plugins:
   - jemoji
 
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -41,13 +48,11 @@ defaults:
       search_bar: true
       font_size: "is-size-5 is-size-6-mobile"
       image_types: "webp:image/webp,png:image/png"
-  -
-      scope:
-        path: "blog"
-      values:
-        search_bar: true
-  -
-    scope:
+  - scope:
+      path: "blog"
+    values:
+      search_bar: true
+  - scope:
       path: ""
     values:
       search_bar: false
@@ -69,4 +74,5 @@ exclude:
   - yarn-error.log
   - CNAME
   - /README.md
+  - convert
   - release-notes.md

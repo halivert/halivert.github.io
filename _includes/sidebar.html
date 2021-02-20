@@ -1,14 +1,12 @@
 <div class="container is-fluid has-text-centered">
   <h1 class="subtitle">Categorías</h1>
   <div>
-    {% for category in site.categories %}
-      {% assign url = category[0] | slugify | replace: 'á', 'a' %}
-      {% assign url = url | replace: 'é', 'e' | replace: 'í', 'i' %}
-      {% assign url = url | replace: 'ó', 'o' | replace: 'ú', 'u' %}
-      {% assign url = url | replace: 'ñ', 'ni' %}
-      <a class="sidebar-item" href="{{ site.url }}/blog/{{ url }}">
-        {{ category[0] }}
+    {%- for category in site.categories -%}
+      {%- assign categoryName = category[0] -%}
+      {%- assign slug = site.data.categories[categoryName].slug -%}
+      <a class="sidebar-item" href="{{ site.url }}/blog/{{ slug }}">
+        {{ categoryName }}
       </a>
-    {% endfor %}
+    {%- endfor -%}
   </div>
 </div>

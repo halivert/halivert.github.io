@@ -2,18 +2,16 @@
 layout: container
 ---
 
-<div class="has-text-centered">
+<div class="category-header">
   <h3 class="title is-1">{{ page.category }}</h3>
   <div class="subtitle">
     {{ content }}
   </div>
-  <hr>
 </div>
 
-<div class="columns">
+<div class="columns mt-6">
   <div class="column is-9">
-    {% assign category = page.category %}
-    {% for post in site.categories[category] %}
+    {% for post in paginator.posts %}
       <div>
         <p class="title is-2">
           <a class="has-text-primary" href="{{ site.url }}{{ post.url }}">
@@ -26,6 +24,7 @@ layout: container
         <br>
       </div>
     {% endfor %}
+    {% include paginator.html item=paginator %}
   </div>
   <div class="column">
     {% include sidebar.html %}
