@@ -97,16 +97,21 @@
 
       {% if page.title %}
         {{ page.title }} | {{ site.title }}
-      {% else %}
+      {% else if site.description %}
         {{ site.title }} | {{ site.description }}
+      {% else %}
+        {{ site.title }}
       {% endif %}
     </title>
 
     {% seo title=false %}
     {% if page.has_math %}
       {% include katex.html %}
+      <meta property="has_instant_view" content="false" />
     {% elsif page.has_instant_view %}
-      <meta property="has_instant_view" />
+      <meta property="has_instant_view" content="true"/>
+    {% else %}
+      <meta property="has_instant_view" content="false"/>
     {% endif %}
   </head>
 
