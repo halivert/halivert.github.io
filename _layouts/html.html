@@ -72,10 +72,11 @@
 
     <meta name="telegram:channel" content="@halivertsblog" />
 
-    <meta
-      name="monetization"
-      content="$ilp.uphold.com/yJJL4YrpRMQi"
-    />
+    {%- if site.payment_pointer -%}
+      <meta name="monetization" content="{{ site.payment_pointer }}" />
+    {%- else -%}
+      <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
+    {%- endif -%}
 
     {%- capture js_ext -%}
       {%- if jekyll.environment != 'local' -%} .min.js
@@ -126,6 +127,8 @@
       >
     {% endunless %}
 
+    {{ content }}
+
     <button
       id="theme-switcher"
       class="button theme-switcher"
@@ -136,8 +139,6 @@
         <i class="fas" aria-hidden="true"></i>
       </span>
     </button>
-
-    {{ content }}
 
     {% unless page.hide_foot or layout.hide_foot %}
       {% include footer.html %}
