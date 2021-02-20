@@ -28,4 +28,4 @@ jobs:
           -v ${{ github.workspace }}:/srv/halivert \
           -v ${{ github.workspace }}/_site:/srv/halivert/_site \
           jekyll/builder:latest /bin/bash \
-          -c "cd /srv/halivert && jekyll build"
+          -c "cd /srv/halivert && jekyll build --future"
