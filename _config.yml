@@ -13,6 +13,13 @@ markdown: "kramdown"
 twitter:
   username: "halivert"
 
+pagination:
+  enabled: true
+  permalink: "/:num/"
+  sort_field: "date"
+  sort_reverse: true
+  per_page: 7
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -21,13 +28,6 @@ plugins:
   - jekyll-gist
   - jekyll-github-metadata
   - jemoji
-
-pagination:
-  enabled: true
-  permalink: "/:num/"
-  sort_field: "date"
-  sort_reverse: true
-  per_page: 7
 
 defaults:
   - scope:
@@ -69,7 +69,6 @@ exclude:
   - package.json
   - yarn.lock
   - yarn-error.log
-  - CNAME
   - /README.md
   - convert
   - release-notes.md
