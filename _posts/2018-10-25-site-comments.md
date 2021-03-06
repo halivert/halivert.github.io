@@ -3,7 +3,7 @@ author: halivert
 category: "Novedades"
 date: "2018-10-25 09:48"
 last_modification: "2020-05-25 00:33"
-tags: ["Comentarios", "Novedades"]
+tags: ["Comentarios"]
 title: "Comentarios en el sitio"
 ---
 

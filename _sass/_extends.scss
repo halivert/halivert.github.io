@@ -5,3 +5,7 @@
 %block {
   @include block;
 }
+
+%unselectable {
+  @include unselectable;
+}

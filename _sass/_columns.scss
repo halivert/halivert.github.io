@@ -91,6 +91,8 @@
   }
 
   @include touch {
-    flex-flow: column nowrap;
+    &:not(.is-touch) {
+      flex-flow: column nowrap;
+    }
   }
 }

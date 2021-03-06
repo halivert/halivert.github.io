@@ -4,7 +4,7 @@ category: "Divagando"
 date: "2019-06-17 10:39"
 image: "/assets/2019-06-17-binary-clock/binary-clock.png"
 image_alt: "Reloj binario que marca las 23:53:49"
-tags: ["Reloj", "Binario", "Hora", "Aprender"]
+tags: ["Hora", "Aprender"]
 title: "Reloj binario"
 ---
 

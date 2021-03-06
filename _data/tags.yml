@@ -1,4 +1,40 @@
-principiantes:
-  color: is-danger
+c++:
+  color: is-blue
+creatividad:
+  color: is-creative
+flask:
+  color: is-pink
+git:
+  color: is-blue
+halivert.dev:
+  color: is-emerald
+inducción:
+  color: is-orange
+jekyll:
+  color: is-red
+julieta:
+  color: is-purple
+linux:
+  color: is-yellow
+memo:
+  color: is-emerald
+planta:
+  color: is-green-succulent
 preguntar:
-  color: is-warning
+  color: is-yellow
+principiantes:
+  color: is-red
+productividad:
+  color: is-mint
+python:
+  color: is-golden
+quora:
+  color: is-red
+suculenta:
+  color: is-green-succulent
+telegram:
+  color: is-blue
+vim:
+  color: is-pink
+vue.js:
+  color: is-vue

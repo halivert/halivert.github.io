@@ -1,79 +1,162 @@
 $colors: (
-	"warning": (
-		var(--warning-color),
-		var(--warning-invert),
-	),
-	"primary": (
-		var(--primary-color-100),
-		var(--text-color-100),
-	),
-	"golden": (
-		hsl(43, 74%, 49%),
-		var(--text-color-100),
-	),
+  "yellow": (
+    var(--yellow-color),
+    var(--yellow-invert),
+  ),
+  "primary": (
+    var(--primary-color-100),
+    var(--text-color-100),
+  ),
+  "golden": (
+    hsl(43, 74%, 49%),
+    var(--text-color-100),
+  ),
 );
 
+$only-tag-colors: (
+  "yellow": (
+    var(--yellow-color),
+    var(--yellow-invert),
+  ),
+  "red": (
+    var(--red-color),
+    var(--red-invert),
+  ),
+  "green-succulent": (
+    var(--green-succulent-color),
+    var(--green-succulent-invert),
+  ),
+  "purple": (
+    var(--purple-color),
+    var(--purple-invert),
+  ),
+  "creative": (
+    var(--creative-gradient),
+    var(--creative-invert),
+  ),
+  "blue": (
+    var(--blue-color),
+    var(--blue-invert),
+  ),
+  "orange": (
+    var(--orange-color),
+    var(--orange-invert),
+  ),
+  "emerald": (
+    var(--emerald-color),
+    var(--emerald-invert),
+  ),
+  "pink": (
+    var(--pink-color),
+    var(--pink-invert),
+  ),
+  "vue": (
+    var(--vue-color),
+    var(--vue-invert),
+  ),
+  "mint": (
+    var(--mint-color),
+    var(--mint-invert),
+  ),
+);
+
+$tag-colors: map_merge($colors, $only-tag-colors);
+
 :root {
-	--background-hsl-100: var(--background-h), var(--background-s),
-		var(--background-l);
-	--background-hsl-200: var(--background-h), var(--background-s),
-		calc(var(--background-l) + (6% * var(--dark)));
-	--background-hsl-300: var(--background-h), var(--background-s),
-		calc(var(--background-l) + (12% * var(--dark)));
+  --background-hsl-100: var(--background-h), var(--background-s),
+    var(--background-l);
+  --background-hsl-200: var(--background-h), var(--background-s),
+    calc(var(--background-l) + (6% * var(--dark)));
+  --background-hsl-300: var(--background-h), var(--background-s),
+    calc(var(--background-l) + (12% * var(--dark)));
 
-	--text-hsl-100: var(--text-h), var(--text-s), var(--text-l);
-	--text-hsl-200: var(--text-h), var(--text-s),
-		calc(var(--text-l) - (6% * var(--dark)));
-	--text-hsl-300: var(--text-h), var(--text-s),
-		calc(var(--text-l) - (12% * var(--dark)));
+  --text-hsl-100: var(--text-h), var(--text-s), var(--text-l);
+  --text-hsl-200: var(--text-h), var(--text-s),
+    calc(var(--text-l) - (6% * var(--dark)));
+  --text-hsl-300: var(--text-h), var(--text-s),
+    calc(var(--text-l) - (12% * var(--dark)));
 
-	--primary-hsl-100: var(--primary-h), var(--primary-s), var(--primary-l);
-	--primary-hsl-200: var(--primary-h), var(--primary-s),
-		calc(var(--primary-l) + (6% * var(--dark)));
-	--primary-hsl-300: var(--primary-h), var(--primary-s),
-		calc(var(--primary-l) + (12% * var(--dark)));
+  --primary-hsl-100: var(--primary-h), var(--primary-s), var(--primary-l);
+  --primary-hsl-200: var(--primary-h), var(--primary-s),
+    calc(var(--primary-l) + (6% * var(--dark)));
+  --primary-hsl-300: var(--primary-h), var(--primary-s),
+    calc(var(--primary-l) + (12% * var(--dark)));
 
-	--contrast-hsl-100: var(--contrast-h), var(--contrast-s), var(--contrast-l);
-	--contrast-hsl-200: var(--contrast-h), var(--contrast-s),
-		calc(var(--contrast-l) - (6% * var(--dark)));
-	--contrast-hsl-300: var(--contrast-h), var(--contrast-s),
-		calc(var(--contrast-l) - (12% * var(--dark)));
+  --contrast-hsl-100: var(--contrast-h), var(--contrast-s), var(--contrast-l);
+  --contrast-hsl-200: var(--contrast-h), var(--contrast-s),
+    calc(var(--contrast-l) - (6% * var(--dark)));
+  --contrast-hsl-300: var(--contrast-h), var(--contrast-s),
+    calc(var(--contrast-l) - (12% * var(--dark)));
 
-	--accent-hsl-100: var(--accent-h), var(--accent-s), var(--accent-l);
-	--accent-hsl-200: var(--accent-h), var(--accent-s),
-		calc(var(--accent-l) - (6%));
-	--accent-hsl-300: var(--accent-h), var(--accent-s),
-		calc(var(--accent-l) - (12%));
+  --accent-hsl-100: var(--accent-h), var(--accent-s), var(--accent-l);
+  --accent-hsl-200: var(--accent-h), var(--accent-s),
+    calc(var(--accent-l) + (8% * var(--dark)));
+  --accent-hsl-300: var(--accent-h), var(--accent-s),
+    calc(var(--accent-l) + (16% * var(--dark)));
 
-	--background-color-100: hsl(var(--background-hsl-100));
-	--background-color-200: hsl(var(--background-hsl-200));
-	--background-color-300: hsl(var(--background-hsl-300));
+  @each $color in ("background", "text", "primary", "contrast", "accent") {
+    @each $num in (100, 200, 300) {
+      --#{$color}-color-#{$num}: hsl(var(--#{$color}-hsl-#{$num}));
+    }
+  }
 
-	--text-color-100: hsl(var(--text-hsl-100));
-	--text-color-200: hsl(var(--text-hsl-200));
-	--text-color-300: hsl(var(--text-hsl-300));
+  --code-color: var(--background-color-100);
 
-	--primary-color-100: hsl(var(--primary-hsl-100));
-	--primary-color-200: hsl(var(--primary-hsl-200));
-	--primary-color-300: hsl(var(--primary-hsl-300));
+  @each $pair in $only-tag-colors {
+    $name: nth($pair, 1);
+    --#{$name}-color: hsl(var(--#{$name}-hsl));
+  }
 
-	--contrast-color-100: hsl(var(--contrast-hsl-100));
-	--contrast-color-200: hsl(var(--contrast-hsl-200));
-	--contrast-color-300: hsl(var(--contrast-hsl-300));
+  --yellow-hsl: 42, 100%, 48%;
 
-	--accent-color-100: hsl(var(--accent-hsl-100));
-	--accent-color-200: hsl(var(--accent-hsl-200));
-	--accent-color-300: hsl(var(--accent-hsl-300));
+  --red-hsl: 0, 100%, 72%;
 
-	--code-color: var(--background-color-100);
+  --green-succulent-hsl: 123, 27%, 64%;
 
-	--warning-hsl: 42, 100%, 48%;
-	--warning-color: hsl(var(--warning-hsl));
+  --purple-hsl: 280, 84%, 72%;
 
-	&.dark {
-		--code-color: var(--text-color-100);
+  --creative-a: hsl(162, 100%, 72%);
+  --creative-b: hsl(102, 100%, 72%);
+  --creative-gradient: linear-gradient(
+    to top right,
+    var(--creative-a),
+    var(--creative-b)
+  );
 
-		--warning-hsl: 42, 100%, 8%;
-		--warning-invert: var(--text-color-100);
-	}
+  --blue-hsl: 208, 100%, 68%;
+
+  --orange-hsl: 11, 90%, 68%;
+
+  --emerald-hsl: 180, 100%, 38%;
+
+  --pink-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+
+  --vue-hsl: 153, 48%, 49%;
+
+  --mint-hsl: 153, 48%, 49%;
+
+  &.dark {
+    --code-color: var(--text-color-100);
+
+    --yellow-hsl: 42, 100%, 8%;
+
+    --red-hsl: 0, 100%, 13%;
+
+    --green-succulent-hsl: 123, 27%, 25%;
+
+    --purple-hsl: 280, 84%, 21%;
+
+    --creative-a: hsl(162, 100%, 15%);
+    --creative-b: hsl(102, 100%, 15%);
+
+    --blue-hsl: 208, 100%, 25%;
+
+    --orange-hsl: 11, 90%, 36%;
+
+    --emerald-hsl: 180, 100%, 10%;
+
+    --vue-hsl: 211, 28%, 29%;
+
+    --mint-hsl: 153, 48%, 28%;
+  }
 }

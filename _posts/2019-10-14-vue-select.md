@@ -7,7 +7,7 @@ tags: ["Vue.js", "Select"]
 title: "Select en Vue.js"
 ---
 
-<div class="notification is-warning" markdown="1">
+<div class="notification is-yellow" markdown="1">
 Este artículo fue escrito hace más de un año; en la actualidad
 utilizo la biblioteca [Buefy](https://buefy.org/), que resulta más práctica y mejor implementada,
 sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene
