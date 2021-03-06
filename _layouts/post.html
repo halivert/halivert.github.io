@@ -9,10 +9,10 @@ layout: container
 {% assign author = site.data.authors[page.author] %}
 
 <div class="columns">
-  <div class="column is-offset-1">
+  <div class="column is-offset-1-desktop">
     <div class="reader">
-      <div id="title-div" class="columns is-vcentered is-gapless">
-        <header class="column">
+      <div id="title-div" class="columns is-vcentered">
+        <header class="column is-9">
           <h1 class="title is-2 has-text-primary">{{
             page.title
           }}</h1>
@@ -56,6 +56,19 @@ layout: container
             %}
           </div>
         {% endif %}
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column is-9 tags">
+          {%- for tag in page.tags -%}
+          {%- assign downTag = tag | downcase -%}
+          <span class="tag {{ site.data.tags[downTag].color }}">{{
+            tag
+            }}</span>
+          {%- endfor -%}
+        </div>
+        {%- if page.image -%}
+          <div class="column has-text-right">
+        {%- endif -%}
       </div>
       <hr />
       <section id="content" class="content">

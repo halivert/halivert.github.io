@@ -3,7 +3,7 @@ layout: container
 ---
 
 <div class="columns">
-  <div class="column is-9">
+  <div class="column is-9-desktop">
     {% for post in paginator.posts %}
       <section class="post-section">
         <h2 class="title is-2">
@@ -24,7 +24,7 @@ layout: container
             {%- assign path = postImage | prepend: site.url -%}
             {%
               include picture.html
-                class="column is-3"
+                class="column is-3-desktop"
                 path=path
                 alt=post.image_alt
                 types=post.image_types

@@ -9,6 +9,24 @@
   min-width: 20ch;
 
   @include desktop {
+    &.is-narrow-desktop {
+      flex: none;
+      width: unset;
+    }
+
+    @for $i from 0 through 12 {
+      &.is-#{$i}-desktop {
+        flex: none;
+        width: percentage($i / 12);
+      }
+
+      &.is-offset-#{$i}-desktop {
+        margin-left: percentage($i / 12);
+      }
+    }
+  }
+
+  @include touch {
     &.is-narrow {
       flex: none;
       width: unset;
@@ -21,24 +39,6 @@
       }
 
       &.is-offset-#{$i} {
-        margin-left: percentage($i / 12);
-      }
-    }
-  }
-
-  @include touch {
-    &.is-narrow-touch {
-      flex: none;
-      width: unset;
-    }
-
-    @for $i from 0 through 12 {
-      &.is-#{$i}-touch {
-        flex: none;
-        width: percentage($i / 12);
-      }
-
-      &.is-offset-#{$i}-touch {
         margin-left: percentage($i / 12);
       }
     }

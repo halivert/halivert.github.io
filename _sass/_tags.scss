@@ -1,0 +1,26 @@
+.tag {
+	font-size: 0.75em;
+	border-radius: var(--small-radius);
+	padding: 0.25em 0.5em;
+	text-align: center;
+	cursor: default;
+
+	background: var(--background-color-200);
+
+	@each $name, $pair in $colors {
+		$background: nth($pair, 1);
+		$color: nth($pair, 2);
+
+		&.is-#{$name} {
+			background: $background;
+			color: $color;
+			border-color: transparent;
+		}
+	}
+}
+
+.tags {
+	.tag:not(:last-child) {
+		margin-right: 0.5em;
+	}
+}

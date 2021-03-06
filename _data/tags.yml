@@ -1,0 +1,4 @@
+principiantes:
+  color: is-danger
+preguntar:
+  color: is-warning
