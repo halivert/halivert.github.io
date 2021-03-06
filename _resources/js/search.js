@@ -21,11 +21,11 @@ function hideSearchModal() {
 }
 
 function inputSearch(input) {
-  if (!input || !idx) return
+  if (!input || !window.idx) return
 
   const searchTerm = input.value
 
-  let results = searchTerm ? idx.search(searchTerm) : []
+  let results = searchTerm ? window.idx.search(searchTerm) : []
   displaySearchResults(results, window.store)
 }
 

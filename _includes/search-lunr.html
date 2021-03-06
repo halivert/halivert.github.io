@@ -52,26 +52,30 @@
     {%- endfor -%}
   };
 
-  try {
-    var idx = lunr(function() {
-      this.field('id');
-      this.field('title', { boost: 10 });
-      this.field('categories');
-      this.field('tags');
-      this.field('author');
+  if (document.getElementById("lunr-script")) {
+    document.getElementById("lunr-script").addEventListener("load", () => {
+      try {
+        window.idx = lunr(function() {
+          this.field("id");
+          this.field("title", { boost: 10 });
+          this.field("categories");
+          this.field("tags");
+          this.field("author");
 
-      for (let key in window.store) {
-        this.add({
-          'id': key,
-          'title': window.store[key].title,
-          'categories': window.store[key].categories,
-          'tags': window.store[key].tags,
-          'author': window.store[key].author,
+          for (let key in window.store) {
+            this.add({
+              "id": key,
+              "title": window.store[key].title,
+              "categories": window.store[key].categories,
+              "tags": window.store[key].tags,
+              "author": window.store[key].author,
+            });
+          }
         });
       }
+      catch (exception) {
+          window.idx = [];
+      }
     });
-  }
-  catch (exeption) {
-      var idx = [];
   }
 </script>

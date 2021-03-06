@@ -87,7 +87,11 @@
     {%- assign jsAssets = "/assets/js" | prepend: site.url -%}
 
     <script src="{{ jsAssets }}/main{{ js_ext }}"></script>
-    <script src="{{ jsAssets }}/lunr{{ js_ext }}" defer></script>
+    <script
+      id="lunr-script"
+      src="{{ jsAssets }}/lunr{{ js_ext }}"
+      defer
+    ></script>
     <script src="{{ jsAssets }}/search{{ js_ext }}" defer></script>
     <script src="{{ jsAssets }}/themeSwitcher{{ js_ext }}" defer></script>
 
