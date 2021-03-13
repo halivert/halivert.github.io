@@ -125,21 +125,21 @@ body {
 	color: var(--text-color-100);
 	font-size: var(--font-size);
 
-	grid-template-rows: 1fr auto;
-	grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
 
 	grid-template-areas:
-		"menu main"
-		"footer footer";
+		"menu"
+		"main"
+		"footer";
 
-	@include touch {
-		grid-template-rows: auto 1fr auto;
-		grid-template-columns: 100%;
+	@include desktop {
+		grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
 
 		grid-template-areas:
-			"menu"
-			"main"
-			"footer";
+			"empty empty"
+			"menu main"
+			"footer footer";
 	}
 
 	-webkit-transition: var(--transition);
@@ -158,10 +158,10 @@ main#main-container {
 }
 
 .section {
-	padding: 1rem 3rem;
+	padding: 0.5rem 1rem;
 
-	@include touch {
-		padding: 0.5rem 1rem;
+	@include desktop {
+		padding: 1rem 3rem;
 	}
 }
 
@@ -176,11 +176,10 @@ main#main-container {
 .reader {
 	width: calc(100% - var(--code-padding));
 	max-width: 70ch;
+	font-size: nth($sizes, 6);
 
-	font-size: nth($sizes, 5);
-
-	@include touch {
-		font-size: nth($sizes, 6);
+	@include desktop {
+		font-size: nth($sizes, 5);
 	}
 }
 
@@ -193,8 +192,6 @@ main#main-container {
 }
 
 .theme-switcher {
-	@include control-small;
-
 	position: fixed;
 	top: nth($sizes, 3);
 	right: 0.5rem;
@@ -318,14 +315,12 @@ img:not([alt]) {
 	@extend %inline-block;
 
 	max-height: 400px;
+	margin-bottom: 0.5em;
 
 	@include desktop {
 		max-height: 200px;
 		max-width: 200px;
-	}
-
-	@include touch {
-		margin-bottom: 0.5em;
+		margin-bottom: 0;
 	}
 }
 
@@ -351,19 +346,19 @@ code {
 }
 
 pre {
-  -webkit-overflow-scrolling: touch;
-  font-size: 0.875em;
-  overflow-x: auto;
-  padding: 1.25rem 1.5rem;
-  white-space: pre;
-  word-wrap: normal;
-  margin-bottom: 1em;
+	-webkit-overflow-scrolling: touch;
+	font-size: 0.875em;
+	overflow-x: auto;
+	padding: 1.25rem 1.5rem;
+	white-space: pre;
+	word-wrap: normal;
+	margin-bottom: 1em;
 
-  code {
-    color: var(--code-color);
-    font-size: 1em;
-    padding: 0;
-  }
+	code {
+		color: var(--code-color);
+		font-size: 1em;
+		padding: 0;
+	}
 }
 
 .equation {
@@ -453,19 +448,27 @@ pre {
 
 .repo {
 	&.fixed-top-bar {
-		grid-area: menu;
+		position: absolute;
 		z-index: 1;
 		text-align: center;
 
+		@include desktop {
+			grid-area: menu;
+			position: relative;
+		}
+
 		.button.github {
 			border-radius: var(--small-radius);
-			margin-top: nth($sizes, 3);
+			margin-top: 0;
 			transform: translateY(-50%);
 
-			@include touch {
-				@include control-small;
+			@include desktop {
+				@include control-medium;
 
-				margin-top: 0;
+				margin-top: nth($sizes, 3);
+			}
+
+			@include touch {
 				position: absolute;
 				top: nth($sizes, 3);
 				left: 0.5rem;
@@ -473,25 +476,19 @@ pre {
 				background: var(--background-color-100);
 			}
 		}
-
-		@include touch {
-			position: absolute;
-			top: 0;
-			left: 0;
-			grid-area: none;
-		}
 	}
 
 	&.hero {
 		width: 100%;
 		text-align: center;
 		background: var(--background-color-200);
-		padding: 1em 5em;
 		grid-area: main;
+		padding: 2em 1em 1em;
+		margin-bottom: 0.5rem;
 
-		@include touch {
-			margin-bottom: 0.5rem;
-			padding: 2em 1em 1em;
+		@include desktop {
+			padding: 1em 5em;
+			margin-bottom: 0;
 		}
 	}
 }

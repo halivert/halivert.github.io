@@ -20,10 +20,6 @@ $social: (
 	white-space: nowrap;
 	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
 
-	&.is-small {
-		@include control-small;
-	}
-
 	.icon {
 		height: 1.5em;
 		width: 1.5em;
