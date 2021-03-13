@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "Como googlear"
-date: "2021-03-13 01:29"
+date: "2021-03-13 11:31"
 category: "Ya me pasó"
 tags: ["Google", "Principiantes", "Programación"]
 ---
