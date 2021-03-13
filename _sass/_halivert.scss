@@ -110,10 +110,6 @@ html {
 	overflow-y: scroll;
 	scroll-behavior: smooth;
 	scroll-padding-top: 1rem;
-
-	&.is-clipped {
-		overflow-y: hidden;
-	}
 }
 
 body {
@@ -151,6 +147,10 @@ aside.menu {
 
 	-webkit-transition: var(--transition);
 	transition: var(--transition);
+
+	@include desktop {
+		position: sticky;
+	}
 }
 
 main#main-container {
