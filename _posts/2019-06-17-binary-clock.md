@@ -2,7 +2,7 @@
 author: "halivert"
 category: "Divagando"
 date: "2019-06-17 10:39"
-image: "/assets/2019-06-17-binary-clock/binary-clock.png"
+image: "/assets/2019-06-binary-clock/binary-clock.png"
 image_alt: "Reloj binario que marca las 23:53:49"
 tags: ["Hora", "Aprender"]
 title: "Reloj binario"
@@ -59,7 +59,7 @@ Ahora vienen las diferencias.
 
 Se ve como el de aquí arriba, y el primer número (la primer potencia de dos)
 es el cuadrito de hasta abajo en la segunda columna de cada bloque...
-<article class="columns">
+<article class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -75,7 +75,7 @@ es el cuadrito de hasta abajo en la segunda columna de cada bloque...
 Este reloj marca las 23 horas: 2⁰ + 2¹ + 2² + 2⁴ = 23.
 
 Análogamente con los minutos y segundos.
-<article class="columns">
+<article class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -107,7 +107,7 @@ Mencionabamos que son muy similares, salvo que en este formato, cada columna
 equivale a un digito. Así, la primer columna equivale a las décimas de las
 horas, la segunda a sus unidades, la tercera, decimas de los minutos, y así
 sucesivamente.
-<article class="columns">
+<article class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -120,7 +120,7 @@ sucesivamente.
   </p>
 </article>
 
-<article class="columns">
+<article class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -142,7 +142,7 @@ En conjunto, este reloj marca las: **00:23:21**.
 Te dejo otras capturas de relojes binarios para que practiques.
 
 #### Práctica binario
-<div class="columns is-multiline">
+<div class="columns is-multiline is-printable">
   <div class="column">
     {%
       include picture.html
@@ -174,7 +174,7 @@ Te dejo otras capturas de relojes binarios para que practiques.
 </div>
 
 #### Práctica BCD
-<div class="columns is-multiline">
+<div class="columns is-printable is-multiline">
   <div class="column">
     {%
       include picture.html

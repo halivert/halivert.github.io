@@ -38,7 +38,7 @@ Lo más importante es verificar las fuentes de donde proviene un mensaje o
 email, para esto, muchas veces hace falta únicamente revisar el correo
 electrónico o la cuenta que te envía el mensaje. Si ves correos como...
 
-<div class="columns">
+<div class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -54,7 +54,7 @@ electrónico o la cuenta que te envía el mensaje. Si ves correos como...
     %}
   </div>
 </div>
-<div class="columns">
+<div class="columns is-printable">
   <div class="column">
     {%
       include picture.html
@@ -108,7 +108,7 @@ ella.
 Es sencillo activar la verificación en dos pasos. Aquí muestro los nombres que
 tiene en Telegram, Twitter y Snapchat.
 
-<div class="columns">
+<div class="columns is-printable page-break-before">
   <div class="column">
     {%
       include picture.html

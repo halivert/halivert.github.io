@@ -43,7 +43,7 @@ así con los otros dos caracteres de control.
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{ site.url }}/assets/2019-07-23-vim-macro-for-bulma/vim-macro.mp4"
+      src="{{ site.url }}/assets/2019-07-vim-macro-for-bulma/vim-macro.mp4"
       type="video/mp4">
   </video>
 </div>
@@ -57,7 +57,7 @@ esos macros y hacer lo siguiente:
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{ site.url }}/assets/2019-07-23-vim-macro-for-bulma/vim-macro-used.mp4"
+      src="{{ site.url }}/assets/2019-07-vim-macro-for-bulma/vim-macro-used.mp4"
       type="video/mp4">
   </video>
 </div>

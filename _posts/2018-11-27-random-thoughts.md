@@ -2,7 +2,7 @@
 author: halivert
 category: "Divagando"
 date: "2018-11-27 17:16"
-image: "/assets/2018-11-27-random-thoughts/random-thoughts-title.gif"
+image: "/assets/2018-11-random-thoughts/random-thoughts-title.gif"
 image_alt: "Persona surfeando"
 image_types: "webp:image/webp,gif:image/gif"
 tags: ["Internet", "Quora", "Compartir", "Conocimiento"]

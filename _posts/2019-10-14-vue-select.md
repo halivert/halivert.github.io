@@ -9,10 +9,10 @@ title: "Select en Vue.js"
 
 <div class="notification is-yellow" markdown="1">
 Este artículo fue escrito hace más de un año; en la actualidad
-utilizo la biblioteca [Buefy](https://buefy.org/), que resulta más práctica y mejor implementada,
-sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene
-que ser tan extrema como la planteada en este artículo y de la que escribiré
-pronto.
+utilizo la biblioteca [Buefy](https://buefy.org/), que resulta más práctica y
+mejor implementada, sugiero utilizar dicha biblioteca con una capa de
+personalización, que no tiene que ser tan extrema como la planteada en este
+artículo y de la que escribiré pronto.
 </div>
 
 Si utilizas [Vue.js][1] seguramente sabrás que hacer componentes genéricos es
@@ -21,6 +21,7 @@ de los casos) y las siguientes solo lo reutilizas.
 
 Sin embargo crear un componente que funcione adecuadamente no siempre es
 sencillo, es por eso que escribo esta guía para hacer un select personalizado.
+
 <!-- Seguir leyendo -->
 
 Lo primero que haremos es nombrar el componente. Según la [guía de estilo de
@@ -37,6 +38,7 @@ información para el usuario.
 Y ahora pasamos al select:
 
 Su estructura general es la siguiente:
+
 ```html
 <template>
   <h-field>
@@ -67,28 +69,31 @@ ellos.
   :errors="errors"
   :display-errors="displayErrors"
   :has-addons="hasAddons"
->
+></h-field>
 ```
 
 Nuestro select puede ser de tamaño completo y además puede tener errores. En
 bulma utilizamos un `div` para este fin.
+
 ```html
 <div
   class="select"
   :class="{ 'is-fullwidth': isFullwidth, 'is-danger': errorsActive }"
->
+></div>
 ```
 
 Agregamos también el select y utilizaremos el `v-model` para que nuestra
 selección se actualice en las dos direcciones (vista-modelo, modelo-vista). Y
 agregamos todos los atributos que se coloquen en la etiqueta del componente
 con `v-bind="$attrs"`.
+
 ```html
-<select v-model="selectedItem" v-bind="$attrs">
+<select v-model="selectedItem" v-bind="$attrs"></select>
 ```
 
 Tenemos una opción deshabilitada en donde colocaremos más información para el
 usuario, que además se elige por defecto.
+
 ```html
 <option :value="placeholderValue" disabled>
   {%raw%}{{ placeholder }}{%endraw%}
@@ -97,6 +102,7 @@ usuario, que además se elige por defecto.
 
 Y después agregamos todas las opciones que queremos que contenga nuestro
 select.
+
 ```html
 <option
   v-for="(element, index) in elements"
@@ -111,6 +117,7 @@ Utilizaremos el atributo `idProperty` porque nuestros datos pueden no ser
 homogéneos y también `displayProperty` por la misma razón, en todo caso
 imprimimos los elementos y casi estamos listos para el script. Por último
 agregamos el espacio donde pueden ir (o no), algunos anexos.
+
 ```html
 <template #addons>
   <slot name="addons"></slot>
@@ -121,6 +128,7 @@ Ahora sí pasamos al código del script. Importamos el componente que creamos
 hace unos momentos y después de exportar el nuevo componente (HSelect), y
 nombrarlo, evitaremos que el elemento padre `h-field` herede los atributos que
 se coloquen en su etiqueta.
+
 ```js
 import HField from "./HField.vue";
 
@@ -135,6 +143,7 @@ export default {
 Queremos saber si hay errores activos, cual es el elemento seleccionado y
 cuales son los elementos actuales, así los datos que tendrá nuestro componente
 son los siguientes:
+
 ```js
 data() {
   return {
@@ -162,6 +171,7 @@ un `v-model` se actualice al realizar un cambio en nuestro select.
 
 Por último observamos el atributo `elements` y así, cuando nuestros elementos
 cambien, tendremos control del elemento seleccionado.
+
 ```js
 watch: {
   value(newValue) {
@@ -192,6 +202,7 @@ watch: {
 
 Cuando creamos el componente, queremos asignar los elementos y si existen
 errores, mostrarlos.
+
 ```js
 created() {
   this.elements = this.initialElements;
@@ -205,6 +216,7 @@ created() {
 Tenemos los métodos que nos ayudarán a ocultar errores, revisar si existe un
 elemento en nuestra lista y obtener el elemento seleccionado, además de uno
 que solo compara que el parámetro no sea `null` ni `undefined`.
+
 ```js
 methods: {
   hideError() {
@@ -233,6 +245,7 @@ methods: {
 ```
 
 Y por último tenemos las propiedades, que _grosso modo_ se ven así:
+
 ```js
 props: {
   label: String,
@@ -258,6 +271,7 @@ Vue.js.
 
 Este es un ejemplo de caso de uso.
 {%raw%}
+
 ```html
 <h-select
   label="{{ __('areas.area') }}"
@@ -270,6 +284,7 @@ Este es un ejemplo de caso de uso.
   required>
 </h-select>
 ```
+
 {%endraw%}
 
 Podemos ver que asignar una etiqueta, elementos en forma de json, un

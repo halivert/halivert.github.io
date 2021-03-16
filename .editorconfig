@@ -1,5 +1,10 @@
 root = true
 
-[*.{html,md,yml,scss}]
-indent_style = tab
+[*]
 indent_size = 2
+
+[*.{html,scss}]
+indent_style = tab
+
+[*.{yml,md}]
+indent_style = space

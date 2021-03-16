@@ -36,32 +36,34 @@
 	--accent-s: 42%;
 	--accent-l: 66%;
 
-	--transition: background 200ms linear;
+	--transition: 200ms linear;
 
-	&.dark {
-		--dark: 1;
+	@media screen {
+		&.dark {
+			--dark: 1;
 
-		--background-h: 240;
-		--background-s: 23%;
-		--background-l: 5%;
+			--background-h: 240;
+			--background-s: 23%;
+			--background-l: 5%;
 
-		--text-h: 249;
-		--text-s: 21%;
-		--text-l: 83%;
+			--text-h: 249;
+			--text-s: 21%;
+			--text-l: 83%;
 
-		--primary-h: 216;
-		--primary-s: 41%;
-		--primary-l: 30%;
+			--primary-h: 216;
+			--primary-s: 41%;
+			--primary-l: 30%;
 
-		--contrast-h: 206;
-		--contrast-s: 47%;
-		--contrast-l: 60%;
+			--contrast-h: 206;
+			--contrast-s: 47%;
+			--contrast-l: 60%;
 
-		--accent-h: 322;
-		--accent-s: 42%;
-		--accent-l: 46%;
+			--accent-h: 322;
+			--accent-s: 42%;
+			--accent-l: 46%;
 
-		--github-primary: #f0f6fc;
+			--github-primary: #f0f6fc;
+		}
 	}
 
 	--github-primary: #24292e;
@@ -138,15 +140,15 @@ body {
 			"footer footer";
 	}
 
-	-webkit-transition: var(--transition);
-	transition: var(--transition);
+	-webkit-transition: background var(--transition);
+	transition: background var(--transition);
 }
 
 aside.menu {
 	grid-area: menu;
 
-	-webkit-transition: var(--transition);
-	transition: var(--transition);
+	-webkit-transition: background var(--transition);
+	transition: background var(--transition);
 
 	@include desktop {
 		position: sticky;
@@ -250,11 +252,12 @@ main#main-container {
 	background-color: var(--accent-color-300);
 }
 
-.dark img,
-.dark picture,
-.dark video {
+img,
+picture,
+video {
 	&:not(.dark) {
-		filter: brightness(70%);
+		filter: brightness(calc(70% - ((var(--dark) - 1) * 15%)));
+		transition: filter var(--transition);
 	}
 }
 
@@ -538,6 +541,10 @@ sup.ref {
 	@include desktop {
 		border-style: var(--border-style) none none var(--border-style);
 	}
+}
+
+.printable {
+	display: none;
 }
 
 @import "gist";

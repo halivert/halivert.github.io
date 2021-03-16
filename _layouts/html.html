@@ -1,155 +1,161 @@
 <!DOCTYPE html>
 <html lang="es-MX" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
 
-    <script type="module">
-      import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
-    </script>
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script>
 
-    {%- assign cssAssets = "/assets/css" | prepend: site.url -%}
+		{%- assign cssAssets = "/assets/css" | prepend: site.url -%}
 
-    <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
+		<link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
 
-    {%-
-      assign gistTheme = "https://cdn.rawgit.com"
-        | append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
-        | append: "/solarized-dark.css"
-    -%}
+		{%-
+			assign gistTheme = "https://cdn.rawgit.com"
+				| append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
+				| append: "/solarized-dark.css"
+		-%}
 
-    <link
-      rel="stylesheet"
-      href="{{ gistTheme }}"
-      media="print"
-      onload="this.media='all'; this.onload=null;"
-    />
-    <noscript>
-      <link rel="stylesheet" href="{{ gistTheme }}" />
-    </noscript>
+		<link
+			rel="stylesheet"
+			href="{{ gistTheme }}"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="{{ gistTheme }}" />
+		</noscript>
 
-    <link
-      rel="stylesheet"
-      href="{{ cssAssets }}/fa.min.css"
-      media="print"
-      onload="this.media='all'; this.onload=null;"
-    />
-    <noscript>
-      <link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
-    </noscript>
+		<link
+			rel="stylesheet"
+			href="{{ cssAssets }}/print.css"
+			media="print"
+		/>
 
-    <link
-      rel="stylesheet"
-      href="{{ cssAssets }}/solarized.css"
-      media="print"
-      onload="this.media='all'; this.onload=null;"
-    />
-    <noscript>
-      <link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
-    </noscript>
+		<link
+			rel="stylesheet"
+			href="{{ cssAssets }}/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
+		</noscript>
 
-    {% include unix_timestamp.html %}
-    {%- assign author = site.data.authors[page.author] -%}
-    {%- if author and author.first_name -%}
-      <meta property="author:name" content="{{ author.first_name }}" />
-    {%- else -%}
-      <meta property="author:name" content="" />
-    {%- endif -%}
+		<link
+			rel="stylesheet"
+			href="{{ cssAssets }}/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
+		</noscript>
 
-    {%- if author and author.social -%}
-      {%- assign telegram = author.social | where: "type", "telegram" -%}
-      {% if telegram.first and telegram.first.url %}
-        <meta property="telegram:author" content="{{ telegram.first.url }}" />
-      {% else %}
-        <meta property="telegram:author" content="" />
-      {% endif %}
-    {%- else -%}
-      <meta property="telegram:author" content="" />
-    {%- endif -%}
+		{% include unix_timestamp.html %}
+		{%- assign author = site.data.authors[page.author] -%}
+		{%- if author and author.first_name -%}
+			<meta property="author:name" content="{{ author.first_name }}" />
+		{%- else -%}
+			<meta property="author:name" content="" />
+		{%- endif -%}
 
-    <meta name="telegram:channel" content="@halivertsblog" />
+		{%- if author and author.social -%}
+			{%- assign telegram = author.social | where: "type", "telegram" -%}
+			{% if telegram.first and telegram.first.url %}
+				<meta property="telegram:author" content="{{ telegram.first.url }}" />
+			{% else %}
+				<meta property="telegram:author" content="" />
+			{% endif %}
+		{%- else -%}
+			<meta property="telegram:author" content="" />
+		{%- endif -%}
 
-    {%- if site.payment_pointer -%}
-      <meta name="monetization" content="{{ site.payment_pointer }}" />
-    {%- else -%}
-      <meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
-    {%- endif -%}
+		<meta name="telegram:channel" content="@halivertsblog" />
 
-    {%- capture js_ext -%}
-      {%- if jekyll.environment != 'local' -%} .min.js
-      {%- else -%} .js
-      {%- endif -%}
-    {%- endcapture -%}
+		{%- if site.payment_pointer -%}
+			<meta name="monetization" content="{{ site.payment_pointer }}" />
+		{%- else -%}
+			<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
+		{%- endif -%}
 
-    {%- assign jsAssets = "/assets/js" | prepend: site.url -%}
+		{%- capture js_ext -%}
+			{%- if jekyll.environment != 'local' -%} .min.js
+			{%- else -%} .js
+			{%- endif -%}
+		{%- endcapture -%}
 
-    <script src="{{ jsAssets }}/main{{ js_ext }}"></script>
-    <script
-      id="lunr-script"
-      src="{{ jsAssets }}/lunr{{ js_ext }}"
-      defer
-    ></script>
-    <script src="{{ jsAssets }}/search{{ js_ext }}" defer></script>
-    <script src="{{ jsAssets }}/themeSwitcher{{ js_ext }}" defer></script>
+		{%- assign jsAssets = "/assets/js" | prepend: site.url -%}
 
-    <title>
-      {% if paginator %}
-        Página {{ paginator.page }} de {{ paginator.total_pages }} de
-      {% endif %}
+		<script src="{{ jsAssets }}/main{{ js_ext }}"></script>
+		<script
+			id="lunr-script"
+			src="{{ jsAssets }}/lunr{{ js_ext }}"
+			defer
+		></script>
+		<script src="{{ jsAssets }}/search{{ js_ext }}" defer></script>
+		<script src="{{ jsAssets }}/themeSwitcher{{ js_ext }}" defer></script>
 
-      {% if page.title %}
-        {% if page.title != site.title %}
-          {{ page.title }} | {{ site.title }}
-        {% else %}
-          {{ page.title }}
-        {% endif %}
-      {% else if site.description %}
-        {{ site.title }} | {{ site.description }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </title>
+		<title>
+			{% if paginator %}
+				Página {{ paginator.page }} de {{ paginator.total_pages }} de
+			{% endif %}
 
-    {% seo title=false %}
-    {% if page.has_math %}
-      {% include katex.html %}
-      <meta property="has_instant_view" content="false" />
-    {% elsif page.has_instant_view %}
-      <meta property="has_instant_view" content="true"/>
-    {% else %}
-      <meta property="has_instant_view" content="false"/>
-    {% endif %}
-  </head>
+			{% if page.title %}
+				{% if page.title != site.title %}
+					{{ page.title }} | {{ site.title }}
+				{% else %}
+					{{ page.title }}
+				{% endif %}
+			{% else if site.description %}
+				{{ site.title }} | {{ site.description }}
+			{% else %}
+				{{ site.title }}
+			{% endif %}
+		</title>
 
-  <body>
-    {% unless page.hide_skip_link or layout.hide_skip_link %}
-      <a
-        class="skip-link"
-        href="#main-container"
-        data-turbo="false"
-        tab-index="0"
-        >Ir al contenido</a
-      >
-    {% endunless %}
+		{% seo title=false %}
+		{% if page.has_math %}
+			{% include katex.html %}
+			<meta property="has_instant_view" content="false" />
+		{% elsif page.has_instant_view %}
+			<meta property="has_instant_view" content="true"/>
+		{% else %}
+			<meta property="has_instant_view" content="false"/>
+		{% endif %}
+	</head>
 
-    {{ content }}
+	<body>
+		{% unless page.hide_skip_link or layout.hide_skip_link %}
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		{% endunless %}
 
-    <button
-      id="theme-switcher"
-      class="button theme-switcher"
-      onclick="changeTheme('theme-switcher')"
-      data-turbo-permanent
-    >
-      <span class="icon">
-        <i class="fas" aria-hidden="true"></i>
-      </span>
-    </button>
+		{{ content }}
 
-    {% unless page.hide_foot or layout.hide_foot %}
-      {% include footer.html %}
-    {% endunless %}
-  </body>
+		<button
+			id="theme-switcher"
+			class="button theme-switcher"
+			onclick="changeTheme('theme-switcher')"
+			data-turbo-permanent
+		>
+			<span class="icon">
+				<i class="fas" aria-hidden="true"></i>
+			</span>
+		</button>
+
+		{% unless page.hide_foot or layout.hide_foot %}
+			{% include footer.html %}
+		{% endunless %}
+	</body>
 </html>
