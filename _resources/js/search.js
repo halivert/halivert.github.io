@@ -1,30 +1,23 @@
-function makeIdx() {
+async function makeIdx() {
 	if (!window.idx) {
-		let idx
+		window.index = await fetch("/index.json").then((d) => d.json())
 
-		try {
-			idx = lunr(function() {
-				this.field("id")
-				this.field("title", { boost: 10 })
-				this.field("categories")
-				this.field("tags")
-				this.field("author")
-
-				for (let key in window.store) {
-					this.add({
-						id: key,
-						title: window.store[key].title,
-						categories: window.store[key].categories,
-						tags: window.store[key].tags,
-						author: window.store[key].author,
-					})
-				}
-			})
-		} catch (exception) {
-			idx = []
-		}
-
-		window.idx = idx
+		window.idx = lunr(function() {
+			this.field("id")
+			this.field("title", { boost: 10 })
+			this.field("categories")
+			this.field("tags")
+			this.field("author")
+			for (let key in window.index) {
+				this.add({
+					id: key,
+					title: window.index[key].title,
+					categories: window.index[key].categories,
+					tags: window.index[key].tags,
+					author: window.index[key].author,
+				})
+			}
+		})
 	}
 
 	return window.idx
@@ -47,18 +40,18 @@ function hideSearchModal() {
 
 	if (input) input.value = ""
 
-	displaySearchResults([], window.store)
+	displaySearchResults([], window.index)
 }
 
-function inputSearch(input) {
+async function inputSearch(input) {
 	if (!input) return
 
-	let idx = makeIdx()
+	let idx = await makeIdx()
 
 	const searchTerm = input.value
 
 	let results = searchTerm ? idx.search(searchTerm) : []
-	displaySearchResults(results, window.store)
+	displaySearchResults(results, window.index)
 }
 
 function displaySearchResults(results, store) {
