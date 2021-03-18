@@ -28,19 +28,19 @@
 	rel="noopener noreferrer"
 	href="{{ img | append: pair[0] | strip_newlines }}">
 	<picture {% if include.class %} class="{{ include.class }}" {%- endif -%}>
-		{%- for type in types -%}
+		{% for type in types %}
 			{%- assign pair = type | split: ':' -%}
 			{%- assign img = src | append: '.' | prepend: path | remove: ' ' -%}
-			{% if forloop.last != true %}
+			{%- if forloop.last != true -%}
 				<source
 					srcset="{{ img | append: pair[0] | strip_newlines }}"
-					type="{{ pair[1] }}">
-			{% else %}
+					type="{{ pair[1] }}" />
+			{%- else -%}
 				<img
 					src="{{ img | append: pair[0] | strip_newlines }}"
-					{% if include.class %} class="{{ include.class }}" {% endif %}
-					alt="{{ include.alt }}">
-			{% endif %}
+					alt="{{ include.alt }}"
+					{% if include.class %} class="{{ include.class }}" {% endif %} />
+			{%- endif -%}
 		{%- endfor -%}
 	</picture>
 </a>
