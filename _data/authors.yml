@@ -19,6 +19,9 @@ halivert:
     - url: "https://t.me/halivert"
       type: "telegram"
       icon: "fab fa-telegram"
+    - url: "https://discordapp.com/users/673717040095428628"
+      type: "discord"
+      icon: "fab fa-discord"
 
 verenaiss:
   name: "verenais01" # For jekyll-seo twitter author

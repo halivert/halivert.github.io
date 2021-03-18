@@ -5,6 +5,7 @@ $social: (
 	"twitter": var(--twitter-primary),
 	"github": var(--github-primary),
 	"telegram": var(--telegram-primary),
+	"discord": var(--discord-primary),
 );
 
 .button {
@@ -113,5 +114,9 @@ $social: (
 	> .button:not(last-child) {
 		margin-right: 0.5rem;
 		margin-bottom: 0.5rem;
+	}
+
+	&.is-centered {
+		justify-content: center;
 	}
 }
