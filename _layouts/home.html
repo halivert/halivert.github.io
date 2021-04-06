@@ -10,74 +10,75 @@ hide_foot: true
 {% assign author = site.data.authors[layout.author] %}
 
 <main id="main-container" class="section">
-  <div class="columns is-centered">
-    <div class="column is-8-desktop has-text-centered">
-      <h1 class="title is-2 normal-wrap">
-        {{ author.first_name }} {{ author.last_name }}
-      </h1>
+	<div class="columns is-centered">
+		<div class="column is-8-desktop has-text-centered">
+			<h1 class="title is-2 normal-wrap">
+				{{ author.first_name }} {{ author.last_name }}
+			</h1>
 
-      <main>
-        <p class="mb-2">
-          <a href="https://jw.org">JW</a>,
-          estudiando una
-          <a href="https://www.escom.ipn.mx/"
-            >ingeniería en sistemas computacionales</a
-          >.
-        </p>
+			<main>
+				<p class="mb-2">
+					<a href="https://jw.org">JW</a>,
+					estudiando una
+					<a href="https://www.escom.ipn.mx/"
+						>ingeniería en sistemas computacionales</a
+					>.
+				</p>
 
-        <p>
-          Me dedico al desarrollo web y me encantan los algoritmos y las
-          matemáticas.
-        </p>
+				<p>
+					Me dedico al desarrollo web y me encantan los algoritmos y las
+					matemáticas.
+				</p>
 
-        <p>
-          Encontrarás más sobre mí en mi
-          <a href="{{ site.url }}/blog/">blog</a>.
-        </p>
+				<p>
+					Encontrarás más sobre mí en mi
+					<a href="{{ site.url }}/blog/">blog</a>.
+				</p>
 
-        <p class="mt-1">
-          También puedo ayudarte a resolver algunos problemas de programación.
-        </p>
+				<p class="mt-1">
+					También puedo ayudarte a resolver algunos problemas de programación.
+				</p>
 
-        <p>
-          Puedes ponerte en contacto conmigo
-          {% if author.kofi %}
-            y también
-            <a href="{{ author.kofi }}">invitarme un café</a>
-            si quieres.
-          {%- endif -%}
-        </p>
-      </main>
+				<p>
+					Puedes ponerte en contacto conmigo
+					{% if author.kofi %}
+						y también
+						<a href="{{ author.kofi }}">invitarme un café</a>
+						si quieres.
+					{%- endif -%}
+				</p>
+			</main>
 
-      <p class="buttons is-centered mt-3">
-        <a
-          class="button gmail"
-          href="mailto:{{ author.email.at }}"
-        >
-          <span class="icon">
-            <i class="fas fa-envelope-open" aria-hidden="true"></i>
-          </span>
-        </a>
-        {% for item in author.social %}
-          <a
-            class="button {{ item.type }}"
-            href="{{ item.url }}">
-            <span class="icon">
-              <i class="{{ item.icon }}" aria-hidden="true"></i>
-            </span>
-          </a>
-        {% endfor %}
-      </p>
+			<p class="buttons is-centered mt-3">
+				<a
+					class="button gmail"
+					href="mailto:{{ author.email.at }}"
+				>
+					<span class="icon">
+						<i class="fas fa-envelope-open" aria-hidden="true"></i>
+					</span>
+				</a>
+				{% for item in author.social %}
+					<a
+						class="button {{ item.type }}"
+						href="{{ item.url }}"
+						{%- if item.me -%}rel="me"{%- endif -%}>
+						<span class="icon">
+							<i class="{{ item.icon }}" aria-hidden="true"></i>
+						</span>
+					</a>
+				{% endfor %}
+			</p>
 
-      <figure>
-        <img
-          src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
-          class="avatar"
-          loading="lazy"
-          alt="Imagen de perfil de {{ layout.author }}"
-          onContextMenu="vibrate([150, 30, 150]);"
-        />
-      </figure>
-    </div>
-  </div>
+			<figure>
+				<img
+					src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
+					class="avatar"
+					loading="lazy"
+					alt="Imagen de perfil de {{ layout.author }}"
+					onContextMenu="vibrate([150, 30, 150]);"
+				/>
+			</figure>
+		</div>
+	</div>
 </main>

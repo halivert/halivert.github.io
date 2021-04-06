@@ -13,6 +13,7 @@ halivert:
     - url: "https://twitter.com/halivert"
       type: "twitter"
       icon: "fab fa-twitter"
+      me: true
     - url: "https://github.com/halivert"
       type: "github"
       icon: "fab fa-github"
