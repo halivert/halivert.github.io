@@ -23,10 +23,12 @@
 {%- assign pair = lastType | split: ':' -%}
 {%- assign img = src | append: '.' | prepend: path | remove: ' ' -%}
 
-<a 
+{%- unless include.nowrap -%}
+<a
 	target="_blank"
 	rel="noopener noreferrer"
 	href="{{ img | append: pair[0] | strip_newlines }}">
+{%- endunless -%}
 	<picture {% if include.class %} class="{{ include.class }}" {%- endif -%}>
 		{% for type in types %}
 			{%- assign pair = type | split: ':' -%}
@@ -38,9 +40,10 @@
 			{%- else -%}
 				<img
 					src="{{ img | append: pair[0] | strip_newlines }}"
-					alt="{{ include.alt }}"
-					{% if include.class %} class="{{ include.class }}" {% endif %} />
+					alt="{{ include.alt }}" />
 			{%- endif -%}
 		{%- endfor -%}
 	</picture>
+{%- unless include.nowrap -%}
 </a>
+{%- endunless -%}
