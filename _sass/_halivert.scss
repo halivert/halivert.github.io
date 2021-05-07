@@ -473,6 +473,9 @@ pre {
 			}
 
 			@include touch {
+				--control-border-radius: 2px;
+				--control-font-size: #{nth($sizes, 7)};
+
 				position: absolute;
 				top: nth($sizes, 3);
 				left: 0.5rem;
