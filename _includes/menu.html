@@ -1,4 +1,4 @@
-<aside class="menu">
+<aside id="side-menu" class="menu">
 	<ul class="menu-list mt-1">
 		<li>
 			<a class="px-1" href="{{ site.url }}">
@@ -11,31 +11,28 @@
 		</li>
 	</ul>
 
-	{%- if page.title == 'Blog' -%}
-		{%- assign blogClass = 'is-active' -%}
-	{%- endif -%}
-
 	<ul class="menu-list my-1">
 		<li>
-			<a
-				class="{{ blogClass }}"
-				href="{{ site.url }}/blog/"
-				>Blog</a
-			>
+			<a href="{{ site.url }}/blog/">Blog</a>
 		</li>
 		<!--li>
 			<a href="{{ site.url }}/projects/">Proyectos</a>
 		</li-->
 		{%- if page.search_bar -%}
-			<li>
-				<button type="button" class="menu-item" onclick="showSearchModal()">
-					<span>
-						<i class="fas fa-search"></i>
-					</span>
-					<span>Buscar</span>
-					<span class="keycode">/</span>
-				</button>
-			</li>
+		<li>
+			<button
+				id="search-button"
+				type="button"
+				class="menu-item"
+				onclick="showSearchModal()"
+			>
+				<span>
+					<i class="fas fa-search"></i>
+				</span>
+				<span>Buscar</span>
+				<span class="keycode">/</span>
+			</button>
+		</li>
 		{%- endif -%}
 	</ul>
 </aside>
@@ -51,7 +48,8 @@
 					placeholder="Buscar..."
 					class="input"
 					type="text"
-					oninput="inputSearch(this)">
+					oninput="inputSearch(this)"
+				/>
 			</div>
 
 			<div class="columns">
