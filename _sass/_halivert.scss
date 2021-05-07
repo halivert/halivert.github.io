@@ -108,6 +108,11 @@
 
 @import "footer";
 
+* {
+	-webkit-transition: background var(--transition);
+	transition: background var(--transition);
+}
+
 html {
 	text-rendering: optimizeLegibility;
 	overflow-y: scroll;
@@ -140,16 +145,10 @@ body {
 			"menu main"
 			"footer footer";
 	}
-
-	-webkit-transition: background var(--transition);
-	transition: background var(--transition);
 }
 
 aside.menu {
 	grid-area: menu;
-
-	-webkit-transition: background var(--transition);
-	transition: background var(--transition);
 
 	@include desktop {
 		position: sticky;

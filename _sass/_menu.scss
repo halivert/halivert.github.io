@@ -1,69 +1,69 @@
 .menu {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  max-height: 100vh;
-  top: 0;
-  z-index: 1;
-  font-size: 1.75rem;
-  font-family: var(--title-font);
-  background: var(--background-color-100);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	max-height: 100vh;
+	top: 0;
+	z-index: 1;
+	font-size: 1.75rem;
+	font-family: var(--title-font);
+	background: var(--background-color-100);
 
-  @include touch {
-    font-size: 1rem;
-    border-bottom: 2px dashed var(--accent-color-100);
-  }
+	@include touch {
+		font-size: 1rem;
+		border-bottom: 2px dashed var(--accent-color-100);
+	}
 }
 
 .menu-list {
-  line-height: 1.25;
-  display: flex;
-  flex-flow: column nowrap;
-  padding-left: 0.5rem;
+	line-height: 1.25;
+	display: flex;
+	flex-flow: column nowrap;
+	padding-left: 0.5rem;
 
-  @include touch {
-    flex-flow: row wrap;
-  }
+	@include touch {
+		flex-flow: row wrap;
+	}
 
-  button.menu-item {
-    border: none;
-    text-decoration: none;
-    background: var(--background-color-100);
-    font-size: inherit;
-    font-family: inherit;
-    margin: 0;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
+	button.menu-item {
+		border: none;
+		text-decoration: none;
+		background: var(--background-color-100);
+		font-size: inherit;
+		font-family: inherit;
+		margin: 0;
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
 
-    &:hover,
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      background: var(--background-color-200);
-    }
-  }
+		&:hover,
+		&:focus,
+		&:focus-visible {
+			outline: none;
+			background: var(--background-color-200);
+		}
+	}
 
-  a,
-  .menu-item {
-    color: var(--contrast-color-300);
-    display: block;
-    padding: 0.5em 0.75em;
-    margin-bottom: 0.125rem;
-    border-radius: $radius-rounded;
+	a,
+	.menu-item {
+		color: var(--contrast-color-300);
+		display: block;
+		padding: 0.5em 0.75em;
+		margin-bottom: 0.125rem;
+		border-radius: $radius-rounded;
 
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &.is-active {
-      background: var(--background-color-200);
-      color: var(--contrast-color-200);
-    }
+		&:hover,
+		&:focus,
+		&:focus-visible,
+		&.is-active {
+			background: var(--background-color-200);
+			color: var(--contrast-color-200);
+		}
 
-    img {
-      @include touch {
-        height: 2rem;
-      }
-    }
-  }
+		img {
+			@include touch {
+				height: 2rem;
+			}
+		}
+	}
 }
