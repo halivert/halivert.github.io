@@ -12,3 +12,5 @@ group :jekyll_plugins do
   gem 'jekyll-mentions'
   gem 'jemoji'
 end
+
+gem "webrick", "~> 1.7"
