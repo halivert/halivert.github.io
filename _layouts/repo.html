@@ -3,26 +3,28 @@ layout: html
 hide_foot: true
 ---
 
-<nav class="repo fixed-top-bar">
-	<a
-		href="{{ site.github.repository_url }}"
-		class="button github is-hidden-touch"
-	>
-		<span>Ver en github</span>
-		<span class="icon">
-			 <i class="fab fa-github" aria-hidden="true"></i>
-		</span>
-	</a>
+{%- if page.repository_url != false -%}
+	<nav class="repo fixed-top-bar">
+		<a
+			href="{{ page.repository_url | default: site.github.repository_url }}"
+			class="button github is-hidden-touch"
+		>
+			<span>Ver en github</span>
+			<span class="icon">
+				 <i class="fab fa-github" aria-hidden="true"></i>
+			</span>
+		</a>
 
-	<a
-		href="{{ site.github.repository_url }}"
-		class="button github is-hidden-desktop"
-	>
-		<span class="icon">
-			 <i class="fab fa-github" aria-hidden="true"></i>
-		</span>
-	</a>
-</nav>
+		<a
+			href="{{ page.repository_url | default: site.github.repository_url }}"
+			class="button github is-hidden-desktop"
+		>
+			<span class="icon">
+				 <i class="fab fa-github" aria-hidden="true"></i>
+			</span>
+		</a>
+	</nav>
+{%- endif -%}
 
 <main class="mb-6" id="main-container">
 	<section class="hero repo">

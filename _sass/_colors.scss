@@ -11,13 +11,13 @@ $colors: (
 		hsl(43, 74%, 49%),
 		var(--golden-invert, var(--text-color-100)),
 	),
+	"purple": (
+		var(--purple-color),
+		var(--purple-invert),
+	),
 );
 
 $only-tag-colors: (
-	"yellow": (
-		var(--yellow-color),
-		var(--yellow-invert),
-	),
 	"red": (
 		var(--red-color),
 		var(--red-invert),
@@ -25,10 +25,6 @@ $only-tag-colors: (
 	"green-succulent": (
 		var(--green-succulent-color),
 		var(--green-succulent-invert),
-	),
-	"purple": (
-		var(--purple-color),
-		var(--purple-invert),
 	),
 	"creative": (
 		var(--creative-gradient),
@@ -102,7 +98,7 @@ $tag-colors: map_merge($colors, $only-tag-colors);
 
 	--code-color: var(--background-color-100);
 
-	@each $pair in $only-tag-colors {
+	@each $pair in $tag-colors {
 		$name: nth($pair, 1);
 		--#{$name}-color: hsl(var(--#{$name}-hsl));
 	}
