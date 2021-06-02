@@ -23,6 +23,9 @@ halivert:
     - url: "https://discordapp.com/users/673717040095428628"
       type: "discord"
       icon: "fab fa-discord"
+    - url: "https://www.linkedin.com/in/hal%C3%AD-vel%C3%A1zquez-1b87bb212/"
+      type: "linkedin"
+      icon: "fab fa-linkedin"
 
 verenaiss:
   name: "verenais01" # For jekyll-seo twitter author
