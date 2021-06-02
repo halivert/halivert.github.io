@@ -2,6 +2,7 @@
 	"scripts": {
 		"prod": "yarn minify",
 		"minify": "babel --config-file=./.babelrc _resources/js/* -d assets/js --out-file-extension .min.js",
+		"dev": "babel --no-comments --no-babelrc _resources/js/* -d assets/js",
 		"watch": "babel --no-comments --no-babelrc _resources/js/* -d assets/js -w"
 	},
 	"dependencies": {
