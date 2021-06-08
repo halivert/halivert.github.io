@@ -34,7 +34,7 @@ de una pantalla difiere bastante del de una hoja de papel estándar
 </div>
 
 Para dar estilo específico a la impresión, debes agregar una hoja de estilos que
-se utilize en esa situación, con especial atención el el atributo
+se utilize en esa situación, con especial atención al atributo
 `media="print"`
 
 ```html

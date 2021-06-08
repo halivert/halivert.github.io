@@ -100,21 +100,25 @@
 		{%- endif -%}
 
 		{%- capture js_ext -%}
-			{%- if jekyll.environment != 'local' -%} .min.js
+			{%- if jekyll.environment == 'local' -%} .min.js
 			{%- else -%} .js
 			{%- endif -%}
 		{%- endcapture -%}
 
 		{%- assign jsAssets = "/assets/js" | prepend: site.url -%}
 
-		<script src="{{ jsAssets }}/main{{ js_ext }}"></script>
+		<script type="module" src="{{ jsAssets }}/main{{ js_ext }}"></script>
+		<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" defer></script>
 		<script
-			id="lunr-script"
-			src="{{ jsAssets }}/lunr{{ js_ext }}"
+			type="module"
+			src="{{ jsAssets }}/search{{ js_ext }}"
 			defer
 		></script>
-		<script src="{{ jsAssets }}/search{{ js_ext }}" defer></script>
-		<script src="{{ jsAssets }}/themeSwitcher{{ js_ext }}" defer></script>
+		<script
+			type="module"
+			src="{{ jsAssets }}/themeSwitcher{{ js_ext }}"
+			defer
+		></script>
 
 		<title>
 			{% if paginator %}

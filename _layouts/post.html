@@ -3,112 +3,112 @@ layout: container
 ---
 
 {%- capture pageImage -%}
-  {%- include remove_ext.html file=page.image -%}
+	{%- include remove_ext.html file=page.image -%}
 {%- endcapture -%}
 
 {% assign author = site.data.authors[page.author] %}
 
 <div class="columns">
-  <div class="column is-offset-1-desktop">
-    <div class="reader">
-      <div id="title-div" class="columns mb-0">
-        <header class="column">
-          <h1 class="title is-2 has-text-primary">{{
-            page.title
-          }}</h1>
-          <small>
-            {% if author.first_name %}
-              <i>por</i>
-              <a href="{{ site.url }}/authors/{{ page.author }}">{{
-                author.first_name
-              }}</a> -
-            {% endif %}
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">{{
+						page.title
+					}}</h1>
+					<small>
+						{% if author.first_name %}
+							<i>por</i>
+							<a href="{{ site.url }}/authors/{{ page.author }}">{{
+								author.first_name
+							}}</a> -
+						{% endif %}
 
-            {%- capture post_date -%}
-              {% include date-spanish-abbr.html item=page.date %}
-            {%- endcapture -%}
+						{%- capture post_date -%}
+							{% include date-spanish-abbr.html item=page.date %}
+						{%- endcapture -%}
 
-            {% if page.last_modification %}
-              <span title="Fecha original: {{ post_date }}">
-                <i>última modificación:</i>
-                {% include date-spanish-abbr.html item=page.last_modification %}
-              </span>
-            {% else %}
-              <i>publicado:</i> {{ post_date }}
-            {% endif %}
-          </small>
-        </header>
-        {% if page.image %}
-          <div class="column is-4-desktop has-text-right">
-            {%- assign path = pageImage | prepend: site.url -%}
-            {%- assign dark_img = "" -%}
-            {%- if page.image_dark -%}
-              {%- assign dark_img = " dark" -%}
-            {%- endif -%}
+						{% if page.last_modification %}
+							<span title="Fecha original: {{ post_date }}">
+								<i>última modificación:</i>
+								{% include date-spanish-abbr.html item=page.last_modification %}
+							</span>
+						{% else %}
+							<i>publicado:</i> {{ post_date }}
+						{% endif %}
+					</small>
+				</header>
+				{% if page.image %}
+					<div class="column is-4-desktop has-text-right">
+						{%- assign path = pageImage | prepend: site.url -%}
+						{%- assign dark_img = "" -%}
+						{%- if page.image_dark -%}
+							{%- assign dark_img = " dark" -%}
+						{%- endif -%}
 
-            {%- assign class_name = "image post-image" | append: dark_img -%}
-            {%- assign class_name = class_name | append: " is-fullwidth" -%}
-            {%
-              include picture.html
-                class=class_name
-                path=path
-                alt=page.image_alt
-                types=page.image_types
-            %}
-          </div>
-        {% endif %}
-      </div>
-      <div class="columns">
-        <div class="column tags">
-          {%- for tag in page.tags -%}
-            {%- assign downTag = tag | downcase -%}
-            <span class="tag {{ site.data.tags[downTag].color }}">{{
-              tag
-            }}</span>
-          {%- endfor -%}
-        </div>
-      </div>
-      <hr />
-      <section id="content" class="content">
-        {{ content }}
-      </section>
+						{%- assign class_name = "image post-image" | append: dark_img -%}
+						{%- assign class_name = class_name | append: " is-fullwidth" -%}
+						{%
+							include picture.html
+								class=class_name
+								path=path
+								alt=page.image_alt
+								types=page.image_types
+						%}
+					</div>
+				{% endif %}
+			</div>
+			<div class="columns">
+				<div class="column tags">
+					{%- for tag in page.tags -%}
+						{%- assign downTag = tag | downcase -%}
+						<span class="tag {{ site.data.tags[downTag].color }}">{{
+							tag
+						}}</span>
+					{%- endfor -%}
+				</div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				{{ content }}
+			</section>
 
 			<div class="printable">
 				<p class="has-text-right">{{ site.url }}{{ page.url }}</p>
 			</div>
-    </div>
-  </div>
+		</div>
+	</div>
 </div>
 
 <div class="columns">
-  <div class="column is-offset-1-desktop">
-    <div class="reader">
-      <nav
-        class="pagination is-centered"
-        role="navigation"
-        aria-label="pagination"
-        >
-        {% if page.previous.url %}
-          <a
-            href="{{ site.url }}{{ page.previous.url }}"
-            class="pagination-previous button is-primary is-rounded"
-            >Anterior</a
-          >
-        {% else %}
-          <a class="pagination-previous button is-rounded" disabled
-            >Anterior</a
-          >
-        {% endif %}
-        {% if page.next.url %}
-          <a
-            href="{{ site.url }}{{ page.next.url }}"
-            class="pagination-next button is-primary is-rounded"
-            >Siguiente</a
-          >
-        {% else %}
-          <a class="pagination-next button is-rounded" disabled>Siguiente</a>
-        {% endif %}
-      </nav>
-    </div>
-  </div>
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<nav
+				class="pagination is-centered"
+				role="navigation"
+				aria-label="pagination"
+				>
+				{% if page.previous.url %}
+					<a
+						href="{{ site.url }}{{ page.previous.url }}"
+						class="pagination-previous button is-primary is-rounded"
+						>Anterior</a
+					>
+				{% else %}
+					<a class="pagination-previous button is-rounded" disabled
+						>Anterior</a
+					>
+				{% endif %}
+				{% if page.next.url %}
+					<a
+						href="{{ site.url }}{{ page.next.url }}"
+						class="pagination-next button is-primary is-rounded"
+						>Siguiente</a
+					>
+				{% else %}
+					<a class="pagination-next button is-rounded" disabled>Siguiente</a>
+				{% endif %}
+			</nav>
+		</div>
+	</div>
 </div>

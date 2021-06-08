@@ -1,15 +1,29 @@
-function addClass(element, name) {
+export function addClass(
+  element: HTMLElement,
+  name: string | string[]
+): HTMLElement {
   if (!element) return
 
-  if (element.classList) {
-    element.classList.add(name)
+  if (typeof name === "string") {
+    if (element.classList) {
+      element.classList.add(name)
+    } else {
+      let arr = element.className.split(" ")
+      if (arr.indexOf(name) === -1) element.className += " " + name
+    }
   } else {
-    let arr = element.className.split(" ")
-    if (arr.indexOf(name) === -1) element.className += " " + name
+    name.forEach((className: string) => {
+      addClass(element, className)
+    })
   }
+
+  return element
 }
 
-function toggleClass(element, className) {
+export function toggleClass(
+  element: HTMLElement,
+  className: string
+): HTMLElement {
   if (element.classList) {
     element.classList.toggle(className)
   } else {
@@ -24,9 +38,11 @@ function toggleClass(element, className) {
 
     element.className = classes.join(" ")
   }
+
+  return element
 }
 
-function hasClass(element, name) {
+export function hasClass(element: HTMLElement, name: string): boolean {
   if (!element) return
 
   if (element.classList) {
@@ -38,30 +54,32 @@ function hasClass(element, name) {
   }
 }
 
-function removeClass(element, name) {
+export function removeClass(element: HTMLElement, name: string): HTMLElement {
   if (!element) return
 
   if (element.classList) {
     element.classList.remove(name)
   } else {
     let classes = element.className.split(" ")
-    let i = classes.indexOf(className)
+    let i = classes.indexOf(name)
 
     if (i >= 0) classes.splice(i, 1)
     element.className = classes.join(" ")
   }
+
+  return element
 }
 
-function isInput(name) {
+export function isInput(name: string): boolean {
   let compare = name.toLowerCase()
   return ["input", "textarea", "select"].includes(compare)
 }
 
-function vibrate(pattern) {
-  window.navigator.vibrate(pattern)
+export function vibrate(pattern: number | number[]): boolean {
+  return window.navigator.vibrate(pattern)
 }
 
-function initThemeSwitcher(element) {
+export function initThemeSwitcher(element: HTMLElement): HTMLElement {
   if (!element) return
 
   const firstSpan = element.getElementsByTagName("span")[0]
@@ -74,71 +92,53 @@ function initThemeSwitcher(element) {
   addClass(element, isDark ? "is-dark" : "is-light")
 
   removeClass(element, "is-invisible")
+  return element
 }
 
-function setTheme() {
+export function setTheme(): string {
   if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
     removeClass(document.documentElement, "dark")
     localStorage.halivertsTheme = "light"
   } else {
     localStorage.removeItem("halivertsTheme")
   }
+
+  return localStorage.halivertsTheme || "dark"
 }
 
-function setActive(menu) {
+export function setActive(menu: HTMLElement): HTMLElement {
   if (!menu) return
 
-  const elements = menu.querySelectorAll("li > a")
+  const elements: NodeListOf<HTMLLinkElement> = menu.querySelectorAll("li > a")
 
   removeClass(menu.querySelector("li > .is-active"), "is-active")
 
-  elements.forEach((element) => {
+  for (let i = 0; i < elements.length; i++) {
+    let element: HTMLLinkElement = elements[i]
     if (window.location.href === element.href) {
       addClass(element, "is-active")
+      return element
     }
-  })
+  }
 }
 
-function hideModal(target) {
+export function hideModal(target: HTMLElement): HTMLElement {
   if (!target) return
 
-  const modal = target.closest(".modal")
+  const modal: HTMLElement = target.closest(".modal")
   if (!modal) return
 
   addClass(modal, "is-hidden")
   setActive(document.getElementById("side-menu"))
+  return modal
 }
 
-document.addEventListener("turbo:load", () => {
-  initThemeSwitcher(document.getElementById("theme-switcher"))
-  initThemeSwitcher(document.getElementById("theme-switcher-corner"))
+declare global {
+  interface Window {
+    vibrate: Function
+    hideModal: Function
+  }
+}
 
-  const deletes = document.querySelectorAll(".notification .delete") || []
-
-  deletes.forEach((deleteElement) => {
-    notification = deleteElement.parentNode
-    deleteElement.addEventListener("click", () => {
-      notification.parentNode.removeChild(notification)
-    })
-  })
-
-  const modals = document.querySelectorAll(".modal") || []
-  modals.forEach((modal) => {
-    modal.addEventListener("click", (evt) => {
-      if (evt.target !== modal) {
-        return
-      }
-
-      evt.preventDefault()
-      hideModal(evt.target)
-    })
-  })
-
-  setActive(document.getElementById("side-menu"))
-})
-
-document.addEventListener("turbo:visit", () => {
-  setTheme()
-})
-
-setTheme()
+window.vibrate = vibrate
+window.hideModal = hideModal

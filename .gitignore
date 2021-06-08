@@ -14,6 +14,6 @@ yarn-error.log
 test.md
 convert
 todo.md
-_config.dev.yml
+*.dev.*
 assets/js/*.js
 !assets/js/*.min.js
