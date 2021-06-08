@@ -1,4 +1,4 @@
-import { addClass, hasClass, removeClass, toggleClass } from "./functions.js"
+import { addClass, hasClass, removeClass, toggleClass } from "./functions"
 
 declare global {
 	interface Window {

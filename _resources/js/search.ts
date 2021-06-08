@@ -1,4 +1,4 @@
-import { isInput, removeClass, addClass, setActive } from "./functions.js"
+import { isInput, removeClass, addClass, setActive } from "./functions"
 
 declare global {
   interface Window {

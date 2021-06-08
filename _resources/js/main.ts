@@ -3,7 +3,7 @@ import {
   setTheme,
   hideModal,
   setActive,
-} from "./functions.js"
+} from "./functions"
 
 setTheme()
 

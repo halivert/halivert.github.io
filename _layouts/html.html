@@ -100,7 +100,7 @@
 		{%- endif -%}
 
 		{%- capture js_ext -%}
-			{%- if jekyll.environment != 'local' -%} .min.js
+			{%- if jekyll.environment == 'local' -%} .min.js
 			{%- else -%} .js
 			{%- endif -%}
 		{%- endcapture -%}

@@ -1,0 +1,11 @@
+{
+	"minified": true,
+	"comments": false,
+	"presets": ["@babel/preset-typescript"],
+	"plugins": [
+		[
+			"babel-plugin-add-import-extension",
+			{ "extension": "min.js" }
+		]
+	]
+}
