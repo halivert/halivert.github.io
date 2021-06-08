@@ -53,6 +53,7 @@ defaults:
       path: ""
     values:
       search_bar: false
+      image: "/img/halivert-card.png"
       logo: "/img/halivert-logo.png"
 
 # Exclude from processing.
