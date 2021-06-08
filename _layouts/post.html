@@ -73,8 +73,6 @@ layout: container
 				{{ content }}
 			</section>
 
-			<section id="mentions" class="mentions"></section>
-
 			<div class="printable">
 				<p class="has-text-right">{{ site.url }}{{ page.url }}</p>
 			</div>
@@ -114,11 +112,3 @@ layout: container
 		</div>
 	</div>
 </div>
-
-{%- capture js_ext -%}
-	{%- if jekyll.environment != 'local' -%} .min.js
-	{%- else -%} .js
-	{%- endif -%}
-{%- endcapture -%}
-
-<script src="{{ site.url }}/assets/js/post{{ js_ext }}"></script>

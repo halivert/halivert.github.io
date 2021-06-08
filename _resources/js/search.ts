@@ -1,8 +1,41 @@
+import { isInput, removeClass, addClass, setActive } from "./functions.js"
+
+declare global {
+  interface Window {
+    idx: any
+    index: object
+    inputSearch: Function
+    showSearchModal: Function
+    lunr: Function
+  }
+
+  interface LunrResult {
+    ref: string
+    score: number
+    matchData: object
+  }
+
+  interface IdxObject {
+    id: string
+    title: string
+    categories: string[]
+    tags: string[]
+    author: string
+    image_types: string
+    image: string
+    image_alt: string
+    url: string
+    date: string
+    content: string
+    continue: number
+  }
+}
+
 async function makeIdx() {
   if (!window.idx) {
     window.index = await fetch("/index.json").then((d) => d.json())
 
-    window.idx = lunr(function() {
+    window.idx = window.lunr(function() {
       this.field("id")
       this.field("title", { boost: 10 })
       this.field("categories")
@@ -24,14 +57,14 @@ async function makeIdx() {
 }
 
 function showSearchModal() {
-  const modal = document.getElementById("search-modal")
-  const input = document.getElementById("search-input")
+  const modal: HTMLElement = document.getElementById("search-modal")
+  const input: HTMLElement = document.getElementById("search-input")
 
   removeClass(modal, "is-hidden")
 
   if (input) document.getElementById("search-input").focus()
 
-  const menu = document.getElementById("side-menu")
+  const menu: HTMLElement = document.getElementById("side-menu")
   if (!menu) return
 
   removeClass(menu.querySelector("li > .is-active"), "is-active")
@@ -39,8 +72,10 @@ function showSearchModal() {
 }
 
 function hideSearchModal() {
-  const modal = document.getElementById("search-modal")
-  const input = document.getElementById("search-input")
+  const modal: HTMLElement = document.getElementById("search-modal")
+  const input: HTMLInputElement = <HTMLInputElement>(
+    document.getElementById("search-input")
+  )
 
   addClass(modal, "is-hidden")
 
@@ -50,7 +85,7 @@ function hideSearchModal() {
   setActive(document.getElementById("side-menu"))
 }
 
-async function inputSearch(input) {
+async function inputSearch(input: HTMLInputElement) {
   if (!input) return
 
   let idx = await makeIdx()
@@ -61,9 +96,12 @@ async function inputSearch(input) {
   displaySearchResults(results, window.index)
 }
 
-function displaySearchResults(results, store) {
-  let searchResults = document.getElementById("search-results")
-  let template = document.getElementById("post-template")
+function displaySearchResults(results: LunrResult[], store: object) {
+  let searchResults: HTMLElement = document.getElementById("search-results")
+  let template: HTMLTemplateElement = <HTMLTemplateElement>(
+    document.getElementById("post-template")
+  )
+
   if (!searchResults) return
 
   while (searchResults.firstChild) {
@@ -78,34 +116,39 @@ function displaySearchResults(results, store) {
   }
 }
 
-function htmlPostElement(item, template) {
-  let newElement = template.content.cloneNode(true)
+function htmlPostElement(item: IdxObject, template: HTMLTemplateElement) {
+  let newElement: HTMLElement = <HTMLElement>template.content.cloneNode(true)
 
-  let pictureEl = newElement.querySelector("picture.post-picture")
+  let pictureEl: HTMLElement = newElement.querySelector("picture.post-picture")
   if (item.image_types && item.image) {
-    item.image_types.split(",").forEach((type, idx, arr) => {
-      let [ext, mime] = type.split(":"),
-        imgEl
-      if (idx === arr.length - 1) {
-        imgEl = pictureEl.appendChild(document.createElement("img"))
-        imgEl.src = `${item.image}.${ext}`
-        imgEl.alt = item.image_alt
-      } else {
-        imgEl = pictureEl.appendChild(document.createElement("source"))
-        imgEl.srcset = `${item.image}.${ext}`
-        imgEl.type = mime
-      }
-    })
+    item.image_types
+      .split(",")
+      .forEach((type: string, idx: number, arr: string[]) => {
+        let [ext, mime] = type.split(":")
+        let imgEl: HTMLImageElement | HTMLSourceElement
+
+        if (idx === arr.length - 1) {
+          imgEl = pictureEl.appendChild(document.createElement("img"))
+          imgEl.src = `${item.image}.${ext}`
+          imgEl.alt = item.image_alt
+        } else {
+          imgEl = pictureEl.appendChild(document.createElement("source"))
+          imgEl.srcset = `${item.image}.${ext}`
+          imgEl.type = mime
+        }
+      })
   } else {
     pictureEl.remove()
   }
 
-  let titleEl = newElement.querySelector("a.post-title")
+  let titleEl: HTMLAnchorElement = newElement.querySelector("a.post-title")
   titleEl.href = item.url
   titleEl.text = item.title
 
-  newElement.querySelector("span.post-author").innerText = item.author
-  newElement.querySelector("span.post-date").innerText = item.date
+  newElement.querySelector<HTMLSpanElement>("span.post-author").innerText =
+    item.author
+  newElement.querySelector<HTMLSpanElement>("span.post-date").innerText =
+    item.date
 
   let contentEl = newElement.querySelector("div.post-content")
   contentEl.innerHTML = item.content
@@ -123,11 +166,11 @@ function htmlPostElement(item, template) {
 }
 
 function addEventListeners() {
-  document.addEventListener("keydown", (evt) => {
+  document.addEventListener("keydown", (evt: KeyboardEvent) => {
     const modal = document.getElementById("search-modal")
 
     if (modal) {
-      if (!isInput(evt.target.nodeName)) {
+      if (!isInput((<HTMLElement>evt.target).nodeName)) {
         if (evt.key === "/") {
           evt.preventDefault()
           return showSearchModal()
@@ -143,3 +186,6 @@ function addEventListeners() {
 }
 
 addEventListeners()
+
+window.showSearchModal = showSearchModal
+window.inputSearch = inputSearch

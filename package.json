@@ -1,4 +1,8 @@
 {
+	"name": "halivert.github.io",
+	"version": "3.2.0",
+	"author": "Halí V. <halivelazquez@outlook.com>",
+	"license": "MIT",
 	"scripts": {
 		"prod": "yarn minify",
 		"minify": "babel --config-file=./.babelrc _resources/js/* -d assets/js --out-file-extension .min.js --extensions .ts",
@@ -13,10 +17,6 @@
 		"@babel/core": "^7.11.6",
 		"@babel/preset-typescript": "^7.13.0"
 	},
-	"name": "halivert.github.io",
-	"version": "3.0.0",
-	"author": "Halí V. <halivelazquez@outlook.com>",
-	"license": "MIT",
 	"prettier": {
 		"semi": false,
 		"tabs": true
