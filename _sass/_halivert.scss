@@ -553,4 +553,9 @@ sup.ref {
 	display: none;
 }
 
+.reactions {
+	display: flex;
+	justify-content: flex-end;
+}
+
 @import "gist";

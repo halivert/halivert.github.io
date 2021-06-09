@@ -1,68 +1,64 @@
 import { addClass } from "./functions"
 
 declare global {
-	interface Window {
-		getReactions: Function
-		mentionsUrl: string
-	}
+  interface Window {
+    getReactions: Function
+    mentionsUrl: string
+  }
 
-	interface Reactions {
-		count: number
-		type: Object
-	}
+  interface Reactions {
+    count: number
+    type: Object
+  }
 }
 
 const loadReactions = async () => {
-	const reactionsSection: HTMLElement = document.getElementById("reactions")
+  const reactions: Reactions = await window.getReactions()
+  const reactionsSection: HTMLElement = document.getElementById("reactions")
 
-	const title: HTMLHeadingElement = document.createElement("h3")
-	addClass(title, ["title", "is-3"]).appendChild(
-		document.createTextNode("Reacciones")
-	)
+  const availableReactions = {
+    like: {
+      iconClass: ["fas", "fa-star", "has-text-warning"],
+    },
+    repost: {
+      iconClass: ["fas", "fa-retweet", "has-text-success", "ml-3"],
+    },
+    reply: {
+      iconClass: ["fas", "fa-comment-dots", "has-text-text", "ml-3"],
+    },
+    mention: {
+      iconClass: ["fas", "fa-quote-right", "has-text-text", "ml-3"],
+      filter: "mention-of",
+    },
+  }
 
-	reactionsSection.appendChild(title)
+  const iconsDiv: HTMLDivElement = document.createElement("div")
+  addClass(iconsDiv, ["reactions"])
 
-	const availableReactions = {
-		like: {
-			iconClass: ["fas", "fa-star", "has-text-warning"],
-			filter: "like-of",
-		},
-		repost: {
-			iconClass: ["fas", "fa-retweet", "has-text-success"],
-			filter: "repost-of",
-		},
-		mention: {
-			iconClass: ["fas", "fa-quote-right", "has-text-text"],
-			filter: "mention-of",
-		},
-		reply: {
-			iconClass: ["fas", "fa-comment-dots", "has-text-text"],
-			filter: "in-reply-to",
-		},
-	}
+  Object.keys(availableReactions).forEach((key: string) => {
+    const reactionCategory = availableReactions[key]
 
-	const iconsDiv: HTMLDivElement = document.createElement("div")
-	addClass(iconsDiv, ["flex"])
+    const text: Text = document.createTextNode(reactions.type[key] || 0)
+    const icon: HTMLElement = document.createElement("i")
+    addClass(icon, [...reactionCategory.iconClass, "mr-2"])
 
-	const reactions: Reactions = await window.getReactions()
+    if (reactionCategory.filter) {
+      const link: HTMLAnchorElement = document.createElement("a")
+      link.href = `${window.mentionsUrl}&wm-property=${reactionCategory.filter}`
+      link.appendChild(icon)
+      link.appendChild(text)
+      iconsDiv.appendChild(link)
+    } else {
+      const span: HTMLSpanElement = document.createElement("span")
+      span.appendChild(icon)
+      span.appendChild(text)
+      iconsDiv.appendChild(span)
+    }
+  })
 
-	Object.keys(availableReactions).forEach((key: string) => {
-		const reactionCategory = availableReactions[key]
-		const link: HTMLAnchorElement = document.createElement("a")
-		addClass(link, "flex-1")
-
-		link.href = `${window.mentionsUrl}&wm-property=${reactionCategory.filter}`
-
-		const icon: HTMLElement = document.createElement("i")
-		addClass(icon, [...reactionCategory.iconClass, "mr-2"])
-
-		link.appendChild(icon)
-		link.appendChild(document.createTextNode(reactions.type[key] || 0))
-
-		iconsDiv.appendChild(link)
-	})
-
-	reactionsSection.appendChild(iconsDiv)
+  reactionsSection
+    .querySelector("div.flex")
+    .appendChild(iconsDiv)
 }
 
 loadReactions()

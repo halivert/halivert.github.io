@@ -90,7 +90,11 @@
 .flex {
 	display: flex;
 
-	&-1 {
-		flex: 1;
+	&.justify-between {
+		justify-content: space-between;
+	}
+
+	&.items-center {
+		align-items: center;
 	}
 }
