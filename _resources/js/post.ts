@@ -4,12 +4,41 @@ declare global {
   interface Window {
     getReactions: Function
     mentionsUrl: string
+    postUrl: string
   }
 
   interface Reactions {
     count: number
     type: Object
   }
+}
+
+const fixTwitterLink = () => {
+  const tweetLink: HTMLAnchorElement = document.querySelector(
+    "#reactions .twitter-share-button"
+  )
+
+  if (!tweetLink) return
+
+  const tweetUrl: URL = new URL("https://twitter.com/intent/tweet")
+  const postUrl: URL = new URL(window.postUrl)
+
+  const author: string = (<HTMLMetaElement>(
+    document.head.querySelector("meta[name='author']")
+  )).content
+
+  const data = {
+    original_referer: `${postUrl.origin}`,
+    text: document.title,
+    url: postUrl.href,
+    via: author,
+  }
+
+  Object.keys(data).forEach((key: string) => {
+    tweetUrl.searchParams.append(key, data[key])
+  })
+
+  tweetLink.href = tweetUrl.toString()
 }
 
 const loadReactions = async () => {
@@ -42,7 +71,7 @@ const loadReactions = async () => {
     const icon: HTMLElement = document.createElement("i")
     addClass(icon, [...reactionCategory.iconClass, "mr-2"])
 
-    if (reactionCategory.filter) {
+    if (reactionCategory.filter && reactions.type[key]) {
       const link: HTMLAnchorElement = document.createElement("a")
       link.href = `${window.mentionsUrl}&wm-property=${reactionCategory.filter}`
       link.appendChild(icon)
@@ -56,9 +85,18 @@ const loadReactions = async () => {
     }
   })
 
-  reactionsSection
-    .querySelector("div.flex")
-    .appendChild(iconsDiv)
+  const flexDiv: HTMLDivElement = reactionsSection.querySelector("div.flex")
+
+  const lastReactions: HTMLDivElement = flexDiv.querySelector("div.reactions")
+
+  if (lastReactions) {
+    flexDiv.removeChild(lastReactions)
+  }
+
+  flexDiv.appendChild(iconsDiv)
 }
 
-loadReactions()
+document.addEventListener("turbo:load", () => {
+  fixTwitterLink()
+  loadReactions()
+})

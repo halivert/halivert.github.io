@@ -77,19 +77,10 @@ layout: container
 				<hr />
 
 				<div class="flex justify-between items-center">
-					<a
-						href="https://twitter.com/share?ref_src=twsrc%5Etfw"
-						class="twitter-share-button"
-						data-via="halivert"
-						data-dnt="true"
-						data-show-count="false"
-						>Tweet</a
-					>
-					<script
-						async
-						src="https://platform.twitter.com/widgets.js"
-						charset="utf-8"
-					></script>
+					<a class="button twitter-share-button">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
 				</div>
 			</section>
 
@@ -139,27 +130,23 @@ layout: container
 	{%- endif -%}
 {%- endcapture -%}
 
-{%- capture post_url -%}
-	{%- if jekyll.environment != 'local' -%} {{ site.url }}
-	{%- else -%} https://halivert.dev
-	{%- endif -%} {{ page.url }}
-{%- endcapture -%}
+{%- assign post_url = site.url | append: page.url -%}
 
 <script>
+	window.apiUrl = "https://webmention.io/api"
 	window.postUrl = "{{ post_url }}" || ""
-	let apiUrl = "https://webmention.io/api";
+
 	window.getReactions = async () => {
 		if (window.postUrl) {
-			let reactions = await (await fetch(
-				`${apiUrl}/count.json?target=${window.postUrl}`
+			return await (await fetch(
+				`${window.apiUrl}/count.json?target=${window.postUrl}`
 			)).json()
-
-			return reactions
 		}
 
 		return {}
 	}
 
-	window.mentionsUrl = `${apiUrl}/mentions.html?target={{ post_url }}`
+	window.mentionsUrl = `${window.apiUrl}/mentions.html?target={{ post_url }}`
+	window.siteUrl = "{{ site.url }}"
 </script>
 <script type="module" src="{{ site.url }}/assets/js/post{{ js_ext }}"></script>
