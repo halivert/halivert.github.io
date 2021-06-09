@@ -328,7 +328,6 @@ img:not([alt]) {
 .image.post-image {
 	@extend %inline-block;
 
-	max-height: 400px;
 	margin-bottom: 0.5em;
 
 	@include desktop {
