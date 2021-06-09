@@ -8,12 +8,16 @@ $colors: (
 		var(--text-color-100),
 	),
 	"golden": (
-		hsl(43, 74%, 49%),
+		var(--golden-color),
 		var(--golden-invert, var(--text-color-100)),
 	),
 	"purple": (
 		var(--purple-color),
 		var(--purple-invert),
+	),
+	"white": (
+		var(--white-color),
+		var(--white-invert)
 	),
 );
 
@@ -103,6 +107,8 @@ $tag-colors: map_merge($colors, $only-tag-colors);
 		--#{$name}-color: hsl(var(--#{$name}-hsl));
 	}
 
+	--golden-hsl: 43, 74%, 49%;
+
 	--yellow-hsl: 42, 100%, 48%;
 
 	--red-hsl: 0, 100%, 72%;
@@ -131,6 +137,8 @@ $tag-colors: map_merge($colors, $only-tag-colors);
 
 	--mint-hsl: 153, 48%, 49%;
 
+	--white-hsl: 0, 0%, 100%;
+
 	@media screen {
 		&.dark {
 			--code-color: var(--text-color-100);
@@ -157,6 +165,9 @@ $tag-colors: map_merge($colors, $only-tag-colors);
 			--mint-hsl: 153, 48%, 28%;
 
 			--golden-invert: var(--background-color-100);
+
+			--white-hsl: 0, 0%, 80%;
+			--white-invert: var(--background-color-100);
 		}
 	}
 }

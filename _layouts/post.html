@@ -73,6 +73,8 @@ layout: container
 				{{ content }}
 			</section>
 
+			<section id="reactions" class="reactions"></section>
+
 			<div class="printable">
 				<p class="has-text-right">{{ site.url }}{{ page.url }}</p>
 			</div>
@@ -112,3 +114,34 @@ layout: container
 		</div>
 	</div>
 </div>
+
+{%- capture js_ext -%}
+	{%- if jekyll.environment != 'local' -%} .min.js
+	{%- else -%} .js
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- capture post_url -%}
+	{%- if jekyll.environment != 'local' -%} {{ site.url }}
+	{%- else -%} https://halivert.dev
+	{%- endif -%} {{ page.url }}
+{%- endcapture -%}
+
+<script>
+	window.postUrl = "{{ post_url }}" || ""
+	let apiUrl = "https://webmention.io/api";
+	window.getReactions = async () => {
+		if (window.postUrl) {
+			let reactions = await (await fetch(
+				`${apiUrl}/count.json?target=${window.postUrl}`
+			)).json()
+
+			return reactions
+		}
+
+		return {}
+	}
+
+	window.mentionsUrl = `${apiUrl}/mentions.html?target={{ post_url }}`
+</script>
+<script type="module" src="{{ site.url }}/assets/js/post{{ js_ext }}"></script>

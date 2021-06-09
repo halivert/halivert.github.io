@@ -38,3 +38,5 @@ vim:
   color: is-pink
 vue.js:
   color: is-vue
+api:
+  color: is-white
