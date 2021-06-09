@@ -76,7 +76,7 @@ $social: (
 	&:hover,
 	&:focus {
 		filter: brightness(
-			calc(100% - (var(--dark) * 40%) + (var(--dark) - 1) * 10%)
+			calc(100% + (var(--dark) * 30%) - (var(--dark) - 1) * 10%)
 		);
 	}
 

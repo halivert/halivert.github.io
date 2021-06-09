@@ -567,10 +567,22 @@ sup.ref {
 
 .twitter-share-button {
 	border: none;
-	border-radius: var(--small-radius);
 	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
-	color: var(--white-color);
+	color: #fff;
+	border-radius: var(--small-radius);
 	background: var(--twitter-primary);
+
+	&:hover,
+	&:focus,
+	&:focus-visible {
+		border-radius: var(--small-radius);
+		background: var(--twitter-primary);
+		color: #fff;
+
+		.dark & {
+			color: var(--background-color-100);
+		}
+	}
 }
 
 @import "gist";
