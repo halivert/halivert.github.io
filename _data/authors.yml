@@ -13,19 +13,20 @@ halivert:
     - url: "https://twitter.com/halivert"
       type: "twitter"
       icon: "fab fa-twitter"
-      me: true
+      hidden: true
     - url: "https://github.com/halivert"
       type: "github"
       icon: "fab fa-github"
-    - url: "https://t.me/halivert"
-      type: "telegram"
-      icon: "fab fa-telegram"
     - url: "https://discordapp.com/users/673717040095428628"
       type: "discord"
       icon: "fab fa-discord"
     - url: "https://www.linkedin.com/in/hal%C3%AD-vel%C3%A1zquez-1b87bb212/"
       type: "linkedin"
       icon: "fab fa-linkedin"
+    - url: "https://www.instagram.com/halivert/"
+      type: "instagram"
+      icon: "fab fa-instagram"
+      hidden: true
 
 verenaiss:
   name: "verenais01" # For jekyll-seo twitter author

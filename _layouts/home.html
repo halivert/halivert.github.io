@@ -61,9 +61,11 @@ image: "/img/halivert-card.png"
 				</a>
 				{% for item in author.social %}
 					<a
-						class="button {{ item.type }}"
+						class="button
+							{{ item.type }}
+							{% if item.hidden %}is-hidden{%- endif -%}"
 						href="{{ item.url }}"
-						{%- if item.me -%}rel="me"{%- endif -%}>
+						rel="me">
 						<span class="icon">
 							<i class="{{ item.icon }}" aria-hidden="true"></i>
 						</span>

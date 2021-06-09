@@ -7,6 +7,7 @@ $social: (
 	"telegram": var(--telegram-primary),
 	"discord": var(--discord-primary),
 	"linkedin": var(--linkedin-primary),
+	"instagram": var(--instagram-primary),
 );
 
 .button {
@@ -120,4 +121,13 @@ $social: (
 	&.is-centered {
 		justify-content: center;
 	}
+}
+
+.instagram > .icon {
+	background: var(--instagram-primary);
+	background-clip: text;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+	-khtml-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
