@@ -73,6 +73,17 @@ layout: container
 				{{ content }}
 			</section>
 
+			<section id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a class="button twitter-share-button">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+				</div>
+			</section>
+
 			<div class="printable">
 				<p class="has-text-right">{{ site.url }}{{ page.url }}</p>
 			</div>
@@ -112,3 +123,30 @@ layout: container
 		</div>
 	</div>
 </div>
+
+{%- capture js_ext -%}
+	{%- if jekyll.environment != 'local' -%} .min.js
+	{%- else -%} .js
+	{%- endif -%}
+{%- endcapture -%}
+
+{%- assign post_url = site.url | append: page.url -%}
+
+<script>
+	window.apiUrl = "https://webmention.io/api"
+	window.postUrl = "{{ post_url }}" || ""
+
+	window.getReactions = async () => {
+		if (window.postUrl) {
+			return await (await fetch(
+				`${window.apiUrl}/count.json?target=${window.postUrl}`
+			)).json()
+		}
+
+		return {}
+	}
+
+	window.mentionsUrl = `${window.apiUrl}/mentions.html?target={{ post_url }}`
+	window.siteUrl = "{{ site.url }}"
+</script>
+<script type="module" src="{{ site.url }}/assets/js/post{{ js_ext }}"></script>

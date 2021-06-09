@@ -553,4 +553,17 @@ sup.ref {
 	display: none;
 }
 
+.reactions {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.twitter-share-button {
+	border: none;
+	border-radius: var(--small-radius);
+	padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+	color: var(--white-color);
+	background: var(--twitter-primary);
+}
+
 @import "gist";
