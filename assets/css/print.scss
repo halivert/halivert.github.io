@@ -92,7 +92,9 @@ img {
 .theme-switcher,
 .menu > .menu-list:last-child,
 footer.footer,
-nav.pagination {
+nav.pagination,
+video,
+#reactions {
 	display: none;
 }
 
@@ -102,8 +104,4 @@ nav.pagination {
 
 .columns {
 	flex-flow: row nowrap !important;
-}
-
-video {
-	display: none;
 }
