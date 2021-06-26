@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "Divagando"
+title: *category
 permalink: "/blog/rambling/"
 pagination:
   enabled: true

@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "Novedades"
+title: *category
 permalink: "/blog/news/"
 pagination:
   enabled: true

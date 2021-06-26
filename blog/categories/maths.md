@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "Matemáticas"
+title: *category
 permalink: "/blog/maths/"
 pagination:
   enabled: true

@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "Ya me pasó"
+title: *category
 permalink: "/blog/i-were-there/"
 pagination:
   enabled: true

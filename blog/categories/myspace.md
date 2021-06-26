@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "MySpace"
+title: *category
 permalink: "/blog/myspace/"
 pagination:
   enabled: true

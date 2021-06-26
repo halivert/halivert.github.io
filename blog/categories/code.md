@@ -1,6 +1,7 @@
 ---
 layout: category
 category: &category "¡Código!"
+title: *category
 permalink: "/blog/code/"
 pagination:
   enabled: true
