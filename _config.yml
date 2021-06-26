@@ -1,24 +1,26 @@
+url: "https://halivert.dev"
 repository: "halivert/halivert.github.io"
 title: "Halivert"
 name: "Halí"
 description: >-
   Sitio de Halí Velázquez
 baseurl: ""
-url: "https://halivert.dev"
 timezone: "America/Mexico_City"
 logo: "/img/halivert-logo.png"
 tagline: "Blog personal de un desarrollador"
 lang: "es_MX"
 markdown: "kramdown"
+google-site-verification: "y5CVIkGEknUqXldRON2wplF-bCPoTD_esh47PoXbtmk"
+seo_paginator_message: "Página %<current>s de %<total>s - "
 twitter:
   username: "halivert"
 
 pagination:
   enabled: true
-  permalink: "/:num/"
-  sort_field: "date"
-  sort_reverse: true
   per_page: 7
+  permalink: "/:num/"
+  title: ""
+  sort_reverse: true
 
 plugins:
   - jekyll-feed

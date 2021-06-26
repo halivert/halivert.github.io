@@ -120,25 +120,7 @@
 			defer
 		></script>
 
-		<title>
-			{% if paginator %}
-				Página {{ paginator.page }} de {{ paginator.total_pages }} de
-			{% endif %}
-
-			{% if page.title %}
-				{% if page.title != site.title %}
-					{{ page.title }} | {{ site.title }}
-				{% else %}
-					{{ page.title }}
-				{% endif %}
-			{% else if site.description %}
-				{{ site.title }} | {{ site.description }}
-			{% else %}
-				{{ site.title }}
-			{% endif %}
-		</title>
-
-		{% seo title=false %}
+		{% seo %}
 		{% if page.has_math %}
 			{% include katex.html %}
 			<meta property="has_instant_view" content="false" />
