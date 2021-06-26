@@ -40,6 +40,7 @@
 		background-color: n-hsla(var(--background-hsl-200), 0.9);
 		min-height: 90%;
 		overflow-y: auto;
+		overscroll-behavior: contain;
 
 		scrollbar-width: none;
 
