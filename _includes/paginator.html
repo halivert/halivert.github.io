@@ -1,122 +1,107 @@
-<nav class="pagination is-rounded is-centered" aria-label="pagination">
-  {% if include.item.previous_page %}
-    <a
-      href="{{ site.url }}{{ include.item.previous_page_path }}"
-      class="pagination-previous button is-primary is-hidden-touch"
-      ><i class="fas fa-hand-point-left"></i></a
-    >
-  {% else %}
-    <a class="pagination-previous is-hidden-touch" disabled>
-      <i class="fas fa-hand-point-left"></i>
-    </a>
-  {% endif %}
+{% if paginator.total_pages > 1  %}
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		{% if paginator.previous_page %}
+			<a
+				href="{{ site.url }}{{ paginator.previous_page_path }}"
+				class="pagination-previous button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-left"></i></a
+			>
+		{% else %}
+			<a class="pagination-previous is-hidden-touch" disabled>
+				<i class="fas fa-hand-point-left"></i>
+			</a>
+		{% endif %}
 
-  {% assign actualPage = include.item.page %}
+		<ul class="pagination-list">
+			{% assign first_page_path = paginator.first_page_path %}
+			{% assign at_most = paginator.total_pages | minus: 2 %}
 
-  <ul class="pagination-list">
-    {% if actualPage > 1 %}
-      <li>
-        <a
-          href="{{ site.url }}{{ include.item.first_page_path }}"
-          class="pagination-link"
-          aria-label="Ir a página 1"
-          >1</a
-        >
-      </li>
-    {% endif %}
+			<li>
+				<a
+					{% if paginator.page > 1 %}
+						href="{{ site.url }}{{ first_page_path }}"
+						class="pagination-link"
+					{% else %}
+						class="pagination-link button is-current"
+						aria-current="page"
+					{% endif %}
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
 
-    {% assign final = actualPage | minus: 1 %}
-    {% assign start = actualPage | minus: 2 | at_least: 2 %}
-    {% assign startMob = actualPage | minus: 1 | at_least: 2 %}
+			{% if paginator.page > 3 %}
+				{% if paginator.page > 4 %}
+					<li>
+						<span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
+					</li>
+				{% endif %}
+				<li>
+					<span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
+				</li>
+			{% endif %}
 
-    {% if start > 2 %}
-      <li>
-        <span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
-      </li>
-    {% endif %}
+			{% if paginator.page_trail %}
+				{% for trail in paginator.page_trail %}
+					{% if trail.num != 1 and trail.num != paginator.total_pages  %}
+						<li>
+							<a
+								{% if page.url == trail.path %}
+									class="pagination-link button is-current"
+									aria-current="page"
+								{% else %}
+									class="pagination-link button
+										{% if forloop.first == true or forloop.last == true %}
+											is-hidden-touch
+										{% endif %}"
+									href="{{ site.url }}{{ first_page_path }}{{ trail.num }}/"
+								{% endif %}
+								aria-label="Ir a página {{ trail.num }}"
+								>{{ trail.num }}</a
+							>
+						</li>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
 
-    {% if startMob > 2 %}
-      <li>
-        <span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
-      </li>
-    {% endif %}
+			{% if paginator.page < at_most %}
+				{% assign at_most = at_most | minus: 1 %}
+				{% if paginator.page < at_most %}
+					<li>
+						<span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
+					</li>
+				{% endif %}
 
+				<li>
+					<span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
+				</li>
+			{% endif %}
 
-    {% for i in (start .. final) %}
-      <li>
-        <a
-          href="{{ site.url }}{{ include.item.first_page_path }}{{ i }}/"
-          class="pagination-link
-          {% if forloop.last == false %}
-            is-hidden-touch
-          {% endif %}"
-          aria-label="Ir a página {{ i }}"
-          >{{ i }}</a
-        >
-      </li>
-    {% endfor %}
+			<li>
+				<a
+					{% if paginator.page < paginator.total_pages %}
+						href="{{ site.url }}{{ paginator.last_page_path }}"
+						class="pagination-link"
+					{% else %}
+						class="pagination-link button is-current"
+						aria-current="page"
+					{% endif %}
+					aria-label="Ir a página {{ paginator.total_pages }}"
+					>{{ paginator.total_pages }}</a
+				>
+			</li>
+		</ul>
 
-    <li>
-      <a
-        class="pagination-link button is-current"
-        aria-current="page"
-        aria-label="Ir a página {{ actualPage }}"
-        >{{ actualPage }}</a
-      >
-    </li>
-
-    {% assign at_most = include.item.last_page | minus: 1 %}
-    {% assign start = actualPage | plus: 1 %}
-    {% assign final = actualPage | plus: 2 | at_most: at_most %}
-    {% assign finalMob = actualPage | plus: 1 | at_most: at_most %}
-
-    {% for i in (start .. final) %}
-      <li>
-        <a
-          href="{{ site.url }}{{ include.item.first_page_path }}{{ i }}/"
-          class="pagination-link
-          {% if forloop.first == false %}
-            is-hidden-touch
-          {% endif %}"
-          aria-label="Ir a página {{ i }}"
-          >{{ i }}</a
-        >
-      </li>
-    {% endfor %}
-
-    {% if finalMob < at_most %}
-      <li>
-        <span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
-      </li>
-    {% endif %}
-
-    {% if final < at_most %}
-      <li>
-        <span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
-      </li>
-    {% endif %}
-
-    {% if actualPage < include.item.last_page %}
-      <li>
-        <a
-          href="{{ site.url }}{{ include.item.last_page_path }}"
-          class="pagination-link"
-          aria-label="Ir a página {{ include.item.last_page }}"
-          >{{ include.item.last_page }}</a
-        >
-      </li>
-    {% endif %}
-  </ul>
-
-  {% if include.item.next_page %}
-    <a
-      href="{{ site.url }}{{ include.item.next_page_path }}"
-      class="pagination-next button is-primary is-hidden-touch"
-      ><i class="fas fa-hand-point-right"></i></a
-    >
-  {% else %}
-    <span class="pagination-next is-hidden-touch" disabled>
-      <i class="fas fa-hand-point-right"></i>
-    </span>
-  {% endif %}
-</nav>
+		{% if paginator.next_page %}
+			<a
+				href="{{ site.url }}{{ paginator.next_page_path }}"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		{% else %}
+			<span class="pagination-next is-hidden-touch" disabled>
+				<i class="fas fa-hand-point-right"></i>
+			</span>
+		{% endif %}
+	</nav>
+{% endif %}

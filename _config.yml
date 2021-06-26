@@ -21,6 +21,9 @@ pagination:
   permalink: "/:num/"
   title: ":title"
   sort_reverse: true
+  trail:
+      before: 2
+      after: 2
 
 plugins:
   - jekyll-feed
