@@ -13,32 +13,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Cache
+      - name: Cache node_modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: node_modules
+
+      - name: Cache gems
         uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: gems-${{ hashFiles('**/Gemfile') }}
-          restore-keys: |
-            gems
+          restore-keys: gems
 
-      - name: Build JS files
-        uses: actions/upload-artifact@v2
-        with:
-          name: js-files
-          path: assets/js/
+      - run: yarn && yarn prod
+      - run: ls ${{ github.workspace }}
 
-      - name: Build the site
-        uses: actions/download-artifact@v2
-        env:
-          JEKYLL_ENV: production
-        with:
-          name: js-files
-        run: |
-          docker run \
-          -v ${{ github.workspace }}:/srv/halivert \
-          -v ${{ github.workspace }}/_site:/srv/halivert/_site \
-          jekyll/builder:latest /bin/bash \
-          -c "cd /srv/halivert && jekyll build -b https://halivert.dev"
+#       - name: Build the site
+#         uses: actions/download-artifact@v2
+#         env:
+#           JEKYLL_ENV: production
+#         with:
+#           name: js-files
+#         run: |
+#           docker run \
+#           -v ${{ github.workspace }}:/srv/halivert \
+#           -v ${{ github.workspace }}/_site:/srv/halivert/_site \
+#           jekyll/builder:latest /bin/bash \
+#           -c "cd /srv/halivert && jekyll build -b https://halivert.dev"
 
       # - name: Build the site
       #   uses: helaili/jekyll-action@v2
