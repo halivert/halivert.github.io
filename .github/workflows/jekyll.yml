@@ -9,7 +9,9 @@ jobs:
   build-js:
     runs-on: ubuntu-latest
     steps:
-      - run: ls $PWD
+      - name: Checkout
+        uses: actions/checkout@v2
+
       - name: Cache node_modules
         uses: actions/cache@v2
         with:
@@ -27,6 +29,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - run: ls ${{ github.workspace }}
+
       - name: Cache gems
         uses: actions/cache@v2
         with:
@@ -34,17 +38,19 @@ jobs:
           key: gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: gems
 
-      - name: Build Jekyll
-        run: |
-          # gem install --local bundler
-          docker run \
-          -v ${{ github.workspace }}:/srv/halivert \
-          ruby:3.0 /bin/bash \
-          -c "
-            gem install bundler && \
-            cd /srv/halivert && \
-            bundle install && \
-            jekyll build -b https://halivert.dev"
+      - run: sudo gem install bundler
+      - run: bundle install
+      # - name: Build Jekyll
+      #   run: |
+      #     # gem install --local bundler
+      #     docker run \
+      #     -v ${{ github.workspace }}:/srv/halivert \
+      #     ruby:3.0 /bin/bash \
+      #     -c "
+      #       gem install bundler && \
+      #       cd /srv/halivert && \
+      #       bundle install && \
+      #       jekyll build -b https://halivert.dev"
   # deploy:
   #   runs-on: ubuntu-latest
   #   needs: [build]
