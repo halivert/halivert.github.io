@@ -21,6 +21,9 @@ build:
   script:
     - yarn
     - yarn prod
+  artifacts:
+    paths:
+      - assets/js
 
 pages:
   stage: deploy
