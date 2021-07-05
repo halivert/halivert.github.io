@@ -17,58 +17,54 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: node_modules-
+          restore-keys: node_modules
 
       - name: Build JS files
         run: yarn && yarn prod
-      - run: echo ${{ github.workspace }}
-      - run: pwd
-      - run: ls $PWD
 
-  # build:
-  #   runs-on: ubuntu-latest
-  #   needs: [build-js]
-  #   container:
-  #     image: ruby:3.0
-  #     volumes:
-  #       - ${{ github.workspace }}:/srv/halivert
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v2
+  build:
+    runs-on: ubuntu-latest
+    needs: [build-js]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  #     - run: ls ${{ github.workspace }}
+      - name: Cache gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: gems
 
-  #     - name: Cache gems
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: vendor/bundle
-  #         key: gems-${{ hashFiles('**/Gemfile') }}
-  #         restore-keys: gems
-
-  #     - run: gem install --local bundler
-  #     - run: bundle install
-
+      - name: Build Jekyll
+        run: |
+          # gem install --local bundler
+          docker run \
+          -v ${{ github.workspace }}:/srv/halivert \
+          ruby:3.0 /bin/bash \
+          -c "cd /srv/halivert && \
+              jekyll build -b https://halivert.dev"
   # deploy:
   #   runs-on: ubuntu-latest
   #   needs: [build]
   #   steps:
   #     - run: ls ${{ github.workspace }}
-      # - name: Build the site
-      #   uses: actions/download-artifact@v2
-      #   env:
-      #     JEKYLL_ENV: production
-      #   with:
-      #     name: js-files
-      #   run: |
-      #     docker run \
-      #     -v ${{ github.workspace }}:/srv/halivert \
-      #     -v ${{ github.workspace }}/_site:/srv/halivert/_site \
-      #     jekyll/builder:latest /bin/bash \
-      #     -c "cd /srv/halivert && jekyll build -b https://halivert.dev"
-      # - name: Build the site
-      #   uses: helaili/jekyll-action@v2
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   with:
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     target_branch: "site"
+  # - name: Build the site
+  #   uses: actions/download-artifact@v2
+  #   env:
+  #     JEKYLL_ENV: production
+  #   with:
+  #     name: js-files
+  #   run: |
+  #     docker run \
+  #     -v ${{ github.workspace }}:/srv/halivert \
+  #     -v ${{ github.workspace }}/_site:/srv/halivert/_site \
+  #     jekyll/builder:latest /bin/bash \
+  #     -c "cd /srv/halivert && jekyll build -b https://halivert.dev"
+  # - name: Build the site
+  #   uses: helaili/jekyll-action@v2
+  #   env:
+  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #   with:
+  #     token: ${{ secrets.GITHUB_TOKEN }}
+  #     target_branch: "site"
