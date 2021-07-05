@@ -108,7 +108,7 @@
 		{%- assign jsAssets = "/assets/js" | absolute_url -%}
 
 		<script>
-			window.siteUrl = "{{ '' | absolute_url }}"
+			window.siteUrl = "{{ '/' | absolute_url }}"
 		</script>
 		<script type="module" src="{{ jsAssets }}/main{{ js_ext }}"></script>
 		<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" defer></script>
