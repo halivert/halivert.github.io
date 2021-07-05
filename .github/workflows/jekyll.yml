@@ -39,12 +39,12 @@ jobs:
         with:
           name: js-files
 
-      - run: ls ${{ github.workspace }}/assets/js
+      - run: ls -R ${{ github.workspace }}/assets
 
       - name: Cache gems
         uses: actions/cache@v2
         with:
-          path: vendor/bundle
+          path: ${{ github.workspace }}/vendor/bundle/
           key: gems-${{ hashFiles('**/Gemfile.lock') }}
           restore-keys: gems
 
