@@ -32,7 +32,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build]
     steps:
-      - run: ls ${{ github.workspace }}/assets/js
+      # - name: Checkout
+      #   uses: actions/checkout@v2
+      - run: ls ${{ github.workspace }}
 
 
 #       - name: Build the site
