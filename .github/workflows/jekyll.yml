@@ -38,18 +38,13 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: js-files
+          path: assets/js/
 
       - run: ls -R ${{ github.workspace }}/assets
 
-      - name: Cache gems
-        uses: actions/cache@v2
+      - uses: ruby/setup-ruby@v1
         with:
-          path: ${{ github.workspace }}/vendor/bundle/
-          key: gems-${{ hashFiles('**/Gemfile.lock') }}
-          restore-keys: gems
-
-      - run: sudo gem install bundler
-      - run: bundle install
+          bundler-cache: true
       # - name: Build Jekyll
       #   run: |
       #     # gem install --local bundler
