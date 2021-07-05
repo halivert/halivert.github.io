@@ -27,7 +27,6 @@ jobs:
           restore-keys: gems
 
       - run: yarn && yarn prod
-      - run: gem install bundler
       - run: bundle install
 
   deploy:
