@@ -18,12 +18,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: node_modules-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            node_modules
+          key: node_modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: node_modules-
 
       - name: Build JS files
         run: yarn && yarn prod
+      - run: pwd
       - run: ls ${{ github.workspace }}
 
   # build:
