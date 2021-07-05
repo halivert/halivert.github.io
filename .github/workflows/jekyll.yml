@@ -28,7 +28,7 @@ jobs:
           restore-keys: gems
 
       - run: yarn && yarn prod
-      - run: ls ${{ github.workspace }}
+      - run: ls ${{ github.workspace }}/assets/js
 
 #       - name: Build the site
 #         uses: actions/download-artifact@v2
