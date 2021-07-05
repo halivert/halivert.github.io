@@ -10,8 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:16.3-alpine
-      volumes:
-        - ${{ github.workspace }}:/srv/halivert
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -21,7 +19,8 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: node_modules-
+          restore-keys: |
+            node_modules
 
       - name: Build JS files
         run: yarn && yarn prod
