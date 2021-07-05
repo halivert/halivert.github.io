@@ -8,10 +8,6 @@ on:
 jobs:
   build-js:
     runs-on: ubuntu-latest
-    container:
-      image: node:16.3-alpine
-      volumes:
-        - ${{ github.workspace }}:/srv/halivert
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -25,6 +21,7 @@ jobs:
 
       - name: Build JS files
         run: yarn && yarn prod
+      - run: echo ${{ github.workspace }}
       - run: pwd
       - run: ls $PWD
 
