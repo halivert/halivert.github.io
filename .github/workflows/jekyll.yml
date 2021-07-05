@@ -13,11 +13,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache node_modules
-        uses: actions/cache@v2
+        uses: actions/setup-node@v2
         with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: node_modules
+          node-version: '16.3'
+          cache: 'yarn'
 
       - name: Build JS files
         run: yarn && yarn prod
@@ -44,6 +43,7 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
+          ruby-version: '3.0'
           bundler-cache: true
       # - name: Build Jekyll
       #   run: |
