@@ -6,7 +6,7 @@ name: "Halí"
 description: >-
   Sitio de Halí Velázquez
 timezone: "America/Mexico_City"
-logo: "/img/halivert-logo.png"
+logo: "/assets/img/halivert-logo.png"
 tagline: "Blog personal de un desarrollador"
 lang: "es_MX"
 markdown: "kramdown"
@@ -58,7 +58,7 @@ defaults:
       path: ""
     values:
       search_bar: false
-      logo: "/img/halivert-logo.png"
+      logo: "/assets/img/halivert-logo.png"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom
@@ -67,14 +67,11 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
+  - vendor/
   - package.json
   - yarn.lock
   - yarn-error.log
   - /README.md
   - convert
   - release-notes.md
-  - babel.config*
+  - rollup.config.js

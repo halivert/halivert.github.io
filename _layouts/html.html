@@ -99,27 +99,21 @@
 			<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
 		{%- endif -%}
 
-		{%- capture js_ext -%}
-			{%- if jekyll.environment != 'development' -%} .min.js
-			{%- else -%} .js
-			{%- endif -%}
-		{%- endcapture -%}
-
 		{%- assign jsAssets = "/assets/js" | absolute_url -%}
 
 		<script>
 			window.siteUrl = "{{ '/' | absolute_url }}"
 		</script>
-		<script type="module" src="{{ jsAssets }}/main{{ js_ext }}"></script>
+		<script type="module" src="{{ jsAssets }}/main.js"></script>
 		<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" defer></script>
 		<script
 			type="module"
-			src="{{ jsAssets }}/search{{ js_ext }}"
+			src="{{ jsAssets }}/search.js"
 			defer
 		></script>
 		<script
 			type="module"
-			src="{{ jsAssets }}/themeSwitcher{{ js_ext }}"
+			src="{{ jsAssets }}/themeSwitcher.js"
 			defer
 		></script>
 
