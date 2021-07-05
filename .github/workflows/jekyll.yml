@@ -30,7 +30,7 @@ jobs:
       - name: Build Jekyll
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build -b https://halivert.dev
+        run: bundle exec jekyll build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
