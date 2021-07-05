@@ -1,5 +1,2 @@
-{% capture assets_path %}{{
-  site.url }}/assets/{{
-    page.date | date: "%Y-%m"
-  }}-{{ page.slug
-}}{% endcapture %}
+{% assign path = page.date | date: "%Y-%m-" | append: page.slug %}
+{% assign assets_path = path | prepend: '/assets/' | absolute_url %}

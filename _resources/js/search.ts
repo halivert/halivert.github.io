@@ -7,6 +7,7 @@ declare global {
     inputSearch: Function
     showSearchModal: Function
     lunr: Function
+    siteUrl: String
   }
 
   interface LunrResult {
@@ -33,7 +34,9 @@ declare global {
 
 async function makeIdx() {
   if (!window.idx) {
-    window.index = await fetch("/index.json").then((d) => d.json())
+    window.index = await fetch(`${window.siteUrl}/index.json`).then((d) =>
+      d.json()
+    )
 
     window.idx = window.lunr(function() {
       this.field("id")

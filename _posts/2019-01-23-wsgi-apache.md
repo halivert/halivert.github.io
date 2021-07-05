@@ -17,7 +17,7 @@ alojar una aplicación web escrita en Python.
 - [Python][1] (Usé Python 3.7)
 - [Apache][2] (Usé Apache Lounge 2.4)
 <a class="anchor" name="Nota1Up"></a>
-- [Microsoft Visual C++][3] [*]({{ site.url }}{{ page.url }}#Nota1)
+- [Microsoft Visual C++][3] [*]({{ page.url | absolute_url }}#Nota1)
 
 <!-- Seguir leyendo -->
 
@@ -80,7 +80,7 @@ publicación.
 
 ### Notas
 <a class="anchor" name="Nota1"></a>
-[*]({{ site.url }}{{ page.url }}#Nota1Up) Necesitas instalar el Visual C++ con
+[*]({{ page.url | absolute_url }}#Nota1Up) Necesitas instalar el Visual C++ con
 el que esté compilado el servidor de Apache que utilizarás. Si utilizas, por
 ejemplo, Apache Lounge httpd-2.4.38-win64-**VC15**.zip, necesitas el Visual C++
 15, que puedes encontrar en la página [versiones anteriores][6], en el apartado

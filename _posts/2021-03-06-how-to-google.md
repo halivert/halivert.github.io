@@ -112,5 +112,5 @@ Nota: Estos consejos son similares con otros buscadores web, como
 [duckduckgo]: https://duckduckgo.com
 [1]: https://support.google.com/websearch/answer/134479?hl=en
 
-[2]: {{ site.url }}/blog/2021/02/how-to-ask/
+[2]: {{ '/blog/2021/02/how-to-ask/' | absolute_url }}
 [3]: https://support.google.com/websearch/answer/1325808

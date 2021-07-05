@@ -4,7 +4,6 @@ title: "Halivert"
 name: "Halí"
 description: >-
   Sitio de Halí Velázquez
-baseurl: ""
 timezone: "America/Mexico_City"
 logo: "/img/halivert-logo.png"
 tagline: "Blog personal de un desarrollador"
@@ -77,3 +76,4 @@ exclude:
   - /README.md
   - convert
   - release-notes.md
+  - babel.config*

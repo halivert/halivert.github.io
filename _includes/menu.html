@@ -1,10 +1,10 @@
 <aside id="side-menu" class="menu">
 	<ul class="menu-list mt-1">
 		<li>
-			<a class="px-1" href="{{ site.url }}">
+			<a class="px-1" href="{{ '' | absolute_url }}">
 				<img
 					class="logo my-0 dark"
-					src="{{ site.url }}/img/halivert-logo.webp"
+					src="{{ '/img/halivert-logo.webp' | absolute_url }}"
 					alt="Logo de {{ site.title }}"
 				/>
 			</a>
@@ -13,10 +13,10 @@
 
 	<ul class="menu-list my-1">
 		<li>
-			<a href="{{ site.url }}/blog/">Blog</a>
+			<a href="{{ '/blog/' | absolute_url }}">Blog</a>
 		</li>
 		<!--li>
-			<a href="{{ site.url }}/projects/">Proyectos</a>
+			<a href="{{ '/projects/' | absolute_url }}">Proyectos</a>
 		</li-->
 		{%- if page.search_bar -%}
 		<li>

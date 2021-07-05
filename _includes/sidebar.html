@@ -1,12 +1,15 @@
 <div class="container is-fluid has-text-centered">
-  <h1 class="subtitle">Categorías</h1>
-  <div>
-    {%- for category in site.categories -%}
-      {%- assign categoryName = category[0] -%}
-      {%- assign slug = site.data.categories[categoryName].slug -%}
-      <a class="sidebar-item" href="{{ site.url }}/blog/{{ slug }}">
-        {{ categoryName }}
-      </a>
-    {%- endfor -%}
-  </div>
+	<h1 class="subtitle">Categorías</h1>
+	<div>
+		{%- for category in site.categories -%}
+			{%- assign categoryName = category[0] -%}
+			{%-
+				assign slug = site.data.categories[categoryName].slug
+					| prepend: '/blog/'
+			-%}
+			<a class="sidebar-item" href="{{ slug | absolute_url }}"
+				>{{ categoryName }}</a
+			>
+		{%- endfor -%}
+	</div>
 </div>

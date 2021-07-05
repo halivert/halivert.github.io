@@ -96,7 +96,7 @@ navegadores modernos.
 
 Adiós 👋🏽
 
-[1]: {{ site.url }}/assets/css/print.css
+[1]: {{ '/assets/css/print.css' | absolute_url }}
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-after
 [3]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-before
 [4]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside
