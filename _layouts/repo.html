@@ -3,24 +3,26 @@ layout: html
 hide_foot: true
 ---
 
+{% assign git = page.git | default: 'gitlab' %}
+
 {%- if page.repository_url != false -%}
 	<nav class="repo fixed-top-bar">
 		<a
 			href="{{ page.repository_url | default: site.github.repository_url }}"
-			class="button github is-hidden-touch"
+			class="button git {{ git }} is-hidden-touch"
 		>
-			<span>Ver en github</span>
+			<span>Ver en {{ git }}</span>
 			<span class="icon">
-				 <i class="fab fa-github" aria-hidden="true"></i>
+				<i class="fab fa-{{ git }}" aria-hidden="true"></i>
 			</span>
 		</a>
 
 		<a
 			href="{{ page.repository_url | default: site.github.repository_url }}"
-			class="button github is-hidden-desktop"
+			class="button git {{ git }} is-hidden-desktop"
 		>
 			<span class="icon">
-				 <i class="fab fa-github" aria-hidden="true"></i>
+				<i class="fab fa-{{ git }}" aria-hidden="true"></i>
 			</span>
 		</a>
 	</nav>
