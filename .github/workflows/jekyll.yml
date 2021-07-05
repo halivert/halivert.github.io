@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-js:
+  github-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,25 +21,8 @@ jobs:
       - name: Build JS files
         run: yarn && yarn prod
 
-      - name: Save JS files
-        uses: actions/upload-artifact@v2
-        with:
-          name: js-files
-          path: assets/js/
-
-  build:
-    runs-on: ubuntu-latest
-    needs: [build-js]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: js-files
-          path: assets/js/
-
-      - uses: ruby/setup-ruby@v1
+      - name: Cache gems
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.0"
           bundler-cache: true
@@ -49,23 +32,8 @@ jobs:
           JEKYLL_ENV: production
         run: bundle exec jekyll build -b https://halivert.dev
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: site
-          path: _site/
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - uses: actions/download-artifact@v2
-        with:
-          name: site
-
-      - uses: JamesIves/github-pages-deploy-action@4.1.4
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: site
           folder: _site
