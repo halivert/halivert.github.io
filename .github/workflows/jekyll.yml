@@ -15,8 +15,8 @@ jobs:
       - name: Cache node_modules
         uses: actions/setup-node@v2
         with:
-          node-version: '16.3'
-          cache: 'yarn'
+          node-version: "16.3"
+          cache: "yarn"
 
       - name: Build JS files
         run: yarn && yarn prod
@@ -41,32 +41,13 @@ jobs:
 
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
+          ruby-version: "3.0"
           bundler-cache: true
 
       - name: Build Jekyll
         run: bundle exec jekyll build -b https://halivert.dev
-  # deploy:
-  #   runs-on: ubuntu-latest
-  #   needs: [build]
-  #   steps:
-  #     - run: ls ${{ github.workspace }}
-  # - name: Build the site
-  #   uses: actions/download-artifact@v2
-  #   env:
-  #     JEKYLL_ENV: production
-  #   with:
-  #     name: js-files
-  #   run: |
-  #     docker run \
-  #     -v ${{ github.workspace }}:/srv/halivert \
-  #     -v ${{ github.workspace }}/_site:/srv/halivert/_site \
-  #     jekyll/builder:latest /bin/bash \
-  #     -c "cd /srv/halivert && jekyll build -b https://halivert.dev"
-  # - name: Build the site
-  #   uses: helaili/jekyll-action@v2
-  #   env:
-  #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #   with:
-  #     token: ${{ secrets.GITHUB_TOKEN }}
-  #     target_branch: "site"
+
+      - uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: site
+          folder: _site
