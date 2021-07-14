@@ -124,12 +124,6 @@ layout: container
 	</div>
 </div>
 
-{%- capture js_ext -%}
-	{%- if jekyll.environment != 'development' -%} .min.js
-	{%- else -%} .js
-	{%- endif -%}
-{%- endcapture -%}
-
 {%- assign post_url = page.url | absolute_url -%}
 
 <script>
@@ -150,5 +144,5 @@ layout: container
 </script>
 <script
 	type="module"
-	src="{{ '/assets/js/post' | append: js_ext | absolute_url }}"></script
+	src="{{ '/assets/js/post.js' | absolute_url }}"></script
 >
