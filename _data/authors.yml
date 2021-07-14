@@ -14,13 +14,12 @@ halivert:
       type: "twitter"
       icon: "fab fa-twitter"
       hidden: true
-    - url: "https://gitlab.com/halivert"
-      type: "gitlab"
-      icon: "fab fa-gitlab"
     - url: "https://github.com/halivert"
       type: "github"
       icon: "fab fa-github"
-      hidden: true
+    - url: "https://gitlab.com/halivert"
+      type: "gitlab"
+      icon: "fab fa-gitlab"
     - url: "https://discordapp.com/users/673717040095428628"
       type: "discord"
       icon: "fab fa-discord"
