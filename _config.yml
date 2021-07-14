@@ -64,14 +64,14 @@ defaults:
 # The following items will not be processed, by default. Create a custom
 # list to override the default setting.
 exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/
   - package.json
   - yarn.lock
   - yarn-error.log
   - /README.md
+  - /LICENSE
   - convert
   - release-notes.md
   - rollup.config.js
+  - src/
+  - test.md
+  - todo.md

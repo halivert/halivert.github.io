@@ -4,7 +4,7 @@ layout: container
 class: "content"
 sitemap: false
 author: halivert
-permalink: "/vere/"
+permalink: "/vere"
 ---
 
 {% capture she %}verenaiss{% endcapture %}
@@ -19,8 +19,14 @@ permalink: "/vere/"
   <hr />
 
   <div class="container">
-    {{ vere.description }}
-    <br>
-    Pero más que eso... es mi mejor amiga y mi novia 🥰💖
+    <p>
+      {{ vere.description }}
+    </p>
+    <p>
+      Pero más que eso... es mi mejor amiga, mi novia 🥰💖
+    </p>
+    <p>
+      Y desde hace algún tiempo, mi amada esposa 💞
+    </p>
   </div>
 </div>
