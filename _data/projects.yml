@@ -1,18 +1,31 @@
-- title: "Árbol AVL"
-  slug: avl-tree
-  img_type: "webp:image/webp,png:image/png"
+- id: tip-calculator-app
+  title: "Tip calculator app"
+  image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
+  image_alt: "Screenshot de aplicación"
+  repo: "https://github.com/halivert/tip-calculator-app"
+  live: "https://halivert.dev/tip-calculator-app"
+  description: >-
+    Calculadora de propinas. Proyecto de Frontend mentor
+
+- id: personal-website
+  title: "Este sitio web y blog personal"
+  repo: "https://github.com/halivert/halivert.github.io"
+  live: "https://halivert.dev"
+  image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
+  description: >-
+    Sitio web hecho con Jekyll, HTML, JavaScript y Sass.
+
+- id: avl-tree
+  title: "Árbol AVL"
+  repo: "https://github.com/halivert/avl-tree"
+  image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/avl-tree.webp"
   description: >-
     Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.
 
-- title: "Rutas de Laravel en JS"
-  slug: laravel-js-routes
-  img_type: "webp:image/webp,png:image/png"
+- id: laravel-js-routes
+  title: "Rutas de Laravel en JS"
+  repo: "https://github.com/halivert/laravel-js-routes"
+  image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp"
   description: >-
     Paquete composer para utilizar rutas de Laravel en archivos
     JS con un comando.
-
-# - title: "Este sitio web y blog personal"
-#   slug: halivert.github.io
-#   img_type: "webp:image/webp,png:image/png"
-#   description: >-
-#     Sitio web hecho con Jekyll, HTML, JavaScript y CSS.

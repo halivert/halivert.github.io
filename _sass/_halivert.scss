@@ -586,4 +586,92 @@ sup.ref {
 	}
 }
 
+@keyframes slide-in {
+	from {
+		top: 100%;
+		opacity: 0;
+	}
+
+	to {
+		top: 0;
+		opacity: 1;
+	}
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.projects {
+	display: flex;
+	flex-flow: row wrap;
+	gap: 2em;
+
+	article {
+		display: flex;
+		min-height: 10em;
+		justify-content: center;
+		align-items: center;
+		flex: 1 0 30%;
+
+		@include touch {
+			flex: 1 0 100%;
+		}
+
+		min-width: 0;
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+
+		figure figcaption {
+			margin-top: 0.5em;
+			text-align: center;
+		}
+
+		.description {
+			bottom: 100%;
+			position: absolute;
+		}
+	}
+
+	article:hover,
+	input.hidden:checked + {
+		figure figcaption {
+			visibility: hidden;
+		}
+
+		.description {
+			position: absolute;
+			inset: 0;
+			display: flex;
+			flex-flow: column;
+			gap: 1em;
+			justify-content: center;
+			text-align: center;
+			color: var(--text-color-100);
+			z-index: 1;
+			animation: 0.5s cubic-bezier(0.86, 0, 0.07, 1) slide-in;
+
+			@media (prefers-reduced-motion) {
+				animation: 0.7s linear appear;
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				inset: 0;
+				background: var(--background-color-100);
+				z-index: -1;
+				opacity: 0.9;
+			}
+		}
+	}
+}
+
 @import "gist";
