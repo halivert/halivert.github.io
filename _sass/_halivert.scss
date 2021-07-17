@@ -639,6 +639,7 @@ sup.ref {
 	}
 
 	article:hover,
+	article:focus-within,
 	input.hidden:checked + {
 		figure figcaption {
 			visibility: hidden;
