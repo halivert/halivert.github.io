@@ -67,20 +67,20 @@
 		></script>
 
 		<!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>MySpace | Halivert</title>
+<title>Proyectos | Halivert</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="MySpace" />
+<meta property="og:title" content="Proyectos" />
 <meta property="og:locale" content="es_MX" />
 <meta name="description" content="Sitio de Halí Velázquez" />
 <meta property="og:description" content="Sitio de Halí Velázquez" />
-<link rel="canonical" href="https://halivert.dev/blog/myspace/" />
-<meta property="og:url" content="https://halivert.dev/blog/myspace/" />
+<link rel="canonical" href="https://halivert.dev/projects/" />
+<meta property="og:url" content="https://halivert.dev/projects/" />
 <meta property="og:site_name" content="Halivert" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="MySpace" />
+<meta property="twitter:title" content="Proyectos" />
 <meta name="twitter:site" content="@halivert" />
 <script type="application/ld+json">
-{"description":"Sitio de Halí Velázquez","headline":"MySpace","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/myspace/","@type":"WebPage","@context":"https://schema.org"}</script>
+{"description":"Sitio de Halí Velázquez","headline":"Proyectos","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/projects/","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 		
@@ -122,39 +122,105 @@
 </aside>
 
 <main id="main-container" class="section ">
-  <div class="category-header">
-  <h3 class="title is-1">MySpace</h3>
-  <div class="subtitle">
-    Un lugar para compartir cómo estructuro mi entorno, principalmente de trabajo,
-pero también para el ocio.
+  <section class="projects">
+  
+    <article>
+      <figure>
+        <label for="tip-calculator-app">
+          <img src="https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png" alt="Screenshot de aplicación" />
+        </label>
 
-  </div>
-</div>
+        <figcaption>Calculadora de propinas. Proyecto de Frontend mentor</figcaption>
+      </figure>
 
-<div class="columns mt-6">
-  <div class="column is-9-desktop">
-    
-    
+      <input class="hidden" name="projects" type="radio" id="tip-calculator-app" />
 
-  </div>
-  <div class="column">
-    <div class="container is-fluid has-text-centered">
-	<h1 class="subtitle">Categorías</h1>
-	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
-				>Divagando</a
-			><a class="sidebar-item" href="https://halivert.dev/blog/i-were-there"
-				>Ya me pasó</a
-			><a class="sidebar-item" href="https://halivert.dev/blog/code"
-				>¡Código!</a
-			><a class="sidebar-item" href="https://halivert.dev/blog/news"
-				>Novedades</a
-			><a class="sidebar-item" href="https://halivert.dev/blog/maths"
-				>Matemáticas</a
-			></div>
-</div>
+      <div class="description" onclick="document.getElementById('tip-calculator-app').checked = false">
+        <strong>Tip calculator app</strong>
+        <span>Calculadora de propinas. Proyecto de Frontend mentor</span>
+        <p>
+          
+            <a class="button is-primary" href="https://halivert.dev/tip-calculator-app">Sitio</a>
+          
+          
+            <a class="button is-primary" href="https://github.com/halivert/tip-calculator-app">Código</a>
+          
+        </p>
+      </div>
+    </article>
+  
+    <article>
+      <figure>
+        <label for="personal-website">
+          <img src="https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg" alt="Imagen de proyecto" />
+        </label>
 
-  </div>
-</div>
+        <figcaption>Sitio web hecho con Jekyll, HTML, JavaScript y Sass.</figcaption>
+      </figure>
+
+      <input class="hidden" name="projects" type="radio" id="personal-website" />
+
+      <div class="description" onclick="document.getElementById('personal-website').checked = false">
+        <strong>Este sitio web y blog personal</strong>
+        <span>Sitio web hecho con Jekyll, HTML, JavaScript y Sass.</span>
+        <p>
+          
+            <a class="button is-primary" href="https://halivert.dev">Sitio</a>
+          
+          
+            <a class="button is-primary" href="https://github.com/halivert/halivert.github.io">Código</a>
+          
+        </p>
+      </div>
+    </article>
+  
+    <article>
+      <figure>
+        <label for="avl-tree">
+          <img src="https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/avl-tree.webp" alt="Imagen de proyecto" />
+        </label>
+
+        <figcaption>Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.</figcaption>
+      </figure>
+
+      <input class="hidden" name="projects" type="radio" id="avl-tree" />
+
+      <div class="description" onclick="document.getElementById('avl-tree').checked = false">
+        <strong>Árbol AVL</strong>
+        <span>Implementación de Árbol Binario de Búsqueda (ABB) auto-balanceado.</span>
+        <p>
+          
+          
+            <a class="button is-primary" href="https://github.com/halivert/avl-tree">Código</a>
+          
+        </p>
+      </div>
+    </article>
+  
+    <article>
+      <figure>
+        <label for="laravel-js-routes">
+          <img src="https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp" alt="Imagen de proyecto" />
+        </label>
+
+        <figcaption>Paquete composer para utilizar rutas de Laravel en archivos JS con un comando.</figcaption>
+      </figure>
+
+      <input class="hidden" name="projects" type="radio" id="laravel-js-routes" />
+
+      <div class="description" onclick="document.getElementById('laravel-js-routes').checked = false">
+        <strong>Rutas de Laravel en JS</strong>
+        <span>Paquete composer para utilizar rutas de Laravel en archivos JS con un comando.</span>
+        <p>
+          
+          
+            <a class="button is-primary" href="https://github.com/halivert/laravel-js-routes">Código</a>
+          
+        </p>
+      </div>
+    </article>
+  
+</section>
 
 </main>
 
