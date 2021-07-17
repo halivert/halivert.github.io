@@ -938,6 +938,8 @@ sup.ref::after { content: "]"; }
 
 .projects article { display: flex; min-height: 10em; justify-content: center; align-items: center; min-width: 0; position: relative; isolation: isolate; overflow: hidden; }
 
+.projects article figure img { border-radius: 8px; }
+
 .projects article figure figcaption { margin-top: 0.5em; text-align: center; }
 
 .projects article .description { bottom: 100%; position: absolute; }
