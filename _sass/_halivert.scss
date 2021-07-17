@@ -609,21 +609,19 @@ sup.ref {
 }
 
 .projects {
-	display: flex;
-	flex-flow: row wrap;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
 	gap: 2em;
+
+	@include touch {
+		grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+	}
 
 	article {
 		display: flex;
 		min-height: 10em;
 		justify-content: center;
 		align-items: center;
-		flex: 1 0 30%;
-
-		@include touch {
-			flex: 1 0 100%;
-		}
-
 		min-width: 0;
 		position: relative;
 		isolation: isolate;
