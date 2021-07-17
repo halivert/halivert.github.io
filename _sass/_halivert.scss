@@ -627,9 +627,15 @@ sup.ref {
 		isolation: isolate;
 		overflow: hidden;
 
-		figure figcaption {
-			margin-top: 0.5em;
-			text-align: center;
+		figure {
+			img {
+				border-radius: 8px;
+			}
+
+			figcaption {
+				margin-top: 0.5em;
+				text-align: center;
+			}
 		}
 
 		.description {

@@ -1,11 +1,12 @@
 - id: tip-calculator-app
-  title: "Tip calculator app"
+  title: "Calculadora de propinas"
   image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
   image_alt: "Screenshot de aplicación"
   repo: "https://github.com/halivert/tip-calculator-app"
   live: "https://halivert.dev/tip-calculator-app"
   description: >-
-    Calculadora de propinas. Proyecto de Frontend mentor
+    Calculadora de propinas, divide el total de una cuenta entre el número de
+    comensales.
 
 - id: personal-website
   title: "Este sitio web y blog personal"
@@ -14,6 +15,15 @@
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
   description: >-
     Sitio web hecho con Jekyll, HTML, JavaScript y Sass.
+
+
+- id: intro-component-with-sign-up-form
+  title: "Formulario de contacto"
+  repo: "https://github.com/halivert/intro-component-with-sign-up-form"
+  live: "https://halivert.dev/intro-component-with-sign-up-form"
+  image: "https://raw.githubusercontent.com/halivert/intro-component-with-sign-up-form/main/images/screenshot-desktop.png"
+  description: >-
+    Formulario de contacto con muestra de errores. Hecho con CSS, y JavaScript
 
 - id: avl-tree
   title: "Árbol AVL"

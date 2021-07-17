@@ -14,7 +14,7 @@ permalink: "/projects/"
             alt="{{ project.image_alt | default: 'Imagen de proyecto' }}" />
         </label>
 
-        <figcaption>{{ project.description }}</figcaption>
+        <figcaption>{{ project.title }}</figcaption>
       </figure>
 
       <input
