@@ -30,10 +30,20 @@ permalink: "/projects/"
         <span>{{ project.description }}</span>
         <p>
           {% if project.live %}
-            <a class="button is-primary" href="{{ project.live }}">Sitio</a>
+            <a
+              data-turbo="false"
+              class="button is-primary"
+              href="{{ project.live }}"
+              >Sitio</a
+            >
           {% endif %}
           {% if project.repo %}
-            <a class="button is-primary" href="{{ project.repo }}">Código</a>
+            <a
+              data-turbo="false"
+              class="button is-primary"
+              href="{{ project.repo }}"
+              >Código</a
+            >
           {% endif %}
         </p>
       </div>
