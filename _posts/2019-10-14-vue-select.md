@@ -33,7 +33,9 @@ especificos del framework [Bulma][3].
 Creamos un componente para «envolver» el select. `HField` que solo contiene
 información para el usuario.
 
-{% gist b7d9ba492e87836298e1b03fbf41f26f %}
+{% if jekyll.environment == "production" %}
+  {% gist b7d9ba492e87836298e1b03fbf41f26f %}
+{% endif %}
 
 Y ahora pasamos al select:
 
@@ -267,7 +269,9 @@ Sin más aquí está el código del componente, queda mucho trabajo por hacer,
 pero sin duda simplifica mucho el trabajo de hacer un select en Laravel con
 Vue.js.
 
-{% gist b34c22aa06007ead9b05df857e7ad1b6 %}
+{% if jekyll.environment == "production" %}
+  {% gist b34c22aa06007ead9b05df857e7ad1b6 %}
+{% endif %}
 
 Este es un ejemplo de caso de uso.
 {%raw%}

@@ -8,7 +8,7 @@
 					| prepend: '/blog/'
 			-%}
 			<a class="sidebar-item" href="{{ slug | locale_url }}"
-				>{{ categoryName }}</a
+				>{{ categoryName | __ }}</a
 			>
 		{%- endfor -%}
 	</div>
