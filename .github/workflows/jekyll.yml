@@ -1,4 +1,4 @@
-name: Jekyll site
+name: Jekyll
 
 on:
   push:
