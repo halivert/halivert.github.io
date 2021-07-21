@@ -141,21 +141,16 @@ body {
 	color: var(--text-color-100);
 	font-size: var(--font-size);
 
-	grid-template-rows: auto 1fr auto;
-	grid-template-columns: 100%;
-
-	grid-template-areas:
-		"menu"
-		"main"
-		"footer";
+	grid-template:
+		"menu" auto
+		"main" 1fr
+		"footer" auto;
 
 	@include desktop {
-		grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
-
-		grid-template-areas:
-			"empty empty"
-			"menu main"
-			"footer footer";
+		grid-template:
+			"menu main" 1fr
+			"footer footer" auto
+		/ minmax(auto, 20%) minmax(auto, 80%);
 	}
 }
 

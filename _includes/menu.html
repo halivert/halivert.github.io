@@ -11,7 +11,7 @@
 		</li>
 	</ul>
 
-	<ul class="menu-list my-1">
+	<ul class="menu-list my-1" style="flex: 1">
 		<li>
 			<a href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a>
 		</li>
@@ -34,6 +34,27 @@
 			</button>
 		</li>
 		{%- endif -%}
+	</ul>
+
+	<ul class="languages">
+		<input type="checkbox" id="languages" name="">
+		<li>
+			<label for="languages">
+				{{ 'Idiomas' | __ }}
+				<span class="icon"><i class="fas fa-caret-right"></i></span>
+			</label>
+		</li>
+		<li class="languages-content">
+			<ul>
+				{% for lang in site.data.langs %}
+					<li>
+						<a href="{{ lang.path }}">
+							{{ lang.title }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		</li>
 	</ul>
 </aside>
 
