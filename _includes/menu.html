@@ -1,3 +1,5 @@
+{% assign __ = site.data.locale[include.lang] %}
+
 <aside id="side-menu" class="menu">
 	<ul class="menu-list mt-1">
 		<li>
@@ -5,7 +7,7 @@
 				<img
 					class="logo my-0 dark"
 					src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
-					alt="Logo de {{ site.title }}"
+				  alt="{{ __['Logo de Halivert'] }}"
 				/>
 			</a>
 		</li>
