@@ -59,6 +59,10 @@ defaults:
     values:
       search_bar: false
       logo: "/assets/img/halivert-logo.png"
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom

@@ -36,7 +36,7 @@ permalink: "/index.json"
 			{%- if post.image_alt -%}
 				"image_alt": {{ post.image_alt | strip | jsonify }},
 			{%- endif -%}
-			"url": {{ post.url | absolute_url | strip | jsonify }},
+			"url": {{ post.url | locale_url | strip | jsonify }},
 			"continue": {{ continue | strip }},
 			"date": {{ post.date | es_date | strip | jsonify }},
 			"last_modification": {{ post.last_modification | es_date | strip | jsonify }}

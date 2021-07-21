@@ -1,6 +1,6 @@
 <footer class="footer">
 	<div class="start">
-		<a href="{{ '/feed.xml' | absolute_url }}">
+		<a href="{{ '/feed.xml' | locale_url }}">
 			<span>RSS</span>
 			<span class="icon">
 				<i class="fas fa-rss" aria-hidden="true"></i>
@@ -21,7 +21,7 @@
 			/>
 		</a>
 		<p>
-			Los artículos escritos en este blog están bajo la licencia
+			{{ 'Los artículos escritos en este blog están bajo la licencia' | __ }}
 			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
 				Creative Commons Attribution 4.0 International License</a
 			>.

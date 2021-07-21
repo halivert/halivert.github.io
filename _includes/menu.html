@@ -1,13 +1,11 @@
-{% assign __ = site.data.i18n[include.lang] %}
-
 <aside id="side-menu" class="menu">
 	<ul class="menu-list mt-1">
 		<li>
-			<a class="px-1" href="{{ '/' | absolute_url }}">
+			<a class="px-1" href="{{ '/' | locale_url }}">
 				<img
 					class="logo my-0 dark"
 					src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
-				  alt="{{ __['Logo de Halivert'] }}"
+				  alt="{{ 'Logo de Halivert' | __ }}"
 				/>
 			</a>
 		</li>
@@ -15,10 +13,10 @@
 
 	<ul class="menu-list my-1">
 		<li>
-			<a href="{{ '/blog/' | absolute_url }}">Blog</a>
+			<a href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a>
 		</li>
 		<li>
-			<a href="{{ '/projects/' | absolute_url }}">Proyectos</a>
+			<a href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a>
 		</li>
 		{%- if page.search_bar -%}
 		<li>
@@ -31,7 +29,7 @@
 				<span>
 					<i class="fas fa-search"></i>
 				</span>
-				<span>Buscar</span>
+				<span>{{ 'Buscar' | __ }}</span>
 				<span class="keycode">/</span>
 			</button>
 		</li>
@@ -47,7 +45,7 @@
 			<div class="my-5">
 				<input
 					id="search-input"
-					placeholder="Buscar..."
+					placeholder="{{ 'Buscar' | __ | append: '...' }}"
 					class="input"
 					type="text"
 					oninput="inputSearch(this)"

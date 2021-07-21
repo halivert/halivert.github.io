@@ -4,7 +4,7 @@ layout: container
 
 <div class="columns">
 	<div class="column is-9-desktop">
-		{% for post in paginator.posts %}
+		{% for post in site.posts %}
 			<section class="post-section">
 				<h2 class="title is-2">
 					<a class="has-text-primary" href="{{ post.url | absolute_url }}">
