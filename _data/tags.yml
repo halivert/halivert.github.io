@@ -37,6 +37,6 @@ telegram:
 vim:
   color: is-pink
 vue.js:
-  color: is-vue
+  color: is-emerald
 api:
   color: is-white

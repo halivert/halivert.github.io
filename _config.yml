@@ -73,5 +73,3 @@ exclude:
   - release-notes.md
   - rollup.config.js
   - src/
-  - test.md
-  - todo.md

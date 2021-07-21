@@ -8,16 +8,6 @@ permalink: "/index.json"
 		{%- assign excerptWords = post.excerpt | number_of_words -%}
 		{%- assign author = site.data.authors[post.author] -%}
 
-		{%- capture date -%}
-			{%- include date-spanish.html item=post.date -%}
-		{%- endcapture -%}
-
-		{%- capture last_modification -%}
-			{%- if post.last_modification -%}
-				{%- include date-spanish.html item=post.last_modification -%}
-			{%- endif -%}
-		{%- endcapture -%}
-
 		{%- if postWords > excerptWords -%}
 			{%- assign continue = 1 -%}
 		{%- else -%}
@@ -48,8 +38,8 @@ permalink: "/index.json"
 			{%- endif -%}
 			"url": {{ post.url | absolute_url | strip | jsonify }},
 			"continue": {{ continue | strip }},
-			"date": {{ date | strip | jsonify }},
-			"last_modification": {{ last_modification | strip | jsonify }}
+			"date": {{ post.date | es_date | strip | jsonify }},
+			"last_modification": {{ post.last_modification | es_date | strip | jsonify }}
 		}{%- unless forloop.last -%},{%- endunless -%}
 
 	{%- endfor -%}

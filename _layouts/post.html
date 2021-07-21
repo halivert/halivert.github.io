@@ -24,17 +24,13 @@ layout: container
 							}}</a> -
 						{% endif %}
 
-						{%- capture post_date -%}
-							{% include date-spanish-abbr.html item=page.date %}
-						{%- endcapture -%}
-
 						{% if page.last_modification %}
-							<span title="Fecha original: {{ post_date }}">
+							<span title="Fecha original: {{ page.date | es_date }}">
 								<i>última modificación:</i>
-								{% include date-spanish-abbr.html item=page.last_modification %}
+								{{ page.last_modification | es_date }}
 							</span>
 						{% else %}
-							<i>publicado:</i> {{ post_date }}
+							<i>publicado:</i> {{ page.date | es_date }}
 						{% endif %}
 					</small>
 				</header>
