@@ -20,6 +20,7 @@
 	display: flex;
 	flex-flow: column nowrap;
 	padding-left: 0.5rem;
+	gap: 0.25em;
 
 	@include touch {
 		flex-flow: row wrap;
