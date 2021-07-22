@@ -16,40 +16,44 @@ hide_foot: true
 				{{ author.first_name }} {{ author.last_name }}
 			</h1>
 
-			<main>
-				<p class="mb-2">
-					<a href="https://jw.org">JW</a>,
-					estudiando una
-					<a href="https://www.escom.ipn.mx/"
-						>ingeniería en sistemas computacionales</a
-					>.
-				</p>
+			{% if content != '' %}
+				{{ content }}
+			{% else %}
+				<main>
+					<p class="mb-2">
+						<a href="https://jw.org">JW</a>,
+						estudiando una
+						<a href="https://www.escom.ipn.mx/"
+							>ingeniería en sistemas computacionales</a
+						>.
+					</p>
 
-				<p>
-					Me dedico al desarrollo web y me encantan los algoritmos y las
-					matemáticas.
-				</p>
+					<p>
+						Me dedico al desarrollo web y me encantan los algoritmos y las
+						matemáticas.
+					</p>
 
-				<p>
-					Encontrarás más sobre mí en mi
-					<a href="{{ '/blog/' | absolute_url }}">blog</a>.
-				</p>
+					<p>
+						Encontrarás más sobre mí en mi
+						<a href="{{ '/blog/' | absolute_url }}">blog</a>.
+					</p>
 
-				<p class="mt-1">
-					También puedo ayudarte a resolver algunos problemas de programación.
-					Puedes ver algunos de mis
-					<a href="{{ '/projects/' | absolute_url }}">proyectos</a>.
-				</p>
+					<p class="mt-1">
+						También puedo ayudarte a resolver algunos problemas de programación.
+						Puedes ver algunos de mis
+						<a href="{{ '/projects/' | absolute_url }}">proyectos</a>.
+					</p>
 
-				<p>
-					Puedes ponerte en contacto conmigo
-					{% if author.kofi %}
-						y también
-						<a href="{{ author.kofi }}">invitarme un café</a>
-						si quieres.
-					{%- endif -%}
-				</p>
-			</main>
+					<p>
+						Puedes ponerte en contacto conmigo
+						{% if author.kofi %}
+							y también
+							<a href="{{ author.kofi }}">invitarme un café</a>
+							si quieres.
+						{%- endif -%}
+					</p>
+				</main>
+			{% endif %}
 
 			<p class="buttons is-centered mt-3">
 				<a

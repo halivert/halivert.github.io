@@ -18,19 +18,20 @@ layout: container
 					}}</h1>
 					<small>
 						{% if author.first_name %}
-							<i>por</i>
-							<a href="{{ page.author | prepend: '/authors/' | absolute_url }}">{{
+							<i>{{ 'por' | __ }}</i>
+							<a href="{{ page.author | prepend: '/authors/' | locale_url }}">{{
 								author.first_name
 							}}</a> -
 						{% endif %}
 
 						{% if page.last_modification %}
-							<span title="Fecha original: {{ page.date | es_date }}">
-								<i>última modificación:</i>
-								{{ page.last_modification | es_date }}
+							<span
+								title="{{ 'Fecha original' | __ }}: {{ page.date | locale_date }}">
+								<i>{{ 'última modificación' | __ }}:</i>
+								{{ page.last_modification | locale_date }}
 							</span>
 						{% else %}
-							<i>publicado:</i> {{ page.date | es_date }}
+							<i>{{ 'publicado' | __ }}:</i> {{ page.date | locale_date }}
 						{% endif %}
 					</small>
 				</header>
@@ -59,7 +60,7 @@ layout: container
 					{%- for tag in page.tags -%}
 						{%- assign downTag = tag | downcase -%}
 						<span class="tag {{ site.data.tags[downTag].color }}">{{
-							tag
+							tag | __
 						}}</span>
 					{%- endfor -%}
 				</div>
@@ -75,7 +76,7 @@ layout: container
 				<div class="flex justify-between items-center">
 					<a class="button twitter-share-button is-hidden">
 						<span class="icon"><i class="fab fa-twitter"></i></span>
-						<span>Tweet</span>
+						<span>{{ 'Tweet' | __ }}</span>
 					</a>
 				</div>
 			</section>
@@ -83,39 +84,6 @@ layout: container
 			<div class="printable">
 				<p class="has-text-right">{{ page.url | absolute_url }}</p>
 			</div>
-		</div>
-	</div>
-</div>
-
-<div class="columns">
-	<div class="column is-offset-1-desktop">
-		<div class="reader">
-			<nav
-				class="pagination is-centered"
-				role="navigation"
-				aria-label="pagination"
-				>
-				{% if page.previous.url %}
-					<a
-						href="{{ page.previous.url | absolute_url }}"
-						class="pagination-previous button is-primary is-rounded"
-						>Anterior</a
-					>
-				{% else %}
-					<a class="pagination-previous button is-rounded" disabled
-						>Anterior</a
-					>
-				{% endif %}
-				{% if page.next.url %}
-					<a
-						href="{{ page.next.url | absolute_url }}"
-						class="pagination-next button is-primary is-rounded"
-						>Siguiente</a
-					>
-				{% else %}
-					<a class="pagination-next button is-rounded" disabled>Siguiente</a>
-				{% endif %}
-			</nav>
 		</div>
 	</div>
 </div>

@@ -158,11 +158,15 @@ function htmlPostElement(item: IdxObject, template: HTMLTemplateElement) {
 
   if (item.continue === 1) {
     contentEl.appendChild(document.createElement("p")).innerHTML = "&#8230;"
+    let keepReadingEl: HTMLElement = <HTMLElement>(
+      (<HTMLTemplateElement>(
+        document.getElementById("keep-reading")
+      )).content.cloneNode(true)
+    )
 
-    let keepReadingEl = contentEl.appendChild(document.createElement("a"))
-    keepReadingEl.classList.add("subtitle", "is-5", "has-text-link")
-    keepReadingEl.href = item.url
-    keepReadingEl.text = "Seguir leyendo"
+    let keepReadingLink: HTMLAnchorElement = keepReadingEl.querySelector("a")
+    keepReadingLink.href = item.url
+    contentEl.appendChild(keepReadingLink)
   }
 
   return newElement

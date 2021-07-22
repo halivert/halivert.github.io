@@ -25,7 +25,7 @@
 						class="pagination-link button is-current"
 						aria-current="page"
 					{% endif %}
-					aria-label="Ir a página 1"
+					aria-label="{{ 'Ir a página' | __ }} 1"
 					>1</a
 				>
 			</li>
@@ -57,7 +57,7 @@
 										{% endif %}"
 										href="{{ page_url | absolute_url }}/"
 								{% endif %}
-								aria-label="Ir a página {{ trail.num }}"
+								aria-label="{{ 'Ir a página' | __ }} {{ trail.num }}"
 								>{{ trail.num }}</a
 							>
 						</li>
@@ -87,7 +87,7 @@
 						class="pagination-link button is-current"
 						aria-current="page"
 					{% endif %}
-					aria-label="Ir a página {{ paginator.total_pages }}"
+					aria-label="{{ 'Ir a página' | __ }} {{ paginator.total_pages }}"
 					>{{ paginator.total_pages }}</a
 				>
 			</li>

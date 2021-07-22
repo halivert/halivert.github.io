@@ -25,6 +25,9 @@ pagination:
     before: 2
     after: 2
 
+feed:
+  excerpt_only: true
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
@@ -45,6 +48,7 @@ defaults:
       excerpt_separator: "<!-- Seguir leyendo -->"
       comments: true
       lang: "es_MX"
+      locale: "es_MX"
       has_math: false
       has_instant_view: true
       search_bar: true
@@ -59,11 +63,34 @@ defaults:
     values:
       search_bar: false
       logo: "/assets/img/halivert-logo.png"
+  - scope:
+      path: "en"
+    values:
+      lang: "en"
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      layout: "post"
+      author: halivert
+      permalink: "/en/blog/:year/:month/:title/"
+      excerpt_separator: "<!-- Keep reading -->"
+      comments: true
+      lang: "en"
+      locale: "en"
+      has_math: false
+      has_instant_view: true
+      search_bar: true
+      font_size: "is-size-5 is-size-6-mobile"
+      image_types: "webp:image/webp,png:image/png"
+      categories: []
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom
 # list to override the default setting.
 exclude:
+  - vendor/
+  - node_modules/
   - package.json
   - yarn.lock
   - yarn-error.log

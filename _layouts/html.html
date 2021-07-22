@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es-MX" class="dark">
+<html
+	lang="{{ page.lang | default: site.lang | replace: '_', '-' }}"
+	class="dark">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -102,7 +104,7 @@
 		{%- assign jsAssets = "/assets/js" | absolute_url -%}
 
 		<script>
-			window.siteUrl = "{{ '/' | absolute_url }}"
+			window.siteUrl = "{{ '/' | locale_url }}"
 		</script>
 		<script type="module" src="{{ jsAssets }}/main.js"></script>
 		<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" defer></script>
@@ -135,7 +137,7 @@
 				href="#main-container"
 				data-turbo="false"
 				tab-index="0"
-				>Ir al contenido</a
+				>{{ 'Ir al contenido' | __ }}</a
 			>
 		{% endunless %}
 
@@ -154,6 +156,16 @@
 
 		{% unless page.hide_foot or layout.hide_foot %}
 			{% include footer.html %}
+		{% else %}
+			<ul class="languages">
+				{% for lang in site.data.langs %}
+					<li>
+						<a href="{{ lang.path }}">
+							{{ lang.title }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
 		{% endunless %}
 	</body>
 </html>

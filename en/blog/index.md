@@ -1,10 +1,10 @@
 ---
 layout: posts
 title: "Blog"
-permalink: "/blog/"
+permalink: "/en/blog/"
 search_bar: true
-lang: "es_MX"
+lang: "en"
 pagination:
-  locale: "es_MX"
+  locale: "en"
   enabled: true
 ---

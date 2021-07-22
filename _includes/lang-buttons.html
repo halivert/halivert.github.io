@@ -1,0 +1,9 @@
+<ul class="languages">
+	{% for lang in site.data.langs %}
+		<li>
+			<a href="{{ lang.path }}">
+				{{ lang.title }}
+			</a>
+		</li>
+	{% endfor %}
+</ul>
