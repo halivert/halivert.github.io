@@ -88,41 +88,6 @@ layout: container
 	</div>
 </div>
 
-<div class="columns">
-	<div class="column is-offset-1-desktop">
-		<div class="reader">
-			<nav
-				class="pagination is-centered"
-				role="navigation"
-				aria-label="pagination"
-				>
-				{% if page.previous.url %}
-					<a
-						href="{{ page.previous.url | absolute_url }}"
-						class="pagination-previous button is-primary is-rounded"
-						>{{ 'Anterior' | __ }}</a
-					>
-				{% else %}
-					<a class="pagination-previous button is-rounded" disabled
-						>{{ 'Anterior' | __ }}</a
-					>
-				{% endif %}
-				{% if page.next.url %}
-					<a
-						href="{{ page.next.url | absolute_url }}"
-						class="pagination-next button is-primary is-rounded"
-						>{{ 'Siguiente' | __ }}</a
-					>
-				{% else %}
-					<a class="pagination-next button is-rounded" disabled
-						>{{ 'Siguiente' | __ }}</a
-					>
-				{% endif %}
-			</nav>
-		</div>
-	</div>
-</div>
-
 {%- assign post_url = page.url | absolute_url -%}
 
 <script>

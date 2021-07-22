@@ -144,7 +144,8 @@ body {
 	grid-template:
 		"menu" auto
 		"main" 1fr
-		"footer" auto;
+		"footer" auto
+		/ 100%;
 
 	@include desktop {
 		grid-template:
