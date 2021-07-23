@@ -1,34 +1,34 @@
 - id: tip-calculator-app
-  title: "Calculadora de propinas"
+  title: "Tip calculator"
   image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
-  image_alt: "Screenshot de aplicación"
+  image_alt: "App screenshot"
   repo: "https://github.com/halivert/tip-calculator-app"
   live: "https://halivert.dev/tip-calculator-app"
-  description: "Divide el total de una cuenta entre el número de comensales."
+  description: "Divide the total of a bill in the number of people."
 
 - id: personal-website
-  title: "Este sitio web y blog personal"
+  title: "This website and personal blog"
   repo: "https://github.com/halivert/halivert.github.io"
   live: "https://halivert.dev"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
-  description: "Sitio web hecho con Jekyll, HTML, JavaScript y Sass."
+  description: "Website made with Jekyll, HTML, JavaScript and Sass."
 
 
 - id: intro-component-with-sign-up-form
-  title: "Formulario de contacto"
+  title: "Contact form"
   repo: "https://github.com/halivert/intro-component-with-sign-up-form"
   live: "https://halivert.dev/intro-component-with-sign-up-form"
   image: "https://raw.githubusercontent.com/halivert/intro-component-with-sign-up-form/main/images/screenshot-desktop.png"
-  description: "Formulario con validaciones. Hecho con CSS, y JavaScript."
+  description: "Form with validation. Made with CSS and JavaScript"
 
 - id: avl-tree
-  title: "Árbol AVL"
+  title: "AVL tree"
   repo: "https://github.com/halivert/avl-tree"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/avl-tree.webp"
-  description: "Implementación en C++ de Árbol Binario de Búsqueda (ABB) auto-balanceado."
+  description: "Implementation of a self-balancing binary tree."
 
 - id: laravel-js-routes
-  title: "Rutas de Laravel en JS"
+  title: "Laravel routes in JS"
   repo: "https://github.com/halivert/laravel-js-routes"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp"
-  description: "Paquete composer para utilizar rutas de Laravel en archivos JS."
+  description: "Composer package to use Laravel routes on JS with a command."
