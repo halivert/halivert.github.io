@@ -615,13 +615,17 @@ sup.ref {
 
 	article {
 		display: flex;
-		min-height: 10em;
+		min-height: 12em;
 		justify-content: center;
 		align-items: center;
 		min-width: 0;
 		position: relative;
 		isolation: isolate;
 		overflow: hidden;
+
+		* {
+			cursor: pointer;
+		}
 
 		figure {
 			img {
@@ -635,12 +639,17 @@ sup.ref {
 		}
 
 		.description {
-			bottom: 100%;
+			top: 100%;
 			position: absolute;
+			gap: 0.5em;
+			display: flex;
+			flex-flow: column;
+			justify-content: center;
+			text-align: center;
+			color: var(--text-color-100);
 		}
 	}
 
-	article:hover,
 	article:focus-within,
 	input.hidden:checked + {
 		figure figcaption {
@@ -648,14 +657,7 @@ sup.ref {
 		}
 
 		.description {
-			position: absolute;
 			inset: 0;
-			display: flex;
-			flex-flow: column;
-			gap: 1em;
-			justify-content: center;
-			text-align: center;
-			color: var(--text-color-100);
 			z-index: 1;
 			animation: 0.5s cubic-bezier(0.86, 0, 0.07, 1) slide-in;
 
