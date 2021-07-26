@@ -133,6 +133,7 @@ html {
 }
 
 body {
+	position: relative;
 	min-height: 100vh;
 	display: grid;
 	font-family: var(--main-font);
@@ -165,6 +166,7 @@ aside.menu {
 
 main#main-container {
 	grid-area: main;
+	position: relative;
 }
 
 .section {
@@ -675,6 +677,11 @@ sup.ref {
 			}
 		}
 	}
+}
+
+.lang {
+	padding: 1em;
+	text-align: center;
 }
 
 @import "gist";

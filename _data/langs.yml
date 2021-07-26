@@ -1,6 +1,6 @@
-- es_MX:
-  path: '/'
-  title: "Español"
-- en:
+- id: es_MX
+  path: ''
+  title: "Es"
+- id: en
   path: '/en'
-  title: "English"
+  title: "En"

@@ -63,6 +63,7 @@ defaults:
     values:
       search_bar: false
       logo: "/assets/img/halivert-logo.png"
+      lang: "es_MX"
   - scope:
       path: "en"
     values:

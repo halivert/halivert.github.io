@@ -1,9 +1,10 @@
-<ul class="languages">
+<div class="lang">
 	{% for lang in site.data.langs %}
-		<li>
-			<a href="{{ lang.path }}">
-				{{ lang.title }}
-			</a>
-		</li>
+		<a
+			class="button is-primary {% if page.lang == lang.id %}is-active{% endif %}"
+			data-turbo="false"
+			href="{{ lang.path | absolute_url }}">
+			{{ lang.title }}
+		</a>
 	{% endfor %}
-</ul>
+</div>
