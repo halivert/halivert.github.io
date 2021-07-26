@@ -70,6 +70,7 @@ hide_foot: true
 							{{ item.type }}
 							{% if item.hidden %}is-hidden{%- endif -%}"
 						href="{{ item.url }}"
+						data-turbo="false"
 						rel="me">
 						<span class="icon">
 							<i class="{{ item.icon }}" aria-hidden="true"></i>
