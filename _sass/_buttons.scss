@@ -9,6 +9,7 @@ $social: (
 	"linkedin": var(--linkedin-primary),
 	"instagram": var(--instagram-primary),
 	"gitlab": var(--gitlab-primary),
+	"polywork": var(--polywork-primary),
 );
 
 .button {
@@ -131,4 +132,15 @@ $social: (
 	-webkit-background-clip: text;
 	-khtml-background-clip: text;
 	-webkit-text-fill-color: transparent;
+}
+
+.polywork > .icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	> i {
+		content: url("/assets/img/polywork-icon.svg");
+		max-width: 20px;
+	}
 }

@@ -4,7 +4,7 @@ halivert:
   picture: "/assets/img/halivert.png"
   kofi: "https://ko-fi.com/halivert"
   email:
-    at: "halivelazquez@outlook.com"
+    at: "hi@halivert.dev"
     md5: "ef78513325e3391167f441f930067fef"
   social:
     - url: "https://twitter.com/halivert"
@@ -17,13 +17,13 @@ halivert:
     - url: "https://gitlab.com/halivert"
       type: "gitlab"
       icon: "fab fa-gitlab"
+      hidden: true
     - url: "https://discordapp.com/users/673717040095428628"
       type: "discord"
       icon: "fab fa-discord"
     - url: "https://timeline.halivert.dev"
       type: "polywork"
-      icon: "fab fa-linkedin"
-      hidden: true
+      icon: "fab fa-polywork"
     - url: "https://www.linkedin.com/in/hal%C3%AD-vel%C3%A1zquez-1b87bb212/"
       type: "linkedin"
       icon: "fab fa-linkedin"
