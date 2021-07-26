@@ -40,6 +40,11 @@ plugins:
 defaults:
   - scope:
       path: ""
+    values:
+      search_bar: false
+      logo: "/assets/img/halivert-logo.png"
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: "post"
@@ -58,16 +63,13 @@ defaults:
       path: "blog"
     values:
       search_bar: true
-  - scope:
-      path: ""
-    values:
-      search_bar: false
-      logo: "/assets/img/halivert-logo.png"
-      lang: "es_MX"
+
+  # English translations
   - scope:
       path: "en"
     values:
       lang: "en"
+      locale: "en"
   - scope:
       path: "_posts/en"
       type: "posts"
