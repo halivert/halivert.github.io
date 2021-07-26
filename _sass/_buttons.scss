@@ -60,6 +60,7 @@ $social: (
 			color: $color;
 			border-color: transparent;
 
+			&.is-active,
 			&:focus,
 			&:focus-visible {
 				border-color: scale($background, -30%);
@@ -75,6 +76,7 @@ $social: (
 	// When theme is light brightness would be 1.4, but it's too bright, so I need
 	// to subtract 0.2 and now we're happy
 
+	&.is-active,
 	&:hover,
 	&:focus {
 		filter: brightness(
@@ -82,6 +84,7 @@ $social: (
 		);
 	}
 
+	&.is-active,
 	&:focus {
 		--button-border-color: var(--contrast-color-300);
 	}
