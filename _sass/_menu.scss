@@ -68,5 +68,21 @@
 			}
 		}
 	}
+
+	&.lang {
+		flex-direction: row;
+		font-size: 0.7em;
+		justify-content: center;
+	}
 }
 
+.menu-center {
+	justify-content: center;
+}
+
+@include desktop {
+	.menu-center,
+	.menu-list.lang {
+		justify-content: unset;
+	}
+}
