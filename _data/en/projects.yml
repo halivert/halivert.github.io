@@ -4,6 +4,7 @@
   image_alt: "App screenshot"
   repo: "https://github.com/halivert/bookmark-landing-page"
   live: "https://halivert.dev/bookmark-landing-page"
+  description: "Full landing page made in Vue.js 3."
 
 - id: tip-calculator-app
   title: "Tip calculator"
