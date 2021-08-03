@@ -1,3 +1,10 @@
+- id: bookmark-landing-page
+  title: "Landing page de extensión de marcadores"
+  image: "https://raw.githubusercontent.com/halivert/bookmark-landing-page/main/screenshot.png"
+  image_alt: "Screenshot de aplicación"
+  repo: "https://github.com/halivert/bookmark-landing-page"
+  live: "https://halivert.dev/bookmark-landing-page"
+
 - id: tip-calculator-app
   title: "Calculadora de propinas"
   image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
@@ -32,3 +39,5 @@
   repo: "https://github.com/halivert/laravel-js-routes"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp"
   description: "Paquete composer para utilizar rutas de Laravel en archivos JS."
+
+-
