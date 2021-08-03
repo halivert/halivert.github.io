@@ -1,3 +1,10 @@
+- id: bookmark-landing-page
+  title: "Bookmark extension landing page"
+  image: "https://raw.githubusercontent.com/halivert/bookmark-landing-page/main/screenshot.png"
+  image_alt: "App screenshot"
+  repo: "https://github.com/halivert/bookmark-landing-page"
+  live: "https://halivert.dev/bookmark-landing-page"
+
 - id: tip-calculator-app
   title: "Tip calculator"
   image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
@@ -12,7 +19,6 @@
   live: "https://halivert.dev"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
   description: "Website made with Jekyll, HTML, JavaScript and Sass."
-
 
 - id: intro-component-with-sign-up-form
   title: "Contact form"

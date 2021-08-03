@@ -20,7 +20,6 @@
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
   description: "Sitio web hecho con Jekyll, HTML, JavaScript y Sass."
 
-
 - id: intro-component-with-sign-up-form
   title: "Formulario de contacto"
   repo: "https://github.com/halivert/intro-component-with-sign-up-form"
@@ -39,5 +38,3 @@
   repo: "https://github.com/halivert/laravel-js-routes"
   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp"
   description: "Paquete composer para utilizar rutas de Laravel en archivos JS."
-
--
