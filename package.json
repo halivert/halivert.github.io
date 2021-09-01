@@ -8,7 +8,9 @@
 		"watch": "yarn dev -w",
 		"dev": "rollup -c --configDev"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"petite-vue": "^0.2.3"
+	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^13.0.4",
 		"@rollup/plugin-typescript": "^8.2.5",
