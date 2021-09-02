@@ -136,6 +136,7 @@
 
 			<button
 				id="theme-switcher"
+				v-scope="ThemeSwitcher()"
 				class="button theme-switcher"
 				:class="{ 'is-loading': resettingTheme }"
 				v-on:click="toggleTheme"

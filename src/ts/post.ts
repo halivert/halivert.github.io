@@ -13,17 +13,9 @@ declare global {
   }
 }
 
-const fixTwitterLink = () => {
-  const tweetLink: HTMLAnchorElement = document.querySelector(
-    "#reactions .twitter-share-button"
-  )
-
-  if (!tweetLink) return
-
-  removeClass(tweetLink, "is-hidden")
-
+export const twitterLink = (rawPostUrl: string): string => {
   const tweetUrl: URL = new URL("https://twitter.com/intent/tweet")
-  const postUrl: URL = new URL(window.postUrl)
+  const postUrl: URL = new URL(rawPostUrl)
 
   const author: string = (<HTMLMetaElement>(
     document.head.querySelector("meta[name='author']")
@@ -40,7 +32,7 @@ const fixTwitterLink = () => {
     tweetUrl.searchParams.append(key, data[key])
   })
 
-  tweetLink.href = tweetUrl.toString()
+  return tweetUrl.toString()
 }
 
 const loadReactions = async () => {
@@ -101,9 +93,9 @@ const loadReactions = async () => {
 }
 
 document.addEventListener("turbo:load", () => {
-  fixTwitterLink()
+  // fixTwitterLink()
   loadReactions()
 })
 
-fixTwitterLink()
+// fixTwitterLink()
 loadReactions()
