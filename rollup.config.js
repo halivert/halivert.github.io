@@ -1,23 +1,37 @@
 import { defineConfig } from "rollup"
+
 import typescript from "@rollup/plugin-typescript"
 import { terser } from "rollup-plugin-terser"
+import alias from "@rollup/plugin-alias"
+import nodeResolve from "@rollup/plugin-node-resolve"
 
 export default (args) => {
+  const plugins = [
+    alias({
+      entries: {
+        "petite-vue": "petite-vue/dist/petite-vue.es.js",
+      },
+    }),
+    typescript(),
+    nodeResolve(),
+    args.configDev ? "" : terser(),
+  ]
+
   return defineConfig([
     {
-      input: ["src/js/post.ts", "src/js/search.ts", "src/js/themeSwitcher.ts"],
+      input: ["src/ts/main.ts", "src/ts/post.ts", "src/ts/search.ts"],
       output: {
         dir: "assets/js/",
         format: "esm",
       },
-      plugins: [typescript(), args.configDev ? "" : terser()],
+      plugins: plugins,
     },
     {
-      input: "src/js/main.ts",
+      input: "src/ts/setTheme.ts",
       output: {
         dir: "assets/js",
       },
-      plugins: [typescript(), args.configDev ? "" : terser()],
+      plugins: plugins,
     },
   ])
 }

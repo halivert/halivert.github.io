@@ -132,7 +132,7 @@ html {
 	scroll-padding-top: 1rem;
 }
 
-body {
+#app {
 	position: relative;
 	min-height: 100vh;
 	display: grid;
@@ -152,7 +152,7 @@ body {
 		grid-template:
 			"menu main" 1fr
 			"footer footer" auto
-		/ minmax(auto, 20%) minmax(auto, 80%);
+			/ minmax(auto, 20%) minmax(auto, 80%);
 	}
 }
 
@@ -204,6 +204,14 @@ main#main-container {
 }
 
 .theme-switcher {
+	--background-color: var(--text-color-100);
+	--text-color: var(--background-color-100);
+	--moon-icon: "\f186";
+	--sun-icon: "\f185";
+	--icon: var(--moon-icon);
+
+	background-color: var(--background-color);
+	color: var(--text-color);
 	position: fixed;
 	top: nth($sizes, 3);
 	right: 0.5rem;
@@ -214,20 +222,38 @@ main#main-container {
 		right: nth($sizes, 7);
 	}
 
-	&.is-light {
-		background: var(--text-color-100);
-		color: var(--background-color-100);
+	> span > i::before {
+		content: var(--icon);
 	}
 
-	&.is-dark {
-		background: hsl(42, 100%, 40%);
-		color: var(--background-color-100);
+	&.is-loading {
+		pointer-events: none;
+		color: transparent;
+		overflow: hidden;
+
+		&::before {
+			position: absolute;
+			box-shadow: 1px 1px 3px 3px var(--text-color);
+			content: "";
+			width: 160%;
+			transform: rotate(45deg);
+			animation: diagonal 1s linear infinite;
+		}
 	}
 }
 
+.dark .theme-switcher {
+	--background-color: hsl(42, 100%, 40%);
+	--text-color: var(--background-color-100);
+	--icon: var(--sun-icon);
+}
+
 .skip-link {
-	color: var(--accent-color-100);
-	background: var(--background-color-100);
+	--text-color: var(--accent-color-300);
+	--background-color: var(--background-color-200);
+	--focus-text-color: var(--accent-color-300);
+	--active-text-color: var(--accent-color-300);
+
 	text-decoration: none !important;
 	font-size: nth($sizes, 5);
 	position: absolute;
@@ -236,13 +262,14 @@ main#main-container {
 	transform: translateY(-100%);
 	transition: transform 0.3s;
 	z-index: 3;
+	border-style: solid;
+	border-width: 0 2px 2px 2px;
+	border-color: var(--accent-color-100);
 
 	&:focus,
 	&:focus-visible,
 	&:active {
 		transform: translateY(0%);
-		color: var(--accent-color-100);
-		background: var(--background-color-100);
 	}
 }
 
@@ -604,6 +631,22 @@ sup.ref {
 	to {
 		opacity: 1;
 	}
+}
+
+@keyframes diagonal {
+	from {
+		top: 0;
+		right: -80%;
+	}
+
+	to {
+		top: 100%;
+		right: 30%;
+	}
+}
+
+input {
+	accent-color: var(--accent-color-100);
 }
 
 .projects {

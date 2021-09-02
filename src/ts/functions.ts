@@ -84,7 +84,7 @@ export function initThemeSwitcher(element: HTMLElement): HTMLElement {
 
   const firstSpan = element.getElementsByTagName("span")[0]
   const icon = firstSpan.getElementsByTagName("i")[0]
-  const isDark = hasClass(document.documentElement, "dark")
+  const isDark = hasClass(document.getElementById("app"), "dark")
 
   removeClass(icon, isDark ? "fa-moon" : "fa-sun")
   addClass(icon, isDark ? "fa-sun" : "fa-moon")
@@ -93,17 +93,6 @@ export function initThemeSwitcher(element: HTMLElement): HTMLElement {
 
   removeClass(element, "is-invisible")
   return element
-}
-
-export function setTheme(): string {
-  if (localStorage.halivertsTheme && localStorage.halivertsTheme === "light") {
-    removeClass(document.documentElement, "dark")
-    localStorage.halivertsTheme = "light"
-  } else {
-    localStorage.removeItem("halivertsTheme")
-  }
-
-  return localStorage.halivertsTheme || "dark"
 }
 
 export function setActive(menu: HTMLElement): HTMLElement {
@@ -131,6 +120,22 @@ export function hideModal(target: HTMLElement): HTMLElement {
   addClass(modal, "is-hidden")
   setActive(document.getElementById("side-menu"))
   return modal
+}
+
+export function setThemeWithMediaQuery(): [
+  MediaQueryList,
+  (media: MediaQueryList | MediaQueryListEvent) => any
+] {
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)")
+
+  const fun = (prefersDark: MediaQueryList | MediaQueryListEvent) => {
+    if (prefersDark.matches) document.documentElement.classList.add("dark")
+    else document.documentElement.classList.remove("dark")
+  }
+
+  fun(prefersDark)
+
+  return [prefersDark, fun]
 }
 
 declare global {

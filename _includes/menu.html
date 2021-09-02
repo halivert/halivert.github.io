@@ -1,7 +1,10 @@
 <aside id="side-menu" class="menu">
 	<ul class="menu-list mt-1">
 		<li>
-			<a class="px-1" href="{{ '/' | locale_url }}">
+			<a
+				class="px-1"
+		    :class="{ 'is-active': activeMenuItem === $el.href }"
+				href="{{ '/' | locale_url }}">
 				<img
 					class="logo my-0 dark"
 					src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
@@ -13,10 +16,16 @@
 
 	<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
 		<li>
-			<a href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a>
+			<a
+				:class="{ 'is-active': activeMenuItem === $el.href }"
+				href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a
+			>
 		</li>
 		<li>
-			<a href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a>
+			<a
+				:class="{ 'is-active': activeMenuItem === $el.href }"
+				href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a
+			>
 		</li>
 		{%- if page.search_bar -%}
 		<li>
