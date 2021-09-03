@@ -84,6 +84,7 @@ layout: container
 
 					<div
 					  v-scope="Reactions({ postUrl: '{{ post_url }}'})"
+						v-on:mounted="fetchReactions"
 						class="reactions">
 
 						<span v-for="reaction in reactions" :key="reaction.name">
