@@ -2,12 +2,21 @@ import { isInput, removeClass, addClass, setActive } from "./functions"
 
 declare global {
   interface Window {
-    idx: any
+    idx: LunrIndex
     index: object
     inputSearch: Function
     showSearchModal: Function
     lunr: Function
     siteUrl: String
+  }
+
+  interface LunrIndex {
+    fieldVectors: Object
+    field: Array<string>
+    invertedIndex: Object
+    pipeline: Object
+    tokenSet: Object
+    search: Function
   }
 
   interface LunrResult {
@@ -32,11 +41,11 @@ declare global {
   }
 }
 
-async function makeIdx() {
+async function makeIdx(): Promise<LunrIndex> {
   if (!window.idx) {
-    window.index = await fetch(`${window.siteUrl}/index.json`).then((d) =>
-      d.json()
-    )
+    window.index = await fetch(
+      `${window.siteUrl}/index.json`
+    ).then((response) => response.json())
 
     window.idx = window.lunr(function() {
       this.field("id")
@@ -44,15 +53,17 @@ async function makeIdx() {
       this.field("categories")
       this.field("tags")
       this.field("author")
-      for (let key in window.index) {
-        this.add({
-          id: key,
-          title: window.index[key].title,
-          categories: window.index[key].categories,
-          tags: window.index[key].tags,
-          author: window.index[key].author,
-        })
-      }
+      Object.entries(window.index).forEach(
+        ([key, value]: [string, IdxObject]) => {
+          this.add({
+            id: key,
+            title: value.title,
+            categories: value.categories,
+            tags: value.tags,
+            author: value.author,
+          })
+        }
+      )
     })
   }
 

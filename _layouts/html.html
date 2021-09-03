@@ -122,36 +122,34 @@
 	</head>
 
 	<body>
-		<div id="app">
-			{% unless page.hide_skip_link or layout.hide_skip_link %}
-				<a
-					class="skip-link"
-					href="#main-container"
-					data-turbo="false"
-					tab-index="0"
-					>{{ 'Ir al contenido' | __ }}</a
-				>
-			{% endunless %}
-
-			{{ content }}
-
-			<button
-				id="theme-switcher"
-				v-scope="ThemeSwitcher()"
-				class="button theme-switcher"
-				:class="{ 'is-loading': resettingTheme }"
-				v-on:click="toggleTheme"
-				v-on:contextmenu.prevent="resetSystemDefaultTheme($el)"
-				aria-label="{{ "Cambiar tema" | __ }}"
+		{% unless page.hide_skip_link or layout.hide_skip_link %}
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>{{ 'Ir al contenido' | __ }}</a
 			>
-				<span class="icon">
-					<i class="fas" aria-hidden="true"></i>
-				</span>
-			</button>
+		{% endunless %}
 
-			{% unless page.hide_foot or layout.hide_foot %}
-				{% include footer.html %}
-			{% endunless %}
-		</div>
+		{{ content }}
+
+		<button
+			id="theme-switcher"
+			v-scope="ThemeSwitcher()"
+			class="button theme-switcher"
+			:class="{ 'is-loading': resettingTheme }"
+			v-on:click="toggleTheme"
+			v-on:contextmenu.prevent="resetSystemDefaultTheme($el)"
+			aria-label="{{ "Cambiar tema" | __ }}"
+		>
+			<span class="icon">
+				<i class="fas" aria-hidden="true"></i>
+			</span>
+		</button>
+
+		{% unless page.hide_foot or layout.hide_foot %}
+			{% include footer.html %}
+		{% endunless %}
 	</body>
 </html>

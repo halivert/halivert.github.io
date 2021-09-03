@@ -1,4 +1,4 @@
-import { createApp } from "petite-vue"
+import { createApp, reactive } from "petite-vue"
 import { setThemeWithMediaQuery } from "./functions"
 
 declare global {
@@ -10,6 +10,11 @@ declare global {
 function Menu() {
   return {
     activeMenuItem: window.location.href,
+    itemIsActive(el: HTMLAnchorElement) {
+      return this.activeMenuItem === el.href && !this.activeSearchModal
+    },
+
+    activeSearchModal: false,
   }
 }
 
@@ -32,7 +37,7 @@ function ThemeSwitcher() {
 }
 
 const mountApp = () => {
-  createApp({ Menu }).mount(".menu")
+  createApp({ Menu }).mount("#side-menu")
   createApp({ ThemeSwitcher }).mount("#theme-switcher")
 }
 

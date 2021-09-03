@@ -1,14 +1,17 @@
-<aside v-scope="Menu()" id="side-menu" class="menu">
+<aside
+	id="side-menu"
+	v-scope="Menu()"
+	class="menu">
 	<ul class="menu-list mt-1">
 		<li>
 			<a
 				class="px-1"
-		    :class="{ 'is-active': activeMenuItem === $el.href }"
+				:class="{ 'is-active': itemIsActive($el) }"
 				href="{{ '/' | locale_url }}">
 				<img
 					class="logo my-0 dark"
 					src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
-				  alt="{{ 'Logo de Halivert' | __ }}"
+					alt="{{ 'Logo de Halivert' | __ }}"
 				/>
 			</a>
 		</li>
@@ -17,13 +20,13 @@
 	<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
 		<li>
 			<a
-				:class="{ 'is-active': activeMenuItem === $el.href }"
+				:class="{ 'is-active': itemIsActive($el) }"
 				href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a
 			>
 		</li>
 		<li>
 			<a
-				:class="{ 'is-active': activeMenuItem === $el.href }"
+				:class="{ 'is-active': itemIsActive($el) }"
 				href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a
 			>
 		</li>
@@ -33,7 +36,9 @@
 				id="search-button"
 				type="button"
 				class="menu-item"
-				onclick="showSearchModal()"
+				:class="{ 'is-active': activeSearchModal }"
+				v-on:click="activeSearchModal = true; showSearchModal()"
+				:title="activeSearchModal ? 'Hola' : 'Adiós'"
 			>
 				<span>
 					<i class="fas fa-search"></i>

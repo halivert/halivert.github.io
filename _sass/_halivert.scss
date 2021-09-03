@@ -125,18 +125,15 @@
 	transition: background var(--transition);
 }
 
-html {
+body {
 	text-rendering: optimizeLegibility;
+	background-color: var(--background-color-100);
 	overflow-y: scroll;
 	scroll-behavior: smooth;
 	scroll-padding-top: 1rem;
 }
 
 body {
-	background-color: var(--background-color-100);
-}
-
-#app {
 	position: relative;
 	min-height: 100vh;
 	display: grid;
