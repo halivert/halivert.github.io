@@ -1,3 +1,4 @@
+import { createApp, reactive } from "petite-vue"
 import { addClass, removeClass } from "./functions"
 
 declare global {
@@ -5,15 +6,20 @@ declare global {
     getReactions: Function
     mentionsUrl: string
     postUrl: string
+    Turbo: object
   }
 
   interface Reactions {
     count: number
     type: Object
   }
+
+  interface ReactionsObject {
+    postUrl?: string
+  }
 }
 
-export const twitterLink = (rawPostUrl: string): string => {
+const twitterLink = (rawPostUrl: string): string => {
   const tweetUrl: URL = new URL("https://twitter.com/intent/tweet")
   const postUrl: URL = new URL(rawPostUrl)
 
@@ -28,8 +34,8 @@ export const twitterLink = (rawPostUrl: string): string => {
     via: author,
   }
 
-  Object.keys(data).forEach((key: string) => {
-    tweetUrl.searchParams.append(key, data[key])
+  Object.entries(data).forEach(([key, value]: Array<string>) => {
+    tweetUrl.searchParams.append(key, value)
   })
 
   return tweetUrl.toString()
@@ -92,10 +98,65 @@ const loadReactions = async () => {
   flexDiv.appendChild(iconsDiv)
 }
 
-document.addEventListener("turbo:load", () => {
-  // fixTwitterLink()
-  loadReactions()
-})
+const mountApp = () => {
+  function Reactions(props: ReactionsObject) {
+    const apiUrl = "https://webmention.io/api"
+    const reactions = reactive({ value: [] })
 
-// fixTwitterLink()
-loadReactions()
+    const availableReactions = {
+      like: {
+        className: ["fa-star", "has-text-warning"],
+      },
+      repost: {
+        className: ["fa-retweet", "has-text-success"],
+      },
+      reply: {
+        className: ["fa-comment-dots", "has-text-text"],
+      },
+      mention: {
+        className: ["fa-quote-right", "has-text-text"],
+        filter: "mention-of",
+      },
+    }
+
+    const mentions = reactive({
+      url: `${apiUrl}/mentions.html?target=${props?.postUrl}&wm-property=${availableReactions.mention.filter}`,
+    })
+    ;(async () => {
+      const fetchedReactions: Reactions = await (
+        await fetch(`${apiUrl}/count.json?target=${props?.postUrl}`)
+      ).json()
+
+      Object.entries(availableReactions).forEach(
+        ([key, value]: [string, object]) => {
+          const count: number = fetchedReactions.type?.[key] || 0
+          value["name"] = key
+          value["className"].push("fa", "ml-3", "mr-2")
+          value["count"] = count
+
+          if (value?.["filter"] && count) {
+            mentions.count = count
+            return
+          }
+
+          reactions.value.push(value)
+        }
+      )
+
+      if (!fetchedReactions.count) reactions.value.reverse()
+    })()
+
+    return {
+      reactions: reactions.value,
+      mentions,
+    }
+  }
+
+  createApp({
+    twitterLink,
+    Reactions,
+  }).mount("#reactions")
+}
+
+const event: string = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
+document.addEventListener(event, mountApp)

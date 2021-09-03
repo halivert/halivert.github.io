@@ -7,6 +7,7 @@ layout: container
 {%- endcapture -%}
 
 {% assign author = site.data.authors[page.author] %}
+{%- assign post_url = page.url | absolute_url -%}
 
 <div class="columns">
 	<div class="column is-offset-1-desktop">
@@ -70,14 +71,30 @@ layout: container
 				{{ content }}
 			</section>
 
-			<section id="reactions" class="mt-4">
+			<section v-scope id="reactions" class="mt-4">
 				<hr />
 
 				<div class="flex justify-between items-center">
-					<a class="button twitter-share-button is-hidden">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('{{ post_url }}')">
 						<span class="icon"><i class="fab fa-twitter"></i></span>
 						<span>{{ 'Tweet' | __ }}</span>
 					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: '{{ post_url }}'})"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
 				</div>
 			</section>
 
@@ -87,8 +104,6 @@ layout: container
 		</div>
 	</div>
 </div>
-
-{%- assign post_url = page.url | absolute_url -%}
 
 <script>
 	window.apiUrl = "https://webmention.io/api"
@@ -106,7 +121,3 @@ layout: container
 
 	window.mentionsUrl = `${window.apiUrl}/mentions.html?target={{ post_url }}`
 </script>
-<script
-	type="module"
-	src="{{ '/assets/js/post.js' | absolute_url }}"></script
->
