@@ -1,22 +1,27 @@
 a {
-  text-decoration: none;
-  color: var(--contrast-color-300);
+	--text-color: var(--contrast-color-300);
+	--background-color: var(--background-color-200);
+	--focus-text-color: var(--contrast-color-100);
+	--active-text-color: var(--contrast-color-200);
 
-  &:focus,
-  &:focus-visible {
-    outline: none;
-    background: var(--background-color-200);
-    text-decoration: underline;
-  }
+	text-decoration: none;
+	color: var(--text-color);
 
-  &:hover,
-  &:focus,
-  &:focus-visible {
-    color: var(--contrast-color-100);
-    border-radius: var(--control-border-radius, 4px);
-  }
+	&:focus,
+	&:focus-visible {
+		outline: none;
+		background: var(--background-color);
+		text-decoration: underline;
+	}
 
-  &:active {
-    color: var(--contrast-color-200);
-  }
+	&:hover,
+	&:focus,
+	&:focus-visible {
+		color: var(--focus-text-color);
+		border-radius: var(--control-border-radius, 4px);
+	}
+
+	&:active {
+		color: var(--active-text-color);
+	}
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
-	lang="{{ page.lang | default: site.lang | replace: '_', '-' }}"
-	class="dark">
+	class="dark"
+	lang="{{ page.lang | default: site.lang | replace: '_', '-' }}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -103,21 +103,12 @@
 
 		{%- assign jsAssets = "/assets/js" | absolute_url -%}
 
-		<script>
-			window.siteUrl = "{{ '/' | locale_url }}"
-		</script>
-		<script src="{{ jsAssets }}/main.js"></script>
+		<script>window.siteUrl = "{{ '/' | locale_url }}"</script>
+		<script src="{{ jsAssets }}/setTheme.js"></script>
+		<script type="module" src="{{ jsAssets }}/main.js"></script>
 		<script src="https://unpkg.com/lunr@2.3.9/lunr.min.js" defer></script>
-		<script
-			type="module"
-			src="{{ jsAssets }}/search.js"
-			defer
-		></script>
-		<script
-			type="module"
-			src="{{ jsAssets }}/themeSwitcher.js"
-			defer
-		></script>
+		<script type="module" src="{{ jsAssets }}/search.js" defer></script>
+		<script type="module" src="{{ jsAssets }}/post.js" defer></script>
 
 		{% seo %}
 		{% if page.has_math %}
@@ -145,9 +136,12 @@
 
 		<button
 			id="theme-switcher"
+			v-scope="ThemeSwitcher()"
 			class="button theme-switcher"
-			onclick="changeTheme('theme-switcher')"
-			data-turbo-permanent
+			:class="{ 'is-loading': resettingTheme }"
+			v-on:click="toggleTheme"
+			v-on:contextmenu.prevent="resetSystemDefaultTheme($el)"
+			aria-label="{{ "Cambiar tema" | __ }}"
 		>
 			<span class="icon">
 				<i class="fas" aria-hidden="true"></i>
