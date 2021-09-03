@@ -39,6 +39,7 @@
 					type="{{ pair[1] }}" />
 			{%- else -%}
 				<img
+					loading="lazy"
 					src="{{ img | append: pair[0] | strip_newlines }}"
 					alt="{{ include.alt }}" />
 			{%- endif -%}

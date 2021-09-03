@@ -132,6 +132,10 @@ html {
 	scroll-padding-top: 1rem;
 }
 
+body {
+	background-color: var(--background-color-100);
+}
+
 #app {
 	position: relative;
 	min-height: 100vh;

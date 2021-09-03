@@ -11,6 +11,7 @@ layout: container
       <label for="{{ project.id }}">
         <figure>
             <img
+              loading="lazy"
               src="{{ project.image }}"
               alt="{{ project.image_alt | default: 'Imagen de proyecto' }}" />
 
