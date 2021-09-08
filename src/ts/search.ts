@@ -6,7 +6,6 @@ declare global {
     idx: LunrIndex
     index: object
     inputSearch: Function
-    showSearchModal: Function
     lunr: Function
     siteUrl: String
   }
@@ -69,35 +68,6 @@ async function makeIdx(): Promise<LunrIndex> {
   }
 
   return window.idx
-}
-
-function showSearchModal() {
-  const modal: HTMLElement = document.getElementById("search-modal")
-  const input: HTMLElement = document.getElementById("search-input")
-
-  removeClass(modal, "is-hidden")
-
-  if (input) document.getElementById("search-input").focus()
-
-  const menu: HTMLElement = document.getElementById("side-menu")
-  if (!menu) return
-
-  removeClass(menu.querySelector("li > .is-active"), "is-active")
-  addClass(document.getElementById("search-button"), "is-active")
-}
-
-function hideSearchModal() {
-  const modal: HTMLElement = document.getElementById("search-modal")
-  const input: HTMLInputElement = <HTMLInputElement>(
-    document.getElementById("search-input")
-  )
-
-  addClass(modal, "is-hidden")
-
-  if (input) input.value = ""
-
-  displaySearchResults([], window.index)
-  setActive(document.getElementById("side-menu"))
 }
 
 async function inputSearch(input: HTMLInputElement) {
@@ -190,30 +160,7 @@ function htmlPostElement(item: IdxObject, template: HTMLTemplateElement) {
   return newElement
 }
 
-function addEventListeners() {
-  document.addEventListener("keydown", (evt: KeyboardEvent) => {
-    const modal = document.getElementById("search-modal")
-
-    if (modal) {
-      if (!isInput((<HTMLElement>evt.target).nodeName)) {
-        if (evt.key === "/") {
-          evt.preventDefault()
-          return showSearchModal()
-        }
-      }
-
-      if (evt.key === "Escape" || evt.key === "Esc") {
-        evt.preventDefault()
-        return hideSearchModal()
-      }
-    }
-  })
-}
-
-// addEventListeners()
-
-// window.showSearchModal = showSearchModal
-// window.inputSearch = inputSearch
+window.inputSearch = inputSearch
 
 export default function SearchModal() {
   return {
