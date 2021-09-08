@@ -121,7 +121,8 @@
 @import "footer";
 
 * {
-	transition: color var(--transition), background var(--transition);
+	transition-property: color, background;
+	transition: var(--transition);
 }
 
 body {
@@ -724,6 +725,10 @@ input {
 
 small {
 	color: var(--text-color-300);
+}
+
+[v-cloak] {
+	display: none;
 }
 
 @import "gist";
