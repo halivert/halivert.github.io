@@ -14,12 +14,12 @@
   live: "https://halivert.dev/tip-calculator-app"
   description: "Divide the total of a bill in the number of people."
 
-- id: personal-website
-  title: "This website and personal blog"
-  repo: "https://github.com/halivert/halivert.github.io"
-  live: "https://halivert.dev"
-  image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
-  description: "Website made with Jekyll, HTML, JavaScript and Sass."
+# - id: personal-website
+#   title: "This website and personal blog"
+#   repo: "https://github.com/halivert/halivert.github.io"
+#   live: "https://halivert.dev"
+#   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/halivert-card.jpg"
+#   description: "Website made with Jekyll, HTML, JavaScript and Sass."
 
 - id: intro-component-with-sign-up-form
   title: "Contact form"

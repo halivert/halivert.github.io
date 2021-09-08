@@ -46,7 +46,8 @@ lang_buttons: true
 					</p>
 
 					<p>
-						Puedes ponerte en contacto conmigo
+						Puedes enviarme un correo
+						(<a href="mailto:{{ author.email.at }}">{{ author.email.at }}</a>)
 						{% if author.kofi %}
 							y también
 							<a href="{{ author.kofi }}">invitarme un café</a>
@@ -57,14 +58,6 @@ lang_buttons: true
 			{% endif %}
 
 			<p class="buttons is-centered mt-3">
-				<a
-					class="button gmail"
-					href="mailto:{{ author.email.at }}"
-				>
-					<span class="icon">
-						<i class="fas fa-envelope-open" aria-hidden="true"></i>
-					</span>
-				</a>
 				{% for item in author.social %}
 					<a
 						class="button
