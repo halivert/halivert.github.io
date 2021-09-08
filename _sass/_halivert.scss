@@ -238,7 +238,7 @@ main#main-container {
 			content: "";
 			width: 160%;
 			transform: rotate(45deg);
-			animation: diagonal 1s linear infinite;
+			animation: diagonal 0.3s linear forwards;
 		}
 	}
 }

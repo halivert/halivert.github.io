@@ -31,7 +31,7 @@ function ThemeSwitcher() {
       setTimeout(() => {
         setThemeWithMediaQuery()
         this.resettingTheme = false
-      }, 1000)
+      }, 400)
     },
   }
 }
