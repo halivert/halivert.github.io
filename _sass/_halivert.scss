@@ -121,7 +121,7 @@
 @import "footer";
 
 * {
-	transition: color background var(--transition);
+	transition: color var(--transition), background var(--transition);
 }
 
 body {
