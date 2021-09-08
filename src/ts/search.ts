@@ -1,3 +1,4 @@
+import { createApp } from "petite-vue"
 import { isInput, removeClass, addClass, setActive } from "./functions"
 
 declare global {
@@ -110,6 +111,12 @@ async function inputSearch(input: HTMLInputElement) {
   displaySearchResults(results, window.index)
 }
 
+function SearchResult() {
+  return {
+    $template: "search-result",
+  }
+}
+
 function displaySearchResults(results: LunrResult[], store: object) {
   let searchResults: HTMLElement = document.getElementById("search-results")
   let template: HTMLTemplateElement = <HTMLTemplateElement>(
@@ -203,7 +210,12 @@ function addEventListeners() {
   })
 }
 
-addEventListeners()
+// addEventListeners()
 
-window.showSearchModal = showSearchModal
-window.inputSearch = inputSearch
+// window.showSearchModal = showSearchModal
+// window.inputSearch = inputSearch
+
+export default function SearchModal() {
+  return {
+  }
+}

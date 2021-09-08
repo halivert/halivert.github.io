@@ -1,119 +1,125 @@
-<aside
-	id="side-menu"
-	v-scope="Menu()"
-	class="menu">
-	<ul class="menu-list mt-1">
-		<li>
-			<a
-				class="px-1"
-				:class="{ 'is-active': itemIsActive($el) }"
-				href="{{ '/' | locale_url }}">
-				<img
-					class="logo my-0 dark"
-					src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
-					alt="{{ 'Logo de Halivert' | __ }}"
-				/>
-			</a>
-		</li>
-	</ul>
-
-	<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
-		<li>
-			<a
-				:class="{ 'is-active': itemIsActive($el) }"
-				href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a
-			>
-		</li>
-		<li>
-			<a
-				:class="{ 'is-active': itemIsActive($el) }"
-				href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a
-			>
-		</li>
-		{%- if page.search_bar -%}
-		<li>
-			<button
-				id="search-button"
-				type="button"
-				class="menu-item"
-				:class="{ 'is-active': activeSearchModal }"
-				v-on:click="activeSearchModal = true; showSearchModal()"
-				:title="activeSearchModal ? 'Hola' : 'Adiós'"
-			>
-				<span>
-					<i class="fas fa-search"></i>
-				</span>
-				<span>{{ 'Buscar' | __ }}</span>
-				<span class="keycode">/</span>
-			</button>
-		</li>
-		{%- endif -%}
-	</ul>
-
-	{% if page.lang_buttons or layout.lang_buttons %}
-		<ul class="menu-list lang">
-			{% for lang in site.data.langs %}
-				<li>
-					<a
-						data-turbo="false"
-						href="{{ lang.path | absolute_url }}">
-						{{ lang.title }}
-					</a>
-				</li>
-			{% endfor %}
+<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="{{ '/' | locale_url }}">
+					<img
+						class="logo my-0 dark"
+						src="{{ '/assets/img/halivert-logo.webp' | absolute_url }}"
+						alt="{{ 'Logo de Halivert' | __ }}"
+					/>
+				</a>
+			</li>
 		</ul>
-	{% endif %}
-</aside>
 
-{%- if page.search_bar -%}
-	<div id="search-modal" class="modal search-modal is-hidden">
-		<div class="modal-content">
-			<button class="delete mb-4" onclick="hideModal(this)"></button>
-
-			<div class="my-5">
-				<input
-					id="search-input"
-					placeholder="{{ 'Buscar' | __ | append: '...' }}"
-					class="input"
-					type="text"
-					oninput="inputSearch(this)"
-				/>
-			</div>
-
-			<div class="columns">
-				<div class="column reader">
-					<section id="search-results" class="has-text-left"></section>
-				</div>
-			</div>
-
-			<template id="post-template">
-				<section>
-					<h2 class="title is-2">
-						<a class="post-title has-text-primary" href="#"></a>
-					</h2>
-					<hr />
-					<div class="columns">
-						<div class="column">
-							<div class="post-content content has-text-justified"></div>
-						</div>
-						<picture class="post-picture column is-3-desktop"></picture>
-					</div>
-					<div class="box has-text-right">
-						<i class="fas fa-user" aria-hidden="true"></i>
-						<span class="post-author"></span>
-						<span class="mobile-separator"></span>
-						<i class="fas fa-calendar" aria-hidden="true"></i>
-						<span class="post-date"></span>
-					</div>
-					<br />
-				</section>
-			</template>
-
-			<template id="keep-reading">
-				<a class="subtitle is-5 has-text-link" href="#"
-					>{{ 'Seguir leyendo' | __ }}</a
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="{{ '/blog/' | locale_url }}">{{ 'Blog' | __ }}</a
 				>
-			</template>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a
+				>
+			</li>
+			{%- if page.search_bar -%}
+			<li>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>{{ 'Buscar' | __ }}</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li>
+			{%- endif -%}
+		</ul>
+
+		{% if page.lang_buttons or layout.lang_buttons %}
+			<ul class="menu-list lang">
+				{% for lang in site.data.langs %}
+					<li>
+						<a
+							data-turbo="false"
+							href="{{ lang.path | absolute_url }}">
+							{{ lang.title }}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	</aside>
+
+	{%- if page.search_bar -%}
+		<div
+			id="search-modal"
+			v-scope="SearchModal()"
+		  v-on:mounted="mountSearchModal"
+			:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+			v-cloak>
+			<div class="modal-content">
+			<button
+				class="delete mb-4"
+				v-on:click="toggleSearchModal()"
+			></button>
+
+				<div class="my-5">
+					<input
+						id="search-input"
+						placeholder="{{ 'Buscar' | __ | append: '...' }}"
+						class="input"
+						type="text"
+						oninput="inputSearch(this)"
+					/>
+				</div>
+
+				<div class="columns">
+					<div class="column reader">
+						<section id="search-results" class="has-text-left"></section>
+					</div>
+				</div>
+
+				<template id="post-template">
+					<section>
+						<h2 class="title is-2">
+							<a class="post-title has-text-primary" href="#"></a>
+						</h2>
+						<hr />
+						<div class="columns">
+							<div class="column">
+								<div class="post-content content has-text-justified"></div>
+							</div>
+							<picture class="post-picture column is-3-desktop"></picture>
+						</div>
+						<div class="box has-text-right">
+							<i class="fas fa-user" aria-hidden="true"></i>
+							<span class="post-author"></span>
+							<span class="mobile-separator"></span>
+							<i class="fas fa-calendar" aria-hidden="true"></i>
+							<span class="post-date"></span>
+						</div>
+						<br />
+					</section>
+				</template>
+
+				<template id="keep-reading">
+					<a class="subtitle is-5 has-text-link" href="#"
+						>{{ 'Seguir leyendo' | __ }}</a
+					>
+				</template>
+			</div>
 		</div>
-	</div>
-{%- endif -%}
+	{%- endif -%}
+</div>
