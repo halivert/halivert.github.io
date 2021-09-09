@@ -9,6 +9,7 @@
 	font-family: var(--title-font);
 	background: var(--background-color-100);
 	padding: 0.5em 0;
+	height: 100%;
 
 	@include touch {
 		font-size: 1rem;

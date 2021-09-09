@@ -100,7 +100,8 @@
 
 * {
 	transition-property: color, background;
-	transition: var(--transition);
+	transition-duration: 200ms;
+	transition-timing-function: linear;
 }
 
 body {
