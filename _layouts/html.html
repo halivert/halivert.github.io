@@ -24,19 +24,6 @@
 			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" />
 		{%- endif -%}
 
-		{%-
-			assign gistTheme = "https://cdn.rawgit.com"
-				| append: "/lonekorean/gist-syntax-themes/b737b139/stylesheets"
-				| append: "/solarized-dark.css"
-		-%}
-
-		<link
-			rel="stylesheet"
-			href="{{ gistTheme }}"
-			media="print"
-			onload="this.media='all'; this.onload=null;"
-		/>
-
 		{%- assign cssAssets = "/assets/css" | absolute_url -%}
 
 		<link
@@ -61,6 +48,13 @@
 
 		<link
 			rel="stylesheet"
+			href="{{ cssAssets }}/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
 			href="{{ cssAssets }}/fa.min.css"
 			media="print"
 			onload="this.media='all'; this.onload=null;"
@@ -74,7 +68,7 @@
 		/>
 
 		<noscript>
-			<link rel="stylesheet" href="{{ gistTheme }}" />
+			<link rel="stylesheet" href="{{ cssAssets }}/gist-theme.css" />
 			<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
 			<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 		</noscript>
