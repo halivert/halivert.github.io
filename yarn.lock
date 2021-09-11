@@ -83,9 +83,9 @@
   integrity sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
 
 "@types/node@*":
-  version "16.7.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.10.tgz#7aa732cc47341c12a16b7d562f519c2383b6d4fc"
-  integrity sha512-S63Dlv4zIPb8x6MMTgDq5WWRJQe56iBEY0O3SOFA9JrRienkOVDXSXBjjJw6HTNQYSE2JI6GMCR6LVbIMHJVvA==
+  version "16.9.1"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.9.1.tgz#0611b37db4246c937feef529ddcc018cf8e35708"
+  integrity sha512-QpLcX9ZSsq3YYUUnD3nFDY8H7wctAhQj/TFKL8Ya8v5fMm3CFXxo8zStsLAl780ltoYoo1WvKUVGBQK+1ifr7g==
 
 "@types/resolve@1.17.1":
   version "1.17.1"
@@ -366,9 +366,9 @@ slash@^3.0.0:
   integrity sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==
 
 source-map-support@~0.5.19:
-  version "0.5.19"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
-  integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
+  version "0.5.20"
+  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.20.tgz#12166089f8f5e5e8c56926b377633392dd2cb6c9"
+  integrity sha512-n1lZZ8Ve4ksRqizaBQgxXDgKwttHDhyfQjA6YZZn8+AroHbsIz+JjwxQDxbp+7y5OYCI8t1Yk7etjD9CRd2hIw==
   dependencies:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
