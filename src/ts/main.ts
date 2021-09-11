@@ -18,24 +18,6 @@ function Menu() {
   }
 }
 
-function ThemeSwitcher() {
-  return {
-    resettingTheme: false,
-    toggleTheme: () => {
-      const isDark = document.documentElement.classList.toggle("dark")
-      localStorage.setItem("halivertsTheme", isDark ? "dark" : "light")
-    },
-    resetSystemDefaultTheme() {
-      localStorage.removeItem("halivertsTheme")
-      this.resettingTheme = true
-      setTimeout(() => {
-        setThemeWithMediaQuery()
-        this.resettingTheme = false
-      }, 400)
-    },
-  }
-}
-
 function modalKeyHandler(evt: KeyboardEvent) {
   if (!document.getElementById("search-modal")) return
 
@@ -67,8 +49,6 @@ const mountApp = () => {
       document.addEventListener("keydown", window.keyDownListener)
     },
   }).mount("#side-menu-container")
-
-  createApp({ ThemeSwitcher }).mount("#theme-switcher")
 }
 
 const event = window?.Turbo ? "turbo:load" : "DOMContentLoaded"

@@ -26,12 +26,5 @@ export default (args) => {
       },
       plugins: plugins,
     },
-    {
-      input: "src/ts/setTheme.ts",
-      output: {
-        dir: "assets/js",
-      },
-      plugins: plugins,
-    },
   ])
 }
