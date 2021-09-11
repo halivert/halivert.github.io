@@ -77,8 +77,6 @@ function Reactions(props: ReactionsProps) {
         }
       }
     )
-
-    if (!fetchedReactions.count) this.reactions.reverse()
   }
 
   function getMentionsUrl(props: Object) {
