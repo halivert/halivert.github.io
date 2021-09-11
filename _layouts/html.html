@@ -13,10 +13,6 @@
 			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
 		</script>
 
-		{%- assign cssAssets = "/assets/css" | absolute_url -%}
-
-		<link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
-
 		{%- if site.webmention -%}
 			<link rel="webmention" href="{{ site.webmention.webmention }}" />
 			<link rel="pingback" href="{{ site.webmention.pingback }}" />
@@ -40,9 +36,22 @@
 			media="print"
 			onload="this.media='all'; this.onload=null;"
 		/>
-		<noscript>
-			<link rel="stylesheet" href="{{ gistTheme }}" />
-		</noscript>
+
+		{%- assign cssAssets = "/assets/css" | absolute_url -%}
+
+		<link
+			rel="stylesheet"
+			href="{{ cssAssets }}/colors-dark.css"
+			media="(prefers-color-scheme: dark)"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="{{ cssAssets }}/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="{{ cssAssets }}/halivert.css" />
 
 		<link
 			rel="stylesheet"
@@ -56,9 +65,6 @@
 			media="print"
 			onload="this.media='all'; this.onload=null;"
 		/>
-		<noscript>
-			<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
-		</noscript>
 
 		<link
 			rel="stylesheet"
@@ -66,7 +72,10 @@
 			media="print"
 			onload="this.media='all'; this.onload=null;"
 		/>
+
 		<noscript>
+			<link rel="stylesheet" href="{{ gistTheme }}" />
+			<link rel="stylesheet" href="{{ cssAssets }}/fa.min.css" />
 			<link rel="stylesheet" href="{{ cssAssets }}/solarized.css" />
 		</noscript>
 

@@ -1,0 +1,56 @@
+---
+---
+
+:root {
+	--dark: 1;
+
+	--background-h: 240;
+	--background-s: 23%;
+	--background-l: 5%;
+
+	--text-h: 249;
+	--text-s: 21%;
+	--text-l: 83%;
+
+	--primary-h: 216;
+	--primary-s: 41%;
+	--primary-l: 30%;
+
+	--contrast-h: 206;
+	--contrast-s: 47%;
+	--contrast-l: 60%;
+
+	--accent-h: 322;
+	--accent-s: 42%;
+	--accent-l: 46%;
+
+	--github-primary: #f0f6fc;
+
+	--code-color: var(--text-color-100);
+
+	--yellow-hsl: 42, 100%, 8%;
+
+	--red-hsl: 0, 100%, 13%;
+
+	--green-succulent-hsl: 123, 27%, 25%;
+
+	--purple-hsl: 280, 84%, 21%;
+
+	--creative-a: hsl(162, 100%, 15%);
+	--creative-b: hsl(102, 100%, 15%);
+
+	--blue-hsl: 208, 100%, 25%;
+
+	--orange-hsl: 11, 90%, 36%;
+
+	--emerald-hsl: 180, 100%, 10%;
+
+	--vue-hsl: 211, 28%, 29%;
+
+	--mint-hsl: 153, 48%, 28%;
+
+	--golden-invert: var(--background-color-100);
+
+	--white-hsl: 0, 0%, 80%;
+	--white-invert: var(--background-color-100);
+}

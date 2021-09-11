@@ -1,0 +1,76 @@
+---
+---
+
+:root {
+	--dark: -1;
+
+	--background-h: 249;
+	--background-s: 21%;
+	--background-l: 88%;
+
+	--text-h: 240;
+	--text-s: 23%;
+	--text-l: 5%;
+
+	--primary-h: 206;
+	--primary-s: 47%;
+	--primary-l: 49%;
+
+	--contrast-h: 216;
+	--contrast-s: 41%;
+	--contrast-l: 31%;
+
+	--accent-h: 322;
+	--accent-s: 42%;
+	--accent-l: 66%;
+
+	--code-color: var(--background-color-100);
+
+	--golden-hsl: 43, 74%, 49%;
+
+	--yellow-hsl: 42, 100%, 48%;
+
+	--red-hsl: 0, 100%, 72%;
+
+	--green-succulent-hsl: 123, 27%, 64%;
+
+	--purple-hsl: 280, 84%, 72%;
+
+	--creative-a: hsl(162, 100%, 72%);
+	--creative-b: hsl(102, 100%, 72%);
+	--creative-gradient: linear-gradient(
+		to top right,
+		var(--creative-a),
+		var(--creative-b)
+	);
+
+	--blue-hsl: 208, 100%, 68%;
+
+	--orange-hsl: 11, 90%, 68%;
+
+	--emerald-hsl: 180, 100%, 38%;
+
+	--pink-hsl: var(--accent-h), var(--accent-s), var(--accent-l);
+
+	--vue-hsl: 153, 48%, 49%;
+
+	--mint-hsl: 153, 48%, 49%;
+
+	--white-hsl: 0, 0%, 100%;
+
+	--github-primary: #24292e;
+	--gmail-primary: #eb4132;
+	--twitter-primary: #1da1f2;
+	--telegram-primary: #28a8ea;
+	--discord-primary: #7289da;
+	--linkedin-primary: #0a66c2;
+	--gitlab-primary: #fc6d26;
+	--instagram-primary: radial-gradient(
+		circle at 30% 107%,
+		#fdf497 0%,
+		#fdf497 5%,
+		#fd5949 45%,
+		#d6249f 60%,
+		#285aeb 90%
+	);
+}

@@ -2,9 +2,9 @@
 
 @import "functions";
 
-:root {
-	--dark: -1;
+@import "colors";
 
+:root {
 	--main-font: "Raleway", sans-serif;
 	--title-font: "Montserrat", sans-serif;
 	--monospace-font: "IBM Plex Mono", monospace;
@@ -16,71 +16,49 @@
 	--column-gap: 0.75rem;
 	--small-radius: 4px;
 
-	--background-h: 249;
-	--background-s: 21%;
-	--background-l: 88%;
-
-	--text-h: 240;
-	--text-s: 23%;
-	--text-l: 5%;
-
-	--primary-h: 206;
-	--primary-s: 47%;
-	--primary-l: 49%;
-
-	--contrast-h: 216;
-	--contrast-s: 41%;
-	--contrast-l: 31%;
-
-	--accent-h: 322;
-	--accent-s: 42%;
-	--accent-l: 66%;
-
 	--transition: 200ms linear;
 
-	@media screen {
-		&.dark {
-			--dark: 1;
+	--background-hsl-100: var(--background-h), var(--background-s),
+		var(--background-l);
+	--background-hsl-200: var(--background-h), var(--background-s),
+		calc(var(--background-l) + (6% * var(--dark)));
+	--background-hsl-300: var(--background-h), var(--background-s),
+		calc(var(--background-l) + (12% * var(--dark)));
 
-			--background-h: 240;
-			--background-s: 23%;
-			--background-l: 5%;
+	--text-hsl-100: var(--text-h), var(--text-s), var(--text-l);
+	--text-hsl-200: var(--text-h), var(--text-s),
+		calc(var(--text-l) - (6% * var(--dark)));
+	--text-hsl-300: var(--text-h), var(--text-s),
+		calc(var(--text-l) - (12% * var(--dark)));
 
-			--text-h: 249;
-			--text-s: 21%;
-			--text-l: 83%;
+	--primary-hsl-100: var(--primary-h), var(--primary-s), var(--primary-l);
+	--primary-hsl-200: var(--primary-h), var(--primary-s),
+		calc(var(--primary-l) + (6% * var(--dark)));
+	--primary-hsl-300: var(--primary-h), var(--primary-s),
+		calc(var(--primary-l) + (12% * var(--dark)));
 
-			--primary-h: 216;
-			--primary-s: 41%;
-			--primary-l: 30%;
+	--contrast-hsl-100: var(--contrast-h), var(--contrast-s), var(--contrast-l);
+	--contrast-hsl-200: var(--contrast-h), var(--contrast-s),
+		calc(var(--contrast-l) - (6% * var(--dark)));
+	--contrast-hsl-300: var(--contrast-h), var(--contrast-s),
+		calc(var(--contrast-l) - (12% * var(--dark)));
 
-			--contrast-h: 206;
-			--contrast-s: 47%;
-			--contrast-l: 60%;
+	--accent-hsl-100: var(--accent-h), var(--accent-s), var(--accent-l);
+	--accent-hsl-200: var(--accent-h), var(--accent-s),
+		calc(var(--accent-l) + (8% * var(--dark)));
+	--accent-hsl-300: var(--accent-h), var(--accent-s),
+		calc(var(--accent-l) + (16% * var(--dark)));
 
-			--accent-h: 322;
-			--accent-s: 42%;
-			--accent-l: 46%;
-
-			--github-primary: #f0f6fc;
+	@each $color in ("background", "text", "primary", "contrast", "accent") {
+		@each $num in (100, 200, 300) {
+			--#{$color}-color-#{$num}: hsl(var(--#{$color}-hsl-#{$num}));
 		}
 	}
 
-	--github-primary: #24292e;
-	--gmail-primary: #eb4132;
-	--twitter-primary: #1da1f2;
-	--telegram-primary: #28a8ea;
-	--discord-primary: #7289da;
-	--linkedin-primary: #0a66c2;
-	--gitlab-primary: #fc6d26;
-	--instagram-primary: radial-gradient(
-		circle at 30% 107%,
-		#fdf497 0%,
-		#fdf497 5%,
-		#fd5949 45%,
-		#d6249f 60%,
-		#285aeb 90%
-	);
+	@each $pair in $tag-colors {
+		$name: nth($pair, 1);
+		--#{$name}-color: hsl(var(--#{$name}-hsl));
+	}
 }
 
 @import "colors";
