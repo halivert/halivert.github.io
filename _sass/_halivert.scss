@@ -17,48 +17,6 @@
 	--small-radius: 4px;
 
 	--transition: 200ms linear;
-
-	--background-hsl-100: var(--background-h), var(--background-s),
-		var(--background-l);
-	--background-hsl-200: var(--background-h), var(--background-s),
-		calc(var(--background-l) + (6% * var(--dark)));
-	--background-hsl-300: var(--background-h), var(--background-s),
-		calc(var(--background-l) + (12% * var(--dark)));
-
-	--text-hsl-100: var(--text-h), var(--text-s), var(--text-l);
-	--text-hsl-200: var(--text-h), var(--text-s),
-		calc(var(--text-l) - (6% * var(--dark)));
-	--text-hsl-300: var(--text-h), var(--text-s),
-		calc(var(--text-l) - (12% * var(--dark)));
-
-	--primary-hsl-100: var(--primary-h), var(--primary-s), var(--primary-l);
-	--primary-hsl-200: var(--primary-h), var(--primary-s),
-		calc(var(--primary-l) + (6% * var(--dark)));
-	--primary-hsl-300: var(--primary-h), var(--primary-s),
-		calc(var(--primary-l) + (12% * var(--dark)));
-
-	--contrast-hsl-100: var(--contrast-h), var(--contrast-s), var(--contrast-l);
-	--contrast-hsl-200: var(--contrast-h), var(--contrast-s),
-		calc(var(--contrast-l) - (6% * var(--dark)));
-	--contrast-hsl-300: var(--contrast-h), var(--contrast-s),
-		calc(var(--contrast-l) - (12% * var(--dark)));
-
-	--accent-hsl-100: var(--accent-h), var(--accent-s), var(--accent-l);
-	--accent-hsl-200: var(--accent-h), var(--accent-s),
-		calc(var(--accent-l) + (8% * var(--dark)));
-	--accent-hsl-300: var(--accent-h), var(--accent-s),
-		calc(var(--accent-l) + (16% * var(--dark)));
-
-	@each $color in ("background", "text", "primary", "contrast", "accent") {
-		@each $num in (100, 200, 300) {
-			--#{$color}-color-#{$num}: hsl(var(--#{$color}-hsl-#{$num}));
-		}
-	}
-
-	@each $pair in $tag-colors {
-		$name: nth($pair, 1);
-		--#{$name}-color: hsl(var(--#{$name}-hsl));
-	}
 }
 
 @import "colors";
