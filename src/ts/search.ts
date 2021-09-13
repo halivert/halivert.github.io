@@ -1,31 +1,24 @@
-import { createApp } from "petite-vue"
-import { isInput, removeClass, addClass, setActive } from "./functions"
+import { debounce } from "lodash"
 
 declare global {
   interface Window {
     idx: LunrIndex
     index: object
-    inputSearch: Function
     lunr: Function
     siteUrl: String
+    toggleSearchModal: Function
   }
 
   interface LunrIndex {
-    fieldVectors: Object
     field: Array<string>
-    invertedIndex: Object
-    pipeline: Object
-    tokenSet: Object
     search: Function
   }
 
   interface LunrResult {
     ref: string
-    score: number
-    matchData: object
   }
 
-  interface IdxObject {
+  interface Post {
     id: string
     title: string
     categories: string[]
@@ -53,116 +46,72 @@ async function makeIdx(): Promise<LunrIndex> {
       this.field("categories")
       this.field("tags")
       this.field("author")
-      Object.entries(window.index).forEach(
-        ([key, value]: [string, IdxObject]) => {
-          this.add({
-            id: key,
-            title: value.title,
-            categories: value.categories,
-            tags: value.tags,
-            author: value.author,
-          })
-        }
-      )
+      Object.entries(window.index).forEach(([key, value]: [string, Post]) => {
+        this.add({
+          id: key,
+          title: value.title,
+          categories: value.categories,
+          tags: value.tags,
+          author: value.author,
+        })
+      })
     })
   }
 
   return window.idx
 }
 
-async function inputSearch(input: HTMLInputElement) {
-  if (!input) return
+export function SearchResult(post: Post) {
+  let sourceImages = []
+  let imageUrl = ""
 
-  let idx = await makeIdx()
+  if (post?.image_types) {
+    const imageTypes = post.image_types.split(",")
 
-  const searchTerm = input.value
+    if (imageTypes.length > 0) {
+      let lastImageExt = imageTypes.slice(-1)[0].split(":")[0]
+      imageUrl = `${post.image}.${lastImageExt}`
 
-  let results = searchTerm ? idx.search(searchTerm) : []
-  displaySearchResults(results, window.index)
-}
-
-function SearchResult() {
-  return {
-    $template: "search-result",
-  }
-}
-
-function displaySearchResults(results: LunrResult[], store: object) {
-  let searchResults: HTMLElement = document.getElementById("search-results")
-  let template: HTMLTemplateElement = <HTMLTemplateElement>(
-    document.getElementById("post-template")
-  )
-
-  if (!searchResults) return
-
-  while (searchResults.firstChild) {
-    searchResults.removeChild(searchResults.lastChild)
-  }
-
-  if (results.length) {
-    for (let i = 0; i < results.length; i++) {
-      let item = store[results[i].ref]
-      searchResults.appendChild(htmlPostElement(item, template))
+      if (imageTypes.length > 1) {
+        sourceImages = imageTypes.slice(0, -1).map((type) => {
+          const [ext, mime] = type.split(":")
+          return {
+            ext,
+            mime,
+          }
+        })
+      }
     }
   }
-}
 
-function htmlPostElement(item: IdxObject, template: HTMLTemplateElement) {
-  let newElement: HTMLElement = <HTMLElement>template.content.cloneNode(true)
-
-  let pictureEl: HTMLElement = newElement.querySelector("picture.post-picture")
-  if (item.image_types && item.image) {
-    item.image_types
-      .split(",")
-      .forEach((type: string, idx: number, arr: string[]) => {
-        let [ext, mime] = type.split(":")
-        let imgEl: HTMLImageElement | HTMLSourceElement
-
-        if (idx === arr.length - 1) {
-          imgEl = pictureEl.appendChild(document.createElement("img"))
-          imgEl.src = `${item.image}.${ext}`
-          imgEl.alt = item.image_alt
-        } else {
-          imgEl = pictureEl.appendChild(document.createElement("source"))
-          imgEl.srcset = `${item.image}.${ext}`
-          imgEl.type = mime
-        }
-      })
-  } else {
-    pictureEl.remove()
-  }
-
-  let titleEl: HTMLAnchorElement = newElement.querySelector("a.post-title")
-  titleEl.href = item.url
-  titleEl.text = item.title
-
-  newElement.querySelector<HTMLSpanElement>("span.post-author").innerText =
-    item.author
-  newElement.querySelector<HTMLSpanElement>("span.post-date").innerText =
-    item.date
-
-  let contentEl = newElement.querySelector("div.post-content")
-  contentEl.innerHTML = item.content
-
-  if (item.continue === 1) {
-    contentEl.appendChild(document.createElement("p")).innerHTML = "&#8230;"
-    let keepReadingEl: HTMLElement = <HTMLElement>(
-      (<HTMLTemplateElement>(
-        document.getElementById("keep-reading")
-      )).content.cloneNode(true)
-    )
-
-    let keepReadingLink: HTMLAnchorElement = keepReadingEl.querySelector("a")
-    keepReadingLink.href = item.url
-    contentEl.appendChild(keepReadingLink)
-  }
-
-  return newElement
-}
-
-window.inputSearch = inputSearch
-
-export default function SearchModal() {
   return {
+    $template: "#post-template",
+    post,
+    sourceImages,
+    imageUrl,
+  }
+}
+
+export function SearchModal() {
+  return {
+    posts: [],
+    inputValue: "",
+
+    search: debounce(function(searchTerm: string) {
+      makeIdx().then((idx: LunrIndex) => {
+        const results: Array<LunrResult> = searchTerm
+          ? idx.search(searchTerm)
+          : []
+
+        this.posts = results.map(({ ref }) => window.index?.[ref])
+      })
+    }, 200),
+    handleClick(evt: MouseEvent) {
+      const tagName = (<HTMLElement>evt.target).tagName.toLowerCase()
+      if (tagName === "a") {
+        this.inputValue = ""
+        window.toggleSearchModal?.(false)
+      }
+    },
   }
 }

@@ -68,56 +68,73 @@
 			v-scope="SearchModal()"
 		  v-on:mounted="mountSearchModal"
 			:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+			v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
 			v-cloak>
 			<div class="modal-content">
-			<button
-				class="delete mb-4"
-				v-on:click="toggleSearchModal()"
-			></button>
+			<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
 
 				<div class="my-5">
 					<input
-						id="search-input"
+						ref="searchInput"
 						placeholder="{{ 'Buscar' | __ | append: '...' }}"
 						class="input"
 						type="text"
-						oninput="inputSearch(this)"
+						v-model="inputValue"
+						v-effect="search(inputValue)"
 					/>
 				</div>
 
 				<div class="columns">
 					<div class="column reader">
-						<section id="search-results" class="has-text-left"></section>
+						<section
+							class="has-text-left"
+							v-on:click.passive="handleClick($event, toggleSearchModal)">
+							<article
+								v-for="(post, url) in posts"
+								v-scope="SearchResult(post)"
+								:key="url">
+							</article>
+						</section>
 					</div>
 				</div>
 
 				<template id="post-template">
-					<section>
-						<h2 class="title is-2">
-							<a class="post-title has-text-primary" href="#"></a>
-						</h2>
-						<hr />
-						<div class="columns">
-							<div class="column">
-								<div class="post-content content has-text-justified"></div>
+					<h2 class="title is-2">
+						<a
+							class="post-title has-text-primary"
+							:href="post.url"
+							v-text="post.title"></a
+						>
+					</h2>
+					<hr />
+					<div class="columns">
+						<div class="column">
+							<div
+								class="post-content content has-text-justified"
+								v-html="post.content + (post.continue ? $el.innerHTML : '')">
+									<p>&#8230;</p>
+									<a class="subtitle is-5 has-text-link" :href="post.url">
+										{{ 'Seguir leyendo' | __ }}
+									</a>
+								</div>
 							</div>
-							<picture class="post-picture column is-3-desktop"></picture>
+							<picture
+								class="post-picture column is-3-desktop"
+								v-if="post?.image">
+								<source v-for="image in sourceImages" :key="image.ext"
+								 :srcset="`${post.image}.${image.ext}`" :type="image.mime">
+								<img :src="imageUrl" :alt="post.image_alt">
+							</picture>
 						</div>
-						<div class="box has-text-right">
-							<i class="fas fa-user" aria-hidden="true"></i>
-							<span class="post-author"></span>
-							<span class="mobile-separator"></span>
-							<i class="fas fa-calendar" aria-hidden="true"></i>
-							<span class="post-date"></span>
-						</div>
-						<br />
-					</section>
-				</template>
-
-				<template id="keep-reading">
-					<a class="subtitle is-5 has-text-link" href="#"
-						>{{ 'Seguir leyendo' | __ }}</a
-					>
+					</div>
+					<div class="box has-text-right">
+						<i class="fas fa-user" aria-hidden="true"></i>
+						<span v-text="post.author"></span>
+						<span class="mobile-separator"></span>
+						<i class="fas fa-calendar" aria-hidden="true"></i>
+						<span v-text="post.date"></span>
+					</div>
+					<br />
 				</template>
 			</div>
 		</div>

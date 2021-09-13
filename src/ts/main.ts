@@ -1,11 +1,28 @@
-import { createApp, reactive } from "petite-vue"
-import { setThemeWithMediaQuery, isInput } from "./functions"
-import SearchModal from "./search"
+import { createApp } from "petite-vue"
+import { isInput } from "./functions"
+import { SearchModal, SearchResult } from "./search"
 
 declare global {
   interface Window {
     Turbo: object
     keyDownListener: EventListener
+    toggleSearchModal: Function
+  }
+}
+
+function modalKeyHandler(evt: KeyboardEvent) {
+  if (!document.getElementById("search-modal")) return
+
+  if (!isInput((<HTMLElement>evt.target).nodeName)) {
+    if (evt.key === "/") {
+      evt.preventDefault()
+      return window?.toggleSearchModal(true)
+    }
+  }
+
+  if (evt.key === "Escape" || evt.key === "Esc") {
+    evt.preventDefault()
+    return window?.toggleSearchModal(false)
   }
 }
 
@@ -18,35 +35,21 @@ function Menu() {
   }
 }
 
-function modalKeyHandler(evt: KeyboardEvent) {
-  if (!document.getElementById("search-modal")) return
-
-  if (!isInput((<HTMLElement>evt.target).nodeName)) {
-    if (evt.key === "/") {
-      evt.preventDefault()
-      return this.toggleSearchModal(true)
-    }
-  }
-
-  if (evt.key === "Escape" || evt.key === "Esc") {
-    evt.preventDefault()
-    return this.toggleSearchModal(false)
-  }
+function toggleSearchModal(force: boolean = null) {
+  if (force != null) this.activeSearchModal = force
+  else this.activeSearchModal = !this.activeSearchModal
 }
 
 const mountApp = () => {
   createApp({
     Menu,
     SearchModal,
+    SearchResult,
     activeSearchModal: false,
-    toggleSearchModal(force: boolean = null) {
-      if (force != null) return (this.activeSearchModal = force)
-      this.activeSearchModal = !this.activeSearchModal
-    },
+    searchInput: null,
     mountSearchModal() {
-      document.removeEventListener("keydown", window.keyDownListener)
-      window.keyDownListener = modalKeyHandler.bind(this)
-      document.addEventListener("keydown", window.keyDownListener)
+      window.toggleSearchModal = toggleSearchModal.bind(this)
+      document.addEventListener("keydown", modalKeyHandler)
     },
   }).mount("#side-menu-container")
 }
