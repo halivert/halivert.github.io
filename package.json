@@ -9,18 +9,17 @@
 		"dev": "rollup -c --configDev"
 	},
 	"dependencies": {
-		"lodash": "^4.17.21",
-		"petite-vue": "^0.2.3"
-	},
-	"devDependencies": {
 		"@rollup/plugin-alias": "^3.1.5",
 		"@rollup/plugin-commonjs": "^20.0.0",
 		"@rollup/plugin-node-resolve": "^13.0.4",
 		"@rollup/plugin-typescript": "^8.2.5",
+		"lodash": "^4.17.21",
+		"lunr": "^2.3.9",
+		"petite-vue": "^0.2.3",
 		"rollup": "^2.56.3",
 		"rollup-plugin-terser": "^7.0.2",
 		"tslib": "^2.3.1",
-		"typescript": "~4.3"
+		"typescript": "~4.4.3"
 	},
 	"prettier": {
 		"semi": false,

@@ -1,10 +1,10 @@
 import { debounce } from "lodash"
+import lunr from "lunr"
 
 declare global {
   interface Window {
     idx: LunrIndex
     index: object
-    lunr: Function
     siteUrl: String
     toggleSearchModal: Function
   }
@@ -40,19 +40,19 @@ async function makeIdx(): Promise<LunrIndex> {
       `${window.siteUrl}/index.json`
     ).then((response) => response.json())
 
-    window.idx = window.lunr(function() {
+    window.idx = lunr(function() {
       this.field("id")
       this.field("title", { boost: 10 })
       this.field("categories")
       this.field("tags")
       this.field("author")
-      Object.entries(window.index).forEach(([key, value]: [string, Post]) => {
+      Object.entries(window.index).forEach(([key, post]: [string, Post]) => {
         this.add({
           id: key,
-          title: value.title,
-          categories: value.categories,
-          tags: value.tags,
-          author: value.author,
+          title: post.title,
+          categories: post.categories,
+          tags: post.tags,
+          author: post.author,
         })
       })
     })
