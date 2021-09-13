@@ -129,6 +129,8 @@ export function setThemeWithMediaQuery(): [
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)")
 
   const fun = (prefersDark: MediaQueryList | MediaQueryListEvent) => {
+    if (localStorage.getItem('halivertsTheme') !== null) return;
+
     if (prefersDark.matches) document.documentElement.classList.add("dark")
     else document.documentElement.classList.remove("dark")
   }

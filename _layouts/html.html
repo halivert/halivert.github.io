@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html
-	class="dark"
-	lang="{{ page.lang | default: site.lang | replace: '_', '-' }}">
+<html lang="{{ page.lang | default: site.lang | replace: '_', '-' }}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
@@ -26,11 +24,7 @@
 
 		{%- assign cssAssets = "/assets/css" | absolute_url -%}
 
-		<link
-			rel="stylesheet"
-			href="{{ cssAssets }}/colors-dark.css"
-			media="(prefers-color-scheme: dark)"
-		/>
+		<link rel="stylesheet" href="{{ cssAssets }}/colors-dark.css" />
 
 		<link
 			rel="stylesheet"
@@ -136,20 +130,6 @@
 		{% endunless %}
 
 		{{ content }}
-
-		<button
-			id="theme-switcher"
-			v-scope="ThemeSwitcher()"
-			class="button theme-switcher"
-			:class="{ 'is-loading': resettingTheme }"
-			v-on:click="toggleTheme"
-			v-on:contextmenu.prevent="resetSystemDefaultTheme($el)"
-			aria-label="{{ "Cambiar tema" | __ }}"
-		>
-			<span class="icon">
-				<i class="fas" aria-hidden="true"></i>
-			</span>
-		</button>
 
 		{% unless page.hide_foot or layout.hide_foot %}
 			{% include footer.html %}

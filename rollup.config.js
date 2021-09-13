@@ -4,6 +4,7 @@ import typescript from "@rollup/plugin-typescript"
 import { terser } from "rollup-plugin-terser"
 import alias from "@rollup/plugin-alias"
 import nodeResolve from "@rollup/plugin-node-resolve"
+import commonJS from "@rollup/plugin-commonjs"
 
 export default (args) => {
   const plugins = [
@@ -14,6 +15,7 @@ export default (args) => {
     }),
     typescript(),
     nodeResolve(),
+    commonJS(),
     args.configDev ? "" : terser(),
   ]
 
@@ -23,13 +25,6 @@ export default (args) => {
       output: {
         dir: "assets/js/",
         format: "esm",
-      },
-      plugins: plugins,
-    },
-    {
-      input: "src/ts/setTheme.ts",
-      output: {
-        dir: "assets/js",
       },
       plugins: plugins,
     },

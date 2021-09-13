@@ -9,6 +9,7 @@
 		"dev": "rollup -c --configDev"
 	},
 	"dependencies": {
+		"lodash": "^4.17.21",
 		"petite-vue": "^0.2.3"
 	},
 	"devDependencies": {
