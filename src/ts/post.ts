@@ -37,6 +37,21 @@ const twitterLink = (rawPostUrl: string): string => {
   return tweetUrl.toString()
 }
 
+function getMentionsUrl(props: Object) {
+  const mentionsUrl = new URL(`${props?.["apiUrl"]}/mentions.html`)
+
+  const queryParameters = {
+    target: props?.["postUrl"],
+    "wm-property": props?.["filter"],
+  }
+
+  Object.entries(queryParameters).forEach(([key, value]) => {
+    mentionsUrl.searchParams.append(key, value)
+  })
+
+  return mentionsUrl.toString()
+}
+
 function Reactions(props: ReactionsProps) {
   const apiUrl = "https://webmention.io/api"
 
@@ -79,21 +94,6 @@ function Reactions(props: ReactionsProps) {
     )
   }
 
-  function getMentionsUrl(props: Object) {
-    const mentionsUrl = new URL(`${props?.["apiUrl"]}/mentions.html`)
-
-    const queryParameters = {
-      target: props?.["postUrl"],
-      "wm-property": props?.["filter"],
-    }
-
-    Object.entries(queryParameters).forEach(([key, value]) => {
-      mentionsUrl.searchParams.append(key, value)
-    })
-
-    return mentionsUrl.toString()
-  }
-
   return {
     reactions: [],
     mentions: {
@@ -109,10 +109,7 @@ function Reactions(props: ReactionsProps) {
 }
 
 const mountApp = () => {
-  createApp({
-    twitterLink,
-    Reactions,
-  }).mount("#reactions")
+  createApp({ twitterLink, Reactions }).mount("#reactions")
 }
 
 const event: string = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
