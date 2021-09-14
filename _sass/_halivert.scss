@@ -92,11 +92,12 @@ body {
 	}
 }
 
-aside.menu {
+#side-menu-container {
 	grid-area: menu;
 
 	@include desktop {
 		position: sticky;
+		grid-area: 1 / 1 / 3 / 1;
 	}
 }
 

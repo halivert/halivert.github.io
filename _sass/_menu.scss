@@ -1,5 +1,6 @@
 .menu {
 	display: flex;
+	position: sticky;
 	flex-flow: column nowrap;
 	justify-content: center;
 	max-height: 100vh;
