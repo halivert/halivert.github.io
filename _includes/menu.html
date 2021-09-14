@@ -111,19 +111,18 @@
 						<div class="column">
 							<div
 								class="post-content content has-text-justified"
-								v-html="post.content + (post.continue ? $el.innerHTML : '')">
+								v-html="post?.content + (post.continue ? $el.innerHTML : '')">
 									<p>&#8230;</p>
 									<a class="subtitle is-5 has-text-link" :href="post.url">
 										{{ 'Seguir leyendo' | __ }}
 									</a>
-								</div>
 							</div>
 							<picture
 								class="post-picture column is-3-desktop"
 								v-if="post?.image">
 								<source v-for="image in sourceImages" :key="image.ext"
 								 :srcset="`${post.image}.${image.ext}`" :type="image.mime">
-								<img :src="imageUrl" :alt="post.image_alt">
+								<img :src="imageUrl" :alt="post.image_alt" />
 							</picture>
 						</div>
 					</div>
