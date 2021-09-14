@@ -105,20 +105,3 @@ layout: container
 		</div>
 	</div>
 </div>
-
-<script>
-	window.apiUrl = "https://webmention.io/api"
-	window.postUrl = "{{ post_url }}" || ""
-
-	window.getReactions = async () => {
-		if (window.postUrl) {
-			return await (await fetch(
-				`${window.apiUrl}/count.json?target=${window.postUrl}`
-			)).json()
-		}
-
-		return {}
-	}
-
-	window.mentionsUrl = `${window.apiUrl}/mentions.html?target={{ post_url }}`
-</script>
