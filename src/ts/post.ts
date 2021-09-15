@@ -77,18 +77,18 @@ function Reactions(props: ReactionsProps) {
     ).json()
 
     this.reactions = Object.entries(availableReactions).map(
-      ([key, value]: [string, object]) => {
-        const count: number = fetchedReactions.type?.[key] || 0
+      ([type, reactionData]: [string, object]) => {
+        const count: number = fetchedReactions.type?.[type] || 0
 
-        if (value?.["filter"] && count) {
+        if (reactionData?.["filter"] && count) {
           this.mentions.count = count
           return null
         }
 
         return {
           count: count,
-          name: key,
-          className: [...value["className"], "fa", "ml-3", "mr-2"],
+          name: type,
+          className: [...reactionData["className"], "fa", "ml-3", "mr-2"],
         }
       }
     )
