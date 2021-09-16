@@ -94,6 +94,7 @@ body {
 
 #side-menu-container {
 	grid-area: menu;
+	z-index: 1;
 
 	@include desktop {
 		position: sticky;
