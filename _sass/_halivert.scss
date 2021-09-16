@@ -538,6 +538,15 @@ sup.ref {
 	}
 }
 
+@keyframes spin-around {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 input {
 	accent-color: var(--accent-color-100);
 }
@@ -617,6 +626,21 @@ input {
 
 small {
 	color: var(--text-color-300);
+}
+
+.is-loading {
+	position: absolute;
+	left: calc(50% - (1em / 2));
+	top: calc(50% - (1em / 2));
+
+	animation: spin-around 1s infinite linear;
+	border: 2px solid var(--accent-color-300);
+	border-radius: 100%;
+	border-bottom-color: transparent;
+	border-right-color: transparent;
+	content: "";
+	height: var(--spinner-size, 1em);
+	aspect-ratio: 1 / 1;
 }
 
 [v-cloak] {

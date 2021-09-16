@@ -96,14 +96,32 @@ export function SearchModal() {
   return {
     posts: [],
     inputValue: "",
+    searching: false,
+    empty: false,
 
     search: debounce(function(searchTerm: string) {
+      this.searching = true
+      this.empty = false
+
+      if (!searchTerm.length) {
+        this.posts = []
+        this.searching = false;
+        return
+      }
+
       makeIdx().then((idx: LunrIndex) => {
         const results: Array<LunrResult> = searchTerm
           ? idx.search(searchTerm)
           : []
 
+        this.searching = false
         this.posts = results.map(({ ref }) => window.index?.[ref])
+
+        if (this.posts.length < 1) {
+          const index = Object.values(window.index)
+          this.posts = [index[Math.floor(Math.random() * index.length)]]
+          this.empty = true
+        }
       })
     }, 200),
     handleClick(evt: MouseEvent) {

@@ -26,6 +26,14 @@
 					class="has-text-left"
 					v-on:click.passive="handleClick($event, toggleSearchModal)"
 				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						{{ '¡Ups! No encontré nada, pero puedes leer esto' | __ }}:
+					</h2>
 					<article
 						v-for="(post, url) in posts"
 						v-scope="SearchResult(post)"
