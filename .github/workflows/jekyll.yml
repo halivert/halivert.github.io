@@ -19,7 +19,9 @@ jobs:
           cache: "yarn"
 
       - name: Build JS files
-        run: yarn && yarn prod
+        run: |
+          yarn
+          yarn build
 
       - name: Cache gems
         uses: ruby/setup-ruby@v1
