@@ -1,44 +1,29 @@
 import { debounce } from "lodash"
 import lunr from "lunr"
 
-declare global {
-  interface Window {
-    idx: LunrIndex
-    index: object
-    siteUrl: String
-    toggleSearchModal: Function
-  }
-
-  interface LunrIndex {
-    field: Array<string>
-    search: Function
-  }
-
-  interface LunrResult {
-    ref: string
-  }
-
-  interface Post {
-    id: string
-    title: string
-    categories: string[]
-    tags: string[]
-    author: string
-    image_types: string
-    image: string
-    image_alt: string
-    url: string
-    date: string
-    content: string
-    continue: number
+namespace Post {
+  export interface Image {
+    ext: string
+    mime: string
   }
 }
 
-async function makeIdx(): Promise<LunrIndex> {
+interface SearchModalComponent {
+  posts: Post[]
+  inputValue: string
+  searching: boolean
+  empty: boolean
+  search: Function
+  handleClick: Function
+}
+
+async function makeIdx(): Promise<lunr.Index> {
   if (!window.idx) {
     window.index = await fetch(
       `${window.siteUrl}/index.json`
     ).then((response) => response.json())
+
+    console.log(window.index)
 
     window.idx = lunr(function() {
       this.field("id")
@@ -62,7 +47,7 @@ async function makeIdx(): Promise<LunrIndex> {
 }
 
 export function SearchResult(post: Post) {
-  let sourceImages = []
+  let sourceImages: Array<Post.Image> = []
   let imageUrl = ""
 
   if (post?.image_types) {
@@ -99,18 +84,18 @@ export function SearchModal() {
     searching: false,
     empty: false,
 
-    search: debounce(function(searchTerm: string) {
+    search: debounce(function(this: SearchModalComponent, searchTerm: string) {
       this.searching = true
       this.empty = false
 
       if (!searchTerm.length) {
         this.posts = []
-        this.searching = false;
+        this.searching = false
         return
       }
 
-      makeIdx().then((idx: LunrIndex) => {
-        const results: Array<LunrResult> = searchTerm
+      makeIdx().then((idx: lunr.Index) => {
+        const results: lunr.Index.Result[] = searchTerm
           ? idx.search(searchTerm)
           : []
 

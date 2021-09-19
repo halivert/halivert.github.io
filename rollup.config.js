@@ -25,6 +25,7 @@ export default (args) => {
       output: {
         dir: "assets/js/",
         format: "esm",
+        sourcemap: args.configDev,
       },
       plugins: plugins,
     },

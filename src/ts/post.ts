@@ -1,17 +1,41 @@
-import { createApp, reactive } from "petite-vue"
+import { createApp } from "petite-vue"
 
-declare global {
-  interface Window {
-    Turbo: object
-  }
-
-  interface Reactions {
-    count: number
-    type: Object
-  }
-
-  interface ReactionsProps {
+namespace Mentions {
+  export interface Props {
+    apiUrl: string
     postUrl: string
+    filter?: string
+  }
+
+  export interface Object {
+    count: number
+    url: string
+  }
+}
+
+namespace Reactions {
+  export interface Props {
+    postUrl: string
+  }
+
+  export interface Component {
+    reactions: Array<Reaction | null>
+    mentions: Mentions.Object
+    fetchReactions: Function
+  }
+}
+
+interface Reaction {
+  className: string[]
+  filter?: string
+  count?: number
+  name?: string
+}
+
+interface Reactions {
+  count: number
+  type: {
+    [key: string]: number
   }
 }
 
@@ -37,25 +61,27 @@ const twitterLink = (rawPostUrl: string): string => {
   return tweetUrl.toString()
 }
 
-function getMentionsUrl(props: Object) {
-  const mentionsUrl = new URL(`${props?.["apiUrl"]}/mentions.html`)
+function getMentionsUrl(props: Mentions.Props) {
+  const mentionsUrl = new URL(`${props.apiUrl}/mentions.html`)
 
   const queryParameters = {
-    target: props?.["postUrl"],
-    "wm-property": props?.["filter"],
+    target: props.postUrl,
+    "wm-property": props?.filter,
   }
 
   Object.entries(queryParameters).forEach(([key, value]) => {
-    mentionsUrl.searchParams.append(key, value)
+    if (value) mentionsUrl.searchParams.append(key, value)
   })
 
   return mentionsUrl.toString()
 }
 
-function Reactions(props: ReactionsProps) {
+function Reactions(props: Reactions.Props) {
   const apiUrl = "https://webmention.io/api"
 
-  const availableReactions = {
+  const availableReactions: {
+    [reaction: string]: Reaction
+  } = {
     like: {
       className: ["fa-star", "has-text-warning"],
     },
@@ -71,13 +97,13 @@ function Reactions(props: ReactionsProps) {
     },
   }
 
-  async function fetchReactions() {
+  async function fetchReactions(this: Reactions.Component) {
     const fetchedReactions: Reactions = await (
       await fetch(`${apiUrl}/count.json?target=${props?.postUrl}`)
     ).json()
 
     this.reactions = Object.entries(availableReactions).map(
-      ([type, reactionData]: [string, object]) => {
+      ([type, reactionData]: [string, Reaction]): Reaction | null => {
         const count: number = fetchedReactions.type?.[type] || 0
 
         if (reactionData?.["filter"] && count) {
@@ -97,6 +123,7 @@ function Reactions(props: ReactionsProps) {
   return {
     reactions: [],
     mentions: {
+      count: 0,
       url: getMentionsUrl({
         apiUrl,
         postUrl: props?.postUrl,
