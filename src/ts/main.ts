@@ -2,10 +2,6 @@ import { createApp } from "petite-vue"
 import { isInput, vibrate } from "./functions"
 import { SearchModal, SearchResult } from "./search"
 
-interface SideMenuComponent {
-  activeSearchModal: boolean
-}
-
 declare global {
   interface Window {
     Turbo: object
@@ -33,6 +29,10 @@ declare global {
     content: string
     continue: number
   }
+}
+
+interface SideMenuComponent {
+  activeSearchModal: boolean
 }
 
 function modalKeyHandler(evt: KeyboardEvent): void {
