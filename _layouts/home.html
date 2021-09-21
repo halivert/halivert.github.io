@@ -60,6 +60,7 @@ lang_buttons: true
 			<p class="buttons is-centered mt-3">
 				{% for item in author.social %}
 					<a
+						aria-label="{{ 'Contactame por ' | __ }} {{ item.type }}"
 						class="button
 							{{ item.type }}
 							{% if item.hidden %}is-hidden{%- endif -%}"
