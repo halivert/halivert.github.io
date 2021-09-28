@@ -23,8 +23,6 @@ async function makeIdx(): Promise<lunr.Index> {
       `${window.siteUrl}/index.json`
     ).then((response) => response.json())
 
-    console.log(window.index)
-
     window.idx = lunr(function() {
       this.field("id")
       this.field("title", { boost: 10 })
