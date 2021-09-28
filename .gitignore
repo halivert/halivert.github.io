@@ -11,6 +11,14 @@ yarn-error.log
 .yarnclean
 .jekyll-cache
 
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
 test.md
 convert
 todo.md
