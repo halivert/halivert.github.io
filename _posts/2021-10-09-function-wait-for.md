@@ -242,10 +242,10 @@ const fun = async () => {
 
   const result = await waitFor({
     message: "Waiting...",
-    condition: () => (number > 6 ? { number } : false),
+    condition: () => (number === 6 ? { number } : false),
     callback: (stop) => {
       axios.get(url).then(({ data: { number } }) => {
-        if (number > 6) stop({ number })
+        if (number === 6) stop({ number })
         console.log({ number })
       })
     },
