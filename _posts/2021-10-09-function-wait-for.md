@@ -70,9 +70,9 @@ las que reciben funciones cómo parámetro.
 
 <h2 id="repeticion">Repetición</h2>
 
-En ambos casos necesitamos esperar pero debemos hacerlo mientras preguntamos de
-vez en vez, particularmente cuando no hay un mecanismo de webhook que nos avise
-o notifique del cambio de estado.
+En cualquier caso (consumiendo una API) necesitamos esperar pero debemos hacerlo
+mientras preguntamos de vez en vez, particularmente cuando no hay un mecanismo
+de webhook que nos avise o notifique del cambio de estado.
 
 Así, podemos hacer llamadas cada cierto tiempo, con [setInterval][1], de esta
 forma:
