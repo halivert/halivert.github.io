@@ -17,72 +17,113 @@ lang_buttons: true
 				{{ author.first_name }} {{ author.last_name }}
 			</h1>
 
-			{% if content != '' %}
-				{{ content }}
-			{% else %}
-				<main>
-					<p class="mb-2">
-						<a href="https://jw.org">JW</a>,
-						estudiando una
-						<a href="https://www.escom.ipn.mx/"
-							>ingeniería en sistemas computacionales</a
-						>.
-					</p>
+			<figure class="mb-4">
+				<img
+					src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
+					class="avatar flex items-center"
+					loading="lazy"
+					alt="Imagen de perfil de {{ layout.author }}"
+					height="200"
+					onContextMenu="vibrate([150, 30, 150]);"
+				/>
+			</figure>
 
-					<p>
-						Me dedico al desarrollo web y me encantan los algoritmos y las
-						matemáticas.
-					</p>
+			<main>
+				<p>
+					{{ 'Desarrollador web, con conocimiento en diversas tecnologías web.' | __ }}
+				</p>
 
-					<p>
-						Encontrarás más sobre mí en mi
-						<a href="{{ '/blog/' | absolute_url }}">blog</a>.
-					</p>
+				<div>
+					{{ 'Experimentado en:' | __ }}
+					<ul class="stack">
+						<li>
+							<figure>
+								<i class="fab fa-linux"></i>
+								<figcaption>Linux</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-html5" style="color: #ea5e26;"></i>
+								<figcaption>HTML5</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-css3-alt" style="color: #249ddb;"></i>
+								<figcaption>CSS</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-js" style="color: var(--golden-color);"></i>
+								<figcaption>JavaScript</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-php" style="color: #6c7eb7;"></i>
+								<figcaption>PHP</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-git-alt" style="color: #f44d27;"></i>
+								<figcaption>Git</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-vuejs" style="color: #41b883;"></i>
+								<figcaption>Vue 3</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-laravel" style="color: #ff2d20;"></i>
+								<figcaption>Laravel</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
 
-					<p class="mt-1">
-						También puedo ayudarte a resolver algunos problemas de programación.
-						Puedes ver algunos de mis
-						<a href="{{ '/projects/' | absolute_url }}">proyectos</a>.
-					</p>
+				<div>
+					{{ 'Aprendiendo:' | __ }}
+					<ul class="stack">
+						<li>
+							<figure>
+								<i class="fab fa-react" style="color: #16c8f9;"></i>
+								<figcaption>React</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-rust" style="color: #fd7e14;"></i>
+								<figcaption>Rust</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
 
-					<p>
-						Puedes enviarme un correo
-						(<a href="mailto:{{ author.email.at }}">{{ author.email.at }}</a>)
-						{% if author.kofi %}
-							y también
-							<a href="{{ author.kofi }}">invitarme un café</a>
-							si quieres.
-						{%- endif -%}
-					</p>
-				</main>
-			{% endif %}
+				<p>{{ 'Puedes ponerte en contacto conmigo.' | __ }}</p>
+			</main>
 
 			<p class="buttons is-centered mt-3">
 				{% for item in author.social %}
 					<a
-						aria-label="{{ 'Contactame por' | __ }} {{ item.type }}"
-						class="button
-							{{ item.type }}
+						target="_blank"
+						aria-label="{{ 'Contáctame por' | __ }} {{ item.type }}"
+						class="button {{ item.type }}
 							{% if item.hidden %}is-hidden{%- endif -%}"
 						href="{{ item.url }}"
 						data-turbo="false"
-						rel="me">
+						rel="me noopener noreferrer">
 						<span class="icon">
 							<i class="{{ item.icon }}" aria-hidden="true"></i>
 						</span>
 					</a>
 				{% endfor %}
 			</p>
-
-			<figure>
-				<img
-					src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
-					class="avatar"
-					loading="lazy"
-					alt="Imagen de perfil de {{ layout.author }}"
-					onContextMenu="vibrate([150, 30, 150]);"
-				/>
-			</figure>
 		</div>
 	</div>
 </main>

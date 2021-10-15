@@ -28,6 +28,12 @@
 					href="{{ '/projects/' | locale_url }}">{{ 'Proyectos' | __ }}</a
 				>
 			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="{{ '/about/' | locale_url }}">{{ 'Sobre mí' | __ }}</a
+				>
+			</li>
 			{%- if page.search_bar -%}
 			<li v-cloak>
 				<button

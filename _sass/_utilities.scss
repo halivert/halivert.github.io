@@ -94,6 +94,14 @@
 		justify-content: space-between;
 	}
 
+	&.justify-center {
+		justify-content: center;
+	}
+
+	&.space-around {
+		justify-content: space-around;
+	}
+
 	&.items-center {
 		align-items: center;
 	}

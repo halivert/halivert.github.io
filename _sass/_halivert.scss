@@ -643,6 +643,24 @@ small {
 	aspect-ratio: 1 / 1;
 }
 
+.stack {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5em;
+	margin: 1em 0;
+
+	figure {
+		i {
+			font-size: 2em;
+		}
+
+		figcaption {
+			font-size: 0.8em;
+		}
+	}
+}
+
 [v-cloak] {
 	display: none;
 }
