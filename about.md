@@ -2,6 +2,7 @@
 layout: container
 title: "Más sobre mí"
 width: "reader"
+permalink: "/about/"
 ---
 
 <h1 class="title is-1">Más sobre mí</h1>
