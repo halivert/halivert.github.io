@@ -3,6 +3,7 @@ halivert:
   last_name: "Velázquez"
   picture: "/assets/img/halivert.png"
   kofi: "https://ko-fi.com/halivert"
+  sponsor: "https://github.com/sponsors/halivert"
   email:
     at: "hi@halivert.dev"
     md5: "ef78513325e3391167f441f930067fef"
@@ -20,7 +21,6 @@ halivert:
     - url: "https://gitlab.com/halivert"
       type: "gitlab"
       icon: "fab fa-gitlab"
-      hidden: true
     - url: "https://discordapp.com/users/673717040095428628"
       type: "discord"
       icon: "fab fa-discord"
