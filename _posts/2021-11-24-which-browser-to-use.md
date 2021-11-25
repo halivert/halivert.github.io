@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "¿Qué navegador usar?"
-date: "2021-11-24 17:14:39 -0600"
+date: "2021-11-24 19:43"
 category: "MySpace"
 tags: ["Navegador", "Funcionalidad"]
 ---
