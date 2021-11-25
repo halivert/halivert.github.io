@@ -18,6 +18,7 @@
 	{%- assign types = "webp:image/webp,png:image/png" | split: "," -%}
 {%- endif -%}
 
+{%- assign id = include.id %}
 {%- assign src = include.src -%}
 {%- assign lastType = types | last -%}
 {%- assign pair = lastType | split: ':' -%}
@@ -25,6 +26,7 @@
 
 {%- unless include.nowrap -%}
 <a
+	id="{{ id }}"
 	target="_blank"
 	rel="noopener noreferrer"
 	href="{{ img | append: pair[0] | strip_newlines }}">
@@ -39,6 +41,7 @@
 					type="{{ pair[1] }}" />
 			{%- else -%}
 				<img
+					class="{{ include.class }}"
 					loading="lazy"
 					src="{{ img | append: pair[0] | strip_newlines }}"
 					alt="{{ include.alt }}" />
