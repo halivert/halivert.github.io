@@ -16,6 +16,8 @@ Un navegador es un software que te permite **navegar** por internet. Es decir,
 visualizar páginas web y aplicaciones web. Como cualquier otro software, existen
 una gran variedad de navegadores y muchos sirven a diferentes propósitos.
 
+<!-- Seguir leyendo -->
+
 ## ¿Qué navegador usar?
 
 Entre los más populares están: Chrome, Firefox, Opera, Safari, Edge. Ahora bien,
