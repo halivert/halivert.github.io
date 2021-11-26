@@ -27,10 +27,9 @@ halivert:
     - url: "https://timeline.halivert.dev"
       type: "polywork"
       icon: "fab fa-polywork"
-    - url: "https://www.linkedin.com/in/hal%C3%AD-vel%C3%A1zquez-1b87bb212/"
+    - url: "https://www.linkedin.com/in/halivert/"
       type: "linkedin"
       icon: "fab fa-linkedin"
-      hidden: true
     - url: "https://www.instagram.com/halivert/"
       type: "instagram"
       icon: "fab fa-instagram"
