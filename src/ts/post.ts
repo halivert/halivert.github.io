@@ -1,109 +1,63 @@
 import { createApp } from "petite-vue"
 
-namespace Mentions {
-  export interface Props {
-    apiUrl: string
-    postUrl: string
-    filter?: string
-  }
+import { Reactions, Reaction, availableReactions } from "@/ts/types/reactions"
+import { Mentions } from "@/ts/types/mentions"
+import { urlBuilder } from "@/ts/functions"
 
-  export interface Object {
-    count: number
-    url: string
+export namespace Post {
+  export interface Image {
+    ext: string
+    mime: string
   }
 }
 
-namespace Reactions {
-  export interface Props {
-    postUrl: string
-  }
-
-  export interface Component {
-    reactions: Array<Reaction | null>
-    mentions: Mentions.Object
-    fetchReactions: Function
-  }
+export interface Post {
+  id: string
+  title: string
+  categories: string[]
+  tags: string[]
+  author: string
+  image_types: string
+  image: string
+  image_alt: string
+  url: string
+  date: string
+  content: string
+  continue: number
 }
 
-interface Reaction {
-  className: string[]
-  filter?: string
-  count?: number
-  name?: string
-}
+const twitterLink = (rawPostUrl: string) => {
+  const postUrl = new URL(rawPostUrl)
 
-interface Reactions {
-  count: number
-  type: {
-    [key: string]: number
-  }
-}
-
-const twitterLink = (rawPostUrl: string): string => {
-  const tweetUrl: URL = new URL("https://twitter.com/intent/tweet")
-  const postUrl: URL = new URL(rawPostUrl)
-
-  const author: string = (<HTMLMetaElement>(
+  const author = (<HTMLMetaElement>(
     document.head.querySelector("meta[name='author']")
   )).content
 
-  const data = {
+  return urlBuilder("https://twitter.com/intent/tweet", {
     original_referer: `${postUrl.origin}`,
     text: document.title,
     url: postUrl.href,
     via: author,
-  }
-
-  Object.entries(data).forEach(([key, value]: Array<string>) => {
-    tweetUrl.searchParams.append(key, value)
-  })
-
-  return tweetUrl.toString()
+  }).toString()
 }
 
 function getMentionsUrl(props: Mentions.Props) {
-  const mentionsUrl = new URL(`${props.apiUrl}/mentions.html`)
-
-  const queryParameters = {
+  return urlBuilder(`${props.apiUrl}/mentions.html`, {
     target: props.postUrl,
     "wm-property": props?.filter,
-  }
-
-  Object.entries(queryParameters).forEach(([key, value]) => {
-    if (value) mentionsUrl.searchParams.append(key, value)
-  })
-
-  return mentionsUrl.toString()
+  }).toString()
 }
 
 function Reactions(props: Reactions.Props) {
   const apiUrl = "https://webmention.io/api"
 
-  const availableReactions: {
-    [reaction: string]: Reaction
-  } = {
-    like: {
-      className: ["fa-star", "has-text-warning"],
-    },
-    repost: {
-      className: ["fa-retweet", "has-text-success"],
-    },
-    reply: {
-      className: ["fa-comment-dots", "has-text-text"],
-    },
-    mention: {
-      className: ["fa-quote-right", "has-text-text"],
-      filter: "mention-of",
-    },
-  }
-
   async function fetchReactions(this: Reactions.Component) {
-    const fetchedReactions: Reactions = await (
+    const fetchedReactions = (await (
       await fetch(`${apiUrl}/count.json?target=${props?.postUrl}`)
-    ).json()
+    ).json()) as Reactions
 
     this.reactions = Object.entries(availableReactions).map(
-      ([type, reactionData]: [string, Reaction]): Reaction | null => {
+      ([type, reactionData]) => {
         const count: number = fetchedReactions.type?.[type] || 0
 
         if (reactionData?.["filter"] && count) {
@@ -120,8 +74,10 @@ function Reactions(props: Reactions.Props) {
     )
   }
 
+  const reactions: Reaction[] = []
+
   return {
-    reactions: [],
+    reactions,
     mentions: {
       count: 0,
       url: getMentionsUrl({
@@ -135,9 +91,7 @@ function Reactions(props: Reactions.Props) {
   }
 }
 
-const mountApp = () => {
-  createApp({ twitterLink, Reactions }).mount("#reactions")
-}
+const mountApp = () => createApp({ twitterLink, Reactions }).mount("#reactions")
 
 const event: string = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
 document.addEventListener(event, mountApp)

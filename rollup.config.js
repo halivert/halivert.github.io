@@ -1,4 +1,5 @@
 import { defineConfig } from "rollup"
+import { resolve } from "path"
 
 import typescript from "@rollup/plugin-typescript"
 import { terser } from "rollup-plugin-terser"
@@ -11,6 +12,7 @@ export default (args) => {
     alias({
       entries: {
         "petite-vue": "petite-vue/dist/petite-vue.es.js",
+        "@": resolve(__dirname, "./src"),
       },
     }),
     typescript(),

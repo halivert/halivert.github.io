@@ -1,6 +1,7 @@
 import { createApp } from "petite-vue"
-import { isInput, vibrate } from "./functions"
-import { SearchModal, SearchResult } from "./search"
+import { isInput, vibrate } from "@/ts/functions"
+import { SearchModal, SearchResult } from "@/ts/search"
+import { Post } from "@/ts/post"
 
 declare global {
   interface Window {
@@ -9,25 +10,8 @@ declare global {
     toggleSearchModal: Function
     vibrate: (pattern: number | number[]) => boolean
     idx: lunr.Index
-    index: {
-      [url: string]: Post
-    }
+    index: Record<string, Post>
     siteUrl: String
-  }
-
-  interface Post {
-    id: string
-    title: string
-    categories: string[]
-    tags: string[]
-    author: string
-    image_types: string
-    image: string
-    image_alt: string
-    url: string
-    date: string
-    content: string
-    continue: number
   }
 }
 
@@ -62,11 +46,11 @@ function Menu() {
 
 const mountApp = () => {
   function toggleSearchModal(this: SideMenuComponent, force?: boolean): void {
-    if (force != null) this.activeSearchModal = force
+    if (force != undefined) this.activeSearchModal = force
     else this.activeSearchModal = !this.activeSearchModal
   }
 
-  createApp({
+  return createApp({
     Menu,
     SearchModal,
     SearchResult,

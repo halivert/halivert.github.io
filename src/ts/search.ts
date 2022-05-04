@@ -1,14 +1,9 @@
 import { debounce } from "lodash"
 import lunr from "lunr"
 
-namespace Post {
-  export interface Image {
-    ext: string
-    mime: string
-  }
-}
+import { Post } from "@/ts/post"
 
-interface SearchModalComponent {
+export interface SearchModalComponent {
   posts: Post[]
   inputValue: string
   searching: boolean
@@ -19,17 +14,17 @@ interface SearchModalComponent {
 
 async function makeIdx(): Promise<lunr.Index> {
   if (!window.idx) {
-    window.index = await fetch(
-      `${window.siteUrl}/index.json`
-    ).then((response) => response.json())
+    window.index = await fetch(`${window.siteUrl}/index.json`).then(
+      (response) => response.json()
+    )
 
-    window.idx = lunr(function() {
+    window.idx = lunr(function () {
       this.field("id")
       this.field("title", { boost: 10 })
       this.field("categories")
       this.field("tags")
       this.field("author")
-      Object.entries(window.index).forEach(([key, post]: [string, Post]) => {
+      Object.entries(window.index).forEach(([key, post]) => {
         this.add({
           id: key,
           title: post.title,
@@ -45,7 +40,7 @@ async function makeIdx(): Promise<lunr.Index> {
 }
 
 export function SearchResult(post: Post) {
-  let sourceImages: Array<Post.Image> = []
+  let sourceImages: Post.Image[] = []
   let imageUrl = ""
 
   if (post?.image_types) {
@@ -76,13 +71,15 @@ export function SearchResult(post: Post) {
 }
 
 export function SearchModal() {
+  const posts: Post[] = []
+
   return {
-    posts: [],
+    posts,
     inputValue: "",
     searching: false,
     empty: false,
 
-    search: debounce(function(this: SearchModalComponent, searchTerm: string) {
+    search: debounce(function (this: SearchModalComponent, searchTerm: string) {
       this.searching = true
       this.empty = false
 
@@ -92,21 +89,23 @@ export function SearchModal() {
         return
       }
 
-      makeIdx().then((idx: lunr.Index) => {
-        const results: lunr.Index.Result[] = searchTerm
-          ? idx.search(searchTerm)
-          : []
+      makeIdx()
+        .then((idx: lunr.Index) => {
+          const results: lunr.Index.Result[] = searchTerm
+            ? idx.search(searchTerm)
+            : []
 
-        this.searching = false
-        this.posts = results.map(({ ref }) => window.index?.[ref])
+          this.posts = results.map(({ ref }) => window.index?.[ref])
 
-        if (this.posts.length < 1) {
-          const index = Object.values(window.index)
-          this.posts = [index[Math.floor(Math.random() * index.length)]]
-          this.empty = true
-        }
-      })
+          if (this.posts.length < 1) {
+            const index = Object.values(window.index)
+            this.posts = [index[Math.floor(Math.random() * index.length)]]
+            this.empty = true
+          }
+        })
+        .finally(() => (this.searching = false))
     }, 200),
+
     handleClick(evt: MouseEvent) {
       const tagName = (<HTMLElement>evt.target).tagName.toLowerCase()
       if (tagName === "a") {

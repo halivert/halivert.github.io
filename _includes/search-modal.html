@@ -1,7 +1,7 @@
 <div
 	id="search-modal"
 	v-scope="SearchModal()"
-	v-on:mounted="mountSearchModal"
+	v-on:vue:mounted="mountSearchModal"
 	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
 	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
 	v-cloak

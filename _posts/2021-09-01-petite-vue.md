@@ -152,7 +152,7 @@ implementadas así.
 ```html
 <div
   v-scope="Reactions({ postUrl: '{{ post_url }}'})"
-  v-on:mounted="fetchReactions"
+  v-on:vue:mounted="fetchReactions"
   class="reactions"
 >
   <span v-for="reaction in reactions" :key="reaction.name">

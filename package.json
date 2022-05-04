@@ -8,9 +8,9 @@
 		"dev": "rollup -c --configDev -w"
 	},
 	"dependencies": {
-		"lodash": "^4.17.21",
-		"lunr": "^2.3.9",
-		"petite-vue": "^0.4.1"
+		"lodash": "4.17.21",
+		"lunr": "2.3.9",
+		"petite-vue": "0.4.1"
 	},
 	"prettier": {
 		"semi": false,
