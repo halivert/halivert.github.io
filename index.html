@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Halivert | Blog personal de un desarrollador</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/" />
+<meta property="og:url" content="https://halivert.dev/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:image" content="https://halivert.dev/assets/img/halivert-card.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://halivert.dev/assets/img/halivert-card.jpg" />
+<meta property="twitter:title" content="Halivert" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"Sitio de Halí Velázquez","headline":"Halivert","image":"https://halivert.dev/assets/img/halivert-card.jpg","name":"Halivert","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li></ul>
+
+		
+			<ul class="menu-list lang">
+				
+					<li>
+						<a
+							data-turbo="false"
+							href="https://halivert.dev/">
+							Es
+						</a>
+					</li>
+				
+					<li>
+						<a
+							data-turbo="false"
+							href="https://halivert.dev/en">
+							En
+						</a>
+					</li>
+				
+			</ul>
+		
+	</aside></div>
+
+
+
+
+<main id="main-container" class="section">
+	<div class="columns is-centered">
+		<div class="column is-8-desktop has-text-centered">
+			<h1 class="title is-2 normal-wrap">
+				Halí Velázquez
+			</h1>
+
+			<figure class="mb-4">
+				<img
+					src="https://gravatar.com/avatar/ef78513325e3391167f441f930067fef?s=300"
+					class="avatar flex items-center"
+					loading="lazy"
+					alt="Imagen de perfil de halivert"
+					height="200"
+					onContextMenu="vibrate([150, 30, 150]);"
+				/>
+			</figure>
+
+			<main>
+				<p>
+					Desarrollador web, con conocimiento en diversas tecnologías web:
+				</p>
+
+				<div>
+					<ul class="stack" style="color: var(--accent-color-300)">
+						<li>
+							<figure>
+								<i class="fab fa-linux"></i>
+								<figcaption>Linux</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-html5"></i>
+								<figcaption>HTML5</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-css3-alt"></i>
+								<figcaption>CSS</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-js"></i>
+								<figcaption>JavaScript</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-php"></i>
+								<figcaption>PHP</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-git-alt"></i>
+								<figcaption>Git</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-vuejs"></i>
+								<figcaption>Vue 3</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-laravel"></i>
+								<figcaption>Laravel</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+
+				<div>
+					Aprendiendo:
+					<ul class="stack" style="color: var(--accent-color-300)">
+						<li>
+							<figure>
+								<i class="fab fa-react"></i>
+								<figcaption>React</figcaption>
+							</figure>
+						</li>
+						<li>
+							<figure>
+								<i class="fab fa-rust"></i>
+								<figcaption>Rust</figcaption>
+							</figure>
+						</li>
+					</ul>
+				</div>
+
+				<p>Puedes ponerte en contacto conmigo.</p>
+			</main>
+
+			<p class="buttons is-centered mt-3">
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por twitter"
+						class="button twitter
+							is-hidden"
+						href="https://twitter.com/halivert"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-twitter" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por telegram"
+						class="button telegram
+							"
+						href="https://t.me/halivert"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-telegram" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por github"
+						class="button github
+							"
+						href="https://github.com/halivert"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-github" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por gitlab"
+						class="button gitlab
+							"
+						href="https://gitlab.com/halivert"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-gitlab" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por discord"
+						class="button discord
+							"
+						href="https://discordapp.com/users/673717040095428628"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-discord" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por polywork"
+						class="button polywork
+							"
+						href="https://timeline.halivert.dev"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-polywork" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por linkedin"
+						class="button linkedin
+							"
+						href="https://www.linkedin.com/in/halivert/"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-linkedin" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+					<a
+						target="_blank"
+						aria-label="Contáctame por instagram"
+						class="button instagram
+							is-hidden"
+						href="https://www.instagram.com/halivert/"
+						data-turbo="false"
+						rel="me noopener noreferrer">
+						<span class="icon">
+							<i class="fab fa-instagram" aria-hidden="true"></i>
+						</span>
+					</a>
+				
+			</p>
+		</div>
+	</div>
+</main>
+
+
+		
+	</body>
+</html>

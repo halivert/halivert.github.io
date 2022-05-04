@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1551459780">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Inducción matemática | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Inducción matemática" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="En esta entrega del primer artículo de la sección Matemáticas les voy a mostrar una herramienta muy poderosa en el pensamiento matemático, la inducción matemática." />
+<meta property="og:description" content="En esta entrega del primer artículo de la sección Matemáticas les voy a mostrar una herramienta muy poderosa en el pensamiento matemático, la inducción matemática." />
+<link rel="canonical" href="https://halivert.dev/blog/2019/03/mathematical-induction/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/03/mathematical-induction/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-01T11:03:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Inducción matemática" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-03-01T11:03:00-06:00","datePublished":"2019-03-01T11:03:00-06:00","description":"En esta entrega del primer artículo de la sección Matemáticas les voy a mostrar una herramienta muy poderosa en el pensamiento matemático, la inducción matemática.","headline":"Inducción matemática","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/03/mathematical-induction/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/03/mathematical-induction/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<link
+	rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.css"
+	integrity="sha384-dbVIfZGuN1Yq7/1Ocstc1lUEm+AT+/rCkibIcC/OmWo5f0EA48Vf8CytHzGrSwbQ"
+	crossorigin="anonymous"
+/>
+<script
+	defer
+	src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/katex.min.js"
+	integrity="sha384-2BKqo+exmr9su6dir+qCw08N2ZKRucY4PrGQPPWU1A7FtlCGjmEGFqXCv5nyM5Ij"
+	crossorigin="anonymous"
+></script>
+
+<script
+	defer
+	src="https://cdn.jsdelivr.net/npm/katex@0.10.1/dist/contrib/auto-render.min.js"
+	integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI"
+	crossorigin="anonymous"
+	onload="renderMathInElement(document.getElementById('main-container'));"
+></script>
+
+			<meta property="has_instant_view" content="false" />
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Inducción matemática</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Marzo 01, 2019
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-orange">Inducción</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>En esta entrega del primer artículo de la sección <a href="/blog/matematicas">Matemáticas</a> les voy a
+mostrar una herramienta muy poderosa en el pensamiento matemático, la
+<strong>inducción matemática</strong>.</p>
+
+<!-- Seguir leyendo -->
+
+<p>Antes de entrar de lleno a esta, vamos a revisar lo que dice el principio del
+buen orden.</p>
+
+<h3 id="principio-del-buen-orden">Principio del buen orden</h3>
+<p>Para que un conjunto \(A\) cumpla con el principio del buen orden tiene que
+cumplir con el siguiente enunciado [<a href="http://sistemas.fciencias.unam.mx/~erhc/Axioma_supremo.pdf">2</a>]:</p>
+<p class="equation">
+\[
+\begin{aligned}
+A \ne \emptyset \Rightarrow \exists m \in A : \forall n \in A\text{ }m &lt; n
+\end{aligned}
+\]
+</p>
+
+<p>Podemos leer el enunciado de la siguiente manera: <em>Sea \(A\) un conjunto no
+vacío, entonces, existe un número \(m\) que pertenece a \(A\) tal que para
+cada \(n\) perteneciente a \(A\), \(m\) es menor que \(n\)</em>.</p>
+
+<p>Con esa definición podemos notar que cualquier conjunto de números diferente al
+conjunto vacío, y que tenga un elemento mínimo, cumple con el principio del buen
+orden. Es decir, un conjunto finito, como \(B = \{ -1, -5, 0, 100, -4 \}\)
+cumple con el principio del buen orden, ya que tiene un elemento \(m\) en este
+caso \(-5\) tal que todos los otros elementos son mayores que este.</p>
+
+<p>Otro ejemplo de un conjunto que cumple con este principio es el de los números
+naturales \(\mathbb{N}\) que son los números enteros positivos, en algunas
+definiciones comienzan con \(0\), es decir: \(0, 1, 2, 3,…\) mientras que
+en otras comienzan con \(1\), o sea: \(1, 2, 3,…\). En cualquier caso, este
+conjunto de números cumple con el principio del buen orden.</p>
+
+<h3 id="inducción-matemática">Inducción matemática</h3>
+<p>Ahora pasamos a la inducción, que es una técnica para demostrar proposiciones
+matemáticas. Se utiliza en conjuntos bien ordenados, es decir, que cumplan con
+el principio del buen orden, y para hacer uso de esta, es necesario
+realizar solamente dos pasos [<a href="http://www.math.harvard.edu/archive/23a_fall_05/Handouts/induction.pdf">3</a>]:</p>
+<ul>
+  <li>Caso base: Esto es, demostrar que la proposición se cumple para el elemento
+más chico de nuestro conjunto. (Muchas veces \(1\) o \(0\) pero no
+necesariamente alguno de estos).</li>
+  <li>Paso inductivo: Donde se asume que la proposición se cumple para un
+elemento \(n\), entonces se cumple también para el siguiente elemento \(n +
+1\).</li>
+</ul>
+
+<p>Estos dos pasos establecen que la proposición se cumple para todo el conjunto de
+números.</p>
+
+<p>Con esto en mente, vamos a hacer un ejemplo:<br />
+Probar que:</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^0 + 2^1 + 2^2 + ... + 2^n = 2^{n+1} - 1
+\end{aligned}
+\]
+</p>
+<p>Ahora vamos a realizar los dos pasos para demostrar que esa proposición es
+cierta, primero el caso base. Notamos que el primer término es \(2^n\) con
+\(n = 0\).</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^n &amp;= 2^0 \\
+    &amp;= 1
+\end{aligned}
+\]
+</p>
+<p>Por otra parte:</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^{n+1} - 1 &amp;= 2^{0+1} - 1 \\
+            &amp;= 2^1 - 1 \\
+            &amp;= 2 - 1 \\
+            &amp;= 1
+\end{aligned}
+\]
+</p>
+<p>Entonces nuestro caso base queda probado, ahora pasamos al paso inductivo,
+nuestra hipótesis de inducción es asumir que para \(n = k\) se cumple la
+proposición:</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^0 + 2^1 + 2^2 + ... + 2^k = 2^{k + 1} - 1
+\end{aligned}
+\]
+</p>
+<p>Y procedemos a añadir el siguiente término \(2^{k + 1}\), lo añadimos a ambos
+lados de la ecuación para no romper la igualdad:</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^0 + 2^1 + 2^2 + ... + 2^k \textcolor{red}{ + 2^{k + 1}} &amp;= 2^{k + 1} - 1
+\textcolor{red}{ + 2^{k + 1}} \\
+  &amp;= 2^{k + 1} + 2^{k + 1} - 1 \\
+  &amp;= 2 \cdot 2^{k + 1} - 1 \\
+  &amp;= 2^{(k + 1) + 1} - 1 \\
+\end{aligned}
+\]
+</p>
+<p>Podemos ver que la última igualdad tiene la forma \(2^{n + 1} - 1\) con \(n =
+k + 1\) por lo que damos por concluida la prueba por inducción.</p>
+
+<hr />
+
+<p>Vamos a hacer otro ejemplo.<br />
+Probar que:</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^n \leq n!\text{ }\forall n \geq 4
+\end{aligned}
+\]
+</p>
+<p>El caso base es cuando \(n = 4\).</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^n &amp;= 2^4 \\
+    &amp;= 16
+\end{aligned}
+\]
+</p>
+<p>Por otra parte:</p>
+<p class="equation">
+\[
+\begin{aligned}
+n!  &amp;= 4! \\
+    &amp;= 24
+\end{aligned}
+\]
+</p>
+<p>El paso base es cierto, ya que \(16 \leq 24\).<br />
+Hipótesis de inducción, asumimos que para \(n = k\) la proposición es cierta.</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^k \leq k!
+\end{aligned}
+\]
+</p>
+<p>Ahora, en el paso inductivo, vamos a multiplicar ambos lados de la inecuación
+por \(k + 1\):</p>
+<p class="equation">
+\[
+\begin{aligned}
+2^k \textcolor{red}{\cdot (k + 1)} &amp;\leq k! \textcolor{red}{\cdot (k +
+1)} \\
+2^k \cdot (k + 1) &amp;\leq (k + 1)! &amp;&amp; \text{Por la definicion de factorial} \\
+2^k \cdot 2 &lt; 2^k \cdot (k + 1) &amp;\leq (k + 1)! &amp;&amp; \text{Ya que } k + 1 &gt; 2 \\
+2^k \cdot 2 &amp;&lt; (k + 1)! &amp;&amp; \text{Por transitividad} \\
+2^{k + 1} &amp;&lt; (k + 1)! \\
+2^{k + 1} &amp;\leq (k + 1)!
+\end{aligned}
+\]
+</p>
+<p>La última inecuación tiene la forma \(2^n \leq n!\) con \(n = k + 1\) así,
+podemos dar por concluida la prueba por inducción de esa proposición.</p>
+
+<p><small>
+Si hay dudas respecto a este artículo o detectas algunos errores, no dudes en
+escribirme.
+</small></p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2019/03/mathematical-induction/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/03/mathematical-induction/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/03/mathematical-induction/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

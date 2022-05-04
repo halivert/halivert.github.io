@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1513821240">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Tabs en yakuake | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Tabs en yakuake" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no se abre en el directorio “actual” por lo que busqué un poco en internet y basándome en esta página (ACIDBOURBON) realizé un pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada vez que se inicia una nueva instancia de Yakuake." />
+<meta property="og:description" content="Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no se abre en el directorio “actual” por lo que busqué un poco en internet y basándome en esta página (ACIDBOURBON) realizé un pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada vez que se inicia una nueva instancia de Yakuake." />
+<link rel="canonical" href="https://halivert.dev/blog/2017/12/yakuake-tabs/" />
+<meta property="og:url" content="https://halivert.dev/blog/2017/12/yakuake-tabs/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-12-20T19:54:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Tabs en yakuake" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2017-12-20T19:54:00-06:00","datePublished":"2017-12-20T19:54:00-06:00","description":"Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no se abre en el directorio “actual” por lo que busqué un poco en internet y basándome en esta página (ACIDBOURBON) realizé un pequeño script que (agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa cada vez que se inicia una nueva instancia de Yakuake.","headline":"Tabs en yakuake","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2017/12/yakuake-tabs/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2017/12/yakuake-tabs/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Tabs en yakuake</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Diciembre 20, 2017
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Yakuake</span><span class="tag is-yellow">Linux</span><span class="tag ">Tabs</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no
+se abre en el directorio “actual” por lo que busqué un poco en internet y
+basándome en esta página (<a href="https://acidbourbon.wordpress.com/2016/12/03/a-quick-and-dirty-fix-for-yakuakes-open-new-tab-in-same-directory-issue/">ACIDBOURBON</a>) realizé un pequeño script que
+(agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa
+cada vez que se inicia una nueva instancia de Yakuake.</p>
+
+<!-- Seguir leyendo -->
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">_Tx="$</span><span class="o">(</span><span class="nb">basename</span> <span class="s2">"/"</span><span class="si">$(</span>ps <span class="nt">-f</span> <span class="nt">-p</span> <span class="si">$(</span><span class="nb">cat</span> /proc/<span class="si">$(</span><span class="nb">echo</span> <span class="nv">$$</span><span class="si">)</span>/stat | <span class="nb">cut</span> <span class="nt">-d</span> <span class="se">\ </span> <span class="nt">-f</span> 4<span class="si">)</span> | <span class="nb">tail</span> <span class="nt">-1</span> | <span class="nb">sed</span> <span class="s1">'s/^.* //'</span><span class="si">)</span><span class="o">)</span><span class="s2">"
+</span><span class="gp">if [ $</span><span class="s2">_Tx = "</span>yakuake<span class="s2">" ]; then
+</span><span class="gp">  alias cd=changeDir;</span><span class="w">
+</span><span class="go">
+  changeDir() {
+</span><span class="gp">    \cd $</span>1<span class="p">;</span>
+<span class="gp">    pwd &gt;</span><span class="w"> </span>~/.currentDir
+<span class="go">  }
+
+</span><span class="gp">  if [ -e ~/.currentDir ];</span><span class="w"> </span><span class="k">then</span>
+<span class="gp">    cd $</span><span class="o">(</span><span class="nb">cat</span> ~/.currentDir<span class="o">)</span>
+<span class="go">  fi
+fi
+</span></code></pre></div></div>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2017/12/yakuake-tabs/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2017/12/yakuake-tabs/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2017/12/yakuake-tabs/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1548224460">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>WSGI en Apache | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="WSGI en Apache" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que ser en un «servidor» Windows y me puse a investigar. En esta publicación documentaré como utilizar el módulo WSGI, necesario para alojar una aplicación web escrita en Python. Prerrequisitos Python (Usé Python 3.7) Apache (Usé Apache Lounge 2.4) Microsoft Visual C++ *" />
+<meta property="og:description" content="Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que ser en un «servidor» Windows y me puse a investigar. En esta publicación documentaré como utilizar el módulo WSGI, necesario para alojar una aplicación web escrita en Python. Prerrequisitos Python (Usé Python 3.7) Apache (Usé Apache Lounge 2.4) Microsoft Visual C++ *" />
+<link rel="canonical" href="https://halivert.dev/blog/2019/01/wsgi-apache/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/01/wsgi-apache/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-23T00:21:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="WSGI en Apache" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-01-23T00:21:00-06:00","datePublished":"2019-01-23T00:21:00-06:00","description":"Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que ser en un «servidor» Windows y me puse a investigar. En esta publicación documentaré como utilizar el módulo WSGI, necesario para alojar una aplicación web escrita en Python. Prerrequisitos Python (Usé Python 3.7) Apache (Usé Apache Lounge 2.4) Microsoft Visual C++ *","headline":"WSGI en Apache","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/01/wsgi-apache/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/01/wsgi-apache/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">WSGI en Apache</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<span
+								title="Fecha original: Enero 23, 2019">
+								<i>última modificación:</i>
+								Febrero 21, 2019
+							</span>
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-golden">Python</span><span class="tag ">Apache</span><span class="tag ">Servidor</span><span class="tag ">Windows</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que
+ser en un «servidor» Windows y me puse a investigar.</p>
+
+<p>En esta publicación documentaré como utilizar el módulo WSGI, necesario para
+alojar una aplicación web escrita en Python.</p>
+
+<h3 id="prerrequisitos">Prerrequisitos</h3>
+<ul>
+  <li><a href="https://www.python.org">Python</a> (Usé Python 3.7)</li>
+  <li><a href="https://www.apachelounge.com">Apache</a> (Usé Apache Lounge 2.4)
+<a class="anchor" name="Nota1Up"></a></li>
+  <li><a href="https://visualstudio.microsoft.com/downloads">Microsoft Visual C++</a> <a href="https://halivert.dev/blog/2019/01/wsgi-apache/#Nota1">*</a></li>
+</ul>
+
+<!-- Seguir leyendo -->
+
+<h3 id="instrucciones">Instrucciones</h3>
+<p>Instalamos Python, Apache y Visual C++, una vez hecho esto, podemos comenzar con
+la instalación y configuración del módulo WSGI.</p>
+
+<p>Para aislar el proyecto podemos utilizar los entornos virtuales de Python:
+<code class="language-plaintext highlighter-rouge">python -m venv env</code> donde <code class="language-plaintext highlighter-rouge">env</code> es el folder donde se guardarán los módulos de
+python y todo lo demás.</p>
+
+<p>Activamos el entorno virtual <code class="language-plaintext highlighter-rouge">env\Scripts\activate</code> y una vez dentro vamos a
+instalar los módulos de python necesarios:</p>
+<ul>
+  <li><a href="http://flask.pocoo.org">Flask</a></li>
+  <li><a href="https://modwsgi.readthedocs.io/en/develop">mod_wsgi</a></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">pip install flask mod_wsgi</code></p>
+
+<p>Nota: Si estás usando el virtual environment que viene con Python 3, la
+instalación de <code class="language-plaintext highlighter-rouge">mod_wsgi</code> producirá un error, así que tendrás que copiar el
+directorio <code class="language-plaintext highlighter-rouge">C:\Python37\libs</code> al directorio <code class="language-plaintext highlighter-rouge">env\Scripts</code>.</p>
+
+<p>Si todo ha salido bien, entonces podrás escribir <code class="language-plaintext highlighter-rouge">mod_wsgi-express
+module-config</code> y podrás ver dos líneas: Una para cargar el módulo en Apache
+(comienza con <code class="language-plaintext highlighter-rouge">LoadModule wsgi_module</code>, e incluye la ruta del módulo instalado)
+y otra que indica la ruta de PythonHome, ignoraremos esa por ahora.</p>
+
+<p>Proseguimos a editar la configuración del servidor de Apache <code class="language-plaintext highlighter-rouge">httpd.conf</code> donde
+agregaremos la línea para cargar el módulo y las siguientes que sirven para la
+configuración del módulo WSGI:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WSGIScriptAlias [Punto de montaje] "c:/ruta/al/proyecto/archivo.wsgi"
+WSGISPythonPath "c:/ruta/al/proyecto/env/lib/site-packages;c:/ruta/al/proyecto"
+</code></pre></div></div>
+<p><br />
+Ahora bien, si necesitas usar el encabezado <code class="language-plaintext highlighter-rouge">Authorization</code> en tu aplicación
+porque quizás utilices JWT authentication, entonces tienes que cambiar la opción
+de pasar la autorización a las aplicaciones WSGI, con una línea más:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WSGIPassAuthorization On
+</code></pre></div></div>
+<p><br />
+Antes de terminar, debemos copiar un archivo: <code class="language-plaintext highlighter-rouge">activate_this.py</code> a nuestro
+directorio <code class="language-plaintext highlighter-rouge">env\bin</code>, lo podemos conseguir <a href="https://github.com/pypa/virtualenv/blob/master/virtualenv_embedded/activate_this.py">aquí</a>. Esto servirá para activar
+nuestro entorno virtual, ahora, agregamos lo siguiente a nuestro archivo WSGI.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">activate_this</span> <span class="o">=</span> <span class="s">'c:/ruta/al/proyecto/env/bin/activate_this.py'</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">activate_this</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_</span><span class="p">:</span>
+    <span class="k">exec</span><span class="p">(</span><span class="n">file_</span><span class="p">.</span><span class="n">read</span><span class="p">(),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__file__</span><span class="o">=</span><span class="n">activate_this</span><span class="p">))</span>
+
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">"c:/ruta/al/proyecto"</span><span class="p">)</span>
+
+<span class="k">from</span> <span class="p">[</span><span class="n">Nombre</span> <span class="k">del</span> <span class="n">archivo</span><span class="p">]</span> <span class="k">import</span> <span class="p">[</span><span class="n">Nombre</span> <span class="n">de</span> <span class="n">la</span> <span class="n">app</span><span class="p">]</span> <span class="k">as</span> <span class="n">application</span>
+</code></pre></div></div>
+<p><br />
+Quedó listo el entorno para una API RESTful, construiremos eso en la siguiente
+publicación.</p>
+
+<h3 id="notas">Notas</h3>
+<p><a class="anchor" name="Nota1"></a>
+<a href="https://halivert.dev/blog/2019/01/wsgi-apache/#Nota1Up">*</a> Necesitas instalar el Visual C++ con
+el que esté compilado el servidor de Apache que utilizarás. Si utilizas, por
+ejemplo, Apache Lounge httpd-2.4.38-win64-<strong>VC15</strong>.zip, necesitas el Visual C++
+15, que puedes encontrar en la página <a href="https://visualstudio.microsoft.com/es/vs/older-downloads/">versiones anteriores</a>, en el apartado
+<em>Redistribuibles y herramientas de compilación</em> con el nombre <em>Microsoft Build
+Tools 2015 Update 3</em>.</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2019/01/wsgi-apache/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/01/wsgi-apache/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/01/wsgi-apache/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

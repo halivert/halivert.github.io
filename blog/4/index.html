@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Página 4 de 6 - Blog | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/blog/4/" />
+<meta property="og:url" content="https://halivert.dev/blog/4/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://halivert.dev/blog/3/" />
+<link rel="next" href="https://halivert.dev/blog/5/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/4/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section  ">
+  <div class="columns">
+	<div class="column is-9-desktop">
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/11/random-thoughts/">
+						Random thoughts: Ep. 1
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>La Internet es muy poderosa, y además increíblemente vasta; yo por mi
+parte consumo bastante contenido de esta bonita red y quiero contar un
+poco de eso.</p>
+
+<h2 id="youtube"><a href="https://www.youtube.com">YouTube</a></h2>
+<p>Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto
+tiempo ha pasado desde cierto evento)</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/11/random-thoughts/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					<picture  class="column is-3-desktop">
+		<source
+					srcset="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.webp"
+					type="image/webp" /><img
+					class="column is-3-desktop"
+					loading="lazy"
+					src="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif"
+					alt="Persona surfeando" /></picture>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Noviembre 27, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/11/gifs/">
+						GIFs
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>GIF por sus siglas en inglés (Graphics Interchange Format) es un estándar que
+define “imágenes rasterizadas de color generalizadas” que son básicamente
+imágenes formadas por puntos llamados pixeles, donde además, cada pixel tiene un
+valor de color [<a href="https://www.w3.org/Graphics/GIF/spec-gif87.txt">1</a>] [<a href="https://support.99designs.com/hc/es/articles/204761835--Qué-son-los-vectores-y-las-imagenes-rasterizadas-Cuándo-debería-usarlas-">2</a>].</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/11/gifs/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					<picture  class="column is-3-desktop">
+		<source
+					srcset="https://halivert.dev/assets/2018-11-gifs/gifs-title.webp"
+					type="image/webp" /><img
+					class="column is-3-desktop"
+					loading="lazy"
+					src="https://halivert.dev/assets/2018-11-gifs/gifs-title.gif"
+					alt="Palabra GIF con movimiento" /></picture>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Noviembre 20, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/11/get-used-to-travels/">
+						Acostumbrarse (viaje)
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Que rápido es acostumbrarse a algo… y no lo digo a la ligera, según un
+<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ejsp.674">estudio</a> encabezado por la doctora Phillipa Lally en la <em>University College</em>
+de Londres, el promedio de tiempo que toma automatizar un hábito es de <strong>66
+días</strong></p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/11/get-used-to-travels/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Noviembre 09, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/10/add-date-vim/">
+						Agregar fecha con Vim
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Mensaje para el Halí del futuro: no escribas las fechas manualmente para
+tus posts hechos con Jekyll… puedes simplemente utilizar dos funciones
+muy útiles de Vim.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/10/add-date-vim/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Noviembre 20, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/10/site-comments/">
+						Comentarios en el sitio
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><h4 id="ya-se-pueden-realizar-comentarios-en-este-sitio"><strong>¡Ya se pueden realizar comentarios en este sitio!</strong></h4>
+
+<h6 id="actualización">Actualización</h6>
+<p>Ahora los comentarios se han mudado a Telegram y estoy tratando de unificarlos
+para que sean iguales en el sitio y en el <a href="https://t.me/halivertsblog">canal</a>, si sabes cómo hacerlo, te
+agradeceré mucho que me envíes un <a href="https://t.me/halivert">mensaje</a>.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/10/site-comments/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Mayo 25, 2020
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/09/ios-icons/">
+						Iconos para iOS
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Desarrollando una aplicación para iOS me encontré con que necesitas un icono
+diferente para cada dispositivo, debes cambiar la resolución y el nombre. Así
+que escribí un script para ayudar con esa tarea.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/09/ios-icons/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Septiembre 21, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2018/03/mimicking-someone/">
+						Remedando a alguien
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>En este post traigo para ustedes una herramienta muy útil (no muy útil, la
+verdad) que sirve para cuando intentan remedar a alguien… o sea imitarlo o
+imitarla y agregar un toque de ridículo a su comentario.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/03/mimicking-someone/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Marzo 12, 2018
+	
+</div>
+
+				<br />
+			</section>
+		
+		
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		
+			<a
+				href="https://halivert.dev/blog/3/"
+				class="pagination-previous button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-left"></i></a
+			>
+		
+
+		<ul class="pagination-list">
+			
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
+
+			
+				
+				<li>
+					<span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
+				</li>
+			
+
+			
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										
+											is-hidden-touch
+										"
+										href="https://halivert.dev/blog/2/"
+								
+								aria-label="Ir a página 2"
+								>2</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/3/"
+								
+								aria-label="Ir a página 3"
+								>3</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									class="pagination-link button is-current"
+									aria-current="page"
+								
+								aria-label="Ir a página 4"
+								>4</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/5/"
+								
+								aria-label="Ir a página 5"
+								>5</a
+							>
+						</li>
+					
+				
+					
+				
+			
+
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/6/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 6"
+					>6</a
+				>
+			</li>
+		</ul>
+
+		
+			<a
+				href="https://halivert.dev/blog/5/"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		
+	</nav>
+
+
+	</div>
+	<aside class="column">
+		<div class="container is-fluid has-text-centered">
+	<h1 class="subtitle">Categorías</h1>
+	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
+				>Divagando</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/i-were-there"
+				>Ya me pasó</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/code"
+				>¡Código!</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/news"
+				>Novedades</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/maths"
+				>Matemáticas</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/myspace"
+				>MySpace</a
+			></div>
+</div>
+
+	</aside>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

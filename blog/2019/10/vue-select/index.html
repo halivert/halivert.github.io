@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1571060711">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Select en Vue.js | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Select en Vue.js" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Este artículo fue escrito hace más de un año; en la actualidad utilizo la biblioteca Buefy, que resulta más práctica y mejor implementada, sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene que ser tan extrema como la planteada en este artículo y de la que escribiré pronto. Si utilizas Vue.js seguramente sabrás que hacer componentes genéricos es una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor de los casos) y las siguientes solo lo reutilizas. Sin embargo crear un componente que funcione adecuadamente no siempre es sencillo, es por eso que escribo esta guía para hacer un select personalizado." />
+<meta property="og:description" content="Este artículo fue escrito hace más de un año; en la actualidad utilizo la biblioteca Buefy, que resulta más práctica y mejor implementada, sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene que ser tan extrema como la planteada en este artículo y de la que escribiré pronto. Si utilizas Vue.js seguramente sabrás que hacer componentes genéricos es una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor de los casos) y las siguientes solo lo reutilizas. Sin embargo crear un componente que funcione adecuadamente no siempre es sencillo, es por eso que escribo esta guía para hacer un select personalizado." />
+<link rel="canonical" href="https://halivert.dev/blog/2019/10/vue-select/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/10/vue-select/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-10-14T08:45:11-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Select en Vue.js" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-10-14T08:45:11-05:00","datePublished":"2019-10-14T08:45:11-05:00","description":"Este artículo fue escrito hace más de un año; en la actualidad utilizo la biblioteca Buefy, que resulta más práctica y mejor implementada, sugiero utilizar dicha biblioteca con una capa de personalización, que no tiene que ser tan extrema como la planteada en este artículo y de la que escribiré pronto. Si utilizas Vue.js seguramente sabrás que hacer componentes genéricos es una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor de los casos) y las siguientes solo lo reutilizas. Sin embargo crear un componente que funcione adecuadamente no siempre es sencillo, es por eso que escribo esta guía para hacer un select personalizado.","headline":"Select en Vue.js","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/10/vue-select/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/10/vue-select/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a class="skip-link" href="#main-container" data-turbo="false" tab-index="0">Ir al contenido</a>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a class="px-1" :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/">
+					<img class="logo my-0 dark" src="https://halivert.dev/assets/img/halivert-logo.webp" alt="Logo de Halivert">
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/blog/">Blog</a>
+			</li>
+			<li>
+				<a :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/projects/">Proyectos</a>
+			</li>
+			<li>
+				<a :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/about/">Sobre mí</a>
+			</li>
+<li v-cloak>
+				<button id="search-button" type="button" class="menu-item" :class="{ 'is-active': activeSearchModal }" v-on:click="toggleSearchModal()">
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li>
+</ul>
+
+		
+	</aside><div id="search-modal" v-scope="SearchModal()" v-on:mounted="mountSearchModal" :class="['modal search-modal', { 'is-hidden': !activeSearchModal }]" v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''" v-cloak>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input ref="searchInput" placeholder="Buscar..." class="input" type="text" v-model="inputValue" v-effect="search(inputValue)">
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section class="has-text-left" v-on:click.passive="handleClick($event, toggleSearchModal)">
+					<span v-if="searching" class="is-loading" style="--spinner-size: 2em"></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article v-for="(post, url) in posts" v-scope="SearchResult(post)" :key="url"></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a class="post-title has-text-primary" :href="post.url" v-text="post.title"></a>
+			</h2>
+			<hr>
+			<div class="columns">
+				<div class="column">
+					<div class="post-content content has-text-justified" v-html="post?.content + (post.continue ? $el.innerHTML : '')">
+						<p>…</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source v-for="image in sourceImages" :key="image.ext" :srcset="`${post.image}.${image.ext}`" :type="image.mime"></source>
+						<img :src="imageUrl" :alt="post.image_alt">
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br>
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Select en Vue.js</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<span title="Fecha original: Octubre 14, 2019">
+								<i>última modificación:</i>
+								Enero 15, 2021
+							</span>
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags">
+<span class="tag is-emerald">Vue.js</span><span class="tag ">Select</span>
+</div>
+			</div>
+			<hr>
+			<section id="content" class="content">
+				<div class="notification is-yellow">
+  <p>Este artículo fue escrito hace más de un año; en la actualidad
+utilizo la biblioteca <a href="https://buefy.org/">Buefy</a>, que resulta más práctica y
+mejor implementada, sugiero utilizar dicha biblioteca con una capa de
+personalización, que no tiene que ser tan extrema como la planteada en este
+artículo y de la que escribiré pronto.</p>
+</div>
+
+<p>Si utilizas <a href="https://vuejs.org">Vue.js</a> seguramente sabrás que hacer componentes genéricos es
+una de las mejores inversiones de tiempo. Escribes código una vez (en el mejor
+de los casos) y las siguientes solo lo reutilizas.</p>
+
+<p>Sin embargo crear un componente que funcione adecuadamente no siempre es
+sencillo, es por eso que escribo esta guía para hacer un select personalizado.</p>
+
+<!-- Seguir leyendo -->
+
+<p>Lo primero que haremos es nombrar el componente. Según la <a href="https://vuejs.org/v2/style-guide/#Base-component-names-strongly-recommended">guía de estilo de
+Vue.js</a> es recomendable nombrar los componentes de manera homogénea y se
+sugiere que tengan un prefijo específico, por ejemplo <code class="language-plaintext highlighter-rouge">Base</code>, <code class="language-plaintext highlighter-rouge">App</code> o <code class="language-plaintext highlighter-rouge">V</code>, en
+mi caso nombro mis componentes base con el prefijo <code class="language-plaintext highlighter-rouge">H</code> y <code class="language-plaintext highlighter-rouge">B</code> para los
+especificos del framework <a href="https://bulma.io">Bulma</a>.</p>
+
+<p>Creamos un componente para «envolver» el select. <code class="language-plaintext highlighter-rouge">HField</code> que solo contiene
+información para el usuario.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/b7d9ba492e87836298e1b03fbf41f26f.js"> </script>
+
+<p>Y ahora pasamos al select:</p>
+
+<p>Su estructura general es la siguiente:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+  <span class="nt">&lt;h-field&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+      <span class="nt">&lt;select&gt;</span>
+        <span class="nt">&lt;option&gt;&lt;/option&gt;</span>
+        <span class="nt">&lt;option&gt;&lt;/option&gt;</span>
+      <span class="nt">&lt;/select&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;template&gt;</span>
+      <span class="nt">&lt;slot&gt;&lt;/slot&gt;</span>
+    <span class="nt">&lt;/template&gt;</span>
+  <span class="nt">&lt;/h-field&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+<span class="nt">&lt;script&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Agregamos un nombre de referencia al <code class="language-plaintext highlighter-rouge">HField</code> para poder agregarle los errores
+en caso de que existan y también pasamos los datos que tienen que ver con
+ellos.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h-field</span>
+  <span class="na">ref=</span><span class="s">"field"</span>
+  <span class="na">:label=</span><span class="s">"label"</span>
+  <span class="na">:errors=</span><span class="s">"errors"</span>
+  <span class="na">:display-errors=</span><span class="s">"displayErrors"</span>
+  <span class="na">:has-addons=</span><span class="s">"hasAddons"</span>
+<span class="nt">&gt;&lt;/h-field&gt;</span>
+</code></pre></div></div>
+
+<p>Nuestro select puede ser de tamaño completo y además puede tener errores. En
+bulma utilizamos un <code class="language-plaintext highlighter-rouge">div</code> para este fin.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span>
+  <span class="na">class=</span><span class="s">"select"</span>
+  <span class="na">:class=</span><span class="s">"{ 'is-fullwidth': isFullwidth, 'is-danger': errorsActive }"</span>
+<span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre></div></div>
+
+<p>Agregamos también el select y utilizaremos el <code class="language-plaintext highlighter-rouge">v-model</code> para que nuestra
+selección se actualice en las dos direcciones (vista-modelo, modelo-vista). Y
+agregamos todos los atributos que se coloquen en la etiqueta del componente
+con <code class="language-plaintext highlighter-rouge">v-bind="$attrs"</code>.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;select</span> <span class="na">v-model=</span><span class="s">"selectedItem"</span> <span class="na">v-bind=</span><span class="s">"$attrs"</span><span class="nt">&gt;&lt;/select&gt;</span>
+</code></pre></div></div>
+
+<p>Tenemos una opción deshabilitada en donde colocaremos más información para el
+usuario, que además se elige por defecto.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;option</span> <span class="na">:value=</span><span class="s">"placeholderValue"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  {{ placeholder }}
+<span class="nt">&lt;/option&gt;</span>
+</code></pre></div></div>
+
+<p>Y después agregamos todas las opciones que queremos que contenga nuestro
+select.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;option</span>
+  <span class="na">v-for=</span><span class="s">"(element, index) in elements"</span>
+  <span class="na">:value=</span><span class="s">"element[idProperty]"</span>
+  <span class="na">:key=</span><span class="s">"element[idProperty]"</span>
+<span class="nt">&gt;</span>
+  {{ element[displayProperty] }}
+<span class="nt">&lt;/option&gt;</span>
+</code></pre></div></div>
+
+<p>Utilizaremos el atributo <code class="language-plaintext highlighter-rouge">idProperty</code> porque nuestros datos pueden no ser
+homogéneos y también <code class="language-plaintext highlighter-rouge">displayProperty</code> por la misma razón, en todo caso
+imprimimos los elementos y casi estamos listos para el script. Por último
+agregamos el espacio donde pueden ir (o no), algunos anexos.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;template</span> <span class="na">#addons</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;slot</span> <span class="na">name=</span><span class="s">"addons"</span><span class="nt">&gt;&lt;/slot&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+</code></pre></div></div>
+
+<p>Ahora sí pasamos al código del script. Importamos el componente que creamos
+hace unos momentos y después de exportar el nuevo componente (HSelect), y
+nombrarlo, evitaremos que el elemento padre <code class="language-plaintext highlighter-rouge">h-field</code> herede los atributos que
+se coloquen en su etiqueta.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">HField</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./HField.vue</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">"</span><span class="s2">h-select</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">inheritAttrs</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">components</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">HField</span>
+  <span class="p">},</span>
+</code></pre></div></div>
+
+<p>Queremos saber si hay errores activos, cual es el elemento seleccionado y
+cuales son los elementos actuales, así los datos que tendrá nuestro componente
+son los siguientes:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="na">errorsActive</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">selectedItem</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+    <span class="na">elements</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">};</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>Ahora vamos a «observar» 3 atributos y es aquí donde sucede algo importante
+en nuestro componente.</p>
+
+<p>Lo primero es observar el <code class="language-plaintext highlighter-rouge">value</code> esto lo hacemos porque si tenemos un
+<code class="language-plaintext highlighter-rouge">v-model</code> asociado a nuestro componente, queremos que el valor cambie cuando
+actualizamos el modelo.</p>
+
+<p>Después observamos el atributo que está conectado con nuestro select como su
+<code class="language-plaintext highlighter-rouge">v-model</code>, queremos seleccionar el valor por defecto en caso de que no se
+encuentre el elemento. Por el contrario, si se encuentra, y es diferente al
+dato que pasamos como «viejo» escondemos los errores. Además, disparamos dos
+eventos, y esto es bastante importante, porque un select en Vue.js, dispara el
+evento “change” y también el evento “input”, con esto lograremos que si existe
+un <code class="language-plaintext highlighter-rouge">v-model</code> se actualice al realizar un cambio en nuestro select.</p>
+
+<p>Por último observamos el atributo <code class="language-plaintext highlighter-rouge">elements</code> y así, cuando nuestros elementos
+cambien, tendremos control del elemento seleccionado.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nx">value</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">selectedItem</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">elementsContain</span><span class="p">(</span><span class="nx">newValue</span><span class="p">))</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">;</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">hideError</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
+  <span class="p">},</span>
+  <span class="nx">elements</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">exists</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">elementsContain</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">&amp;&amp;</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">];</span>
+    <span class="k">else</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">exists</span>
+        <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span>
+          <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span>
+          <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span>
+        <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>Cuando creamos el componente, queremos asignar los elementos y si existen
+errores, mostrarlos.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">elements</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">initialElements</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>Tenemos los métodos que nos ayudarán a ocultar errores, revisar si existe un
+elemento en nuestra lista y obtener el elemento seleccionado, además de uno
+que solo compara que el parámetro no sea <code class="language-plaintext highlighter-rouge">null</code> ni <code class="language-plaintext highlighter-rouge">undefined</code>.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nx">hideError</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">elementsContain</span><span class="p">(</span><span class="nx">itemId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isSomething</span><span class="p">(</span><span class="nx">itemId</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">itemId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+        <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="nx">itemId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+      <span class="p">)</span> <span class="o">!==</span> <span class="kc">undefined</span>
+    <span class="p">);</span>
+  <span class="p">},</span>
+  <span class="nx">isSomething</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">element</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">element</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="p">},</span>
+  <span class="nx">getSelected</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+      <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p>Y por último tenemos las propiedades, que <em>grosso modo</em> se ven así:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">props</span><span class="p">:</span> <span class="p">{</span>
+  <span class="nl">label</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">placeholder</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">initialElements</span><span class="p">:</span> <span class="p">[</span><span class="nb">Object</span><span class="p">,</span> <span class="nb">Array</span><span class="p">],</span>
+  <span class="nx">value</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Number</span><span class="p">],</span>
+  <span class="nx">old</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">,</span> <span class="nb">Number</span><span class="p">],</span>
+  <span class="nx">hasAddons</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+  <span class="nx">placeholderValue</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">displayProperty</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">idProperty</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+  <span class="nx">displayErrors</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+  <span class="nx">isFullwidth</span><span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+  <span class="nx">errors</span><span class="p">:</span> <span class="nb">Array</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Sin más aquí está el código del componente, queda mucho trabajo por hacer,
+pero sin duda simplifica mucho el trabajo de hacer un select en Laravel con
+Vue.js.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/b34c22aa06007ead9b05df857e7ad1b6.js"> </script>
+
+<p>Este es un ejemplo de caso de uso.</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;h-select</span>
+  <span class="na">label=</span><span class="s">"{{ __('areas.area') }}"</span>
+  <span class="na">:initial-elements=</span><span class="s">'@json($areas)'</span>
+  <span class="na">placeholder=</span><span class="s">"{{ __('areas.area') }}"</span>
+  <span class="na">display-property=</span><span class="s">"name"</span>
+  <span class="na">name=</span><span class="s">"area_id"</span>
+  <span class="na">old=</span><span class="s">"{{ old('area_id') }}"</span>
+  <span class="na">:errors=</span><span class="s">'@json($errors-&gt;get('</span><span class="na">area_id</span><span class="err">'))'</span>
+  <span class="na">required</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/h-select&gt;</span>
+</code></pre></div></div>
+
+<p>Podemos ver que asignar una etiqueta, elementos en forma de json, un
+placeholder, ademas de una seleccion previa o «vieja» y mostrar errores se
+vuelve mucho más sencillo.</p>
+
+<p>Espero que este código te sea de ayuda.
+Adiós 👋🏽</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr>
+
+				<div class="flex justify-between items-center">
+					<a class="button twitter-share-button" :href="twitterLink('https://halivert.dev/blog/2019/10/vue-select/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/10/vue-select/'})" v-on:mounted="fetchReactions" class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions &amp;&amp; mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/10/vue-select/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a class="license-link" rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+			<img alt="Licencia Creative Commons" style="border-width: 0" src="https://i.creativecommons.org/l/by/4.0/88x31.png">
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

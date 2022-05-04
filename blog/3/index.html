@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Página 3 de 6 - Blog | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/blog/3/" />
+<meta property="og:url" content="https://halivert.dev/blog/3/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="https://halivert.dev/blog/2/" />
+<link rel="next" href="https://halivert.dev/blog/4/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/3/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section  ">
+  <div class="columns">
+	<div class="column is-9-desktop">
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/07/laravel-linux/">
+						Laravel en Linux Pt. 1
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>En esta ocasión vamos a ver por que y como instalar el framework <a href="https://laravel.com">Laravel</a>
+en un entorno Linux.</p>
+
+<h3 id="introducción">Introducción</h3>
+<p>Laravel es un framework escrito en <a href="https://www.php.net">PHP</a>. Según la página oficial, está
+escrito para <em>«Web artisans»</em>.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/07/laravel-linux/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Julio 22, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/06/binary-clock/">
+						Reloj binario
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div>
+<p>En este post les comparto un tip para practicar la lectura de números
+binarios.</p>
+
+<h3 id="la-práctica-hace-al-maestro">«La práctica hace al maestro»</h3>
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/06/binary-clock/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					<picture  class="column is-3-desktop">
+		<source
+					srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.webp"
+					type="image/webp" /><img
+					class="column is-3-desktop"
+					loading="lazy"
+					src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png"
+					alt="Reloj binario que marca las 23:53:49" /></picture>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Junio 17, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/03/mathematical-induction/">
+						Inducción matemática
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>En esta entrega del primer artículo de la sección <a href="/blog/matematicas">Matemáticas</a> les voy a
+mostrar una herramienta muy poderosa en el pensamiento matemático, la
+<strong>inducción matemática</strong>.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/03/mathematical-induction/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Marzo 01, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/02/i-have-a-succulent/">
+						Tengo una suculenta
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div>
+<p><em>Graptopetalum paraguayense</em> es el nombre que recibe una planta suculenta
+oriunda de Tamaulipas, México.</p>
+
+<p>La obtuve como un regalo, y es curioso que antes me habían regalado una similar
+también, solo que entendí mal los cuidados que debía darle.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/02/i-have-a-succulent/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					<picture  class="column is-3-desktop">
+		<source
+					srcset="https://halivert.dev/assets/2019-02-i-have-a-succulent/20190201.webp"
+					type="image/webp" /><img
+					class="column is-3-desktop"
+					loading="lazy"
+					src="https://halivert.dev/assets/2019-02-i-have-a-succulent/20190201.jpg"
+					alt="Mi suculenta llamada 'Julieta'" /></picture>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Febrero 02, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/01/search-bar/">
+						Barra de búsqueda
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><h4 id="ahora-hay-una-barra-de-búsqueda-disponible-en-el-blog">Ahora hay una barra de búsqueda disponible en el blog</h4>
+
+<p>Llega a ustedes gracias a la biblioteca <a href="https://lunrjs.com">lunr.js</a> que funciona para crear
+un índice de búsqueda en un sitio (estático en este caso) y que no necesita
+servidores externos, u otros servicios de búsqueda.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/01/search-bar/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Febrero 17, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/01/flask-restplus/">
+						Flask RESTPlus
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Si ya tienes el entorno listo para alojar una aplicación web escrita en Python
+(si no, puedes verlo en <a href="https://halivert.dev/blog/2019/01/wsgi-apache/">esta publicación</a>), entonces te preguntarás como
+escribir dicha aplicación.</p>
+
+<p>Desde hace un tiempo, me volví aficionado a crear APIs, así que les mostraré
+cómo hacer una en Python.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/01/flask-restplus/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Enero 24, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2019/01/wsgi-apache/">
+						WSGI en Apache
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que
+ser en un «servidor» Windows y me puse a investigar.</p>
+
+<p>En esta publicación documentaré como utilizar el módulo WSGI, necesario para
+alojar una aplicación web escrita en Python.</p>
+
+<h3 id="prerrequisitos">Prerrequisitos</h3>
+<ul>
+  <li><a href="https://www.python.org">Python</a> (Usé Python 3.7)</li>
+  <li><a href="https://www.apachelounge.com">Apache</a> (Usé Apache Lounge 2.4)
+<a class="anchor" name="Nota1Up"></a></li>
+  <li><a href="https://visualstudio.microsoft.com/downloads">Microsoft Visual C++</a> <a href="https://halivert.dev/blog/2019/01/wsgi-apache/#Nota1">*</a></li>
+</ul>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2019/01/wsgi-apache/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Febrero 21, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+		
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		
+			<a
+				href="https://halivert.dev/blog/2/"
+				class="pagination-previous button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-left"></i></a
+			>
+		
+
+		<ul class="pagination-list">
+			
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
+
+			
+
+			
+				
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/2/"
+								
+								aria-label="Ir a página 2"
+								>2</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									class="pagination-link button is-current"
+									aria-current="page"
+								
+								aria-label="Ir a página 3"
+								>3</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/4/"
+								
+								aria-label="Ir a página 4"
+								>4</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										
+											is-hidden-touch
+										"
+										href="https://halivert.dev/blog/5/"
+								
+								aria-label="Ir a página 5"
+								>5</a
+							>
+						</li>
+					
+				
+			
+
+			
+				
+				
+
+				<li>
+					<span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
+				</li>
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/6/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 6"
+					>6</a
+				>
+			</li>
+		</ul>
+
+		
+			<a
+				href="https://halivert.dev/blog/4/"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		
+	</nav>
+
+
+	</div>
+	<aside class="column">
+		<div class="container is-fluid has-text-centered">
+	<h1 class="subtitle">Categorías</h1>
+	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
+				>Divagando</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/i-were-there"
+				>Ya me pasó</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/code"
+				>¡Código!</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/news"
+				>Novedades</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/maths"
+				>Matemáticas</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/myspace"
+				>MySpace</a
+			></div>
+</div>
+
+	</aside>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

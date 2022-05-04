@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1515050040">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Usar git para un servidor | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Usar git para un servidor" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Usar git para controlar las versiones locales ya es de por si una gran ayuda, ahora bien, la herramienta se vuelve más útil cuando se tiene que utilizar para subir código y proyectos, por ejemplo, a un servidor web." />
+<meta property="og:description" content="Usar git para controlar las versiones locales ya es de por si una gran ayuda, ahora bien, la herramienta se vuelve más útil cuando se tiene que utilizar para subir código y proyectos, por ejemplo, a un servidor web." />
+<link rel="canonical" href="https://halivert.dev/blog/2018/01/git-repo/" />
+<meta property="og:url" content="https://halivert.dev/blog/2018/01/git-repo/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:image" content="https://halivert.dev/assets/2018-01-git-repo/title-git.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-04T01:14:00-06:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://halivert.dev/assets/2018-01-git-repo/title-git.png" />
+<meta property="twitter:title" content="Usar git para un servidor" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2018-01-04T01:14:00-06:00","datePublished":"2018-01-04T01:14:00-06:00","description":"Usar git para controlar las versiones locales ya es de por si una gran ayuda, ahora bien, la herramienta se vuelve más útil cuando se tiene que utilizar para subir código y proyectos, por ejemplo, a un servidor web.","headline":"Usar git para un servidor","image":"https://halivert.dev/assets/2018-01-git-repo/title-git.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2018/01/git-repo/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2018/01/git-repo/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Usar git para un servidor</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<span
+								title="Fecha original: Enero 04, 2018">
+								<i>última modificación:</i>
+								Noviembre 19, 2018
+							</span>
+						
+					</small>
+				</header>
+				
+					<div class="column is-4-desktop has-text-right"><a
+	id=""
+	target="_blank"
+	rel="noopener noreferrer"
+	href="https://halivert.dev/assets/2018-01-git-repo/title-git.png"><picture  class="image post-image dark is-fullwidth">
+		<source
+					srcset="https://halivert.dev/assets/2018-01-git-repo/title-git.webp"
+					type="image/webp" /><img
+					class="image post-image dark is-fullwidth"
+					loading="lazy"
+					src="https://halivert.dev/assets/2018-01-git-repo/title-git.png"
+					alt="Logo de Git" /></picture></a>
+					</div>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-blue">Git</span><span class="tag ">Servidor</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Usar <a href="https://git-scm.com">git</a> para controlar las versiones locales ya es de por si una gran
+ayuda, ahora bien, la herramienta se vuelve más útil cuando se tiene que
+utilizar para subir código y proyectos, por ejemplo, a un servidor web.</p>
+
+<!-- Seguir leyendo -->
+
+<p>Antes que nada deben revisar que su servidor, o el lugar a donde van a subir su
+repositorio tenga git, posteriormente deben iniciar un repositorio vacío con el
+comando:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--bare</span> init <span class="o">[</span>Nombre del repositorio]
+</code></pre></div></div>
+
+<p>Por convención, los repositorios vacíos llevan un <em>.git</em> al final por lo que un
+ejemplo se
+vería así:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--bare</span> init glowing-computing-machine.git
+</code></pre></div></div>
+
+<p>Después de haber hecho el repositorio vacío podrán acceder a el y verán los
+siguientes archivos y directorios</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/ls-bare-repo.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/ls-bare-repo.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/ls-bare-repo.png" alt="ls bare repo" /></picture></a></p>
+
+<p>Ahora, para que nuestro repositorio se actualice automáticamente, debemos
+agregar un hook… exacto, en la carpeta de hooks encontraremos algunos por
+default, pero el que utilizaremos se llama diferente a los que se encuentran
+ahí: <strong>post-receive</strong>.
+Creamos el archivo y le agregaremos la siguiente línea:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git <span class="nt">--work-tree</span><span class="o">=[</span>ruta de destino] <span class="nt">--git-dir</span><span class="o">=[</span>ruta de origen] checkout <span class="nt">-f</span>
+<span class="c">#</span>
+<span class="c"># La ruta de origen será la ruta en donde está</span>
+<span class="c"># el repositorio vacío, un ejemplo sería este:</span>
+git <span class="nt">--work-tree</span><span class="o">=</span>/home/hali/Documentos/Git/_site <span class="se">\</span>
+<span class="nt">--git-dir</span><span class="o">=</span>/home/hali/Documentos/Git/glowing-computing-machine.git <span class="se">\</span>
+checkout <span class="nt">-f</span>
+</code></pre></div></div>
+
+<p><br />
+Por último agregamos los permisos para ejecutar el archivo que creamos</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x post-receive
+</code></pre></div></div>
+<p><br />
+Solo queda probar, en mi caso, el directorio al que apunté está completamente
+vacío</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/ls-site.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/ls-site.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/ls-site.png" alt="ls site" /></picture></a></p>
+
+<p>luego haré un git clone</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/ls-glowing-local.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/ls-glowing-local.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/ls-glowing-local.png" alt="ls glowing local" /></picture></a></p>
+
+<p>y ¡listo! Podemos entrar a subir contenido… pero resulta molesto tener que
+escribir nuestra contraseña cada que necesitemos hacer un pull o un push, así
+que con ayuda del comando ssh-copy-id podemos agregar nuestra llave pública a la
+lista de llaves aceptadas en el servidor</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh-copy-id <span class="o">[</span>ip del servidor]
+</code></pre></div></div>
+
+<p><br />
+<a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/ssh-copy-id.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/ssh-copy-id.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/ssh-copy-id.png" alt="Resultado del comando ssh-copy-id" /></picture></a></p>
+
+<p>Así podemos subir codigo a nuestro repo y este se copiará automáticamente en el
+directorio que elegimos.</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/commit-inicial.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/commit-inicial.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/commit-inicial.png" alt="Resultado del commit inicial" /></picture></a>
+<br />
+<a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2018-01-git-repo/ls-site-commit.png"><picture>
+		<source srcset="https://halivert.dev/assets/2018-01-git-repo/ls-site-commit.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2018-01-git-repo/ls-site-commit.png" alt="Resultado del commit en el sitio remoto" /></picture></a></p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2018/01/git-repo/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2018/01/git-repo/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2018/01/git-repo/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

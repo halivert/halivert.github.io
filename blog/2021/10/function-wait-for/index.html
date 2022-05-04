@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1633840620">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Función para esperar algo | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Función para esperar algo" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="En este artículo quiero mostrarte algunas cosas acerca del lenguaje de programación JavaScript mediante el uso de una función que servirá para «esperar»." />
+<meta property="og:description" content="En este artículo quiero mostrarte algunas cosas acerca del lenguaje de programación JavaScript mediante el uso de una función que servirá para «esperar»." />
+<link rel="canonical" href="https://halivert.dev/blog/2021/10/function-wait-for/" />
+<meta property="og:url" content="https://halivert.dev/blog/2021/10/function-wait-for/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-10-09T23:37:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Función para esperar algo" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2021-10-09T23:37:00-05:00","datePublished":"2021-10-09T23:37:00-05:00","description":"En este artículo quiero mostrarte algunas cosas acerca del lenguaje de programación JavaScript mediante el uso de una función que servirá para «esperar».","headline":"Función para esperar algo","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2021/10/function-wait-for/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2021/10/function-wait-for/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Función para esperar algo</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Octubre 09, 2021
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">JavaScript</span><span class="tag ">Funciones</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>En este artículo quiero mostrarte algunas cosas acerca del lenguaje de
+programación JavaScript mediante el uso de una función que servirá para
+«esperar».</p>
+
+<!-- Seguir leyendo -->
+
+<h2 id="contenido">Contenido</h2>
+
+<ul>
+  <li><a href="#funciones-de-alto-orden">Funciones de alto orden</a></li>
+  <li><a href="#repeticion">Repetición</a></li>
+  <li><a href="#promesas">Promesas</a></li>
+  <li><a href="#resultado">Resultado</a>
+    <ul>
+      <li><a href="#uso">Uso</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Muchas veces cuando interactuamos con una API, tenemos que esperar un cambio de
+estado, por ejemplo cuando queremos instanciar un servidor y estamos esperando a
+que esté listo. O cuando estamos preguntando por la ubicación de un usuario.</p>
+
+<h2 id="funciones-de-alto-orden">Funciones de alto orden</h2>
+
+<details open="">
+  <summary>
+    Si sabes que son las funciones de alto orden, puedes saltarte esta parte
+  </summary>
+
+  <p>Las <a href="https://typeofnan.dev/what-is-a-higher-order-function/">funciones de alto orden</a> son por definición funciones que reciben como
+parámetro funciones o que devuelven funciones.</p>
+
+  <p>Aquí hay algunos ejemplos de funciones de alto orden:</p>
+
+  <p>Funciones como parámetro</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="mi">3</span>
+  <span class="nx">callback</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">fun</span><span class="p">((</span><span class="nx">val</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="c1">// 3</span>
+<span class="p">})</span>
+</code></pre></div>  </div>
+
+  <p>Funciones como valor de retorno</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">log</span> <span class="o">=</span> <span class="nx">fun</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nx">log</span><span class="p">()</span> <span class="c1">// 3</span>
+</code></pre></div>  </div>
+
+  <p>Tienen usos específicos y particulares, en este caso usaremos el primer tipo,
+las que reciben funciones cómo parámetro.</p>
+
+</details>
+
+<h2 id="repeticion">Repetición</h2>
+
+<p>En cualquier caso (consumiendo una API) necesitamos esperar pero debemos hacerlo
+mientras preguntamos de vez en vez, particularmente cuando no hay un mecanismo
+de webhook que nos avise o notifique del cambio de estado.</p>
+
+<p>Así, podemos hacer llamadas cada cierto tiempo, con <a href="https://developer.mozilla.org/en-US/docs/Web/API/setInterval">setInterval</a>, de esta
+forma:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">APICall</span><span class="p">()</span> <span class="c1">// Llamada a la API</span>
+<span class="p">},</span> <span class="nx">waitTime</span><span class="p">)</span> <span class="c1">// Tiempo a esperar</span>
+</code></pre></div></div>
+
+<p>Ahora bien, cuando el resultado es el deseado, debemos detener la repetición de
+llamadas, de esta forma:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">APICall</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// Condición de parada</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">)</span> <span class="c1">// Detener la repetición</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+<span class="p">},</span> <span class="nx">waitTime</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Ahora si queremos devolver un valor, podemos envolver este código en una
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promesa</a>.</p>
+
+<h2 id="promesas">Promesas</h2>
+
+<details open="">
+
+  <summary>Si sabes que son las promesas, puedes saltarte esta parte</summary>
+  <p>Las promesas son objetos que representan el resultado exitoso o fallido de una
+operación asíncrona.</p>
+
+  <p>Una promesa se construye de manera sencilla, solamente recibe una función que
+tiene dos parámetros, <code class="language-plaintext highlighter-rouge">resolve</code> y <code class="language-plaintext highlighter-rouge">reject</code> (ambos funciones) que renombraremos
+para mayor facilidad <code class="language-plaintext highlighter-rouge">resolve</code> -&gt; <code class="language-plaintext highlighter-rouge">good</code>, <code class="language-plaintext highlighter-rouge">reject</code> -&gt; <code class="language-plaintext highlighter-rouge">bad</code>, así:</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{})</span>
+</code></pre></div>  </div>
+
+  <p>En el cuerpo de la función, podemos llamar libremente a estas dos funciones,
+<code class="language-plaintext highlighter-rouge">good</code> cuando el resultado es exitoso y <code class="language-plaintext highlighter-rouge">bad</code> cuando es fallido. Algo muy
+interesante de las promesas es que pueden ser llamadas en una función asíncrona,
+o no.</p>
+
+  <p>Para obtener el valor resultado de una promesa, contamos con el método <code class="language-plaintext highlighter-rouge">then</code>, y
+el método <code class="language-plaintext highlighter-rouge">catch</code>.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">then</code> recibe una función con un parámetro que es el valor que le pasamos al
+método <code class="language-plaintext highlighter-rouge">good</code>.</p>
+
+  <p><code class="language-plaintext highlighter-rouge">catch</code> recibe una función con un parámetro que es el valor que le pasamos al
+método <code class="language-plaintext highlighter-rouge">bad</code>.</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">good</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nice</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="c1">// Nice</span>
+<span class="p">})</span>
+
+<span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">bad</span><span class="p">(</span><span class="dl">"</span><span class="s2">Not nice</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="c1">// Not nice</span>
+<span class="p">})</span>
+</code></pre></div>  </div>
+
+  <p>Pero podemos usar <code class="language-plaintext highlighter-rouge">await</code> si usamos la promesa dentro de una función asíncrona.
+El costo extra que tenemos que pagar es que para el <code class="language-plaintext highlighter-rouge">catch</code>, debemos usar un
+bloque <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch"><code class="language-plaintext highlighter-rouge">try...catch</code></a>.</p>
+
+  <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">nice</span> <span class="o">=</span> <span class="k">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">good</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nice</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="k">try</span> <span class="p">{</span>
+  <span class="k">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">bad</span><span class="p">(</span><span class="dl">"</span><span class="s2">Error</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="c1">// Error</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+
+</details>
+
+<p>Así, podemos usar las promesas para la función que «espera».</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">await</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">APICall</span><span class="p">().</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">good</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nice</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// Devolver algún valor</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="p">},</span> <span class="nx">waitTime</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="c1">// Nice</span>
+</code></pre></div></div>
+
+<p>Por último para reutilizar esta función y no tener que escribirla en todos
+lados, podemos usar más funciones de alto orden.</p>
+
+<h2 id="resultado">Resultado</h2>
+
+<p>El resultado final es algo así:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">waitFor</span><span class="p">({</span> <span class="nx">condition</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">""</span><span class="p">,</span> <span class="nx">waitTime</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">())</span> <span class="k">return</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">condition</span><span class="p">())</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+
+    <span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nx">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">resolve</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span>
+      <span class="p">}</span>
+
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">stop</span><span class="p">)</span>
+    <span class="p">},</span> <span class="nx">waitTime</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Ahora procedo a explicar la función.</p>
+
+<p>Como parámetros tenemos dos funciones, una de condición y una de <code class="language-plaintext highlighter-rouge">callback</code> o
+llamada atrás, un mensaje que se mostrará en la primera iteración y un tiempo de
+espera.</p>
+
+<p>Devolvemos la promesa en la que solo necesitamos el parámetro <code class="language-plaintext highlighter-rouge">resolve</code> (que
+llamabamos <code class="language-plaintext highlighter-rouge">good</code>), en la primera línea de la promesa, comprobamos que la
+condición se cumpla y de ser así devolvemos ese valor.</p>
+
+<p>En caso contrario continuamos y procedemos a imprimir el mensaje (en caso de que
+exista), y luego continuamos con las repeticiones.</p>
+
+<p>En la repetición, creamos la función <code class="language-plaintext highlighter-rouge">stop</code> para detener las repeticiones y
+devolver el valor necesario, y por último llamamos a la función <code class="language-plaintext highlighter-rouge">callback</code> con
+la función <code class="language-plaintext highlighter-rouge">stop</code> como parámetro.</p>
+
+<h3 id="uso">Uso</h3>
+
+<p>Implementé un servidor de prueba para regresar un valor numérico aleatorio entre
+el 1 y el 10, y la siguiente función hace llamadas hasta encontrar exactamente
+el número 6.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">axios</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">waitFor</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./src/waitFor.js</span><span class="dl">"</span>
+
+<span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://localhost:3001/number</span><span class="dl">"</span>
+  <span class="kd">const</span> <span class="p">{</span>
+    <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">},</span>
+  <span class="p">}</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
+
+  <span class="kd">const</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">waitFor</span><span class="p">({</span>
+    <span class="na">message</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Waiting...</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">condition</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">6</span> <span class="p">?</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">}</span> <span class="p">:</span> <span class="kc">false</span><span class="p">),</span>
+    <span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">stop</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(({</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">}</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">6</span><span class="p">)</span> <span class="nx">stop</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
+      <span class="p">})</span>
+    <span class="p">},</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+
+<span class="nx">fun</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Pero es mejor un vídeo para mostrar cómo funciona.</p>
+
+<div class="has-text-centered">
+  <video autoplay="" loop="" muted="" playsinline="">
+    <source src="https://halivert.dev/assets/video/function-wait-for.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<p>En fin, si tienes dudas o comentarios, puedes enviarme un mensaje.</p>
+
+<p>Adiós 👋🏽</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2021/10/function-wait-for/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2021/10/function-wait-for/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2021/10/function-wait-for/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

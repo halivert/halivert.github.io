@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1572834240">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/en/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Laravel routes in JavaScript | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Laravel routes in JavaScript" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="TL;DR With a Package https://github.com/halivert/laravel-js-routes We generally use JavaScript for the front-end in our applications, if we also use Laravel we notice that it includes a very useful wrapper called Laravel Mix, that can preprocess our JS files." />
+<meta property="og:description" content="TL;DR With a Package https://github.com/halivert/laravel-js-routes We generally use JavaScript for the front-end in our applications, if we also use Laravel we notice that it includes a very useful wrapper called Laravel Mix, that can preprocess our JS files." />
+<link rel="canonical" href="https://halivert.dev/blog/2019/11/laravel-js-routes/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/11/laravel-js-routes/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-11-03T20:24:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Laravel routes in JavaScript" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-11-03T20:24:00-06:00","datePublished":"2019-11-03T20:24:00-06:00","description":"TL;DR With a Package https://github.com/halivert/laravel-js-routes We generally use JavaScript for the front-end in our applications, if we also use Laravel we notice that it includes a very useful wrapper called Laravel Mix, that can preprocess our JS files.","headline":"Laravel routes in JavaScript","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/11/laravel-js-routes/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/11/laravel-js-routes/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Go to content</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Halivert's logo"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/projects/">Projects</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/about/">About me</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Search</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Search..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						Oops! I didn't find anything, but you can read this:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Keep reading
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Laravel routes in JavaScript</h1>
+					<small>
+						
+							<i>by</i>
+							<a href="https://halivert.dev/en/authors/halivert">Halí</a> -
+						
+
+						
+							<span
+								title="Original date: November 03, 2019">
+								<i>last modified on:</i>
+								July 05, 2020
+							</span>
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Laravel</span><span class="tag ">JavaScript</span><span class="tag is-emerald">Vue.js</span><span class="tag ">JSON</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>TL;DR With a Package
+<a href="https://github.com/halivert/laravel-js-routes">https://github.com/halivert/laravel-js-routes</a></p>
+
+<p>We generally use JavaScript for the front-end in our applications, if we also
+use <a href="https://laravel.com">Laravel</a> we notice that it includes a very useful wrapper called Laravel
+Mix, that can preprocess our JS files.</p>
+
+<!-- Keep reading -->
+
+<p>There’s a problem when we want to get some Laravel route in any JS module. A
+naive approach is to export all our routes into a JSON and then use a function
+that has a similar behavior but in JS.</p>
+
+<h3 id="code">Code</h3>
+<p>That’s why I crafted a Laravel command (usable with <code class="language-plaintext highlighter-rouge">php artisan</code>) composed by
+this code:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">use</span> <span class="nc">Illuminate\Console\Command</span><span class="p">;</span>
+<span class="kn">use</span> <span class="nc">Illuminate\Support\Facades\Route</span><span class="p">;</span>
+
+<span class="kd">class</span> <span class="nc">CreateJSRoutesCommand</span> <span class="kd">extends</span> <span class="nc">Command</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="n">handle</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="cm">/*
+       * When we call the command, this method executes
+       * first.
+       */</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">createFile</span><span class="p">(</span><span class="nv">$fileName</span><span class="p">,</span> <span class="nv">$contents</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="cm">/*
+       * This method creates a file with name equals to
+       * $fileName and content equals to $contents, it also
+       * asks if you want to overwrite the file in case
+       * another with same name exists.
+       */</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">function</span> <span class="n">includeRoute</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="nv">$routeName</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="cm">/*
+       * This function determines if a route must be included
+       * or not in our JSON, by default excludes telescope
+       * routes.
+       */</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="n">getJSPath</span><span class="p">(</span><span class="nv">$path</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="cm">/*
+       * This returns the route where our new file with JSON
+       * and function must be written.
+       */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">handle</code> function does most of the work, first we get Laravel routes, filter
+it and keep its URI.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$routes</span> <span class="o">=</span> <span class="nf">collect</span><span class="p">(</span>
+    <span class="nc">Route</span><span class="o">::</span><span class="nf">getRoutes</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">getRoutesByName</span><span class="p">()</span>
+  <span class="p">)</span><span class="o">-&gt;</span><span class="nf">filter</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$route</span><span class="p">,</span> <span class="nv">$key</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">includeRoute</span><span class="p">(</span><span class="nv">$route</span><span class="p">,</span> <span class="nv">$key</span><span class="p">);</span>
+  <span class="p">})</span><span class="o">-&gt;</span><span class="nf">map</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="nv">$route</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">[</span>
+      <span class="s1">'uri'</span> <span class="o">=&gt;</span> <span class="nv">$route</span><span class="o">-&gt;</span><span class="n">uri</span>
+    <span class="p">];</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>The content of our file will be composed of the JSON and function <code class="language-plaintext highlighter-rouge">route</code> so we
+start adding the var name and the content.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$jsonFlags</span> <span class="o">=</span> <span class="no">JSON_PRETTY_PRINT</span> <span class="o">|</span> <span class="no">JSON_UNESCAPED_UNICODE</span><span class="p">;</span>
+
+<span class="nv">$content</span> <span class="o">=</span> <span class="s1">'const routes = '</span><span class="p">;</span>
+<span class="nv">$content</span> <span class="mf">.</span><span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span><span class="nv">$routes</span><span class="p">,</span> <span class="nv">$jsonFlags</span><span class="p">);</span>
+<span class="nv">$content</span> <span class="mf">.</span><span class="o">=</span> <span class="s2">";</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Then we build the <code class="language-plaintext highlighter-rouge">route</code> function (it’s on a separate file)</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$content</span> <span class="mf">.</span><span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span>
+    <span class="k">__DIR__</span> <span class="mf">.</span> <span class="s1">'/../assets/js/routeFunction.js'</span>
+<span class="p">);</span>
+</code></pre></div></div>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// assets/js/routeFunction.js</span>
+
+<span class="c1">// This function receives as a route name and an array of</span>
+<span class="c1">// parameters</span>
+<span class="kd">const</span> <span class="nx">route</span> <span class="o">=</span> <span class="p">(</span><span class="nx">routeName</span><span class="p">,</span> <span class="nx">params</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// It searches in the stored routes one that match with the</span>
+  <span class="c1">// given name and if it doesn't exists throws an error</span>
+  <span class="kd">const</span> <span class="nx">_route</span> <span class="o">=</span> <span class="nx">routes</span><span class="p">[</span><span class="nx">routeName</span><span class="p">];</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">_route</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Requested route doesn't exist</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="kd">let</span> <span class="nx">uri</span> <span class="o">=</span> <span class="nx">_route</span><span class="p">.</span><span class="nx">uri</span><span class="p">;</span>
+
+  <span class="c1">// If an URI is found, replace the parameters with a RegEx</span>
+  <span class="c1">// (I don't know how I did it) and throws another error if</span>
+  <span class="c1">// there are missing parameters.</span>
+  <span class="c1">// Remaining parameters will be ignored.</span>
+
+  <span class="kd">const</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/g</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">const</span> <span class="nx">requiredParametersCount</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">params</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="nx">uri</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">i</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">extraParams</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">ac</span><span class="p">,</span> <span class="nx">match</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="dl">"</span><span class="s2">g</span><span class="dl">"</span><span class="p">),</span> <span class="nx">params</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+        <span class="k">delete</span> <span class="nx">ac</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+      <span class="p">}</span>
+      <span class="k">return</span> <span class="nx">ac</span><span class="p">;</span>
+    <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
+
+    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">extraParams</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">key</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">uri</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">i</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">extraParams</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">uri</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">"</span><span class="s2">}</span><span class="dl">"</span><span class="p">))</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
+
+  <span class="k">return</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">uri</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="k">export</span> <span class="p">{</span> <span class="nx">route</span> <span class="p">};</span>
+</code></pre></div></div>
+
+<p>Finally we create the file.</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$fileName</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">option</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span> <span class="o">??</span> <span class="nf">config</span><span class="p">(</span><span class="s1">'app.jsroutes.name'</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">createFile</span><span class="p">(</span><span class="nv">$fileName</span><span class="p">,</span> <span class="nv">$content</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">info</span><span class="p">(</span><span class="s2">"</span><span class="nv">$fileName</span><span class="s2"> created"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h3 id="installation">Installation</h3>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require halivert/laravel-js-routes
+</code></pre></div></div>
+
+<h3 id="before-use">Before use</h3>
+<p>If we already add the command to Laravel, then we execute it with</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php artisan route:tojs
+</code></pre></div></div>
+
+<p>Then we add the file to our <code class="language-plaintext highlighter-rouge">webpack.mix.js</code> file, so it can be processed.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mix</span><span class="p">.</span><span class="nx">js</span><span class="p">(</span><span class="dl">"</span><span class="s2">resources/js/routes</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/js</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>And after a <code class="language-plaintext highlighter-rouge">yarn prod</code> or <code class="language-plaintext highlighter-rouge">npm prod</code> we can use our <code class="language-plaintext highlighter-rouge">routes</code> function when we
+want to call a route by its name in a JS file.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">route</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./routes.js</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="use">Use</h3>
+<p>Use examples:</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">axios</span>
+  <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">route</span><span class="p">(</span><span class="dl">"</span><span class="s2">routeName</span><span class="dl">"</span><span class="p">,</span> <span class="p">[</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">]))</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">});</span>
+</code></pre></div></div>
+
+<p>I would love to read your comments
+Happy coding! 👋🏽</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/en/blog/2019/11/laravel-js-routes/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/en/blog/2019/11/laravel-js-routes/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/en/blog/2019/11/laravel-js-routes/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/en/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Articles written in this blog are under licence
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

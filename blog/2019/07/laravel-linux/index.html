@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1562675760">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Laravel en Linux Pt. 1 | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Laravel en Linux Pt. 1" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="En esta ocasión vamos a ver por que y como instalar el framework Laravel en un entorno Linux. Introducción Laravel es un framework escrito en PHP. Según la página oficial, está escrito para «Web artisans»." />
+<meta property="og:description" content="En esta ocasión vamos a ver por que y como instalar el framework Laravel en un entorno Linux. Introducción Laravel es un framework escrito en PHP. Según la página oficial, está escrito para «Web artisans»." />
+<link rel="canonical" href="https://halivert.dev/blog/2019/07/laravel-linux/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/07/laravel-linux/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-09T07:36:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Laravel en Linux Pt. 1" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-07-09T07:36:00-05:00","datePublished":"2019-07-09T07:36:00-05:00","description":"En esta ocasión vamos a ver por que y como instalar el framework Laravel en un entorno Linux. Introducción Laravel es un framework escrito en PHP. Según la página oficial, está escrito para «Web artisans».","headline":"Laravel en Linux Pt. 1","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/07/laravel-linux/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/07/laravel-linux/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Laravel en Linux Pt. 1</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<span
+								title="Fecha original: Julio 09, 2019">
+								<i>última modificación:</i>
+								Julio 22, 2019
+							</span>
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Laravel</span><span class="tag is-yellow">Linux</span><span class="tag ">PHP</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>En esta ocasión vamos a ver por que y como instalar el framework <a href="https://laravel.com">Laravel</a>
+en un entorno Linux.</p>
+
+<h3 id="introducción">Introducción</h3>
+<p>Laravel es un framework escrito en <a href="https://www.php.net">PHP</a>. Según la página oficial, está
+escrito para <em>«Web artisans»</em>.</p>
+
+<!-- Seguir leyendo -->
+
+<p>¿Por qué Laravel?</p>
+<ul>
+  <li>Puedes alcanzar velocidades de desarrollo bastante altas.</li>
+  <li>Está escrito en PHP, así que muchos servidores lo soportan.</li>
+  <li>El manejo de bases de datos es muy sencillo.</li>
+  <li>El código se encuentra bastante bien estructurado.</li>
+  <li>Puedes integrarlo fácilmente con frameworks de javascript como <a href="https://vuejs.org">Vue.js</a>.</li>
+</ul>
+
+<h3 id="requisitos">Requisitos</h3>
+<p>Necesitamos PHP, un buen editor, una terminal, <a href="https://getcomposer.org">composer</a> y opcionalmente
+un administrador de paquetes JS (<a href="https://www.npmjs.com">npm</a> o <a href="https://yarnpkg.com/es-ES/">yarn</a>).</p>
+
+<h3 id="instalación">Instalación</h3>
+<p>Para el instalador de Laravel, utilizaremos composer, con el siguiente comando
+en nuestra terminal:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer global require laravel/installer
+</code></pre></div></div>
+<p>y listo, para crear una aplicación, solo tenemos que escribir:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>laravel new <span class="o">[</span>Nombre de la aplicación]
+<span class="c"># Ejemplo</span>
+<span class="c"># laravel new indigo-toupee</span>
+</code></pre></div></div>
+<p>al final resultará algo como esto…</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-07-laravel-linux/laravel-new.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-07-laravel-linux/laravel-new.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-07-laravel-linux/laravel-new.png" alt="laravel new indigo-toupee" /></picture></a></p>
+
+<p>ahora cambiamos al nuevo directorio que acabamos de crear, y escribiendo:</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php artisan serve
+</code></pre></div></div>
+<p>podemos entrar al vínculo que nos dice para ver nuestra aplicación.</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-07-laravel-linux/php-artisan-serve.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-07-laravel-linux/php-artisan-serve.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-07-laravel-linux/php-artisan-serve.png" alt="php artisan serve" /></picture></a></p>
+
+<p>y la aplicación vacía se ve…</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-07-laravel-linux/laravel-app.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-07-laravel-linux/laravel-app.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-07-laravel-linux/laravel-app.png" alt="localhost:8000" /></picture></a></p>
+
+<p>En el siguiente artículo de esta serie, veremos como utilizar esta aplicación
+en un servidor Apache y que otras cosas podemos hacer con Laravel.</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2019/07/laravel-linux/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/07/laravel-linux/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/07/laravel-linux/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

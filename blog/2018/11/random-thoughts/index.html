@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1543360560">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Random thoughts: Ep. 1 | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Random thoughts: Ep. 1" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="La Internet es muy poderosa, y además increíblemente vasta; yo por mi parte consumo bastante contenido de esta bonita red y quiero contar un poco de eso. YouTube Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto tiempo ha pasado desde cierto evento)" />
+<meta property="og:description" content="La Internet es muy poderosa, y además increíblemente vasta; yo por mi parte consumo bastante contenido de esta bonita red y quiero contar un poco de eso. YouTube Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto tiempo ha pasado desde cierto evento)" />
+<link rel="canonical" href="https://halivert.dev/blog/2018/11/random-thoughts/" />
+<meta property="og:url" content="https://halivert.dev/blog/2018/11/random-thoughts/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:image" content="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-27T17:16:00-06:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif" />
+<meta property="twitter:title" content="Random thoughts: Ep. 1" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2018-11-27T17:16:00-06:00","datePublished":"2018-11-27T17:16:00-06:00","description":"La Internet es muy poderosa, y además increíblemente vasta; yo por mi parte consumo bastante contenido de esta bonita red y quiero contar un poco de eso. YouTube Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto tiempo ha pasado desde cierto evento)","headline":"Random thoughts: Ep. 1","image":"https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2018/11/random-thoughts/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2018/11/random-thoughts/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Random thoughts: Ep. 1</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Noviembre 27, 2018
+						
+					</small>
+				</header>
+				
+					<div class="column is-4-desktop has-text-right"><a
+	id=""
+	target="_blank"
+	rel="noopener noreferrer"
+	href="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif"><picture  class="image post-image is-fullwidth">
+		<source
+					srcset="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.webp"
+					type="image/webp" /><img
+					class="image post-image is-fullwidth"
+					loading="lazy"
+					src="https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title.gif"
+					alt="Persona surfeando" /></picture></a>
+					</div>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Internet</span><span class="tag is-red">Quora</span><span class="tag ">Compartir</span><span class="tag ">Conocimiento</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>La Internet es muy poderosa, y además increíblemente vasta; yo por mi
+parte consumo bastante contenido de esta bonita red y quiero contar un
+poco de eso.</p>
+
+<h2 id="youtube"><a href="https://www.youtube.com">YouTube</a></h2>
+<p>Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto
+tiempo ha pasado desde cierto evento)<!-- Seguir leyendo -->comenzé a seguir
+algunos canales que me parecieron interesantes, el primero que recuerdo fue <a href="https://www.youtube.com/user/ElRobotdePlaton">El
+robot de platón</a> que es un canal que trata temas de ciencia de una manera
+sencilla y además está en español, también canales en inglés (no sé realmente
+por qué si nunca he sido fluido en ese idioma, y en ese entonces menos, pero
+igual los seguí) como <a href="https://www.youtube.com/user/Vsauce">Vsauce</a>, la cosa es que hacía mucho tiempo que no
+frecuentaba estos vídeos y tiempo después, hace pocas semanas, decidí volver a
+consumir dicho contenido.</p>
+
+<p>Lo interesante de estos “youtubers” es que no son los típicos
+creadores de click-baits que tienen millones de suscriptores y views
+únicamente por el morbo que generan sus miniaturas y los títulos de sus
+vídeos (i.e. <em>10 cosas que nunca deberías buscar en google</em>) sino que
+son, desde mi particular punto de vista, vídeos que generan interés,
+pero no desde una manera amarillista ya que generalmente cuentan con las
+fuentes en la descripción, sino que buscan llamar la atención divulgando
+la ciencia de diferentes maneras.</p>
+
+<p>Creo que ese altruismo de enseñar a otros, cosas de las que se está
+seguro y de las cuales existen fuentes fiables, es importante en el
+avance de la humanidad. De hecho, en gran parte por eso existe este
+blog.</p>
+
+<h2 id="quora"><a href="https://www.quora.com">Quora</a></h2>
+<p>Sitio en el que personas random realizan preguntas y que a su vez pueden
+ser respondidas por otras personas random.</p>
+
+<p>No recuerdo cuando me registré en el sitio, pero <em>what a good decision</em>;
+como en la mayoría de sitios en los que me registro, lo use durante un
+breve espacio de tiempo y lo dejé, pero posteriormente volví, creo que
+debido al “Quora digest” que me llegaba semanalmente (o diario, no
+recuerdo bien) y que contenía preguntas bastante interesantes, con el
+preview de una respuesta que parecía satisfactoria.</p>
+
+<p>Ahora suelo frecuentar más dicho sitio debido a estos boletines que cada
+vez son más de mi interés (gracias redes neuronales), en todo caso,
+aprendo de personas que espero sean reales, puedo ver sus puntos de
+vista, las experiencias que han vivido y como es que su forma de pensar
+les ha llevado hasta allá (donde sea que estén).</p>
+
+<hr />
+
+<p>Eso me lleva a pensar de nuevo en todo el conocimiento que se va
+acumulando en la Internet, se trata de años de experiencia de personas
+que contribuyen a que otras aprendan lo que ellos saben, pero de una
+manera (generalmente) menos complicada, pues eso, que incluso gente
+joven, quizá de 18 años, tiene acceso a lo que a una persona le tomó
+40 años aprender.</p>
+
+<p>No creas que una persona por ser menor que tú, no puede aportar nada a
+tu vida, quizá ya ha aprendido de la vida de otros, cosas que pueden
+serte de utilidad.</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2018/11/random-thoughts/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2018/11/random-thoughts/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2018/11/random-thoughts/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1593321960">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Sí, uso Dvorak | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Sí, uso Dvorak" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es la unica distribución que existe, y me dispuse a aprender a escribir en otra, Dvorak, que obtiene su nombre de su creador: August Dvorak" />
+<meta property="og:description" content="Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es la unica distribución que existe, y me dispuse a aprender a escribir en otra, Dvorak, que obtiene su nombre de su creador: August Dvorak" />
+<link rel="canonical" href="https://halivert.dev/blog/2020/06/yep-i-use-dvorak/" />
+<meta property="og:url" content="https://halivert.dev/blog/2020/06/yep-i-use-dvorak/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:image" content="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-28T00:26:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png" />
+<meta property="twitter:title" content="Sí, uso Dvorak" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2020-06-28T00:26:00-05:00","datePublished":"2020-06-28T00:26:00-05:00","description":"Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es la unica distribución que existe, y me dispuse a aprender a escribir en otra, Dvorak, que obtiene su nombre de su creador: August Dvorak","headline":"Sí, uso Dvorak","image":"https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2020/06/yep-i-use-dvorak/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2020/06/yep-i-use-dvorak/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Sí, uso Dvorak</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Junio 28, 2020
+						
+					</small>
+				</header>
+				
+					<div class="column is-4-desktop has-text-right"><a
+	id=""
+	target="_blank"
+	rel="noopener noreferrer"
+	href="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png"><picture  class="image post-image is-fullwidth">
+		<source
+					srcset="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.webp"
+					type="image/webp" /><img
+					class="image post-image is-fullwidth"
+					loading="lazy"
+					src="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png"
+					alt="Teclado Dvorak" /></picture></a>
+					</div>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Teclado</span><span class="tag ">Distribución</span><span class="tag ">Dvorak</span><span class="tag ">QWERTY</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es
+la unica distribución que existe, y me dispuse a aprender a escribir en otra,
+Dvorak, que obtiene su nombre de su creador:
+August Dvorak<!-- Seguir leyendo -->, cuyo objetivo es disminuir los errores,
+aumentar la velocidad y reducir la fatiga ya que requiere menos movimientos de
+los dedos. <sup class="ref"><a href="https://en.wikipedia.org/wiki/Dvorak_keyboard_layout">1</a></sup></p>
+
+<p>Está optimizada para su uso en inglés, pero la variación en español solo tiene
+dos cambios, ya que se agrega la <i>ñ</i> y la letra <i>h</i> no se utiliza
+tanto cómo lo hace la <i>r</i>.</p>
+
+<p>Sin embargo, como los lenguajes de programación que utilizo se escriben en
+inglés, me decanté por la distribución en este idioma.</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/dvorak.png"><picture>
+		<source srcset="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/dvorak.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/dvorak.png" alt="Distribución dvorak" /></picture></a></p>
+
+<h2 id="velocidad">Velocidad</h2>
+
+<p>La velocidad al escribir generalmente se mide en un minuto y se considera que
+una palabra está conformada por 5 letras.</p>
+
+<p>Usando QWERTY, comenzaba a medir mi velocidad en páginas como <a href="https://10fastfingers.com/typing-test/english">10fastfingers</a>
+y con programas como <a href="http://typespeed.sourceforge.net/">typespeed</a> pero lo cierto es que nunca llegué a ser
+demasiado rápido, y aunque escribía sin voltear a ver el teclado, solamente
+alcanzaba velocidades de 70 wps (palabras por minuto) y muchas veces me
+equivocaba.</p>
+
+<h3 id="cambio-a-dvorak">Cambio a Dvorak</h3>
+
+<p>Desde que comenzé a escribir con esta otra distribución me centré en la
+velocidad y el tratar de evitar los errores lo más que pudiera.</p>
+
+<p>Actualmente escribo en promedio 80 wps y aunque tampoco es lo más rápido que me
+gustaría escribir, me siento cómodo con ello.</p>
+
+<p><a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-typespeed.png"><picture>
+		<source srcset="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-typespeed.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-typespeed.png" alt="Puntuación typespeed" /></picture></a>
+<br />
+<a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-10fastfingers.png"><picture>
+		<source srcset="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-10fastfingers.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/score-10fastfingers.png" alt="Puntuación 10fastfingers" /></picture></a></p>
+
+<h2 id="facilidad">Facilidad</h2>
+
+<p>Llegar a esa velocidad no me fue sencillo, al principio tenía que visualizar en
+pantalla sobre que teclas estaban mis dedos ya que mi teclado no cambió
+físicamente, seguía teniendo las teclas en la distribución QWERTY, sin embargo
+con el tiempo y mucha práctica se me fue haciendo de lo más normal.</p>
+
+<h2 id="comodidad">Comodidad</h2>
+
+<p>En cuanto a ergonomía Dvorak es muy superior y eso es obvio en vista de que fue
+diseñado con el fin de facilitar la escritura en el, no complicarla, como lo fue
+en el caso de nuestra más conocida distribución.</p>
+
+<p>Me gusta mucho que tiene las 5 vocales de un lado para que una sola mano se
+encarge de ellas y como resultado puedas alternar la escritura entre las dos
+llevando un buen ritmo.</p>
+
+<p>En fin que hay que intentar cosas nuevas porque algunas de ellas son buenas.
+Espero que con esto te animes a escribir con la distribución Dvorak.</p>
+
+<p>Adiós 👋🏽</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2020/06/yep-i-use-dvorak/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2020/06/yep-i-use-dvorak/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2020/06/yep-i-use-dvorak/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

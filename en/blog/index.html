@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/en/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/en/blog/" />
+<meta property="og:url" content="https://halivert.dev/en/blog/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/en/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Go to content</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Halivert's logo"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/projects/">Projects</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/about/">About me</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Search</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Search..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						Oops! I didn't find anything, but you can read this:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Keep reading
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section  ">
+  <div class="columns">
+	<div class="column is-9-desktop">
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/11/mp4-to-gif/">
+						Convert mp4 to gif
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>We, dev people, have the need to post evidence of different behaviors of our
+desktop in many places (issues, documentation, blogs, etc.).</p>
+
+<p>In this post, We’ll learn how to convert an mp4 file to gif in two simple steps.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<ul>
+  <li><a href="https://imagemagick.org">ImageMagick</a></li>
+  <li><a href="https://ffmpeg.org">FFmpeg</a></li>
+</ul>
+
+<h3 id="instructions">Instructions</h3>
+<p>First, we need to extract the frames from our video. FFmpeg can do it with the
+next command:</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/11/mp4-to-gif/">
+			Keep reading
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		November 15, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/11/laravel-js-routes/">
+						Laravel routes in JavaScript
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>TL;DR With a Package
+<a href="https://github.com/halivert/laravel-js-routes">https://github.com/halivert/laravel-js-routes</a></p>
+
+<p>We generally use JavaScript for the front-end in our applications, if we also
+use <a href="https://laravel.com">Laravel</a> we notice that it includes a very useful wrapper called Laravel
+Mix, that can preprocess our JS files.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/11/laravel-js-routes/">
+			Keep reading
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		July 05, 2020
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
+						Vim macros for Bulma
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>When you use a CSS framework as flexible as <a href="https://bulma.io">Bulma</a>, you want to have only
+the necessary components and no more. When you create your own “theme” you can
+import only the components and elements that you want to use.</p>
+
+<p>Now, what happens when you’re not sure which files contain which rules?
+<strong>Import everything</strong> and then comment on those that are not necessary in that
+moment.</p>
+
+<p>But… How do we import all the components and elements of Bulma, easily?</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
+			Keep reading
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		July 23, 2019
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/en/blog/2017/12/update/">
+						Update
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>In this place I’ll begin to update problems that I’ve solved (in programming,
+math and music fields) hoping that my solutions can help you and for remember
+for myself.
+<br /><br />
+I’ll open a new category called “I were there”, like in my <a href="https://halivert.wordpress.com">wordpress blog</a>,
+and I’ll prefer this page for those posts.</p>
+
+</div>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		December 20, 2017
+	
+</div>
+
+				<br />
+			</section>
+		
+		
+
+	</div>
+	<aside class="column">
+		<div class="container is-fluid has-text-centered">
+	<h1 class="subtitle">Categories</h1>
+	<div><a class="sidebar-item" href="https://halivert.dev/en/blog/rambling"
+				>Rambling</a
+			><a class="sidebar-item" href="https://halivert.dev/en/blog/i-were-there"
+				>I were there</a
+			><a class="sidebar-item" href="https://halivert.dev/en/blog/code"
+				>Code!</a
+			><a class="sidebar-item" href="https://halivert.dev/en/blog/news"
+				>News</a
+			><a class="sidebar-item" href="https://halivert.dev/en/blog/maths"
+				>Math</a
+			><a class="sidebar-item" href="https://halivert.dev/en/blog/myspace"
+				>MySpace</a
+			></div>
+</div>
+
+	</aside>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/en/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Articles written in this blog are under licence
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

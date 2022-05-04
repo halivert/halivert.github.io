@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>¡Código! | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="¡Código!" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/blog/code/" />
+<meta property="og:url" content="https://halivert.dev/blog/code/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="website" />
+<link rel="next" href="https://halivert.dev/blog/code/2/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="¡Código!" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"¡Código!","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/code/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li></ul>
+
+		
+	</aside></div>
+
+
+<main id="main-container" class="section  ">
+  <div class="category-header">
+  <h3 class="title is-1">¡Código!</h3>
+  <div class="subtitle">
+    Aquí comparto snippets de código que me ha servido, también intento
+explicarlo... pero no esperen mucho de eso.
+
+  </div>
+</div>
+
+<div class="columns mt-6">
+  <div class="column is-9-desktop">
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/blog/2021/10/function-wait-for/">
+            Función para esperar algo
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div><p>En este artículo quiero mostrarte algunas cosas acerca del lenguaje de
+programación JavaScript mediante el uso de una función que servirá para
+«esperar».</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/10/function-wait-for/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Octubre 09, 2021
+	
+</div>
+
+        <br>
+      </div>
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/blog/2021/09/petite-vue/">
+            Comenzando con petite-vue
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div>
+<p>¿Por qué conformarnos con un framework (Vue), cuando podemos tener una
+versión «minimizada» de este, con un coste menor tanto de construcción como de
+carga?</p>
+
+<p><a href="https://github.com/vuejs/petite-vue">petite-vue</a> apunta justo a eso.</p>
+
+<p>Pero, ¿qué es justamente y cómo se usa? Veámoslo.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/09/petite-vue/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Septiembre 14, 2021
+	
+</div>
+
+        <br>
+      </div>
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/blog/2018/03/c++-matrices/">
+            Matrices en C++
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div><p>Hace algún tiempo asistí al club de algoritmia de la ESCOM, en realidad nunca
+llegué a ser tan bueno como las personas de ahí, pero en ese lugar fue donde
+mejoré mi estilo de programación (aunque aún puede mejorar más… y mucho) y
+aprendí algunos trucos.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2018/03/c++-matrices/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Marzo 10, 2018
+	
+</div>
+
+        <br>
+      </div>
+    
+    
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		
+			<a class="pagination-previous is-hidden-touch" disabled>
+				<i class="fas fa-hand-point-left"></i>
+			</a>
+		
+
+		<ul class="pagination-list">
+			
+			
+
+			<li>
+				<a
+					
+						class="pagination-link button is-current"
+						aria-current="page"
+					
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
+
+			
+
+			
+				
+					
+				
+					
+				
+			
+
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/code/2/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 2"
+					>2</a
+				>
+			</li>
+		</ul>
+
+		
+			<a
+				href="https://halivert.dev/blog/code/2/"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		
+	</nav>
+
+
+  </div>
+  <div class="column">
+    <div class="container is-fluid has-text-centered">
+	<h1 class="subtitle">Categorías</h1>
+	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
+				>Divagando</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/i-were-there"
+				>Ya me pasó</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/code"
+				>¡Código!</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/news"
+				>Novedades</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/maths"
+				>Matemáticas</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/myspace"
+				>MySpace</a
+			></div>
+</div>
+
+  </div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

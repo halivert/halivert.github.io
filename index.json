@@ -1,0 +1,333 @@
+
+
+{"/blog/2021/11/which-browser-to-use": {
+			"title": "¿Qué navegador usar?",
+			"author": "Halí",
+			"categories": ["MySpace"],
+			"tags": ["Navegador","Funcionalidad"],
+			"content": "<p>Necesitas un navegador para entrar a Internet. Y seguramente usas uno a diario.\nPero, ¿qué es precisamente un navegador? ¿Qué navegador podría ser mejor para\nti?</p>\n\n<h2 id=\"qué-es-un-navegador\">¿Qué es un navegador?</h2>\n\n<p>Un navegador es un software que te permite <strong>navegar</strong> por internet. Es decir,\nvisualizar páginas web y aplicaciones web. Como cualquier otro software, existen\nuna gran variedad de navegadores y muchos sirven a diferentes propósitos.</p>","url": "https://halivert.dev/blog/2021/11/which-browser-to-use/",
+			"continue": 1,
+			"date": "Noviembre 24, 2021",
+			"last_modification": ""
+		},"/blog/2021/10/function-wait-for": {
+			"title": "Función para esperar algo",
+			"author": "Halí",
+			"categories": ["¡Código!"],
+			"tags": ["JavaScript","Funciones"],
+			"content": "<p>En este artículo quiero mostrarte algunas cosas acerca del lenguaje de\nprogramación JavaScript mediante el uso de una función que servirá para\n«esperar».</p>","url": "https://halivert.dev/blog/2021/10/function-wait-for/",
+			"continue": 1,
+			"date": "Octubre 09, 2021",
+			"last_modification": ""
+		},"/blog/2021/09/petite-vue": {
+			"title": "Comenzando con petite-vue",
+			"author": "Halí",
+			"categories": ["Novedades","¡Código!"],
+			"tags": ["Vue.js","JavaScript","HTML","Sitio estático"],
+			"content": "<p>¿Por qué conformarnos con un framework (Vue), cuando podemos tener una\nversión «minimizada» de este, con un coste menor tanto de construcción como de\ncarga?</p>\n\n<p><a href=\"https://github.com/vuejs/petite-vue\">petite-vue</a> apunta justo a eso.</p>\n\n<p>Pero, ¿qué es justamente y cómo se usa? Veámoslo.</p>","url": "https://halivert.dev/blog/2021/09/petite-vue/",
+			"continue": 1,
+			"date": "Septiembre 05, 2021",
+			"last_modification": "Septiembre 14, 2021"
+		},"/blog/2021/03/create-pdf-with-html-and-css": {
+			"title": "Crear un PDF con HTML y CSS",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Web","HTML"],
+			"content": "<p>Para crear PDF existen una gran variedad de herramientas; personalmente\nencuentro el uso de HTML y CSS sencillo, por lo que quiero mostrarte cómo hacer\nun PDF a partir de estos dos lenguajes de programación</p>","url": "https://halivert.dev/blog/2021/03/create-pdf-with-html-and-css/",
+			"continue": 1,
+			"date": "Marzo 17, 2021",
+			"last_modification": ""
+		},"/blog/2021/03/how-to-google": {
+			"title": "Como googlear",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Google","Principiantes","Programación"],
+			"content": "<p>Googlear, es decir, buscar información con un buscador web (específicamente\nGoogle) no es una tarea trivial, y conforme pasa el tiempo se convierte en algo\ncada vez más difícil ya que hace falta criterio para encontrar lo que buscas.\nSin embargo es una tarea escencial en el ámbito de la programación.</p>","url": "https://halivert.dev/blog/2021/03/how-to-google/",
+			"continue": 1,
+			"date": "Marzo 13, 2021",
+			"last_modification": ""
+		},"/blog/2021/02/how-to-ask": {
+			"title": "Cómo preguntar",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Preguntar","Principiantes"],
+			"content": "<p>¿Por qué es tan importante saber preguntar? Bueno, haciendo las preguntas\nadecuadas llegas más rápido a la respuesta que buscas.</p>\n\n<p>Y primero lo primero, si algo hace falta a la hora de resolver problemas es\nentender precisamente <strong>cual es el problema</strong>. Así que una vez identificado,\ntienes que preguntar…</p>","url": "https://halivert.dev/blog/2021/02/how-to-ask/",
+			"continue": 1,
+			"date": "Febrero 22, 2021",
+			"last_modification": ""
+		},"/blog/2020/06/yep-i-use-dvorak": {
+			"title": "Sí, uso Dvorak",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Teclado","Distribución","Dvorak","QWERTY"],
+			"content": "<p>Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es\nla unica distribución que existe, y me dispuse a aprender a escribir en otra,\nDvorak, que obtiene su nombre de su creador:\nAugust Dvorak</p>","image": "https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover",
+				"image_types": "webp:image/webp,png:image/png","image_alt": "Teclado Dvorak","url": "https://halivert.dev/blog/2020/06/yep-i-use-dvorak/",
+			"continue": 1,
+			"date": "Junio 28, 2020",
+			"last_modification": ""
+		},"/blog/2020/05/laravel-queue-shared-host": {
+			"title": "Tareas en cola, Laravel (Servidor compartido)",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Laravel","Host","Servidor"],
+			"content": "<p>No quería demasiado retraso en las peticiones que enviaban un correo, así que\ndecidí utilizar el <code class=\"language-plaintext highlighter-rouge\">QUEUE_CONNECTION=database</code> en el archivo de configuración\n(.env) y así comienza ese “largo” camino a usar una cola en Laravel para ciertas\ntareas que llevan poco más de 1 segundo, en este caso notificaciones.</p>","url": "https://halivert.dev/blog/2020/05/laravel-queue-shared-host/",
+			"continue": 1,
+			"date": "Mayo 31, 2020",
+			"last_modification": ""
+		},"/blog/2020/04/telegram-desktop-shortcuts": {
+			"title": "Atajos para Telegram Desktop",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Telegram","Atajos"],
+			"content": "<p><a href=\"https://telegram.org\">Telegram</a>, seguramente habrás escuchado hablar de esta aplicación de\nmensajería instantánea, y en este post no me concentraré en porqué es mejor que\notras aplicaciones, sino en porque me gusta utilizarla.</p>","url": "https://halivert.dev/blog/2020/04/telegram-desktop-shortcuts/",
+			"continue": 1,
+			"date": "Abril 04, 2020",
+			"last_modification": ""
+		},"/blog/2019/11/mp4-to-gif": {
+			"title": "Convertir MP4 a GIF",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["MP4","GIF","ImageMagick","FFmpeg"],
+			"content": "<p>En este post vamos a aprender a convertir un MP4 a GIF con dos sencillos\npasos.</p>\n\n<h3 id=\"requisitos\">Requisitos</h3>\n\n<ul>\n  <li><a href=\"https://imagemagick.org\">ImageMagick</a></li>\n  <li><a href=\"https://ffmpeg.org\">FFmpeg</a></li>\n</ul>\n\n<h3 id=\"instrucciones\">Instrucciones</h3>\n\n<p><a class=\"anchor\" name=\"Extra1Up\"></a>\nPrimero convertimos nuestro vídeo a imagenes. FFmpeg puede realizarlo con el\nsiguiente comando:</p>","url": "https://halivert.dev/blog/2019/11/mp4-to-gif/",
+			"continue": 1,
+			"date": "Noviembre 15, 2019",
+			"last_modification": ""
+		},"/blog/2019/11/laravel-js-routes": {
+			"title": "Cómo utilizar rutas de Laravel en JS",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Laravel","JavaScript","Vue.js","JSON"],
+			"content": "<p>TL;DR Con un paquete<br />\n<a href=\"https://github.com/halivert/laravel-js-routes\">https://github.com/halivert/laravel-js-routes</a></p>\n\n<p>Generalmente utilizamos JavaScript para el front-end de nuestras aplicaciones,\nsi además empleamos <a href=\"https://laravel.com\">Laravel</a>, notaremos que incluye un módulo muy útil\nllamado Webpack Mix, que nos ayuda a preprocesar nuestros archivos JS.</p>","url": "https://halivert.dev/blog/2019/11/laravel-js-routes/",
+			"continue": 1,
+			"date": "Noviembre 03, 2019",
+			"last_modification": "Julio 05, 2020"
+		},"/blog/2019/10/vue-select": {
+			"title": "Select en Vue.js",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Vue.js","Select"],
+			"content": "<div class=\"notification is-yellow\">\n  <p>Este artículo fue escrito hace más de un año; en la actualidad\nutilizo la biblioteca <a href=\"https://buefy.org/\">Buefy</a>, que resulta más práctica y\nmejor implementada, sugiero utilizar dicha biblioteca con una capa de\npersonalización, que no tiene que ser tan extrema como la planteada en este\nartículo y de la que escribiré pronto.</p>\n</div>\n\n<p>Si utilizas <a href=\"https://vuejs.org\">Vue.js</a> seguramente sabrás que hacer componentes genéricos es\nuna de las mejores inversiones de tiempo. Escribes código una vez (en el mejor\nde los casos) y las siguientes solo lo reutilizas.</p>\n\n<p>Sin embargo crear un componente que funcione adecuadamente no siempre es\nsencillo, es por eso que escribo esta guía para hacer un select personalizado.</p>","url": "https://halivert.dev/blog/2019/10/vue-select/",
+			"continue": 1,
+			"date": "Octubre 14, 2019",
+			"last_modification": "Enero 15, 2021"
+		},"/blog/2019/09/two-step-verification": {
+			"title": "Verificación en dos pasos",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Seguridad","Verificación"],
+			"content": "<p>Muchos sistemas son realmente seguros. Hablando de redes sociales y sitios en\ndonde tienes que escribir un usuario y contraseña para iniciar sesión podemos\ndecir que la tecnología ha avanzado bien, en la mayoría de los casos (en los\nque no se guarda la contraseña como texto plano) es prácticamente imposible\ndescifrarla (hasta ahora…).</p>","url": "https://halivert.dev/blog/2019/09/two-step-verification/",
+			"continue": 1,
+			"date": "Septiembre 25, 2019",
+			"last_modification": ""
+		},"/blog/2019/07/vim-macro-for-bulma": {
+			"title": "Macros de Vim para Bulma",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Vim","Productividad"],
+			"content": "<p>Cuando utilizas un framework de CSS tan flexible como <a href=\"https://bulma.io\">Bulma</a>, deseas tener\nlos componentes necesarios y no más. Cuando creas tu propio «tema» puedes\nimportar únicamente los componentes y elementos que deseas utilizar.</p>\n\n<p>Ahora bien ¿qué pasa si no estás seguro de qué archivos contienen que\ncosa? <strong>Importa todo</strong> y despues comenta los que no son necesarios en ese\nmomento.</p>\n\n<p>Pero ¿cómo importamos todos los elementos y componentes de Bulma, fácilmente?</p>","url": "https://halivert.dev/blog/2019/07/vim-macro-for-bulma/",
+			"continue": 1,
+			"date": "Julio 23, 2019",
+			"last_modification": ""
+		},"/blog/2019/07/laravel-linux": {
+			"title": "Laravel en Linux Pt. 1",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Laravel","Linux","PHP"],
+			"content": "<p>En esta ocasión vamos a ver por que y como instalar el framework <a href=\"https://laravel.com\">Laravel</a>\nen un entorno Linux.</p>\n\n<h3 id=\"introducción\">Introducción</h3>\n<p>Laravel es un framework escrito en <a href=\"https://www.php.net\">PHP</a>. Según la página oficial, está\nescrito para <em>«Web artisans»</em>.</p>","url": "https://halivert.dev/blog/2019/07/laravel-linux/",
+			"continue": 1,
+			"date": "Julio 09, 2019",
+			"last_modification": "Julio 22, 2019"
+		},"/blog/2019/06/binary-clock": {
+			"title": "Reloj binario",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Hora","Aprender"],
+			"content": "<p>En este post les comparto un tip para practicar la lectura de números\nbinarios.</p>\n\n<h3 id=\"la-práctica-hace-al-maestro\">«La práctica hace al maestro»</h3>","image": "https://halivert.dev/assets/2019-06-binary-clock/binary-clock",
+				"image_types": "webp:image/webp,png:image/png","image_alt": "Reloj binario que marca las 23:53:49","url": "https://halivert.dev/blog/2019/06/binary-clock/",
+			"continue": 1,
+			"date": "Junio 17, 2019",
+			"last_modification": ""
+		},"/blog/2019/03/mathematical-induction": {
+			"title": "Inducción matemática",
+			"author": "Halí",
+			"categories": ["Matemáticas"],
+			"tags": ["Inducción"],
+			"content": "<p>En esta entrega del primer artículo de la sección <a href=\"/blog/matematicas\">Matemáticas</a> les voy a\nmostrar una herramienta muy poderosa en el pensamiento matemático, la\n<strong>inducción matemática</strong>.</p>","url": "https://halivert.dev/blog/2019/03/mathematical-induction/",
+			"continue": 1,
+			"date": "Marzo 01, 2019",
+			"last_modification": ""
+		},"/blog/2019/02/i-have-a-succulent": {
+			"title": "Tengo una suculenta",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Suculenta","Planta","Julieta"],
+			"content": "<p><em>Graptopetalum paraguayense</em> es el nombre que recibe una planta suculenta\noriunda de Tamaulipas, México.</p>\n\n<p>La obtuve como un regalo, y es curioso que antes me habían regalado una similar\ntambién, solo que entendí mal los cuidados que debía darle.</p>","image": "https://halivert.dev/assets/2019-02-i-have-a-succulent/20190201",
+				"image_types": "webp:image/webp,jpg:image/jpeg","image_alt": "Mi suculenta llamada 'Julieta'","url": "https://halivert.dev/blog/2019/02/i-have-a-succulent/",
+			"continue": 1,
+			"date": "Febrero 02, 2019",
+			"last_modification": ""
+		},"/blog/2019/01/search-bar": {
+			"title": "Barra de búsqueda",
+			"author": "Halí",
+			"categories": ["Novedades"],
+			"tags": ["Búsqueda","Jekyll","Lunr","JavaScript"],
+			"content": "<h4 id=\"ahora-hay-una-barra-de-búsqueda-disponible-en-el-blog\">Ahora hay una barra de búsqueda disponible en el blog</h4>\n\n<p>Llega a ustedes gracias a la biblioteca <a href=\"https://lunrjs.com\">lunr.js</a> que funciona para crear\nun índice de búsqueda en un sitio (estático en este caso) y que no necesita\nservidores externos, u otros servicios de búsqueda.</p>","url": "https://halivert.dev/blog/2019/01/search-bar/",
+			"continue": 1,
+			"date": "Enero 29, 2019",
+			"last_modification": "Febrero 17, 2021"
+		},"/blog/2019/01/flask-restplus": {
+			"title": "Flask RESTPlus",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Python","Flask","API"],
+			"content": "<p>Si ya tienes el entorno listo para alojar una aplicación web escrita en Python\n(si no, puedes verlo en <a href=\"https://halivert.dev/blog/2019/01/wsgi-apache/\">esta publicación</a>), entonces te preguntarás como\nescribir dicha aplicación.</p>\n\n<p>Desde hace un tiempo, me volví aficionado a crear APIs, así que les mostraré\ncómo hacer una en Python.</p>","url": "https://halivert.dev/blog/2019/01/flask-restplus/",
+			"continue": 1,
+			"date": "Enero 24, 2019",
+			"last_modification": ""
+		},"/blog/2019/01/wsgi-apache": {
+			"title": "WSGI en Apache",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Python","Apache","Servidor","Windows"],
+			"content": "<p>Un día, desperté con la necesidad de hacer una API RESTful en Python, tenía que\nser en un «servidor» Windows y me puse a investigar.</p>\n\n<p>En esta publicación documentaré como utilizar el módulo WSGI, necesario para\nalojar una aplicación web escrita en Python.</p>\n\n<h3 id=\"prerrequisitos\">Prerrequisitos</h3>\n<ul>\n  <li><a href=\"https://www.python.org\">Python</a> (Usé Python 3.7)</li>\n  <li><a href=\"https://www.apachelounge.com\">Apache</a> (Usé Apache Lounge 2.4)\n<a class=\"anchor\" name=\"Nota1Up\"></a></li>\n  <li><a href=\"https://visualstudio.microsoft.com/downloads\">Microsoft Visual C++</a> <a href=\"https://halivert.dev/blog/2019/01/wsgi-apache/#Nota1\">*</a></li>\n</ul>","url": "https://halivert.dev/blog/2019/01/wsgi-apache/",
+			"continue": 1,
+			"date": "Enero 23, 2019",
+			"last_modification": "Febrero 21, 2019"
+		},"/blog/2018/11/random-thoughts": {
+			"title": "Random thoughts: Ep. 1",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Internet","Quora","Compartir","Conocimiento"],
+			"content": "<p>La Internet es muy poderosa, y además increíblemente vasta; yo por mi\nparte consumo bastante contenido de esta bonita red y quiero contar un\npoco de eso.</p>\n\n<h2 id=\"youtube\"><a href=\"https://www.youtube.com\">YouTube</a></h2>\n<p>Hace como… bastante tiempo (la verdad es que soy muy malo calculando cuanto\ntiempo ha pasado desde cierto evento)</p>","image": "https://halivert.dev/assets/2018-11-random-thoughts/random-thoughts-title",
+				"image_types": "webp:image/webp,gif:image/gif","image_alt": "Persona surfeando","url": "https://halivert.dev/blog/2018/11/random-thoughts/",
+			"continue": 1,
+			"date": "Noviembre 27, 2018",
+			"last_modification": ""
+		},"/blog/2018/11/gifs": {
+			"title": "GIFs",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["GIF","Creatividad","DSi"],
+			"content": "<p>GIF por sus siglas en inglés (Graphics Interchange Format) es un estándar que\ndefine “imágenes rasterizadas de color generalizadas” que son básicamente\nimágenes formadas por puntos llamados pixeles, donde además, cada pixel tiene un\nvalor de color [<a href=\"https://www.w3.org/Graphics/GIF/spec-gif87.txt\">1</a>] [<a href=\"https://support.99designs.com/hc/es/articles/204761835--Qué-son-los-vectores-y-las-imagenes-rasterizadas-Cuándo-debería-usarlas-\">2</a>].</p>","image": "https://halivert.dev/assets/2018-11-gifs/gifs-title",
+				"image_types": "webp:image/webp,gif:image/gif","image_alt": "Palabra GIF con movimiento","url": "https://halivert.dev/blog/2018/11/gifs/",
+			"continue": 1,
+			"date": "Noviembre 20, 2018",
+			"last_modification": ""
+		},"/blog/2018/11/get-used-to-travels": {
+			"title": "Acostumbrarse (viaje)",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Viaje","Acostumbrarse"],
+			"content": "<p>Que rápido es acostumbrarse a algo… y no lo digo a la ligera, según un\n<a href=\"https://onlinelibrary.wiley.com/doi/abs/10.1002/ejsp.674\">estudio</a> encabezado por la doctora Phillipa Lally en la <em>University College</em>\nde Londres, el promedio de tiempo que toma automatizar un hábito es de <strong>66\ndías</strong></p>","url": "https://halivert.dev/blog/2018/11/get-used-to-travels/",
+			"continue": 1,
+			"date": "Noviembre 09, 2018",
+			"last_modification": ""
+		},"/blog/2018/10/add-date-vim": {
+			"title": "Agregar fecha con Vim",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Vim","Fechas","Jekyll"],
+			"content": "<p>Mensaje para el Halí del futuro: no escribas las fechas manualmente para\ntus posts hechos con Jekyll… puedes simplemente utilizar dos funciones\nmuy útiles de Vim.</p>","url": "https://halivert.dev/blog/2018/10/add-date-vim/",
+			"continue": 1,
+			"date": "Octubre 26, 2018",
+			"last_modification": "Noviembre 20, 2018"
+		},"/blog/2018/10/site-comments": {
+			"title": "Comentarios en el sitio",
+			"author": "Halí",
+			"categories": ["Novedades"],
+			"tags": ["Comentarios"],
+			"content": "<h4 id=\"ya-se-pueden-realizar-comentarios-en-este-sitio\"><strong>¡Ya se pueden realizar comentarios en este sitio!</strong></h4>\n\n<h6 id=\"actualización\">Actualización</h6>\n<p>Ahora los comentarios se han mudado a Telegram y estoy tratando de unificarlos\npara que sean iguales en el sitio y en el <a href=\"https://t.me/halivertsblog\">canal</a>, si sabes cómo hacerlo, te\nagradeceré mucho que me envíes un <a href=\"https://t.me/halivert\">mensaje</a>.</p>","url": "https://halivert.dev/blog/2018/10/site-comments/",
+			"continue": 1,
+			"date": "Octubre 25, 2018",
+			"last_modification": "Mayo 25, 2020"
+		},"/blog/2018/09/ios-icons": {
+			"title": "Iconos para iOS",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["iOS","Iconos"],
+			"content": "<p>Desarrollando una aplicación para iOS me encontré con que necesitas un icono\ndiferente para cada dispositivo, debes cambiar la resolución y el nombre. Así\nque escribí un script para ayudar con esa tarea.</p>","url": "https://halivert.dev/blog/2018/09/ios-icons/",
+			"continue": 1,
+			"date": "Septiembre 21, 2018",
+			"last_modification": ""
+		},"/blog/2018/03/mimicking-someone": {
+			"title": "Remedando a alguien",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["JavaScript","Remedando"],
+			"content": "<p>En este post traigo para ustedes una herramienta muy útil (no muy útil, la\nverdad) que sirve para cuando intentan remedar a alguien… o sea imitarlo o\nimitarla y agregar un toque de ridículo a su comentario.</p>","url": "https://halivert.dev/blog/2018/03/mimicking-someone/",
+			"continue": 1,
+			"date": "Marzo 12, 2018",
+			"last_modification": ""
+		},"/blog/2018/03/c++-matrices": {
+			"title": "Matrices en C++",
+			"author": "Halí",
+			"categories": ["¡Código!"],
+			"tags": ["C++","Matrices","Gauss-Jordan"],
+			"content": "<p>Hace algún tiempo asistí al club de algoritmia de la ESCOM, en realidad nunca\nllegué a ser tan bueno como las personas de ahí, pero en ese lugar fue donde\nmejoré mi estilo de programación (aunque aún puede mejorar más… y mucho) y\naprendí algunos trucos.</p>","url": "https://halivert.dev/blog/2018/03/c++-matrices/",
+			"continue": 1,
+			"date": "Marzo 10, 2018",
+			"last_modification": ""
+		},"/blog/2018/01/my-fish-died": {
+			"title": "Se murió mi pez",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Pez","Memo"],
+			"content": "<p>Hace poco se murió mi pez… y pues nada, vienen esos pensamientos de que la\nvida es efímera y pues sí.</p>\n\n<p>Su nombre era “Memo” (mamá se lo puso porque “Nemo” era too mainstream), un pez\nbeta de color azul, que desde cierta perspectiva podía verse verde y turquesa.</p>\n\n<p>Ese pez nunca hizo nada por el mundo y aún así lo voy a recordar\nsiempre,</p>","url": "https://halivert.dev/blog/2018/01/my-fish-died/",
+			"continue": 1,
+			"date": "Enero 18, 2018",
+			"last_modification": ""
+		},"/blog/2018/01/git-repo": {
+			"title": "Usar git para un servidor",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Git","Servidor"],
+			"content": "<p>Usar <a href=\"https://git-scm.com\">git</a> para controlar las versiones locales ya es de por si una gran\nayuda, ahora bien, la herramienta se vuelve más útil cuando se tiene que\nutilizar para subir código y proyectos, por ejemplo, a un servidor web.</p>","image": "https://halivert.dev/assets/2018-01-git-repo/title-git",
+				"image_types": "webp:image/webp,png:image/png","image_alt": "Logo de Git","url": "https://halivert.dev/blog/2018/01/git-repo/",
+			"continue": 1,
+			"date": "Enero 04, 2018",
+			"last_modification": "Noviembre 19, 2018"
+		},"/blog/2017/12/vimrc": {
+			"title": "Vimrc",
+			"author": "Halí",
+			"categories": ["¡Código!"],
+			"tags": ["Vim","Configuración"],
+			"content": "<p><strong>Vim</strong> editor de texto que muchos odian y otros aman, pero que igual es\nbastante útil.</p>\n\n<p>Si quieres dar tus primeros pasos en Vim y te da miedo, solo escribe</p>\n\n<div class=\"language-shell highlighter-rouge\"><div class=\"highlight\"><pre class=\"highlight\"><code>vimtutor\n</code></pre></div></div>\n\n<p><br />\ny te llevará a una guía interactiva donde aprenderás los comandos básicos, en\ncualquier caso, para hacer la experiencia “menos” traumática he decidido\ncompartir el archivo de configuración que yo utilizo y les explicaré unas\ncuantas líneas:</p>","url": "https://halivert.dev/blog/2017/12/vimrc/",
+			"continue": 1,
+			"date": "Diciembre 23, 2017",
+			"last_modification": "Septiembre 21, 2018"
+		},"/blog/2017/12/virtual-server-apache": {
+			"title": "Hacer un vhost en Apache",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Apache","Servidor virtual","Linux"],
+			"content": "<p>Un vhost o servidor virtual es útil cuando desarrollamos un sitio web y\nnecesitamos probarlo en nuestra computadora, podemos simular el entorno al\nque va a estar expuesto y será más fácil detectar problemas.</p>\n\n<p>En este post explicaré como hacer uno en Apache Linux</p>","url": "https://halivert.dev/blog/2017/12/virtual-server-apache/",
+			"continue": 1,
+			"date": "Diciembre 22, 2017",
+			"last_modification": ""
+		},"/blog/2017/12/innovation": {
+			"title": "Innovación",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Innovación","Genio"],
+			"content": "<p>Para mi es difícil hablar sobre esta palabra en particular en estos tiempos.\nMuchas cosas ya se han inventado y nos facilitan la vida de manera\nimpresionante.</p>\n\n<p>Aunque me parece adecuada la descripción que hace la RAE sobre ella:</p>\n\n<blockquote>\n  <p>Innovación: Creación o modificación de un producto, y su introducción en un\nmercado.</p>\n</blockquote>","url": "https://halivert.dev/blog/2017/12/innovation/",
+			"continue": 1,
+			"date": "Diciembre 22, 2017",
+			"last_modification": ""
+		},"/blog/2017/12/yakuake-tabs": {
+			"title": "Tabs en yakuake",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Yakuake","Linux","Tabs"],
+			"content": "<p>Usando Yakuake para Arch Linux me encontré con que al abrir una nueva pestaña no\nse abre en el directorio “actual” por lo que busqué un poco en internet y\nbasándome en esta página (<a href=\"https://acidbourbon.wordpress.com/2016/12/03/a-quick-and-dirty-fix-for-yakuakes-open-new-tab-in-same-directory-issue/\">ACIDBOURBON</a>) realizé un pequeño script que\n(agregandolo a tu .bashrc o .zshrc) guarda tu directorio actual y después lo usa\ncada vez que se inicia una nueva instancia de Yakuake.</p>","url": "https://halivert.dev/blog/2017/12/yakuake-tabs/",
+			"continue": 1,
+			"date": "Diciembre 20, 2017",
+			"last_modification": ""
+		},"/blog/2017/12/update": {
+			"title": "Actualización",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Primer post","Nuevo sitio","halivert.dev"],
+			"content": "<p>En este sitio comenzaré a subir problemas con los que me he encontrado (en el\námbito de la programación, matemáticas, música) esperando que mis soluciones les\nsirvan a ustedes y también para recordarlas yo.\n<br /><br />\nAbriré una nueva categoría llamada “Ya me pasó”, como en el <a href=\"https://halivert.wordpress.com\">blog de\nwordpress</a>, y preferiré esta página para esas publicaciones.</p>","url": "https://halivert.dev/blog/2017/12/update/",
+			"continue": 0,
+			"date": "Diciembre 20, 2017",
+			"last_modification": ""
+		}}

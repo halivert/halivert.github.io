@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "colors.css",
+	"sources": [
+		"colors.scss"
+	],
+	"sourcesContent": [
+		":root {\n\t--dark: -1;\n\n\t--background-h: 249;\n\t--background-s: 21%;\n\t--background-l: 88%;\n\n\t--text-h: 240;\n\t--text-s: 23%;\n\t--text-l: 5%;\n\n\t--primary-h: 206;\n\t--primary-s: 47%;\n\t--primary-l: 49%;\n\n\t--contrast-h: 216;\n\t--contrast-s: 41%;\n\t--contrast-l: 31%;\n\n\t--accent-h: 322;\n\t--accent-s: 42%;\n\t--accent-l: 66%;\n\n\t--code-color: var(--background-color-100);\n\n\t--yellow-hsl: 42, 100%, 48%;\n\n\t--red-hsl: 0, 100%, 72%;\n\n\t--green-succulent-hsl: 123, 27%, 64%;\n\n\t--purple-hsl: 280, 84%, 72%;\n\n\t--creative-a: hsl(162, 100%, 72%);\n\t--creative-b: hsl(102, 100%, 72%);\n\t--creative-gradient: linear-gradient(\n\t\tto top right,\n\t\tvar(--creative-a),\n\t\tvar(--creative-b)\n\t);\n\n\t--blue-hsl: 208, 100%, 68%;\n\n\t--orange-hsl: 11, 90%, 68%;\n\n\t--emerald-hsl: 180, 100%, 38%;\n\n\t--pink-hsl: var(--accent-h), var(--accent-s), var(--accent-l);\n\n\t--vue-hsl: 153, 48%, 49%;\n\n\t--mint-hsl: 153, 48%, 49%;\n\n\t--white-hsl: 0, 0%, 100%;\n\n\t--github-primary: #24292e;\n}\n"
+	],
+	"names": [],
+	"mappings": "CAAC,AAAD,IAAK,CAAC,EACL,MAAM,CAAA,GAAC,EAEP,cAAc,CAAA,IAAC,EACf,cAAc,CAAA,IAAC,EACf,cAAc,CAAA,IAAC,EAEf,QAAQ,CAAA,IAAC,EACT,QAAQ,CAAA,IAAC,EACT,QAAQ,CAAA,GAAC,EAET,WAAW,CAAA,IAAC,EACZ,WAAW,CAAA,IAAC,EACZ,WAAW,CAAA,IAAC,EAEZ,YAAY,CAAA,IAAC,EACb,YAAY,CAAA,IAAC,EACb,YAAY,CAAA,IAAC,EAEb,UAAU,CAAA,IAAC,EACX,UAAU,CAAA,IAAC,EACX,UAAU,CAAA,IAAC,EAEX,YAAY,CAAA,4BAAC,EAEb,YAAY,CAAA,cAAC,EAEb,SAAS,CAAA,aAAC,EAEV,qBAAqB,CAAA,cAAC,EAEtB,YAAY,CAAA,cAAC,EAEb,YAAY,CAAA,oBAAC,EACb,YAAY,CAAA,oBAAC,EACb,mBAAmB,CAAA;;;;EAAC,EAMpB,UAAU,CAAA,eAAC,EAEX,YAAY,CAAA,aAAC,EAEb,aAAa,CAAA,eAAC,EAEd,UAAU,CAAA,kDAAC,EAEX,SAAS,CAAA,cAAC,EAEV,UAAU,CAAA,cAAC,EAEX,WAAW,CAAA,YAAC,EAEZ,gBAAgB,CAAA,QAAC,GACjB"
+}

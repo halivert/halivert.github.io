@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1560785940">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Reloj binario | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Reloj binario" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="En este post les comparto un tip para practicar la lectura de números binarios. «La práctica hace al maestro»" />
+<meta property="og:description" content="En este post les comparto un tip para practicar la lectura de números binarios. «La práctica hace al maestro»" />
+<link rel="canonical" href="https://halivert.dev/blog/2019/06/binary-clock/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/06/binary-clock/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:image" content="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-06-17T10:39:00-05:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png" />
+<meta property="twitter:title" content="Reloj binario" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-06-17T10:39:00-05:00","datePublished":"2019-06-17T10:39:00-05:00","description":"En este post les comparto un tip para practicar la lectura de números binarios. «La práctica hace al maestro»","headline":"Reloj binario","image":"https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/06/binary-clock/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/06/binary-clock/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Reloj binario</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Junio 17, 2019
+						
+					</small>
+				</header>
+				
+					<div class="column is-4-desktop has-text-right"><a
+	id=""
+	target="_blank"
+	rel="noopener noreferrer"
+	href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png"><picture  class="image post-image is-fullwidth">
+		<source
+					srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.webp"
+					type="image/webp" /><img
+					class="image post-image is-fullwidth"
+					loading="lazy"
+					src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png"
+					alt="Reloj binario que marca las 23:53:49" /></picture></a>
+					</div>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Hora</span><span class="tag ">Aprender</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				
+<p>En este post les comparto un tip para practicar la lectura de números
+binarios.</p>
+
+<h3 id="la-práctica-hace-al-maestro">«La práctica hace al maestro»</h3>
+<!-- Seguir leyendo -->
+<p>Seguramente habrás notado que cuando utilizas cierta habilidad de manera
+cotidiana te cuesta menos trabajo cada vez.</p>
+
+<p>Pues hoy te propongo que para aprender números binarios intentes leer la hora
+de una forma… diferente, con un <strong>reloj binario</strong>.</p>
+
+<article>
+  <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png" alt="Reloj binario que marca las 23:53:49" /></picture></a>
+</article>
+
+<p>¿Pero qué está pasando aquí? Bueno, este artefacto que estás viendo es un
+simple reloj y pese a que es un poquito menos fácil de leer que un reloj de
+manecillas, te puede ayudar a leer con más fluidez números binarios.</p>
+
+<p>Primero debemos saber que existen dos tipos de reloj binario… Uno es
+completamente binario, y otro es en parte decimal (BCD).</p>
+
+<p>Vamos a ver cómo leer ambos tipos de reloj.</p>
+
+<p>Lo primero que debemos saber es que, tanto para el reloj binario como para el
+BCD, las primeras dos columnas representan la hora, las siguientes dos los
+minutos y las últimas dos… exacto, los segundos.</p>
+
+<p>También, cada una de las casillas pueden o no estar marcadas, o llenitas y
+representan una potencia de 2 (e.g. si la casilla 3 está marcada, es 2³ o sea
+8 y así sucesivamente).</p>
+
+<p>Ahora vienen las diferencias.</p>
+
+<h3 id="binario">Binario</h3>
+<article>
+  <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock.png" alt="Reloj binario que marca las 23:53:49" /></picture></a>
+</article>
+
+<p>Se ve como el de aquí arriba, y el primer número (la primer potencia de dos)
+es el cuadrito de hasta abajo en la segunda columna de cada bloque…</p>
+<article class="columns is-printable">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-hr.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-hr.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-hr.png" alt="Las 23 horas en un reloj binario" /></picture></a>
+  </div>
+  <p class="column">
+    Utilizamos solo los primeros 5 espacios, ya que tendremos 23 horas al día
+    como máximo.
+  </p>
+</article>
+<p>Este reloj marca las 23 horas: 2⁰ + 2¹ + 2² + 2⁴ = 23.</p>
+
+<p>Análogamente con los minutos y segundos.</p>
+<article class="columns is-printable">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-min.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-min.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-min.png" alt="53 minutos en un reloj binario" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-seg.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-seg.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-seg.png" alt="49 segundos en un reloj binario" /></picture></a>
+  </div>
+</article>
+
+<p>En resumen, este reloj dice que son las: <strong>23:53:49</strong>.</p>
+
+<h3 id="bcd">BCD</h3>
+<article>
+  <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd.png" alt="Reloj binario BCD que marca las 00:23:21" /></picture></a>
+</article>
+
+<p>Mencionabamos que son muy similares, salvo que en este formato, cada columna
+equivale a un digito. Así, la primer columna equivale a las décimas de las
+horas, la segunda a sus unidades, la tercera, decimas de los minutos, y así
+sucesivamente.</p>
+<article class="columns is-printable">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-hr.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-hr.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-hr.png" alt="0 horas en un reloj binario BCD" /></picture></a>
+  </div>
+  <p class="column">
+    Es fácil ver que este reloj marca las 0 horas.
+  </p>
+</article>
+
+<article class="columns is-printable">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-min.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-min.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-min.png" alt="23 minutos en un reloj binario BCD" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-seg.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-seg.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/binary-clock-bcd-seg.png" alt="21 segundos en un reloj binario BCD" /></picture></a>
+  </div>
+</article>
+
+<p>En conjunto, este reloj marca las: <strong>00:23:21</strong>.</p>
+
+<p>Te dejo otras capturas de relojes binarios para que practiques.</p>
+
+<h4 id="práctica-binario">Práctica binario</h4>
+<div class="columns is-multiline is-printable">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-1.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-1.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-1.png" alt="Ejercicio de reloj binario" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-2.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-2.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-2.png" alt="Ejercicio de reloj binario" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-3.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-3.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-3.png" alt="Ejercicio de reloj binario" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-4.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-4.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bin-4.png" alt="Ejercicio de reloj binario" /></picture></a>
+  </div>
+</div>
+
+<h4 id="práctica-bcd">Práctica BCD</h4>
+<div class="columns is-printable is-multiline">
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-1.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-1.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-1.png" alt="Ejercicio de reloj binario BCD" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-2.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-2.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-2.png" alt="Ejercicio de reloj binario BCD" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-3.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-3.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-3.png" alt="Ejercicio de reloj binario BCD" /></picture></a>
+  </div>
+  <div class="column">
+    <a target="_blank" rel="noopener noreferrer" href="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-4.png"><picture>
+		<source srcset="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-4.webp" type="image/webp" /><img class="" loading="lazy" src="https://halivert.dev/assets/2019-06-binary-clock/20190617-bcd-4.png" alt="Ejercicio de reloj binario BCD" /></picture></a>
+  </div>
+</div>
+
+<p>Un chilión de dolares a quien comente las horas de todos.<br />
+Hasta la próxima.</p>
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2019/06/binary-clock/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/06/binary-clock/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/06/binary-clock/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

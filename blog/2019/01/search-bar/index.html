@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1548779880">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Barra de búsqueda | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Barra de búsqueda" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Ahora hay una barra de búsqueda disponible en el blog Llega a ustedes gracias a la biblioteca lunr.js que funciona para crear un índice de búsqueda en un sitio (estático en este caso) y que no necesita servidores externos, u otros servicios de búsqueda." />
+<meta property="og:description" content="Ahora hay una barra de búsqueda disponible en el blog Llega a ustedes gracias a la biblioteca lunr.js que funciona para crear un índice de búsqueda en un sitio (estático en este caso) y que no necesita servidores externos, u otros servicios de búsqueda." />
+<link rel="canonical" href="https://halivert.dev/blog/2019/01/search-bar/" />
+<meta property="og:url" content="https://halivert.dev/blog/2019/01/search-bar/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-01-29T10:38:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Barra de búsqueda" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-01-29T10:38:00-06:00","datePublished":"2019-01-29T10:38:00-06:00","description":"Ahora hay una barra de búsqueda disponible en el blog Llega a ustedes gracias a la biblioteca lunr.js que funciona para crear un índice de búsqueda en un sitio (estático en este caso) y que no necesita servidores externos, u otros servicios de búsqueda.","headline":"Barra de búsqueda","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2019/01/search-bar/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2019/01/search-bar/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Barra de búsqueda</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<span
+								title="Fecha original: Enero 29, 2019">
+								<i>última modificación:</i>
+								Febrero 17, 2021
+							</span>
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Búsqueda</span><span class="tag is-red">Jekyll</span><span class="tag ">Lunr</span><span class="tag ">JavaScript</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<h4 id="ahora-hay-una-barra-de-búsqueda-disponible-en-el-blog">Ahora hay una barra de búsqueda disponible en el blog</h4>
+
+<p>Llega a ustedes gracias a la biblioteca <a href="https://lunrjs.com">lunr.js</a> que funciona para crear
+un índice de búsqueda en un sitio (estático en este caso) y que no necesita
+servidores externos, u otros servicios de búsqueda.</p>
+
+<!-- Seguir leyendo -->
+
+<p>Para hacerlo utilicé estos dos tutoriales: <a href="https://learn.cloudcannon.com/jekyll/jekyll-search-using-lunr-js/">Jekyll search using lunr.js</a> y
+<a href="https://jekyllcodex.org/without-plugin/search-lunr/">Search with Lunr.js</a>.</p>
+
+<p>En pocas palabras necesitamos:</p>
+<ul>
+  <li>La biblioteca <a href="https://lunrjs.com">lunr.js</a>.</li>
+  <li>Un cuadro de búsqueda [<a href="https://github.com/halivert/halivert.github.io/blob/master/_includes/nav.html#L28-L47">1</a>].</li>
+  <li>Un script para procesar y mostrar los datos [<a href="https://github.com/halivert/halivert.github.io/blob/master/js/search.js">3</a>].</li>
+  <li>Un script donde estará el objeto <code class="language-plaintext highlighter-rouge">idx</code>, que será el índice de todos nuestros
+artículos [<a href="https://github.com/halivert/halivert.github.io/blob/master/_includes/search-lunr.html">4</a>].</li>
+</ul>
+
+<p>Ahora les explicaré un poco del código necesario para dicha tarea.</p>
+
+<p>Obviaremos el cuadro de búsqueda y la página donde se muestra el resultado de
+la búsqueda, lo único que necesitamos establecer ahí son: la acción del
+formulario (que será la ruta de la página donde se mostrará el resultado), y el
+id del elemento donde se mostrará (en este caso <code class="language-plaintext highlighter-rouge">search-results</code>).</p>
+
+<p>En el archivo <a href="https://github.com/halivert/halivert.github.io/blob/master/_includes/search-lunr.html"><code class="language-plaintext highlighter-rouge">search-lunr.html</code></a> encontramos el objeto <code class="language-plaintext highlighter-rouge">idx</code>, que
+iniciaremos con la variable <code class="language-plaintext highlighter-rouge">window.store</code>. (Es importante que tenga la
+extensión html, ya que necesitamos que procese los objetos, tags y filtros de
+liquid).</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">store</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// Iteramos a través de los artículos y los agregamos a un objeto</span>
+    <span class="c1">// window.store.</span>
+    <span class="p">{</span><span class="o">%</span> <span class="k">for</span> <span class="nx">post</span> <span class="k">in</span> <span class="nx">site</span><span class="p">.</span><span class="nx">posts</span> <span class="o">%</span><span class="p">}</span>
+      <span class="dl">"</span><span class="s2">{{ post.id | strip | xml_escape }}</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="dl">"</span><span class="s2">title</span><span class="dl">"</span><span class="p">:</span> <span class="p">{{</span> <span class="nx">post</span><span class="p">.</span><span class="nx">title</span> <span class="o">|</span> <span class="nx">strip</span> <span class="o">|</span> <span class="nx">jsonify</span> <span class="p">}},</span>
+        <span class="dl">"</span><span class="s2">categories</span><span class="dl">"</span><span class="p">:</span> <span class="p">{{</span> <span class="nx">post</span><span class="p">.</span><span class="nx">categories</span> <span class="o">|</span> <span class="nx">jsonify</span> <span class="p">}},</span>
+        <span class="dl">"</span><span class="s2">content</span><span class="dl">"</span><span class="p">:</span> <span class="p">{{</span> <span class="nx">post</span><span class="p">.</span><span class="nx">content</span> <span class="o">|</span> <span class="nx">strip_html</span> <span class="o">|</span> <span class="nx">strip_newlines</span> <span class="o">|</span> <span class="nx">jsonify</span> <span class="p">}},</span>
+        <span class="dl">"</span><span class="s2">url</span><span class="dl">"</span><span class="p">:</span> <span class="p">{{</span> <span class="nx">post</span><span class="p">.</span><span class="nx">url</span> <span class="o">|</span> <span class="nx">strip</span> <span class="o">|</span> <span class="nx">jsonify</span> <span class="p">}},</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+      <span class="p">{</span><span class="o">%</span> <span class="nx">unless</span> <span class="nx">forloop</span><span class="p">.</span><span class="nx">last</span> <span class="o">%</span><span class="p">},{</span><span class="o">%</span> <span class="nx">endunless</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{</span><span class="o">%</span> <span class="nx">endfor</span> <span class="o">%</span><span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="c1">// Aquí es donde creamos el objeto en el que buscaremos posteriormente.</span>
+  <span class="kd">var</span> <span class="nx">idx</span> <span class="o">=</span> <span class="nx">lunr</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// Agregamos los campos, el boost es para darle más importancia al título.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span> <span class="na">boost</span><span class="p">:</span> <span class="mi">10</span> <span class="p">});</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="dl">'</span><span class="s1">categories</span><span class="dl">'</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">field</span><span class="p">(</span><span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="c1">// Agregamos todos los resultados al objeto idx.</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nb">window</span><span class="p">.</span><span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">add</span><span class="p">({</span>
+        <span class="dl">'</span><span class="s1">id</span><span class="dl">'</span><span class="p">:</span> <span class="nx">key</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">title</span><span class="dl">'</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">title</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">categories</span><span class="dl">'</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">categories</span><span class="p">,</span>
+        <span class="dl">'</span><span class="s1">content</span><span class="dl">'</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">store</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">content</span><span class="p">,</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+<p><br />
+Aquí tenemos el archivo <a href="https://github.com/halivert/halivert.github.io/blob/master/js/search.js"><code class="language-plaintext highlighter-rouge">search.js</code></a> que es el encargado de procesar y
+mostrar los datos. Se compone de dos funciones principales:</p>
+<ul>
+  <li>getQueryVariable (Con esta función obtenemos el término a buscar, se nos
+envía por el método GET, y aparece en la URL).</li>
+  <li>displaySearchResults.</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">displaySearchResults</span><span class="p">(</span><span class="nx">results</span><span class="p">,</span> <span class="nx">store</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Es el elemento en donde se mostrarán los resultados.</span>
+    <span class="kd">var</span> <span class="nx">searchResults</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">search-results</span><span class="dl">'</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">appendString</span> <span class="o">=</span> <span class="dl">''</span><span class="p">;</span>
+
+      <span class="c1">// Iteramos a través de los resultados.</span>
+      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Obtenemos el resultado de acuerdo a su índice.</span>
+        <span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">store</span><span class="p">[</span><span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">ref</span><span class="p">];</span>
+        <span class="c1">// Agregamos los resultados a una cadena en el formato que deseemos.</span>
+        <span class="nx">appendString</span> <span class="o">+=</span> <span class="s2">`
+          &lt;section&gt;&lt;p class="title is-size-2"&gt;
+          &lt;a class="has-text-primary" href="</span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">url</span><span class="p">}</span><span class="s2">"&gt;</span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">}</span><span class="s2">&lt;/a&gt;
+          &lt;/p&gt;&lt;hr&gt;&lt;div class="content has-text-justified"&gt;&lt;p&gt;
+          </span><span class="p">${</span><span class="nx">item</span><span class="p">.</span><span class="nx">displayContent</span><span class="p">}</span><span class="s2">
+          &lt;/p&gt;
+        `</span><span class="p">;</span>
+        <span class="c1">// ...</span>
+      <span class="p">}</span>
+
+      <span class="nx">searchResults</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">appendString</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="nx">searchResults</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">&lt;p class="title is-3"&gt;No encontré nada :(&lt;/p&gt;</span><span class="dl">'</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+</code></pre></div></div>
+<p><br />
+Ya sólo queda probar si funciona, pero bueno… Esa es una tarea para ti.</p>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2019/01/search-bar/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/01/search-bar/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2019/01/search-bar/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

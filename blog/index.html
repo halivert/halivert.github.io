@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Blog | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Blog" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Sitio de Halí Velázquez" />
+<meta property="og:description" content="Sitio de Halí Velázquez" />
+<link rel="canonical" href="https://halivert.dev/blog/" />
+<meta property="og:url" content="https://halivert.dev/blog/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="website" />
+<link rel="next" href="https://halivert.dev/blog/2/" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Blog" />
+<meta name="twitter:site" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="false"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section  ">
+  <div class="columns">
+	<div class="column is-9-desktop">
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/11/which-browser-to-use/">
+						¿Qué navegador usar?
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Necesitas un navegador para entrar a Internet. Y seguramente usas uno a diario.
+Pero, ¿qué es precisamente un navegador? ¿Qué navegador podría ser mejor para
+ti?</p>
+
+<h2 id="qué-es-un-navegador">¿Qué es un navegador?</h2>
+
+<p>Un navegador es un software que te permite <strong>navegar</strong> por internet. Es decir,
+visualizar páginas web y aplicaciones web. Como cualquier otro software, existen
+una gran variedad de navegadores y muchos sirven a diferentes propósitos.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/11/which-browser-to-use/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Noviembre 24, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/10/function-wait-for/">
+						Función para esperar algo
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>En este artículo quiero mostrarte algunas cosas acerca del lenguaje de
+programación JavaScript mediante el uso de una función que servirá para
+«esperar».</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/10/function-wait-for/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Octubre 09, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/09/petite-vue/">
+						Comenzando con petite-vue
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div>
+<p>¿Por qué conformarnos con un framework (Vue), cuando podemos tener una
+versión «minimizada» de este, con un coste menor tanto de construcción como de
+carga?</p>
+
+<p><a href="https://github.com/vuejs/petite-vue">petite-vue</a> apunta justo a eso.</p>
+
+<p>Pero, ¿qué es justamente y cómo se usa? Veámoslo.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/09/petite-vue/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
+		Septiembre 14, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/03/create-pdf-with-html-and-css/">
+						Crear un PDF con HTML y CSS
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Para crear PDF existen una gran variedad de herramientas; personalmente
+encuentro el uso de HTML y CSS sencillo, por lo que quiero mostrarte cómo hacer
+un PDF a partir de estos dos lenguajes de programación</p>
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/03/create-pdf-with-html-and-css/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Marzo 17, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/03/how-to-google/">
+						Como googlear
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Googlear, es decir, buscar información con un buscador web (específicamente
+Google) no es una tarea trivial, y conforme pasa el tiempo se convierte en algo
+cada vez más difícil ya que hace falta criterio para encontrar lo que buscas.
+Sin embargo es una tarea escencial en el ámbito de la programación.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/03/how-to-google/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Marzo 13, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2021/02/how-to-ask/">
+						Cómo preguntar
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>¿Por qué es tan importante saber preguntar? Bueno, haciendo las preguntas
+adecuadas llegas más rápido a la respuesta que buscas.</p>
+
+<p>Y primero lo primero, si algo hace falta a la hora de resolver problemas es
+entender precisamente <strong>cual es el problema</strong>. Así que una vez identificado,
+tienes que preguntar…</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/02/how-to-ask/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Febrero 22, 2021
+	
+</div>
+
+				<br />
+			</section>
+		
+			<section class="post-section">
+				<h2 class="title is-2">
+					<a class="has-text-primary" href="https://halivert.dev/blog/2020/06/yep-i-use-dvorak/">
+						Sí, uso Dvorak
+					</a>
+				</h2>
+				<hr />
+				<div class="columns">
+					<div class="column">
+						<div class="content has-text-justified">
+	
+	
+
+	<div><p>Desde Abril del 2016 (aproximadamente), me di cuenta que el teclado QWERTY no es
+la unica distribución que existe, y me dispuse a aprender a escribir en otra,
+Dvorak, que obtiene su nombre de su creador:
+August Dvorak</p>
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2020/06/yep-i-use-dvorak/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+					</div>
+					<picture  class="column is-3-desktop">
+		<source
+					srcset="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.webp"
+					type="image/webp" /><img
+					class="column is-3-desktop"
+					loading="lazy"
+					src="https://halivert.dev/assets/2020-06-yep-i-use-dvorak/cover.png"
+					alt="Teclado Dvorak" /></picture>
+					
+				</div>
+				<div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Junio 28, 2020
+	
+</div>
+
+				<br />
+			</section>
+		
+		
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		
+			<a class="pagination-previous is-hidden-touch" disabled>
+				<i class="fas fa-hand-point-left"></i>
+			</a>
+		
+
+		<ul class="pagination-list">
+			
+			
+
+			<li>
+				<a
+					
+						class="pagination-link button is-current"
+						aria-current="page"
+					
+					aria-label="Ir a página 1"
+					>1</a
+				>
+			</li>
+
+			
+
+			
+				
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/2/"
+								
+								aria-label="Ir a página 2"
+								>2</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/3/"
+								
+								aria-label="Ir a página 3"
+								>3</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/4/"
+								
+								aria-label="Ir a página 4"
+								>4</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										
+											is-hidden-touch
+										"
+										href="https://halivert.dev/blog/5/"
+								
+								aria-label="Ir a página 5"
+								>5</a
+							>
+						</li>
+					
+				
+			
+
+			
+				
+				
+					<li>
+						<span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
+					</li>
+				
+
+				<li>
+					<span class="pagination-ellipsis is-hidden-desktop">&hellip;</span>
+				</li>
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/blog/6/"
+						class="pagination-link"
+					
+					aria-label="Ir a página 6"
+					>6</a
+				>
+			</li>
+		</ul>
+
+		
+			<a
+				href="https://halivert.dev/blog/2/"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		
+	</nav>
+
+
+	</div>
+	<aside class="column">
+		<div class="container is-fluid has-text-centered">
+	<h1 class="subtitle">Categorías</h1>
+	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
+				>Divagando</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/i-were-there"
+				>Ya me pasó</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/code"
+				>¡Código!</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/news"
+				>Novedades</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/maths"
+				>Matemáticas</a
+			><a class="sidebar-item" href="https://halivert.dev/blog/myspace"
+				>MySpace</a
+			></div>
+</div>
+
+	</aside>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

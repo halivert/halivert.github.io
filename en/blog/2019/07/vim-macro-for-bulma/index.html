@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<script type="module">
+			import * as turbo from "https://cdn.skypack.dev/@hotwired/turbo";
+		</script><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1563889740">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/en/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Vim macros for Bulma | Halivert</title>
+<meta name="generator" content="Jekyll v4.2.2" />
+<meta property="og:title" content="Vim macros for Bulma" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="When you use a CSS framework as flexible as Bulma, you want to have only the necessary components and no more. When you create your own “theme” you can import only the components and elements that you want to use. Now, what happens when you’re not sure which files contain which rules? Import everything and then comment on those that are not necessary in that moment. But… How do we import all the components and elements of Bulma, easily?" />
+<meta property="og:description" content="When you use a CSS framework as flexible as Bulma, you want to have only the necessary components and no more. When you create your own “theme” you can import only the components and elements that you want to use. Now, what happens when you’re not sure which files contain which rules? Import everything and then comment on those that are not necessary in that moment. But… How do we import all the components and elements of Bulma, easily?" />
+<link rel="canonical" href="https://halivert.dev/2019/07/vim-macro-for-bulma/" />
+<meta property="og:url" content="https://halivert.dev/2019/07/vim-macro-for-bulma/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-07-23T08:49:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Vim macros for Bulma" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2019-07-23T08:49:00-05:00","datePublished":"2019-07-23T08:49:00-05:00","description":"When you use a CSS framework as flexible as Bulma, you want to have only the necessary components and no more. When you create your own “theme” you can import only the components and elements that you want to use. Now, what happens when you’re not sure which files contain which rules? Import everything and then comment on those that are not necessary in that moment. But… How do we import all the components and elements of Bulma, easily?","headline":"Vim macros for Bulma","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/2019/07/vim-macro-for-bulma/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/2019/07/vim-macro-for-bulma/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				data-turbo="false"
+				tab-index="0"
+				>Go to content</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="px-1"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Halivert's logo"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/projects/">Projects</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/en/about/">About me</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Search</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Search..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						Oops! I didn't find anything, but you can read this:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Keep reading
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Vim macros for Bulma</h1>
+					<small>
+						
+							<i>by</i>
+							<a href="https://halivert.dev/en/authors/halivert">Halí</a> -
+						
+
+						
+							<i>posted:</i> July 23, 2019
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-pink">Vim</span><span class="tag is-mint">Productivity</span></div>
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>When you use a CSS framework as flexible as <a href="https://bulma.io">Bulma</a>, you want to have only
+the necessary components and no more. When you create your own “theme” you can
+import only the components and elements that you want to use.</p>
+
+<p>Now, what happens when you’re not sure which files contain which rules?
+<strong>Import everything</strong> and then comment on those that are not necessary in that
+moment.</p>
+
+<p>But… How do we import all the components and elements of Bulma, easily?</p>
+
+<!-- Keep reading -->
+
+<p>I’ve found these macros that can be very useful:</p>
+<div class="language-viml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> @<span class="k">q</span><span class="p">=</span><span class="s1">'02t/"cyt"o^[;r ^Rc^Mdd.2kI// ^[2j0'</span>
+<span class="k">let</span> @<span class="k">j</span><span class="p">=</span><span class="s1">'0f"a../.^["cpF/l3dfsA;^[j0'</span>
+<span class="k">let</span> @<span class="k">k</span><span class="p">=</span><span class="s1">'02f"i.sass^[j0'</span>
+</code></pre></div></div>
+
+<p>Now, if you copy and paste these commands, they won’t work because they contain
+control characters (and others), you should replace the following:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Original</th>
+      <th style="text-align: center">Replace</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">^[</code></td>
+      <td style="text-align: center">Ctrl + v, Esc</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">^R</code></td>
+      <td style="text-align: center">Ctrl + v, Ctrl + r</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">^M</code></td>
+      <td style="text-align: center">Ctrl + v, Enter</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">;</code></td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">:</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><small>Note: I have these mappings in normal mode: <code class="language-plaintext highlighter-rouge">noremap ; :</code> and <code class="language-plaintext highlighter-rouge">noremap :
+;</code>.</small></p>
+
+<p>To make this easier, you can type <code class="language-plaintext highlighter-rouge">:%s/\V^[/[Ctrl + v, Esc]/g</code> and so on with
+the other two control characters.</p>
+
+<div class="has-text-centered">
+  <video autoplay="" loop="" muted="" playsinline="">
+    <source src="https://halivert.dev/assets/2019-07-vim-macro-for-bulma/vim-macro.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<p>When you are in the same directory as the <code class="language-plaintext highlighter-rouge">node_modules</code> folder, you can use
+those macros and do the following:</p>
+
+<div class="has-text-centered">
+  <video autoplay="" loop="" muted="" playsinline="">
+    <source src="https://halivert.dev/assets/2019-07-vim-macro-for-bulma/vim-macro-used.mp4" type="video/mp4" />
+  </video>
+</div>
+<p><br />
+See you in the next vim-tip 👋🏽</p>
+
+<h4 id="extra">Extra</h4>
+<p>¿How do these macros work?</p>
+<div class="language-viml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> @<span class="k">q</span><span class="p">=</span><span class="s1">'02t/"cyt"o^[;r ^Rc^Mdd.2kI// ^[2j0'</span>
+</code></pre></div></div>
+<ul>
+  <li>First things first, go to beginning of line with <code class="language-plaintext highlighter-rouge">0</code>.</li>
+  <li>Next, search forward 1 character before second <code class="language-plaintext highlighter-rouge">/</code> with <code class="language-plaintext highlighter-rouge">2t/</code>.</li>
+  <li>Then, paste in the <code class="language-plaintext highlighter-rouge">c</code> register the rest of the line until the quotes with <code class="language-plaintext highlighter-rouge">"cyt"</code>.</li>
+  <li>Insert a line below and exit the insert mode with <code class="language-plaintext highlighter-rouge">o^[</code>.</li>
+  <li>Add to the file the content of the <code class="language-plaintext highlighter-rouge">c</code> register with <code class="language-plaintext highlighter-rouge">;r ^Rc^M</code>.</li>
+  <li>Delete the comment line and then the <code class="language-plaintext highlighter-rouge">charset</code> line with <code class="language-plaintext highlighter-rouge">dd.</code>.</li>
+  <li>Go up two lines with <code class="language-plaintext highlighter-rouge">2k</code>.</li>
+  <li>Comment on the line in which we are with <code class="language-plaintext highlighter-rouge">I// </code>.</li>
+  <li>Exit the insert mode, go down two lines and go back to beginning of line with <code class="language-plaintext highlighter-rouge">^[2j0</code>.</li>
+</ul>
+
+<div class="language-viml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> @<span class="k">j</span><span class="p">=</span><span class="s1">'0f"a../.^["cpF/l3dfsA;^[j0'</span>
+</code></pre></div></div>
+<ul>
+  <li>Go to beginning of line with <code class="language-plaintext highlighter-rouge">0</code>.</li>
+  <li>Search the first quotes with <code class="language-plaintext highlighter-rouge">f"</code>.</li>
+  <li>Agregamos un <code class="language-plaintext highlighter-rouge">../.</code> with <code class="language-plaintext highlighter-rouge">a../.</code>.</li>
+  <li>Exit the insert mode with <code class="language-plaintext highlighter-rouge">^[</code>.</li>
+  <li>Paste the content of the <code class="language-plaintext highlighter-rouge">c</code> register with <code class="language-plaintext highlighter-rouge">"cp</code>.</li>
+  <li>Search backwards the first <code class="language-plaintext highlighter-rouge">/</code> and move one character forward with <code class="language-plaintext highlighter-rouge">F/l</code>.</li>
+  <li>Delete until the third <code class="language-plaintext highlighter-rouge">s</code> with <code class="language-plaintext highlighter-rouge">3dfs</code>.</li>
+  <li>Add the semicolon at the end of the line <code class="language-plaintext highlighter-rouge">A;</code>.</li>
+  <li>Exit the insert mode, go down one line and go to the beginning of the line with <code class="language-plaintext highlighter-rouge">^[j0</code>.</li>
+</ul>
+
+<div class="language-viml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> @<span class="k">k</span><span class="p">=</span><span class="s1">'02f"i.sass^[j0'</span>
+</code></pre></div></div>
+<ul>
+  <li>Look for the second quotes from the beginning of the line with <code class="language-plaintext highlighter-rouge">02f"</code>.</li>
+  <li>Insert the string <code class="language-plaintext highlighter-rouge">.sass</code> with <code class="language-plaintext highlighter-rouge">i.sass</code>.</li>
+  <li>Finally, exit the insert mode, go down one line and go to the beginning of the line with <code class="language-plaintext highlighter-rouge">^[j0</code>.</li>
+</ul>
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/'})"
+						v-on:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/en/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Articles written in this blog are under licence
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

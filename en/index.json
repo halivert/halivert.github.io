@@ -1,0 +1,39 @@
+
+
+{"/en/blog/2019/11/mp4-to-gif": {
+			"title": "Convert mp4 to gif",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["MP4","GIF","ImageMagick","FFmpeg"],
+			"content": "<p>We, dev people, have the need to post evidence of different behaviors of our\ndesktop in many places (issues, documentation, blogs, etc.).</p>\n\n<p>In this post, We’ll learn how to convert an mp4 file to gif in two simple steps.</p>\n\n<h3 id=\"requirements\">Requirements</h3>\n\n<ul>\n  <li><a href=\"https://imagemagick.org\">ImageMagick</a></li>\n  <li><a href=\"https://ffmpeg.org\">FFmpeg</a></li>\n</ul>\n\n<h3 id=\"instructions\">Instructions</h3>\n<p>First, we need to extract the frames from our video. FFmpeg can do it with the\nnext command:</p>","url": "https://halivert.dev/en/blog/2019/11/mp4-to-gif/",
+			"continue": 1,
+			"date": "November 15, 2019",
+			"last_modification": ""
+		},"/en/blog/2019/11/laravel-js-routes": {
+			"title": "Laravel routes in JavaScript",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Laravel","JavaScript","Vue.js","JSON"],
+			"content": "<p>TL;DR With a Package\n<a href=\"https://github.com/halivert/laravel-js-routes\">https://github.com/halivert/laravel-js-routes</a></p>\n\n<p>We generally use JavaScript for the front-end in our applications, if we also\nuse <a href=\"https://laravel.com\">Laravel</a> we notice that it includes a very useful wrapper called Laravel\nMix, that can preprocess our JS files.</p>","url": "https://halivert.dev/en/blog/2019/11/laravel-js-routes/",
+			"continue": 1,
+			"date": "November 03, 2019",
+			"last_modification": "July 05, 2020"
+		},"/en/blog/2019/07/vim-macro-for-bulma": {
+			"title": "Vim macros for Bulma",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Vim","Productividad"],
+			"content": "<p>When you use a CSS framework as flexible as <a href=\"https://bulma.io\">Bulma</a>, you want to have only\nthe necessary components and no more. When you create your own “theme” you can\nimport only the components and elements that you want to use.</p>\n\n<p>Now, what happens when you’re not sure which files contain which rules?\n<strong>Import everything</strong> and then comment on those that are not necessary in that\nmoment.</p>\n\n<p>But… How do we import all the components and elements of Bulma, easily?</p>","url": "https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/",
+			"continue": 1,
+			"date": "July 23, 2019",
+			"last_modification": ""
+		},"/en/blog/2017/12/update": {
+			"title": "Update",
+			"author": "Halí",
+			"categories": ["Divagando"],
+			"tags": ["Primer post","Nuevo sitio","halivert.dev"],
+			"content": "<p>In this place I’ll begin to update problems that I’ve solved (in programming,\nmath and music fields) hoping that my solutions can help you and for remember\nfor myself.\n<br /><br />\nI’ll open a new category called “I were there”, like in my <a href=\"https://halivert.wordpress.com\">wordpress blog</a>,\nand I’ll prefer this page for those posts.</p>","url": "https://halivert.dev/en/blog/2017/12/update/",
+			"continue": 0,
+			"date": "December 20, 2017",
+			"last_modification": ""
+		}}
