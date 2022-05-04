@@ -10,23 +10,23 @@
 	"dependencies": {
 		"lodash": "^4.17.21",
 		"lunr": "^2.3.9",
-		"petite-vue": "^0.3.0"
+		"petite-vue": "^0.4.1"
 	},
 	"prettier": {
 		"semi": false,
 		"tabs": true
 	},
 	"devDependencies": {
-		"@rollup/plugin-alias": "^3.1.5",
-		"@rollup/plugin-commonjs": "^21.0.1",
-		"@rollup/plugin-node-resolve": "^13.0.4",
-		"@rollup/plugin-typescript": "^8.2.5",
-		"@types/lodash": "^4.14.173",
+		"@rollup/plugin-alias": "^3.1.9",
+		"@rollup/plugin-commonjs": "^22.0.0",
+		"@rollup/plugin-node-resolve": "^13.3.0",
+		"@rollup/plugin-typescript": "^8.3.2",
+		"@types/lodash": "^4.14.182",
 		"@types/lunr": "^2.3.4",
-		"@vue/reactivity": "^3.2.12",
-		"rollup": "^2.56.3",
+		"@vue/reactivity": "^3.2.33",
+		"rollup": "^2.71.1",
 		"rollup-plugin-terser": "^7.0.2",
-		"tslib": "^2.3.1",
-		"typescript": "~4.4.3"
+		"tslib": "^2.4.0",
+		"typescript": "~4.6.4"
 	}
 }
