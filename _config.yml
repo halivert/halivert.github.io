@@ -28,6 +28,9 @@ pagination:
 feed:
   excerpt_only: true
 
+sass:
+  sourcemap: development
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

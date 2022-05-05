@@ -48,6 +48,16 @@
 		}
 	}
 
+	.menu-logo {
+		aspect-ratio: 1;
+		align-items: center;
+		justify-content: center;
+		display: flex;
+		max-height: 7rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	a,
 	.menu-item {
 		color: var(--contrast-color-300);
