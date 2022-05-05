@@ -33,5 +33,3 @@ picture, img { max-height: 20em; }
 .printable { display: initial; }
 
 .columns { flex-flow: row nowrap !important; }
-
-/*# sourceMappingURL=print.css.map */

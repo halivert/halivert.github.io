@@ -63,8 +63,8 @@
 				<meta property="telegram:author" content="https://t.me/halivert" />
 			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
 		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
-		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
-		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Select en Vue.js | Halivert</title>
@@ -101,7 +101,7 @@
 	<aside v-scope="Menu()" class="menu">
 		<ul class="menu-list mt-1">
 			<li>
-				<a class="px-1" :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/">
+				<a class="menu-logo" :class="{ 'is-active': itemIsActive($el) &amp;&amp; !activeSearchModal }" href="https://halivert.dev/">
 					<img class="logo my-0 dark" src="https://halivert.dev/assets/img/halivert-logo.webp" alt="Logo de Halivert">
 				</a>
 			</li>
@@ -129,7 +129,7 @@
 </ul>
 
 		
-	</aside><div id="search-modal" v-scope="SearchModal()" v-on:mounted="mountSearchModal" :class="['modal search-modal', { 'is-hidden': !activeSearchModal }]" v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''" v-cloak>
+	</aside><div id="search-modal" v-scope="SearchModal()" v-on:vue:mounted="mountSearchModal" :class="['modal search-modal', { 'is-hidden': !activeSearchModal }]" v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''" v-cloak>
 	<div class="modal-content">
 		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
 
@@ -496,7 +496,7 @@ Adiós 👋🏽</p>
 						<span>Tweet</span>
 					</a>
 
-					<div v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/10/vue-select/'})" v-on:mounted="fetchReactions" class="reactions">
+					<div v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/10/vue-select/'})" v-on:vue:mounted="fetchReactions" class="reactions">
 
 						<span v-for="reaction in reactions" :key="reaction.name">
 							<i :class="reaction?.className"></i>

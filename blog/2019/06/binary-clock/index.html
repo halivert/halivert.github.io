@@ -63,8 +63,8 @@
 				<meta property="telegram:author" content="https://t.me/halivert" />
 			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/"</script>
 		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
-		<script type="module" src="https://halivert.dev/assets/js/search.js" defer></script>
-		<script type="module" src="https://halivert.dev/assets/js/post.js" defer></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Reloj binario | Halivert</title>
@@ -110,7 +110,7 @@
 		<ul class="menu-list mt-1">
 			<li>
 				<a
-					class="px-1"
+					class="menu-logo"
 					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
 					href="https://halivert.dev/">
 					<img
@@ -160,7 +160,7 @@
 	</aside><div
 	id="search-modal"
 	v-scope="SearchModal()"
-	v-on:mounted="mountSearchModal"
+	v-on:vue:mounted="mountSearchModal"
 	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
 	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
 	v-cloak
@@ -449,7 +449,7 @@ Hasta la próxima.</p>
 
 					<div
 					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2019/06/binary-clock/'})"
-						v-on:mounted="fetchReactions"
+						v-on:vue:mounted="fetchReactions"
 						class="reactions">
 
 						<span v-for="reaction in reactions" :key="reaction.name">

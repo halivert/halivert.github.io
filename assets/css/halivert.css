@@ -260,6 +260,8 @@ blockquote { font-style: italic; }
 
 .menu-list button.menu-item:hover, .menu-list button.menu-item:focus, .menu-list button.menu-item:focus-visible { outline: none; background: var(--background-color-200); }
 
+.menu-list .menu-logo { aspect-ratio: 1; align-items: center; justify-content: center; display: flex; max-height: 7rem; margin-left: auto; margin-right: auto; }
+
 .menu-list a, .menu-list .menu-item { color: var(--contrast-color-300); display: block; padding: 0.5em 0.75em; margin-bottom: 0.125rem; border-radius: 42rem; }
 
 .menu-list a:hover, .menu-list a:focus, .menu-list a:focus-visible, .menu-list a.is-active, .menu-list .menu-item:hover, .menu-list .menu-item:focus, .menu-list .menu-item:focus-visible, .menu-list .menu-item.is-active { background: var(--background-color-200); color: var(--contrast-color-200); }
@@ -969,5 +971,3 @@ small { color: var(--text-color-300); }
 .gist-data .blob-num { border: none; }
 
 .gist-data .blob-num:hover { color: var(--text-color-200) !important; }
-
-/*# sourceMappingURL=halivert.css.map */
