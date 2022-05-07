@@ -8,13 +8,14 @@
 	z-index: 1;
 	font-size: 1.75rem;
 	font-family: var(--title-font);
-	background: var(--background-color-100);
+	border-right: 2px dashed var(--accent-color-100);
 	padding: 0.5em 0;
 	height: 100%;
 
 	@include touch {
 		font-size: 1rem;
 		border-bottom: 2px dashed var(--accent-color-100);
+		border-right: none;
 	}
 }
 
@@ -22,7 +23,7 @@
 	line-height: 1.25;
 	display: flex;
 	flex-flow: column nowrap;
-	padding-left: 0.5rem;
+	padding: 0 0.5rem;
 	gap: 0.25em;
 
 	@include touch {

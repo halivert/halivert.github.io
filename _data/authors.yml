@@ -15,6 +15,7 @@ halivert:
     - url: "https://t.me/halivert"
       type: "telegram"
       icon: "fab fa-telegram"
+      hidden: true
     - url: "https://github.com/halivert"
       type: "github"
       icon: "fab fa-github"
@@ -27,6 +28,7 @@ halivert:
     - url: "https://timeline.halivert.dev"
       type: "polywork"
       icon: "fab fa-polywork"
+      hidden: true
     - url: "https://www.linkedin.com/in/halivert/"
       type: "linkedin"
       icon: "fab fa-linkedin"
