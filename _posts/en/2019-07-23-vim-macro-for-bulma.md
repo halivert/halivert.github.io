@@ -4,7 +4,9 @@ category: "Ya me pasó"
 date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Vim macros for Bulma"
-canonical_url: "https://halivert.dev/2019/07/vim-macro-for-bulma/"
+translations:
+  - short: es
+    post: _posts/2019-07-23-vim-macro-for-bulma.md
 ---
 
 When you use a CSS framework as flexible as [Bulma][1], you want to have only

@@ -5,7 +5,9 @@ tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 date: "2019-11-03 20:24"
 title: "Laravel routes in JavaScript"
 last_modification: "2020-07-05 00:18"
-canonical_url: "https://halivert.dev/blog/2019/11/laravel-js-routes/"
+translations:
+  - short: es
+    post: _posts/2019-11-03-laravel-js-routes.md
 ---
 
 TL;DR With a Package
