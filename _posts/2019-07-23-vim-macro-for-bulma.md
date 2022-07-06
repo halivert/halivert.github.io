@@ -4,6 +4,9 @@ category: "Ya me pasó"
 date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Macros de Vim para Bulma"
+translations:
+  - short: en
+    post: _posts/en/2019-07-23-vim-macro-for-bulma.md
 ---
 
 Cuando utilizas un framework de CSS tan flexible como [Bulma][1], deseas tener

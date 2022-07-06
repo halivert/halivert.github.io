@@ -28,7 +28,7 @@ module Jekyll
         end
       end
 
-      absolute_url(input);
+      absolute_url(input)
     end
 
     def locale_date(date)

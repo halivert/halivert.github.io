@@ -5,8 +5,7 @@ date: "2022-07-06 12:40 -0500"
 category: "Ya me pasó"
 tags: ["Web", "Laravel", "JS"]
 translations:
-    - short: Español
-      label: Leer en español
+    - short: es
       post: _posts/2022-07-06-upgrade-webpack-to-vite-laravel-sail.md
 ---
 
@@ -18,7 +17,7 @@ But if you are also using Sail, which is a useful tool for integrating Docker
 into your development environment, you will also have to make some other
 changes.
 
-<!-- Seguir leyendo -->
+<!-- Keep reading -->
 
 One of the first things to do is to tell Vite that our development server is on
 another host:
