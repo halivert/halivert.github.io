@@ -153,6 +153,137 @@ que yo ya pasé, mostrandoles mi manera de resolverlos.
     
       <div>
         <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/">
+            Upgrading Webpack to Vite in Laravel Sail
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div><p>Laravel has just added support for <a href="https://vitejs.dev/">Vite</a>, a very powerful frontend
+development tool, and you can use it if you make some small changes, as
+suggested on <a href="https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite">the official page for this migration</a>.</p>
+
+<p>But if you are also using Sail, which is a useful tool for integrating Docker
+into your development environment, you will also have to make some other
+changes.</p>
+
+<!-- Seguir leyendo -->
+
+<p>One of the first things to do is to tell Vite that our development server is on
+another host:</p>
+
+<p>To do this we add two variables to our .env file.<br />
+<small>
+    The variable <code class="language-plaintext highlighter-rouge">VITE_PORT</code> is optional and by default it will take that number
+</small></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .env</span>
+<span class="nv">VITE_HOST</span><span class="o">=</span><span class="k">${</span><span class="nv">APP_HOST</span><span class="k">}</span>
+<span class="nv">VITE_PORT</span><span class="o">=</span>5173
+</code></pre></div></div>
+
+<p>We then add these variables to the Vite configuration file.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// vite.config.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span><span class="p">,</span> <span class="nx">loadEnv</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vite</span><span class="dl">"</span>
+<span class="k">import</span> <span class="nx">laravel</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">laravel-vite-plugin</span><span class="dl">"</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">(({</span> <span class="nx">mode</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">loadEnv</span><span class="p">(</span><span class="nx">mode</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="na">server</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">host</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">VITE_HOST</span><span class="p">,</span>
+            <span class="na">port</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">VITE_PORT</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Then we expose that port from our <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>: In services &gt;
+laravel.test (or the name of our host) &gt; ports we add the following line, which
+will take the Vite port and expose it to the same port of our development
+environment.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+    <span class="na">laravel.test</span><span class="pi">:</span>
+        <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s1">'</span><span class="s">${VITE_PORT:-5173}:5173'</span>
+</code></pre></div></div>
+
+<p>This should be enough to achieve a connection to Vite, from outside of Docker.</p>
+
+</div>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Julio 06, 2022
+	
+</div>
+
+        <br>
+      </div>
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/">
+            Actualizar Webpack a Vite en Laravel Sail
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div><p>Laravel acaba de agregar soporte para <a href="https://vitejs.dev/">Vite</a>, una herramienta para desarrollo
+frontend muy poderosa, y tú puedes usarla si realizas unos pequeños cambios,
+como sugiere <a href="https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite">la página oficial para esta migración</a>.</p>
+
+<p>Pero si además estás utilizando Sail, que es una útil herramienta para integrar
+Docker en tu entorno de desarrollo, además tendrás que hacer algunos otros
+cambios.</p>
+
+</div>
+	
+		<p>&#8230;</p>
+
+		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/">
+			Seguir leyendo
+		</a>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		Julio 06, 2022
+	
+</div>
+
+        <br>
+      </div>
+    
+      <div>
+        <p class="title is-2">
           <a class="has-text-primary" href="https://halivert.dev/blog/2021/03/create-pdf-with-html-and-css/">
             Crear un PDF con HTML y CSS
           </a>
@@ -185,92 +316,6 @@ un PDF a partir de estos dos lenguajes de programación</p>
 	
 		<i class="fas fa-calendar" aria-hidden="true"></i>
 		Marzo 17, 2021
-	
-</div>
-
-        <br>
-      </div>
-    
-      <div>
-        <p class="title is-2">
-          <a class="has-text-primary" href="https://halivert.dev/blog/2021/03/how-to-google/">
-            Como googlear
-          </a>
-        </p><hr>
-        <div class="content has-text-justified">
-	
-	
-
-	<div><p>Googlear, es decir, buscar información con un buscador web (específicamente
-Google) no es una tarea trivial, y conforme pasa el tiempo se convierte en algo
-cada vez más difícil ya que hace falta criterio para encontrar lo que buscas.
-Sin embargo es una tarea escencial en el ámbito de la programación.</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/03/how-to-google/">
-			Seguir leyendo
-		</a>
-	
-</div>
-
-        <br>
-        <div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		Marzo 13, 2021
-	
-</div>
-
-        <br>
-      </div>
-    
-      <div>
-        <p class="title is-2">
-          <a class="has-text-primary" href="https://halivert.dev/blog/2021/02/how-to-ask/">
-            Cómo preguntar
-          </a>
-        </p><hr>
-        <div class="content has-text-justified">
-	
-	
-
-	<div><p>¿Por qué es tan importante saber preguntar? Bueno, haciendo las preguntas
-adecuadas llegas más rápido a la respuesta que buscas.</p>
-
-<p>Y primero lo primero, si algo hace falta a la hora de resolver problemas es
-entender precisamente <strong>cual es el problema</strong>. Así que una vez identificado,
-tienes que preguntar…</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2021/02/how-to-ask/">
-			Seguir leyendo
-		</a>
-	
-</div>
-
-        <br>
-        <div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		Febrero 22, 2021
 	
 </div>
 
@@ -463,6 +508,9 @@ tienes que preguntar…</p>
 </footer>
 
 		
-		<script async src="https://cdn.splitbee.io/sb.js"></script>
+
+		
+			<script async src="https://cdn.splitbee.io/sb.js"></script>
+		
 	</body>
 </html>

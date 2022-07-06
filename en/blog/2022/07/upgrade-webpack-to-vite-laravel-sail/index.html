@@ -57,31 +57,38 @@
 		</noscript>
 
 		
-<meta property="author:name" content="" /><meta property="telegram:author" content="" /><meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/en/"</script>
+<meta property="unix_timestamp" content="1657129200">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script>window.siteUrl = "https://halivert.dev/en/"</script>
 		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
 		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
 		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Blog | Halivert</title>
+<title>Upgrading Webpack to Vite in Laravel Sail | Halivert</title>
 <meta name="generator" content="Jekyll v4.2.2" />
-<meta property="og:title" content="Blog" />
+<meta property="og:title" content="Upgrading Webpack to Vite in Laravel Sail" />
+<meta name="author" content="halivert" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Sitio de Halí Velázquez" />
-<meta property="og:description" content="Sitio de Halí Velázquez" />
-<link rel="canonical" href="https://halivert.dev/en/blog/" />
-<meta property="og:url" content="https://halivert.dev/en/blog/" />
+<meta name="description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker." />
+<meta property="og:description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker." />
+<link rel="canonical" href="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" />
+<meta property="og:url" content="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" />
 <meta property="og:site_name" content="Halivert" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-07-06T12:40:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blog" />
+<meta property="twitter:title" content="Upgrading Webpack to Vite in Laravel Sail" />
 <meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/en/blog/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2022-07-06T12:40:00-05:00","datePublished":"2022-07-06T12:40:00-05:00","description":"Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker.","headline":"Upgrading Webpack to Vite in Laravel Sail","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"}</script>
 <!-- End Jekyll SEO tag -->
 
 		
-			<meta property="has_instant_view" content="false"/>
+			<meta property="has_instant_view" content="true"/>
 		
 	</head>
 
@@ -238,24 +245,37 @@
 </div>
 
 
-<main id="main-container" class="section  ">
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
   <div class="columns">
-	<div class="column is-9-desktop">
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/">
-						Upgrading Webpack to Vite in Laravel Sail
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Upgrading Webpack to Vite in Laravel Sail</h1>
+					<small>
+						
+							<i>by</i>
+							<a href="https://halivert.dev/en/authors/halivert">Halí</a> -
+						
 
-	<div><p>Laravel has just added support for <a href="https://vitejs.dev/">Vite</a>, a very powerful frontend
+						
+							<i>posted:</i> July 06, 2022
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag ">Web</span><span class="tag ">Laravel</span><span class="tag ">JS</span></div>
+				
+					<div class="column has-text-right"><a href="/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" title="Leer en español">
+								Español
+							</a></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Laravel has just added support for <a href="https://vitejs.dev/">Vite</a>, a very powerful frontend
 development tool, and you can use it if you make some small changes, as
 suggested on <a href="https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite">the official page for this migration</a>.</p>
 
@@ -310,253 +330,42 @@ environment.</p>
 
 <p>This should be enough to achieve a connection to Vite, from outside of Docker.</p>
 
-</div>
-	
-</div>
 
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		July 06, 2022
-	
-</div>
-
-				<br />
 			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/11/mp4-to-gif/">
-						Convert mp4 to gif
-					</a>
-				</h2>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
 				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
 
-	<div><p>We, dev people, have the need to post evidence of different behaviors of our
-desktop in many places (issues, documentation, blogs, etc.).</p>
-
-<p>In this post, We’ll learn how to convert an mp4 file to gif in two simple steps.</p>
-
-<h3 id="requirements">Requirements</h3>
-
-<ul>
-  <li><a href="https://imagemagick.org">ImageMagick</a></li>
-  <li><a href="https://ffmpeg.org">FFmpeg</a></li>
-</ul>
-
-<h3 id="instructions">Instructions</h3>
-<p>First, we need to extract the frames from our video. FFmpeg can do it with the
-next command:</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/11/mp4-to-gif/">
-			Keep reading
-		</a>
-	
-</div>
-
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		November 15, 2019
-	
-</div>
-
-				<br />
-			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/11/laravel-js-routes/">
-						Laravel routes in JavaScript
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
 					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
 
-	<div><p>TL;DR With a Package
-<a href="https://github.com/halivert/laravel-js-routes">https://github.com/halivert/laravel-js-routes</a></p>
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
 
-<p>We generally use JavaScript for the front-end in our applications, if we also
-use <a href="https://laravel.com">Laravel</a> we notice that it includes a very useful wrapper called Laravel
-Mix, that can preprocess our JS files.</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/11/laravel-js-routes/">
-			Keep reading
-		</a>
-	
-</div>
-
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
 					</div>
-					
 				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar-plus" aria-hidden="true"></i>
-		July 05, 2020
-	
-</div>
-
-				<br />
 			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
-						Vim macros for Bulma
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
 
-	<div><p>When you use a CSS framework as flexible as <a href="https://bulma.io">Bulma</a>, you want to have only
-the necessary components and no more. When you create your own “theme” you can
-import only the components and elements that you want to use.</p>
-
-<p>Now, what happens when you’re not sure which files contain which rules?
-<strong>Import everything</strong> and then comment on those that are not necessary in that
-moment.</p>
-
-<p>But… How do we import all the components and elements of Bulma, easily?</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
-			Keep reading
-		</a>
-	
-</div>
-
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		July 23, 2019
-	
-</div>
-
-				<br />
-			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/en/blog/2017/12/update/">
-						Update
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
-
-	<div><p>In this place I’ll begin to update problems that I’ve solved (in programming,
-math and music fields) hoping that my solutions can help you and for remember
-for myself.
-<br /><br />
-I’ll open a new category called “I were there”, like in my <a href="https://halivert.wordpress.com">wordpress blog</a>,
-and I’ll prefer this page for those posts.</p>
-
-</div>
-	
-</div>
-
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		December 20, 2017
-	
-</div>
-
-				<br />
-			</section>
-		
-		
-
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/</p>
+			</div>
+		</div>
 	</div>
-	<aside class="column">
-		<div class="container is-fluid has-text-centered">
-	<h1 class="subtitle">Categories</h1>
-	<div><a class="sidebar-item" href="https://halivert.dev/en/blog/rambling"
-				>Rambling</a
-			><a class="sidebar-item" href="https://halivert.dev/en/blog/i-were-there"
-				>I were there</a
-			><a class="sidebar-item" href="https://halivert.dev/en/blog/code"
-				>Code!</a
-			><a class="sidebar-item" href="https://halivert.dev/en/blog/news"
-				>News</a
-			><a class="sidebar-item" href="https://halivert.dev/en/blog/maths"
-				>Math</a
-			><a class="sidebar-item" href="https://halivert.dev/en/blog/myspace"
-				>MySpace</a
-			></div>
-</div>
-
-	</aside>
 </div>
 
 </main>

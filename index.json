@@ -1,6 +1,15 @@
 
 
-{"/blog/2021/11/which-browser-to-use": {
+{"/blog/2022/07/upgrade-webpack-to-vite-laravel-sail": {
+			"title": "Actualizar Webpack a Vite en Laravel Sail",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Web","Laravel","JS"],
+			"content": "<p>Laravel acaba de agregar soporte para <a href=\"https://vitejs.dev/\">Vite</a>, una herramienta para desarrollo\nfrontend muy poderosa, y tú puedes usarla si realizas unos pequeños cambios,\ncomo sugiere <a href=\"https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite\">la página oficial para esta migración</a>.</p>\n\n<p>Pero si además estás utilizando Sail, que es una útil herramienta para integrar\nDocker en tu entorno de desarrollo, además tendrás que hacer algunos otros\ncambios.</p>","url": "https://halivert.dev/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/",
+			"continue": 1,
+			"date": "Julio 06, 2022",
+			"last_modification": ""
+		},"/blog/2021/11/which-browser-to-use": {
 			"title": "¿Qué navegador usar?",
 			"author": "Halí",
 			"categories": ["MySpace"],

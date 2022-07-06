@@ -73,6 +73,7 @@
 <meta property="og:url" content="https://halivert.dev/en/blog/i-were-there/" />
 <meta property="og:site_name" content="Halivert" />
 <meta property="og:type" content="website" />
+<link rel="next" href="https://halivert.dev/en/blog/i-were-there/2/" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="I were there" />
 <meta name="twitter:site" content="@halivert" />
@@ -148,6 +149,92 @@
 
 <div class="columns mt-6">
   <div class="column is-9-desktop">
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/">
+            Upgrading Webpack to Vite in Laravel Sail
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
+	
+	
+
+	<div><p>Laravel has just added support for <a href="https://vitejs.dev/">Vite</a>, a very powerful frontend
+development tool, and you can use it if you make some small changes, as
+suggested on <a href="https://github.com/laravel/vite-plugin/blob/main/UPGRADE.md#migrating-from-laravel-mix-to-vite">the official page for this migration</a>.</p>
+
+<p>But if you are also using Sail, which is a useful tool for integrating Docker
+into your development environment, you will also have to make some other
+changes.</p>
+
+<!-- Seguir leyendo -->
+
+<p>One of the first things to do is to tell Vite that our development server is on
+another host:</p>
+
+<p>To do this we add two variables to our .env file.<br />
+<small>
+    The variable <code class="language-plaintext highlighter-rouge">VITE_PORT</code> is optional and by default it will take that number
+</small></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># .env</span>
+<span class="nv">VITE_HOST</span><span class="o">=</span><span class="k">${</span><span class="nv">APP_HOST</span><span class="k">}</span>
+<span class="nv">VITE_PORT</span><span class="o">=</span>5173
+</code></pre></div></div>
+
+<p>We then add these variables to the Vite configuration file.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// vite.config.js</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span><span class="p">,</span> <span class="nx">loadEnv</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vite</span><span class="dl">"</span>
+<span class="k">import</span> <span class="nx">laravel</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">laravel-vite-plugin</span><span class="dl">"</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">(({</span> <span class="nx">mode</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">loadEnv</span><span class="p">(</span><span class="nx">mode</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">())</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="c1">// ...</span>
+        <span class="na">server</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">host</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">VITE_HOST</span><span class="p">,</span>
+            <span class="na">port</span><span class="p">:</span> <span class="nx">env</span><span class="p">.</span><span class="nx">VITE_PORT</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Then we expose that port from our <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>: In services &gt;
+laravel.test (or the name of our host) &gt; ports we add the following line, which
+will take the Vite port and expose it to the same port of our development
+environment.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">services</span><span class="pi">:</span>
+    <span class="na">laravel.test</span><span class="pi">:</span>
+        <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="s1">'</span><span class="s">${VITE_PORT:-5173}:5173'</span>
+</code></pre></div></div>
+
+<p>This should be enough to achieve a connection to Vite, from outside of Docker.</p>
+
+</div>
+	
+</div>
+
+        <br>
+        <div class="box has-text-right">
+	<i class="fas fa-user" aria-hidden="true"></i>
+	
+	
+		Halí
+	
+	<span class="mobile-separator"></span>
+	
+		<i class="fas fa-calendar" aria-hidden="true"></i>
+		July 06, 2022
+	
+</div>
+
+        <br>
+      </div>
     
       <div>
         <p class="title is-2">
@@ -246,54 +333,62 @@ Mix, that can preprocess our JS files.</p>
         <br>
       </div>
     
-      <div>
-        <p class="title is-2">
-          <a class="has-text-primary" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
-            Vim macros for Bulma
-          </a>
-        </p><hr>
-        <div class="content has-text-justified">
-	
-	
-
-	<div><p>When you use a CSS framework as flexible as <a href="https://bulma.io">Bulma</a>, you want to have only
-the necessary components and no more. When you create your own “theme” you can
-import only the components and elements that you want to use.</p>
-
-<p>Now, what happens when you’re not sure which files contain which rules?
-<strong>Import everything</strong> and then comment on those that are not necessary in that
-moment.</p>
-
-<p>But… How do we import all the components and elements of Bulma, easily?</p>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/en/blog/2019/07/vim-macro-for-bulma/">
-			Keep reading
-		</a>
-	
-</div>
-
-        <br>
-        <div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		July 23, 2019
-	
-</div>
-
-        <br>
-      </div>
     
-    
+	<nav class="pagination is-rounded is-centered" aria-label="pagination">
+		
+			<a class="pagination-previous is-hidden-touch" disabled>
+				<i class="fas fa-hand-point-left"></i>
+			</a>
+		
+
+		<ul class="pagination-list">
+			
+			
+
+			<li>
+				<a
+					
+						class="pagination-link button is-current"
+						aria-current="page"
+					
+					aria-label="Go to page 1"
+					>1</a
+				>
+			</li>
+
+			
+
+			
+				
+					
+				
+					
+				
+			
+
+			
+
+			<li>
+				<a
+					
+						href="https://halivert.dev/en/blog/i-were-there/2/"
+						class="pagination-link"
+					
+					aria-label="Go to page 2"
+					>2</a
+				>
+			</li>
+		</ul>
+
+		
+			<a
+				href="https://halivert.dev/en/blog/i-were-there/2/"
+				class="pagination-next button is-primary is-hidden-touch"
+				><i class="fas fa-hand-point-right"></i></a
+			>
+		
+	</nav>
+
 
   </div>
   <div class="column">
@@ -353,6 +448,9 @@ moment.</p>
 </footer>
 
 		
-		<script async src="https://cdn.splitbee.io/sb.js"></script>
+
+		
+			<script async src="https://cdn.splitbee.io/sb.js"></script>
+		
 	</body>
 </html>
