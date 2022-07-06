@@ -8,6 +8,7 @@ layout: container
 
 {% assign author = site.data.authors[page.author] %}
 {%- assign post_url = page.url | absolute_url -%}
+{%- assign translations = page.translations -%}
 
 <div class="columns">
 	<div class="column is-offset-1-desktop">
@@ -65,6 +66,15 @@ layout: container
 						}}</span>
 					{%- endfor -%}
 				</div>
+				{% if translations.size %}
+					<div class="column has-text-right">
+						{%- for translation in translations -%}
+							<a href="{% link {{ translation.post }} %}" title="{{ translation.label }}">
+								{{ translation.short }}
+							</a>{%- unless forloop.last -%},{%- endunless -%}
+						{%- endfor -%}
+					</div>
+				{% endif %}
 			</div>
 			<hr />
 			<section id="content" class="content">

@@ -3,6 +3,10 @@ author: halivert
 title: "Actualizar Webpack a Vite en Laravel Sail"
 date: "2022-07-06 11:33:29 -0500"
 category: "Ya me pasó"
+translations:
+    - short: English
+      label: Read in english
+      post: _posts/en/2022-07-06-upgrade-webpack-to-vite-laravel-sail.md
 tags: ["Web", "Laravel", "JS"]
 ---
 

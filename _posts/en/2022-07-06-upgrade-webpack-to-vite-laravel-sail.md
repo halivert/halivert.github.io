@@ -4,6 +4,10 @@ title: "Upgrading Webpack to Vite in Laravel Sail"
 date: "2022-07-06 11:33:29 -0500"
 category: "Ya me pasó"
 tags: ["Web", "Laravel", "JS"]
+translations:
+    - short: Español
+      label: Leer en español
+      post: _posts/2022-07-06-upgrade-webpack-to-vite-laravel-sail.md
 ---
 
 Laravel has just added support for [Vite][1], a very powerful frontend
