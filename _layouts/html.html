@@ -132,6 +132,9 @@
 		{% unless page.hide_foot or layout.hide_foot %}
 			{% include footer.html %}
 		{% endunless %}
-		<script async src="https://cdn.splitbee.io/sb.js"></script>
+
+		{% if jekyll.environment == "production" %}
+			<script async src="https://cdn.splitbee.io/sb.js"></script>
+		{% endif %}
 	</body>
 </html>
