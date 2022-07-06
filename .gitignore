@@ -25,3 +25,4 @@ todo.md
 *.dev.*
 assets/js/*.js
 assets/js/*.js.map
+.env
