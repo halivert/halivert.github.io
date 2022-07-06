@@ -72,8 +72,8 @@
 <meta property="og:title" content="Upgrading Webpack to Vite in Laravel Sail" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker." />
-<meta property="og:description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker." />
+<meta name="description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes." />
+<meta property="og:description" content="Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes." />
 <link rel="canonical" href="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" />
 <meta property="og:url" content="https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" />
 <meta property="og:site_name" content="Halivert" />
@@ -84,7 +84,7 @@
 <meta name="twitter:site" content="@halivert" />
 <meta name="twitter:creator" content="@halivert" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2022-07-06T12:40:00-05:00","datePublished":"2022-07-06T12:40:00-05:00","description":"Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes. One of the first things to do is to tell Vite that our development server is on another host: To do this we add two variables to our .env file. The variable VITE_PORT is optional and by default it will take that number # .env VITE_HOST=${APP_HOST} VITE_PORT=5173 We then add these variables to the Vite configuration file. // vite.config.js import { defineConfig, loadEnv } from &quot;vite&quot; import laravel from &quot;laravel-vite-plugin&quot; export default defineConfig(({ mode }) =&gt; { const env = loadEnv(mode, process.cwd()) return { // ... server: { host: env.VITE_HOST, port: env.VITE_PORT, }, } }) Then we expose that port from our docker-compose.yml: In services &gt; laravel.test (or the name of our host) &gt; ports we add the following line, which will take the Vite port and expose it to the same port of our development environment. services: laravel.test: ports: - &#39;${VITE_PORT:-5173}:5173&#39; This should be enough to achieve a connection to Vite, from outside of Docker.","headline":"Upgrading Webpack to Vite in Laravel Sail","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2022-07-06T12:40:00-05:00","datePublished":"2022-07-06T12:40:00-05:00","description":"Laravel has just added support for Vite, a very powerful frontend development tool, and you can use it if you make some small changes, as suggested on the official page for this migration. But if you are also using Sail, which is a useful tool for integrating Docker into your development environment, you will also have to make some other changes.","headline":"Upgrading Webpack to Vite in Laravel Sail","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/en/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"}</script>
 <!-- End Jekyll SEO tag -->
 
 		
@@ -268,7 +268,9 @@
 			<div class="columns">
 				<div class="column tags"><span class="tag ">Web</span><span class="tag ">Laravel</span><span class="tag ">JS</span></div>
 				
-					<div class="column has-text-right"><a href="/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/" title="Leer en español">
+					<div class="column has-text-right"><a
+								href="/blog/2022/07/upgrade-webpack-to-vite-laravel-sail/"
+								title="Leer en español">
 								Español
 							</a></div>
 				
@@ -283,7 +285,7 @@ suggested on <a href="https://github.com/laravel/vite-plugin/blob/main/UPGRADE.m
 into your development environment, you will also have to make some other
 changes.</p>
 
-<!-- Seguir leyendo -->
+<!-- Keep reading -->
 
 <p>One of the first things to do is to tell Vite that our development server is on
 another host:</p>
