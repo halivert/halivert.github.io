@@ -92,10 +92,12 @@
 			<meta name="telegram:channel" content="@halivertsblog" />
 		{%- endif -%}
 
-		{%- if site.payment_pointer -%}
-			<meta name="monetization" content="{{ site.payment_pointer }}" />
-		{%- else -%}
-			<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
+		{%- if jekyll.environment == "production" -%}
+			{%- if site.payment_pointer -%}
+				<meta name="monetization" content="{{ site.payment_pointer }}" />
+			{%- else -%}
+				<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" />
+			{%- endif -%}
 		{%- endif -%}
 
 		{%- assign jsAssets = "/assets/js" | absolute_url -%}
