@@ -14,7 +14,7 @@ Me encantan las matemáticas y los algoritmos, participé en el club de algoritm
 de mi escuela durante algún tiempo. Actualmente trabajo como desarrollador web
 full-stack y utilizo principalmente Laravel y Vue.
 
-Los únicos deportes que me gustan son el tenis de mesa y el skateboarding.
+Me gusta practicar natación, tenis de mesa, y hace mucho tiempo, skateboarding.
 
 Tengo gustos musicales variados, desde mi banda favorita: los Strokes, pasando
 por CHON, Wintergatan, hasta una (1) canción de los Beatles.

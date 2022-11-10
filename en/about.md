@@ -15,7 +15,7 @@ I love math and algorithms, I participated in the algorithms club at my school
 for some time. I currently work as a full-stack web developer and I mainly use
 Laravel and Vue.
 
-The only sports I like are table tennis and skateboarding.
+I like to practice swimming, table tennis, and a long time ago, skateboarding.
 
 I have a broad musical taste, starting with my favourite band: the Strokes, to
 CHON, Wintergatan, up to one (1) Beatles song.
