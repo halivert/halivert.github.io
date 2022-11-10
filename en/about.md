@@ -12,8 +12,8 @@ engineering][2] at ESCOM (México). I'm happily married with the love of my life
 since I was 26.
 
 I love math and algorithms, I participated in the algorithms club at my school
-for some time. I currently work as a full-stack web developer and I mainly use
-Laravel and Vue.
+for some time. I currently work as a frontend web developer and I mainly use
+Angular but sometimes work on little tasks on backend with Java.
 
 I like to practice swimming, table tennis, and a long time ago, skateboarding.
 

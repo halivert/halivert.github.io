@@ -12,7 +12,8 @@ computacionales][2] en ESCOM. Me casé a los 26 con el amor de mi vida.
 
 Me encantan las matemáticas y los algoritmos, participé en el club de algoritmia
 de mi escuela durante algún tiempo. Actualmente trabajo como desarrollador web
-full-stack y utilizo principalmente Laravel y Vue.
+frontend y utilizo principalmente Angular, aunque también llego a hacer algunas 
+tareas básicas de backend con Java.
 
 Me gusta practicar natación, tenis de mesa, y hace mucho tiempo, skateboarding.
 
