@@ -16,4 +16,4 @@
 		#fd5949 45%,
 		#d6249f 60%,
 		#285aeb 90%
-	); --code-color: var(--text-color-100); --golden-hsl: 43, 74%, 49%; --yellow-hsl: 42, 100%, 8%; --red-hsl: 0, 100%, 13%; --green-succulent-hsl: 123, 27%, 25%; --purple-hsl: 280, 84%, 21%; --creative-a: hsl(162, 100%, 15%); --creative-b: hsl(102, 100%, 15%); --blue-hsl: 208, 100%, 25%; --orange-hsl: 11, 90%, 36%; --emerald-hsl: 180, 100%, 10%; --vue-hsl: 211, 28%, 29%; --mint-hsl: 153, 48%, 28%; --golden-invert: var(--background-color-100); --white-hsl: 0, 0%, 80%; --white-invert: var(--background-color-100); }
+	); --mastodon-primary: #3088d4; --code-color: var(--text-color-100); --golden-hsl: 43, 74%, 49%; --yellow-hsl: 42, 100%, 8%; --red-hsl: 0, 100%, 13%; --green-succulent-hsl: 123, 27%, 25%; --purple-hsl: 280, 84%, 21%; --creative-a: hsl(162, 100%, 15%); --creative-b: hsl(102, 100%, 15%); --blue-hsl: 208, 100%, 25%; --orange-hsl: 11, 90%, 36%; --emerald-hsl: 180, 100%, 10%; --vue-hsl: 211, 28%, 29%; --mint-hsl: 153, 48%, 28%; --golden-invert: var(--background-color-100); --white-hsl: 0, 0%, 80%; --white-invert: var(--background-color-100); }

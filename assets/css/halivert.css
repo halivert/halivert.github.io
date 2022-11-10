@@ -362,6 +362,10 @@ blockquote { font-style: italic; }
 
 .button.polywork:focus { --button-border-color: var(--text-color-100); }
 
+.button.mastodon { --control-border-radius: 4px; --control-font-size: 1.25rem; --control-border-radius: 100%; --button-background: var(--background-color-200); --button-color: var(--mastodon-primary); --button-border-color: transparent; --contrast-color-100: var(--mastodon-primary); }
+
+.button.mastodon:focus { --button-border-color: var(--text-color-100); }
+
 .buttons { display: inline-flex; flex-flow: row wrap; }
 
 .buttons:not(last-child) { margin-bottom: 1rem; }
