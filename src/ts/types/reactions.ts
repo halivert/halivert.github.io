@@ -18,9 +18,7 @@ export namespace Reactions {
 
 export interface Reactions {
   count: number
-  type: {
-    [key: string]: number
-  }
+  type: Record<string, number>
 }
 
 export interface Reaction {
