@@ -33,7 +33,6 @@ layout: container
         <p>
           {% if project.live %}
             <a
-              data-turbo="false"
               class="button is-primary"
               href="{{ project.live }}"
               >{{ 'Sitio' | __ }}</a
@@ -41,7 +40,6 @@ layout: container
           {% endif %}
           {% if project.repo %}
             <a
-              data-turbo="false"
               class="button is-primary"
               href="{{ project.repo }}"
               >{{ 'Código' | __ }}</a

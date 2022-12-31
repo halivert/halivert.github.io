@@ -57,9 +57,7 @@
 			<ul class="menu-list lang">
 				{% for lang in site.data.langs %}
 					<li>
-						<a
-							data-turbo="false"
-							href="{{ lang.path | absolute_url }}">
+						<a href="{{ lang.path | absolute_url }}">
 							{{ lang.title }}
 						</a>
 					</li>

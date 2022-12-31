@@ -93,5 +93,4 @@ function Reactions(props: Reactions.Props) {
 
 const mountApp = () => createApp({ twitterLink, Reactions }).mount("#reactions")
 
-const event: string = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
-document.addEventListener(event, mountApp)
+document.addEventListener("DOMContentLoaded", mountApp)

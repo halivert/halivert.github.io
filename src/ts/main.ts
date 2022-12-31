@@ -65,5 +65,4 @@ const mountApp = () => {
 
 window.vibrate = vibrate
 
-const event = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
-document.addEventListener(event, mountApp)
+document.addEventListener("DOMContentLoaded", mountApp)
