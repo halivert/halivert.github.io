@@ -29,6 +29,7 @@ feed:
   excerpt_only: true
 
 sass:
+  style: compact
   sourcemap: development
 
 plugins:

@@ -2,7 +2,7 @@
 
 @import "functions";
 
-@import "colors";
+@import "base-colors";
 
 :root {
 	--main-font: "Raleway", sans-serif;
@@ -169,7 +169,7 @@ main#main-container {
 .license-link {
 	@extend %inline-block;
 
-	margin-bottom: nth($sizes, 7) / 2;
+	margin-bottom: calc(nth($sizes, 7) / 2);
 }
 
 ::selection {

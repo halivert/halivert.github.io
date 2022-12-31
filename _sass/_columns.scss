@@ -15,11 +15,11 @@
 		@for $i from 0 through 12 {
 			&.is-#{$i}-desktop {
 				flex: none;
-				width: percentage($i / 12);
+				width: percentage(calc($i / 12));
 			}
 
 			&.is-offset-#{$i}-desktop {
-				margin-left: percentage($i / 12);
+				margin-left: percentage(calc($i / 12));
 			}
 		}
 	}
@@ -33,11 +33,11 @@
 		@for $i from 0 through 12 {
 			&.is-#{$i} {
 				flex: none;
-				width: percentage($i / 12);
+				width: percentage(calc($i / 12));
 			}
 
 			&.is-offset-#{$i} {
-				margin-left: percentage($i / 12);
+				margin-left: percentage(calc($i / 12));
 			}
 		}
 	}
