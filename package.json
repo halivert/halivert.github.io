@@ -4,8 +4,8 @@
 	"author": "Halí V. <halivelazquez@outlook.com>",
 	"license": "MIT",
 	"scripts": {
-		"build": "tsc && rollup -c --bundleConfigAsCjs",
-		"dev": "rollup -c --configDev -w --bundleConfigAsCjs"
+		"build": "tsc && rollup -c",
+		"dev": "rollup -c --configDev -w"
 	},
 	"dependencies": {
 		"lodash": "4.17.21",
