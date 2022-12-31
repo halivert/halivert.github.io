@@ -26,7 +26,7 @@ export interface Post {
   continue: number
 }
 
-const twitterLink = (rawPostUrl: string) => {
+function twitterLink(rawPostUrl: string): string {
   const postUrl = new URL(rawPostUrl)
 
   const author = (<HTMLMetaElement>(
@@ -41,7 +41,7 @@ const twitterLink = (rawPostUrl: string) => {
   }).toString()
 }
 
-function getMentionsUrl(props: Mentions.Props) {
+function getMentionsUrl(props: Mentions.Props): string {
   return urlBuilder(`${props.apiUrl}/mentions.html`, {
     target: props.postUrl,
     "wm-property": props?.filter,
@@ -60,7 +60,7 @@ function Reactions(props: Reactions.Props) {
       ([type, reactionData]) => {
         const count: number = fetchedReactions.type?.[type] || 0
 
-        if (reactionData?.["filter"] && count) {
+        if (reactionData.filter && count) {
           this.mentions.count = count
           return null
         }
@@ -68,7 +68,7 @@ function Reactions(props: Reactions.Props) {
         return {
           count: count,
           name: type,
-          className: [...reactionData["className"], "fa", "ml-3", "mr-2"],
+          className: [...reactionData.className, "fa", "ml-3", "mr-2"],
         }
       }
     )
@@ -93,5 +93,7 @@ function Reactions(props: Reactions.Props) {
 
 const mountApp = () => createApp({ twitterLink, Reactions }).mount("#reactions")
 
-const event: string = window?.Turbo ? "turbo:load" : "DOMContentLoaded"
-document.addEventListener(event, mountApp)
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("Mount post");
+  mountApp()
+})

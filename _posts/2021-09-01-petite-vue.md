@@ -21,7 +21,7 @@ Pero, ¿qué es justamente y cómo se usa? Veámoslo.
 
 ## Índice
 
-<div data-turbo="false" markdown="1">
+<div markdown="1">
 
 - [¿Qué es?](#qué-es)
   - [¿Para qué sirve?](#para-qué-sirve)

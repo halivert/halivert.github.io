@@ -1,18 +1,18 @@
 import { defineConfig } from "rollup"
-import { resolve } from "path"
 
 import typescript from "@rollup/plugin-typescript"
-import { terser } from "rollup-plugin-terser"
+import terser from "@rollup/plugin-terser"
 import alias from "@rollup/plugin-alias"
 import nodeResolve from "@rollup/plugin-node-resolve"
 import commonJS from "@rollup/plugin-commonjs"
+
+console.log()
 
 export default (args) => {
   const plugins = [
     alias({
       entries: {
         "petite-vue": "petite-vue/dist/petite-vue.es.js",
-        "@": resolve(__dirname, "./src"),
       },
     }),
     typescript(),

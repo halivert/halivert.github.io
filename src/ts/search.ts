@@ -8,7 +8,7 @@ export interface SearchModalComponent {
   inputValue: string
   searching: boolean
   empty: boolean
-  search: Function
+  search: (this: SearchModalComponent, searchTerm: string) => void
   handleClick: Function
 }
 

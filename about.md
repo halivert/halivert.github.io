@@ -25,7 +25,6 @@ por CHON, Wintergatan, hasta una (1) canción de los Beatles.
   aria-label="{{ 'Contáctame por' | __ }} instagram"
   class="button instagram"
   href="https://instagram.com/halivert"
-  data-turbo="false"
   rel="me noopener noreferrer">
   <span class="icon">
     <i class="fab fa-instagram" aria-hidden="true"></i>

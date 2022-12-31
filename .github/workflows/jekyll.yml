@@ -16,12 +16,12 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "18.1"
-          cache: "yarn"
+          cache: "pnpm"
 
       - name: Build JS files
         run: |
-          yarn
-          yarn build
+          pnpm i
+          pnpm build
 
       - name: Cache gems
         uses: ruby/setup-ruby@v1
