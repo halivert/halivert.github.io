@@ -1,35 +1,98 @@
-.dark:root { --dark: -1; }
+.dark:root {
+  --dark: -1;
+}
 
-html { font-size: 12pt; }
+html {
+  font-size: 12pt;
+}
 
-html, #app, .menu-list, #main-container, #main-container > .columns > .column, .columns { margin: 0; padding: 0; }
+html,
+#app,
+.menu-list,
+#main-container,
+#main-container > .columns > .column,
+.columns {
+  margin: 0;
+  padding: 0;
+}
 
-#app { display: flex; flex-flow: column; }
+#app {
+  display: flex;
+  flex-flow: column;
+}
 
-#app *, .reader { max-width: 100%; }
+#app *,
+.reader {
+  max-width: 100%;
+}
 
-.menu { border-bottom: none; }
+.menu {
+  border-bottom: none;
+}
+.menu a {
+  position: relative;
+  font-size: 1.75em;
+  color: var(--text-color-100);
+}
+.menu a:first-child::after {
+  position: absolute;
+  content: "Halivert";
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(120%);
+}
 
-.menu a { position: relative; font-size: 1.75em; color: var(--text-color-100); }
+#main-container {
+  break-before: avoid;
+}
 
-.menu a:first-child::after { position: absolute; content: "Halivert"; top: 50%; right: 0; transform: translateY(-50%) translateX(120%); }
+#title-div {
+  flex-flow: row;
+}
 
-#main-container { break-before: avoid; }
+img,
+picture {
+  filter: none !important;
+}
 
-#title-div { flex-flow: row; }
+.columns,
+picture,
+img,
+p,
+pre,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  break-inside: avoid;
+}
 
-img, picture { filter: none !important; }
+.page-break-before {
+  break-before: always;
+}
+.page-break-after {
+  break-after: always;
+}
 
-.columns, picture, img, p, pre, h1, h2, h3, h4, h5, h6 { break-inside: avoid; }
+picture,
+img {
+  max-height: 20em;
+}
 
-.page-break-before { break-before: always; }
+.menu > .menu-list:last-child,
+footer.footer,
+nav.pagination,
+video,
+#reactions {
+  display: none;
+}
 
-.page-break-after { break-after: always; }
+.printable {
+  display: initial;
+}
 
-picture, img { max-height: 20em; }
-
-.menu > .menu-list:last-child, footer.footer, nav.pagination, video, #reactions { display: none; }
-
-.printable { display: initial; }
-
-.columns { flex-flow: row nowrap !important; }
+.columns {
+  flex-flow: row nowrap !important;
+}
