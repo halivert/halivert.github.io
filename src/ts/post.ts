@@ -93,7 +93,4 @@ function Reactions(props: Reactions.Props) {
 
 const mountApp = () => createApp({ twitterLink, Reactions }).mount("#reactions")
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Mount post");
-  mountApp()
-})
+document.addEventListener("DOMContentLoaded", mountApp)

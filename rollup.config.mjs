@@ -6,8 +6,6 @@ import alias from "@rollup/plugin-alias"
 import nodeResolve from "@rollup/plugin-node-resolve"
 import commonJS from "@rollup/plugin-commonjs"
 
-console.log()
-
 export default (args) => {
   const plugins = [
     alias({
