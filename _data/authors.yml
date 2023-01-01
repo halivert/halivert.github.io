@@ -4,9 +4,7 @@ halivert:
   picture: "/assets/img/halivert.png"
   kofi: "https://ko-fi.com/halivert"
   sponsor: "https://github.com/sponsors/halivert"
-  email:
-    at: "hi@halivert.dev"
-    md5: "ef78513325e3391167f441f930067fef"
+  email: "hi@halivert.dev"
   social:
     - url: "https://twitter.com/halivert"
       type: "twitter"

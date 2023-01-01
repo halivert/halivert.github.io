@@ -19,7 +19,9 @@ lang_buttons: true
 
 			<figure class="mb-4">
 				<img
-					src="https://gravatar.com/avatar/{{ author.email.md5 }}?s=300"
+					src="https://gravatar.com/avatar/{{
+						author.email | md5sum
+					}}?s=300&d=identicon"
 					class="avatar flex items-center"
 					loading="lazy"
 					alt="Imagen de perfil de {{ layout.author }}"
