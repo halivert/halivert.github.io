@@ -64,7 +64,7 @@
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Comenzando con petite-vue | Halivert</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Comenzando con petite-vue" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="es_MX" />
@@ -330,21 +330,21 @@ con petite-vue. Por ejemplo el menú (simplificado):</p>
 </code></pre></div></div>
 
 <div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Componente Menu, que asignamos al elemento aside</span>
-<span class="kd">function</span> <span class="nx">Menu</span><span class="p">()</span> <span class="p">{</span>
+<span class="kd">function</span> <span class="nf">Menu</span><span class="p">()</span> <span class="p">{</span>
   <span class="c1">// Una propiedad reactiva y una función para saber si un elemento está activo</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="na">activeMenuItem</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span>
-    <span class="nx">itemIsActive</span><span class="p">(</span><span class="na">el</span><span class="p">:</span> <span class="nx">HTMLAnchorElement</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">itemIsActive</span><span class="p">(</span><span class="na">el</span><span class="p">:</span> <span class="nx">HTMLAnchorElement</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">activeMenuItem</span> <span class="o">===</span> <span class="nx">el</span><span class="p">.</span><span class="nx">href</span>
     <span class="p">},</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">// Creamos la aplicación y la montamos en el elemento por su id.</span>
-<span class="nx">createApp</span><span class="p">({</span>
+<span class="nf">createApp</span><span class="p">({</span>
   <span class="nx">Menu</span><span class="p">,</span>
   <span class="na">activeSearchModal</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-<span class="p">}).</span><span class="nx">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#side-menu-container</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">}).</span><span class="nf">mount</span><span class="p">(</span><span class="dl">"</span><span class="s2">#side-menu-container</span><span class="dl">"</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>Además las reacciones y el vínculo de compartir en Twitter, también están
@@ -366,7 +366,7 @@ implementadas así.</p>
 <span class="nt">&lt;/div&gt;</span>
 </code></pre></div></div>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Reactions</span><span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">ReactionsProps</span><span class="p">)</span> <span class="p">{</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">Reactions</span><span class="p">(</span><span class="nx">props</span><span class="p">:</span> <span class="nx">ReactionsProps</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">apiUrl</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">https://webmention.io/api</span><span class="dl">"</span>
 
   <span class="kd">const</span> <span class="nx">availableReactions</span> <span class="o">=</span> <span class="p">{</span>
@@ -385,16 +385,16 @@ implementadas así.</p>
     <span class="p">},</span>
   <span class="p">}</span>
 
-  <span class="k">async</span> <span class="kd">function</span> <span class="nx">fetchReactions</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">fetchedReactions</span><span class="p">:</span> <span class="nx">Reactions</span> <span class="o">=</span> <span class="k">await</span> <span class="p">(</span>
-      <span class="k">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">apiUrl</span><span class="p">}</span><span class="s2">/count.json?target=</span><span class="p">${</span><span class="nx">props</span><span class="p">?.</span><span class="nx">postUrl</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
-    <span class="p">).</span><span class="nx">json</span><span class="p">()</span>
+  <span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchReactions</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">fetchedReactions</span><span class="p">:</span> <span class="nx">Reactions</span> <span class="o">=</span> <span class="nf">await </span><span class="p">(</span>
+      <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">apiUrl</span><span class="p">}</span><span class="s2">/count.json?target=</span><span class="p">${</span><span class="nx">props</span><span class="p">?.</span><span class="nx">postUrl</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+    <span class="p">).</span><span class="nf">json</span><span class="p">()</span>
 
-    <span class="k">this</span><span class="p">.</span><span class="nx">reactions</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">availableReactions</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">reactions</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nf">entries</span><span class="p">(</span><span class="nx">availableReactions</span><span class="p">).</span><span class="nf">map</span><span class="p">(</span>
       <span class="p">([</span><span class="kd">type</span><span class="p">,</span> <span class="nx">reactionData</span><span class="p">]:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="nx">object</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="kd">const</span> <span class="na">count</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">fetchedReactions</span><span class="p">.</span><span class="kd">type</span><span class="p">?.[</span><span class="kd">type</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="nx">reactionData</span><span class="p">?.[</span><span class="dl">"</span><span class="s2">filter</span><span class="dl">"</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">if </span><span class="p">(</span><span class="nx">reactionData</span><span class="p">?.[</span><span class="dl">"</span><span class="s2">filter</span><span class="dl">"</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">mentions</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span>
           <span class="k">return</span> <span class="kc">null</span>
         <span class="p">}</span>
@@ -411,7 +411,7 @@ implementadas así.</p>
   <span class="k">return</span> <span class="p">{</span>
     <span class="na">reactions</span><span class="p">:</span> <span class="p">[],</span>
     <span class="na">mentions</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">url</span><span class="p">:</span> <span class="nx">getMentionsUrl</span><span class="p">({</span>
+      <span class="na">url</span><span class="p">:</span> <span class="nf">getMentionsUrl</span><span class="p">({</span>
         <span class="nx">apiUrl</span><span class="p">,</span>
         <span class="na">postUrl</span><span class="p">:</span> <span class="nx">props</span><span class="p">?.</span><span class="nx">postUrl</span><span class="p">,</span>
         <span class="na">filter</span><span class="p">:</span> <span class="nx">availableReactions</span><span class="p">.</span><span class="nx">mention</span><span class="p">.</span><span class="nx">filter</span><span class="p">,</span>

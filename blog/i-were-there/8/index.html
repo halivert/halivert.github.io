@@ -59,22 +59,22 @@
 		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Página 6 de 6 - Blog | Halivert</title>
+<title>Página 8 de 8 - Ya me pasó | Halivert</title>
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Blog" />
+<meta property="og:title" content="Ya me pasó" />
 <meta property="og:locale" content="es_MX" />
 <meta name="description" content="Sitio de Halí Velázquez" />
 <meta property="og:description" content="Sitio de Halí Velázquez" />
-<link rel="canonical" href="https://halivert.dev/blog/6/" />
-<meta property="og:url" content="https://halivert.dev/blog/6/" />
+<link rel="canonical" href="https://halivert.dev/blog/i-were-there/8/" />
+<meta property="og:url" content="https://halivert.dev/blog/i-were-there/8/" />
 <meta property="og:site_name" content="Halivert" />
 <meta property="og:type" content="website" />
-<link rel="prev" href="https://halivert.dev/blog/5/" />
+<link rel="prev" href="https://halivert.dev/blog/i-were-there/7/" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Blog" />
+<meta property="twitter:title" content="Ya me pasó" />
 <meta name="twitter:site" content="@halivert" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Blog","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/6/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Sitio de Halí Velázquez","headline":"Ya me pasó","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"}},"url":"https://halivert.dev/blog/i-were-there/8/"}</script>
 <!-- End Jekyll SEO tag -->
 
 		
@@ -127,180 +127,32 @@
 					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
 					href="https://halivert.dev/about/">Sobre mí</a
 				>
-			</li><li v-cloak>
-				<button
-					id="search-button"
-					type="button"
-					class="menu-item"
-					:class="{ 'is-active': activeSearchModal }"
-					v-on:click="toggleSearchModal()"
-				>
-					<span>
-						<i class="fas fa-search"></i>
-					</span>
-					<span>Buscar</span>
-					<kbd class="keycode">/</kbd>
-				</button>
 			</li></ul>
 
 		
-	</aside><div
-	id="search-modal"
-	v-scope="SearchModal()"
-	v-on:vue:mounted="mountSearchModal"
-	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
-	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
-	v-cloak
->
-	<div class="modal-content">
-		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
-
-		<div class="my-5">
-			<input
-				ref="searchInput"
-				placeholder="Buscar..."
-				class="input"
-				type="text"
-				v-model="inputValue"
-				v-effect="search(inputValue)"
-			/>
-		</div>
-
-		<div class="columns">
-			<div class="column reader">
-				<section
-					class="has-text-left"
-					v-on:click.passive="handleClick($event, toggleSearchModal)"
-				>
-					<span
-						v-if="searching"
-						class="is-loading"
-						style="--spinner-size: 2em"
-					></span>
-					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
-						¡Ups! No encontré nada, pero puedes leer esto:
-					</h2>
-					<article
-						v-for="(post, url) in posts"
-						v-scope="SearchResult(post)"
-						:key="url"
-					></article>
-				</section>
-			</div>
-		</div>
-
-		<template id="post-template">
-			<h2 class="title is-2">
-				<a
-					class="post-title has-text-primary"
-					:href="post.url"
-					v-text="post.title"
-				></a>
-			</h2>
-			<hr />
-			<div class="columns">
-				<div class="column">
-					<div
-						class="post-content content has-text-justified"
-						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
-					>
-						<p>&#8230;</p>
-						<a class="subtitle is-5 has-text-link" :href="post.url">
-							Seguir leyendo
-						</a>
-					</div>
-					<picture class="post-picture column is-3-desktop" v-if="post?.image">
-						<source
-							v-for="image in sourceImages"
-							:key="image.ext"
-							:srcset="`${post.image}.${image.ext}`"
-							:type="image.mime"
-						/>
-						<img :src="imageUrl" :alt="post.image_alt" />
-					</picture>
-				</div>
-			</div>
-			<div class="box has-text-right">
-				<i class="fas fa-user" aria-hidden="true"></i>
-				<span v-text="post.author"></span>
-				<span class="mobile-separator"></span>
-				<i class="fas fa-calendar" aria-hidden="true"></i>
-				<span v-text="post.date"></span>
-			</div>
-			<br />
-		</template>
-	</div>
-</div>
-</div>
+	</aside></div>
 
 
 <main id="main-container" class="section  ">
-  <div class="columns">
-	<div class="column is-9-desktop">
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/blog/2017/12/innovation/">
-						Innovación
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
+  <div class="category-header">
+  <h3 class="title is-1">Ya me pasó</h3>
+  <div class="subtitle">
+    Esta categoría intenta ayudar a las personas que pasan por problemas,
+que yo ya pasé, mostrandoles mi manera de resolverlos.
 
-	<div><p>Para mi es difícil hablar sobre esta palabra en particular en estos tiempos.
-Muchas cosas ya se han inventado y nos facilitan la vida de manera
-impresionante.</p>
-
-<p>Aunque me parece adecuada la descripción que hace la RAE sobre ella:</p>
-
-<blockquote>
-  <p>Innovación: Creación o modificación de un producto, y su introducción en un
-mercado.</p>
-</blockquote>
-
-</div>
-	
-		<p>&#8230;</p>
-
-		<a class="subtitle is-5 has-text-link" href="https://halivert.dev/blog/2017/12/innovation/">
-			Seguir leyendo
-		</a>
-	
+  </div>
 </div>
 
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		Diciembre 22, 2017
-	
-</div>
-
-				<br />
-			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/blog/2017/12/yakuake-tabs/">
-						Tabs en yakuake
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
+<div class="columns mt-6">
+  <div class="column is-9-desktop">
+    
+      <div>
+        <p class="title is-2">
+          <a class="has-text-primary" href="https://halivert.dev/blog/2017/12/yakuake-tabs/">
+            Tabs en yakuake
+          </a>
+        </p><hr>
+        <div class="content has-text-justified">
 	
 	
 
@@ -320,10 +172,8 @@ cada vez que se inicia una nueva instancia de Yakuake.</p>
 	
 </div>
 
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
+        <br>
+        <div class="box has-text-right">
 	<i class="fas fa-user" aria-hidden="true"></i>
 	
 	
@@ -336,57 +186,14 @@ cada vez que se inicia una nueva instancia de Yakuake.</p>
 	
 </div>
 
-				<br />
-			</section>
-		
-			<section class="post-section">
-				<h2 class="title is-2">
-					<a class="has-text-primary" href="https://halivert.dev/blog/2017/12/update/">
-						Actualización
-					</a>
-				</h2>
-				<hr />
-				<div class="columns">
-					<div class="column">
-						<div class="content has-text-justified">
-	
-	
-
-	<div><p>En este sitio comenzaré a subir problemas con los que me he encontrado (en el
-ámbito de la programación, matemáticas, música) esperando que mis soluciones les
-sirvan a ustedes y también para recordarlas yo.
-<br /><br />
-Abriré una nueva categoría llamada “Ya me pasó”, como en el <a href="https://halivert.wordpress.com">blog de
-wordpress</a>, y preferiré esta página para esas publicaciones.</p>
-
-</div>
-	
-</div>
-
-					</div>
-					
-				</div>
-				<div class="box has-text-right">
-	<i class="fas fa-user" aria-hidden="true"></i>
-	
-	
-		Halí
-	
-	<span class="mobile-separator"></span>
-	
-		<i class="fas fa-calendar" aria-hidden="true"></i>
-		Diciembre 20, 2017
-	
-</div>
-
-				<br />
-			</section>
-		
-		
+        <br>
+      </div>
+    
+    
 	<nav class="pagination is-rounded is-centered" aria-label="pagination">
 		
 			<a
-				href="https://halivert.dev/blog/5/"
+				href="https://halivert.dev/blog/i-were-there/7/"
 				class="pagination-previous button is-primary is-hidden-touch"
 				><i class="fas fa-hand-point-left"></i></a
 			>
@@ -399,7 +206,7 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 			<li>
 				<a
 					
-						href="https://halivert.dev/blog/"
+						href="https://halivert.dev/blog/i-were-there/"
 						class="pagination-link"
 					
 					aria-label="Ir a página 1"
@@ -429,37 +236,7 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 										
 											is-hidden-touch
 										"
-										href="https://halivert.dev/blog/2/"
-								
-								aria-label="Ir a página 2"
-								>2</a
-							>
-						</li>
-					
-				
-					
-						<li>
-							<a
-								
-									
-									class="pagination-link button
-										"
-										href="https://halivert.dev/blog/3/"
-								
-								aria-label="Ir a página 3"
-								>3</a
-							>
-						</li>
-					
-				
-					
-						<li>
-							<a
-								
-									
-									class="pagination-link button
-										"
-										href="https://halivert.dev/blog/4/"
+										href="https://halivert.dev/blog/i-were-there/4/"
 								
 								aria-label="Ir a página 4"
 								>4</a
@@ -474,10 +251,40 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 									
 									class="pagination-link button
 										"
-										href="https://halivert.dev/blog/5/"
+										href="https://halivert.dev/blog/i-were-there/5/"
 								
 								aria-label="Ir a página 5"
 								>5</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/i-were-there/6/"
+								
+								aria-label="Ir a página 6"
+								>6</a
+							>
+						</li>
+					
+				
+					
+						<li>
+							<a
+								
+									
+									class="pagination-link button
+										"
+										href="https://halivert.dev/blog/i-were-there/7/"
+								
+								aria-label="Ir a página 7"
+								>7</a
 							>
 						</li>
 					
@@ -494,8 +301,8 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 						class="pagination-link button is-current"
 						aria-current="page"
 					
-					aria-label="Ir a página 6"
-					>6</a
+					aria-label="Ir a página 8"
+					>8</a
 				>
 			</li>
 		</ul>
@@ -508,9 +315,9 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 	</nav>
 
 
-	</div>
-	<aside class="column">
-		<div class="container is-fluid has-text-centered">
+  </div>
+  <div class="column">
+    <div class="container is-fluid has-text-centered">
 	<h1 class="subtitle">Categorías</h1>
 	<div><a class="sidebar-item" href="https://halivert.dev/blog/rambling"
 				>Divagando</a
@@ -527,7 +334,7 @@ wordpress</a>, y preferiré esta página para esas publicaciones.</p>
 			></div>
 </div>
 
-	</aside>
+  </div>
 </div>
 
 </main>

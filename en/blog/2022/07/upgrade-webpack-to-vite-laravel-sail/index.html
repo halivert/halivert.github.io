@@ -64,7 +64,7 @@
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Upgrading Webpack to Vite in Laravel Sail | Halivert</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Upgrading Webpack to Vite in Laravel Sail" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="en" />
@@ -301,8 +301,8 @@ another host:</p>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">defineConfig</span><span class="p">,</span> <span class="nx">loadEnv</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">vite</span><span class="dl">"</span>
 <span class="k">import</span> <span class="nx">laravel</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">laravel-vite-plugin</span><span class="dl">"</span>
 
-<span class="k">export</span> <span class="k">default</span> <span class="nx">defineConfig</span><span class="p">(({</span> <span class="nx">mode</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">env</span> <span class="o">=</span> <span class="nx">loadEnv</span><span class="p">(</span><span class="nx">mode</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">())</span>
+<span class="k">export</span> <span class="k">default</span> <span class="nf">defineConfig</span><span class="p">(({</span> <span class="nx">mode</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">env</span> <span class="o">=</span> <span class="nf">loadEnv</span><span class="p">(</span><span class="nx">mode</span><span class="p">,</span> <span class="nx">process</span><span class="p">.</span><span class="nf">cwd</span><span class="p">())</span>
 
     <span class="k">return</span> <span class="p">{</span>
         <span class="c1">// ...</span>

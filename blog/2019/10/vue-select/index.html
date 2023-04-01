@@ -64,7 +64,7 @@
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Select en Vue.js | Halivert</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Select en Vue.js" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="es_MX" />
@@ -339,7 +339,7 @@ se coloquen en su etiqueta.</p>
 cuales son los elementos actuales, así los datos que tendrá nuestro componente
 son los siguientes:</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">data</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="na">errorsActive</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="na">selectedItem</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
@@ -367,21 +367,21 @@ un <code class="language-plaintext highlighter-rouge">v-model</code> se actualic
 cambien, tendremos control del elemento seleccionado.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">watch</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nx">value</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">value</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">;</span>
   <span class="p">},</span>
-  <span class="nx">selectedItem</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">elementsContain</span><span class="p">(</span><span class="nx">newValue</span><span class="p">))</span> <span class="p">{</span>
+  <span class="nf">selectedItem</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nf">elementsContain</span><span class="p">(</span><span class="nx">newValue</span><span class="p">))</span> <span class="p">{</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">;</span>
       <span class="k">return</span><span class="p">;</span>
     <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">hideError</span><span class="p">();</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">newValue</span> <span class="o">!==</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nf">hideError</span><span class="p">();</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">change</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nf">$emit</span><span class="p">(</span><span class="dl">"</span><span class="s2">input</span><span class="dl">"</span><span class="p">,</span> <span class="nx">newValue</span><span class="p">);</span>
   <span class="p">},</span>
-  <span class="nx">elements</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">exists</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">elementsContain</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">);</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">newValue</span> <span class="o">&amp;&amp;</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="nf">elements</span><span class="p">(</span><span class="nx">newValue</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">exists</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nf">elementsContain</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="p">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">old</span><span class="p">);</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">newValue</span> <span class="o">&amp;&amp;</span> <span class="nx">newValue</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">1</span><span class="p">)</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">newValue</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">];</span>
     <span class="k">else</span>
       <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span> <span class="o">=</span> <span class="nx">exists</span>
@@ -396,10 +396,10 @@ cambien, tendremos control del elemento seleccionado.</p>
 <p>Cuando creamos el componente, queremos asignar los elementos y si existen
 errores, mostrarlos.</p>
 
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">created</span><span class="p">()</span> <span class="p">{</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">created</span><span class="p">()</span> <span class="p">{</span>
   <span class="k">this</span><span class="p">.</span><span class="nx">elements</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">initialElements</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">errors</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">errors</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">},</span>
@@ -410,26 +410,26 @@ elemento en nuestra lista y obtener el elemento seleccionado, además de uno
 que solo compara que el parámetro no sea <code class="language-plaintext highlighter-rouge">null</code> ni <code class="language-plaintext highlighter-rouge">undefined</code>.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">methods</span><span class="p">:</span> <span class="p">{</span>
-  <span class="nx">hideError</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="nf">hideError</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">$refs</span><span class="p">.</span><span class="nx">field</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">errorsActive</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
   <span class="p">},</span>
-  <span class="nx">elementsContain</span><span class="p">(</span><span class="nx">itemId</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">isSomething</span><span class="p">(</span><span class="nx">itemId</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">itemId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">.</span><span class="nx">toString</span><span class="p">())</span>
+  <span class="nf">elementsContain</span><span class="p">(</span><span class="nx">itemId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nf">isSomething</span><span class="p">(</span><span class="nx">itemId</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">itemId</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">placeholderValue</span><span class="p">.</span><span class="nf">toString</span><span class="p">())</span>
       <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-    <span class="k">return</span> <span class="p">(</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
-        <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="nx">itemId</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+    <span class="nf">return </span><span class="p">(</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+        <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nf">toString</span><span class="p">()</span> <span class="o">===</span> <span class="nx">itemId</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
       <span class="p">)</span> <span class="o">!==</span> <span class="kc">undefined</span>
     <span class="p">);</span>
   <span class="p">},</span>
-  <span class="nx">isSomething</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">isSomething</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">element</span> <span class="o">!==</span> <span class="kc">undefined</span> <span class="o">&amp;&amp;</span> <span class="nx">element</span> <span class="o">!==</span> <span class="kc">null</span><span class="p">;</span>
   <span class="p">},</span>
-  <span class="nx">getSelected</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
-      <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nx">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span>
+  <span class="nf">getSelected</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span>
+      <span class="nx">e</span> <span class="o">=&gt;</span> <span class="nx">e</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">idProperty</span><span class="p">].</span><span class="nf">toString</span><span class="p">()</span> <span class="o">===</span> <span class="k">this</span><span class="p">.</span><span class="nx">selectedItem</span><span class="p">.</span><span class="nf">toString</span><span class="p">()</span>
     <span class="p">);</span>
   <span class="p">}</span>
 <span class="p">},</span>

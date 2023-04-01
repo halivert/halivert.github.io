@@ -64,7 +64,7 @@
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Flask RESTPlus | Halivert</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Flask RESTPlus" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="es_MX" />
@@ -296,8 +296,8 @@ nos hace falta:</p>
 el código para los recursos.</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Importamos los archivos necesarios.
-</span><span class="kn">from</span> <span class="nn">flask_restplus</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Resource</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">abort</span><span class="p">)</span>
+</span><span class="kn">from</span> <span class="n">flask_restplus</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Resource</span><span class="p">)</span>
+<span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">abort</span><span class="p">)</span>
 
 <span class="c1"># Creamos un diccionario, en este caso se
 # llamará `tasks` y es una lista con dos objetos.
@@ -319,17 +319,17 @@ el código para los recursos.</p>
 <span class="c1"># Después, creamos dos clases, una que devuelve la lista de las tareas y otra
 # que devuelve una basandose en su id.
 </span><span class="k">class</span> <span class="nc">TasksList</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">):</span>
         <span class="c1"># Devolvemos la lista con el código http 200
 </span>        <span class="k">return</span> <span class="n">tasks</span><span class="p">,</span> <span class="mi">200</span>
 
 <span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
         <span class="c1"># Buscamos la tarea por su id
 </span>        <span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span> <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span> <span class="o">==</span> <span class="n">task_id</span><span class="p">]</span>
         <span class="c1"># Si no encontramos ninguna, devolvemos el código 404
-</span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
+</span>        <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nf">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
         <span class="c1"># Si encontramos algo, devolvemos la tarea con el código 200
 </span>        <span class="k">return</span> <span class="n">task</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">200</span>
 </code></pre></div></div>
@@ -338,22 +338,22 @@ el código para los recursos.</p>
 Agregamos los recursos y ¡listo!</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Importamos los archivos necesarios
-</span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Flask</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">flask_restplus</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Api</span><span class="p">)</span>
+</span><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Flask</span><span class="p">)</span>
+<span class="kn">from</span> <span class="n">flask_restplus</span> <span class="kn">import</span> <span class="p">(</span><span class="n">Api</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">resources</span>
+<span class="kn">import</span> <span class="n">resources</span>
 
-<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <span class="c1"># Le ponemos el prefijo «v1» a la API
-</span><span class="n">api</span> <span class="o">=</span> <span class="n">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">'/v1'</span><span class="p">,</span> <span class="n">catch_all_404s</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class="n">api</span> <span class="o">=</span> <span class="nc">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">'/v1'</span><span class="p">,</span> <span class="n">catch_all_404s</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Agregamos las rutas a los recursos en la API
-</span><span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">TasksList</span><span class="p">,</span> <span class="s">'/tasks'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">Task</span><span class="p">,</span> <span class="s">'/tasks/&lt;int:task_id&gt;'</span><span class="p">)</span>
+</span><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">TasksList</span><span class="p">,</span> <span class="s">'/tasks'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">Task</span><span class="p">,</span> <span class="s">'/tasks/&lt;int:task_id&gt;'</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
-    <span class="n">app</span><span class="p">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
 <p>También puedes encontrar el código en el <a href="https://gist.github.com/halivert/7dc06a38b30c2f7093f5b841e893ec6a">siguiente gist</a>.</p>

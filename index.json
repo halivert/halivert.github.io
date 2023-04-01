@@ -1,6 +1,15 @@
 
 
-{"/blog/2022/07/upgrade-webpack-to-vite-laravel-sail": {
+{"/blog/2023/03/lessons-from-angular": {
+			"title": "Lecciones de Angular",
+			"author": "Halí",
+			"categories": ["Ya me pasó"],
+			"tags": ["Angular"],
+			"content": "<p>Llevo como 9 meses trabajando con Angular y es una historia graciosa porque me\nhabían contratado para escribir React.</p>\n\n<p>Pero aunque al principio no estaba muy emocionado por pasar más de 1 mes en el\nproyecto, lo cierto es que me ha gustado mucho.</p>","url": "https://halivert.dev/blog/2023/03/lessons-from-angular/",
+			"continue": 1,
+			"date": "Marzo 31, 2023",
+			"last_modification": ""
+		},"/blog/2022/07/upgrade-webpack-to-vite-laravel-sail": {
 			"title": "Actualizar Webpack a Vite en Laravel Sail",
 			"author": "Halí",
 			"categories": ["Ya me pasó"],

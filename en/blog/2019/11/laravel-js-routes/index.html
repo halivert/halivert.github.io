@@ -64,7 +64,7 @@
 
 		<!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Laravel routes in JavaScript | Halivert</title>
-<meta name="generator" content="Jekyll v4.3.1" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Laravel routes in JavaScript" />
 <meta name="author" content="halivert" />
 <meta property="og:locale" content="en" />
@@ -372,7 +372,7 @@ start adding the var name and the content.</p>
   <span class="c1">// It searches in the stored routes one that match with the</span>
   <span class="c1">// given name and if it doesn't exists throws an error</span>
   <span class="kd">const</span> <span class="nx">_route</span> <span class="o">=</span> <span class="nx">routes</span><span class="p">[</span><span class="nx">routeName</span><span class="p">];</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nx">_route</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Requested route doesn't exist</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">_route</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Requested route doesn't exist</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="kd">let</span> <span class="nx">uri</span> <span class="o">=</span> <span class="nx">_route</span><span class="p">.</span><span class="nx">uri</span><span class="p">;</span>
 
@@ -381,33 +381,33 @@ start adding the var name and the content.</p>
   <span class="c1">// there are missing parameters.</span>
   <span class="c1">// Remaining parameters will be ignored.</span>
 
-  <span class="kd">const</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/g</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">const</span> <span class="nx">matches</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nf">match</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/g</span><span class="p">)</span> <span class="o">||</span> <span class="p">[];</span>
   <span class="kd">const</span> <span class="nx">requiredParametersCount</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">length</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">)</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
-      <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nx">shift</span><span class="p">());</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">requiredParametersCount</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+      <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="sr">/{</span><span class="se">[\w]</span><span class="sr">+}/</span><span class="p">,</span> <span class="nx">params</span><span class="p">.</span><span class="nf">shift</span><span class="p">());</span>
 
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">params</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="nf">for </span><span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">params</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
       <span class="nx">uri</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">i</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">params</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
-  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">extraParams</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">ac</span><span class="p">,</span> <span class="nx">match</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nx">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
-      <span class="k">if</span> <span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="dl">"</span><span class="s2">g</span><span class="dl">"</span><span class="p">),</span> <span class="nx">params</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="nf">if </span><span class="p">(</span><span class="nx">params</span> <span class="k">instanceof</span> <span class="nb">Object</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">extraParams</span> <span class="o">=</span> <span class="nx">matches</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">ac</span><span class="p">,</span> <span class="nx">match</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">key</span> <span class="o">=</span> <span class="nx">match</span><span class="p">.</span><span class="nf">substring</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">match</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="nf">if </span><span class="p">(</span><span class="nx">params</span><span class="p">.</span><span class="nf">hasOwnProperty</span><span class="p">(</span><span class="nx">key</span><span class="p">))</span> <span class="p">{</span>
+        <span class="nx">uri</span> <span class="o">=</span> <span class="nx">uri</span><span class="p">.</span><span class="nf">replace</span><span class="p">(</span><span class="k">new</span> <span class="nc">RegExp</span><span class="p">(</span><span class="nx">match</span><span class="p">,</span> <span class="dl">"</span><span class="s2">g</span><span class="dl">"</span><span class="p">),</span> <span class="nx">params</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
         <span class="k">delete</span> <span class="nx">ac</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
       <span class="p">}</span>
       <span class="k">return</span> <span class="nx">ac</span><span class="p">;</span>
     <span class="p">},</span> <span class="nx">params</span><span class="p">);</span>
 
-    <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">extraParams</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">key</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nb">Object</span><span class="p">.</span><span class="nf">keys</span><span class="p">(</span><span class="nx">extraParams</span><span class="p">).</span><span class="nf">forEach</span><span class="p">((</span><span class="nx">key</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="nx">uri</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">i</span> <span class="p">?</span> <span class="dl">"</span><span class="s2">&amp;</span><span class="dl">"</span> <span class="p">:</span> <span class="dl">"</span><span class="s2">?</span><span class="dl">"</span><span class="p">)</span> <span class="o">+</span> <span class="nx">key</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">=</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">extraParams</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
     <span class="p">});</span>
   <span class="p">}</span>
 
-  <span class="k">if</span> <span class="p">(</span><span class="nx">uri</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">"</span><span class="s2">}</span><span class="dl">"</span><span class="p">))</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
+  <span class="nf">if </span><span class="p">(</span><span class="nx">uri</span><span class="p">.</span><span class="nf">includes</span><span class="p">(</span><span class="dl">"</span><span class="s2">}</span><span class="dl">"</span><span class="p">))</span> <span class="k">throw</span> <span class="dl">"</span><span class="s2">Missing parameters</span><span class="dl">"</span><span class="p">;</span>
 
   <span class="k">return</span> <span class="dl">"</span><span class="s2">/</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">uri</span><span class="p">;</span>
 <span class="p">};</span>
@@ -431,7 +431,7 @@ start adding the var name and the content.</p>
 </code></pre></div></div>
 
 <p>Then we add the file to our <code class="language-plaintext highlighter-rouge">webpack.mix.js</code> file, so it can be processed.</p>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mix</span><span class="p">.</span><span class="nx">js</span><span class="p">(</span><span class="dl">"</span><span class="s2">resources/js/routes</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/js</span><span class="dl">"</span><span class="p">);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mix</span><span class="p">.</span><span class="nf">js</span><span class="p">(</span><span class="dl">"</span><span class="s2">resources/js/routes</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">public/js</span><span class="dl">"</span><span class="p">);</span>
 </code></pre></div></div>
 
 <p>And after a <code class="language-plaintext highlighter-rouge">yarn prod</code> or <code class="language-plaintext highlighter-rouge">npm prod</code> we can use our <code class="language-plaintext highlighter-rouge">routes</code> function when we
@@ -443,9 +443,9 @@ want to call a route by its name in a JS file.</p>
 <h3 id="use">Use</h3>
 <p>Use examples:</p>
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">axios</span>
-  <span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="nx">route</span><span class="p">(</span><span class="dl">"</span><span class="s2">routeName</span><span class="dl">"</span><span class="p">,</span> <span class="p">[</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">]))</span>
-  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+  <span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nf">route</span><span class="p">(</span><span class="dl">"</span><span class="s2">routeName</span><span class="dl">"</span><span class="p">,</span> <span class="p">[</span><span class="nx">param1</span><span class="p">,</span> <span class="nx">param2</span><span class="p">]))</span>
+  <span class="p">.</span><span class="nf">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
   <span class="p">});</span>
 </code></pre></div></div>
 
