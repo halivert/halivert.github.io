@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'dotenv'
 gem 'jekyll', '~> 4.3'
 
 group :jekyll_plugins do
