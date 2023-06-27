@@ -330,11 +330,11 @@ directorio <code class="language-plaintext highlighter-rouge">env\bin</code>, lo
 nuestro entorno virtual, ahora, agregamos lo siguiente a nuestro archivo WSGI.</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">sys</span>
 
-<span class="n">activate_this</span> <span class="o">=</span> <span class="s">'c:/ruta/al/proyecto/env/bin/activate_this.py'</span>
+<span class="n">activate_this</span> <span class="o">=</span> <span class="sh">'</span><span class="s">c:/ruta/al/proyecto/env/bin/activate_this.py</span><span class="sh">'</span>
 <span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="n">activate_this</span><span class="p">)</span> <span class="k">as</span> <span class="n">file_</span><span class="p">:</span>
     <span class="nf">exec</span><span class="p">(</span><span class="n">file_</span><span class="p">.</span><span class="nf">read</span><span class="p">(),</span> <span class="nf">dict</span><span class="p">(</span><span class="n">__file__</span><span class="o">=</span><span class="n">activate_this</span><span class="p">))</span>
 
-<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">"c:/ruta/al/proyecto"</span><span class="p">)</span>
+<span class="n">sys</span><span class="p">.</span><span class="n">path</span><span class="p">.</span><span class="nf">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sh">"</span><span class="s">c:/ruta/al/proyecto</span><span class="sh">"</span><span class="p">)</span>
 
 <span class="k">from</span> <span class="p">[</span><span class="n">Nombre</span> <span class="k">del</span> <span class="n">archivo</span><span class="p">]</span> <span class="k">import</span> <span class="p">[</span><span class="n">Nombre</span> <span class="n">de</span> <span class="n">la</span> <span class="n">app</span><span class="p">]</span> <span class="k">as</span> <span class="n">application</span>
 </code></pre></div></div>

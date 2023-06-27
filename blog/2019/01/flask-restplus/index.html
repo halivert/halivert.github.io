@@ -303,16 +303,16 @@ el código para los recursos.</p>
 # llamará `tasks` y es una lista con dos objetos.
 </span><span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">{</span>
-      <span class="s">'id'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s">'title'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Comprar cosas'</span><span class="p">,</span>
-      <span class="s">'description'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Leche, Queso, Pizza, Fruta'</span><span class="p">,</span>
-      <span class="s">'done'</span><span class="p">:</span> <span class="bp">False</span>
+      <span class="sh">'</span><span class="s">id</span><span class="sh">'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">title</span><span class="sh">'</span><span class="p">:</span> <span class="sa">u</span><span class="sh">'</span><span class="s">Comprar cosas</span><span class="sh">'</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">description</span><span class="sh">'</span><span class="p">:</span> <span class="sa">u</span><span class="sh">'</span><span class="s">Leche, Queso, Pizza, Fruta</span><span class="sh">'</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">done</span><span class="sh">'</span><span class="p">:</span> <span class="bp">False</span>
     <span class="p">},</span>
     <span class="p">{</span>
-      <span class="s">'id'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-      <span class="s">'title'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Aprender python'</span><span class="p">,</span>
-      <span class="s">'description'</span><span class="p">:</span> <span class="sa">u</span><span class="s">'Encontrar un buen tutorial'</span><span class="p">,</span>
-      <span class="s">'done'</span><span class="p">:</span> <span class="bp">False</span>
+      <span class="sh">'</span><span class="s">id</span><span class="sh">'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">title</span><span class="sh">'</span><span class="p">:</span> <span class="sa">u</span><span class="sh">'</span><span class="s">Aprender python</span><span class="sh">'</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">description</span><span class="sh">'</span><span class="p">:</span> <span class="sa">u</span><span class="sh">'</span><span class="s">Encontrar un buen tutorial</span><span class="sh">'</span><span class="p">,</span>
+      <span class="sh">'</span><span class="s">done</span><span class="sh">'</span><span class="p">:</span> <span class="bp">False</span>
     <span class="p">},</span>
 <span class="p">]</span>
 
@@ -326,7 +326,7 @@ el código para los recursos.</p>
 <span class="k">class</span> <span class="nc">Task</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">task_id</span><span class="p">):</span>
         <span class="c1"># Buscamos la tarea por su id
-</span>        <span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span> <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="s">'id'</span><span class="p">]</span> <span class="o">==</span> <span class="n">task_id</span><span class="p">]</span>
+</span>        <span class="n">task</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">tasks</span> <span class="k">if</span> <span class="n">task</span><span class="p">[</span><span class="sh">'</span><span class="s">id</span><span class="sh">'</span><span class="p">]</span> <span class="o">==</span> <span class="n">task_id</span><span class="p">]</span>
         <span class="c1"># Si no encontramos ninguna, devolvemos el código 404
 </span>        <span class="k">if</span> <span class="nf">len</span><span class="p">(</span><span class="n">task</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="nf">abort</span><span class="p">(</span><span class="mi">404</span><span class="p">)</span>
@@ -346,13 +346,13 @@ Agregamos los recursos y ¡listo!</p>
 <span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
 
 <span class="c1"># Le ponemos el prefijo «v1» a la API
-</span><span class="n">api</span> <span class="o">=</span> <span class="nc">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s">'/v1'</span><span class="p">,</span> <span class="n">catch_all_404s</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</span><span class="n">api</span> <span class="o">=</span> <span class="nc">Api</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="sh">'</span><span class="s">/v1</span><span class="sh">'</span><span class="p">,</span> <span class="n">catch_all_404s</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
 <span class="c1"># Agregamos las rutas a los recursos en la API
-</span><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">TasksList</span><span class="p">,</span> <span class="s">'/tasks'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">Task</span><span class="p">,</span> <span class="s">'/tasks/&lt;int:task_id&gt;'</span><span class="p">)</span>
+</span><span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">TasksList</span><span class="p">,</span> <span class="sh">'</span><span class="s">/tasks</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">api</span><span class="p">.</span><span class="nf">add_resource</span><span class="p">(</span><span class="n">resources</span><span class="p">.</span><span class="n">Task</span><span class="p">,</span> <span class="sh">'</span><span class="s">/tasks/&lt;int:task_id&gt;</span><span class="sh">'</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">'__main__'</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="sh">'</span><span class="s">__main__</span><span class="sh">'</span><span class="p">:</span>
     <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 

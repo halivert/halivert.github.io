@@ -316,7 +316,7 @@ parámetro funciones o que devuelven funciones.</p>
   <p>Funciones como valor de retorno</p>
 
   <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-  <span class="nf">return </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">return </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -351,7 +351,7 @@ llamadas, de esta forma:</p>
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nf">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nc">APICall</span><span class="p">().</span><span class="nf">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="c1">// Condición de parada</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
       <span class="nf">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">)</span> <span class="c1">// Detener la repetición</span>
     <span class="p">}</span>
   <span class="p">})</span>
@@ -398,7 +398,7 @@ método <code class="language-plaintext highlighter-rouge">bad</code>.</p>
 
 <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nf">bad</span><span class="p">(</span><span class="dl">"</span><span class="s2">Not nice</span><span class="dl">"</span><span class="p">)</span>
-<span class="p">}).</span><span class="nf">catch</span><span class="p">((</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">param</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="c1">// Not nice</span>
 <span class="p">})</span>
 </code></pre></div>  </div>
@@ -415,7 +415,7 @@ bloque <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
   <span class="k">await</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">,</span> <span class="nx">bad</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nf">bad</span><span class="p">(</span><span class="dl">"</span><span class="s2">Error</span><span class="dl">"</span><span class="p">)</span>
   <span class="p">})</span>
-<span class="p">}</span> <span class="nf">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+<span class="p">}</span> <span class="k">catch </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="c1">// Error</span>
 <span class="p">}</span>
 </code></pre></div>  </div>
@@ -427,7 +427,7 @@ bloque <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">await</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">good</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nf">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
     <span class="nc">APICall</span><span class="p">().</span><span class="nf">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-      <span class="nf">if </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if </span><span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">clearInterval</span><span class="p">(</span><span class="nx">interval</span><span class="p">)</span>
         <span class="k">return</span> <span class="nf">good</span><span class="p">(</span><span class="dl">"</span><span class="s2">Nice</span><span class="dl">"</span><span class="p">)</span> <span class="c1">// Devolver algún valor</span>
       <span class="p">}</span>
@@ -447,8 +447,8 @@ lados, podemos usar más funciones de alto orden.</p>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nf">waitFor</span><span class="p">({</span> <span class="nx">condition</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">message</span> <span class="o">=</span> <span class="dl">""</span><span class="p">,</span> <span class="nx">waitTime</span> <span class="o">=</span> <span class="mi">1000</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
   <span class="k">return</span> <span class="k">new</span> <span class="nc">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nf">condition</span><span class="p">())</span> <span class="k">return</span> <span class="nf">resolve</span><span class="p">(</span><span class="nf">condition</span><span class="p">())</span>
-    <span class="nf">if </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
+    <span class="k">if </span><span class="p">(</span><span class="nf">condition</span><span class="p">())</span> <span class="k">return</span> <span class="nf">resolve</span><span class="p">(</span><span class="nf">condition</span><span class="p">())</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span>
 
     <span class="kd">const</span> <span class="nx">interval</span> <span class="o">=</span> <span class="nf">setInterval</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="kd">const</span> <span class="nx">stop</span> <span class="o">=</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -488,7 +488,7 @@ el número 6.</p>
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">axios</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">axios</span><span class="dl">"</span>
 <span class="k">import</span> <span class="p">{</span> <span class="nx">waitFor</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./src/waitFor.js</span><span class="dl">"</span>
 
-<span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="nf">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="kd">const</span> <span class="nx">fun</span> <span class="o">=</span> <span class="k">async </span><span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
   <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">http://localhost:3001/number</span><span class="dl">"</span>
   <span class="kd">const</span> <span class="p">{</span>
     <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">},</span>
@@ -500,7 +500,7 @@ el número 6.</p>
     <span class="na">condition</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">6</span> <span class="p">?</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">}</span> <span class="p">:</span> <span class="kc">false</span><span class="p">),</span>
     <span class="na">callback</span><span class="p">:</span> <span class="p">(</span><span class="nx">stop</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
       <span class="nx">axios</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="nx">url</span><span class="p">).</span><span class="nf">then</span><span class="p">(({</span> <span class="na">data</span><span class="p">:</span> <span class="p">{</span> <span class="nx">number</span> <span class="p">}</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="nf">if </span><span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">6</span><span class="p">)</span> <span class="nf">stop</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
+        <span class="k">if </span><span class="p">(</span><span class="nx">number</span> <span class="o">===</span> <span class="mi">6</span><span class="p">)</span> <span class="nf">stop</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
         <span class="nx">console</span><span class="p">.</span><span class="nf">log</span><span class="p">({</span> <span class="nx">number</span> <span class="p">})</span>
       <span class="p">})</span>
     <span class="p">},</span>

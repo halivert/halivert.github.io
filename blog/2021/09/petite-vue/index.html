@@ -386,7 +386,7 @@ implementadas así.</p>
   <span class="p">}</span>
 
   <span class="k">async</span> <span class="kd">function</span> <span class="nf">fetchReactions</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="nx">fetchedReactions</span><span class="p">:</span> <span class="nx">Reactions</span> <span class="o">=</span> <span class="nf">await </span><span class="p">(</span>
+    <span class="kd">const</span> <span class="nx">fetchedReactions</span><span class="p">:</span> <span class="nx">Reactions</span> <span class="o">=</span> <span class="k">await </span><span class="p">(</span>
       <span class="k">await</span> <span class="nf">fetch</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">apiUrl</span><span class="p">}</span><span class="s2">/count.json?target=</span><span class="p">${</span><span class="nx">props</span><span class="p">?.</span><span class="nx">postUrl</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
     <span class="p">).</span><span class="nf">json</span><span class="p">()</span>
 
@@ -394,7 +394,7 @@ implementadas así.</p>
       <span class="p">([</span><span class="kd">type</span><span class="p">,</span> <span class="nx">reactionData</span><span class="p">]:</span> <span class="p">[</span><span class="kr">string</span><span class="p">,</span> <span class="nx">object</span><span class="p">])</span> <span class="o">=&gt;</span> <span class="p">{</span>
         <span class="kd">const</span> <span class="na">count</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="nx">fetchedReactions</span><span class="p">.</span><span class="kd">type</span><span class="p">?.[</span><span class="kd">type</span><span class="p">]</span> <span class="o">||</span> <span class="mi">0</span>
 
-        <span class="nf">if </span><span class="p">(</span><span class="nx">reactionData</span><span class="p">?.[</span><span class="dl">"</span><span class="s2">filter</span><span class="dl">"</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if </span><span class="p">(</span><span class="nx">reactionData</span><span class="p">?.[</span><span class="dl">"</span><span class="s2">filter</span><span class="dl">"</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
           <span class="k">this</span><span class="p">.</span><span class="nx">mentions</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="nx">count</span>
           <span class="k">return</span> <span class="kc">null</span>
         <span class="p">}</span>
