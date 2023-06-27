@@ -6,6 +6,13 @@
   live: "https://halivert.dev/bookmark-landing-page"
   description: "Full landing page made in Vue.js 3."
 
+- id: rock-paper-scissors
+  title: "Rock, Paper, Scissors"
+  repo: "https://github.com/halivert/rock-paper-scissors"
+  live: "https://halivert.dev/rock-paper-scissors"
+  image: "https://raw.githubusercontent.com/halivert/rock-paper-scissors/main/Screenshot%202023-06-27%20at%2012-55-46%20Rock%20Paper%20Scissors.png"
+  description: "Rock, paper, scissors game... with a bonus"
+
 - id: tip-calculator-app
   title: "Tip calculator"
   image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
