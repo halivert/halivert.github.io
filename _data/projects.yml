@@ -10,7 +10,7 @@
   title: "Piedra, Papel o Tijeras"
   repo: "https://github.com/halivert/rock-paper-scissors"
   live: "https://halivert.dev/rock-paper-scissors"
-  image: "https://raw.githubusercontent.com/halivert/rock-paper-scissors/main/Screenshot%202023-06-27%20at%2012-55-46%20Rock%20Paper%20Scissors.png"
+  image: "https://user-images.githubusercontent.com/16197249/249261115-306d2ae1-12c4-44fe-a31f-50770cad541d.png"
   description: "Juego de piedra papel o tijeras... con un extra"
 
 - id: tip-calculator-app
