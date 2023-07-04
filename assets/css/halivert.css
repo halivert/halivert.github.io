@@ -1727,6 +1727,11 @@ picture.avatar {
   color: var(--mint-invert);
   border-color: transparent;
 }
+.tag.is-laravel {
+  background: var(--laravel-color);
+  color: var(--white-color);
+  border-color: transparent;
+}
 
 .tags .tag:not(:last-child) {
   margin-right: 0.5em;

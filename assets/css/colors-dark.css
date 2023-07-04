@@ -70,6 +70,7 @@
   --pink-color: hsl(var(--pink-hsl));
   --vue-color: hsl(var(--vue-hsl));
   --mint-color: hsl(var(--mint-hsl));
+  --laravel-color: hsl(var(--laravel-hsl));
   --github-primary: #f0f6fc;
   --gmail-primary: #eb4132;
   --twitter-primary: #1da1f2;
