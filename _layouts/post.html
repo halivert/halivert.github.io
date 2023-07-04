@@ -62,7 +62,7 @@ layout: container
 					{%- for tag in page.tags -%}
 						{%- assign downTag = tag | downcase -%}
 						<span class="tag {{ site.data.tags[downTag].color }}">{{
-							tag | __
+							tag
 						}}</span>
 					{%- endfor -%}
 				</div>

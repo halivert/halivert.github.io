@@ -58,6 +58,10 @@ $only-tag-colors: (
 		var(--mint-color),
 		var(--mint-invert),
 	),
+	"laravel": (
+		var(--laravel-color),
+		var(--white-color),
+	),
 );
 
 $tag-colors: map_merge($colors, $only-tag-colors);

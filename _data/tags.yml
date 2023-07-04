@@ -40,3 +40,5 @@ vue.js:
   color: is-emerald
 api:
   color: is-white
+laravel:
+  color: is-laravel
