@@ -194,8 +194,9 @@ Laravel utiliza migraciones para actualizar la base de datos, actualizaremos la
 migración de la tabla de `users` y después el modelo `User` y la fábrica
 `UserFactory` (que nos servirá para pruebas automáticas).
 
-[Ver
-código](https://github.com/halivert/credit-logbook/commit/419fb1e1d145aa929445a410dcec572cb7c7a86c?diff=split)
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/419fb1e1d145aa929445a410dcec572cb7c7a86c?diff=split){:.button.is-normal.is-primary}
+{:.has-text-centered}
 
 Después tenemos que crear una enumeración para controlar las subscripciones y
 hacemos uso del [Enum
@@ -207,8 +208,9 @@ serán registrados con la subscripción gratuita.
 
 También actualizamos los datos en la fábrica `UserFactory`.
 
-[Ver
-código](https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split)
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split){:.button.is-normal.is-primary}
+{: .has-text-centered}
 
 Ahora tenemos que iniciar el contenedor para poder utilizar algunos comandos de
 Laravel que crean los modelos:
@@ -223,9 +225,41 @@ sail up
 ```
 
 y una vez que esté ejecutandose, podemos utilizar otra terminal para crear los
-modelos, comenzamos con el de `CreditCard`
+modelos, comenzamos con el de `CreditCard`, agregamos la migración, _sedeer_,
+fabrica, politicas, controlador, _form requests_ y _tests_.
 
 ```sh
+sail artisan make:model CreditCard -a --test
+```
+
+Laravel acomoda cada archivo dentro de ciertos directorios, pero vamos a
+reacomodar un poco esto, para este momento, deberíamos tener los siguientes
+nuevos archivos
+
+```
+app/Http/Controllers/CreditCardController.php
+app/Http/Requests/StoreCreditCardRequest.php
+app/Http/Requests/UpdateCreditCardRequest.php
+app/Models/CreditCard.php
+app/Policies/CreditCardPolicy.php
+database/factories/CreditCardFactory.php
+database/migrations/2023_07_05_143846_create_credit_cards_table.php
+database/seeders/CreditCardSeeder.php
+tests/Feature/Models/CreditCardTest.php
+```
+
+Pero queremos que estén organizados de una forma un poco diferente, así que
+moveremos el controlador, modelo, políticas, fabrica y _form requests_ a los
+siguientes directorios. Además ya que vamos a versionar nuestra API, vamos a
+hacer el directorio para la primer versión.
+
+```
+app/API/CreditCard/CreditCard.php
+app/API/CreditCard/CreditCardPolicy.php
+app/API/CreditCard/CreditCardFactory.php
+app/API/CreditCard/v1/CreditCardController.php
+app/API/CreditCard/v1/StoreCreditCardRequest.php
+app/API/CreditCard/v1/UpdateCreditCardRequest.php
 ```
 
 ### Fortify
