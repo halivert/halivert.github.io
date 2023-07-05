@@ -60,23 +60,24 @@
 	transition-timing-function: linear;
 }
 
-body {
-	text-rendering: optimizeLegibility;
-	background-color: var(--background-color-100);
-	overflow-y: scroll;
-	scroll-behavior: smooth;
-	scroll-padding-top: 1rem;
+html {
+	overflow: scroll;
+	scroll-padding-block-start: 1rem;
 }
 
 body {
 	position: relative;
-	min-height: 100vh;
+	min-height: 100dvh;
 	display: grid;
 	font-family: var(--main-font);
 	line-height: 1.5;
 	background-color: var(--background-color-100);
 	color: var(--text-color-100);
 	font-size: var(--font-size);
+
+	text-rendering: optimizeLegibility;
+	background-color: var(--background-color-100);
+	scroll-behavior: smooth;
 
 	grid-template:
 		"menu" auto
