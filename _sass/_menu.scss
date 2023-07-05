@@ -3,13 +3,14 @@
 	position: sticky;
 	flex-flow: column nowrap;
 	justify-content: center;
-	max-height: 100vh;
+	max-height: 100dvh;
 	top: 0;
 	z-index: 1;
 	font-size: 1.75rem;
 	font-family: var(--title-font);
 	border-right: 2px dashed var(--accent-color-100);
-	padding: 0.5em 0;
+	padding-block: 0.5em;
+	padding-inline: 0;
 	height: 100%;
 
 	@include touch {
@@ -55,16 +56,16 @@
 		justify-content: center;
 		display: flex;
 		max-height: 7rem;
-		margin-left: auto;
-		margin-right: auto;
+		margin-inline: auto;
 	}
 
 	a,
 	.menu-item {
 		color: var(--contrast-color-300);
 		display: block;
-		padding: 0.5em 0.75em;
-		margin-bottom: 0.125rem;
+		padding-block: 0.5em;
+		padding-inline: 0.75em;
+		margin-inline-end: 0.125rem;
 		border-radius: $radius-rounded;
 
 		&:hover,
