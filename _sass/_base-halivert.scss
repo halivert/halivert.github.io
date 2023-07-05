@@ -62,6 +62,7 @@
 
 html {
 	overflow: scroll;
+	scroll-behavior: smooth;
 	scroll-padding-block-start: 1rem;
 }
 
@@ -77,7 +78,6 @@ body {
 
 	text-rendering: optimizeLegibility;
 	background-color: var(--background-color-100);
-	scroll-behavior: smooth;
 
 	grid-template:
 		"menu" auto
