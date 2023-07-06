@@ -20,10 +20,11 @@ que tiene PHP y Laravel.
 Espero que esta serie, que planeo salga cada jueves, sea de utilidad.
 
 ## Índice
+
 {:.no_toc}
 
-* toc
-{:toc}
+- toc
+  {:toc}
 
 ## Arquitectura
 
@@ -57,7 +58,7 @@ registró_ y un campo para validar el _nivel de su subscripción_.
 La tabla `users` quedaría algo así:
 
 | Columna           | Tipo de dato | Características |
-|-------------------|--------------|-----------------|
+| ----------------- | ------------ | --------------- |
 | id                | uuid         | llave primaria  |
 | name              | varchar(255) |                 |
 | username          | varchar(255) | único           |
@@ -76,7 +77,7 @@ contraseña de un usuario que la olvidó (Laravel nos ayuda también con esta
 tabla `password_reset_tokens`) que se verá algo así:
 
 | Columna    | Tipo de dato | Características |
-|------------|--------------|-----------------|
+| ---------- | ------------ | --------------- |
 | email      | varchar(255) | llave primaria  |
 | token      | varchar(255) |                 |
 | created_at | timestamp(3) | nullable        |
@@ -89,22 +90,29 @@ el _nombre_ de una tarjeta, así como su _fecha de corte_ y _última fecha para
 pagar_ y también su _límite de crédito_. La tabla de tarjetas de crédito estará
 asociada a la tabla de usuarios por su id.
 
+Las fechas de corte y última para pagar serán enteros, ya que se trata de un día
+solamente.
+
 Dicen que no es bueno guardar cantidades de dinero como floats así que lo vamos
 a intentar con decimales para comenzar.
 
 También guardaremos la _taza de interés_.
 
+Y agregamos una columna para "borrar" las tarjetas pero poder restaurarlas si el
+usuario así lo desea.
+
 La tabla `credit_cards` se verá algo así:
 
 | Columna       | Tipo de dato   | Características         |
-|---------------|----------------|-------------------------|
+| ------------- | -------------- | ----------------------- |
 | id            | uuid           | llave primaria          |
 | user_id       | uuid           | llave foránea (`users`) |
 | name          | varchar(100)   |                         |
-| due_date      | date           |                         |
-| closing_date  | date           |                         |
-| interest_rate | decimal(4, 2)  |                         |
+| due_date      | integer        |                         |
+| closing_date  | integer        |                         |
+| interest_rate | decimal(5, 2)  | default: 0              |
 | limit         | decimal(19, 4) |                         |
+| deleted_at    | timestamp(3)   | nullable                |
 | created_at    | timestamp(3)   |                         |
 | updated_at    | timestamp(3)   |                         |
 
@@ -124,15 +132,15 @@ una _comisión_ por la compra.
 La tabla `transactions` se verá así:
 
 | Columna               | Tipo de dato   | Características                |
-|-----------------------|----------------|--------------------------------|
+| --------------------- | -------------- | ------------------------------ |
 | id                    | uuid           | llave primaria                 |
 | credit_card_id        | uuid           | llave foránea (`credit_cards`) |
 | concept               | varchar(255)   |                                |
-| datetime              | timestamp(3)   |                                |
+| datetime              | datetime       |                                |
 | amount                | decimal(19, 4) |                                |
-| deadline              | integer        | nullable                       |
-| comision              | decimal(19, 4) | nullable                       |
-| interest_rate         | integer        | nullable                       |
+| deadline_months       | integer        | nullable                       |
+| commission            | decimal(19, 4) | nullable                       |
+| interest_rate         | decimal(6, 2)  | nullable                       |
 | parent_transaction_id | uuid           | llave foránea (`transactions`) |
 | created_at            | timestamp(3)   |                                |
 | updated_at            | timestamp(3)   |                                |
@@ -188,7 +196,9 @@ git remote add origin git@github.com:halivert/credit-logbook.git
 git push
 ```
 
-### Migraciones
+### Modelos, migraciones y algo más
+
+#### Usuarios y suscripciones
 
 Laravel utiliza migraciones para actualizar la base de datos, actualizaremos la
 migración de la tabla de `users` y después el modelo `User` y la fábrica
@@ -211,6 +221,8 @@ También actualizamos los datos en la fábrica `UserFactory`.
 [**Ver código**
 &nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split){:.button.is-normal.is-primary}
 {: .has-text-centered}
+
+#### Tarjetas de crédito
 
 Ahora tenemos que iniciar el contenedor para poder utilizar algunos comandos de
 Laravel que crean los modelos:
@@ -262,9 +274,62 @@ app/API/CreditCard/v1/StoreCreditCardRequest.php
 app/API/CreditCard/v1/UpdateCreditCardRequest.php
 ```
 
+Actualizamos el modelo, la fábrica, las políticas (para los permisos y demás),
+agregamos algunas cosas al controlador y a las solicitudes, de creación y de
+actualización, también actualizamos la migración para la tabla.
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/016ee4bfd7f2a5ed67545d0e6d482148d285b2da?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
+#### Transacciones
+
+Para hacer el modelo, migraciones, controlador y demás de las transacciones,
+seguimos los mismos pasos que para las [Tarjetas de
+crédito](#tarjetas-de-crédito-1)
+
+```sh
+sail artisan make:model Transaction -a --test
+```
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3bc2174ddc8b8a95c0de9c81d374ce725d3852c0?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
 ### Fortify
 
 También vamos a instalar el paquete [Laravel
 Fortify](https://laravel.com/docs/10.x/fortify), para que nos ayude con el
 inicio de sesión y la recuperación de las cuentas en caso de que el usuario
 pierda su contraseña.
+
+```sh
+sail composer require laravel/fortify
+sail artisan vendor:publish --provider="Laravel\Fortify\FortifyServiceProvider"
+```
+
+Actualizamos las opciones que queremos utilizar para Fortify en el archivo
+`config/fortify.php`
+
+Añadimos las opciones de 2FA a la migración de usuarios (por eso todavía no
+ejecutamos las migraciones) y estamos listos para agregar el siguiente paquete.
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/b3a21ffc34694c3ffa7b47372371881043bdf43a?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
+### Sanctum
+
+Posteriormente configuramos el paquete [Laravel
+Sanctum](https://laravel.com/docs/10.x/sanctum), para el control de acceso a la
+API.
+
+Agregamos el middleware necesario en `app/Http/Kernel.php`
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/87c4cbf64df35cb589c755c62325e20c105a1f4b?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
+Ahora sí estamos listos para comenzar con el desarrollo de nuestra aplicación.
+
+Podrás seguir leyendo esta serie cuando suba los demás posts **aquí**.
