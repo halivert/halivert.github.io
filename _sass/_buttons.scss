@@ -105,6 +105,18 @@ $social: (
 			}
 		}
 	}
+
+	&.is-normal {
+		@include control-normal;
+	}
+
+	&.is-medium {
+		@include control-medium;
+	}
+
+	&.is-large {
+		@include control-large;
+	}
 }
 
 .buttons {
