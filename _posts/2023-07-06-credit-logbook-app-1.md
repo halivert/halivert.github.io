@@ -25,8 +25,8 @@ Espero que esta serie, que planeo salga cada jueves, sea de utilidad.
 
 {:.no_toc}
 
-- toc
-  {:toc}
+* toc
+{:toc}
 
 ## Arquitectura
 
