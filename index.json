@@ -1,6 +1,15 @@
 
 
-{"/blog/2023/03/lessons-from-angular": {
+{"/blog/2023/07/credit-logbook-app-1": {
+			"title": "Bitácora de crédito",
+			"author": "Halí",
+			"categories": ["Aprendiendo en público"],
+			"tags": ["Laravel","Backend"],
+			"content": "<p>Hace algunos años que tengo una tarjeta de crédito, y me gusta bastante llevar\nun conteo exacto de que gasto y cuanto tengo disponible para pagarlo. Así que\ndesde entonces he estado llevando una hoja de cálculo que se ve más o menos\nasí</p>","url": "https://halivert.dev/blog/2023/07/credit-logbook-app-1/",
+			"continue": 1,
+			"date": "Julio 06, 2023",
+			"last_modification": ""
+		},"/blog/2023/03/lessons-from-angular": {
 			"title": "Lecciones de Angular",
 			"author": "Halí",
 			"categories": ["Ya me pasó"],

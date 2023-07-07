@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1688695200">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script async src="https://cdn.splitbee.io/sb.js"></script><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bitácora de crédito | Halivert</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Bitácora de crédito" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Hace algunos años que tengo una tarjeta de crédito, y me gusta bastante llevar un conteo exacto de que gasto y cuanto tengo disponible para pagarlo. Así que desde entonces he estado llevando una hoja de cálculo que se ve más o menos así" />
+<meta property="og:description" content="Hace algunos años que tengo una tarjeta de crédito, y me gusta bastante llevar un conteo exacto de que gasto y cuanto tengo disponible para pagarlo. Así que desde entonces he estado llevando una hoja de cálculo que se ve más o menos así" />
+<link rel="canonical" href="https://halivert.dev/blog/2023/07/credit-logbook-app-1/" />
+<meta property="og:url" content="https://halivert.dev/blog/2023/07/credit-logbook-app-1/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-06T20:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bitácora de crédito" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2023-07-06T20:00:00-06:00","datePublished":"2023-07-06T20:00:00-06:00","description":"Hace algunos años que tengo una tarjeta de crédito, y me gusta bastante llevar un conteo exacto de que gasto y cuanto tengo disponible para pagarlo. Así que desde entonces he estado llevando una hoja de cálculo que se ve más o menos así","headline":"Bitácora de crédito","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2023/07/credit-logbook-app-1/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2023/07/credit-logbook-app-1/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="menu-logo"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:vue:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Bitácora de crédito</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Julio 06, 2023
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-laravel">Laravel</span><span class="tag ">Backend</span></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Hace algunos años que tengo una tarjeta de crédito, y me gusta bastante llevar
+un conteo exacto de que gasto y cuanto tengo disponible para pagarlo. Así que
+desde entonces he estado llevando una hoja de cálculo que se ve más o menos
+así</p>
+
+<!-- Seguir leyendo -->
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/a516e335-2b74-41da-a1f0-2323bced0f99" alt="hoja de cálculo" /></p>
+
+<p>Este proyecto surge como una mejora a esa hoja de cálculo (porque, ¿qué proyecto
+no inicia así?). Y con esto como excusa espero poder demostrar algunas bondades
+que tiene PHP y Laravel.</p>
+
+<p>Espero que esta serie, que planeo salga cada jueves, sea de utilidad.</p>
+
+<h2 id="índice">Índice</h2>
+
+<ul class="no_toc">
+  <li>toc</li>
+</ul>
+
+<h2 id="arquitectura">Arquitectura</h2>
+
+<p>Comenzaremos dando paso a algunas decisiones importantes de arquitectura,
+utilizaremos Laravel y nos ayuda bastante al saber, por ejemplo que usaremos el
+patrón MVC, sin embargo tenemos que tener en cuenta otras decisiones, por
+ejemplo como almacenaremos los datos, como iniciaran sesión los usuarios y cómo
+se gestionan las suscripciones (en caso de que la aplicación funcione).</p>
+
+<h3 id="almacén-de-datos">Almacén de datos</h3>
+
+<p>Para este ejercicio utilizaremos una base de datos relacional, ya que nuestra
+aplicación tiene usuarios asociados a tarjetas de crédito, que a su vez tienen
+transacciones asociadas.</p>
+
+<p>Debemos tener en cuenta también que al tratarse de datos financieros, debemos
+elegir un motor de base de datos que soporte cifrado de datos.</p>
+
+<p>Nuestra elección es <strong>MariaDB</strong> (en parte porque ya tengo un servidor con ese
+motor de bases de datos), pero podemos utilizar PostgreSQL, MySQL, e incluso
+SQLite también.</p>
+
+<h3 id="inicio-de-sesión">Inicio de sesión</h3>
+
+<p>Para ello necesitaremos algunos datos como un <em>nombre de usuario</em>, una
+<em>contraseña</em>, también un <em>correo electrónico</em> (por si pierde su contraseña),
+además podemos almacenar otros datos necesarios para que la aplicación funcione
+bien como si el usuario <em>ya ha verificado su correo</em>, la <em>fecha en la que se
+registró</em> y un campo para validar el <em>nivel de su subscripción</em>.</p>
+
+<p>La tabla <code class="language-plaintext highlighter-rouge">users</code> quedaría algo así:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna</th>
+      <th>Tipo de dato</th>
+      <th>Características</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>uuid</td>
+      <td>llave primaria</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar(255)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>username</td>
+      <td>varchar(255)</td>
+      <td>único</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>varchar(255)</td>
+      <td>único</td>
+    </tr>
+    <tr>
+      <td>email_verified_at</td>
+      <td>timestamp(3)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>password</td>
+      <td>varchar(255)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>subscription</td>
+      <td>varchar(255)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>remember_token</td>
+      <td>varchar(100)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="olvidó-su-contraseña">¿Olvidó su contraseña?</h4>
+
+<p>También hace falta una tabla con datos necesarios para reestablecer la
+contraseña de un usuario que la olvidó (Laravel nos ayuda también con esta
+tabla <code class="language-plaintext highlighter-rouge">password_reset_tokens</code>) que se verá algo así:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna</th>
+      <th>Tipo de dato</th>
+      <th>Características</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>email</td>
+      <td>varchar(255)</td>
+      <td>llave primaria</td>
+    </tr>
+    <tr>
+      <td>token</td>
+      <td>varchar(255)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp(3)</td>
+      <td>nullable</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="tarjetas-de-crédito">Tarjetas de crédito</h3>
+
+<p>No queremos guardar datos sensibles de las tarjetas, pero necesitamos asociar
+algunos datos a este tipo de entidades, así que haremos una tabla que guardará
+el <em>nombre</em> de una tarjeta, así como su <em>fecha de corte</em> y <em>última fecha para
+pagar</em> y también su <em>límite de crédito</em>. La tabla de tarjetas de crédito estará
+asociada a la tabla de usuarios por su id.</p>
+
+<p>Las fechas de corte y última para pagar serán enteros, ya que se trata de un día
+solamente.</p>
+
+<p>Dicen que no es bueno guardar cantidades de dinero como floats así que lo vamos
+a intentar con decimales para comenzar.</p>
+
+<p>También guardaremos la <em>taza de interés</em>.</p>
+
+<p>Y agregamos una columna para “borrar” las tarjetas pero poder restaurarlas si el
+usuario así lo desea.</p>
+
+<p>La tabla <code class="language-plaintext highlighter-rouge">credit_cards</code> se verá algo así:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna</th>
+      <th>Tipo de dato</th>
+      <th>Características</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>uuid</td>
+      <td>llave primaria</td>
+    </tr>
+    <tr>
+      <td>user_id</td>
+      <td>uuid</td>
+      <td>llave foránea (<code class="language-plaintext highlighter-rouge">users</code>)</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>varchar(100)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>due_date</td>
+      <td>integer</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>closing_date</td>
+      <td>integer</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>interest_rate</td>
+      <td>decimal(5, 2)</td>
+      <td>default: 0</td>
+    </tr>
+    <tr>
+      <td>limit</td>
+      <td>decimal(19, 4)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deleted_at</td>
+      <td>timestamp(3)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="transacciones">Transacciones</h3>
+
+<p>También tenemos la tabla de transacciones, donde iremos anotando que gastos y
+que pagos se hacen. Ahí guardaremos la tarjeta a la que está asociada, también
+el <em>monto</em> de la transacción, la <em>fecha</em>, el <em>concepto</em>.</p>
+
+<p>También necesitamos algunos campos para cuando hagamos compras a meses (sin y
+con intereses) <em>plazo</em> y <em>porcentaje de interés</em>, también, cuando agregemos un
+pago a meses, debemos separar cada uno de los plazos para tener en cuenta cuanto
+debemos en el periodo, para ello utilizaremos una referencia a la misma tabla
+donde guardemos que transacción es la “raíz”. Y un campo en caso de que haya
+una <em>comisión</em> por la compra.</p>
+
+<p>La tabla <code class="language-plaintext highlighter-rouge">transactions</code> se verá así:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Columna</th>
+      <th>Tipo de dato</th>
+      <th>Características</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>id</td>
+      <td>uuid</td>
+      <td>llave primaria</td>
+    </tr>
+    <tr>
+      <td>credit_card_id</td>
+      <td>uuid</td>
+      <td>llave foránea (<code class="language-plaintext highlighter-rouge">credit_cards</code>)</td>
+    </tr>
+    <tr>
+      <td>concept</td>
+      <td>varchar(255)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>datetime</td>
+      <td>datetime</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>decimal(19, 4)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>deadline_months</td>
+      <td>integer</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>commission</td>
+      <td>decimal(19, 4)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>interest_rate</td>
+      <td>decimal(6, 2)</td>
+      <td>nullable</td>
+    </tr>
+    <tr>
+      <td>parent_transaction_id</td>
+      <td>uuid</td>
+      <td>llave foránea (<code class="language-plaintext highlighter-rouge">transactions</code>)</td>
+    </tr>
+    <tr>
+      <td>created_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>updated_at</td>
+      <td>timestamp(3)</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="otras-tablas">Otras tablas</h3>
+
+<p>Laravel también nos ayuda a crear otras dos tablas que servirán para tener una
+lista de <em>trabajos</em> que no terminaron con éxito y otra para tokens personales
+que la aplicación nos podrá proporcionar para dar accesso a aplicaciones de
+terceros con ciertos permisos.</p>
+
+<h2 id="código">Código</h2>
+
+<p>Ya que planeamos el código que escribiremos, toca comenzar.</p>
+
+<h3 id="crear-proyecto">Crear proyecto</h3>
+
+<p>Vamos a crear el proyecto con Laravel, utilizaremos <a href="https://laravel.com/docs/10.x/sail">Laravel
+Sail</a>, este sirve para tener un entorno
+igual al de producción pero sin tener que instalarle todo el software a nuestra
+computadora.</p>
+
+<p>Requerimos tener php, composer, docker y docker-compose instalados.</p>
+
+<p>Luego vamos a la siguiente url para instalar las dependencias requeridas, en
+este caso le pondremos <strong>credit-logbook</strong> al proyecto y le instalaremos
+<em>mariadb</em> (motor de base de datos), <em>redis</em> (para la caché) y <em>mailpit</em> (para
+pruebas de correos):</p>
+
+<p><a href="https://laravel.build/credit-logbook?with=mariadb,redis,mailpit">https://laravel.build/credit-logbook?with=mariadb,redis,mailpit</a></p>
+
+<p>ejecutamos el código en bash y entramos al directorio que acaba de crear</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd </span>credit-logbook
+</code></pre></div></div>
+
+<p>luego inicializamos un repo de git y añadimos todos los elementos al índice
+(esto es seguro pues laravel por defecto agrega un archivo .gitignore), después
+hacemos commit.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init <span class="nb">.</span>
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"chore: initial commit"</span>
+</code></pre></div></div>
+
+<p>Después haremos un repo en la nube, en este caso utilizaremos GitHub.
+Agregamos el remote y luego hacemos push para subir todos los archivos.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin git@github.com:halivert/credit-logbook.git
+git push
+</code></pre></div></div>
+
+<h3 id="modelos-migraciones-y-algo-más">Modelos, migraciones y algo más</h3>
+
+<h4 id="usuarios-y-suscripciones">Usuarios y suscripciones</h4>
+
+<p>Laravel utiliza migraciones para actualizar la base de datos, actualizaremos la
+migración de la tabla de <code class="language-plaintext highlighter-rouge">users</code> y después el modelo <code class="language-plaintext highlighter-rouge">User</code> y la fábrica
+<code class="language-plaintext highlighter-rouge">UserFactory</code> (que nos servirá para pruebas automáticas).</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/419fb1e1d145aa929445a410dcec572cb7c7a86c?diff=split" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Después tenemos que crear una enumeración para controlar las subscripciones y
+hacemos uso del <a href="https://laravel.com/docs/10.x/eloquent-mutators#enum-casting">Enum
+casting</a> propio de
+Laravel.</p>
+
+<p>Además agregamos valores por defecto al modelo <code class="language-plaintext highlighter-rouge">User</code>, ya que todos los usuarios
+serán registrados con la subscripción gratuita.</p>
+
+<p>También actualizamos los datos en la fábrica <code class="language-plaintext highlighter-rouge">UserFactory</code>.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h4 id="tarjetas-de-crédito-1">Tarjetas de crédito</h4>
+
+<p>Ahora tenemos que iniciar el contenedor para poder utilizar algunos comandos de
+Laravel que crean los modelos:</p>
+
+<blockquote>
+  <p>Nota: Para el siguiente comando es necesario que tengas un alias (así
+escribimos menos)</p>
+
+  <p><code class="language-plaintext highlighter-rouge">alias sail='[ -f sail ] &amp;&amp; bash sail || bash vendor/bin/sail'</code></p>
+</blockquote>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail up
+</code></pre></div></div>
+
+<p>y una vez que esté ejecutandose, podemos utilizar otra terminal para crear los
+modelos, comenzamos con el de <code class="language-plaintext highlighter-rouge">CreditCard</code>, agregamos la migración, <em>sedeer</em>,
+fabrica, politicas, controlador, <em>form requests</em> y <em>tests</em>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan make:model CreditCard <span class="nt">-a</span> <span class="nt">--test</span>
+</code></pre></div></div>
+
+<p>Laravel acomoda cada archivo dentro de ciertos directorios, pero vamos a
+reacomodar un poco esto, para este momento, deberíamos tener los siguientes
+nuevos archivos</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app/Http/Controllers/CreditCardController.php
+app/Http/Requests/StoreCreditCardRequest.php
+app/Http/Requests/UpdateCreditCardRequest.php
+app/Models/CreditCard.php
+app/Policies/CreditCardPolicy.php
+database/factories/CreditCardFactory.php
+database/migrations/2023_07_05_143846_create_credit_cards_table.php
+database/seeders/CreditCardSeeder.php
+tests/Feature/Models/CreditCardTest.php
+</code></pre></div></div>
+
+<p>Pero queremos que estén organizados de una forma un poco diferente, así que
+moveremos el controlador, modelo, políticas, fabrica y <em>form requests</em> a los
+siguientes directorios. Además ya que vamos a versionar nuestra API, vamos a
+hacer el directorio para la primer versión.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>app/API/CreditCard/CreditCard.php
+app/API/CreditCard/CreditCardPolicy.php
+app/API/CreditCard/CreditCardFactory.php
+app/API/CreditCard/v1/CreditCardController.php
+app/API/CreditCard/v1/StoreCreditCardRequest.php
+app/API/CreditCard/v1/UpdateCreditCardRequest.php
+</code></pre></div></div>
+
+<p>Actualizamos el modelo, la fábrica, las políticas (para los permisos y demás),
+agregamos algunas cosas al controlador y a las solicitudes, de creación y de
+actualización, también actualizamos la migración para la tabla.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/016ee4bfd7f2a5ed67545d0e6d482148d285b2da?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h4 id="transacciones-1">Transacciones</h4>
+
+<p>Para hacer el modelo, migraciones, controlador y demás de las transacciones,
+seguimos los mismos pasos que para las <a href="#tarjetas-de-crédito-1">Tarjetas de
+crédito</a></p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan make:model Transaction <span class="nt">-a</span> <span class="nt">--test</span>
+</code></pre></div></div>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/3bc2174ddc8b8a95c0de9c81d374ce725d3852c0?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="fortify">Fortify</h3>
+
+<p>También vamos a instalar el paquete <a href="https://laravel.com/docs/10.x/fortify">Laravel
+Fortify</a>, para que nos ayude con el
+inicio de sesión y la recuperación de las cuentas en caso de que el usuario
+pierda su contraseña.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail composer require laravel/fortify
+sail artisan vendor:publish <span class="nt">--provider</span><span class="o">=</span><span class="s2">"Laravel</span><span class="se">\F</span><span class="s2">ortify</span><span class="se">\F</span><span class="s2">ortifyServiceProvider"</span>
+</code></pre></div></div>
+
+<p>Actualizamos las opciones que queremos utilizar para Fortify en el archivo
+<code class="language-plaintext highlighter-rouge">config/fortify.php</code></p>
+
+<p>Añadimos las opciones de 2FA a la migración de usuarios (por eso todavía no
+ejecutamos las migraciones) y estamos listos para agregar el siguiente paquete.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/b3a21ffc34694c3ffa7b47372371881043bdf43a?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="sanctum">Sanctum</h3>
+
+<p>Posteriormente configuramos el paquete <a href="https://laravel.com/docs/10.x/sanctum">Laravel
+Sanctum</a>, para el control de acceso a la
+API.</p>
+
+<p>Agregamos el middleware necesario en <code class="language-plaintext highlighter-rouge">app/Http/Kernel.php</code></p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/87c4cbf64df35cb589c755c62325e20c105a1f4b?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Ahora sí estamos listos para comenzar con el desarrollo de nuestra aplicación.</p>
+
+<p>Podrás seguir leyendo esta serie cuando suba los demás posts <strong>aquí</strong>.</p>
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2023/07/credit-logbook-app-1/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2023/07/credit-logbook-app-1/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2023/07/credit-logbook-app-1/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>
