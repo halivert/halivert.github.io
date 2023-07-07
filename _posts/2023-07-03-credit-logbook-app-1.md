@@ -13,6 +13,8 @@ así
 
 <!-- Seguir leyendo -->
 
+![hoja de cálculo](https://github.com/halivert/halivert.github.io/assets/16197249/a516e335-2b74-41da-a1f0-2323bced0f99)
+
 Este proyecto surge como una mejora a esa hoja de cálculo (porque, ¿qué proyecto
 no inicia así?). Y con esto como excusa espero poder demostrar algunas bondades
 que tiene PHP y Laravel.
