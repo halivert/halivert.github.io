@@ -6,7 +6,7 @@ category: "Aprendiendo en público"
 tags: ["Laravel", "Backend"]
 ---
 
-En este «sprint» (o lo que sea), vamos a continuar con el desarrollo de dos
+En este «_sprint_» (o lo que sea), vamos a continuar con el desarrollo de dos
 características principales.
 
 Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene
@@ -24,8 +24,25 @@ tarjetas de crédito asociadas a un usuario.
 ## Previos
 
 Después de los [pasos anteriores]({% post_url 2023-07-06-credit-logbook-app-1
-%}), tenemos que migrar nuestra base de datos, es decir agregar todos los
-cambios que agregamos a las migraciones, de manera estructurada
+%}), tenemos que agregar algunas cosas al _app service provider_, migrar nuestra
+base de datos, es decir agregar todos los cambios que agregamos a las
+migraciones, de manera estructurada y también editar algunas de nuestras
+variables de entorno.
+
+### _App service provider_
+
+Primero cambiamos algunas cosas en el `AppServiceProvider`, comenzamos
+agregando la prevención de [_lazy
+loading_](https://laravel.com/docs/10.x/eloquent-relationships#preventing-lazy-loading)
+en los modelos, para evitar algunos problemas de _performance_.
+
+También cambiaremos una parte de la gramática del la conexión a la base de
+datos, particulamente el formato de la fecha, ya que por defecto no tenemos
+precisión de milisegundos.
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/8c26eea71d440ef7b9c744e99084507439fa7b18?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
 
 ### Migraciones
 
@@ -50,7 +67,7 @@ sail artisan migrate:install
 
 Como ya definimos el esquema que queremos en la base de datos e incluso ya
 definimos algunas de las migraciones, no queda más que ejecutarlas en nuestro
-entorno de prueba.
+entorno local.
 
 Utilizaremos la opción `--step` para que podamos hacer _rollback_ a cada
 migración individualmente.
@@ -65,19 +82,21 @@ por lo que no se pueden usar como llaves foráneas en otra tabla, así que vamos
 allá a corregir el desastre...
 
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/006d009a3bcbdb97b34b4d06cb5ebbe2e194d29b?diff=unified){:.button.is-normal.is-primary}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/9c9d39aabf336fa3bd97046e01984c56ce40a902?diff=unified){:.button.is-normal.is-primary}
 {: .has-text-centered}
 
 Ahora sí podemos ejecutar las migraciones, pero como algunas tablas ya fueron
-creadas, hay que iniciarlas de nuevo
+creadas, hay que destruirlas para crearlas de nuevo.
 
-Esto es seguro en entornos de desarrollo, por favor nunca ejecutes el siguiente
-comando en producción (igual Laravel te advertirá si lo intentas)
+Esto es seguro solamente en entornos de desarrollo, por favor nunca ejecutes el
+siguiente comando en producción (igual Laravel te advertirá si lo intentas).
 {: .notification.is-yellow}
 
 ```sh
 sail artisan migrate:fresh --step
 ```
+
+Excelente, nuestras tablas ya han sido creadas.
 
 ### Env
 
@@ -85,9 +104,9 @@ También cambiaremos algunas cosas de nuestro archivo `.env`.
 
 Por ejemplo el valor de `APP_URL` así como la sesión, la _queue_ y la caché, ya
 que queremos usar redis y ya de paso queremos aumentar el tiempo de la sesión,
-a... 3 días o sea 259200 segundos.
+a... 3 días o sea **259200** segundos.
 
-Las llaves que cambiaremos quedan algo así:
+Los valores que cambiaremos quedan algo así:
 
 ```
 APP_URL=http://laravel.test
@@ -96,9 +115,6 @@ QUEUE_CONNECTION=redis
 SESSION_DRIVER=redis
 SESSION_LIFETIME=259200
 ```
-
-Excelente, nuestras tablas ya han sido creadas y estamos listos para hacer
-algunas pruebas con el inicio de sesión y el registro de usuarios.
 
 ## API
 
@@ -109,8 +125,8 @@ Agregamos un _environment_ ahí creamos la variable `API_URL` y luego una
 petición HTTP.
 
 Si nuestro servidor está ejecutandose con sail, tenemos la url: `laravel.test`,
-como queremos poder acceder a ella desde nuestro local debemos instruirle a
-nuestra computadora como hacerlo.
+como queremos poder acceder a ella desde nuestro entorno local debemos
+instruirle a nuestra computadora como hacerlo.
 
 Editamos el archivo: `/etc/hosts` y agregamos la siguiente línea:
 
@@ -118,9 +134,9 @@ Editamos el archivo: `/etc/hosts` y agregamos la siguiente línea:
 127.0.0.1	laravel.test localhost
 ```
 
-Así nuestra computadora sabrá redirigir las urls: `laravel.test` y `localhost` a
-sí misma. (A partir de ahora obviaremos el dominio, pero debe estar en todas
-nuestras solicitudes).
+Así nuestra computadora sabrá redirigir las peticiones a las urls:
+`laravel.test` y `localhost` a sí misma. (A partir de ahora obviaremos el
+dominio, pero debe estar en todas nuestras solicitudes).
 
 ### Cookie CSRF
 
@@ -128,18 +144,22 @@ Primero queremos obtener la [_cookie_ csrf, para evitar algunos
 ataques](https://laravel.com/docs/10.x/csrf), y lo haremos con la url:
 `/sanctum/csrf-cookie`
 
-Esta nos devolverá una cookie llamada `XSRF-TOKEN`, que se ve más o menos así:
+Esta nos devolverá una _cookie_ llamada `XSRF-TOKEN`, que se ve más o menos así:
 `eyJpdiI6IjVDY1NrKzN6YzNBNFJVe...MWUxNmM5IiwidGFnIjoiIn0%3D`, si nos fijamos
-bien, la parte final está algo rara (_%3D_), y es porque antes de enviarla en un
-_header_ deberíamos decodificarla para url, con una función similar a
+bien, la parte final está algo rara `%3D`, y es porque antes de enviarla en un
+_header_ deberíamos decodificarla para urls con una función similar a
 [decodeURIComponent](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent).
-En nuestro caso, sabemos que _%3D_ es _=_, así que lo sustituimos y agregaremos
+En nuestro caso, sabemos que `%3D` es `=`, así que lo sustituimos y agregaremos
 a un _header_ llamado `X-XSRF-TOKEN` en cada una de nuestras llamadas
-siguientes. Como ahora estamos probando con postman, entonces hacemos algo así:
+siguientes. Como ahora estamos probando con Postman, entonces hacemos algo así:
 
-![Imagen de X-XSRF-TOKEN en postman](https://github.com/halivert/halivert.github.io/assets/16197249/61bb4b67-83bc-45e8-b4d8-79d39b3a2769)
+![Imagen de X-XSRF-TOKEN en Postman](https://github.com/halivert/halivert.github.io/assets/16197249/61bb4b67-83bc-45e8-b4d8-79d39b3a2769)
 
-## Pruebas Usuario
+## Usuario
+
+Seguramente utilizaremos una _SPA_ para este proyecto en futuras iteraciones,
+así que dejaremos que Sanctum utilice sesiones para autenticar a los usuarios
+por lo que estaremos haciendo uso de cookies.
 
 ### Registro
 
@@ -150,7 +170,7 @@ app, así que hacemos eso.
 También corregimos una regla de nuestras validaciones 😅
 
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/c79f7007125c4cf623fb2e75014b5233396bd880?diff=unified){:.button.is-normal.is-primary}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/545b277174e4adf4aee913a9b68a3cef0fffa0e6?diff=unified){:.button.is-normal.is-primary}
 {: .has-text-centered}
 
 Después podemos hacer la solicitud a la url: `/register`. Agregamos los datos
@@ -161,30 +181,118 @@ necesarios al _body_ de la solicitud y lo enviamos.
 Si todo salió bien obtendremos una respuesta 201, y sabremos que nuestro usuario
 ha sido registrado en el sistema.
 
-### Logout
+### _Logout_
 
-Primero actualizamos la ruta `home` en nuestra configuración.
+Probaremos el _logout_ antes del _login_ ya que cuando un usuario se registra,
+automáticamente inicia sesión. Actualizamos la ruta `home` en nuestra
+configuración.
 
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/f5338511f61f59e46afbba95498d41faff670172?diff=unified){:.button.is-normal.is-primary}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/bdb49f075a965ac8e51b05e53976001b1c6acf23?diff=unified){:.button.is-normal.is-primary}
 {: .has-text-centered}
 
-Vamos a guardar el X-XSRF-TOKEN como una variable en postman y luego hacemos la
-petición a la url: `/logout`. Si todo sale bien, obtendremos una respuesta 204
-como esta.
+Vamos a guardar el `X-XSRF-TOKEN` como una variable en Postman y luego hacemos
+la petición a la url: `/logout`. Si todo sale bien, obtendremos una respuesta
+204 como esta.
 
 ![Logout](https://github.com/halivert/halivert.github.io/assets/16197249/06ac3906-cf5f-4155-a47a-87e73fd7329f)
 
-### Login
+### _Login_
 
 Ahora probamos con la ruta `/login`. Y podremos ver algo así.
 
 ![Login](https://github.com/halivert/halivert.github.io/assets/16197249/5b22345a-834d-41ec-9cac-091d91a13d40)
 
-Como sanctum utiliza las cookies para la autenticación, no debemos preocuparnos
-por tokens además del de csrf cuando hacemos una petición _post_, así que
-mientras usemos las cookies de sesión, estaremos _loggeados_.
+Como Sanctum utiliza las _cookies_ para la autenticación, no debemos
+preocuparnos por tokens además del de csrf cuando hacemos una petición _post_,
+así que mientras usemos las cookies de sesión, estaremos _loggeados_.
 
 ## Tarjetas de crédito
 
 ### Rutas
+
+Vamos a agregar las rutas para las tarjetas de credito en nuestra API, así que
+en el archivo `routes/web.php` colocamos lo siguiente:
+
+Lo pondremos en `web` y no en `api`, porque consideramos que usaremos una _SPA_
+así que queremos enviar cookies, pero luego veremos como replicar esto para usar
+un _token_ también.
+
+```php
+Route::middleware(['auth:sanctum'])->prefix('api')->group(function () {
+    Route::prefix('v1')->group(function () {
+        Route::apiResources([
+            'credit-cards' => CreditCardController::class
+        ], [
+            'parameters' => [
+                'credit-cards' => 'creditCard'
+            ],
+            'shallow' => true
+        ]);
+    });
+});
+```
+
+Ahí estamos agrupando dentro de un _middleware_ las versiones, y dentro de la
+primera versión, agregamos un
+[`apiResource`](https://laravel.com/docs/10.x/controllers#api-resource-routes)
+que sirve para registrar solamente las rutas que no tienen vistas asociadas.
+
+También ponemos las opciones `parameters` y `shallow`, la primera es para
+cambiar el _casing_ de los parámetros y la segunda para [hacer que las rutas se
+colapsen cuando sea
+posible](https://laravel.com/docs/10.x/controllers#shallow-nesting).
+
+Así debería quedar nuestra tabla de rutas para `credit-cards`:
+
+| Método HTTP | URI                                | Nombre de ruta       |
+|-------------|------------------------------------|----------------------|
+| _GET_       | `api/v1/credit-cards`              | credit-cards.index   |
+| _POST_      | `api/v1/credit-cards`              | credit-cards.store   |
+| _GET_       | `api/v1/credit-cards/{creditCard}` | credit-cards.show    |
+| _PUT/PATCH_ | `api/v1/credit-cards/{creditCard}` | credit-cards.update  |
+| _DELETE_    | `api/v1/credit-cards/{creditCard}` | credit-cards.destroy |
+
+### Políticas
+
+Ahora registramos las políticas, porque aunque Laravel tiene registro
+automático, nuestras políticas no están en el folder por defecto, por lo que
+tenemos que decirle donde están.
+
+Las rutas y políticas quedan así:
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/25cfae482ca3fa8de39fdeb79fbb4566cfcf8ec3?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
+### Traducciones
+
+El idioma por defecto de nuestra aplicación será ✨ **español** ✨ pero de todas
+formas vamos a agregar algunos archivos de traducción ya que nos servirán para
+estandarizar los mensajes y nombres de atributos.
+
+Cambiamos el idioma por defecto en `config/app.php` y luego publicamos los
+archivos de traducción.
+
+```sh
+sail artisan lang:publish
+```
+
+Tenemos que copiar los archivos a una nueva carpeta `es_MX` y entonces traducir
+todo... 😩
+
+Pero bueno, aquí estamos (lo hizo chat gpt 🤷🏽).
+
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/e51cf04f46d468320caac87b03c1dd806057b634?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
+Luego agregamos las nuevas etiquetas.
+
+### _Form requests_
+
+Vamos a utilizar [_form
+requests_](https://laravel.com/docs/10.x/validation#form-request-validation)
+para validar los datos que llegan y saber si debemos guardarlos en la base de
+datos o solicitar correcciones al usuario.
+
