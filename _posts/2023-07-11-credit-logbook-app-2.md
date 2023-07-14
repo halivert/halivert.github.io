@@ -289,10 +289,15 @@ Pero bueno, aquí estamos (lo hizo chat gpt 🤷🏽).
 
 Luego agregamos las nuevas etiquetas.
 
+[**Ver código**
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/74d9d425af0883571b6a8d55589ff03e96f4772c?diff=unified){:.button.is-normal.is-primary}
+{: .has-text-centered}
+
 ### _Form requests_
 
 Vamos a utilizar [_form
 requests_](https://laravel.com/docs/10.x/validation#form-request-validation)
 para validar los datos que llegan y saber si debemos guardarlos en la base de
-datos o solicitar correcciones al usuario.
+datos o solicitar correcciones al usuario...
 
+Pero esto lo dejaremos para el siguiente sprint.
