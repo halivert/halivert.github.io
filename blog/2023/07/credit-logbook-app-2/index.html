@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1689300000">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script async src="https://cdn.splitbee.io/sb.js"></script><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bitácora de crédito (vol. 2) | Halivert</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Bitácora de crédito (vol. 2)" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="En este «sprint» (o lo que sea), vamos a continuar con el desarrollo de dos características principales. Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene acceso a ciertos permisos, luego continuaremos con la creación y edición de tarjetas de crédito asociadas a un usuario." />
+<meta property="og:description" content="En este «sprint» (o lo que sea), vamos a continuar con el desarrollo de dos características principales. Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene acceso a ciertos permisos, luego continuaremos con la creación y edición de tarjetas de crédito asociadas a un usuario." />
+<link rel="canonical" href="https://halivert.dev/blog/2023/07/credit-logbook-app-2/" />
+<meta property="og:url" content="https://halivert.dev/blog/2023/07/credit-logbook-app-2/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-13T20:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bitácora de crédito (vol. 2)" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2023-07-13T20:00:00-06:00","datePublished":"2023-07-13T20:00:00-06:00","description":"En este «sprint» (o lo que sea), vamos a continuar con el desarrollo de dos características principales. Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene acceso a ciertos permisos, luego continuaremos con la creación y edición de tarjetas de crédito asociadas a un usuario.","headline":"Bitácora de crédito (vol. 2)","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2023/07/credit-logbook-app-2/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2023/07/credit-logbook-app-2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="menu-logo"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:vue:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Bitácora de crédito (vol. 2)</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Julio 13, 2023
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-laravel">Laravel</span><span class="tag ">Backend</span></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>En este «<em>sprint</em>» (o lo que sea), vamos a continuar con el desarrollo de dos
+características principales.</p>
+
+<p>Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene
+acceso a ciertos permisos, luego continuaremos con la creación y edición de
+tarjetas de crédito asociadas a un usuario.</p>
+
+<!-- Seguir leyendo -->
+
+<h2 class="no_toc" id="índice">Índice</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#previos" id="markdown-toc-previos">Previos</a>    <ul>
+      <li><a href="#app-service-provider" id="markdown-toc-app-service-provider"><em>App service provider</em></a></li>
+      <li><a href="#migraciones" id="markdown-toc-migraciones">Migraciones</a></li>
+      <li><a href="#env" id="markdown-toc-env">Env</a></li>
+    </ul>
+  </li>
+  <li><a href="#api" id="markdown-toc-api">API</a>    <ul>
+      <li><a href="#cookie-csrf" id="markdown-toc-cookie-csrf">Cookie CSRF</a></li>
+    </ul>
+  </li>
+  <li><a href="#usuario" id="markdown-toc-usuario">Usuario</a>    <ul>
+      <li><a href="#registro" id="markdown-toc-registro">Registro</a></li>
+      <li><a href="#logout" id="markdown-toc-logout"><em>Logout</em></a></li>
+      <li><a href="#login" id="markdown-toc-login"><em>Login</em></a></li>
+    </ul>
+  </li>
+  <li><a href="#tarjetas-de-crédito" id="markdown-toc-tarjetas-de-crédito">Tarjetas de crédito</a>    <ul>
+      <li><a href="#rutas" id="markdown-toc-rutas">Rutas</a></li>
+      <li><a href="#políticas" id="markdown-toc-políticas">Políticas</a></li>
+      <li><a href="#traducciones" id="markdown-toc-traducciones">Traducciones</a></li>
+      <li><a href="#form-requests" id="markdown-toc-form-requests"><em>Form requests</em></a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="previos">Previos</h2>
+
+<p>Después de los <a href="/blog/2023/07/credit-logbook-app-1/">pasos anteriores</a>, tenemos que agregar algunas cosas al <em>app service provider</em>, migrar nuestra
+base de datos, es decir agregar todos los cambios que agregamos a las
+migraciones, de manera estructurada y también editar algunas de nuestras
+variables de entorno.</p>
+
+<h3 id="app-service-provider"><em>App service provider</em></h3>
+
+<p>Primero cambiamos algunas cosas en el <code class="language-plaintext highlighter-rouge">AppServiceProvider</code>, comenzamos
+agregando la prevención de <a href="https://laravel.com/docs/10.x/eloquent-relationships#preventing-lazy-loading"><em>lazy
+loading</em></a>
+en los modelos, para evitar algunos problemas de <em>performance</em>.</p>
+
+<p>También cambiaremos una parte de la gramática del la conexión a la base de
+datos, particulamente el formato de la fecha, ya que por defecto no tenemos
+precisión de milisegundos.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/8c26eea71d440ef7b9c744e99084507439fa7b18?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="migraciones">Migraciones</h3>
+
+<p>Las migraciones son muy útiles, pues nos permiten realizar cambios en la base de
+datos de manera controlada.</p>
+
+<p>Esta es una forma segura de «interactuar» con la base de datos, ya que existe
+una tabla particular que lleva el registro de las migraciones que ya se han
+ejecutado de acuerdo a su fecha y las migraciones ejecutadas no se repiten.</p>
+
+<p>Además en caso de que una de nuestras migraciones salga mal, y necesitemos hacer
+<em>rollback</em> de esta, podemos hacerlo sencillamente y con un solo comando.</p>
+
+<p>Puedes leer más acerca de las <a href="https://laravel.com/docs/10.x/migrations">migraciones en la documentación oficial de
+Laravel</a>.</p>
+
+<p>Comenzamos creando la tabla de migraciones.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan migrate:install
+</code></pre></div></div>
+
+<p>Como ya definimos el esquema que queremos en la base de datos e incluso ya
+definimos algunas de las migraciones, no queda más que ejecutarlas en nuestro
+entorno local.</p>
+
+<p>Utilizaremos la opción <code class="language-plaintext highlighter-rouge">--step</code> para que podamos hacer <em>rollback</em> a cada
+migración individualmente.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan migrate <span class="nt">--step</span>
+</code></pre></div></div>
+
+<p>Si todo va bien, la consola nos mostrará un error… 😥 y es porque olvidé algo
+importante, por defecto las columnas <code class="language-plaintext highlighter-rouge">uuid</code> en Laravel no son llaves primarias,
+por lo que no se pueden usar como llaves foráneas en otra tabla, así que vamos
+allá a corregir el desastre…</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/9c9d39aabf336fa3bd97046e01984c56ce40a902?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Ahora sí podemos ejecutar las migraciones, pero como algunas tablas ya fueron
+creadas, hay que destruirlas para crearlas de nuevo.</p>
+
+<p class="notification is-yellow">Esto es seguro solamente en entornos de desarrollo, por favor nunca ejecutes el
+siguiente comando en producción (igual Laravel te advertirá si lo intentas).</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan migrate:fresh <span class="nt">--step</span>
+</code></pre></div></div>
+
+<p>Excelente, nuestras tablas ya han sido creadas.</p>
+
+<h3 id="env">Env</h3>
+
+<p>También cambiaremos algunas cosas de nuestro archivo <code class="language-plaintext highlighter-rouge">.env</code>.</p>
+
+<p>Por ejemplo el valor de <code class="language-plaintext highlighter-rouge">APP_URL</code> así como la sesión, la <em>queue</em> y la caché, ya
+que queremos usar redis y ya de paso queremos aumentar el tiempo de la sesión,
+a… 3 días o sea <strong>259200</strong> segundos.</p>
+
+<p>Los valores que cambiaremos quedan algo así:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>APP_URL=http://laravel.test
+CACHE_DRIVER=redis
+QUEUE_CONNECTION=redis
+SESSION_DRIVER=redis
+SESSION_LIFETIME=259200
+</code></pre></div></div>
+
+<h2 id="api">API</h2>
+
+<p>Para probar nuestra API utilizaremos <a href="https://www.postman.com/">Postman</a>, y
+comenzaremos agregando los endpoints necesarios para registrar a un usuario.</p>
+
+<p>Agregamos un <em>environment</em> ahí creamos la variable <code class="language-plaintext highlighter-rouge">API_URL</code> y luego una
+petición HTTP.</p>
+
+<p>Si nuestro servidor está ejecutandose con sail, tenemos la url: <code class="language-plaintext highlighter-rouge">laravel.test</code>,
+como queremos poder acceder a ella desde nuestro entorno local debemos
+instruirle a nuestra computadora como hacerlo.</p>
+
+<p>Editamos el archivo: <code class="language-plaintext highlighter-rouge">/etc/hosts</code> y agregamos la siguiente línea:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1	laravel.test localhost
+</code></pre></div></div>
+
+<p>Así nuestra computadora sabrá redirigir las peticiones a las urls:
+<code class="language-plaintext highlighter-rouge">laravel.test</code> y <code class="language-plaintext highlighter-rouge">localhost</code> a sí misma. (A partir de ahora obviaremos el
+dominio, pero debe estar en todas nuestras solicitudes).</p>
+
+<h3 id="cookie-csrf">Cookie CSRF</h3>
+
+<p>Primero queremos obtener la <a href="https://laravel.com/docs/10.x/csrf"><em>cookie</em> csrf, para evitar algunos
+ataques</a>, y lo haremos con la url:
+<code class="language-plaintext highlighter-rouge">/sanctum/csrf-cookie</code></p>
+
+<p>Esta nos devolverá una <em>cookie</em> llamada <code class="language-plaintext highlighter-rouge">XSRF-TOKEN</code>, que se ve más o menos así:
+<code class="language-plaintext highlighter-rouge">eyJpdiI6IjVDY1NrKzN6YzNBNFJVe...MWUxNmM5IiwidGFnIjoiIn0%3D</code>, si nos fijamos
+bien, la parte final está algo rara <code class="language-plaintext highlighter-rouge">%3D</code>, y es porque antes de enviarla en un
+<em>header</em> deberíamos decodificarla para urls con una función similar a
+<a href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/decodeURIComponent">decodeURIComponent</a>.
+En nuestro caso, sabemos que <code class="language-plaintext highlighter-rouge">%3D</code> es <code class="language-plaintext highlighter-rouge">=</code>, así que lo sustituimos y agregaremos
+a un <em>header</em> llamado <code class="language-plaintext highlighter-rouge">X-XSRF-TOKEN</code> en cada una de nuestras llamadas
+siguientes. Como ahora estamos probando con Postman, entonces hacemos algo así:</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/61bb4b67-83bc-45e8-b4d8-79d39b3a2769" alt="Imagen de X-XSRF-TOKEN en Postman" /></p>
+
+<h2 id="usuario">Usuario</h2>
+
+<p>Seguramente utilizaremos una <em>SPA</em> para este proyecto en futuras iteraciones,
+así que dejaremos que Sanctum utilice sesiones para autenticar a los usuarios
+por lo que estaremos haciendo uso de cookies.</p>
+
+<h3 id="registro">Registro</h3>
+
+<p>Para registrarnos utilizaremos Fortify, y aunque ya hicimos algunos pasos, nos
+faltó agregar el proveedor de Fortify a nuestra lista de proveedores para la
+app, así que hacemos eso.</p>
+
+<p>También corregimos una regla de nuestras validaciones 😅</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/545b277174e4adf4aee913a9b68a3cef0fffa0e6?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Después podemos hacer la solicitud a la url: <code class="language-plaintext highlighter-rouge">/register</code>. Agregamos los datos
+necesarios al <em>body</em> de la solicitud y lo enviamos.</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/7e55a751-cb68-4976-a4c7-d622cafee52f" alt="Datos de Tim y respuesta" /></p>
+
+<p>Si todo salió bien obtendremos una respuesta 201, y sabremos que nuestro usuario
+ha sido registrado en el sistema.</p>
+
+<h3 id="logout"><em>Logout</em></h3>
+
+<p>Probaremos el <em>logout</em> antes del <em>login</em> ya que cuando un usuario se registra,
+automáticamente inicia sesión. Actualizamos la ruta <code class="language-plaintext highlighter-rouge">home</code> en nuestra
+configuración.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/bdb49f075a965ac8e51b05e53976001b1c6acf23?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Vamos a guardar el <code class="language-plaintext highlighter-rouge">X-XSRF-TOKEN</code> como una variable en Postman y luego hacemos
+la petición a la url: <code class="language-plaintext highlighter-rouge">/logout</code>. Si todo sale bien, obtendremos una respuesta
+204 como esta.</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/06ac3906-cf5f-4155-a47a-87e73fd7329f" alt="Logout" /></p>
+
+<h3 id="login"><em>Login</em></h3>
+
+<p>Ahora probamos con la ruta <code class="language-plaintext highlighter-rouge">/login</code>. Y podremos ver algo así.</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/5b22345a-834d-41ec-9cac-091d91a13d40" alt="Login" /></p>
+
+<p>Como Sanctum utiliza las <em>cookies</em> para la autenticación, no debemos
+preocuparnos por tokens además del de csrf cuando hacemos una petición <em>post</em>,
+así que mientras usemos las cookies de sesión, estaremos <em>loggeados</em>.</p>
+
+<h2 id="tarjetas-de-crédito">Tarjetas de crédito</h2>
+
+<h3 id="rutas">Rutas</h3>
+
+<p>Vamos a agregar las rutas para las tarjetas de credito en nuestra API, así que
+en el archivo <code class="language-plaintext highlighter-rouge">routes/web.php</code> colocamos lo siguiente:</p>
+
+<p>Lo pondremos en <code class="language-plaintext highlighter-rouge">web</code> y no en <code class="language-plaintext highlighter-rouge">api</code>, porque consideramos que usaremos una <em>SPA</em>
+así que queremos enviar cookies, pero luego veremos como replicar esto para usar
+un <em>token</em> también.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Route</span><span class="o">::</span><span class="nf">middleware</span><span class="p">([</span><span class="s1">'auth:sanctum'</span><span class="p">])</span><span class="o">-&gt;</span><span class="nf">prefix</span><span class="p">(</span><span class="s1">'api'</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">group</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nc">Route</span><span class="o">::</span><span class="nf">prefix</span><span class="p">(</span><span class="s1">'v1'</span><span class="p">)</span><span class="o">-&gt;</span><span class="nf">group</span><span class="p">(</span><span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="nc">Route</span><span class="o">::</span><span class="nf">apiResources</span><span class="p">([</span>
+            <span class="s1">'credit-cards'</span> <span class="o">=&gt;</span> <span class="nc">CreditCardController</span><span class="o">::</span><span class="n">class</span>
+        <span class="p">],</span> <span class="p">[</span>
+            <span class="s1">'parameters'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">'credit-cards'</span> <span class="o">=&gt;</span> <span class="s1">'creditCard'</span>
+            <span class="p">],</span>
+            <span class="s1">'shallow'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+        <span class="p">]);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>Ahí estamos agrupando dentro de un <em>middleware</em> las versiones, y dentro de la
+primera versión, agregamos un
+<a href="https://laravel.com/docs/10.x/controllers#api-resource-routes"><code class="language-plaintext highlighter-rouge">apiResource</code></a>
+que sirve para registrar solamente las rutas que no tienen vistas asociadas.</p>
+
+<p>También ponemos las opciones <code class="language-plaintext highlighter-rouge">parameters</code> y <code class="language-plaintext highlighter-rouge">shallow</code>, la primera es para
+cambiar el <em>casing</em> de los parámetros y la segunda para <a href="https://laravel.com/docs/10.x/controllers#shallow-nesting">hacer que las rutas se
+colapsen cuando sea
+posible</a>.</p>
+
+<p>Así debería quedar nuestra tabla de rutas para <code class="language-plaintext highlighter-rouge">credit-cards</code>:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Método HTTP</th>
+      <th>URI</th>
+      <th>Nombre de ruta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><em>GET</em></td>
+      <td><code class="language-plaintext highlighter-rouge">api/v1/credit-cards</code></td>
+      <td>credit-cards.index</td>
+    </tr>
+    <tr>
+      <td><em>POST</em></td>
+      <td><code class="language-plaintext highlighter-rouge">api/v1/credit-cards</code></td>
+      <td>credit-cards.store</td>
+    </tr>
+    <tr>
+      <td><em>GET</em></td>
+      <td><code class="language-plaintext highlighter-rouge">api/v1/credit-cards/{creditCard}</code></td>
+      <td>credit-cards.show</td>
+    </tr>
+    <tr>
+      <td><em>PUT/PATCH</em></td>
+      <td><code class="language-plaintext highlighter-rouge">api/v1/credit-cards/{creditCard}</code></td>
+      <td>credit-cards.update</td>
+    </tr>
+    <tr>
+      <td><em>DELETE</em></td>
+      <td><code class="language-plaintext highlighter-rouge">api/v1/credit-cards/{creditCard}</code></td>
+      <td>credit-cards.destroy</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="políticas">Políticas</h3>
+
+<p>Ahora registramos las políticas, porque aunque Laravel tiene registro
+automático, nuestras políticas no están en el folder por defecto, por lo que
+tenemos que decirle donde están.</p>
+
+<p>Las rutas y políticas quedan así:</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/25cfae482ca3fa8de39fdeb79fbb4566cfcf8ec3?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="traducciones">Traducciones</h3>
+
+<p>El idioma por defecto de nuestra aplicación será ✨ <strong>español</strong> ✨ pero de todas
+formas vamos a agregar algunos archivos de traducción ya que nos servirán para
+estandarizar los mensajes y nombres de atributos.</p>
+
+<p>Cambiamos el idioma por defecto en <code class="language-plaintext highlighter-rouge">config/app.php</code> y luego publicamos los
+archivos de traducción.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan lang:publish
+</code></pre></div></div>
+
+<p>Tenemos que copiar los archivos a una nueva carpeta <code class="language-plaintext highlighter-rouge">es_MX</code> y entonces traducir
+todo… 😩</p>
+
+<p>Pero bueno, aquí estamos (lo hizo chat gpt 🤷🏽).</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/e51cf04f46d468320caac87b03c1dd806057b634?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<p>Luego agregamos las nuevas etiquetas.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/74d9d425af0883571b6a8d55589ff03e96f4772c?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="form-requests"><em>Form requests</em></h3>
+
+<p>Vamos a utilizar <a href="https://laravel.com/docs/10.x/validation#form-request-validation"><em>form
+requests</em></a>
+para validar los datos que llegan y saber si debemos guardarlos en la base de
+datos o solicitar correcciones al usuario…</p>
+
+<p>Pero esto lo dejaremos para el siguiente sprint.</p>
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2023/07/credit-logbook-app-2/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2023/07/credit-logbook-app-2/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2023/07/credit-logbook-app-2/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

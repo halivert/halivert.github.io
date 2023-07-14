@@ -1,6 +1,15 @@
 
 
-{"/blog/2023/07/credit-logbook-app-1": {
+{"/blog/2023/07/credit-logbook-app-2": {
+			"title": "Bitácora de crédito (vol. 2)",
+			"author": "Halí",
+			"categories": ["Aprendiendo en público"],
+			"tags": ["Laravel","Backend"],
+			"content": "<p>En este «<em>sprint</em>» (o lo que sea), vamos a continuar con el desarrollo de dos\ncaracterísticas principales.</p>\n\n<p>Primero comprobaremos que se puede iniciar sesión con un usuario, y que tiene\nacceso a ciertos permisos, luego continuaremos con la creación y edición de\ntarjetas de crédito asociadas a un usuario.</p>","url": "https://halivert.dev/blog/2023/07/credit-logbook-app-2/",
+			"continue": 1,
+			"date": "Julio 13, 2023",
+			"last_modification": ""
+		},"/blog/2023/07/credit-logbook-app-1": {
 			"title": "Bitácora de crédito",
 			"author": "Halí",
 			"categories": ["Aprendiendo en público"],
