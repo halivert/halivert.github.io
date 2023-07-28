@@ -129,18 +129,19 @@ Al final, el código queda algo así:
 Probaremos el endpoint `POST credit-cards` en Postman, para lo que agregamos la
 url y hacemos una solicitud con valores de prueba.
 
-<!-- imagen 1 -->
+![Mensajes de error](https://github.com/halivert/halivert.github.io/assets/16197249/dcc2e7a2-7875-487a-abaf-a055e3e976aa)
+
 
 Vemos que los mensajes están "localizados", es decir traducidos a una variante
 específica de un idioma, en este caso el español de México.
 
 Si hacemos una solicitud vacía podremos ver algo así:
 
-<!-- imagen 2 -->
+![Solicitud vacía](https://github.com/halivert/halivert.github.io/assets/16197249/69a3bfb0-d7b3-4a6b-804f-81b4eedd674f)
 
 Y por último si enviamos los datos correctos se verá algo así...
 
-<!-- imagen 3 -->
+![Solicitud correcta](https://github.com/halivert/halivert.github.io/assets/16197249/1b76d36d-9db1-47a5-afdf-14bc455a1b2c)
 
 Esto es porque todavía no contamos con la lógica en el controlador.
 
