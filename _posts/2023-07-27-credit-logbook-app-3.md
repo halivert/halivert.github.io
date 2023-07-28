@@ -150,6 +150,6 @@ Podemos ver que las _form requests_ son bastante ágiles para realizar tareas de
 validación, además que abstrae muchas cosas que de otra forma tendríamos que
 escribir por nosotros mismos (como la autorización y los mensajes).
 
-Esto es todo lo que haremos en este sprint (ya que no me quedó mucho tiempo
+Esto es todo lo que haremos en este _sprint_ (ya que no me quedó mucho tiempo
 libre) y en el siguiente veremos cómo interactuar con el ORM Doctrine, para
 guardar los datos que recuperamos de la solicitud.
