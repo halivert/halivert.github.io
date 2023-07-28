@@ -1,6 +1,15 @@
 
 
-{"/blog/2023/07/credit-logbook-app-2": {
+{"/blog/2023/07/credit-logbook-app-3": {
+			"title": "Bitácora de crédito (Vol. 3)",
+			"author": "Halí",
+			"categories": ["Aprendiendo en público"],
+			"tags": ["Laravel","Backend"],
+			"content": "<p>Continuando con los <a href=\"https://laravel.com/docs/10.x/validation#form-request-validation\"><em>form\nrequests</em></a>\nrevisaremos que opciones nos dan para validar datos.</p>","url": "https://halivert.dev/blog/2023/07/credit-logbook-app-3/",
+			"continue": 1,
+			"date": "Julio 27, 2023",
+			"last_modification": ""
+		},"/blog/2023/07/credit-logbook-app-2": {
 			"title": "Bitácora de crédito (vol. 2)",
 			"author": "Halí",
 			"categories": ["Aprendiendo en público"],

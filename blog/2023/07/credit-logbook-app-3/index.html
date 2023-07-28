@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1690504987">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script async src="https://cdn.splitbee.io/sb.js"></script><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bitácora de crédito (Vol. 3) | Halivert</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Bitácora de crédito (Vol. 3)" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Continuando con los form requests revisaremos que opciones nos dan para validar datos." />
+<meta property="og:description" content="Continuando con los form requests revisaremos que opciones nos dan para validar datos." />
+<link rel="canonical" href="https://halivert.dev/blog/2023/07/credit-logbook-app-3/" />
+<meta property="og:url" content="https://halivert.dev/blog/2023/07/credit-logbook-app-3/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-27T18:43:07-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bitácora de crédito (Vol. 3)" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2023-07-27T18:43:07-06:00","datePublished":"2023-07-27T18:43:07-06:00","description":"Continuando con los form requests revisaremos que opciones nos dan para validar datos.","headline":"Bitácora de crédito (Vol. 3)","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2023/07/credit-logbook-app-3/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2023/07/credit-logbook-app-3/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="menu-logo"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:vue:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Bitácora de crédito (Vol. 3)</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Julio 27, 2023
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-laravel">Laravel</span><span class="tag ">Backend</span></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Continuando con los <a href="https://laravel.com/docs/10.x/validation#form-request-validation"><em>form
+requests</em></a>
+revisaremos que opciones nos dan para validar datos.</p>
+
+<!-- Seguir leyendo -->
+
+<h2 class="no_toc" id="índice">Índice</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#form-requests" id="markdown-toc-form-requests"><em>Form requests</em></a>    <ul>
+      <li><a href="#almacenar" id="markdown-toc-almacenar">Almacenar</a>        <ul>
+          <li><a href="#autorización" id="markdown-toc-autorización">Autorización</a></li>
+          <li><a href="#reglas" id="markdown-toc-reglas">Reglas</a></li>
+          <li><a href="#atributos" id="markdown-toc-atributos">Atributos</a></li>
+        </ul>
+      </li>
+      <li><a href="#actualizar" id="markdown-toc-actualizar">Actualizar</a>        <ul>
+          <li><a href="#fixes" id="markdown-toc-fixes"><em>Fixes</em></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#pruebas-con-postman" id="markdown-toc-pruebas-con-postman">Pruebas con Postman</a></li>
+  <li><a href="#conclusión" id="markdown-toc-conclusión">Conclusión</a></li>
+</ul>
+
+<h2 id="form-requests"><em>Form requests</em></h2>
+
+<p>Primero vemos que Laravel creó dos para nosotros: <code class="language-plaintext highlighter-rouge">StoreCreditCardRequest</code> y
+<code class="language-plaintext highlighter-rouge">UpdateCreditCardRequest</code>, este par de <em>form requests</em> servirán para validar los
+datos, dar autorización en la capa de solicitudes, enviar mensajes entendibles
+como respuesta y en algunas ocasiones podemos realizar pre-procesamientos en la
+validación.</p>
+
+<h3 id="almacenar">Almacenar</h3>
+
+<h4 id="autorización">Autorización</h4>
+
+<p>El método <code class="language-plaintext highlighter-rouge">authorize</code> devuelve <strong>verdadero</strong> si el usuario puede tener acceso a
+esta solicitud. Lo hemos implementado así:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">function</span> <span class="n">authorize</span><span class="p">():</span> <span class="kt">bool</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="nf">user</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">can</span><span class="p">(</span><span class="s1">'create'</span><span class="p">,</span> <span class="nc">CreditCard</span><span class="o">::</span><span class="n">class</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="reglas">Reglas</h4>
+
+<p>Después está el método <code class="language-plaintext highlighter-rouge">rules</code> que devuelve el arreglo de reglas que tienen que
+cumplir los campos, nosotros queremos que al solicitar el almacenamiento de una
+tarjeta, tenga en cuenta el nombre, fecha límite de pago, fecha de corte, tasa
+de interés y límite de crédito.</p>
+
+<p>El único campo opcional o <em>nullable</em> es la tasa de interés, a los demás les
+agregamos otras reglas, como que son requeridos:</p>
+
+<p><strong>Nombre</strong></p>
+<ul>
+  <li>Requerido</li>
+  <li>Cadena de texto</li>
+  <li>Máximo 255 caracteres</li>
+</ul>
+
+<p><strong>Fecha límite de pago</strong></p>
+<ul>
+  <li>Requerido</li>
+  <li>Entero</li>
+  <li>La fecha límite de pago representa un día en el mes corriente, en el que debes
+  terminar de pagar tu deuda, o sea que no tiene sentido que sean negativos y
+  seguramente no habrá días mayores a 28 porque pues ✨ febrero ✨</li>
+</ul>
+
+<p><strong>Fecha de corte</strong></p>
+<ul>
+  <li>Requerido</li>
+  <li>Entero</li>
+  <li>Similar a la fecha de corte, en el sentido que la acotaremos de 1 a 28</li>
+</ul>
+
+<p><strong>Tasa de interés</strong></p>
+<ul>
+  <li>No requerido</li>
+  <li>Decimal, puede tener de 0 a 2 decimales</li>
+  <li>Este porcentaje debería ser mayor a 0 y menor a 200, ya que si tu tarjeta
+  tiene más de 200% como tasa de interés… bueno quizá después tengamos que
+  cambiar esto</li>
+</ul>
+
+<p><strong>Límite de crédito</strong></p>
+<ul>
+  <li>Requerido, para poder saber cuanto tienes disponible en cualquier momento</li>
+  <li>Decimal, puede tener de 0 a 4 decimales</li>
+  <li>Debe ser mayor a 0 (espero que no tengas un límite de crédito negativo 😬)</li>
+</ul>
+
+<p>Laravel utilizara estas reglas para validar los datos que lleguen desde la API.</p>
+
+<h4 id="atributos">Atributos</h4>
+
+<p>Luego tenemos el método <code class="language-plaintext highlighter-rouge">attributes</code>, que devolverá un arreglo que indica a
+Laravel cómo sustituir los nombres de los atributos, para que se vean bonitos,
+básicamente. Ahí sustituimos el atributo <em>name</em> por <em>Nombre</em> (y así con los
+demás), y lo traducimos, para que si el usuario utiliza otro de nuestros
+lenguajes soportados y nos lo indica así, podamos responder de forma clara.</p>
+
+<p>En resumen el código para la solicitud de almacenamiento de una tarjeta de
+crédito queda así… (Ya teníamos algunas reglas escritas)</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/blob/0c5fc658c12c5fd77abeec0907a3153fd1db2281/app/API/CreditCard/v1/StoreCreditCardRequest.php" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h3 id="actualizar">Actualizar</h3>
+
+<p>Haremos lo mismo para la solicitud de actualización de la tarjeta, con algunas
+excepciones.</p>
+
+<p>Para la autorización, necesitamos tomar en cuenta la tarjeta de crédito que se
+está solicitando actualizar.</p>
+
+<p>Y en las reglas habrá campos que el usuario no quiera actualizar, por lo que
+marcaremos algunos campos como <em>sometimes</em> para decirle a Laravel que esos
+campos no estarán presentes en todas las solicitudes de actualización, pero
+también los marcamos como <em>required</em> ya que no pueden ser <em>null</em>.</p>
+
+<p>Y por último agregamos también los atributos.</p>
+
+<h4 id="fixes"><em>Fixes</em></h4>
+
+<p>Ahora bien, en nuestro <em>PR</em> anterior nos faltaban algunas cosas, cómo decirle al
+controlador, que nombre debía tener el parámetro tarjeta de crédito, ya que el
+método <code class="language-plaintext highlighter-rouge">authorizeResource</code> lo obtiene automáticamente con <em>snake case</em>, pero
+nosotros estamos usando <em>camel case</em>.</p>
+
+<p>Al final, el código queda algo así:</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/32ffcf76faab900cca2441bb3169f1a48775dced?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>
+ (GitHub)</a></p>
+
+<h2 id="pruebas-con-postman">Pruebas con Postman</h2>
+
+<p>Probaremos el endpoint <code class="language-plaintext highlighter-rouge">POST credit-cards</code> en Postman, para lo que agregamos la
+url y hacemos una solicitud con valores de prueba.</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/dcc2e7a2-7875-487a-abaf-a055e3e976aa" alt="Mensajes de error" /></p>
+
+<p>Vemos que los mensajes están “localizados”, es decir traducidos a una variante
+específica de un idioma, en este caso el español de México.</p>
+
+<p>Si hacemos una solicitud vacía podremos ver algo así:</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/69a3bfb0-d7b3-4a6b-804f-81b4eedd674f" alt="Solicitud vacía" /></p>
+
+<p>Y por último si enviamos los datos correctos se verá algo así…</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/1b76d36d-9db1-47a5-afdf-14bc455a1b2c" alt="Solicitud correcta" /></p>
+
+<p>Esto es porque todavía no contamos con la lógica en el controlador.</p>
+
+<h2 id="conclusión">Conclusión</h2>
+
+<p>Podemos ver que las <em>form requests</em> son bastante ágiles para realizar tareas de
+validación, además que abstrae muchas cosas que de otra forma tendríamos que
+escribir por nosotros mismos (como la autorización y los mensajes).</p>
+
+<p>Esto es todo lo que haremos en este sprint (ya que no me quedó mucho tiempo
+libre) y en el siguiente veremos cómo interactuar con el ORM Doctrine, para
+guardar los datos que recuperamos de la solicitud.</p>
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2023/07/credit-logbook-app-3/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2023/07/credit-logbook-app-3/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2023/07/credit-logbook-app-3/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>
