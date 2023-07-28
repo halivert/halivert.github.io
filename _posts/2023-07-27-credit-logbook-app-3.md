@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "Bitácora de crédito (Vol. 3)"
-date: "2023-07-27 18:43:07 -0600"
+date: "2023-07-27 20:00:00 -0600"
 category: "Aprendiendo en público"
 tags: ["Laravel", "Backend"]
 ---
@@ -130,7 +130,6 @@ Probaremos el endpoint `POST credit-cards` en Postman, para lo que agregamos la
 url y hacemos una solicitud con valores de prueba.
 
 ![Mensajes de error](https://github.com/halivert/halivert.github.io/assets/16197249/dcc2e7a2-7875-487a-abaf-a055e3e976aa)
-
 
 Vemos que los mensajes están "localizados", es decir traducidos a una variante
 específica de un idioma, en este caso el español de México.
