@@ -108,11 +108,11 @@ estará cifrado en la base de datos.
 Ahora podemos probar nuestros dos _endpoints_, tenemos el siguiente para
 `store`:
 
-<!-- img 1 -->
+![Prueba post](https://github.com/halivert/halivert.github.io/assets/16197249/4e2a5e35-7e1e-4f61-a1f5-2b8fb1262c5b)
 
 Y también el siguiente para el `index`:
 
-<!-- img 2 -->
+![Prueba index](https://github.com/halivert/halivert.github.io/assets/16197249/ad2389b2-d3f6-4f5c-ae84-4ebbb8d5796e)
 
 ## Conclusión
 
