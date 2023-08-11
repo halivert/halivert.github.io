@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1691719200">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script async src="https://cdn.splitbee.io/sb.js"></script><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bitácora de crédito (Vol. 4) | Halivert</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Bitácora de crédito (Vol. 4)" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Este sprint vamos a implementar la lógica de los controladores. Un controlador sirve para procesar las solicitudes que le hacemos a nuestra API y devolver ciertos datos con base en las mismas. Ahora vamos a interactuar con la base de datos y con las solicitudes que hicimos la semana pasada." />
+<meta property="og:description" content="Este sprint vamos a implementar la lógica de los controladores. Un controlador sirve para procesar las solicitudes que le hacemos a nuestra API y devolver ciertos datos con base en las mismas. Ahora vamos a interactuar con la base de datos y con las solicitudes que hicimos la semana pasada." />
+<link rel="canonical" href="https://halivert.dev/blog/2023/08/credit-logbook-app-4/" />
+<meta property="og:url" content="https://halivert.dev/blog/2023/08/credit-logbook-app-4/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-10T20:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bitácora de crédito (Vol. 4)" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2023-08-10T20:00:00-06:00","datePublished":"2023-08-10T20:00:00-06:00","description":"Este sprint vamos a implementar la lógica de los controladores. Un controlador sirve para procesar las solicitudes que le hacemos a nuestra API y devolver ciertos datos con base en las mismas. Ahora vamos a interactuar con la base de datos y con las solicitudes que hicimos la semana pasada.","headline":"Bitácora de crédito (Vol. 4)","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2023/08/credit-logbook-app-4/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2023/08/credit-logbook-app-4/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="menu-logo"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:vue:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Bitácora de crédito (Vol. 4)</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Agosto 10, 2023
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-laravel">Laravel</span><span class="tag ">Backend</span></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Este <em>sprint</em> vamos a implementar la lógica de los controladores. Un controlador
+sirve para procesar las solicitudes que le hacemos a nuestra API y devolver
+ciertos datos con base en las mismas.</p>
+
+<p>Ahora vamos a interactuar con la base de datos y con las solicitudes que hicimos
+la semana pasada.</p>
+
+<!-- Seguir leyendo -->
+
+<h2 class="no_toc" id="índice">Índice</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#controladores" id="markdown-toc-controladores">Controladores</a>    <ul>
+      <li><a href="#index" id="markdown-toc-index"><em>Index</em></a></li>
+      <li><a href="#store" id="markdown-toc-store"><em>Store</em></a>        <ul>
+          <li><a href="#cifrado" id="markdown-toc-cifrado">Cifrado</a></li>
+        </ul>
+      </li>
+      <li><a href="#pruebas" id="markdown-toc-pruebas">Pruebas</a></li>
+    </ul>
+  </li>
+  <li><a href="#conclusión" id="markdown-toc-conclusión">Conclusión</a></li>
+  <li><a href="#notas" id="markdown-toc-notas">Notas</a></li>
+</ul>
+
+<h2 id="controladores">Controladores</h2>
+
+<p>Laravel ya hizo un archivo para nosotros llamado <code class="language-plaintext highlighter-rouge">CreditCardController</code>, donde
+se encuentran los métodos asociados a cada tipo de solicitud.</p>
+
+<p>Como estamos haciendo una API REST <a href="#one" id="one-up">*</a>, nos basaremos en verbos
+y sustantivos. Verbos en los métodos HTTP y sustantivos para determinar que
+recursos queremos acceder.</p>
+
+<p>Así en nuestro controlador de tarjetas de crédito tenemos los siguientes 5
+métodos:</p>
+
+<ul>
+  <li>index -&gt; <code class="language-plaintext highlighter-rouge">GET /credit-cards</code></li>
+  <li>store -&gt; <code class="language-plaintext highlighter-rouge">POST /credit-cards</code></li>
+  <li>show -&gt; <code class="language-plaintext highlighter-rouge">GET /credit-cards/{creditCard}</code></li>
+  <li>update -&gt; <code class="language-plaintext highlighter-rouge">PUT /credit-cards/{creditCard}</code></li>
+  <li>delete -&gt; <code class="language-plaintext highlighter-rouge">DELETE /credit-cards</code></li>
+</ul>
+
+<p>En nuestro controlador tenemos también un método de PHP nativo que funciona para
+crear o construir las clases, llamado <code class="language-plaintext highlighter-rouge">__construct</code> donde agregamos la
+autorización del recurso para el usuario que ha iniciado sesión.</p>
+
+<h3 id="index"><em>Index</em></h3>
+
+<p>Para el índice de nuestro recurso, queremos mostrar todas las tarjetas
+pertenecientes a un usuario, así que obtenemos los datos de mysql con el ORM y
+luego los devolvemos con algunos vínculos que necesitamos.</p>
+
+<p>Para ello haremos uso de los <a href="https://laravel.com/docs/10.x/eloquent-resources">recursos de Laravel</a>. Entonces creamos una
+coleción <code class="language-plaintext highlighter-rouge">CreditCardCollection</code> y un recurso <code class="language-plaintext highlighter-rouge">CreditCardResource</code> y los movemos
+a la carpeta deseada con los comandos:</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan make:resource CreditCardCollection
+sail artisan make:resource CreditCardResource
+<span class="nb">mv </span>app/Http/Resources/<span class="k">*</span>.php app/API/CreditCard/v1/
+</code></pre></div></div>
+
+<p>El recurso es para una tarjeta individual y la colección es para una lista de
+tarjetas.</p>
+
+<p>Actualizamos el <em>namespace</em> de los archivos y luego agregamos un atributo más a
+los datos de nuestro recurso, la url de cada elemento. Ahora sí estamos listos
+para agregarlo a nuestro controlador.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/78eaecfd092e9fce48c17b808a1d5c2d75e7ce3a?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<p>En este <em>commit</em> también agregamos una relación al modelo <code class="language-plaintext highlighter-rouge">User</code> para poder
+obtener sus tarjetas de crédito asociadas.</p>
+
+<h3 id="store"><em>Store</em></h3>
+
+<p>Para almacenar la tarjeta en nuestra base de datos (no realmente, solo el nombre
+y algunos datos necesarios), podemos utilizar la relación de usuarios con las
+tarjetas para no tener que recibir el uuid de usuario explicitamente.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/c4f76cc69ba62a3b99fda9c094dd715ef3e5a135?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<p class="notification is-yellow">Nota: todavía no está listo para ser usado en producción ya que queremos cifrar
+algunos datos sensibles como el límite de crédito en la base de datos.</p>
+
+<h4 id="cifrado">Cifrado</h4>
+
+<p>Para cifrar datos utilizaremos los <em>casts</em> de Laravel. Ahora bien, tenemos que
+hacer unas modificaciones a nuestra tabla de <code class="language-plaintext highlighter-rouge">credit_cards</code>, cómo todavía no
+hemos desplegado esto en producción, vamos a actualizar la migración original.</p>
+
+<p>Actualizamos y luego hacemos una migración <strong>fresca</strong> de las tablas.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sail artisan migrate:fresh <span class="nt">--step</span>
+</code></pre></div></div>
+
+<p>Luego podemos crear nuestros datos de prueba, pero nuestro límite de crédito ya
+estará cifrado en la base de datos.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/68c235aa2417811e33e82deeefc2a61b954c93a3?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<h3 id="pruebas">Pruebas</h3>
+
+<p>Ahora podemos probar nuestros dos <em>endpoints</em>, tenemos el siguiente para
+<code class="language-plaintext highlighter-rouge">store</code>:</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/4e2a5e35-7e1e-4f61-a1f5-2b8fb1262c5b" alt="Prueba post" /></p>
+
+<p>Y también el siguiente para el <code class="language-plaintext highlighter-rouge">index</code>:</p>
+
+<p><img src="https://github.com/halivert/halivert.github.io/assets/16197249/ad2389b2-d3f6-4f5c-ae84-4ebbb8d5796e" alt="Prueba index" /></p>
+
+<h2 id="conclusión">Conclusión</h2>
+
+<p>Ahora ya tenemos dos <em>endpoints</em> que funcionan bien, pero falta un poco más,
+seguiremos en el siguiente <em>sprint</em>.</p>
+
+<h2 id="notas">Notas</h2>
+
+<p><a href="#one-up" id="one">*</a> Todavía no es una API REST, pero queremos lograrlo, nos
+basaremos en el conocimiento de la ✨Internet✨, particularmente en el
+siguiente artículo:</p>
+
+<p><a href="https://steveklabnik.com/writing/nobody-understands-rest-or-http">https://steveklabnik.com/writing/nobody-understands-rest-or-http</a></p>
+
+<hr />
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2023/08/credit-logbook-app-4/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2023/08/credit-logbook-app-4/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2023/08/credit-logbook-app-4/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>

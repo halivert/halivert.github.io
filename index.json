@@ -1,6 +1,15 @@
 
 
-{"/blog/2023/07/credit-logbook-app-3": {
+{"/blog/2023/08/credit-logbook-app-4": {
+			"title": "Bitácora de crédito (Vol. 4)",
+			"author": "Halí",
+			"categories": ["Aprendiendo en público"],
+			"tags": ["Laravel","Backend"],
+			"content": "<p>Este <em>sprint</em> vamos a implementar la lógica de los controladores. Un controlador\nsirve para procesar las solicitudes que le hacemos a nuestra API y devolver\nciertos datos con base en las mismas.</p>\n\n<p>Ahora vamos a interactuar con la base de datos y con las solicitudes que hicimos\nla semana pasada.</p>","url": "https://halivert.dev/blog/2023/08/credit-logbook-app-4/",
+			"continue": 1,
+			"date": "Agosto 10, 2023",
+			"last_modification": ""
+		},"/blog/2023/07/credit-logbook-app-3": {
 			"title": "Bitácora de crédito (Vol. 3)",
 			"author": "Halí",
 			"categories": ["Aprendiendo en público"],
