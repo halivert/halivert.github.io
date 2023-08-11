@@ -1,7 +1,7 @@
 ---
 author: halivert
 title: "Bitácora de crédito (Vol. 4)"
-date: "2023-08-04 20:00:00 -0600"
+date: "2023-08-10 20:00:00 -0600"
 category: "Aprendiendo en público"
 tags: ["Laravel", "Backend"]
 ---
@@ -98,7 +98,7 @@ sail artisan migrate:fresh --step
 ```
 
 Luego podemos crear nuestros datos de prueba, pero nuestro límite de crédito ya
-estará cifrado.
+estará cifrado en la base de datos.
 
 [**Ver código** &nbsp;(GitHub)][commit-3]{:.button.is-normal.is-primary}
 {: .has-text-centered}
