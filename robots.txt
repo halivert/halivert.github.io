@@ -1,1 +1,2 @@
-Sitemap: https://halivert.dev/sitemap.xml
+User-agent: GPTBot
+Disallow: /

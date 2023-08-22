@@ -5,14 +5,14 @@ specifiers:
   '@rollup/plugin-node-resolve': 15.0.1
   '@rollup/plugin-terser': 0.4.0
   '@rollup/plugin-typescript': 11.0.0
-  '@types/lodash': ^4.14.195
+  '@types/lodash': ^4.14.197
   '@types/lunr': ^2.3.4
   '@vue/reactivity': ^3.3.4
   lodash: 4.17.21
   lunr: 2.3.9
   petite-vue: 0.4.1
   rollup: 3.20.2
-  tslib: ^2.6.0
+  tslib: ^2.6.2
   typescript: 5.0.3
 
 dependencies:
@@ -24,12 +24,12 @@ devDependencies:
   '@rollup/plugin-commonjs': 24.0.1_rollup@3.20.2
   '@rollup/plugin-node-resolve': 15.0.1_rollup@3.20.2
   '@rollup/plugin-terser': 0.4.0_rollup@3.20.2
-  '@rollup/plugin-typescript': 11.0.0_3gcwc7aeayx7bc4mbbzhnvy2ca
-  '@types/lodash': 4.14.195
+  '@rollup/plugin-typescript': 11.0.0_spxtrng6vlyi237zqksahid4f4
+  '@types/lodash': 4.14.197
   '@types/lunr': 2.3.4
   '@vue/reactivity': 3.3.4
   rollup: 3.20.2
-  tslib: 2.6.0
+  tslib: 2.6.2
   typescript: 5.0.3
 
 packages:
@@ -40,11 +40,11 @@ packages:
     dependencies:
       '@jridgewell/set-array': 1.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
-      '@jridgewell/trace-mapping': 0.3.18
+      '@jridgewell/trace-mapping': 0.3.19
     dev: true
 
-  /@jridgewell/resolve-uri/3.1.0:
-    resolution: {integrity: sha512-F2msla3tad+Mfht5cJq7LSXcdudKTWCVYUgw6pLFOOHSTtZlj6SWNYAp+AhuqLmWdBO2X5hPrLcu8cVP8fy28w==}
+  /@jridgewell/resolve-uri/3.1.1:
+    resolution: {integrity: sha512-dSYZh7HhCDtCKm4QakX0xFpsRDqjjtZf/kjI/v3T3Nwt5r8/qz/M19F9ySyOqU94SXBmeG9ttTul+YnR4LOxFA==}
     engines: {node: '>=6.0.0'}
     dev: true
 
@@ -53,26 +53,22 @@ packages:
     engines: {node: '>=6.0.0'}
     dev: true
 
-  /@jridgewell/source-map/0.3.3:
-    resolution: {integrity: sha512-b+fsZXeLYi9fEULmfBrhxn4IrPlINf8fiNarzTof004v3lFdntdwa9PF7vFJqm3mg7s+ScJMxXaE3Acp1irZcg==}
+  /@jridgewell/source-map/0.3.5:
+    resolution: {integrity: sha512-UTYAUj/wviwdsMfzoSJspJxbkH5o1snzwX0//0ENX1u/55kkZZkcTZP6u9bwKGkv+dkk9at4m1Cpt0uY80kcpQ==}
     dependencies:
       '@jridgewell/gen-mapping': 0.3.3
-      '@jridgewell/trace-mapping': 0.3.18
-    dev: true
-
-  /@jridgewell/sourcemap-codec/1.4.14:
-    resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
+      '@jridgewell/trace-mapping': 0.3.19
     dev: true
 
   /@jridgewell/sourcemap-codec/1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
     dev: true
 
-  /@jridgewell/trace-mapping/0.3.18:
-    resolution: {integrity: sha512-w+niJYzMHdd7USdiH2U6869nqhD2nbfZXND5Yp93qIbEmnDNk7PD48o+YchRVpzMU7M6jVCbenTR7PA1FLQ9pA==}
+  /@jridgewell/trace-mapping/0.3.19:
+    resolution: {integrity: sha512-kf37QtfW+Hwx/buWGMPcR60iF9ziHa6r/CZJIHbmcm4+0qrXiVdxegAH0F6yddEVQ7zdkjcGCgCzUu+BcbhQxw==}
     dependencies:
-      '@jridgewell/resolve-uri': 3.1.0
-      '@jridgewell/sourcemap-codec': 1.4.14
+      '@jridgewell/resolve-uri': 3.1.1
+      '@jridgewell/sourcemap-codec': 1.4.15
     dev: true
 
   /@rollup/plugin-commonjs/24.0.1_rollup@3.20.2:
@@ -84,7 +80,7 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2_rollup@3.20.2
+      '@rollup/pluginutils': 5.0.3_rollup@3.20.2
       commondir: 1.0.1
       estree-walker: 2.0.2
       glob: 8.1.0
@@ -102,12 +98,12 @@ packages:
       rollup:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2_rollup@3.20.2
+      '@rollup/pluginutils': 5.0.3_rollup@3.20.2
       '@types/resolve': 1.20.2
       deepmerge: 4.3.1
       is-builtin-module: 3.2.1
       is-module: 1.0.0
-      resolve: 1.22.2
+      resolve: 1.22.4
       rollup: 3.20.2
     dev: true
 
@@ -123,10 +119,10 @@ packages:
       rollup: 3.20.2
       serialize-javascript: 6.0.1
       smob: 0.0.6
-      terser: 5.18.2
+      terser: 5.19.2
     dev: true
 
-  /@rollup/plugin-typescript/11.0.0_3gcwc7aeayx7bc4mbbzhnvy2ca:
+  /@rollup/plugin-typescript/11.0.0_spxtrng6vlyi237zqksahid4f4:
     resolution: {integrity: sha512-goPyCWBiimk1iJgSTgsehFD5OOFHiAknrRJjqFCudcW8JtWiBlK284Xnn4flqMqg6YAjVG/EE+3aVzrL5qNSzQ==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -139,15 +135,15 @@ packages:
       tslib:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 5.0.2_rollup@3.20.2
-      resolve: 1.22.2
+      '@rollup/pluginutils': 5.0.3_rollup@3.20.2
+      resolve: 1.22.4
       rollup: 3.20.2
-      tslib: 2.6.0
+      tslib: 2.6.2
       typescript: 5.0.3
     dev: true
 
-  /@rollup/pluginutils/5.0.2_rollup@3.20.2:
-    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+  /@rollup/pluginutils/5.0.3_rollup@3.20.2:
+    resolution: {integrity: sha512-hfllNN4a80rwNQ9QCxhxuHCGHMAvabXqxNdaChUSSadMre7t4iEUI6fFAhBOn/eIYTgYVhBv7vCLsAJ4u3lf3g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       rollup: ^1.20.0||^2.0.0||^3.0.0
@@ -165,8 +161,8 @@ packages:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
     dev: true
 
-  /@types/lodash/4.14.195:
-    resolution: {integrity: sha512-Hwx9EUgdwf2GLarOjQp5ZH8ZmblzcbTBC2wtQWNKARBSxM9ezRIAUpeDTgoQRAFB0+8CNWXVA9+MaSOzOF3nPg==}
+  /@types/lodash/4.14.197:
+    resolution: {integrity: sha512-BMVOiWs0uNxHVlHBgzTIqJYmj+PgCo4euloGF+5m4okL3rEYzM2EEv78mw8zWSMM57dM7kVIgJ2QDvwHSoCI5g==}
     dev: true
 
   /@types/lunr/2.3.4:
@@ -187,8 +183,8 @@ packages:
     resolution: {integrity: sha512-7OjdcV8vQ74eiz1TZLzZP4JwqM5fA94K6yntPS5Z25r9HDuGNzaGdgvwKYq6S+MxwF0TFRwe50fIR/MYnakdkQ==}
     dev: true
 
-  /acorn/8.9.0:
-    resolution: {integrity: sha512-jaVNAFBHNLXspO543WnNNPZFRtavh3skAkITqD0/2aeMkKZTN+254PyhwxFYrk3vQ1xfY+2wbesJMs/JC8/PwQ==}
+  /acorn/8.10.0:
+    resolution: {integrity: sha512-F0SAmZ8iUtS//m8DmCTA0jlh6TDKkHQyK6xc6V4KDTyZKA9dnvX9/3sRTVQrWm79glUAZbnmmNcdYwUIHWVybw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
     dev: true
@@ -233,8 +229,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: true
 
-  /fsevents/2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents/2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -281,8 +277,8 @@ packages:
       builtin-modules: 3.3.0
     dev: true
 
-  /is-core-module/2.12.1:
-    resolution: {integrity: sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==}
+  /is-core-module/2.13.0:
+    resolution: {integrity: sha512-Z7dk6Qo8pOCp3l4tsX2C5ZVas4V+UxwQodwZhLopL91TX8UyyHEXafPcyoeeWuLrwzHcr3igO78wNLwHJHsMCQ==}
     dependencies:
       has: 1.0.3
     dev: true
@@ -344,11 +340,11 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /resolve/1.22.2:
-    resolution: {integrity: sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==}
+  /resolve/1.22.4:
+    resolution: {integrity: sha512-PXNdCiPqDqeUou+w1C2eTQbNfxKSuMxqTCuvlmmMsk1NWHL5fRrhY6Pl0qEYYc6+QqGClco1Qj8XnjPego4wfg==}
     hasBin: true
     dependencies:
-      is-core-module: 2.12.1
+      is-core-module: 2.13.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
     dev: true
@@ -358,7 +354,7 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: true
 
   /safe-buffer/5.2.1:
@@ -392,19 +388,19 @@ packages:
     engines: {node: '>= 0.4'}
     dev: true
 
-  /terser/5.18.2:
-    resolution: {integrity: sha512-Ah19JS86ypbJzTzvUCX7KOsEIhDaRONungA4aYBjEP3JZRf4ocuDzTg4QWZnPn9DEMiMYGJPiSOy7aykoCc70w==}
+  /terser/5.19.2:
+    resolution: {integrity: sha512-qC5+dmecKJA4cpYxRa5aVkKehYsQKc+AHeKl0Oe62aYjBL8ZA33tTljktDHJSaxxMnbI5ZYw+o/S2DxxLu8OfA==}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      '@jridgewell/source-map': 0.3.3
-      acorn: 8.9.0
+      '@jridgewell/source-map': 0.3.5
+      acorn: 8.10.0
       commander: 2.20.3
       source-map-support: 0.5.21
     dev: true
 
-  /tslib/2.6.0:
-    resolution: {integrity: sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==}
+  /tslib/2.6.2:
+    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: true
 
   /typescript/5.0.3:
