@@ -99,8 +99,6 @@ nuestro recurso tarjeta de crédito. Y se puede apreciar lo simple que es hacer
 esto con Laravel. Continuaremos haciendo el _CRUD_ para las transacciones en el
 siguiente sprint.
 
----
-
 [commit-1]: https://github.com/halivert/credit-logbook/commit/c4b26057c463fbb4a0865611d925a3200069ed3c?diff=unified
 [commit-2]: https://github.com/halivert/credit-logbook/commit/0c3d358f47372eb3f21f2ca68831e49647e50a12?diff=unified
 [commit-3]: https://github.com/halivert/credit-logbook/commit/65f273baebce387089c2ef011d36f578dd9912b5?diff=unified
