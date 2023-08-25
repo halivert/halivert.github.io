@@ -127,8 +127,6 @@ siguiente artículo:
 
 <https://steveklabnik.com/writing/nobody-understands-rest-or-http>
 
----
-
 [1]: https://laravel.com/docs/10.x/eloquent-resources
 
 [commit-1]: https://github.com/halivert/credit-logbook/commit/78eaecfd092e9fce48c17b808a1d5c2d75e7ce3a?diff=unified
