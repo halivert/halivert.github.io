@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/><link
+				rel="webmention"
+				href="https://webmention.io/halivert.dev/webmention"
+			/>
+			<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /><link rel="stylesheet" href="https://halivert.dev/assets/css/colors-dark.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/colors.css"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="https://halivert.dev/assets/css/halivert.css" />
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/print.css"
+			media="print"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/gist-theme.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/fa.min.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://halivert.dev/assets/css/solarized.css"
+			media="print"
+			onload="this.media='all'; this.onload=null;"
+		/>
+
+		<noscript>
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/gist-theme.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/fa.min.css" />
+			<link rel="stylesheet" href="https://halivert.dev/assets/css/solarized.css" />
+		</noscript>
+
+		
+<meta property="unix_timestamp" content="1692928800">
+
+<meta property="author:name" content="Halí" />
+				<meta property="telegram:author" content="https://t.me/halivert" />
+			<meta name="telegram:channel" content="@halivertsblog" /><meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /><script async src="https://cdn.splitbee.io/sb.js"></script><script>window.siteUrl = "https://halivert.dev/"</script>
+		<script type="module" src="https://halivert.dev/assets/js/main.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/search.js"></script>
+		<script type="module" src="https://halivert.dev/assets/js/post.js"></script>
+
+		<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bitácora de crédito (Vol. 5) | Halivert</title>
+<meta name="generator" content="Jekyll v4.3.2" />
+<meta property="og:title" content="Bitácora de crédito (Vol. 5)" />
+<meta name="author" content="halivert" />
+<meta property="og:locale" content="es_MX" />
+<meta name="description" content="Ahora actualizaremos el comportamiento de los otros métodos en el controlador de tarjetas de crédito. Nos falta: GET - Mostrarla PUT - Actualizarla DELETE - Eliminarla El GET es sencillo, bastará una línea de código para mostrar los datos de la tarjeta al usuario." />
+<meta property="og:description" content="Ahora actualizaremos el comportamiento de los otros métodos en el controlador de tarjetas de crédito. Nos falta: GET - Mostrarla PUT - Actualizarla DELETE - Eliminarla El GET es sencillo, bastará una línea de código para mostrar los datos de la tarjeta al usuario." />
+<link rel="canonical" href="https://halivert.dev/blog/2023/08/credit-logbook-app-5/" />
+<meta property="og:url" content="https://halivert.dev/blog/2023/08/credit-logbook-app-5/" />
+<meta property="og:site_name" content="Halivert" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-08-24T20:00:00-06:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bitácora de crédito (Vol. 5)" />
+<meta name="twitter:site" content="@halivert" />
+<meta name="twitter:creator" content="@halivert" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"halivert"},"dateModified":"2023-08-24T20:00:00-06:00","datePublished":"2023-08-24T20:00:00-06:00","description":"Ahora actualizaremos el comportamiento de los otros métodos en el controlador de tarjetas de crédito. Nos falta: GET - Mostrarla PUT - Actualizarla DELETE - Eliminarla El GET es sencillo, bastará una línea de código para mostrar los datos de la tarjeta al usuario.","headline":"Bitácora de crédito (Vol. 5)","mainEntityOfPage":{"@type":"WebPage","@id":"https://halivert.dev/blog/2023/08/credit-logbook-app-5/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://halivert.dev/assets/img/halivert-logo.png"},"name":"halivert"},"url":"https://halivert.dev/blog/2023/08/credit-logbook-app-5/"}</script>
+<!-- End Jekyll SEO tag -->
+
+		
+			<meta property="has_instant_view" content="true"/>
+		
+	</head>
+
+	<body>
+		
+			<a
+				class="skip-link"
+				href="#main-container"
+				tab-index="0"
+				>Ir al contenido</a
+			>
+		
+
+		<div id="side-menu-container" v-scope>
+	<aside v-scope="Menu()" class="menu">
+		<ul class="menu-list mt-1">
+			<li>
+				<a
+					class="menu-logo"
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/">
+					<img
+						class="logo my-0 dark"
+						src="https://halivert.dev/assets/img/halivert-logo.webp"
+						alt="Logo de Halivert"
+					/>
+				</a>
+			</li>
+		</ul>
+
+		<ul class="menu-list my-1 menu-center" style="flex-grow: 1">
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/blog/">Blog</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/projects/">Proyectos</a
+				>
+			</li>
+			<li>
+				<a
+					:class="{ 'is-active': itemIsActive($el) && !activeSearchModal }"
+					href="https://halivert.dev/about/">Sobre mí</a
+				>
+			</li><li v-cloak>
+				<button
+					id="search-button"
+					type="button"
+					class="menu-item"
+					:class="{ 'is-active': activeSearchModal }"
+					v-on:click="toggleSearchModal()"
+				>
+					<span>
+						<i class="fas fa-search"></i>
+					</span>
+					<span>Buscar</span>
+					<kbd class="keycode">/</kbd>
+				</button>
+			</li></ul>
+
+		
+	</aside><div
+	id="search-modal"
+	v-scope="SearchModal()"
+	v-on:vue:mounted="mountSearchModal"
+	:class="['modal search-modal', { 'is-hidden': !activeSearchModal }]"
+	v-effect="activeSearchModal ? $refs.searchInput?.focus() : ''"
+	v-cloak
+>
+	<div class="modal-content">
+		<button class="delete mb-4" v-on:click="toggleSearchModal()"></button>
+
+		<div class="my-5">
+			<input
+				ref="searchInput"
+				placeholder="Buscar..."
+				class="input"
+				type="text"
+				v-model="inputValue"
+				v-effect="search(inputValue)"
+			/>
+		</div>
+
+		<div class="columns">
+			<div class="column reader">
+				<section
+					class="has-text-left"
+					v-on:click.passive="handleClick($event, toggleSearchModal)"
+				>
+					<span
+						v-if="searching"
+						class="is-loading"
+						style="--spinner-size: 2em"
+					></span>
+					<h2 class="title is-3 has-text-text has-text-centered" v-if="empty">
+						¡Ups! No encontré nada, pero puedes leer esto:
+					</h2>
+					<article
+						v-for="(post, url) in posts"
+						v-scope="SearchResult(post)"
+						:key="url"
+					></article>
+				</section>
+			</div>
+		</div>
+
+		<template id="post-template">
+			<h2 class="title is-2">
+				<a
+					class="post-title has-text-primary"
+					:href="post.url"
+					v-text="post.title"
+				></a>
+			</h2>
+			<hr />
+			<div class="columns">
+				<div class="column">
+					<div
+						class="post-content content has-text-justified"
+						v-html="post?.content + (post.continue ? $el.innerHTML : '')"
+					>
+						<p>&#8230;</p>
+						<a class="subtitle is-5 has-text-link" :href="post.url">
+							Seguir leyendo
+						</a>
+					</div>
+					<picture class="post-picture column is-3-desktop" v-if="post?.image">
+						<source
+							v-for="image in sourceImages"
+							:key="image.ext"
+							:srcset="`${post.image}.${image.ext}`"
+							:type="image.mime"
+						/>
+						<img :src="imageUrl" :alt="post.image_alt" />
+					</picture>
+				</div>
+			</div>
+			<div class="box has-text-right">
+				<i class="fas fa-user" aria-hidden="true"></i>
+				<span v-text="post.author"></span>
+				<span class="mobile-separator"></span>
+				<i class="fas fa-calendar" aria-hidden="true"></i>
+				<span v-text="post.date"></span>
+			</div>
+			<br />
+		</template>
+	</div>
+</div>
+</div>
+
+
+<main id="main-container" class="section is-size-5 is-size-6-mobile ">
+  <div class="columns">
+	<div class="column is-offset-1-desktop">
+		<div class="reader">
+			<div id="title-div" class="columns mb-0">
+				<header class="column">
+					<h1 class="title is-2 has-text-primary">Bitácora de crédito (Vol. 5)</h1>
+					<small>
+						
+							<i>por</i>
+							<a href="https://halivert.dev/authors/halivert">Halí</a> -
+						
+
+						
+							<i>publicado:</i> Agosto 24, 2023
+						
+					</small>
+				</header>
+				
+			</div>
+			<div class="columns">
+				<div class="column tags"><span class="tag is-laravel">Laravel</span><span class="tag ">Backend</span></div>
+				
+			</div>
+			<hr />
+			<section id="content" class="content">
+				<p>Ahora actualizaremos el comportamiento de los otros métodos en el controlador de
+tarjetas de crédito.</p>
+
+<p>Nos falta:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">GET</code> - Mostrarla</li>
+  <li><code class="language-plaintext highlighter-rouge">PUT</code> - Actualizarla</li>
+  <li><code class="language-plaintext highlighter-rouge">DELETE</code> - Eliminarla</li>
+</ul>
+
+<p>El <code class="language-plaintext highlighter-rouge">GET</code> es sencillo, bastará una línea de código para mostrar los datos de la
+tarjeta al usuario.</p>
+
+<!-- Seguir leyendo -->
+
+<h2 class="no_toc" id="índice">Índice</h2>
+
+<ul id="markdown-toc">
+  <li><a href="#tarjeta-de-crédito" id="markdown-toc-tarjeta-de-crédito">Tarjeta de crédito</a>    <ul>
+      <li><a href="#get" id="markdown-toc-get"><code class="language-plaintext highlighter-rouge">GET</code></a></li>
+      <li><a href="#put" id="markdown-toc-put"><code class="language-plaintext highlighter-rouge">PUT</code></a>        <ul>
+          <li><a href="#validaciones" id="markdown-toc-validaciones">Validaciones</a></li>
+        </ul>
+      </li>
+      <li><a href="#delete" id="markdown-toc-delete"><code class="language-plaintext highlighter-rouge">DELETE</code></a></li>
+      <li><a href="#fin-del-crud" id="markdown-toc-fin-del-crud">Fin del <em>CRUD</em></a></li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="tarjeta-de-crédito">Tarjeta de crédito</h1>
+
+<h2 id="get"><code class="language-plaintext highlighter-rouge">GET</code></h2>
+
+<p>Cómo Laravel maneja la autorización a nivel de recurso en el controlador, no
+necesitamos autorizar al usuario en cada función, por ello bastará con regresar
+la tarjeta dentro de un <code class="language-plaintext highlighter-rouge">CreditCardResource</code> en formato JSON.</p>
+
+<p>Aunque también tenemos que cambiar el tipo de respuesta de la función.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="k">function</span> <span class="n">show</span><span class="p">(</span><span class="kt">CreditCard</span> <span class="nv">$creditCard</span><span class="p">):</span> <span class="kt">JsonResponse</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nf">response</span><span class="p">()</span><span class="o">-&gt;</span><span class="nf">json</span><span class="p">(</span><span class="k">new</span> <span class="nc">CreditCardResource</span><span class="p">(</span><span class="nv">$creditCard</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/c4b26057c463fbb4a0865611d925a3200069ed3c?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<h2 id="put"><code class="language-plaintext highlighter-rouge">PUT</code></h2>
+
+<p>Ahora continuamos con la actualización de datos de una tarjeta.</p>
+
+<p>Para ello utilizaremos un <em>form request</em> también, en este caso
+<code class="language-plaintext highlighter-rouge">UpdateCreditCardRequest</code>, que justamente es el primer parámetro de nuestra
+función, seguido por la tarjeta (debemos dejar este segundo parámetro ya que
+Laravel lo utiliza para la autorización, y el <em>form request</em> lo necesita también
+para hacer algunas validaciones).</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/0c3d358f47372eb3f21f2ca68831e49647e50a12?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<p>Cómo ves, actualizar una tarjeta es sencillo ya que se tienen los <em>form
+requests</em>. Ahora bien, es necesario que tengamos en cuenta que las validaciones
+que suceden ahí son importantes.</p>
+
+<h3 id="validaciones">Validaciones</h3>
+
+<p>Recordemos algunas de las reglas que estamos usando y que seguramente
+utilizaremos también más adelante:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">sometimes</code>: Sirve para validar que el campo a veces no se encontrará presente
+  en nuestra solicitud, y esto lo hacemos porque es posible que el usuario
+  quiera solamente actualizar el nombre de la tarjeta o su fecha de corte,
+  pero no otros datos y no es necesario que también los envíe.</li>
+  <li><code class="language-plaintext highlighter-rouge">required</code>: La usamos en conjunto con <code class="language-plaintext highlighter-rouge">sometimes</code>, ya que si el atributo está
+  presente en la solicitud, y es requerido, entonces no puede ser <code class="language-plaintext highlighter-rouge">null</code> ni
+  estar vacío.</li>
+  <li><code class="language-plaintext highlighter-rouge">string</code>: Valida una cadena de caracteres.</li>
+  <li><code class="language-plaintext highlighter-rouge">max:{number}</code>: Valida un tamaño máximo.</li>
+  <li><code class="language-plaintext highlighter-rouge">integer</code>: Valida un número entero.</li>
+</ul>
+
+<p>Como sea, puedes ver las <a href="https://laravel.com/docs/10.x/validation#available-validation-rules">reglas de validación aquí</a>.</p>
+
+<h2 id="delete"><code class="language-plaintext highlighter-rouge">DELETE</code></h2>
+
+<p>Por último vamos a actualizar la función <em>destroy</em> que será ejecutada cuando
+llegue una solicitud <code class="language-plaintext highlighter-rouge">DELETE</code>.</p>
+
+<p>Para ello (y por ahora), vamos a eliminar los datos de la tarjeta.</p>
+
+<p>Nuestra respuesta será un 204, pues no tendrá contenido.</p>
+
+<p class="has-text-centered"><a href="https://github.com/halivert/credit-logbook/commit/65f273baebce387089c2ef011d36f578dd9912b5?diff=unified" class="button is-normal is-primary"><strong>Ver código</strong>  (GitHub)</a></p>
+
+<h2 id="fin-del-crud">Fin del <em>CRUD</em></h2>
+
+<p>Así terminamos el <em>CRUD</em> completo (<em>Create</em>, <em>Read</em>, <em>Update</em>, <em>Delete</em>) de
+nuestro recurso tarjeta de crédito. Y se puede apreciar lo simple que es hacer
+esto con Laravel. Continuaremos haciendo el <em>CRUD</em> para las transacciones en el
+siguiente sprint.</p>
+
+<hr />
+
+
+			</section>
+
+			<section v-cloak v-scope id="reactions" class="mt-4">
+				<hr />
+
+				<div class="flex justify-between items-center">
+					<a
+						class="button twitter-share-button"
+			      :href="twitterLink('https://halivert.dev/blog/2023/08/credit-logbook-app-5/')">
+						<span class="icon"><i class="fab fa-twitter"></i></span>
+						<span>Tweet</span>
+					</a>
+
+					<div
+					  v-scope="Reactions({ postUrl: 'https://halivert.dev/blog/2023/08/credit-logbook-app-5/'})"
+						v-on:vue:mounted="fetchReactions"
+						class="reactions">
+
+						<span v-for="reaction in reactions" :key="reaction.name">
+							<i :class="reaction?.className"></i>
+							<span v-text="reaction?.count"></span>
+						</span>
+						<a v-if="mentions && mentions.count" :href="mentions.url">
+							<i class="fas fa-quote-right has-text-text ml-3 mr-2"></i>
+							<span v-text="mentions.count || 0"></span>
+						</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="printable">
+				<p class="has-text-right">https://halivert.dev/blog/2023/08/credit-logbook-app-5/</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+</main>
+
+
+		
+			<footer class="footer">
+	<div class="start">
+		<a href="https://halivert.dev/feed.xml">
+			<span>RSS</span>
+			<span class="icon">
+				<i class="fas fa-rss" aria-hidden="true"></i>
+			</span>
+		</a>
+	</div>
+
+	<div class="content has-text-centered">
+		<a
+			class="license-link"
+			rel="license"
+			href="http://creativecommons.org/licenses/by/4.0/"
+		>
+			<img
+				alt="Licencia Creative Commons"
+				style="border-width: 0"
+				src="https://i.creativecommons.org/l/by/4.0/88x31.png"
+			/>
+		</a>
+		<p>
+			Los artículos escritos en este blog están bajo la licencia
+			<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+				Creative Commons Attribution 4.0 International License</a
+			>.
+		</p>
+	</div>
+</footer>
+
+		
+	</body>
+</html>
