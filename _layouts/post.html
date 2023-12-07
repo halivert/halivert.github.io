@@ -118,7 +118,11 @@ layout: container
 			</section>
 
 			<div class="printable">
-				<p class="has-text-right">{{ page.url | absolute_url }}</p>
+				<p class="has-text-right">
+					<a href="{{ page.url | absolute_url }}">
+						{{ page.url | absolute_url }}
+					</a>
+				</p>
 			</div>
 		</div>
 	</div>
