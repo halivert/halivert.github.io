@@ -669,7 +669,7 @@ blockquote {
   padding-inline: 0;
   height: 100%;
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .menu {
     font-size: 1rem;
     border-bottom: 2px dashed var(--accent-color-100);
@@ -684,7 +684,7 @@ blockquote {
   padding: 0 0.5rem;
   gap: 0.25em;
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .menu-list {
     flex-flow: row wrap;
   }
@@ -729,7 +729,7 @@ blockquote {
   background: var(--background-color-200);
   color: var(--contrast-color-200);
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .menu-list a img,
   .menu-list .menu-item img {
     height: 2rem;
@@ -745,7 +745,7 @@ blockquote {
   justify-content: center;
 }
 
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .menu-center,
   .menu-list.lang {
     justify-content: unset;
@@ -1081,7 +1081,7 @@ blockquote {
   padding: var(--column-gap);
   min-width: 1px;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .column.is-narrow-desktop {
     flex: none;
     width: unset;
@@ -1178,7 +1178,7 @@ blockquote {
     margin-left: 100%;
   }
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .column.is-narrow {
     flex: none;
     width: unset;
@@ -1312,7 +1312,7 @@ blockquote {
 .columns.is-vcentered {
   align-items: center;
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .columns:not(.is-touch) {
     flex-flow: column nowrap;
   }
@@ -1422,12 +1422,12 @@ blockquote {
 .is-hidden {
   display: none !important;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .is-hidden-desktop {
     display: none !important;
   }
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .is-hidden-touch {
     display: none !important;
   }
@@ -2178,7 +2178,7 @@ footer.footer {
   grid-template-columns: minmax(auto, 20%) minmax(auto, 80%);
   grid-template-areas: "right content";
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   footer.footer {
     grid-template-rows: auto 1fr;
     grid-template-columns: 100%;
@@ -2195,7 +2195,7 @@ footer.footer .start {
   justify-content: center;
   align-items: center;
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   footer.footer .start {
     margin-top: 0.75rem;
   }
@@ -2226,7 +2226,7 @@ body {
   background-color: var(--background-color-100);
   grid-template: "menu" auto "main" 1fr "footer" auto/100%;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   body {
     grid-template: "menu main" 1fr "footer footer" auto/minmax(auto, 20%) minmax(auto, 80%);
   }
@@ -2236,7 +2236,7 @@ body {
   grid-area: menu;
   z-index: 1;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   #side-menu-container {
     position: sticky;
     grid-area: 1/1/3/1;
@@ -2251,7 +2251,7 @@ main#main-container {
 .section {
   padding: 0.5rem 1rem;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .section {
     padding: 1rem 3rem;
   }
@@ -2270,7 +2270,7 @@ main#main-container {
   max-width: 70ch;
   font-size: 1rem;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .reader {
     font-size: 1.25rem;
   }
@@ -2373,7 +2373,7 @@ img:not([alt]) {
 .image.post-image {
   margin-bottom: 0.5em;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .image.post-image {
     max-height: 200px;
     max-width: 200px;
@@ -2472,7 +2472,7 @@ pre code {
   display: block;
   margin: 0 0.5rem;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .mobile-separator {
     display: inline-block;
   }
@@ -2495,7 +2495,7 @@ pre code {
   z-index: 1;
   text-align: center;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .repo.fixed-top-bar {
     grid-area: menu;
     position: relative;
@@ -2506,14 +2506,14 @@ pre code {
   margin-top: 0;
   transform: translateY(-50%);
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .repo.fixed-top-bar .button.git {
     --control-border-radius: 4px;
     --control-font-size: 1.25rem;
     margin-top: 2rem;
   }
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .repo.fixed-top-bar .button.git {
     --control-border-radius: 2px;
     --control-font-size: 0.75rem;
@@ -2531,7 +2531,7 @@ pre code {
   padding: 2em 1em 1em;
   margin-bottom: 0.5rem;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .repo.hero {
     padding: 1em 5em;
     margin-bottom: 0;
@@ -2571,7 +2571,7 @@ sup.ref::after {
   border: 3px var(--primary-color-100);
   border-style: none var(--border-style) var(--border-style) none;
 }
-@media all and (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .category-header {
     border-style: var(--border-style) none none var(--border-style);
   }
@@ -2647,7 +2647,7 @@ input {
   grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
   gap: 2em;
 }
-@media all and (max-width: 1023px) {
+@media screen and (max-width: 1023px) {
   .projects {
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   }
