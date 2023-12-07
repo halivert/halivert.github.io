@@ -39,17 +39,18 @@ body *,
 
 	.menu-logo {
 		position: relative;
-		font-size: 1.75em;
 		color: var(--text-color-100);
-		margin-inline: 0;
-		padding: 0.5em;
+		margin-inline: auto 4.5em;
+		padding: 0.125em;
+		max-height: 1.5em;
 
 		&:first-child::after {
 			position: absolute;
 			content: "{{ site.title }}";
 			top: 50%;
 			right: 0;
-			transform: translateY(-50%) translateX(120%);
+			transform: translateY(-50%) translateX(105%);
+			font-style: italic;
 		}
 	}
 }
