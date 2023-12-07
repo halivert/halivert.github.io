@@ -10,13 +10,13 @@ $desktop: 960px + (2 * $gap) !default;
 }
 
 @mixin touch {
-	@media all and (max-width: $desktop - 1px) {
+	@media screen and (max-width: $desktop - 1px) {
 		@content;
 	}
 }
 
 @mixin desktop {
-	@media all and (min-width: $desktop) {
+	@media screen and (min-width: $desktop) {
 		@content;
 	}
 }

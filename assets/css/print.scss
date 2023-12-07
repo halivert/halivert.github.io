@@ -10,7 +10,7 @@ html {
 }
 
 html,
-#app,
+body,
 .menu-list,
 #main-container,
 #main-container > .columns > .column,
@@ -19,23 +19,30 @@ html,
 	padding: 0;
 }
 
-#app {
+body {
 	display: flex;
 	flex-flow: column;
 }
 
-#app *,
+body *,
 .reader {
 	max-width: 100%;
 }
 
 .menu {
-	border-bottom: none;
+	border-right: none;
+	padding: 0;
 
-	a {
+	.menu-list {
+		margin-block-start: 0;
+	}
+
+	.menu-logo {
 		position: relative;
 		font-size: 1.75em;
 		color: var(--text-color-100);
+		margin-inline: 0;
+		padding: 0.5em;
 
 		&:first-child::after {
 			position: absolute;
