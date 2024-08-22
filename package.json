@@ -21,11 +21,11 @@
 		"@rollup/plugin-node-resolve": "15.0.1",
 		"@rollup/plugin-terser": "0.4.0",
 		"@rollup/plugin-typescript": "11.0.0",
-		"@types/lodash": "^4.17.0",
+		"@types/lodash": "^4.17.7",
 		"@types/lunr": "^2.3.7",
-		"@vue/reactivity": "^3.4.21",
+		"@vue/reactivity": "^3.4.38",
 		"rollup": "3.20.2",
-		"tslib": "^2.6.2",
+		"tslib": "^2.6.3",
 		"typescript": "5.0.3"
 	}
 }
