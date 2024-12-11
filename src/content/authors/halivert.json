@@ -1,0 +1,38 @@
+{
+  "username": "halivert",
+  "first_name": "Halí",
+  "last_name": "Velázquez",
+  "description": "Persona",
+  "picture": "/assets/img/halivert.png",
+  "kofi": "https://ko-fi.com/halivert",
+  "sponsor": "https://github.com/sponsors/halivert",
+  "email": "hi@halivert.dev",
+  "social": [
+    {
+      "url": "https://t.me/halivert",
+      "type": "telegram",
+      "icon": "fab fa-telegram",
+      "hidden": true
+    },
+    {
+      "url": "https://github.com/halivert",
+      "type": "github",
+      "icon": "fab fa-github"
+    },
+    {
+      "url": "https://gitlab.com/halivert",
+      "type": "gitlab",
+      "icon": "fab fa-gitlab"
+    },
+    {
+      "url": "https://discordapp.com/users/673717040095428628",
+      "type": "discord",
+      "icon": "fab fa-discord"
+    },
+    {
+      "url": "https://www.linkedin.com/in/halivert/",
+      "type": "linkedin",
+      "icon": "fab fa-linkedin"
+    }
+  ]
+}

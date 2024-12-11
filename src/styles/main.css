@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Iosevka";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/webfonts/Iosevka-Regular.woff2) format("woff2");
+  }
+}
+
+@layer components {
+  .telegram {
+    color: #28a8ea;
+  }
+
+  .github {
+    color: #24292e;
+  }
+
+  .discord {
+    color: #7289da;
+  }
+
+  .linkedin {
+    color: #0a66c2;
+  }
+
+  .gitlab {
+    color: #fc6d26;
+  }
+}

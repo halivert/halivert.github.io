@@ -1,125 +1,94 @@
 ---
+import { createHash } from "crypto"
+import { getEntry } from "astro:content"
+
+import HtmlLayout from "@/layouts/html.astro"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const halivert = await getEntry("authors", "halivert")?.then(({ data }) => data)
+
+const md5 = halivert?.email
+	? createHash("md5").update(halivert.email).digest("hex")
+	: ""
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const techStack = {
+	"fab fa-linux": "Linux",
+	"fab fa-html5": "HTML5",
+	"fab fa-css3-alt": "CSS",
+	"fab fa-js": "JS/TS",
+	"fab fa-php": "PHP",
+	"fab fa-git-alt": "Git",
+	"fab fa-vuejs": "Vue 3",
+	"fab fa-react": "React",
+	"fab fa-laravel": "Laravel",
+}
 ---
-<html>
-  <body>
-<main id="main-container" class="section">
-	<div class="columns is-centered">
-		<div class="column is-8-desktop has-text-centered">
-			<h1 class="title is-2 normal-wrap">
-				<!-- {{ author.first_name }} {{ author.last_name }} -->
+
+<HtmlLayout showLangButtons>
+	<main class="max-w-prose mx-auto relative py-4 px-12" style="grid-area: main">
+		<div class="flex flex-col items-center justify-center text-center gap-4">
+			<h1 class="text-5xl font-semibold font-title">
+				{halivert?.first_name}
+				{halivert?.last_name}
 			</h1>
 
-			<figure class="mb-4">
-				<!-- <img -->
-				<!-- 	src="https://gravatar.com/avatar/{{ -->
-				<!-- 		author.email | md5sum -->
-				<!-- 	}}?s=300&d=identicon" -->
-				<!-- 	class="avatar flex items-center" -->
-				<!-- 	loading="lazy" -->
-				<!-- 	alt="Imagen de perfil de {{ layout.author }}" -->
-				<!-- 	height="200" -->
-				<!-- 	onContextMenu="vibrate([150, 30, 150]);" -->
-				<!-- /> -->
-			</figure>
+			<img
+				src={`https://gravatar.com/avatar/${md5}?s=300&d=identicon`}
+				class="rounded-full aspect-square h-56"
+				loading="lazy"
+				alt={t("profile.image.alt", [halivert?.username ?? ""])}
+				oncontextmenu="vibrate([150, 30, 150]);"
+			/>
 
-			<div>
+			<div class="space-y-4">
 				<p>
-					<!-- {{ -->
-					<!-- 'Desarrollador web, con conocimiento en diversas tecnologías web' -->
-					<!-- | __ -->
-					<!-- }}: -->
+					{t("Desarrollador web, con conocimiento en diversas tecnologías")}:
 				</p>
 
 				<div>
-					<ul class="stack" style="color: var(--accent-color-300)">
-						<li>
-							<figure>
-								<i class="fab fa-linux"></i>
-								<figcaption>Linux</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-html5"></i>
-								<figcaption>HTML5</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-css3-alt"></i>
-								<figcaption>CSS</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-js"></i>
-								<figcaption>JavaScript</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-php"></i>
-								<figcaption>PHP</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-git-alt"></i>
-								<figcaption>Git</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-vuejs"></i>
-								<figcaption>Vue 3</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-laravel"></i>
-								<figcaption>Laravel</figcaption>
-							</figure>
-						</li>
+					<ul
+						class="text-accent-600 flex flex-wrap justify-center gap-7"
+						role="list"
+					>
+						{
+							Object.entries(techStack).map(([icon, text]) => (
+								<li>
+									<figure>
+										<i class={`${icon} text-4xl mx-auto inline-block`} />
+										<figcaption class="text-sm text-balance">{text}</figcaption>
+									</figure>
+								</li>
+							))
+						}
 					</ul>
 				</div>
-
-				<div>
-					<!-- {{ 'Aprendiendo:' | __ }} -->
-					<ul class="stack" style="color: var(--accent-color-300)">
-						<li>
-							<figure>
-								<i class="fab fa-react"></i>
-								<figcaption>React</figcaption>
-							</figure>
-						</li>
-						<li>
-							<figure>
-								<i class="fab fa-rust"></i>
-								<figcaption>Rust</figcaption>
-							</figure>
-						</li>
-					</ul>
-				</div>
-
-				<!-- <p>{{ 'Puedes ponerte en contacto conmigo.' | __ }}</p> -->
 			</div>
 
-			<p class="buttons is-centered mt-3">
-				<!-- {% for item in author.social %} -->
-					<!-- <a -->
-					<!-- 	target="_blank" -->
-					<!-- 	aria-label="{{ 'Contáctame por' | __ }} {{ item.type }}" -->
-					<!-- 	class="button {{ item.type }} {% if item.hidden %} is-hidden {%- endif -%}" -->
-					<!-- 	href="{{ item.url }}" -->
-					<!-- 	rel="me noopener noreferrer"> -->
-					<!-- 	<span class="icon"> -->
-					<!-- 		<i class="{{ item.icon }}" aria-hidden="true"></i> -->
-					<!-- 	</span> -->
-					<!-- </a> -->
-				<!-- {% endfor %} -->
-			</p>
+			<div>
+				<p>{t("Puedes ponerte en contacto conmigo.")}</p>
+				<p class="flex gap-2 mt-3 text-center text-xl justify-center">
+					{
+						halivert?.social
+							?.filter((item) => !item.hidden)
+							.map((item) => (
+								<a
+									target="_blank"
+									aria-label={`${t("Contáctame por")} ${item.type}`}
+									class={`${item.type} px-4 py-2 h-12 w-12 cursor-pointer select-none bg-text-300/50 rounded-full aspect-square justify-center inline-flex items-center`}
+									href={item.url}
+									rel="me noopener noreferrer"
+								>
+									<span class="inline-flex h-8 aspect-square justify-center items-center">
+										<i class={item.icon} aria-hidden="true" />
+									</span>
+								</a>
+							))
+					}
+				</p>
+			</div>
 		</div>
-	</div>
-</main>
-  </body>
-</html>
+	</main>
+</HtmlLayout>

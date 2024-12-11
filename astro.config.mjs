@@ -6,7 +6,12 @@ import tailwind from "@astrojs/tailwind"
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [vue(), tailwind()],
+  integrations: [
+    vue(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
   i18n: {
     locales: ["es", "en"],
     defaultLocale: "es",
