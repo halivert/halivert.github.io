@@ -27,19 +27,19 @@ function itemIsActive(href: string) {
 </script>
 
 <template>
-  <div class="md:sticky z-10" id="side-menu-container">
+  <div class="lg:sticky z-10" id="side-menu-container">
     <aside
-      class="flex sticky flex-col flex-nowrap justify-center max-h-dvh top-0 z-10 md:text-3xl font-title h-full border-b-2 md:border-r-2 border-dashed border-accent-500 py-2"
+      class="flex sticky flex-col flex-nowrap justify-center max-h-dvh top-0 z-10 lg:text-3xl font-title h-full border-b-2 lg:border-r-2 lg:border-b-0 border-dashed border-accent-500 py-2 lg:gap-3"
     >
       <ul class="flex flex-col flex-nowrap px-2 gap-1 mt-1">
         <li>
           <a
-            class="inline-flex md:flex items-center justify-center aspect-square max-h-28 mx-auto min-h-0 rounded-full px-3 py-2"
-            :class="{ 'bg-background-400': itemIsActive('/') }"
+            class="inline-flex lg:flex items-center justify-center aspect-square max-h-28 mx-auto min-h-0 rounded-full px-3 py-2"
+            :class="{ 'bg-background-400/50': itemIsActive('/') }"
             :href="translatePath('/')"
           >
             <img
-              class="my-0 mx-auto h-8 md:h-3/4 aspect-square"
+              class="my-0 mx-auto h-8 lg:h-3/4 aspect-square"
               src="/img/halivert-logo.webp"
               :alt="t('Logo de Halivert')"
             />
@@ -47,11 +47,13 @@ function itemIsActive(href: string) {
         </li>
       </ul>
 
-      <ul class="flex-1 flex justify-center flex-wrap px-2 gap-1 my-1">
+      <ul
+        class="flex-grow flex justify-center flex-wrap px-2 gap-1 lg:my-1 lg:flex-col lg:justify-start"
+      >
         <li v-for="(label, href) in links" :key="href">
           <a
-            class="block px-3 py-2 rounded-full text-contrast-600"
-            :class="{ 'bg-background-400': itemIsActive(href) }"
+            class="block px-3 py-2 lg:px-6 lg:py-4 rounded-full text-contrast-600"
+            :class="{ 'bg-background-400/50': itemIsActive(href) }"
             :href="href"
             >{{ label }}</a
           >
@@ -77,7 +79,7 @@ function itemIsActive(href: string) {
 
       <ul
         v-if="showLangButtons"
-        class="text-sm flex-1 flex justify-center flex-wrap px-2 gap-1 my-1 capitalize"
+        class="text-sm flex justify-center flex-wrap px-2 gap-1 lg:my-1 capitalize"
       >
         <li v-for="(, path) in languages" :key="path">
           <a
@@ -98,7 +100,7 @@ function itemIsActive(href: string) {
 #side-menu-container {
   grid-area: menu;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     grid-area: 1 / 1 / 3 / 1;
   }
 }

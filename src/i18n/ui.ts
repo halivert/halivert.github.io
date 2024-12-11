@@ -55,8 +55,8 @@ export const ui = {
     "Puedes ponerte en contacto conmigo.": "Contact me.",
     "Aprendiendo:": "Learning:",
     "Experimentado en:": "With experience in:",
-    "Desarrollador web, con conocimiento en diversas tecnologías web":
-      "Web developer, with knowledge in several web technologies",
+    "Desarrollador web, con conocimiento en diversas tecnologías":
+      "Web developer, with knowledge in several technologies",
     "Más sobre mí": "More about me",
     "Sobre mí": "About me",
     "Contáctame por": "Contact me on",
