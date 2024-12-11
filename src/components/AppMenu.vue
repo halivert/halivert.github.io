@@ -16,13 +16,14 @@ const translatePath = useTranslatedPath(lang)
 const t = useTranslations(lang)
 
 const links: Record<string, string> = {
-  [translatePath("/blog")]: t("Blog"),
-  [translatePath("/projects")]: t("Proyectos"),
-  [translatePath("/about")]: t("Sobre mí"),
+  blog: t("Blog"),
+  projects: t("Proyectos"),
+  about: t("Sobre mí"),
 }
 
 function itemIsActive(href: string) {
-  return translatePath(href) === props.url.pathname
+  const currentHref = translatePath(href).replace(/\/$/, "")
+  return currentHref === props.url.pathname.replace(/\/$/, "")
 }
 </script>
 
@@ -54,7 +55,7 @@ function itemIsActive(href: string) {
           <a
             class="block px-3 py-2 lg:px-6 lg:py-4 rounded-full text-contrast-600"
             :class="{ 'bg-background-400/50': itemIsActive(href) }"
-            :href="href"
+            :href="translatePath(`/${href}`)"
             >{{ label }}</a
           >
         </li>
@@ -83,7 +84,7 @@ function itemIsActive(href: string) {
       >
         <li v-for="(, path) in languages" :key="path">
           <a
-            :href="path === defaultLang ? '/' : `/${path}`"
+            :href="path === defaultLang ? '/' : `/${path}/`"
             class="block px-3 py-2 rounded-full text-contrast-600"
           >
             {{ path }}
