@@ -1,15 +1,17 @@
 ---
 import { getLangFromUrl } from "@/i18n/utils"
 import AppMenu from "@/components/AppMenu.vue"
+import AppFooter from "@/components/AppFooter.vue"
 
 import "@/styles/main.css"
 
 interface Props {
 	title?: string
 	showLangButtons?: boolean
+	hideFooter?: boolean
 }
 
-const { title = "Halivert", showLangButtons } = Astro.props
+const { title = "Halivert", showLangButtons, hideFooter } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 ---
 
@@ -124,7 +126,7 @@ const lang = getLangFromUrl(Astro.url)
 	</head>
 	<!--  -->
 	<body
-		class="relative min-h-dvh grid bg-background-300 text-text-950 text-base antialiased selection:bg-accent-400 selection:text-text-800 font-body"
+		class="relative min-h-dvh grid bg-background-300 text-text-950 text-base antialiased selection:bg-accent-400 selection:text-text-950 font-body"
 	>
 		<!--  -->
 		<!-- 		{% unless page.hide_skip_link or layout.hide_skip_link %} -->
@@ -139,6 +141,8 @@ const lang = getLangFromUrl(Astro.url)
 
 
 		<slot />
+
+		{!hideFooter && <AppFooter url={Astro.url} />}
 
 		<!-- 		{% unless page.hide_foot or layout.hide_foot %} -->
 		<!-- 			{% include footer.html %} -->

@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import HtmlLayout from "@/layouts/html.astro"
+import PostExcerpt from "@/components/PostExcerpt.vue"
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (
+    await getCollection("posts", (post) => !post.id.includes("/"))
+  ).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+  return paginate(posts, { pageSize: 7 })
+}
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { page } = Astro.props
+---
+
+<HtmlLayout title="Blog | Halivert">
+  <div class="flex flex-col">
+    <main class="flex-1">
+      {page.data.map((post) => <PostExcerpt post={post} />)}
+    </main>
+    <aside class="text-center p-3">
+      <h2 class="text-2xl mb-6">{t("Categorías")}</h2>
+      <div>
+        <!-- {%- for category in site.categories -%} -->
+        <!-- 	{%- assign categoryName = category[0] -%} -->
+        <!-- 	{%- -->
+        <!-- 		assign slug = site.data.categories[categoryName].slug -->
+        <!-- 			| prepend: '/blog/' -->
+        <!-- 	-%} -->
+        <!-- 	<a class="sidebar-item" href="{{ slug | locale_url }}" -->
+        <!-- 		>{{ categoryName | __ }}</a -->
+        <!-- 	> -->
+        <!-- {%- endfor -%} -->
+      </div>
+    </aside>
+  </div>
+</HtmlLayout>
