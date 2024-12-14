@@ -3,10 +3,10 @@ author: halivert
 title: "Actualizar Webpack a Vite en Laravel Sail"
 date: "2022-07-06 12:40 -0500"
 category: "Ya me pasó"
-translations:
-    - short: en
-      post: en/2022-07-06-upgrade-webpack-to-vite-laravel-sail
 tags: ["Web", "Laravel", "JS"]
+#translations:
+#    - short: en
+#      post: en/2022-07-06-upgrade-webpack-to-vite-laravel-sail
 ---
 
 Laravel acaba de agregar soporte para [Vite][1], una herramienta para desarrollo
@@ -24,7 +24,9 @@ servidor de desarrollo está en otro host:
 
 Para ello agregamos dos variables a nuestro archivo .env<br />
 <small>
-    La variable `VITE_PORT` es opcional y por defecto tomará ese número
+
+La variable `VITE_PORT` es opcional y por defecto tomará ese número
+
 </small>
 
 ```sh
@@ -41,15 +43,15 @@ import { defineConfig, loadEnv } from "vite"
 import laravel from "laravel-vite-plugin"
 
 export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, process.cwd())
+  const env = loadEnv(mode, process.cwd())
 
-    return {
-        // ...
-        server: {
-            host: env.VITE_HOST,
-            port: env.VITE_PORT,
-        },
-    }
+  return {
+    // ...
+    server: {
+      host: env.VITE_HOST,
+      port: env.VITE_PORT,
+    },
+  }
 })
 ```
 
@@ -60,9 +62,9 @@ nuestro entorno de desarrollo.
 
 ```yml
 services:
-    laravel.test:
-        ports:
-            - '${VITE_PORT:-5173}:5173'
+  laravel.test:
+    ports:
+      - "${VITE_PORT:-5173}:5173"
 ```
 
 Esto debería ser suficiente para lograr una conexión con Vite, desde fuera de

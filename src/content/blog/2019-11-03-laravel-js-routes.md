@@ -5,9 +5,9 @@ date: "2019-11-03 20:24"
 tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 title: "Cómo utilizar rutas de Laravel en JS"
 lastModification: "2020-07-05 00:18"
-translations:
-  - short: en
-    post: en/2019-11-03-laravel-js-routes
+# translations:
+#   - short: en
+#     post: en/2019-11-03-laravel-js-routes
 ---
 
 TL;DR Con un paquete<br>
