@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content"
+import BlogPage from "@/pages/blog/[page].astro"
+
+export async function getStaticPaths({ paginate }) {
+  const posts = (
+    await getCollection(
+      "posts",
+      (post) => post.id.includes("/") && post.id.startsWith("en"),
+    )
+  ).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+  return paginate(posts, { pageSize: 7 })
+}
+
+const { page } = Astro.props
+---
+
+<BlogPage page={page} />

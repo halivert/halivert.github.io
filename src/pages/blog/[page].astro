@@ -1,0 +1,65 @@
+---
+import type { GetStaticPathsOptions } from "astro"
+import { getCollection } from "astro:content"
+import { Image } from "astro:assets"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import HtmlLayout from "@/layouts/html.astro"
+import PostExcerpt from "@/components/PostExcerpt.vue"
+import AppPaginator from "@/components/AppPaginator.astro"
+
+const authors = await getCollection("authors")
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (
+    await getCollection("posts", (post) => !post.id.includes("/"))
+  ).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+  return paginate(posts, { pageSize: 3 })
+}
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const { page } = Astro.props
+---
+
+<HtmlLayout title="Blog | Halivert">
+  <div class="flex flex-col lg:flex-row">
+    <div class="flex-1 basis-3/4 pb-4">
+      <main class="max-w-prose mx-auto pb-4">
+        {
+          page.data.map((post) => (
+            <PostExcerpt
+              post={post}
+              author={authors.find(({ id }) => id === post.data.author.id)}
+              url={Astro.url}
+            >
+              {post.data.image && (
+                <Image src={post.data.image} alt={post.data.imageAlt ?? ""} />
+              )}
+            </PostExcerpt>
+          ))
+        }
+      </main>
+
+      <div class="max-w-prose mx-auto pb-4">
+        {page.total > 1 && <AppPaginator page={page} />}
+      </div>
+    </div>
+    <aside class="text-center p-3 flex-1 basis-1/4">
+      <h2 class="text-2xl mb-6">{t("Categorías")}</h2>
+      <div>
+        <!-- {%- for category in site.categories -%} -->
+        <!-- 	{%- assign categoryName = category[0] -%} -->
+        <!-- 	{%- -->
+        <!-- 		assign slug = site.data.categories[categoryName].slug -->
+        <!-- 			| prepend: '/blog/' -->
+        <!-- 	-%} -->
+        <!-- 	<a class="sidebar-item" href="{{ slug | locale_url }}" -->
+        <!-- 		>{{ categoryName | __ }}</a -->
+        <!-- 	> -->
+        <!-- {%- endfor -%} -->
+      </div>
+    </aside>
+  </div>
+</HtmlLayout>

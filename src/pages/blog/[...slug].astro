@@ -1,0 +1,145 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection, render } from "astro:content"
+import HtmlLayout from "@/layouts/html.astro"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { getEntry } from "astro:content"
+import { postReadableDate } from "@/ts/functions"
+import PostTag from "@/components/PostTag.vue"
+import PostReactions from "@/components/PostReactions.vue"
+import { Image } from "astro:assets"
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("posts", (post) => !post.id.includes("/"))
+
+  function getPostUrl(post: {
+    id: string
+    data: { date: Date }
+  }): [string, string, string] {
+    const year = post.data.date.getFullYear().toString()
+    const month = (post.data.date.getMonth() + 1).toString().padStart(2, "0")
+    const slug = post.id.replace(/\d{4}-\d{2}-\d{2}-/, "")
+
+    return [year, month, slug]
+  }
+
+  return posts.map((post) => ({
+    params: { slug: getPostUrl(post).join("/") },
+    props: { post },
+  }))
+}) satisfies GetStaticPaths
+
+const { post } = Astro.props
+
+const author = await getEntry(post.data.author.collection, post.data.author.id)!
+const tags = Object.fromEntries(
+  (await getCollection("tags")).map(({ id, data }) => [id, data]),
+)
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const postDate = postReadableDate(lang, post.data.date)
+const { Content } = await render(post)
+
+function getTagClass(tag: string): string {
+  return tags[tag.toLowerCase()] ?? ""
+}
+---
+
+<HtmlLayout>
+  <main class="lg:text-xl text-lg">
+    <div class="flex flex-nowrap px-4 py-2 lg:py-4 lg:px-12">
+      <div class="flex-1 basis-1/12 hidden lg:block"></div>
+      <div class="flex-1 basis-11/12 min-w-0">
+        <div class="max-w-prose space-y-4">
+          <div class="max-w-full flex gap-3 items-center flex-wrap">
+            <header class="flex-1 flex-shrink-0 basis-3/4">
+              <h1 class="text-4xl mb-6 font-title font-semibold">
+                {post.data.title}
+              </h1>
+              <small>
+                <i>{t("por")}</i>
+                <a>{author.data.firstName}</a> -
+
+                {
+                  post.data.lastModification && (
+                    <span title={` ${t("Fecha original")}: ${postDate} `}>
+                      <i>{t("última modificación")}:</i>
+                      {postReadableDate(lang, post.data.lastModification)}
+                    </span>
+                  )
+                }
+
+                {
+                  !post.data.lastModification && (
+                    <>
+                      <i>{t("publicado")}:</i> {postDate}
+                    </>
+                  )
+                }
+              </small>
+            </header>
+
+            {
+              post.data.image && (
+                <div class="basis-1/5 min-w-32">
+                  <Image
+                    class="max-w-full"
+                    src={post.data.image}
+                    alt={post.data.imageAlt ?? ""}
+                  />
+                </div>
+              )
+            }
+          </div>
+          <div class="flex justify-between">
+            <div class="flex-1 flex gap-2 text-sm">
+              {
+                post.data.tags?.map((tag) => (
+                  <PostTag class={getTagClass(tag)}>{tag}</PostTag>
+                ))
+              }
+            </div>
+            <!-- {% if translations.size %} -->
+            <!-- 	<div class="column has-text-right"> -->
+            <!-- 		{%- for translation in translations -%} -->
+            <!-- 			{%- -->
+            <!-- 				assign defaultTitle = 'langs.' -->
+            <!-- 					| append: translation.short -->
+            <!-- 					| append: '.title' -->
+            <!-- 			-%} -->
+            <!-- 			{%- assign title = translation.label | default: defaultTitle -%} -->
+            <!-- 			<a -->
+            <!-- 				href="{% link {{ translation.post }} %}" -->
+            <!-- 				title="{{ title | __ }}"> -->
+            <!-- 				{{ 'langs.' | append: translation.short | append: '.short' | __ }} -->
+            <!-- 			</a>{%- unless forloop.last -%},{%- endunless -%} -->
+            <!-- 		{%- endfor -%} -->
+            <!-- 	</div> -->
+            <!-- {% endif %} -->
+          </div>
+          <hr />
+          <section id="content" class="content text-balance">
+            <Content />
+          </section>
+
+          <PostReactions
+            client:load
+            url={Astro.url}
+            author={author.data.username}
+            title={post.data.title}
+          />
+
+          <!-- <div class="printable"> -->
+          <!-- 	<p class="has-text-right"> -->
+          <!-- 		<a href="{{ page.url | absolute_url }}"> -->
+          <!-- 			{{ page.url | absolute_url }} -->
+          <!-- 		</a> -->
+          <!-- 	</p> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </main>
+</HtmlLayout>
