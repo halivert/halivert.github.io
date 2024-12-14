@@ -6,6 +6,7 @@ import tailwind from "@astrojs/tailwind"
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://halivert.dev',
   redirects: {
     "/blog": "/blog/1",
     "/en/blog": "/en/blog/1",
