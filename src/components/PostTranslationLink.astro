@@ -1,6 +1,7 @@
 ---
 import { getEntry } from "astro:content"
 import { getAbsoluteLocaleUrl } from "astro:i18n"
+import { getPostUrl } from "@/ts/functions"
 
 interface Props {
   translation: {
@@ -14,17 +15,6 @@ interface Props {
 
 const { translation } = Astro.props
 
-function getPostUrl(post: {
-  id: string
-  data: { date: Date }
-}): [string, string, string] {
-  const year = post.data.date.getFullYear().toString()
-  const month = (post.data.date.getMonth() + 1).toString().padStart(2, "0")
-  const slug = post.id.replace(/\d{4}-\d{2}-\d{2}-/, "")
-
-  return [year, month, slug]
-}
-
 const post = await getEntry(translation.post.collection, translation.post.id)
 ---
 
@@ -32,7 +22,10 @@ const post = await getEntry(translation.post.collection, translation.post.id)
   post && (
     <a
       class="capitalize"
-      href={getAbsoluteLocaleUrl(translation.short, getPostUrl(post).join("/"))}
+      href={getAbsoluteLocaleUrl(
+        translation.short,
+        "blog/" + getPostUrl(post).join("/"),
+      )}
     >
       {translation.short}
     </a>
