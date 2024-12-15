@@ -1,5 +1,5 @@
 ---
-import type { GetStaticPathsOptions } from "astro"
+import type { GetStaticPathsOptions, Page } from "astro"
 import { getCollection } from "astro:content"
 import { Image } from "astro:assets"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
@@ -15,12 +15,36 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(posts, { pageSize: 7 })
 }
 
+type Posts = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
+
+interface Props {
+  page: Page<Posts>
+  categories?: string[]
+}
+
 const authors = await getCollection("authors")
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const { page } = Astro.props
+const { page, categories } = Astro.props
+
+const categoriesSlug = Object.fromEntries(
+  (await getCollection("categories")).map((category) => [
+    category.id,
+    category.data.slug,
+  ]),
+)
+
+const allCategories = categories
+  ? categories
+  : [
+      ...new Set(
+        (await getCollection("posts", (post) => !post.id.includes("/")))
+          .map((post) => post.data.category)
+          .filter((category): category is string => !!category),
+      ),
+    ]
 ---
 
 <HtmlLayout title="Blog | Halivert">
@@ -48,17 +72,14 @@ const { page } = Astro.props
     </div>
     <aside class="text-center p-3 flex-1 basis-1/4">
       <h2 class="text-2xl mb-6">{t("Categorías")}</h2>
-      <div>
-        <!-- {%- for category in site.categories -%} -->
-        <!-- 	{%- assign categoryName = category[0] -%} -->
-        <!-- 	{%- -->
-        <!-- 		assign slug = site.data.categories[categoryName].slug -->
-        <!-- 			| prepend: '/blog/' -->
-        <!-- 	-%} -->
-        <!-- 	<a class="sidebar-item" href="{{ slug | locale_url }}" -->
-        <!-- 		>{{ categoryName | __ }}</a -->
-        <!-- 	> -->
-        <!-- {%- endfor -%} -->
+      <div class="flex flex-col gap-1">
+        {
+          allCategories.map((category) => {
+            const slug = categoriesSlug[category]
+            if (slug) return <a href={`/blog/${slug}`}>{category}</a>
+            return <></>
+          })
+        }
       </div>
     </aside>
   </div>

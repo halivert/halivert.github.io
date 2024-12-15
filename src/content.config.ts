@@ -58,4 +58,11 @@ const tags = defineCollection({
   loader: file("./src/content/tags.yml"),
 })
 
-export const collections = { authors, posts, tags }
+const categories = defineCollection({
+  loader: file('./src/content/categories.yml'),
+  schema: z.object({
+    slug: z.string(),
+  })
+})
+
+export const collections = { authors, posts, tags, categories }
