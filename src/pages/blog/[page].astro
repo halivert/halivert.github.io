@@ -7,15 +7,15 @@ import HtmlLayout from "@/layouts/html.astro"
 import PostExcerpt from "@/components/PostExcerpt.vue"
 import AppPaginator from "@/components/AppPaginator.astro"
 
-const authors = await getCollection("authors")
-
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
     await getCollection("posts", (post) => !post.id.includes("/"))
   ).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-  return paginate(posts, { pageSize: 3 })
+  return paginate(posts, { pageSize: 7 })
 }
+
+const authors = await getCollection("authors")
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)

@@ -1,13 +1,13 @@
 ---
 import type { GetStaticPaths } from "astro"
-import { getCollection, render } from "astro:content"
+import { getCollection, getEntry, render } from "astro:content"
+import { Image } from "astro:assets"
 import HtmlLayout from "@/layouts/html.astro"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { getEntry } from "astro:content"
 import { postReadableDate } from "@/ts/functions"
 import PostTag from "@/components/PostTag.vue"
 import PostReactions from "@/components/PostReactions.vue"
-import { Image } from "astro:assets"
+import PostTranslationLink from "@/components/PostTranslationLink.astro"
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("posts", (post) => !post.id.includes("/"))
@@ -101,23 +101,14 @@ function getTagClass(tag: string): string {
                 ))
               }
             </div>
-            <!-- {% if translations.size %} -->
-            <!-- 	<div class="column has-text-right"> -->
-            <!-- 		{%- for translation in translations -%} -->
-            <!-- 			{%- -->
-            <!-- 				assign defaultTitle = 'langs.' -->
-            <!-- 					| append: translation.short -->
-            <!-- 					| append: '.title' -->
-            <!-- 			-%} -->
-            <!-- 			{%- assign title = translation.label | default: defaultTitle -%} -->
-            <!-- 			<a -->
-            <!-- 				href="{% link {{ translation.post }} %}" -->
-            <!-- 				title="{{ title | __ }}"> -->
-            <!-- 				{{ 'langs.' | append: translation.short | append: '.short' | __ }} -->
-            <!-- 			</a>{%- unless forloop.last -%},{%- endunless -%} -->
-            <!-- 		{%- endfor -%} -->
-            <!-- 	</div> -->
-            <!-- {% endif %} -->
+
+            <div class="flex-1 text-right">
+              {
+                post.data.translations?.map((translation) => (
+                  <PostTranslationLink translation={translation} />
+                ))
+              }
+            </div>
           </div>
           <hr />
           <section id="content" class="content text-balance">

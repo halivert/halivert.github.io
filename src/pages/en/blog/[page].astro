@@ -1,8 +1,9 @@
 ---
+import type { GetStaticPathsOptions } from "astro"
 import { getCollection } from "astro:content"
 import BlogPage from "@/pages/blog/[page].astro"
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
     await getCollection(
       "posts",

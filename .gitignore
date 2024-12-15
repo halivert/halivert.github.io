@@ -27,3 +27,4 @@ assets/js/*.js
 assets/js/*.js.map
 .env
 .astro/*
+dist/
