@@ -1,6 +1,6 @@
 ---
 import { getEntry } from "astro:content"
-import { getRelativeLocaleUrl } from "astro:i18n"
+import { getAbsoluteLocaleUrl } from "astro:i18n"
 
 interface Props {
   translation: {
@@ -32,7 +32,7 @@ const post = await getEntry(translation.post.collection, translation.post.id)
   post && (
     <a
       class="capitalize"
-      href={getRelativeLocaleUrl(translation.short, getPostUrl(post).join("/"))}
+      href={getAbsoluteLocaleUrl(translation.short, getPostUrl(post).join("/"))}
     >
       {translation.short}
     </a>

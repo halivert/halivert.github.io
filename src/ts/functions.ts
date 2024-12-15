@@ -35,3 +35,14 @@ export function postReadableDate(lang: keyof typeof languages, date: Date) {
 
   return `${month} ${day}, ${year}`
 }
+
+export function getPostUrl(post: {
+  id: string
+  data: { date: Date }
+}): [string, string, string] {
+  const year = post.data.date.getFullYear().toString()
+  const month = (post.data.date.getMonth() + 1).toString().padStart(2, "0")
+  const slug = post.id.split(/\d{4}-\d{2}-\d{2}-/)[1]
+
+  return [year, month, slug]
+}
