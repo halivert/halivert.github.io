@@ -1,12 +1,12 @@
 ---
-import type { GetStaticPaths } from "astro"
+import type { GetStaticPaths, Page } from "astro"
 import { getCollection } from "astro:content"
 import HtmlLayout from "@/layouts/html.astro"
 import { getLangFromUrl } from "@/i18n/utils"
 import CategoriesBar from "@/components/CategoriesBar.astro"
 import PostsList from "@/components/PostsList.astro"
 
-export const getStaticPaths = (async () => {
+export const getStaticPaths = (async ({ paginate }) => {
 	const siteCategories = Object.fromEntries(
 		(await getCollection("categories")).map((category) => [
 			category.id,
@@ -22,29 +22,36 @@ export const getStaticPaths = (async () => {
 		),
 	]
 
-	return categories.map((category) => {
-		return {
-			params: { category: siteCategories[category].data.slug },
-			props: { category: siteCategories[category] },
-		}
-	})
+	const posts = await getCollection("posts", (post) => !post.id.includes("/"))
+
+	return categories.flatMap((category) =>
+		paginate(
+			posts.filter(
+				(post) => post.data.category === siteCategories[category].id,
+			),
+			{
+				params: { category: siteCategories[category].data.slug },
+				props: {
+					category: siteCategories[category],
+				},
+				pageSize: 1,
+			},
+		),
+	)
 }) satisfies GetStaticPaths
 
 type Category = Awaited<ReturnType<typeof getCollection<"categories">>>[number]
+type Post = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
 
 interface Props {
 	category: Category
 	categories?: string[]
+	page: Page<Post>
 }
 
-const { category, categories } = Astro.props
+const { category, categories, page } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
-
-const posts = await getCollection(
-	"posts",
-	(post) => !post.id.includes("/") && post.data.category === category.id,
-)
 
 const allCategories = categories
 	? categories
@@ -72,7 +79,7 @@ const allCategories = categories
 
 		<div class="flex">
 			<div class="flex-1 basis-3/4 pb-4">
-				<PostsList posts={posts} />
+				<PostsList posts={page.data} />
 			</div>
 			<div class="p-3 flex-1 basis-1/4">
 				<CategoriesBar categories={allCategories} />
