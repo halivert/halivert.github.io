@@ -10,6 +10,7 @@ export default defineConfig({
   redirects: {
     "/blog": "/blog/1",
     "/en/blog": "/en/blog/1",
+    "/blog/[category]": "/blog/[category]/1",
   },
   i18n: {
     locales: ["es", "en"],

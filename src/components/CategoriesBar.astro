@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { getRelativeLocaleUrl } from "astro:i18n"
 
 interface Props {
 	categories: string[]
@@ -24,7 +25,11 @@ const t = useTranslations(lang)
 	<div class="flex flex-col gap-1">
 		{
 			categories.map((category) => (
-				<a href={`/blog/${siteCategories[category]}`}>{category}</a>
+				<a
+					href={getRelativeLocaleUrl(lang, `/blog/${siteCategories[category]}`)}
+				>
+					{t(category)}
+				</a>
 			))
 		}
 	</div>

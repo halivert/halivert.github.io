@@ -5,14 +5,15 @@ import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 
 interface Props {
 	page: Page<any>
+	baseUrl?: string
+	length?: number
 }
 
-const { page } = Astro.props
+const { page, baseUrl = "/blog", length = 2 } = Astro.props
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
-const length = 2
 const prevPages = Array.from({ length }, (_x, i) => page.currentPage - i - 1)
 	.filter((pageNum) => pageNum > 1)
 	.toSorted()
@@ -36,7 +37,7 @@ const nextPages = Array.from({ length }, (_x, i) => page.currentPage + i + 1)
 				page.currentPage !== 1 && (
 					<a
 						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
-						href={getRelativeLocaleUrl(lang, `/blog/1`)}
+						href={getRelativeLocaleUrl(lang, page.url.first)}
 						aria-label={t("Ir a página :0", ["1"])}
 					>
 						1
@@ -54,7 +55,7 @@ const nextPages = Array.from({ length }, (_x, i) => page.currentPage + i + 1)
 				prevPages.map((pageNum) => (
 					<a
 						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
-						href={getRelativeLocaleUrl(lang, `/blog/${pageNum}`)}
+						href={getRelativeLocaleUrl(lang, `${baseUrl}/${pageNum}`)}
 						aria-label={t("Ir a página :0", [pageNum.toString()])}
 					>
 						{pageNum}
@@ -74,7 +75,7 @@ const nextPages = Array.from({ length }, (_x, i) => page.currentPage + i + 1)
 				nextPages.map((pageNum) => (
 					<a
 						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
-						href={getRelativeLocaleUrl(lang, `/blog/${pageNum}`)}
+						href={getRelativeLocaleUrl(lang, `${baseUrl}/${pageNum}`)}
 						aria-label={t("Ir a página :0", [pageNum.toString()])}
 					>
 						{pageNum}
@@ -92,7 +93,7 @@ const nextPages = Array.from({ length }, (_x, i) => page.currentPage + i + 1)
 				page.currentPage !== page.lastPage && (
 					<a
 						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
-						href={getRelativeLocaleUrl(lang, `/blog/${page.lastPage}`)}
+						href={getRelativeLocaleUrl(lang, page.url.last)}
 						aria-label={t("Ir a página :0", [page.lastPage.toString()])}
 					>
 						{page.lastPage}

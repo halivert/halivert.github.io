@@ -5,6 +5,7 @@ import HtmlLayout from "@/layouts/html.astro"
 import { getLangFromUrl } from "@/i18n/utils"
 import CategoriesBar from "@/components/CategoriesBar.astro"
 import PostsList from "@/components/PostsList.astro"
+import AppPaginator from "@/components/AppPaginator.astro"
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const siteCategories = Object.fromEntries(
@@ -14,15 +15,22 @@ export const getStaticPaths = (async ({ paginate }) => {
 		]),
 	)
 
+	const postCollection = await getCollection(
+		"posts",
+		(post) => !post.id.includes("/"),
+	)
+
 	const categories = [
 		...new Set(
-			(await getCollection("posts", (post) => !post.id.includes("/")))
+			postCollection
 				.map((post) => post.data.category)
 				.filter((category): category is string => !!category),
 		),
 	]
 
-	const posts = await getCollection("posts", (post) => !post.id.includes("/"))
+	const posts = postCollection.toSorted(
+		(a, b) => b.data.date.getTime() - a.data.date.getTime(),
+	)
 
 	return categories.flatMap((category) =>
 		paginate(
@@ -31,10 +39,8 @@ export const getStaticPaths = (async ({ paginate }) => {
 			),
 			{
 				params: { category: siteCategories[category].data.slug },
-				props: {
-					category: siteCategories[category],
-				},
-				pageSize: 1,
+				props: { category: siteCategories[category] },
+				pageSize: 7,
 			},
 		),
 	)
@@ -80,6 +86,12 @@ const allCategories = categories
 		<div class="flex">
 			<div class="flex-1 basis-3/4 pb-4">
 				<PostsList posts={page.data} />
+
+				{
+					page.lastPage > 1 && (
+						<AppPaginator baseUrl={`/blog/${category.data.slug}`} page={page} />
+					)
+				}
 			</div>
 			<div class="p-3 flex-1 basis-1/4">
 				<CategoriesBar categories={allCategories} />

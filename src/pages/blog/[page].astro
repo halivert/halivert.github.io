@@ -42,7 +42,7 @@ const allCategories = categories
       </main>
 
       <div class="max-w-prose mx-auto pb-4">
-        {page.total > 1 && <AppPaginator page={page} />}
+        {page.lastPage > 1 && <AppPaginator page={page} />}
       </div>
     </div>
     <div class="p-3 flex-1 basis-1/4">
