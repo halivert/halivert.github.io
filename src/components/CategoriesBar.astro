@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+interface Props {
+	categories: string[]
+}
+
+const siteCategories = Object.fromEntries(
+	(await getCollection("categories")).map((category) => [
+		category.id,
+		category.data.slug,
+	]),
+)
+
+const { categories } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<aside class="text-center">
+	<h2 class="text-2xl mb-6">{t("Categorías")}</h2>
+	<div class="flex flex-col gap-1">
+		{
+			categories.map((category) => (
+				<a href={`/blog/${siteCategories[category]}`}>{category}</a>
+			))
+		}
+	</div>
+</aside>

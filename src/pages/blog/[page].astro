@@ -1,11 +1,10 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro"
 import { getCollection } from "astro:content"
-import { Image } from "astro:assets"
-import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import HtmlLayout from "@/layouts/html.astro"
-import PostExcerpt from "@/components/PostExcerpt.vue"
 import AppPaginator from "@/components/AppPaginator.astro"
+import CategoriesBar from "@/components/CategoriesBar.astro"
+import PostsList from "@/components/PostsList.astro"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
@@ -22,19 +21,7 @@ interface Props {
   categories?: string[]
 }
 
-const authors = await getCollection("authors")
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-
 const { page, categories } = Astro.props
-
-const categoriesSlug = Object.fromEntries(
-  (await getCollection("categories")).map((category) => [
-    category.id,
-    category.data.slug,
-  ]),
-)
 
 const allCategories = categories
   ? categories
@@ -51,36 +38,15 @@ const allCategories = categories
   <div class="flex flex-col lg:flex-row">
     <div class="flex-1 basis-3/4 pb-4">
       <main class="max-w-prose mx-auto pb-4">
-        {
-          page.data.map((post) => (
-            <PostExcerpt
-              post={post}
-              author={authors.find(({ id }) => id === post.data.author.id)}
-              url={Astro.url}
-            >
-              {post.data.image && (
-                <Image src={post.data.image} alt={post.data.imageAlt ?? ""} />
-              )}
-            </PostExcerpt>
-          ))
-        }
+        <PostsList posts={page.data} />
       </main>
 
       <div class="max-w-prose mx-auto pb-4">
         {page.total > 1 && <AppPaginator page={page} />}
       </div>
     </div>
-    <aside class="text-center p-3 flex-1 basis-1/4">
-      <h2 class="text-2xl mb-6">{t("Categorías")}</h2>
-      <div class="flex flex-col gap-1">
-        {
-          allCategories.map((category) => {
-            const slug = categoriesSlug[category]
-            if (slug) return <a href={`/blog/${slug}`}>{category}</a>
-            return <></>
-          })
-        }
-      </div>
-    </aside>
+    <div class="p-3 flex-1 basis-1/4">
+      <CategoriesBar categories={allCategories} />
+    </div>
   </div>
 </HtmlLayout>

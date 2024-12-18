@@ -1,0 +1,82 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+import HtmlLayout from "@/layouts/html.astro"
+import { getLangFromUrl } from "@/i18n/utils"
+import CategoriesBar from "@/components/CategoriesBar.astro"
+import PostsList from "@/components/PostsList.astro"
+
+export const getStaticPaths = (async () => {
+	const siteCategories = Object.fromEntries(
+		(await getCollection("categories")).map((category) => [
+			category.id,
+			category,
+		]),
+	)
+
+	const categories = [
+		...new Set(
+			(await getCollection("posts", (post) => !post.id.includes("/")))
+				.map((post) => post.data.category)
+				.filter((category): category is string => !!category),
+		),
+	]
+
+	return categories.map((category) => {
+		return {
+			params: { category: siteCategories[category].data.slug },
+			props: { category: siteCategories[category] },
+		}
+	})
+}) satisfies GetStaticPaths
+
+type Category = Awaited<ReturnType<typeof getCollection<"categories">>>[number]
+
+interface Props {
+	category: Category
+	categories?: string[]
+}
+
+const { category, categories } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+
+const posts = await getCollection(
+	"posts",
+	(post) => !post.id.includes("/") && post.data.category === category.id,
+)
+
+const allCategories = categories
+	? categories
+	: [
+			...new Set(
+				(await getCollection("posts", (post) => !post.id.includes("/")))
+					.map((post) => post.data.category)
+					.filter((category): category is string => !!category),
+			),
+		]
+---
+
+<HtmlLayout>
+	<main>
+		<div class="py-3 lg:px-10 px-3">
+			<div
+				class="bg-background-400/60 lg:border-t-2 lg:border-l-2 lg:border-b-0 lg:border-r-0 border-b-2 border-r-2 border-primary-500 rounded-tl-3xl rounded-br-3xl py-3 px-8"
+			>
+				<h2 class="text-3xl mb-2 font-title font-semibold">{category.id}</h2>
+				<div class="text-xl">
+					{category.data.description[lang]}
+				</div>
+			</div>
+		</div>
+
+		<div class="flex">
+			<div class="flex-1 basis-3/4 pb-4">
+				<PostsList posts={posts} />
+			</div>
+			<div class="p-3 flex-1 basis-1/4">
+				<CategoriesBar categories={allCategories} />
+			</div>
+		</div>
+	</main>
+</HtmlLayout>

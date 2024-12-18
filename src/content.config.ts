@@ -1,5 +1,6 @@
 import { defineCollection, reference, z } from "astro:content"
 import { glob, file } from "astro/loaders"
+import { languages } from "./i18n/ui"
 
 const authors = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/authors" }),
@@ -59,10 +60,15 @@ const tags = defineCollection({
 })
 
 const categories = defineCollection({
-  loader: file('./src/content/categories.yml'),
+  loader: file("./src/content/categories.yml"),
   schema: z.object({
     slug: z.string(),
-  })
+    description: z.object(
+      Object.fromEntries(
+        Object.keys(languages).map((lang) => [lang, z.string().optional()]),
+      ),
+    ),
+  }),
 })
 
 export const collections = { authors, posts, tags, categories }

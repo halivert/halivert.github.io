@@ -1,0 +1,29 @@
+---
+import { getCollection } from "astro:content"
+import PostExcerpt from "@/components/PostExcerpt.vue"
+import { Image } from "astro:assets"
+
+type Post = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
+
+interface Props {
+	posts: Array<Post>
+}
+
+const { posts } = Astro.props
+
+const authors = await getCollection("authors")
+---
+
+{
+	posts.map((post) => (
+		<PostExcerpt
+			post={post}
+			author={authors.find(({ id }) => id === post.data.author.id)}
+			url={Astro.url}
+		>
+			{post.data.image && (
+				<Image src={post.data.image} alt={post.data.imageAlt ?? ""} />
+			)}
+		</PostExcerpt>
+	))
+}

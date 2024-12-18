@@ -1,20 +1,55 @@
 Ya me pasó:
   slug: i-were-there
+  description:
+    es: >-
+      Esta categoría intenta ayudar a las personas que pasan por problemas,
+      que yo ya pasé, mostrandoles mi manera de resolverlos.
+    en: Things that I've learned on my path to become a great developer.
 
 Divagando:
   slug: rambling
+  description:
+    es: >-
+      Esta categoría es dónde escribo todo lo que se me ocurre cuando estoy en
+      cualquier lugar.
+    en: In this place I wrote everything what I can think of in any place.
 
 ¡Código!:
   slug: code
+  description:
+    es: >-
+      Aquí comparto snippets de código que me ha servido, también intento
+      explicarlo... pero no esperen mucho de eso.
+    en: Code snippets... hope they works.
 
 Novedades:
   slug: news
+  description:
+    es: Enterate de las noticias más recientes relacionadas con... lo que sea.
+    en: These are the most news of... anything.
 
 Matemáticas:
   slug: maths
+  description:
+    es: >-
+      Me encantan las matemáticas, con estos artículos espero poder compartir
+      un poco de ese entusiasmo.
+    en: I love math, with this posts I want to share a little of that love.
 
 MySpace:
   slug: myspace
+  description:
+    es: >-
+      Un lugar para compartir cómo estructuro mi entorno, principalmente de
+      trabajo, pero también para el ocio.
+    en: How it's my workspace, and stuff.
 
 Aprendiendo en público:
   slug: learning-in-public
+  description:
+    es: >-
+      Este espacio sirve para hacer algunos proyectos que me servirán para
+      aprender algunas cosas y enseñar algunas otras.
+    en: >-
+      This space is used to do some projects that will help me to learn some
+      things and teach some others.
