@@ -79,12 +79,12 @@ function itemIsActive(href: string, exact?: boolean) {
         v-if="showLangButtons"
         class="text-sm flex justify-center flex-wrap px-2 gap-1 lg:my-1 capitalize"
       >
-        <li v-for="(, path) in languages" :key="path">
+        <li v-for="(lang) in languages" :key="lang">
           <a
-            :href="path === defaultLang ? '/' : `/${path}/`"
+            :href="lang === defaultLang ? '/' : `/${lang}/`"
             class="block px-3 py-2 rounded-full"
           >
-            {{ path }}
+            {{ lang }}
           </a>
         </li>
       </ul>

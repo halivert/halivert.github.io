@@ -1,3 +1,0 @@
-{%- assign arr = include.file | split: "." -%}
-{%- assign len = arr | size | minus: 1 -%}
-{{ arr | slice: 0 len | join: "." }}

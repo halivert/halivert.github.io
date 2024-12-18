@@ -22,7 +22,7 @@ export function urlBuilder(
   return result
 }
 
-export function postReadableDate(lang: keyof typeof languages, date: Date) {
+export function postReadableDate(lang: typeof languages[number], date: Date) {
   const dateParts = new Intl.DateTimeFormat(lang, {
     month: "long",
     day: "2-digit",

@@ -65,10 +65,28 @@ const categories = defineCollection({
     slug: z.string(),
     description: z.object(
       Object.fromEntries(
-        Object.keys(languages).map((lang) => [lang, z.string().optional()]),
+        languages.map((lang) => [lang, z.string().optional()]),
       ),
     ),
   }),
 })
 
-export const collections = { authors, posts, tags, categories }
+const projects = defineCollection({
+  loader: file("./src/content/projects.yml"),
+  schema: ({ image }) =>
+    z.object({
+      image: image(),
+      repo: z.string(),
+      live: z.string(),
+      translations: z.record(
+        z.enum(languages),
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          imageAlt: z.string().optional(),
+        }),
+      ),
+    }),
+})
+
+export const collections = { authors, posts, tags, categories, projects }

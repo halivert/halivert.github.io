@@ -1,0 +1,73 @@
+bookmark-landing-page:
+  image: "https://raw.githubusercontent.com/halivert/bookmark-landing-page/main/screenshot.png"
+  repo: "https://github.com/halivert/bookmark-landing-page"
+  live: "https://halivert.dev/bookmark-landing-page"
+  translations:
+    es:
+      title: "Landing page de extensión de marcadores"
+      imageAlt: "Screenshot de aplicación"
+      description: "Landing page completa hecha con Vue.js 3."
+    en:
+      title: "Bookmark extension landing page"
+      imageAlt: "App screenshot"
+      description: "Full landing page made in Vue.js 3."
+
+rock-paper-scissors:
+  repo: "https://github.com/halivert/rock-paper-scissors"
+  live: "https://halivert.dev/rock-paper-scissors"
+  image: "https://user-images.githubusercontent.com/16197249/249261115-306d2ae1-12c4-44fe-a31f-50770cad541d.png"
+  translations:
+    es:
+      title: "Piedra, Papel o Tijeras"
+      description: "Juego de piedra papel o tijeras... con un extra"
+    en: 
+      title: "Rock, Paper, Scissors"
+      description: "Rock, paper, scissors game... with a bonus"
+
+tip-calculator-app:
+  image: "https://raw.githubusercontent.com/halivert/tip-calculator-app/main/images/screenshot-desktop.png"
+  repo: "https://github.com/halivert/tip-calculator-app"
+  live: "https://halivert.dev/tip-calculator-app"
+  translations:
+    es:
+      title: "Calculadora de propinas"
+      imageAlt: "Screenshot de aplicación"
+      description: "Divide el total de una cuenta entre el número de comensales."
+    en:
+      title: "Tip calculator"
+      imageAlt: "App screenshot"
+      description: "Divide the total of a bill in the number of people."
+
+intro-component-with-sign-up-form:
+  repo: "https://github.com/halivert/intro-component-with-sign-up-form"
+  live: "https://halivert.dev/intro-component-with-sign-up-form"
+  image: "https://raw.githubusercontent.com/halivert/intro-component-with-sign-up-form/main/images/screenshot-desktop.png"
+  translations:
+    es:
+      title: "Formulario de contacto"
+      description: "Formulario con validaciones. Hecho con CSS, y JavaScript."
+    en:
+      title: "Contact form"
+      description: "Form with validation. Made with CSS and JavaScript"
+
+# avl-tree:
+#   repo: "https://github.com/halivert/avl-tree"
+#   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/avl-tree.webp"
+#   translations:
+#     es:
+#       title: "Árbol AVL"
+#       description: "Implementación en C++ de Árbol Binario de Búsqueda (ABB) auto-balanceado."
+#     en:
+#       title: "AVL tree"
+#       description: "Implementation of a self-balancing binary tree."
+#
+# laravel-js-routes:
+#   repo: "https://github.com/halivert/laravel-js-routes"
+#   image: "https://raw.githubusercontent.com/halivert/halivert.github.io/main/assets/img/projects/laravel-js-routes.webp"
+#   translations:
+#     es:
+#       title: "Rutas de Laravel en JS"
+#       description: "Paquete composer para utilizar rutas de Laravel en archivos JS."
+#     en:
+#       title: "Laravel routes in JS"
+#       description: "Composer package to use Laravel routes on JS with a command."
