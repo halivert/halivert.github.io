@@ -17,7 +17,7 @@ alojar una aplicación web escrita en Python.
 - [Python][1] (Usé Python 3.7)
 - [Apache][2] (Usé Apache Lounge 2.4)
 <a class="anchor" name="Nota1Up"></a>
-- [Microsoft Visual C++][3] [*]({{ page.url | absolute_url }}#Nota1)
+- [Microsoft Visual C++][3] [*](#Nota1)
 
 <!-- Seguir leyendo -->
 
@@ -48,18 +48,18 @@ y otra que indica la ruta de PythonHome, ignoraremos esa por ahora.
 Proseguimos a editar la configuración del servidor de Apache `httpd.conf` donde
 agregaremos la línea para cargar el módulo y las siguientes que sirven para la
 configuración del módulo WSGI:
-```
+```powershell
 WSGIScriptAlias [Punto de montaje] "c:/ruta/al/proyecto/archivo.wsgi"
 WSGISPythonPath "c:/ruta/al/proyecto/env/lib/site-packages;c:/ruta/al/proyecto"
 ```
-\\
+
 Ahora bien, si necesitas usar el encabezado `Authorization` en tu aplicación
 porque quizás utilices JWT authentication, entonces tienes que cambiar la opción
 de pasar la autorización a las aplicaciones WSGI, con una línea más:
-```
+```powershell
 WSGIPassAuthorization On
 ```
-\\
+
 Antes de terminar, debemos copiar un archivo: `activate_this.py` a nuestro
 directorio `env\bin`, lo podemos conseguir [aquí][7]. Esto servirá para activar
 nuestro entorno virtual, ahora, agregamos lo siguiente a nuestro archivo WSGI.
@@ -74,13 +74,13 @@ sys.path.insert(0, "c:/ruta/al/proyecto")
 
 from [Nombre del archivo] import [Nombre de la app] as application
 ```
-\\
+
 Quedó listo el entorno para una API RESTful, construiremos eso en la siguiente
 publicación.
 
 ### Notas
 <a class="anchor" name="Nota1"></a>
-[*]({{ page.url | absolute_url }}#Nota1Up) Necesitas instalar el Visual C++ con
+[*](#Nota1Up) Necesitas instalar el Visual C++ con
 el que esté compilado el servidor de Apache que utilizarás. Si utilizas, por
 ejemplo, Apache Lounge httpd-2.4.38-win64-**VC15**.zip, necesitas el Visual C++
 15, que puedes encontrar en la página [versiones anteriores][6], en el apartado

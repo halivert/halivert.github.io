@@ -19,7 +19,7 @@ cotidiana te cuesta menos trabajo cada vez.
 Pues hoy te propongo que para aprender números binarios intentes leer la hora
 de una forma... diferente, con un **reloj binario**.
 
-<article>
+<article class="mb-4">
 
 ![Reloj binario que marca las 23:53:49](../../assets/img/2019-06-binary-clock/binary-clock.png)
 
@@ -45,7 +45,7 @@ representan una potencia de 2 (e.g. si la casilla 3 está marcada, es 2³ o sea
 Ahora vienen las diferencias.
 
 ### Binario
-<article>
+<article class="mb-4">
 
 ![Reloj binario que marca las 23:53:49](../../assets/img/2019-06-binary-clock/binary-clock.png)
 
@@ -53,7 +53,7 @@ Ahora vienen las diferencias.
 
 Se ve como el de aquí arriba, y el primer número (la primer potencia de dos)
 es el cuadrito de hasta abajo en la segunda columna de cada bloque...
-<article class="flex is-printable">
+<article class="flex is-printable mb-4">
   <div class="flex-1">
 
 ![Las 23 horas en un reloj binario](../../assets/img/2019-06-binary-clock/binary-clock-hr.png)
@@ -67,7 +67,7 @@ es el cuadrito de hasta abajo en la segunda columna de cada bloque...
 Este reloj marca las 23 horas: 2⁰ + 2¹ + 2² + 2⁴ = 23.
 
 Análogamente con los minutos y segundos.
-<article class="flex is-printable">
+<article class="flex is-printable mb-4">
   <div class="flex-1">
 
 ![53 minutos en un reloj binario](../../assets/img/2019-06-binary-clock/binary-clock-min.png)
@@ -83,7 +83,7 @@ Análogamente con los minutos y segundos.
 En resumen, este reloj dice que son las: **23:53:49**.
 
 ### BCD
-<article>
+<article class="mb-4">
 
 ![Reloj binario BCD que marca las 00:23:21](../../assets/img/2019-06-binary-clock/binary-clock-bcd.png)
 
@@ -93,7 +93,7 @@ Mencionabamos que son muy similares, salvo que en este formato, cada columna
 equivale a un digito. Así, la primer columna equivale a las décimas de las
 horas, la segunda a sus unidades, la tercera, decimas de los minutos, y así
 sucesivamente.
-<article class="flex is-printable">
+<article class="flex is-printable mb-4">
   <div class="flex-1">
 
 ![0 horas en un reloj binario BCD](../../assets/img/2019-06-binary-clock/binary-clock-bcd-hr.png)
@@ -104,7 +104,7 @@ sucesivamente.
   </p>
 </article>
 
-<article class="flex is-printable">
+<article class="flex is-printable mb-4">
   <div class="flex-1">
 
 ![23 minutos en un reloj binario BCD](../../assets/img/2019-06-binary-clock/binary-clock-bcd-min.png)
@@ -122,7 +122,7 @@ En conjunto, este reloj marca las: **00:23:21**.
 Te dejo otras capturas de relojes binarios para que practiques.
 
 #### Práctica binario
-<div class="flex flex-wrap is-printable gap-3">
+<div class="flex flex-wrap is-printable gap-3 mb-4">
   <div class="flex-1">
 
 ![Ejercicio de reloj binario](../../assets/img/2019-06-binary-clock/20190617-bin-1.png)
@@ -146,7 +146,7 @@ Te dejo otras capturas de relojes binarios para que practiques.
 </div>
 
 #### Práctica BCD
-<div class="flex is-printable flex-wrap gap-3">
+<div class="flex is-printable flex-wrap gap-3 mb-4">
   <div class="flex-1">
 
 ![Ejercicio de reloj binario BCD](../../assets/img/2019-06-binary-clock/20190617-bcd-1.png)

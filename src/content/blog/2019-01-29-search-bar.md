@@ -39,7 +39,7 @@ extensión html, ya que necesitamos que procese los objetos, tags y filtros de
 liquid).
 ```html
 <script>
-  {% raw %}window.store = {
+  window.store = {
     // ...
     // Iteramos a través de los artículos y los agregamos a un objeto
     // window.store.
@@ -72,10 +72,10 @@ liquid).
         'content': window.store[key].content,
       });
     }
-  });{% endraw %}
+  });
 </script>
 ```
-\\
+
 Aquí tenemos el archivo [`search.js`][6] que es el encargado de procesar y
 mostrar los datos. Se compone de dos funciones principales:
 - getQueryVariable (Con esta función obtenemos el término a buscar, se nos
@@ -111,7 +111,7 @@ function displaySearchResults(results, store) {
     }
   }
 ```
-\\
+
 Ya sólo queda probar si funciona, pero bueno... Esa es una tarea para ti.
 
 [1]: https://lunrjs.com

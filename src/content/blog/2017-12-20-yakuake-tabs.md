@@ -14,7 +14,7 @@ cada vez que se inicia una nueva instancia de Yakuake.
 
 <!-- Seguir leyendo -->
 
-```console
+```shell
 _Tx="$(basename "/"$(ps -f -p $(cat /proc/$(echo $$)/stat | cut -d \  -f 4) | tail -1 | sed 's/^.* //'))"
 if [ $_Tx = "yakuake" ]; then
   alias cd=changeDir;

@@ -23,11 +23,6 @@ Espero que esta serie, que planeo salga cada jueves, sea de utilidad.
 
 ## Índice
 
-{:.no_toc}
-
-* toc
-{:toc}
-
 ## Arquitectura
 
 Comenzaremos dando paso a algunas decisiones importantes de arquitectura,
@@ -206,9 +201,12 @@ Laravel utiliza migraciones para actualizar la base de datos, actualizaremos la
 migración de la tabla de `users` y después el modelo `User` y la fábrica
 `UserFactory` (que nos servirá para pruebas automáticas).
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/419fb1e1d145aa929445a410dcec572cb7c7a86c?diff=split){:.button.is-normal.is-primary}
-{:.has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/419fb1e1d145aa929445a410dcec572cb7c7a86c?diff=split)
+
+</div>
 
 Después tenemos que crear una enumeración para controlar las subscripciones y
 hacemos uso del [Enum
@@ -220,9 +218,12 @@ serán registrados con la subscripción gratuita.
 
 También actualizamos los datos en la fábrica `UserFactory`.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3055ebdd74f423cb70689469d5c8b6ba964ea5d3?diff=split)
+
+</div>
 
 #### Tarjetas de crédito
 
@@ -280,9 +281,12 @@ Actualizamos el modelo, la fábrica, las políticas (para los permisos y demás)
 agregamos algunas cosas al controlador y a las solicitudes, de creación y de
 actualización, también actualizamos la migración para la tabla.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/016ee4bfd7f2a5ed67545d0e6d482148d285b2da?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/016ee4bfd7f2a5ed67545d0e6d482148d285b2da?diff=unified)
+
+</div>
 
 #### Transacciones
 
@@ -294,9 +298,12 @@ crédito](#tarjetas-de-crédito-1)
 sail artisan make:model Transaction -a --test
 ```
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3bc2174ddc8b8a95c0de9c81d374ce725d3852c0?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/3bc2174ddc8b8a95c0de9c81d374ce725d3852c0?diff=unified)
+
+</div>
 
 ### Fortify
 
@@ -316,9 +323,12 @@ Actualizamos las opciones que queremos utilizar para Fortify en el archivo
 Añadimos las opciones de 2FA a la migración de usuarios (por eso todavía no
 ejecutamos las migraciones) y estamos listos para agregar el siguiente paquete.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/b3a21ffc34694c3ffa7b47372371881043bdf43a?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/b3a21ffc34694c3ffa7b47372371881043bdf43a?diff=unified)
+
+</div>
 
 ### Sanctum
 
@@ -328,9 +338,12 @@ API.
 
 Agregamos el middleware necesario en `app/Http/Kernel.php`
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/87c4cbf64df35cb589c755c62325e20c105a1f4b?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/87c4cbf64df35cb589c755c62325e20c105a1f4b?diff=unified)
+
+</div>
 
 Ahora sí estamos listos para comenzar con el desarrollo de nuestra aplicación.
 

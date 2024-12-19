@@ -1,8 +1,7 @@
 import { defineConfig } from "astro/config"
-
 import vue from "@astrojs/vue"
-
 import tailwind from "@astrojs/tailwind"
+import remarkToc from "remark-toc"
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,6 +18,9 @@ export default defineConfig({
     defaultLocale: "es",
   },
   markdown: {
+    remarkPlugins: [
+      [remarkToc, { heading: 'Índice|Index', maxDepth: 4 }]
+    ],
     shikiConfig: {
       themes: {
         light: "vitesse-light",

@@ -47,8 +47,7 @@ pequeños cambios que aunque no hayas querido, sucedieron. Pasará al menos un
 tiempo antes de que te adaptes de nuevo a tu casa, y seguramente vas a recordar
 los momentos bonitos que viviste, quizá lejos de sentirte feliz por regresar, te
 sientas triste por haberte ido de allí, en fin, que es todo un proceso y justo
-[aquí][3] encontré una analogía muy
-interesante de esto:
+en un sitio que ya no existe, encontré una analogía muy interesante de esto:
 
 > El proceso de readaptación es como meter tu mano a una pecera. Metes la mano
 > con fuerza y el agua se abre, todo se mueve y los peces que están dentro no

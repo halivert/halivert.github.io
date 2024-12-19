@@ -13,10 +13,6 @@ revisaremos que opciones nos dan para validar datos.
 <!-- Seguir leyendo -->
 
 ## Índice
-{: .no_toc}
-
-* toc
-{:toc}
 
 ## _Form requests_
 
@@ -51,30 +47,35 @@ El único campo opcional o _nullable_ es la tasa de interés, a los demás les
 agregamos otras reglas, como que son requeridos:
 
 **Nombre**
+
 - Requerido
 - Cadena de texto
 - Máximo 255 caracteres
 
 **Fecha límite de pago**
+
 - Requerido
 - Entero
 - La fecha límite de pago representa un día en el mes corriente, en el que debes
-    terminar de pagar tu deuda, o sea que no tiene sentido que sean negativos y
-    seguramente no habrá días mayores a 28 porque pues ✨ febrero ✨
+  terminar de pagar tu deuda, o sea que no tiene sentido que sean negativos y
+  seguramente no habrá días mayores a 28 porque pues ✨ febrero ✨
 
 **Fecha de corte**
+
 - Requerido
 - Entero
 - Similar a la fecha de corte, en el sentido que la acotaremos de 1 a 28
 
 **Tasa de interés**
+
 - No requerido
 - Decimal, puede tener de 0 a 2 decimales
 - Este porcentaje debería ser mayor a 0 y menor a 200, ya que si tu tarjeta
-    tiene más de 200% como tasa de interés... bueno quizá después tengamos que
-    cambiar esto
+  tiene más de 200% como tasa de interés... bueno quizá después tengamos que
+  cambiar esto
 
 **Límite de crédito**
+
 - Requerido, para poder saber cuanto tienes disponible en cualquier momento
 - Decimal, puede tener de 0 a 4 decimales
 - Debe ser mayor a 0 (espero que no tengas un límite de crédito negativo 😬)
@@ -92,9 +93,12 @@ lenguajes soportados y nos lo indica así, podamos responder de forma clara.
 En resumen el código para la solicitud de almacenamiento de una tarjeta de
 crédito queda así... (Ya teníamos algunas reglas escritas)
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/blob/0c5fc658c12c5fd77abeec0907a3153fd1db2281/app/API/CreditCard/v1/StoreCreditCardRequest.php){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/blob/0c5fc658c12c5fd77abeec0907a3153fd1db2281/app/API/CreditCard/v1/StoreCreditCardRequest.php)
+
+</div>
 
 ### Actualizar
 
@@ -120,9 +124,12 @@ nosotros estamos usando _camel case_.
 
 Al final, el código queda algo así:
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/32ffcf76faab900cca2441bb3169f1a48775dced?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/32ffcf76faab900cca2441bb3169f1a48775dced?diff=unified)
+
+</div>
 
 ## Pruebas con Postman
 

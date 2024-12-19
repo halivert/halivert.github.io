@@ -19,7 +19,7 @@ para resolver algunos problemas, gracias al club que les mencionaba, sé el
 código para resolver una matriz con [Gauss-Jordan][1].
 
 Es mucho código para analizar pero les dejo el repositorio para que lo puedan
-ver, y cualquier duda pueden ponerse en contacto conmigo.
+ver.
 
 [Matrices][2]
 

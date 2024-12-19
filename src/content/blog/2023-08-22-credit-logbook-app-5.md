@@ -20,10 +20,6 @@ tarjeta al usuario.
 <!-- Seguir leyendo -->
 
 ## Índice
-{:.no_toc}
-
-* toc
-{:toc}
 
 # Tarjeta de crédito
 
@@ -42,8 +38,11 @@ public function show(CreditCard $creditCard): JsonResponse
 }
 ```
 
-[**Ver código** &nbsp;(GitHub)][commit-1]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-1]
+
+</div>
 
 ## `PUT`
 
@@ -55,8 +54,11 @@ función, seguido por la tarjeta (debemos dejar este segundo parámetro ya que
 Laravel lo utiliza para la autorización, y el _form request_ lo necesita también
 para hacer algunas validaciones).
 
-[**Ver código** &nbsp;(GitHub)][commit-2]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-2]
+
+</div>
 
 Cómo ves, actualizar una tarjeta es sencillo ya que se tienen los _form
 requests_. Ahora bien, es necesario que tengamos en cuenta que las validaciones
@@ -89,8 +91,11 @@ Para ello (y por ahora), vamos a eliminar los datos de la tarjeta.
 
 Nuestra respuesta será un 204, pues no tendrá contenido.
 
-[**Ver código** &nbsp;(GitHub)][commit-3]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-3]
+
+</div>
 
 ## Fin del _CRUD_
 

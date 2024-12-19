@@ -15,15 +15,7 @@ Sin embargo es una tarea escencial en el ámbito de la programación.
 
 ## Índice
 
-- [Inicio](#start)
-- [Tips 'n tricks](#tips-n-tricks)
-  - [Filtros](#filters)
-    - [Dominio específico](#specific-domain)
-    - [Excluir términos](#exclude-terms)
-  - [Imágenes](#images)
-- [Lectura adicional](#further-reading)
-
-<h2 id="start">Inicio</h2>
+## Inicio
 
 Desafortunadamente para mi blog, recomendaré buscar las cosas en inglés, ya que
 generalmente encuentro información más actual y de mejor calidad que en español.
@@ -55,11 +47,11 @@ y otra vez en foros de ayuda (Busca primero, ¿recuerdas?
 
 Pero, que pasa si quieres mejorar la eficacia con la que buscas.
 
-<h2 id="tips-n-tricks">Tips 'n tricks</h2>
+## Tips 'n tricks
 
-<h3 id="filters">Filtros</h3>
+### Filtros
 
-<h4 id="specific-domain">Dominio específico</h4>
+#### Dominio específico
 
 Utiliza `site:dominio.com` para acotar los resultados a un dominio en
 específico. e.g.<br />
@@ -67,14 +59,14 @@ específico. e.g.<br />
 _«how to center a div site:developer.mozilla.org»_<br />
 _«git fatal error ... site:stackoverflow.com»_
 
-<h4 id="exclude-terms">Excluir términos</h4>
+#### Excluir términos
 
 Utiliza `-` frente a la palabra que desees excluir en tu búsqueda e.g.<br />
 
 _«snake python -animal»_<br />
 _«best programming languages -java»_ 😎
 
-<h3 id="images">Imágenes</h3>
+### Imágenes
 
 La búsqueda _por_ imagenes es bastante útil también, con ella puedes encontrar
 imágenes similares, sitios web donde está la imagen (o una similar) e incluso
@@ -88,7 +80,7 @@ varios dolores de cabeza y perdida de tiempo.
 Espero que esto te haya servido, puedes encontrar más información en las
 siguientes fuentes:
 
-<h3 id="further-reading">Lectura adicional</h3>
+### Lectura adicional
 
 <https://dev.to/denicmarko/google-like-a-pro-5cf6>
 

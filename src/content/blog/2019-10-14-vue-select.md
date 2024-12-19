@@ -7,12 +7,14 @@ tags: ["Vue.js", "Select"]
 title: "Select en Vue.js"
 ---
 
-<div class="notification is-yellow" markdown="1">
+<div class="notification">
+
 Este artículo fue escrito hace más de un año; en la actualidad
 utilizo la biblioteca [Buefy](https://buefy.org/), que resulta más práctica y
 mejor implementada, sugiero utilizar dicha biblioteca con una capa de
 personalización, que no tiene que ser tan extrema como la planteada en este
-artículo y de la que escribiré pronto.
+artículo.
+
 </div>
 
 Si utilizas [Vue.js][1] seguramente sabrás que hacer componentes genéricos es
@@ -33,9 +35,7 @@ especificos del framework [Bulma][3].
 Creamos un componente para «envolver» el select. `HField` que solo contiene
 información para el usuario.
 
-{% if jekyll.environment == "production" %}
-  {% gist b7d9ba492e87836298e1b03fbf41f26f %}
-{% endif %}
+<script src="https://gist.github.com/halivert/b7d9ba492e87836298e1b03fbf41f26f.js"></script>
 
 Y ahora pasamos al select:
 
@@ -97,9 +97,7 @@ Tenemos una opción deshabilitada en donde colocaremos más información para el
 usuario, que además se elige por defecto.
 
 ```html
-<option :value="placeholderValue" disabled>
-  {%raw%}{{ placeholder }}{%endraw%}
-</option>
+<option :value="placeholderValue" disabled>{{ placeholder }}</option>
 ```
 
 Y después agregamos todas las opciones que queremos que contenga nuestro
@@ -111,7 +109,7 @@ select.
   :value="element[idProperty]"
   :key="element[idProperty]"
 >
-  {%raw%}{{ element[displayProperty] }}{%endraw%}
+  {{ element[displayProperty] }}
 </option>
 ```
 
@@ -269,12 +267,9 @@ Sin más aquí está el código del componente, queda mucho trabajo por hacer,
 pero sin duda simplifica mucho el trabajo de hacer un select en Laravel con
 Vue.js.
 
-{% if jekyll.environment == "production" %}
-  {% gist b34c22aa06007ead9b05df857e7ad1b6 %}
-{% endif %}
+<script src="https://gist.github.com/halivert/b34c22aa06007ead9b05df857e7ad1b6.js"></script>
 
 Este es un ejemplo de caso de uso.
-{%raw%}
 
 ```html
 <h-select
@@ -288,8 +283,6 @@ Este es un ejemplo de caso de uso.
   required>
 </h-select>
 ```
-
-{%endraw%}
 
 Podemos ver que asignar una etiqueta, elementos en forma de json, un
 placeholder, ademas de una seleccion previa o «vieja» y mostrar errores se

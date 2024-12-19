@@ -8,8 +8,6 @@ tags: ["Suculenta", "Planta", "Julieta"]
 title: "Tengo una suculenta"
 ---
 
-{% include assets_path.html %}
-
 _Graptopetalum paraguayense_ es el nombre que recibe una planta suculenta
 oriunda de Tamaulipas, México.
 
@@ -18,21 +16,10 @@ también, solo que entendí mal los cuidados que debía darle.
 
 <!-- Seguir leyendo -->
 
-<article>
-  {%
-    include picture.html
-      class="image is-hidden-desktop"
-      alt="Mi primera suculenta"
-      src="20180508"
-      types="webp:image/webp,jpg:image/jpeg"
-  %}
-  {%
-    include picture.html
-      class="is-pulled-right image-right is-hidden-touch"
-      alt="Mi primera suculenta"
-      src="20180508"
-      types="webp:image/webp,jpg:image/jpeg"
-  %}
+<article class="mb-4 lg:float-end lg:w-1/2">
+
+![Mi primera suculenta](../../assets/img/2019-02-i-have-a-succulent/20180508.jpg)
+
 </article>
 
 Se trata de plantas que se conocen coloquialmente como: «Siempre vivas» y es

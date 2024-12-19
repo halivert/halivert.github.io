@@ -54,7 +54,7 @@ procesos que definimos en este método.
 
 Tecleando `crontabs -e` se abre el archivo donde agregaremos la siguiente línea.
 
-```
+```sh
 * * * * * cd [ruta del proyecto] && php artisan schedule:run >> /dev/null 2>&1
 ```
 

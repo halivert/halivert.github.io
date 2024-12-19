@@ -4,9 +4,9 @@ category: "Ya me pasó"
 date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Macros de Vim para Bulma"
-# translations:
-#   - short: en
-#     post: en/2019-07-23-vim-macro-for-bulma
+translations:
+  - short: en
+    post: en/2019-07-23-vim-macro-for-bulma
 ---
 
 Cuando utilizas un framework de CSS tan flexible como [Bulma][1], deseas tener
@@ -31,14 +31,12 @@ let @k='02f"i.sass^[j0'
 Ahora, si copias y pegas esos comandos seguramente no funcionarán porque
 contienen caracteres de control y otros, debes sustituir los siguientes:
 
-|----------|--------------------|
 | Original |      Sustituir     |
 |:--------:|:------------------:|
 |   `^[`   |    Ctrl + v, Esc   |
 |   `^R`   | Ctrl + v, Ctrl + r |
 |   `^M`   |   Ctrl + v, Enter  |
 |    `;`   |         `:`        |
-|----------|--------------------|
 
 Para hacer esto más sencillo puedes escribir `:%s/\V^[/[Ctrl + v, Esc]/g` y
 así con los otros dos caracteres de control.
@@ -46,10 +44,7 @@ así con los otros dos caracteres de control.
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{
-        '/assets/2019-07-vim-macro-for-bulma/vim-macro.mp4'
-          | absolute_url
-      }}"
+      src="/img/2019-07-vim-macro-for-bulma/vim-macro.mp4"
       type="video/mp4">
   </video>
 </div>
@@ -63,10 +58,7 @@ esos macros y hacer lo siguiente:
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{
-        '/assets/2019-07-vim-macro-for-bulma/vim-macro-used.mp4'
-          | absolute_url
-      }}"
+      src="/img/2019-07-vim-macro-for-bulma/vim-macro-used.mp4"
       type="video/mp4">
   </video>
 </div>

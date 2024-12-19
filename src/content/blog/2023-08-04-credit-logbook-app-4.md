@@ -16,19 +16,15 @@ la semana pasada.
 <!-- Seguir leyendo -->
 
 ## Índice
-{:.no_toc}
-
-* toc
-{:toc}
 
 ## Controladores
 
 Laravel ya hizo un archivo para nosotros llamado `CreditCardController`, donde
 se encuentran los métodos asociados a cada tipo de solicitud.
 
-Como estamos haciendo una API REST [*](#one){:#one-up}, nos basaremos en verbos
-y sustantivos. Verbos en los métodos HTTP y sustantivos para determinar que
-recursos queremos acceder.
+Como estamos haciendo una API REST <a href="#one" id="one-up">\*</a>, nos
+basaremos en verbos y sustantivos. Verbos en los métodos HTTP y sustantivos para
+determinar que recursos queremos acceder.
 
 Así en nuestro controlador de tarjetas de crédito tenemos los siguientes 5
 métodos:
@@ -66,8 +62,11 @@ Actualizamos el _namespace_ de los archivos y luego agregamos un atributo más a
 los datos de nuestro recurso, la url de cada elemento. Ahora sí estamos listos
 para agregarlo a nuestro controlador.
 
-[**Ver código** &nbsp;(GitHub)][commit-1]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-1]
+
+</div>
 
 En este _commit_ también agregamos una relación al modelo `User` para poder
 obtener sus tarjetas de crédito asociadas.
@@ -78,8 +77,11 @@ Para almacenar la tarjeta en nuestra base de datos (no realmente, solo el nombre
 y algunos datos necesarios), podemos utilizar la relación de usuarios con las
 tarjetas para no tener que recibir el uuid de usuario explicitamente.
 
-[**Ver código** &nbsp;(GitHub)][commit-2]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-2]
+
+</div>
 
 Nota: todavía no está listo para ser usado en producción ya que queremos cifrar
 algunos datos sensibles como el límite de crédito en la base de datos.
@@ -100,8 +102,11 @@ sail artisan migrate:fresh --step
 Luego podemos crear nuestros datos de prueba, pero nuestro límite de crédito ya
 estará cifrado en la base de datos.
 
-[**Ver código** &nbsp;(GitHub)][commit-3]{:.button.is-normal.is-primary}
-{: .has-text-centered}
+<div class="text-center underline mb-4">
+
+[**Ver código** &nbsp;(GitHub)][commit-3]
+
+</div>
 
 ### Pruebas
 
@@ -121,14 +126,13 @@ seguiremos en el siguiente _sprint_.
 
 ## Notas
 
-[*](#one-up){:#one} Todavía no es una API REST, pero queremos lograrlo, nos
-basaremos en el conocimiento de la ✨Internet✨, particularmente en el
-siguiente artículo:
+<a href="#one-up" id="one">\*</a> Todavía no es una API REST, pero queremos
+lograrlo, nos basaremos en el conocimiento de la ✨Internet✨, particularmente
+en el siguiente artículo:
 
 <https://steveklabnik.com/writing/nobody-understands-rest-or-http>
 
 [1]: https://laravel.com/docs/10.x/eloquent-resources
-
 [commit-1]: https://github.com/halivert/credit-logbook/commit/78eaecfd092e9fce48c17b808a1d5c2d75e7ce3a?diff=unified
 [commit-2]: https://github.com/halivert/credit-logbook/commit/c4f76cc69ba62a3b99fda9c094dd715ef3e5a135?diff=unified
 [commit-3]: https://github.com/halivert/credit-logbook/commit/68c235aa2417811e33e82deeefc2a61b954c93a3?diff=unified

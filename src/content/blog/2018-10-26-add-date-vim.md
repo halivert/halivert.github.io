@@ -20,7 +20,6 @@ actual.
 si no se indica, es la fecha actual y para el formato existen las
 variables:
 
-|--------------------------|---------------------------------|
 | Cadena de formato        | Ejemplo                         |
 |--------------------------|---------------------------------|
 | %a %d %b %Y              | vie 26 oct 2018                 |
@@ -32,11 +31,10 @@ variables:
 | %y%m%d                   | 181026                          |
 | %Y-%m-%d                 | 2018-10-26                      |
 | %a, %d %b %Y %H:%M:%S %z | vie, 26 oct 2018 00:23:00 -0500 |
-|--------------------------|---------------------------------|
 
 Así, para obtener, por ejemplo la fecha `2018-10-26 00:23` (lo
 que seguramente estabas buscando), necesitas colocar:
-```
+```shell
 :put=strftime('%Y-%m-%d %H:%M')
 ```
 Gracias por leer esto, adiós.

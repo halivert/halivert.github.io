@@ -4,9 +4,9 @@ title: "Actualizar Webpack a Vite en Laravel Sail"
 date: "2022-07-06 12:40 -0500"
 category: "Ya me pasó"
 tags: ["Web", "Laravel", "JS"]
-#translations:
-#    - short: en
-#      post: en/2022-07-06-upgrade-webpack-to-vite-laravel-sail
+translations:
+  - short: en
+    post: en/2022-07-06-upgrade-webpack-to-vite-laravel-sail
 ---
 
 Laravel acaba de agregar soporte para [Vite][1], una herramienta para desarrollo

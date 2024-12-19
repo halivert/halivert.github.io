@@ -12,13 +12,7 @@ programación JavaScript mediante el uso de una función que servirá para
 
 <!-- Seguir leyendo -->
 
-## Contenido
-
-- [Funciones de alto orden](#funciones-de-alto-orden)
-- [Repetición](#repeticion)
-- [Promesas](#promesas)
-- [Resultado](#resultado)
-  - [Uso](#uso)
+## Índice
 
 Muchas veces cuando interactuamos con una API, tenemos que esperar un cambio de
 estado, por ejemplo cuando queremos instanciar un servidor y estamos esperando a
@@ -26,7 +20,7 @@ que esté listo. O cuando estamos preguntando por la ubicación de un usuario.
 
 ## Funciones de alto orden
 
-<details markdown="1" open>
+<details open>
   <summary>
     Si sabes que son las funciones de alto orden, puedes saltarte esta parte
   </summary>
@@ -260,12 +254,10 @@ Pero es mejor un vídeo para mostrar cómo funciona.
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{ '/assets/video/function-wait-for.mp4' | absolute_url }}"
+      src="/video/function-wait-for.mp4"
       type="video/mp4">
   </video>
 </div>
-
-En fin, si tienes dudas o comentarios, puedes enviarme un mensaje.
 
 Adiós 👋🏽
 

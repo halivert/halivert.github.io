@@ -2,35 +2,27 @@
 author: halivert
 title: "Comenzando con petite-vue"
 date: "2021-09-05 13:31"
-lastModification: "2021-09-14 23:11"
+lastModification: 2024-12-18 13:50
 categories: ["Novedades", "¡Código!"]
 tags: ["Vue.js", "JavaScript", "HTML", "Sitio estático"]
 ---
 
-{% include assets_path.html %}
-
 ¿Por qué conformarnos con un framework (Vue), cuando podemos tener una
 versión «minimizada» de este, con un coste menor tanto de construcción como de
-carga?
-
-[petite-vue](https://github.com/vuejs/petite-vue) apunta justo a eso.
+carga? [petite-vue](https://github.com/vuejs/petite-vue) apunta justo a eso.
 
 Pero, ¿qué es justamente y cómo se usa? Veámoslo.
 
 <!-- Seguir leyendo -->
 
-## Índice
+<div class="notification">
 
-<div markdown="1">
-
-- [¿Qué es?](#qué-es)
-  - [¿Para qué sirve?](#para-qué-sirve)
-  - [Limitaciones](#limitaciones)
-- [¿Por qué debería usarlo?](#por-qué-debería-usarlo)
-- [Ejemplos](#ejemplos)
-- [Conclusiones](#conclusiones)
+Ya no uso petite-vue en este blog, las funciones que habían sido implementadas
+usando esta biblioteca ya han sido «mudadas» a vue normal, junto con astro.
 
 </div>
+
+## Índice
 
 ## ¿Qué es?
 
@@ -62,8 +54,10 @@ en aplicaciones más complejas donde necesitemos reactividad, aunque claro, tien
 sus limitaciones.
 
 <small>
+
 Algunas funcionalidades de este blog están implementadas con petite-vue, por
 ejemplo las reacciones
+
 </small>
 
 ### Limitaciones
@@ -84,7 +78,7 @@ Yo lo utilizo junto a Jekyll y también Laravel.
 Hice una lista de tareas muy sencilla.
 
 <p
-  class="codepen is-flex"
+  class="codepen flex mb-4"
   data-height="500"
   data-default-tab="js,result"
   data-slug-hash="mdwroKe"
@@ -147,8 +141,6 @@ createApp({
 Además las reacciones y el vínculo de compartir en Twitter, también están
 implementadas así.
 
-{% raw %}
-
 ```html
 <div
   v-scope="Reactions({ postUrl: '{{ post_url }}'})"
@@ -165,8 +157,6 @@ implementadas así.
   </a>
 </div>
 ```
-
-{% endraw %}
 
 ```ts
 function Reactions(props: ReactionsProps) {
@@ -207,7 +197,7 @@ function Reactions(props: ReactionsProps) {
           name: type,
           className: [...reactionData["className"], "fa", "ml-3", "mr-2"],
         }
-      }
+      },
     )
   }
 
@@ -239,5 +229,5 @@ Si algo me gusta de esta versión minificada es la forma en la que se manejan lo
 componentes, se trata de funciones que devuelven propiedades reactivas y también
 funciones.
 
-Si tienes dudas, puedes revisar en la documentación oficial de petite-vue, o
-también enviarme un mensaje. Espero que te sea de utilidad. Adiós 👋🏽
+Si tienes dudas, puedes revisar en la documentación oficial de petite-vue.
+Espero que te sea de utilidad. Adiós 👋🏽

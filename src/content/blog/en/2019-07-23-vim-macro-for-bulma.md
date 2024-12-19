@@ -4,9 +4,9 @@ category: "Ya me pasó"
 date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Vim macros for Bulma"
-# translations:
-#   - short: es
-#     post: 2019-07-23-vim-macro-for-bulma
+translations:
+  - short: es
+    post: 2019-07-23-vim-macro-for-bulma
 ---
 
 When you use a CSS framework as flexible as [Bulma][1], you want to have only
@@ -47,10 +47,7 @@ the other two control characters.
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{
-        '/assets/2019-07-vim-macro-for-bulma/vim-macro.mp4'
-          | absolute_url
-      }}"
+      src="/img/2019-07-vim-macro-for-bulma/vim-macro.mp4"
       type="video/mp4">
   </video>
 </div>
@@ -61,10 +58,7 @@ those macros and do the following:
 <div class="has-text-centered">
   <video autoplay loop muted playsinline>
     <source
-      src="{{
-        '/assets/2019-07-vim-macro-for-bulma/vim-macro-used.mp4'
-          | absolute_url
-      }}"
+      src="/img/2019-07-vim-macro-for-bulma/vim-macro-used.mp4"
       type="video/mp4">
   </video>
 </div>

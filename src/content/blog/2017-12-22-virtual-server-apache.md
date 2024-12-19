@@ -22,12 +22,11 @@ Requisitos:
 Probablemente necesitaremos permisos de superusuario para editar los siguientes
 archivos, podemos hacerlo con el comando
 
-```
+```sh
 $ sudoedit [ruta del archivo]
 ```
 
-\\
-Comenzaremos editando el archivo **httpd-vhosts.conf** \\
+Comenzaremos editando el archivo **httpd-vhosts.conf**
 (En mi caso se encuentra en _/etc/httpd/conf/extra/httpd-vhosts.conf_)
 
 ```conf
@@ -50,14 +49,13 @@ Comenzaremos editando el archivo **httpd-vhosts.conf** \\
 </VirtualHost>
 ```
 
-\\
 Crearemos una etiqueta _VirtualHost \*.80_ para cada servidor virtual que
 utilicemos.
 Las opciones en la etiqueta de directory sirven para poder usar un framework
 como [Laravel][2] y también para poder utilizar un archivo
 _.htaccess_.
 
-El siguiente paso es editar el archivo **hosts** \\
+El siguiente paso es editar el archivo **hosts**
 (Generalmente se encuentra en _/etc/hosts_)
 
 ```conf
@@ -65,7 +63,6 @@ El siguiente paso es editar el archivo **hosts** \\
 127.0.0.1 [Url del sitio]
 ```
 
-\\
 Agregaremos una línea como la anterior para cada servidor virtual que hayamos
 agregado en el archivo _httpd-vhosts.conf_
 

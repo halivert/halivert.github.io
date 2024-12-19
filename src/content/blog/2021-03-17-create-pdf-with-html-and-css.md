@@ -16,13 +16,13 @@ imprimir la página que quieras hacia un archivo y listo, sin embargo el tamaño
 de una pantalla difiere bastante del de una hoja de papel estándar
 (8.5in x 11in) si intentas hacerlo así nadamás, encontrarás algo cómo esto...
 
-<div class="columns">
-  <div class="column">
+<div class="flex gap-3">
+  <div class="flex-1">
 
 ![Página uno antes de estilos](../../assets/img/2021-03-create-pdf-with-html-and-css/Before-1.png)
 
   </div>
-  <div class="column">
+  <div class="flex-1">
 
 ![Página dos antes de estilos](../../assets/img/2021-03-create-pdf-with-html-and-css/Before-2.png)
 
@@ -39,13 +39,13 @@ se utilize en esa situación, con especial atención al atributo
 
 Ahora solo queda hacer los estilos, necesarios para que se vea así:
 
-<div class="columns">
-  <div class="column">
+<div class="flex gap-3">
+  <div class="flex-1">
 
 ![Página uno después de estilos](../../assets/img/2021-03-create-pdf-with-html-and-css/After-1.png)
 
   </div>
-  <div class="column">
+  <div class="flex-1">
 
 ![Página dos después de estilos](../../assets/img/2021-03-create-pdf-with-html-and-css/After-2.png)
 
@@ -88,7 +88,7 @@ navegadores modernos.
 
 Adiós 👋🏽
 
-[1]: /assets/css/print.css
+[1]: /css/print.css
 [2]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-after
 [3]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-before
 [4]: https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside

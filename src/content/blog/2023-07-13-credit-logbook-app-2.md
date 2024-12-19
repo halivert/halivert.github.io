@@ -16,10 +16,6 @@ tarjetas de crédito asociadas a un usuario.
 <!-- Seguir leyendo -->
 
 ## Índice
-{: .no_toc}
-
-* toc
-{:toc}
 
 ## Previos
 
@@ -40,9 +36,12 @@ También cambiaremos una parte de la gramática del la conexión a la base de
 datos, particulamente el formato de la fecha, ya que por defecto no tenemos
 precisión de milisegundos.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/8c26eea71d440ef7b9c744e99084507439fa7b18?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/8c26eea71d440ef7b9c744e99084507439fa7b18?diff=unified)
+
+</div>
 
 ### Migraciones
 
@@ -81,16 +80,20 @@ importante, por defecto las columnas `uuid` en Laravel no son llaves primarias,
 por lo que no se pueden usar como llaves foráneas en otra tabla, así que vamos
 allá a corregir el desastre...
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/9c9d39aabf336fa3bd97046e01984c56ce40a902?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/9c9d39aabf336fa3bd97046e01984c56ce40a902?diff=unified)
+
+</div>
 
 Ahora sí podemos ejecutar las migraciones, pero como algunas tablas ya fueron
 creadas, hay que destruirlas para crearlas de nuevo.
 
+<div class="notification">
 Esto es seguro solamente en entornos de desarrollo, por favor nunca ejecutes el
 siguiente comando en producción (igual Laravel te advertirá si lo intentas).
-{: .notification.is-yellow}
+</div>
 
 ```sh
 sail artisan migrate:fresh --step
@@ -169,9 +172,12 @@ app, así que hacemos eso.
 
 También corregimos una regla de nuestras validaciones 😅
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/545b277174e4adf4aee913a9b68a3cef0fffa0e6?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/545b277174e4adf4aee913a9b68a3cef0fffa0e6?diff=unified)
+
+</div>
 
 Después podemos hacer la solicitud a la url: `/register`. Agregamos los datos
 necesarios al _body_ de la solicitud y lo enviamos.
@@ -187,9 +193,13 @@ Probaremos el _logout_ antes del _login_ ya que cuando un usuario se registra,
 automáticamente inicia sesión. Actualizamos la ruta `home` en nuestra
 configuración.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/bdb49f075a965ac8e51b05e53976001b1c6acf23?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/bdb49f075a965ac8e51b05e53976001b1c6acf23?diff=unified)
+
+</div>
+
 
 Vamos a guardar el `X-XSRF-TOKEN` como una variable en Postman y luego hacemos
 la petición a la url: `/logout`. Si todo sale bien, obtendremos una respuesta
@@ -261,9 +271,12 @@ tenemos que decirle donde están.
 
 Las rutas y políticas quedan así:
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/25cfae482ca3fa8de39fdeb79fbb4566cfcf8ec3?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/25cfae482ca3fa8de39fdeb79fbb4566cfcf8ec3?diff=unified)
+
+</div>
 
 ### Traducciones
 
@@ -283,15 +296,21 @@ todo... 😩
 
 Pero bueno, aquí estamos (lo hizo chat gpt 🤷🏽).
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/e51cf04f46d468320caac87b03c1dd806057b634?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/e51cf04f46d468320caac87b03c1dd806057b634?diff=unified)
+
+</div>
 
 Luego agregamos las nuevas etiquetas.
 
+<div class="text-center underline mb-4">
+
 [**Ver código**
-&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/74d9d425af0883571b6a8d55589ff03e96f4772c?diff=unified){:.button.is-normal.is-primary}
-{: .has-text-centered}
+&nbsp;(GitHub)](https://github.com/halivert/credit-logbook/commit/74d9d425af0883571b6a8d55589ff03e96f4772c?diff=unified)
+
+</div>
 
 ### _Form requests_
 

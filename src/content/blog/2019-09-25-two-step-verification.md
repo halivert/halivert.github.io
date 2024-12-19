@@ -39,36 +39,29 @@ Lo más importante es verificar las fuentes de donde proviene un mensaje o
 email, para esto, muchas veces hace falta únicamente revisar el correo
 electrónico o la cuenta que te envía el mensaje. Si ves correos como...
 
-<div class="columns is-printable">
-  <div class="column">
-    {%
-      include picture.html
-        src="phishing1"
-        alt="Ejemplo de phishing: Bank of America"
-    %}
+<div class="flex gap-3 mb-4">
+  <div class="flex-1">
+
+![Ejemplo de phishing: Bank of America](../../assets/img/2019-09-two-step-verification/phishing1.png)
+
   </div>
-  <div class="column">
-    {%
-      include picture.html
-        src="phishing2"
-        alt="Ejemplo de phishing: iTunes"
-    %}
+  <div class="flex-1">
+
+![Ejemplo de phishing: iTunes](../../assets/img/2019-09-two-step-verification/phishing2.png)
+
   </div>
 </div>
-<div class="columns is-printable">
-  <div class="column">
-    {%
-      include picture.html
-        src="phishing3"
-        alt="Ejemplo de phishing: PayPal"
-    %}
+
+<div class="flex gap-3 mb-4">
+  <div class="flex-1">
+
+![Ejemplo de phishing: PayPal](../../assets/img/2019-09-two-step-verification/phishing3.png)
+
   </div>
-  <div class="column">
-    {%
-      include picture.html
-        src="phishing4"
-        alt="Ejemplo de phishing: Microsoft"
-    %}
+  <div class="flex-1">
+
+![Ejemplo de phishing: Microsoft](../../assets/img/2019-09-two-step-verification/phishing4.png)
+
   </div>
 </div>
 
@@ -109,27 +102,21 @@ ella.
 Es sencillo activar la verificación en dos pasos. Aquí muestro los nombres que
 tiene en Telegram, Twitter y Snapchat.
 
-<div class="columns is-printable page-break-before">
-  <div class="column">
-    {%
-      include picture.html
-        src="telegram-2fa"
-        alt="Configuración de privacidad y seguridad de Telegram"
-    %}
+<div class="flex gap-3 page-break-before mb-4">
+  <div class="flex-1">
+
+![Configuración de privacidad y seguridad de Telegram](../../assets/img/2019-09-two-step-verification/telegram-2fa.png)
+
   </div>
-  <div class="column">
-    {%
-      include picture.html
-        src="twitter-2fa"
-        alt="Configuración de verificación de inicio de sesión de Twitter"
-    %}
+  <div class="flex-1">
+
+![Configuración de verificación de inicio de sesión de Twitter](../../assets/img/2019-09-two-step-verification/twitter-2fa.png)
+
   </div>
-  <div class="column">
-    {%
-      include picture.html
-        src="snapchat-2fa"
-        alt="Ajustes de Snapchat (Autenticación de dos factores)"
-    %}
+  <div class="flex-1">
+
+![Ajustes de Snapchat (Autenticación de dos factores)](../../assets/img/2019-09-two-step-verification/snapchat-2fa.png)
+
   </div>
 </div>
 

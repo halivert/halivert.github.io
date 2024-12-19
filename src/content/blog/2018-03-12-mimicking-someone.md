@@ -17,22 +17,23 @@ imitarla y agregar un toque de ridículo a su comentario.
 Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y
 listo.
 
-<div class="field columns">
-  <div class="column">
-    <div class="control">
+<div class="flex gap-3">
+  <div class="flex-1">
+    <div class="w-full">
       <textarea
-        class="textarea"
+        class="w-full resize-y min-w-20 rounded p-2"
         id="textoOriginal"
         placeholder="Texto original"></textarea
       >
     </div>
   </div>
-  <div class="column">
-    <div class="control">
+  <div class="flex-1">
+    <div class="w-full">
     <textarea
-      class="textarea"
+      class="w-full resize-y min-w-20 rounded p-2"
       id="textoConvertido"
-      placeholder="Burla"></textarea
+      placeholder="Burla"
+      readonly></textarea
     >
     </div>
   </div>

@@ -12,6 +12,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark);
@@ -52,7 +53,12 @@
       @apply list-disc ml-8 mt-4 mb-2;
     }
 
-    p,
+    blockquote {
+      @apply border-l-4 border-l-accent-500 py-2 pl-4 italic;
+    }
+
+    p:not(:last-child),
+    blockquote:not(:last-child),
     pre {
       @apply mb-4;
     }
@@ -127,5 +133,9 @@
 
   .bg-creative {
     background: var(--creative-gradient);
+  }
+
+  .notification {
+    @apply bg-yellow-500 p-4 pl-6 rounded mb-4;
   }
 }

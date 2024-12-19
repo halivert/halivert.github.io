@@ -33,7 +33,6 @@ pero es bastante útil para comunicarse más rápido. Esto lo logras escribiendo
 código del emoji que puedes consultar en [emojipedia][3], estos son algunos de
 los que más uso.
 
-|-------|-----------------------|
 | Emoji | Código                |
 |-------|-----------------------|
 | 😌    | `:relieved:`          |
@@ -41,7 +40,6 @@ los que más uso.
 | 👍    | `:+1:` o `:thumbsup:` |
 | 😔    | `:pensive:`           |
 | 🙈    | `:see_no_evil:`       |
-|-------|-----------------------|
 
 Algo gratificante es que no tienes que escribir un código completo, muchas veces
 basta con escribir los primeros cuatro caracteres para que salga como sugerencia
