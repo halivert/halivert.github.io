@@ -14,8 +14,8 @@ export default defineConfig({
     "/[lang]/blog/[category]": "/[lang]/blog/[category]/1",
   },
   i18n: {
-    locales: ["es", "en"],
-    defaultLocale: "es",
+    locales: ["es-419", "en"],
+    defaultLocale: "es-419",
   },
   markdown: {
     remarkPlugins: [

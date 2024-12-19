@@ -1,10 +1,10 @@
-export const languages = ['es', 'en'] as const
+export const languages = ['es-419', 'en'] as const
 
-export const defaultLang = "es"
+export const defaultLang = "es-419"
 export const showDefaultLang = false
 
 export const ui = {
-  es: {
+  'es-419': {
     "Leer en español": "Read in english",
     "months.april": "Abril",
     "months.august": "Agosto",

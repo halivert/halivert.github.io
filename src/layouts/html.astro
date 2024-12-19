@@ -39,28 +39,11 @@ const t = useTranslations(lang)
 			rel="stylesheet"
 		/>
 
-		<!-- {%- if site.webmention -%} -->
-		<!-- 	<link rel="webmention" href="{{ site.webmention.webmention }}" /> -->
-		<!-- 	<link rel="pingback" href="{{ site.webmention.pingback }}" /> -->
-		<!-- {%- else -%} -->
-		<!-- 	<link -->
-		<!-- 		rel="webmention" -->
-		<!-- 		href="https://webmention.io/halivert.dev/webmention" -->
-		<!-- 	/> -->
-		<!-- 	<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" /> -->
-		<!-- {%- endif -%} -->
-
-		<!-- {%- assign cssAssets = "/assets/css" | absolute_url -%} -->
-
-		<!-- <link rel="stylesheet" href="{{ cssAssets }}/colors-dark.css" /> -->
-
-		<!-- <link -->
-		<!-- 	rel="stylesheet" -->
-		<!-- 	href="{{ cssAssets }}/colors.css" -->
-		<!-- 	media="(prefers-color-scheme: light)" -->
-		<!-- /> -->
-
-		<!-- <link rel="stylesheet" href="{{ cssAssets }}/halivert.css" /> -->
+		<link
+			rel="webmention"
+			href="https://webmention.io/halivert.dev/webmention"
+		/>
+		<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" />
 
 		<!-- <link -->
 		<!-- 	rel="stylesheet" -->
@@ -68,62 +51,16 @@ const t = useTranslations(lang)
 		<!-- 	media="print" -->
 		<!-- /> -->
 
-		<!-- <link -->
-		<!-- 	rel="stylesheet" -->
-		<!-- 	href="/gist-theme.css" -->
-		<!-- 	media="print" -->
-		<!-- 	onload="this.media='all'; this.onload=null;" -->
-		<!-- /> -->
-
 		<link rel="stylesheet" href="/css/fa.min.css" />
 
-		<!-- {% include unix_timestamp.html %} -->
-		<!-- {%- assign author = site.data.authors[page.author] -%} -->
-		<!-- {%- if author and author.first_name -%} -->
-		<!-- 	<meta property="author:name" content="{{ author.first_name }}" /> -->
-		<!-- {%- else -%} -->
-		<!-- 	<meta property="author:name" content="" /> -->
-		<!-- {%- endif -%} -->
+		<slot name="head" />
 
-		<!-- {%- if author and author.social -%} -->
-		<!-- 	{%- assign telegram = author.social | where: "type", "telegram" -%} -->
-		<!-- 	{% if telegram.first and telegram.first.url %} -->
-		<!-- 		<meta property="telegram:author" content="{{ telegram.first.url }}" /> -->
-		<!-- 	{% else %} -->
-		<!-- 		<meta property="telegram:author" content="" /> -->
-		<!-- 	{% endif %} -->
-		<!-- {%- else -%} -->
-		<!-- 	<meta property="telegram:author" content="" /> -->
-		<!-- {%- endif -%} -->
-
-		<!-- {%- if site.telegram.channel -%} -->
-		<!-- 	<meta name="telegram:channel" content="{{ site.telegram.channel }}" /> -->
-		<!-- {%- else -%} -->
-		<!-- 	<meta name="telegram:channel" content="@halivertsblog" /> -->
-		<!-- {%- endif -%} -->
-
-		<!-- {%- if jekyll.environment == "production" -%} -->
-		<!-- 	{%- if site.payment_pointer -%} -->
-		<!-- 		<meta name="monetization" content="{{ site.payment_pointer }}" /> -->
-		<!-- 	{%- else -%} -->
-		<!-- 		<meta name="monetization" content="$ilp.uphold.com/yJJL4YrpRMQi" /> -->
-		<!-- 	{%- endif -%} -->
 		{
 			import.meta.env.PROD && (
 				<script is:inline src="https://cdn.splitbee.io/sb.js" />
 			)
 		}
-		<!-- {%- endif -%} -->
 
-		<!-- {% seo %} -->
-		<!-- {% if page.has_math %} -->
-		<!-- 	{% include katex.html %} -->
-		<!-- 	<meta property="has_instant_view" content="false" /> -->
-		<!-- {% elsif page.has_instant_view %} -->
-		<!-- 	<meta property="has_instant_view" content="true"/> -->
-		<!-- {% else %} -->
-		<!-- 	<meta property="has_instant_view" content="false"/> -->
-		<!-- {% endif %} -->
 		<title>{title}</title>
 	</head>
 

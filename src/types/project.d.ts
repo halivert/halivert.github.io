@@ -1,3 +1,3 @@
-import type { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 
-export type Project = Awaited<ReturnType<typeof getCollection<'projects'>>>[number]
+export type Project = CollectionEntry<"projects">

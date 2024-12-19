@@ -31,10 +31,13 @@ export const getStaticPaths = (async () => {
 
 const { post } = Astro.props
 
-const author = await getEntry(post.data.author.collection, post.data.author.id)!
+const author = await getEntry(post.data.author)
 const tags = Object.fromEntries(
   (await getCollection("tags")).map(({ id, data }) => [id, data]),
 )
+
+const authorTelegramUrl =
+  author?.data.social?.find(({ type }) => type === "telegram")?.url ?? ""
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -42,13 +45,70 @@ const t = useTranslations(lang)
 const postDate = postReadableDate(lang, post.data.date)
 const { Content } = await render(post)
 
+const renderedExcerpt = post.rendered?.html.split(
+  `<!-- ${t("Seguir leyendo")} -->`,
+)[0]
+
+const excerpt = renderedExcerpt?.replace(/<\/?[^>]+(>|$)/g, "") ?? ""
+
 function getTagClass(tag: string): string {
   return tags[tag.toLowerCase()] ?? ""
 }
 ---
 
 <HtmlLayout title={`${post.data.title} | Halivert`}>
-  <main class="lg:text-xl text-lg">
+  <Fragment slot="head">
+    <meta
+      property="unix_timestamp"
+      content={post.data.date.getTime().toString()}
+    />
+
+    <meta property="author:name" content={author?.data.firstName ?? ""} />
+    <meta property="telegram:author" content={authorTelegramUrl} />
+    <meta property="telegram:channel" content="@halivertsblog" />
+
+    <meta property="og:title" content={post.data.title} />
+    <meta property="author" content={post.data.author.id} />
+    <meta property="og:locale" content={lang} />
+    <meta property="description" content={excerpt} />
+    <meta property="og:description" content={excerpt} />
+    <link rel="canonical" href={Astro.url} />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:sitename" content="Halivert" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="article:published_time"
+      content={post.data.date.toISOString()}
+    />
+
+    <meta
+      name="twitter:card"
+      content={post.data.image ? "summary_large_image" : "summary"}
+    />
+
+    {
+      post.data.image && (
+        <>
+          <meta property="og:image" content={post.data.image.src} />
+          <meta name="twitter:image" content={post.data.image.src} />
+        </>
+      )
+    }
+
+    <meta property="twitter:title" content={post.data.title} />
+
+    {
+      post.data.hasMath ? (
+        <meta property="has_instant_view" content="false" />
+      ) : post.data.hasInstantView ? (
+        <meta property="has_instant_view" content="true" />
+      ) : (
+        <meta property="has_instant_view" content="false" />
+      )
+    }
+  </Fragment>
+
+  <main class="lg:text-xl text-lg" style="grid-area: main;">
     <div class="flex flex-nowrap px-4 py-2 lg:py-4 lg:px-12">
       <div class="flex-1 basis-1/12 hidden lg:block"></div>
       <div class="flex-1 basis-11/12 min-w-0">
@@ -60,7 +120,7 @@ function getTagClass(tag: string): string {
               </h1>
               <small>
                 <i>{t("por")}</i>
-                <a>{author.data.firstName}</a> -
+                <a>{author?.data.firstName}</a> -
 
                 {
                   post.data.lastModification && (
@@ -118,7 +178,7 @@ function getTagClass(tag: string): string {
           <PostReactions
             client:load
             url={Astro.url}
-            author={author.data.username}
+            author={author?.data.username ?? ""}
             title={post.data.title}
           />
 
@@ -136,14 +196,13 @@ function getTagClass(tag: string): string {
 
   {
     post.data.hasMath && (
-      <>
+      <Fragment>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/katex@0.16.18/dist/katex.min.css"
           integrity="sha384-veTAhWILPOotXm+kbR5uY7dRamYLJf58I7P+hJhjeuc7hsMAkJHTsPahAl0hBST0"
           crossorigin="anonymous"
         />
-
         <script
           is:inline
           defer
@@ -151,8 +210,6 @@ function getTagClass(tag: string): string {
           integrity="sha384-v6mkHYHfY/4BWq54f7lQAdtIsoZZIByznQ3ZqN38OL4KCsrxo31SLlPiak7cj/Mg"
           crossorigin="anonymous"
         />
-
-        <!-- Auto render because... laziness -->
         <script
           is:inline
           defer
@@ -161,7 +218,7 @@ function getTagClass(tag: string): string {
           crossorigin="anonymous"
           onload="renderMathInElement(document.getElementById('content'));"
         />
-      </>
+      </Fragment>
     )
   }
 </HtmlLayout>
