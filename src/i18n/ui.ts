@@ -1,10 +1,16 @@
-export const languages = ['es-419', 'en'] as const
+export const languages = ["es-419", "en"] as const
+
+export const displayLanguages: Record<(typeof languages)[number], string> = {
+  "es-419": "es",
+  en: "en",
+}
 
 export const defaultLang = "es-419"
 export const showDefaultLang = false
 
 export const ui = {
-  'es-419': {
+  "es-419": {
+    "lang.label": "es",
     "Leer en español": "Read in english",
     "months.april": "Abril",
     "months.august": "Agosto",
@@ -22,6 +28,7 @@ export const ui = {
     Inglés: "English",
   },
   en: {
+    "lang.label": "en",
     "Aprendiendo:": "Learning:",
     "Cambiar tema": "Change theme",
     "Contáctame por": "Contact me on",

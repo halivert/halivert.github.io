@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { getRelativeLocaleUrl } from "astro:i18n"
-import { defaultLang, languages } from "@/i18n/ui"
+import { defaultLang, displayLanguages } from "@/i18n/ui"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 
 const props = defineProps<{
@@ -79,12 +79,12 @@ function itemIsActive(href: string, exact?: boolean) {
         v-if="showLangButtons"
         class="text-sm flex justify-center flex-wrap px-2 gap-1 lg:my-1 capitalize"
       >
-        <li v-for="lang in languages" :key="lang">
+        <li v-for="(label, lang) in displayLanguages" :key="lang">
           <a
             :href="lang === defaultLang ? '/' : `/${lang}/`"
             class="block px-3 py-2 rounded-full"
           >
-            {{ lang }}
+            {{ label }}
           </a>
         </li>
       </ul>
