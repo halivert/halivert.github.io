@@ -67,9 +67,11 @@ Probar que:
 \end{aligned}
 \]
 </p>
+
 Ahora vamos a realizar los dos pasos para demostrar que esa proposición es
 cierta, primero el caso base. Notamos que el primer término es \\(2^n\\) con
 \\(n = 0\\).
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -89,9 +91,11 @@ Por otra parte:
 \end{aligned}
 \]
 </p>
+
 Entonces nuestro caso base queda probado, ahora pasamos al paso inductivo,
 nuestra hipótesis de inducción es asumir que para \\(n = k\\) se cumple la
 proposición:
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -99,8 +103,10 @@ proposición:
 \end{aligned}
 \]
 </p>
+
 Y procedemos a añadir el siguiente término \\(2^{k + 1}\\), lo añadimos a ambos
 lados de la ecuación para no romper la igualdad:
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -112,6 +118,7 @@ lados de la ecuación para no romper la igualdad:
 \end{aligned}
 \]
 </p>
+
 Podemos ver que la última igualdad tiene la forma \\(2^{n + 1} - 1\\) con \\(n =
 k + 1\\) por lo que damos por concluida la prueba por inducción.
 
@@ -126,7 +133,9 @@ Probar que:
 \end{aligned}
 \]
 </p>
+
 El caso base es cuando \\(n = 4\\).
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -135,7 +144,9 @@ El caso base es cuando \\(n = 4\\).
 \end{aligned}
 \]
 </p>
+
 Por otra parte:
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -144,8 +155,10 @@ n!  &= 4! \\
 \end{aligned}
 \]
 </p>
+
 El paso base es cierto, ya que \\(16 \leq 24\\).<br>
 Hipótesis de inducción, asumimos que para \\(n = k\\) la proposición es cierta.
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -153,8 +166,10 @@ Hipótesis de inducción, asumimos que para \\(n = k\\) la proposición es ciert
 \end{aligned}
 \]
 </p>
+
 Ahora, en el paso inductivo, vamos a multiplicar ambos lados de la inecuación
 por \\(k + 1\\):
+
 <p class="equation">
 \[
 \begin{aligned}
@@ -168,6 +183,7 @@ por \\(k + 1\\):
 \end{aligned}
 \]
 </p>
+
 La última inecuación tiene la forma \\(2^n \leq n!\\) con \\(n = k + 1\\) así,
 podemos dar por concluida la prueba por inducción de esa proposición.
 
@@ -176,6 +192,6 @@ Si hay dudas respecto a este artículo o detectas algunos errores, no dudes en
 escribirme.
 </small>
 
-[1]: /blog/matematicas
+[1]: /blog/maths
 [2]: http://sistemas.fciencias.unam.mx/~erhc/Axioma_supremo.pdf
 [3]: http://www.math.harvard.edu/archive/23a_fall_05/Handouts/induction.pdf
