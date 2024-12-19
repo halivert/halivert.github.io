@@ -29,7 +29,7 @@ $ sudoedit [ruta del archivo]
 Comenzaremos editando el archivo **httpd-vhosts.conf**
 (En mi caso se encuentra en _/etc/httpd/conf/extra/httpd-vhosts.conf_)
 
-```conf
+```
 # httpd-vhosts.conf
 <VirtualHost *:80>
     ServerAdmin "[Tu correo]"
@@ -58,7 +58,7 @@ _.htaccess_.
 El siguiente paso es editar el archivo **hosts**
 (Generalmente se encuentra en _/etc/hosts_)
 
-```conf
+```
 # hosts
 127.0.0.1 [Url del sitio]
 ```
