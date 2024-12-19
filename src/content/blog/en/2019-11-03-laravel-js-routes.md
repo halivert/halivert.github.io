@@ -6,7 +6,7 @@ date: "2019-11-03 20:24"
 title: "Laravel routes in JavaScript"
 lastModification: "2020-07-05 00:18"
 translations:
-  - short: es
+  - short: es-419
     post: 2019-11-03-laravel-js-routes
 ---
 

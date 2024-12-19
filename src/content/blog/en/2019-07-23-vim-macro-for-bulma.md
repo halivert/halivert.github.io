@@ -5,7 +5,7 @@ date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Vim macros for Bulma"
 translations:
-  - short: es
+  - short: es-419
     post: 2019-07-23-vim-macro-for-bulma
 ---
 
