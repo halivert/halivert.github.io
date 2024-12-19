@@ -1,7 +1,7 @@
 Ya me pasó:
   slug: i-were-there
   description:
-    es: >-
+    es-419: >-
       Esta categoría intenta ayudar a las personas que pasan por problemas,
       que yo ya pasé, mostrandoles mi manera de resolverlos.
     en: Things that I've learned on my path to become a great developer.
@@ -9,7 +9,7 @@ Ya me pasó:
 Divagando:
   slug: rambling
   description:
-    es: >-
+    es-419: >-
       Esta categoría es dónde escribo todo lo que se me ocurre cuando estoy en
       cualquier lugar.
     en: In this place I wrote everything what I can think of in any place.
@@ -17,7 +17,7 @@ Divagando:
 ¡Código!:
   slug: code
   description:
-    es: >-
+    es-419: >-
       Aquí comparto snippets de código que me ha servido, también intento
       explicarlo... pero no esperen mucho de eso.
     en: Code snippets... hope they works.
@@ -25,13 +25,14 @@ Divagando:
 Novedades:
   slug: news
   description:
-    es: Enterate de las noticias más recientes relacionadas con... lo que sea.
+    es-419: >-
+      Enterate de las noticias más recientes relacionadas con... lo que sea.
     en: These are the most news of... anything.
 
 Matemáticas:
   slug: maths
   description:
-    es: >-
+    es-419: >-
       Me encantan las matemáticas, con estos artículos espero poder compartir
       un poco de ese entusiasmo.
     en: I love math, with this posts I want to share a little of that love.
@@ -39,7 +40,7 @@ Matemáticas:
 MySpace:
   slug: myspace
   description:
-    es: >-
+    es-419: >-
       Un lugar para compartir cómo estructuro mi entorno, principalmente de
       trabajo, pero también para el ocio.
     en: How it's my workspace, and stuff.
@@ -47,7 +48,7 @@ MySpace:
 Aprendiendo en público:
   slug: learning-in-public
   description:
-    es: >-
+    es-419: >-
       Este espacio sirve para hacer algunos proyectos que me servirán para
       aprender algunas cosas y enseñar algunas otras.
     en: >-

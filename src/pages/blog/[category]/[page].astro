@@ -1,11 +1,7 @@
 ---
 import type { GetStaticPaths, Page } from "astro"
 import { getCollection } from "astro:content"
-import HtmlLayout from "@/layouts/html.astro"
-import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import CategoriesBar from "@/components/CategoriesBar.astro"
-import PostsList from "@/components/PostsList.astro"
-import AppPaginator from "@/components/AppPaginator.astro"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const siteCategories = Object.fromEntries(
@@ -45,60 +41,22 @@ export const getStaticPaths = (async ({ paginate }) => {
 		),
 	)
 
-	return result;
+	return result
 }) satisfies GetStaticPaths
 
-type Category = Awaited<ReturnType<typeof getCollection<"categories">>>[number]
-type Post = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
+const { category, page } = Astro.props
 
-interface Props {
-	category: Category
-	categories?: string[]
-	page: Page<Post>
-}
-
-const { category, categories, page } = Astro.props
-
-const lang = getLangFromUrl(Astro.url)
-const t = useTranslations(lang)
-
-const allCategories = categories
-	? categories
-	: [
-			...new Set(
-				(await getCollection("posts", (post) => !post.id.includes("/")))
-					.map((post) => post.data.category)
-					.filter((category): category is string => !!category),
-			),
-		]
+const categories = [
+	...new Set(
+		(await getCollection("posts", (post) => !post.id.includes("/")))
+			.map((post) => post.data.category)
+			.filter((category): category is string => !!category),
+	),
+]
 ---
 
-<HtmlLayout>
-	<main>
-		<div class="py-3 lg:px-10 px-3">
-			<div
-				class="bg-background-400/60 lg:border-t-2 lg:border-l-2 lg:border-b-0 lg:border-r-0 border-b-2 border-r-2 border-primary-500 rounded-tl-3xl rounded-br-3xl py-3 px-8"
-			>
-				<h2 class="text-3xl mb-2 font-title font-semibold">{t(category.id)}</h2>
-				<div class="text-xl">
-					{category.data.description[lang]}
-				</div>
-			</div>
-		</div>
-
-		<div class="flex">
-			<div class="flex-1 basis-3/4 pb-4">
-				<PostsList posts={page.data} />
-
-				{
-					page.lastPage > 1 && (
-						<AppPaginator baseUrl={`/blog/${category.data.slug}`} page={page} />
-					)
-				}
-			</div>
-			<div class="p-3 flex-1 basis-1/4">
-				<CategoriesBar categories={allCategories} />
-			</div>
-		</div>
-	</main>
-</HtmlLayout>
+<BlogPaginationLayout
+	postsPage={page}
+	categories={categories}
+	category={category}
+/>

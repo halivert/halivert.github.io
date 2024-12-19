@@ -1,7 +1,8 @@
 ---
 import type { GetStaticPaths, Page } from "astro"
 import { getCollection } from "astro:content"
-import BlogCategoryPage from "@/pages/blog/[category]/[page].astro"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
+import type { CollectionEntry } from "astro:content"
 
 export const getStaticPaths = (async ({ paginate }) => {
 	const siteCategories = Object.fromEntries(
@@ -42,12 +43,9 @@ export const getStaticPaths = (async ({ paginate }) => {
 	)
 }) satisfies GetStaticPaths
 
-type Category = Awaited<ReturnType<typeof getCollection<"categories">>>[number]
-type Post = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
-
 interface Props {
-	category: Category
-	page: Page<Post>
+	category: CollectionEntry<"categories">
+	page: Page<CollectionEntry<"posts">>
 }
 
 const { category, page } = Astro.props
@@ -66,4 +64,8 @@ const categories = [
 ]
 ---
 
-<BlogCategoryPage category={category} categories={categories} page={page} />
+<BlogPaginationLayout
+	category={category}
+	categories={categories}
+	postsPage={page}
+/>

@@ -1,10 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro"
 import { getCollection } from "astro:content"
-import HtmlLayout from "@/layouts/html.astro"
-import AppPaginator from "@/components/AppPaginator.astro"
-import CategoriesBar from "@/components/CategoriesBar.astro"
-import PostsList from "@/components/PostsList.astro"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
@@ -14,39 +11,15 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   return paginate(posts, { pageSize: 7 })
 }
 
-type Posts = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
+const { page } = Astro.props
 
-interface Props {
-  page: Page<Posts>
-  categories?: string[]
-}
-
-const { page, categories } = Astro.props
-
-const allCategories = categories
-  ? categories
-  : [
-      ...new Set(
-        (await getCollection("posts", (post) => !post.id.includes("/")))
-          .map((post) => post.data.category)
-          .filter((category): category is string => !!category),
-      ),
-    ]
+const categories = [
+  ...new Set(
+    (await getCollection("posts", (post) => !post.id.includes("/")))
+      .map((post) => post.data.category)
+      .filter((category): category is string => !!category),
+  ),
+]
 ---
 
-<HtmlLayout title="Blog | Halivert">
-  <div class="flex flex-col lg:flex-row">
-    <div class="flex-1 basis-3/4 pb-4">
-      <main class="max-w-prose mx-auto pb-4">
-        <PostsList posts={page.data} />
-      </main>
-
-      <div class="max-w-prose mx-auto pb-4">
-        {page.lastPage > 1 && <AppPaginator page={page} />}
-      </div>
-    </div>
-    <div class="p-3 flex-1 basis-1/4">
-      <CategoriesBar categories={allCategories} />
-    </div>
-  </div>
-</HtmlLayout>
+<BlogPaginationLayout postsPage={page} categories={categories} />

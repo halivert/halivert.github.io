@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions } from "astro"
 import { getCollection } from "astro:content"
-import BlogPage from "@/pages/blog/[page].astro"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
@@ -30,4 +30,4 @@ const categories = [
 ]
 ---
 
-<BlogPage page={page} categories={categories} />
+<BlogPaginationLayout postsPage={page} categories={categories} />

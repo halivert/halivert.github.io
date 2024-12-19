@@ -47,7 +47,7 @@ const posts = defineCollection({
       translations: z
         .array(
           z.object({
-            short: z.string(),
+            short: z.enum(languages),
             post: reference("posts"),
           }),
         )
@@ -63,10 +63,9 @@ const categories = defineCollection({
   loader: file("./src/content/categories.yml"),
   schema: z.object({
     slug: z.string(),
-    description: z.object(
-      Object.fromEntries(
-        languages.map((lang) => [lang, z.string().optional()]),
-      ),
+    description: z.record(
+      z.enum(languages),
+      z.string().optional()
     ),
   }),
 })
