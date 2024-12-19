@@ -11,10 +11,10 @@ const props = defineProps<{
 const lang = getLangFromUrl(props.url)
 const t = useTranslations(lang)
 
-const links: Record<string, string> = {
-  "/blog": t("Blog"),
-  "/projects": t("Proyectos"),
-  "/about": t("Sobre mí"),
+const links: Record<string, { text: string; href?: string }> = {
+  "/blog": { text: t("Blog") },
+  "/projects": { text: t("Proyectos") },
+  "/about": { text: t("Sobre mí") },
 }
 
 function itemIsActive(href: string, exact?: boolean) {
@@ -48,12 +48,12 @@ function itemIsActive(href: string, exact?: boolean) {
       <ul
         class="flex-grow flex justify-center flex-wrap px-2 gap-1 lg:my-1 lg:flex-col lg:justify-start"
       >
-        <li v-for="(label, href) in links" :key="href">
+        <li v-for="(link, baseHref) in links" :key="baseHref">
           <a
             class="block px-3 py-2 lg:px-6 lg:py-4 rounded-full"
-            :class="{ 'bg-background-400/50': itemIsActive(href) }"
-            :href="getRelativeLocaleUrl(lang, href)"
-            >{{ label }}</a
+            :class="{ 'bg-background-400/50': itemIsActive(baseHref) }"
+            :href="getRelativeLocaleUrl(lang, link.href ?? baseHref)"
+            >{{ link.text }}</a
           >
         </li>
         <!-- {%- if page.search_bar -%} -->
@@ -79,7 +79,7 @@ function itemIsActive(href: string, exact?: boolean) {
         v-if="showLangButtons"
         class="text-sm flex justify-center flex-wrap px-2 gap-1 lg:my-1 capitalize"
       >
-        <li v-for="(lang) in languages" :key="lang">
+        <li v-for="lang in languages" :key="lang">
           <a
             :href="lang === defaultLang ? '/' : `/${lang}/`"
             class="block px-3 py-2 rounded-full"
