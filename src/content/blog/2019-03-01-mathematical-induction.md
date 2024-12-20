@@ -192,6 +192,6 @@ Si hay dudas respecto a este artículo o detectas algunos errores, no dudes en
 escribirme.
 </small>
 
-[1]: /blog/maths/1
+[1]: /blog/maths/1/
 [2]: http://sistemas.fciencias.unam.mx/~erhc/Axioma_supremo.pdf
 [3]: http://www.math.harvard.edu/archive/23a_fall_05/Handouts/induction.pdf
