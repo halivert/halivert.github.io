@@ -1,12 +1,11 @@
 ---
 import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
 import PostExcerpt from "@/components/PostExcerpt.vue"
 import { Image } from "astro:assets"
 
-type Post = Awaited<ReturnType<typeof getCollection<"posts">>>[number]
-
 interface Props {
-	posts: Array<Post>
+	posts: CollectionEntry<"posts">[]
 }
 
 const { posts } = Astro.props

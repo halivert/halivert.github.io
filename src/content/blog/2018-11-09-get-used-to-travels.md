@@ -64,4 +64,3 @@ otra divagación.
 
 [1]: https://onlinelibrary.wiley.com/doi/abs/10.1002/ejsp.674
 [2]: http://hdr.undp.org/sites/default/files/2018_human_development_statistical_update.pdf
-[3]: http://tarantino.mx/musica-cachonda/

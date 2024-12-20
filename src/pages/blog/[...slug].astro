@@ -72,7 +72,7 @@ function getTagClass(tag: string): string {
     <meta property="og:locale" content={lang} />
     <meta property="description" content={excerpt} />
     <meta property="og:description" content={excerpt} />
-    <link rel="canonical" href={Astro.url} />
+    <link rel="canonical" href={post.data.canonicalUrl || Astro.url} />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:sitename" content="Halivert" />
     <meta property="og:type" content="article" />

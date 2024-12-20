@@ -37,7 +37,7 @@ const posts = defineCollection({
 
       hasInstantView: z.boolean().default(true),
 
-      cannonicalUrl: z.string().optional(),
+      canonicalUrl: z.string().optional(),
       lastModification: z.coerce.date().optional(),
       hasMath: z.boolean().optional(),
       category: z.string().optional(),
