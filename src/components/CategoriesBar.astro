@@ -26,7 +26,10 @@ const t = useTranslations(lang)
 		{
 			categories.map((category) => (
 				<a
-					href={getRelativeLocaleUrl(lang, `/blog/${siteCategories[category]}`)}
+					href={getRelativeLocaleUrl(
+						lang,
+						`/blog/${siteCategories[category]}/1`,
+					)}
 				>
 					{t(category)}
 				</a>
