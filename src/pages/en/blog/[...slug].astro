@@ -1,0 +1,22 @@
+---
+import type { GetStaticPaths } from "astro"
+import { getCollection } from "astro:content"
+import BlogPost from "@/pages/blog/[...slug].astro"
+import { getPostUrl } from "@/ts/functions"
+
+export const getStaticPaths = (async () => {
+	const posts = await getCollection(
+		"posts",
+		(post) => post.id.includes("/") && post.id.startsWith("en"),
+	)
+
+	return posts.map((post) => ({
+		params: { slug: getPostUrl(post).join("/") },
+		props: { post },
+	}))
+}) satisfies GetStaticPaths
+
+const { post } = Astro.props
+---
+
+<BlogPost post={post} />

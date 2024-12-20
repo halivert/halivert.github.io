@@ -1,0 +1,23 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import HtmlLayout from "@/layouts/html.astro"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<HtmlLayout title={t("Página no encontrada")} hideFooter>
+	<section
+		class="z-20 bg-background-200 grid place-items-center"
+		style="grid-area: 1 / 1 / last-line / last-column"
+	>
+		<div class="text-center">
+			<h1 class="text-4xl font-title font-semibold">Error 404</h1>
+			<h2 class="text-2xl">
+				{t("Página no encontrada")} 😅 <br />
+				<a href={getRelativeLocaleUrl(lang, "/")}>{t("Inicio")}</a>
+			</h2>
+		</div>
+	</section>
+</HtmlLayout>

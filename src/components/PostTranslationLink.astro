@@ -1,0 +1,35 @@
+---
+import { getEntry } from "astro:content"
+import type { CollectionEntry } from "astro:content"
+import { getAbsoluteLocaleUrl } from "astro:i18n"
+import { getPostUrl } from "@/ts/functions"
+import { displayLanguages } from "@/i18n/ui"
+
+type Translation = NonNullable<
+  CollectionEntry<"posts">["data"]["translations"]
+>[number]
+
+interface Props {
+  translation: Translation
+}
+
+const { translation } = Astro.props
+
+const post = await getEntry(translation.post)
+
+const translationLabel = displayLanguages[translation.short]
+---
+
+{
+  post && (
+    <a
+      class="capitalize"
+      href={getAbsoluteLocaleUrl(
+        translation.short,
+        "/blog/" + getPostUrl(post).join("/"),
+      )}
+    >
+      {translationLabel}
+    </a>
+  )
+}

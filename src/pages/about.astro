@@ -1,0 +1,41 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import HtmlLayout from "@/layouts/html.astro"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<HtmlLayout title={`${t("Más sobre mí")} | Halivert`}>
+  <main class="max-w-prose py-2 px-4">
+    <h1 class="text-4xl font-semibold block mb-7">Más sobre mí</h1>
+
+    <div class="block content text-lg">
+      <p>
+        Soy <a
+          href="https://www.jw.org/es/testigos-de-jehov%C3%A1/preguntas-frecuentes/creencias-testigos-jehova/"
+          >testigo de Jehová</a
+        > y estoy estudiando una <a href="http://www.isc.escom.ipn.mx/"
+          >ingeniería en sistemas computacionales</a
+        > en ESCOM. Me casé a los 26 con el amor de mi vida.
+      </p>
+
+      <p>
+        Me encantan las matemáticas y los algoritmos, participé en el club de
+        algoritmia de mi escuela durante algún tiempo. Actualmente trabajo como
+        desarrollador web frontend y utilizo principalmente Angular, aunque
+        también llego a hacer algunas tareas básicas de backend con Java.
+      </p>
+
+      <p>
+        Me gusta practicar natación, tenis de mesa, y hace mucho tiempo,
+        skateboarding.
+      </p>
+
+      <p>
+        Tengo gustos musicales variados, desde mi banda favorita: los Strokes,
+        pasando por CHON, Wintergatan, hasta una (1) canción de los Beatles.
+      </p>
+    </div>
+  </main>
+</HtmlLayout>

@@ -1,0 +1,33 @@
+---
+import type { GetStaticPathsOptions } from "astro"
+import { getCollection } from "astro:content"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const posts = (
+    await getCollection(
+      "posts",
+      (post) => post.id.includes("/") && post.id.startsWith("en"),
+    )
+  ).toSorted((a, b) => b.data.date.getTime() - a.data.date.getTime())
+
+  return paginate(posts, { pageSize: 7 })
+}
+
+const { page } = Astro.props
+
+const categories = [
+  ...new Set(
+    (
+      await getCollection(
+        "posts",
+        (post) => post.id.includes("/") && post.id.startsWith("en"),
+      )
+    )
+      .map((post) => post.data.category)
+      .filter((category): category is string => !!category),
+  ),
+]
+---
+
+<BlogPaginationLayout postsPage={page} categories={categories} />

@@ -1,0 +1,82 @@
+---
+author: halivert
+category: "Divagando"
+date: "2018-03-12 22:59:42"
+tags: ["JavaScript", "Remedando"]
+title: "Remedando a alguien"
+---
+
+En este post traigo para ustedes una herramienta muy útil (no muy útil, la
+verdad) que sirve para cuando intentan remedar a alguien... o sea imitarlo o
+imitarla y agregar un toque de ridículo a su comentario.
+
+<!-- Seguir leyendo -->
+
+(Cambia las vocales por "i").
+
+Sólo escriban en el recuadro de la izquierda, donde dice "Texto original" y
+listo.
+
+<div class="flex gap-3">
+  <div class="flex-1">
+    <div class="w-full">
+      <textarea
+        class="w-full resize-y min-w-20 rounded p-2"
+        id="textoOriginal"
+        placeholder="Texto original"></textarea
+      >
+    </div>
+  </div>
+  <div class="flex-1">
+    <div class="w-full">
+    <textarea
+      class="w-full resize-y min-w-20 rounded p-2"
+      id="textoConvertido"
+      placeholder="Burla"
+      readonly></textarea
+    >
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  let originalTextArea = document.getElementById('textoOriginal');
+  let newTextArea = document.getElementById('textoConvertido');
+  originalTextArea.onkeyup = function(key) {
+    let texto = originalTextArea.value;
+    let nuevoTexto = '';
+
+    for (let i in texto) {
+      if (isLowerVowel(texto[i]))
+        nuevoTexto += 'i';
+      else if (isUpperVowel(texto[i]))
+        nuevoTexto += 'I';
+      else if (isLowerVowelAccentuated(texto[i]))
+        nuevoTexto += 'í';
+      else if (isUpperVowelAccentuated(texto[i]))
+        nuevoTexto += 'Í';
+      else
+        nuevoTexto += texto[i];
+    }
+
+    newTextArea.value = nuevoTexto;
+  };
+
+  function isLowerVowel(c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+  }
+
+  function isUpperVowel(c) {
+    return c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U';
+  }
+
+  function isLowerVowelAccentuated(c) {
+    return c == 'á' || c == 'é' || c == 'í' || c == 'ó' || c == 'ú';
+  }
+
+  function isUpperVowelAccentuated(c) {
+    return c == 'Á' || c == 'É' || c == 'Í' || c == 'Ó' || c == 'Ú';
+  }
+</script>
+
+Sí... no tenía nada que hacer.

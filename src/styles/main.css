@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light);
+  background-color: var(--shiki-light-bg);
+  font-style: var(--shiki-light-font-style);
+  font-weight: var(--shiki-light-font-weight);
+  text-decoration: var(--shiki-light-text-decoration);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .astro-code,
+  .astro-code span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
+    font-style: var(--shiki-dark-font-style);
+    font-weight: var(--shiki-dark-font-weight);
+    text-decoration: var(--shiki-dark-text-decoration);
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "Iosevka";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/webfonts/Iosevka-Regular.woff2) format("woff2");
+  }
+
+  a {
+    @apply text-primary-700;
+  }
+
+  hr {
+    @apply my-2 border-accent-600;
+  }
+
+  code {
+    @apply text-accent-500;
+  }
+
+  .tag {
+    @apply bg-background-400/60;
+  }
+
+  .content {
+    ul {
+      @apply list-disc ml-8 mt-4 mb-2;
+    }
+
+    blockquote {
+      @apply border-l-4 border-l-accent-500 py-2 pl-4 italic;
+    }
+
+    p:not(:last-child),
+    blockquote:not(:last-child),
+    pre {
+      @apply mb-4;
+    }
+
+    pre {
+      @apply py-4 px-5;
+    }
+
+    sup::before {
+      content: "[";
+    }
+
+    sup::after {
+      content: "]";
+    }
+
+    h6 {
+      @apply text-lg;
+    }
+
+    h5 {
+      @apply text-lg font-semibold;
+    }
+
+    h4 {
+      @apply text-xl font-semibold;
+    }
+
+    h3 {
+      @apply text-2xl font-semibold;
+    }
+
+    h2 {
+      @apply text-3xl font-semibold;
+    }
+
+    h1 {
+      @apply text-4xl font-semibold;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply mt-4 mb-2 font-title;
+    }
+  }
+}
+
+@layer components {
+  .telegram {
+    color: #28a8ea;
+  }
+
+  .github {
+    color: #24292e;
+  }
+
+  .discord {
+    color: #7289da;
+  }
+
+  .linkedin {
+    color: #0a66c2;
+  }
+
+  .gitlab {
+    color: #fc6d26;
+  }
+
+  .bg-creative {
+    background: var(--creative-gradient);
+  }
+
+  .notification {
+    @apply bg-yellow-500 p-4 pl-6 rounded mb-4;
+  }
+}

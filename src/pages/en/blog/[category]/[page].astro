@@ -1,0 +1,71 @@
+---
+import type { GetStaticPaths, Page } from "astro"
+import { getCollection } from "astro:content"
+import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
+import type { CollectionEntry } from "astro:content"
+
+export const getStaticPaths = (async ({ paginate }) => {
+	const siteCategories = Object.fromEntries(
+		(await getCollection("categories")).map((category) => [
+			category.id,
+			category,
+		]),
+	)
+
+	const postCollection = await getCollection(
+		"posts",
+		(post) => post.id.includes("/") && post.id.startsWith("en"),
+	)
+
+	const categories = [
+		...new Set(
+			postCollection
+				.map((post) => post.data.category)
+				.filter((category): category is string => !!category),
+		),
+	]
+
+	const posts = postCollection.toSorted(
+		(a, b) => b.data.date.getTime() - a.data.date.getTime(),
+	)
+
+	return categories.flatMap((category) =>
+		paginate(
+			posts.filter(
+				(post) => post.data.category === siteCategories[category].id,
+			),
+			{
+				params: { category: siteCategories[category].data.slug },
+				props: { category: siteCategories[category] },
+				pageSize: 7,
+			},
+		),
+	)
+}) satisfies GetStaticPaths
+
+interface Props {
+	category: CollectionEntry<"categories">
+	page: Page<CollectionEntry<"posts">>
+}
+
+const { category, page } = Astro.props
+
+const categories = [
+	...new Set(
+		(
+			await getCollection(
+				"posts",
+				(post) => post.id.includes("/") && post.id.startsWith("en"),
+			)
+		)
+			.map((post) => post.data.category)
+			.filter((category): category is string => !!category),
+	),
+]
+---
+
+<BlogPaginationLayout
+	category={category}
+	categories={categories}
+	postsPage={page}
+/>

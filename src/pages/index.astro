@@ -1,0 +1,94 @@
+---
+import { createHash } from "crypto"
+import { getEntry } from "astro:content"
+
+import HtmlLayout from "@/layouts/html.astro"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const halivert = await getEntry("authors", "halivert")?.then(({ data }) => data)
+
+const md5 = halivert?.email
+	? createHash("md5").update(halivert.email).digest("hex")
+	: ""
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const techStack = {
+	"fab fa-linux": "Linux",
+	"fab fa-html5": "HTML5",
+	"fab fa-css3-alt": "CSS",
+	"fab fa-js": "JS/TS",
+	"fab fa-php": "PHP",
+	"fab fa-git-alt": "Git",
+	"fab fa-vuejs": "Vue 3",
+	"fab fa-react": "React",
+	"fab fa-laravel": "Laravel",
+}
+---
+
+<HtmlLayout showLangButtons hideFooter>
+	<main class="max-w-prose mx-auto relative py-4 px-12" style="grid-area: main">
+		<div class="flex flex-col items-center justify-center text-center gap-4">
+			<h1 class="text-5xl font-semibold font-title">
+				{halivert?.firstName}
+				{halivert?.lastName}
+			</h1>
+
+			<img
+				src={`https://gravatar.com/avatar/${md5}?s=300&d=identicon`}
+				class="rounded-full aspect-square h-56"
+				loading="lazy"
+				alt={t("profile.image.alt", [halivert?.username ?? ""])}
+				oncontextmenu="vibrate([150, 30, 150]);"
+			/>
+
+			<div class="space-y-4">
+				<p>
+					{t("Desarrollador web, con conocimiento en diversas tecnologías")}:
+				</p>
+
+				<div>
+					<ul
+						class="text-accent-600 flex flex-wrap justify-center gap-7"
+						role="list"
+					>
+						{
+							Object.entries(techStack).map(([icon, text]) => (
+								<li>
+									<figure>
+										<i class={`${icon} text-4xl mx-auto inline-block`} />
+										<figcaption class="text-sm text-balance">{text}</figcaption>
+									</figure>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</div>
+
+			<div>
+				<p>{t("Puedes ponerte en contacto conmigo.")}</p>
+				<p class="flex gap-2 mt-3 text-center text-xl justify-center">
+					{
+						halivert?.social
+							?.filter((item) => !item.hidden)
+							.map((item) => (
+								<a
+									target="_blank"
+									aria-label={`${t("Contáctame por")} ${item.type}`}
+									class={`${item.type} px-4 py-2 h-12 w-12 cursor-pointer select-none bg-text-300/50 rounded-full aspect-square justify-center inline-flex items-center`}
+									href={item.url}
+									rel="me noopener noreferrer"
+								>
+									<span class="inline-flex h-8 aspect-square justify-center items-center">
+										<i class={item.icon} aria-hidden="true" />
+									</span>
+								</a>
+							))
+					}
+				</p>
+			</div>
+		</div>
+	</main>
+</HtmlLayout>

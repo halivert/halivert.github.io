@@ -1,0 +1,116 @@
+---
+import { Image } from "astro:assets"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import AppMenu from "@/components/AppMenu.vue"
+import AppFooter from "@/components/AppFooter.vue"
+
+import halivertLogo from "@/assets/img/halivert-logo.png"
+
+import "@/styles/main.css"
+
+interface Props {
+	title?: string
+	showLangButtons?: boolean
+	hideFooter?: boolean
+}
+
+const { title = "Halivert", showLangButtons, hideFooter } = Astro.props
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<!doctype html>
+<html lang={lang} class="overflow-y-scroll scroll-smooth scroll-pt-4">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, shrink-to-fit=no"
+		/>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link
+			rel="webmention"
+			href="https://webmention.io/halivert.dev/webmention"
+		/>
+		<link rel="pingback" href="https://webmention.io/halivert.dev/xmlrpc" />
+
+		<!-- <link -->
+		<!-- 	rel="stylesheet" -->
+		<!-- 	href="{{ cssAssets }}/print.css" -->
+		<!-- 	media="print" -->
+		<!-- /> -->
+
+		<link rel="stylesheet" href="/css/fa.min.css" />
+
+		<slot name="head" />
+
+		{
+			import.meta.env.PROD && (
+				<script is:inline src="https://cdn.splitbee.io/sb.js" />
+			)
+		}
+
+		<title>{title}</title>
+	</head>
+
+	<body
+		class="relative min-h-dvh grid bg-background-200 text-text-950 text-base antialiased selection:bg-accent-400 selection:text-text-950 font-body overflow-x-hidden"
+	>
+		<!--  -->
+		<!-- 		{% unless page.hide_skip_link or layout.hide_skip_link %} -->
+		<!-- 			<a -->
+		<!-- 				class="skip-link" -->
+		<!-- 				href="#main-container" -->
+		<!-- 				tab-index="0" -->
+		<!-- 				>{{ 'Ir al contenido' | __ }}</a -->
+		<!-- 			> -->
+		<!-- 		{% endunless %} -->
+		<AppMenu url={Astro.url} showLangButtons={showLangButtons}>
+			<Image
+				class="my-0 mx-auto h-8 w-auto lg:h-3/4 aspect-square"
+				src={halivertLogo}
+				alt={t("Logo de Halivert")}
+			/>
+		</AppMenu>
+
+		<slot />
+
+		{!hideFooter && <AppFooter url={Astro.url} />}
+	</body>
+
+	<style>
+		* {
+			transition-property: color, background;
+			transition-duration: 200ms;
+			transition-timing-function: linear;
+		}
+
+		body {
+			text-rendering: optimizeLegibility;
+
+			grid-template:
+				"menu" auto
+				"main" 1fr
+				"footer" auto
+				/ 100%;
+
+			@media screen and (min-width: 1024px) {
+				grid-template:
+					"menu main" 1fr
+					"footer footer" auto
+					/ minmax(auto, 20%) minmax(auto, 80%);
+			}
+		}
+	</style>
+</html>

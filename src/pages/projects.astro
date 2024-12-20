@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets"
+import { getCollection } from "astro:content"
+import type { CollectionEntry } from "astro:content"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import HtmlLayout from "@/layouts/html.astro"
+import ProjectThumbnail from "@/components/ProjectThumbnail.vue"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const projects = await getCollection("projects")
+
+type Project = CollectionEntry<"projects">
+type Translation = Project["data"]["translations"]
+type TranslationProp = keyof NonNullable<Translation[keyof Translation]>
+
+function getTranslation(project: Project, key: TranslationProp): string {
+	return project.data.translations[lang]?.[key] ?? ""
+}
+---
+
+<HtmlLayout title={`${t("Proyectos")} | Halivert`}>
+	<main class="p-3">
+		<section class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
+			{
+				projects.map((project) => (
+					<ProjectThumbnail client:load url={Astro.url} project={project}>
+						<Image
+							class="rounded-md"
+							src={project.data.image}
+							alt={getTranslation(project, "imageAlt") ?? "Imagen de proyecto"}
+							inferSize
+						/>
+					</ProjectThumbnail>
+				))
+			}
+		</section>
+	</main>
+</HtmlLayout>

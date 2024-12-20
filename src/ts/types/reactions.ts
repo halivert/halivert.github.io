@@ -1,4 +1,4 @@
-import { Mentions } from "@/ts/types/mentions"
+import type { Mentions } from "@/ts/types/mentions"
 
 export namespace Reactions {
   export interface Props {
@@ -28,18 +28,21 @@ export interface Reaction {
   name?: string
 }
 
-export const availableReactions: Record<string, Reaction> = {
+export const availableReactions = {
   like: {
-    className: ["fa-star", "has-text-warning"],
+    className: ["fa-star", "text-yellow-500"],
+    filter: false,
   },
   repost: {
-    className: ["fa-retweet", "has-text-success"],
+    className: ["fa-retweet", "text-green-500"],
+    filter: false,
   },
   reply: {
-    className: ["fa-comment-dots", "has-text-text"],
+    className: ["fa-comment-dots"],
+    filter: false,
   },
   mention: {
-    className: ["fa-quote-right", "has-text-text"],
+    className: ["fa-quote-right"],
     filter: "mention-of",
   },
-}
+} as const

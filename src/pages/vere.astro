@@ -1,0 +1,25 @@
+---
+import HtmlLayout from "@/layouts/html.astro"
+import { getEntry } from "astro:content"
+
+const vere = await getEntry("authors", "verenaiss")
+---
+
+<HtmlLayout title="El amor de mi vida | Halivert">
+  <main class="max-w-prose py-2 px-4">
+    <div class="text-lg">
+      <section class="text-center">
+        <h1 class="text-4xl font-semibold">{vere?.data.firstName}</h1>
+      </section>
+      <hr />
+
+      <div class="content">
+        <p>
+          {vere?.data.description}
+        </p>
+        <p>Pero más que eso... es mi mejor amiga, mi novia 🥰 💖</p>
+        <p>Y desde hace algún tiempo, mi amada esposa 💞</p>
+      </div>
+    </div>
+  </main>
+</HtmlLayout>

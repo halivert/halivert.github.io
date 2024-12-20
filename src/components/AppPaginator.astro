@@ -1,0 +1,111 @@
+---
+import type { Page } from "astro"
+import { getRelativeLocaleUrl } from "astro:i18n"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+interface Props {
+	page: Page<any>
+	baseUrl?: string
+	length?: number
+}
+
+const { page, baseUrl = "/blog", length = 2 } = Astro.props
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+
+const prevPages = Array.from({ length }, (_x, i) => page.currentPage - i - 1)
+	.filter((pageNum) => pageNum > 1)
+	.toSorted()
+
+const nextPages = Array.from({ length }, (_x, i) => page.currentPage + i + 1)
+	.filter((pageNum) => pageNum < page.lastPage)
+	.toSorted()
+---
+
+<nav class="flex justify-around items-center" aria-label="pagination">
+	<a
+		href={page.url.prev}
+		class={`bg-primary-500 text-white rounded-full px-4 py-2 ${!page.url.prev && "opacity-50"}`}
+	>
+		<i class="fas fa-hand-point-left"></i>
+	</a>
+
+	<div class="flex gap-2">
+		<div class="inline-flex gap-2">
+			{
+				page.currentPage !== 1 && (
+					<a
+						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
+						href={getRelativeLocaleUrl(lang, page.url.first)}
+						aria-label={t("Ir a página :0", ["1"])}
+					>
+						1
+					</a>
+				)
+			}
+
+			{
+				prevPages.at(0)! > 2 && (
+					<span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
+				)
+			}
+
+			{
+				prevPages.map((pageNum) => (
+					<a
+						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
+						href={getRelativeLocaleUrl(lang, `${baseUrl}/${pageNum}`)}
+						aria-label={t("Ir a página :0", [pageNum.toString()])}
+					>
+						{pageNum}
+					</a>
+				))
+			}
+		</div>
+
+		<a
+			class="bg-primary-500 text-white rounded-full size-9 inline-grid place-items-center opacity-80"
+			aria-current="page"
+			aria-label={t("Página actual")}>{page.currentPage}</a
+		>
+
+		<div class="inline-flex gap-2">
+			{
+				nextPages.map((pageNum) => (
+					<a
+						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
+						href={getRelativeLocaleUrl(lang, `${baseUrl}/${pageNum}`)}
+						aria-label={t("Ir a página :0", [pageNum.toString()])}
+					>
+						{pageNum}
+					</a>
+				))
+			}
+
+			{
+				nextPages.at(-1)! < page.lastPage - 1 && (
+					<span class="pagination-ellipsis is-hidden-touch">&hellip;</span>
+				)
+			}
+
+			{
+				page.currentPage !== page.lastPage && (
+					<a
+						class="border-primary-500/30 border rounded-full size-9 inline-grid place-items-center"
+						href={getRelativeLocaleUrl(lang, page.url.last)}
+						aria-label={t("Ir a página :0", [page.lastPage.toString()])}
+					>
+						{page.lastPage}
+					</a>
+				)
+			}
+		</div>
+	</div>
+
+	<a
+		href={page.url.next}
+		class={`bg-primary-500 text-white rounded-full px-4 py-2 ${!page.url.next && "opacity-50"}`}
+		><i class="fas fa-hand-point-right"></i></a
+	>
+</nav>
