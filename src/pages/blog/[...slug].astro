@@ -157,7 +157,7 @@ function getTagClass(tag: string): string {
             <div class="flex-1 flex gap-2 text-sm">
               {
                 post.data.tags?.map((tag) => (
-                  <PostTag class={getTagClass(tag)}>{tag}</PostTag>
+                  <PostTag class={getTagClass(tag)}>{t(tag)}</PostTag>
                 ))
               }
             </div>
