@@ -11,7 +11,7 @@ const t = useTranslations(lang)
 
 <template>
   <footer
-    class="flex z-20 bg-background-300 border-t-2 border-background-400"
+    class="flex flex-col lg:flex-row z-20 bg-background-300 border-t-2 border-background-400 dark:bg-gray-900 dark:border-background-950"
     style="grid-area: footer"
   >
     <div class="flex-1 basis-1/5 flex items-center justify-center">

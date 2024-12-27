@@ -32,7 +32,7 @@
   }
 
   a {
-    @apply text-primary-700;
+    @apply text-primary-700 dark:text-primary-400;
   }
 
   hr {
@@ -44,7 +44,7 @@
   }
 
   .tag {
-    @apply bg-background-400/60;
+    @apply bg-background-400/60 dark:bg-background-600/60;
   }
 
   .content {
