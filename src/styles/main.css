@@ -31,6 +31,10 @@
     src: url(/webfonts/Iosevka-Regular.woff2) format("woff2");
   }
 
+  :not(.dark) img {
+    @apply dark:brightness-75;
+  }
+
   a {
     @apply text-primary-700 dark:text-primary-400;
   }
