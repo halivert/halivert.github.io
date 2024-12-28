@@ -37,7 +37,12 @@ function itemIsActive(href: string, exact?: boolean) {
         <li>
           <a
             class="inline-flex lg:flex items-center justify-center aspect-square max-h-28 mx-auto min-h-0 rounded-full px-3 py-2"
-            :class="{ 'bg-background-400/50': itemIsActive('/', true) }"
+            :class="{
+              'bg-background-400/50 dark:bg-background-900/50': itemIsActive(
+                '/',
+                true,
+              ),
+            }"
             :href="getRelativeLocaleUrl(lang, '/')"
           >
             <slot />
@@ -52,7 +57,9 @@ function itemIsActive(href: string, exact?: boolean) {
           <a
             class="block px-3 py-2 lg:px-6 lg:py-4 rounded-full"
             :class="{
-              'bg-background-400/50': itemIsActive(link.match ?? href),
+              'bg-background-400/50 dark:bg-background-900/50': itemIsActive(
+                link.match ?? href,
+              ),
             }"
             :href="getRelativeLocaleUrl(lang, href)"
             >{{ link.text }}</a

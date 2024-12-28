@@ -12,7 +12,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-
   .astro-code,
   .astro-code span {
     color: var(--shiki-dark);
@@ -32,8 +31,12 @@
     src: url(/webfonts/Iosevka-Regular.woff2) format("woff2");
   }
 
+  :not(.dark) img {
+    @apply dark:brightness-75;
+  }
+
   a {
-    @apply text-primary-700;
+    @apply text-primary-700 dark:text-primary-400;
   }
 
   hr {
@@ -45,7 +48,7 @@
   }
 
   .tag {
-    @apply bg-background-400/60;
+    @apply bg-background-400/60 dark:bg-background-600/60;
   }
 
   .content {
@@ -59,7 +62,8 @@
 
     p:not(:last-child),
     blockquote:not(:last-child),
-    pre {
+    pre:not(:last-child),
+    table:not(:last-child) {
       @apply mb-4;
     }
 
@@ -106,6 +110,41 @@
     h5,
     h6 {
       @apply mt-4 mb-2 font-title;
+    }
+
+    table {
+      @apply w-full border-collapse;
+
+      caption {
+        @apply font-title text-lg;
+      }
+
+      th {
+        @apply font-semibold;
+      }
+
+      td,
+      th {
+        @apply py-2 px-4;
+      }
+
+      tbody,
+      tfoot {
+        td,
+        th {
+          @apply border border-accent-700;
+        }
+      }
+
+      tbody {
+        tr:nth-child(2n) {
+          @apply bg-accent-400/10;
+        }
+      }
+
+      tfoot {
+        @apply bg-accent-700/20;
+      }
     }
   }
 }
