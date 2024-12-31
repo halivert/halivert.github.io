@@ -156,6 +156,7 @@
 
   .github {
     color: #24292e;
+    @apply dark:text-white;
   }
 
   .discord {
