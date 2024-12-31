@@ -39,7 +39,7 @@ function getTranslation(key: TranslationProp): string {
     <Transition>
       <div
         v-show="showLinks"
-        class="absolute inset-0 bg-background-200/90 flex flex-col gap-2 px-4 py-2"
+        class="absolute inset-0 bg-background-200/90 dark:bg-background-950/90 flex flex-col gap-2 px-4 py-2"
       >
         <strong class="text-center">{{ getTranslation("title") }}</strong>
         <span class="flex-1">{{ getTranslation("description") }}</span>
