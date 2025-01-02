@@ -4,7 +4,7 @@ import { getCollection, getEntry, render } from "astro:content"
 import { Image } from "astro:assets"
 import HtmlLayout from "@/layouts/html.astro"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
-import { postReadableDate } from "@/ts/functions"
+import { getPostUrlParts, postReadableDate } from "@/ts/functions"
 import PostTag from "@/components/PostTag.vue"
 import PostReactions from "@/components/PostReactions.vue"
 import PostTranslationLink from "@/components/PostTranslationLink.astro"
@@ -12,19 +12,8 @@ import PostTranslationLink from "@/components/PostTranslationLink.astro"
 export const getStaticPaths = (async () => {
   const posts = await getCollection("posts", (post) => !post.id.includes("/"))
 
-  function getPostUrl(post: {
-    id: string
-    data: { date: Date }
-  }): [string, string, string] {
-    const year = post.data.date.getFullYear().toString()
-    const month = (post.data.date.getMonth() + 1).toString().padStart(2, "0")
-    const slug = post.id.replace(/\d{4}-\d{2}-\d{2}-/, "")
-
-    return [year, month, slug]
-  }
-
   return posts.map((post) => ({
-    params: { slug: getPostUrl(post).join("/") },
+    params: { slug: getPostUrlParts(post).join("/") },
     props: { post },
   }))
 }) satisfies GetStaticPaths

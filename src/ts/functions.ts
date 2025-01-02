@@ -36,7 +36,7 @@ export function postReadableDate(lang: typeof languages[number], date: Date) {
   return `${month} ${day}, ${year}`
 }
 
-export function getPostUrl(post: {
+export function getPostUrlParts(post: {
   id: string
   data: { date: Date }
 }): [string, string, string] {
