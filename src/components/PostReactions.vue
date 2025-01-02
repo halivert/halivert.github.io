@@ -6,12 +6,21 @@ import {
   type Reactions,
 } from "@/ts/types/reactions"
 import type { Mentions } from "@/ts/types/mentions"
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+import { urlBuilder } from "@/ts/functions"
 
 const props = defineProps<{
   url: URL
   title: string
   author: string
+  instantView?: string
 }>()
+
+const lang = getLangFromUrl(props.url)
+const t = useTranslations(lang)
+
+const apiUrl = "https://webmention.io/api"
+const reactions = ref<Reaction[]>([])
 
 function getMentionsUrl(props: Mentions.Props): string {
   return urlBuilder(`${props.apiUrl}/mentions.html`, {
@@ -20,8 +29,6 @@ function getMentionsUrl(props: Mentions.Props): string {
   }).toString()
 }
 
-const apiUrl = "https://webmention.io/api"
-const reactions = ref<Reaction[]>([])
 const mentions = reactive({
   count: 0,
   url: getMentionsUrl({
@@ -31,25 +38,14 @@ const mentions = reactive({
   }),
 })
 
-function urlBuilder(
-  baseUrl: string,
-  queryParameters: Record<string, string | undefined | null>,
-): URL {
-  const result = new URL(baseUrl)
-
-  Object.entries(queryParameters).forEach(([key, value]) => {
-    if (value) result.searchParams.append(key, value)
-  })
-
-  return result
-}
-
-const twitterLink = computed(() =>
-  urlBuilder("https://twitter.com/intent/tweet", {
-    original_referer: `${props.url.origin}`,
-    text: props.title,
-    url: props.url.href,
-    via: props.author,
+const telegramLink = computed(() =>
+  urlBuilder("https://t.me/share/url", {
+    url: props.instantView
+      ? urlBuilder("https://t.me/iv", {
+          url: props.url.href,
+          rhash: props.instantView,
+        }).toString()
+      : props.url.href,
   }).toString(),
 )
 
@@ -89,11 +85,11 @@ onMounted(() => fetchReactions())
 
     <div class="flex justify-between items-center">
       <a
-        class="text-sm bg-[#1da1f2] text-white rounded py-1 px-2 flex gap-2"
-        :href="twitterLink"
+        class="text-sm bg-[#54a9eb] text-white rounded py-1 px-2 flex gap-2 capitalize"
+        :href="telegramLink"
       >
-        <span class="icon"><i class="fab fa-twitter"></i></span>
-        <span>Tweet</span>
+        <span class="icon"><i class="fab fa-telegram"></i></span>
+        <span>{{ t("compartir") }}</span>
       </a>
 
       <div class="reactions">

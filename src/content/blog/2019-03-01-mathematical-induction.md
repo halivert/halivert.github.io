@@ -3,6 +3,7 @@ author: halivert
 categories: ["Matemáticas"]
 date: "2019-03-01 11:03"
 hasMath: true
+hasInstantView: false
 tags: ["Inducción"]
 title: "Inducción matemática"
 ---
