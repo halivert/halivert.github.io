@@ -2,7 +2,7 @@
 author: halivert
 title: "Upgrading Webpack to Vite in Laravel Sail"
 date: "2022-07-06 12:40 -0500"
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 tags: ["Web", "Laravel", "JS"]
 translations:
     - short: es-419

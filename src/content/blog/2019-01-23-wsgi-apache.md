@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-01-23 00:21"
 lastModification: "2019-02-21 00:15"
 tags: ["Python", "Apache", "Servidor", "Windows"]

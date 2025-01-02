@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 date: "2019-11-03 20:24"
 title: "Laravel routes in JavaScript"

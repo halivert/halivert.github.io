@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-11-03 20:24"
 tags: ["Laravel", "JavaScript", "Vue.js", "JSON"]
 title: "Cómo utilizar rutas de Laravel en JS"

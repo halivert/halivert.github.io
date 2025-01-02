@@ -2,7 +2,7 @@
 author: halivert
 title: "Lecciones de Angular"
 date: "2023-03-31 22:37:04 -0600"
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 tags: ["Angular"]
 ---
 

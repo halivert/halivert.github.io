@@ -2,7 +2,7 @@
 author: halivert
 title: "Bitácora de crédito (vol. 2)"
 date: "2023-07-13 20:00:00 -0600"
-category: "Aprendiendo en público"
+categories: ["Aprendiendo en público"]
 tags: ["Laravel", "Backend"]
 ---
 

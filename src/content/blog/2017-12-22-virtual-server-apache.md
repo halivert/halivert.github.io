@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2017-12-22 14:20"
 tags: ["Apache", "Servidor virtual", "Linux"]
 title: "Hacer un vhost en Apache"

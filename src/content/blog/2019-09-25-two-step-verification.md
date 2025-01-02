@@ -1,6 +1,6 @@
 ---
 author: "halivert"
-category: "Divagando"
+categories: ["Divagando"]
 date: "2019-09-25 12:02"
 tags: ["Seguridad", "Verificación"]
 title: "Verificación en dos pasos"

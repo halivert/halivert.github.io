@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-07-23 08:49"
 tags: ["Vim", "Productividad"]
 title: "Macros de Vim para Bulma"

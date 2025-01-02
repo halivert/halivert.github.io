@@ -15,9 +15,9 @@ const { page } = Astro.props
 
 const categories = [
   ...new Set(
-    (await getCollection("posts", (post) => !post.id.includes("/")))
-      .map((post) => post.data.category)
-      .filter((category): category is string => !!category),
+    (await getCollection("posts", (post) => !post.id.includes("/"))).flatMap(
+      (post) => post.data.categories.map((category) => category.id),
+    ),
   ),
 ]
 ---

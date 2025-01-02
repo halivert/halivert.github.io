@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Matemáticas"
+categories: ["Matemáticas"]
 date: "2019-03-01 11:03"
 hasMath: true
 tags: ["Inducción"]

@@ -1,6 +1,6 @@
 ---
 author: "halivert"
-category: "Divagando"
+categories: ["Divagando"]
 date: "2019-02-02 22:48"
 image: "../../assets/img/2019-02-i-have-a-succulent/20190201.jpg"
 imageAlt: "Mi suculenta llamada 'Julieta'"

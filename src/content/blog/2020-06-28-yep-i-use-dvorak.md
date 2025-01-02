@@ -2,7 +2,7 @@
 author: halivert
 title: "Sí, uso Dvorak"
 date: "2020-06-28 00:26"
-category: "Divagando"
+categories: ["Divagando"]
 tags: ["Teclado", "Distribución", "Dvorak", "QWERTY"]
 image: "../../assets/img/2020-06-yep-i-use-dvorak/cover.png"
 imageAlt: "Teclado Dvorak"

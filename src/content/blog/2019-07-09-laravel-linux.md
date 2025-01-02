@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-07-09 07:36"
 lastModification: "2019-07-22 22:41"
 tags: ["Laravel", "Linux", "PHP"]

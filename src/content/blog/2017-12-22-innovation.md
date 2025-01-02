@@ -1,6 +1,6 @@
 ---
 author: "halivert"
-category: "Divagando"
+categories: ["Divagando"]
 date: "2017-12-22 02:45"
 tags: ["Innovación", "Genio"]
 title: "Innovación"

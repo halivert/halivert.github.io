@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Divagando"
+categories: ["Divagando"]
 date: "2020-04-04 12:30 -0600"
 tags: ["Telegram", "Atajos"]
 title: "Atajos para Telegram Desktop"

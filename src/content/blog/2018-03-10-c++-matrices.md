@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "¡Código!"
+categories: ["¡Código!"]
 date: "2018-03-10 02:26:45"
 lastModification: "2018-10-25 23:44:35"
 tags: ["C++", "Matrices", "Gauss-Jordan"]

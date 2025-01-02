@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2018-10-26 00:23:39 -0500"
 lastModification: "2018-11-20 22:29"
 tags: ["Vim", "Fechas", "Jekyll"]
