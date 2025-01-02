@@ -83,5 +83,6 @@ export const ui = {
     Sitio: "Site",
     por: "by",
     publicado: "posted",
+    compartir: "share",
   },
 } as const

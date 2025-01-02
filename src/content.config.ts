@@ -24,6 +24,12 @@ const authors = defineCollection({
         }),
       )
       .optional(),
+    telegram: z
+      .object({
+        channel: z.string().optional(),
+        instantView: z.string().optional(),
+      })
+      .default(() => ({})),
   }),
 })
 
@@ -47,7 +53,7 @@ const posts = defineCollection({
       title: z.string(),
       date: z.coerce.date(),
 
-      categories: z.array(reference("categories")).default([]),
+      categories: z.array(reference("categories")).default(() => []),
       hasInstantView: z.boolean().default(true),
 
       canonicalUrl: z.string().optional(),

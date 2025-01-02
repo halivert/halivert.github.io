@@ -28,6 +28,8 @@ const tags = Object.fromEntries(
 const authorTelegramUrl =
   author?.data.social?.find(({ type }) => type === "telegram")?.url ?? ""
 
+const telegram = author?.data.telegram
+
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
@@ -54,7 +56,7 @@ function getTagClass(tag: string): string {
 
     <meta property="author:name" content={author?.data.firstName ?? ""} />
     <meta property="telegram:author" content={authorTelegramUrl} />
-    <meta property="telegram:channel" content="@halivertsblog" />
+    <meta property="telegram:channel" content={telegram.channel} />
 
     <meta property="og:title" content={post.data.title} />
     <meta property="author" content={post.data.author.id} />
@@ -168,6 +170,9 @@ function getTagClass(tag: string): string {
             client:load
             url={Astro.url}
             author={author?.data.username ?? ""}
+            instantView={post.data.hasInstantView
+              ? telegram.instantView
+              : undefined}
             title={post.data.title}
           />
 

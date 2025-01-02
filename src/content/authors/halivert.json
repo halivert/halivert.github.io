@@ -34,5 +34,9 @@
       "type": "linkedin",
       "icon": "fab fa-linkedin"
     }
-  ]
+  ],
+  "telegram": {
+    "channel": "@halivertsblog",
+    "instantView": "ff503d2109b312"
+  }
 }
