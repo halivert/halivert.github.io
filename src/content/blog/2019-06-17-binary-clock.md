@@ -1,6 +1,6 @@
 ---
 author: "halivert"
-category: "Divagando"
+categories: ["Divagando"]
 date: "2019-06-17 10:39"
 image: "../../assets/img/2019-06-binary-clock/binary-clock.png"
 imageAlt: "Reloj binario que marca las 23:53:49"

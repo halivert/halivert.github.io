@@ -1,6 +1,6 @@
 ---
 author: "halivert"
-category: "Divagando"
+categories: ["Divagando"]
 date: "2018-01-18 01:51"
 tags: ["Pez", "Memo"]
 title: "Se murió mi pez"

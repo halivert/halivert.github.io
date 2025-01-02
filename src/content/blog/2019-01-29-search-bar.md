@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Novedades"
+categories: ["Novedades"]
 date: "2019-01-29 10:38"
 hasInstantView: false
 lastModification: "2021-02-17 21:32"

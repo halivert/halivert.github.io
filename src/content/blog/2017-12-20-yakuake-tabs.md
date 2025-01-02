@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2017-12-20 19:54"
 tags: ["Yakuake", "Linux", "Tabs"]
 title: "Tabs en yakuake"

@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Divagando"
+categories: ["Divagando"]
 date: "2018-03-12 22:59:42"
 tags: ["JavaScript", "Remedando"]
 title: "Remedando a alguien"

@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-10-14 08:45:11 -0500"
 lastModification: "2021-01-15 19:19"
 tags: ["Vue.js", "Select"]

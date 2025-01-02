@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Novedades"
+categories: ["Novedades"]
 date: "2018-10-25 09:48"
 lastModification: "2020-05-25 00:33"
 tags: ["Comentarios"]

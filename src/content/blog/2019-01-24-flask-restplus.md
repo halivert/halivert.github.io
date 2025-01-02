@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2019-01-24 00:31"
 tags: ["Python", "Flask", "API"]
 title: "Flask RESTPlus"

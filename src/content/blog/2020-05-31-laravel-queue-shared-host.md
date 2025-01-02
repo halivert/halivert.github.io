@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Ya me pasó"
+categories: ["Ya me pasó"]
 date: "2020-05-31 00:50"
 tags: ["Laravel", "Host", "Servidor"]
 title: "Tareas en cola, Laravel (Servidor compartido)"

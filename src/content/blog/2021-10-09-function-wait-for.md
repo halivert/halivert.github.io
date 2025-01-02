@@ -2,7 +2,7 @@
 author: halivert
 title: "Función para esperar algo"
 date: "2021-10-09 23:37"
-category: "¡Código!"
+categories: ["¡Código!"]
 tags: ["JavaScript", "Funciones"]
 ---
 

@@ -1,6 +1,6 @@
 ---
 author: halivert
-category: "Divagando"
+categories: ["Divagando"]
 date: "2018-11-27 17:16"
 image: "../../assets/img/2018-11-random-thoughts/random-thoughts-title.gif"
 imageAlt: "Persona surfeando"
