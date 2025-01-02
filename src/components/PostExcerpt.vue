@@ -3,7 +3,7 @@ import { getRelativeLocaleUrl } from "astro:i18n"
 import type { CollectionEntry } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { computed } from "vue"
-import { getPostUrl, postReadableDate } from "@/ts/functions"
+import { getPostUrlParts, postReadableDate } from "@/ts/functions"
 
 const props = defineProps<{
   url: URL
@@ -21,7 +21,7 @@ const hasExcerpt =
   props.post.rendered?.html.includes(KEEP_READING_FLAG) ?? false
 
 const href = computed(() => {
-  const [year, month, slug] = getPostUrl(props.post)
+  const [year, month, slug] = getPostUrlParts(props.post)
 
   return getRelativeLocaleUrl(lang, `/blog/${year}/${month}/${slug}`)
 })

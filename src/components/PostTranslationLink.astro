@@ -2,7 +2,7 @@
 import { getEntry } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 import { getAbsoluteLocaleUrl } from "astro:i18n"
-import { getPostUrl } from "@/ts/functions"
+import { getPostUrlParts } from "@/ts/functions"
 import { displayLanguages } from "@/i18n/ui"
 
 type Translation = NonNullable<
@@ -26,7 +26,7 @@ const translationLabel = displayLanguages[translation.short]
       class="capitalize"
       href={getAbsoluteLocaleUrl(
         translation.short,
-        "/blog/" + getPostUrl(post).join("/"),
+        "/blog/" + getPostUrlParts(post).join("/"),
       )}
     >
       {translationLabel}
