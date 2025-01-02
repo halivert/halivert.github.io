@@ -27,6 +27,18 @@ const authors = defineCollection({
   }),
 })
 
+const tags = defineCollection({
+  loader: file("./src/content/tags.yml"),
+})
+
+const categories = defineCollection({
+  loader: file("./src/content/categories.yml"),
+  schema: z.object({
+    slug: z.string(),
+    description: z.record(z.enum(languages), z.string().optional()),
+  }),
+})
+
 const posts = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: ({ image }) =>
@@ -35,12 +47,12 @@ const posts = defineCollection({
       title: z.string(),
       date: z.coerce.date(),
 
+      categories: z.array(reference("categories")).default([]),
       hasInstantView: z.boolean().default(true),
 
       canonicalUrl: z.string().optional(),
       lastModification: z.coerce.date().optional(),
       hasMath: z.boolean().optional(),
-      category: z.string().optional(),
       image: image().optional(),
       imageAlt: z.string().optional(),
       tags: z.array(z.string()).optional(),
@@ -53,21 +65,6 @@ const posts = defineCollection({
         )
         .optional(),
     }),
-})
-
-const tags = defineCollection({
-  loader: file("./src/content/tags.yml"),
-})
-
-const categories = defineCollection({
-  loader: file("./src/content/categories.yml"),
-  schema: z.object({
-    slug: z.string(),
-    description: z.record(
-      z.enum(languages),
-      z.string().optional()
-    ),
-  }),
 })
 
 const projects = defineCollection({

@@ -2,6 +2,7 @@
 import type { GetStaticPathsOptions } from "astro"
 import { getCollection } from "astro:content"
 import BlogPaginationLayout from "@/layouts/BlogPaginationLayout.astro"
+import type { PostWithCategories } from "@/ts/types/post"
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (
@@ -23,9 +24,7 @@ const categories = [
         "posts",
         (post) => post.id.includes("/") && post.id.startsWith("en"),
       )
-    )
-      .map((post) => post.data.category)
-      .filter((category): category is string => !!category),
+    ).flatMap((post) => post.data.categories.map((category) => category.id)),
   ),
 ]
 ---

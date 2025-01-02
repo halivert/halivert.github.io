@@ -18,9 +18,9 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 	const categories = [
 		...new Set(
-			postCollection
-				.map((post) => post.data.category)
-				.filter((category): category is string => !!category),
+			postCollection.flatMap((post) =>
+				post.data.categories.map((category) => category.id),
+			),
 		),
 	]
 
@@ -30,8 +30,10 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 	const result = categories.flatMap((category) =>
 		paginate(
-			posts.filter(
-				(post) => post.data.category === siteCategories[category].id,
+			posts.filter((post) =>
+				post.data.categories.some(
+					(postCategory) => postCategory.id === siteCategories[category].id,
+				),
 			),
 			{
 				params: { category: siteCategories[category].data.slug },
@@ -48,9 +50,9 @@ const { category, page } = Astro.props
 
 const categories = [
 	...new Set(
-		(await getCollection("posts", (post) => !post.id.includes("/")))
-			.map((post) => post.data.category)
-			.filter((category): category is string => !!category),
+		(await getCollection("posts", (post) => !post.id.includes("/"))).flatMap(
+			(post) => post.data.categories.map((category) => category.id),
+		),
 	),
 ]
 ---
