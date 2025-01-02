@@ -1,31 +1,13 @@
 <script setup lang="ts">
 import { getRelativeLocaleUrl } from "astro:i18n"
+import type { CollectionEntry } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { computed } from "vue"
 
 const props = defineProps<{
   url: URL
-  author?: {
-    data: {
-      firstName: string
-    }
-  }
-  post: {
-    id: string
-    data: {
-      title: string
-      date: Date
-      lastModification?: Date
-      author: {
-        id: string
-      }
-      image?: unknown
-    }
-    body?: string
-    rendered?: {
-      html: string
-    }
-  }
+  author?: CollectionEntry<"authors">
+  post: CollectionEntry<"posts">
 }>()
 
 const lang = getLangFromUrl(props.url)
@@ -34,6 +16,9 @@ const t = useTranslations(lang)
 const excerpt = props.post.rendered?.html.split(
   `<!-- ${t("Seguir leyendo")} -->`,
 )[0]
+
+const hasExcerpt =
+  props.post.rendered?.html.includes(`<!-- ${t("Seguir leyendo")} -->`) ?? false
 
 const href = computed(() => {
   const year = props.post.data.date.getFullYear()
@@ -71,7 +56,7 @@ function formatDate(date: Date) {
     <div class="flex gap-2 justify-between">
       <div class="flex-1 basis-3/4">
         <div class="flex-1 content" v-html="excerpt"></div>
-        <p>
+        <p v-if="hasExcerpt">
           ...
           <br />
           <a :href>{{ t("Seguir leyendo") }}</a>
