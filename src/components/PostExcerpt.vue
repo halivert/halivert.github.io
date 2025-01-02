@@ -3,6 +3,7 @@ import { getRelativeLocaleUrl } from "astro:i18n"
 import type { CollectionEntry } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import { computed } from "vue"
+import { getPostUrl, postReadableDate } from "@/ts/functions"
 
 const props = defineProps<{
   url: URL
@@ -12,36 +13,21 @@ const props = defineProps<{
 
 const lang = getLangFromUrl(props.url)
 const t = useTranslations(lang)
+const KEEP_READING_FLAG = `<!-- ${t("Seguir leyendo")} -->`
 
-const excerpt = props.post.rendered?.html.split(
-  `<!-- ${t("Seguir leyendo")} -->`,
-)[0]
+const excerpt = props.post.rendered?.html.split(KEEP_READING_FLAG)[0]
 
 const hasExcerpt =
-  props.post.rendered?.html.includes(`<!-- ${t("Seguir leyendo")} -->`) ?? false
+  props.post.rendered?.html.includes(KEEP_READING_FLAG) ?? false
 
 const href = computed(() => {
-  const year = props.post.data.date.getFullYear()
-  const month = (props.post.data.date.getMonth() + 1)
-    .toString()
-    .padStart(2, "0")
-  const slug = props.post.id.split(/\d{4}-\d{2}-\d{2}-/)[1]
+  const [year, month, slug] = getPostUrl(props.post)
 
   return getRelativeLocaleUrl(lang, `/blog/${year}/${month}/${slug}`)
 })
 
 function formatDate(date: Date) {
-  const dateParts = new Intl.DateTimeFormat(lang, {
-    month: "long",
-    day: "2-digit",
-    year: "numeric",
-  }).formatToParts(date)
-
-  const month = dateParts.find(({ type }) => type === "month")?.value
-  const day = dateParts.find(({ type }) => type === "day")?.value
-  const year = dateParts.find(({ type }) => type === "year")?.value
-
-  return `${month} ${day}, ${year}`
+  return postReadableDate(lang, date)
 }
 </script>
 
