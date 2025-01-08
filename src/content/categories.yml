@@ -54,3 +54,9 @@ Aprendiendo en público:
     en: >-
       This space is used to do some projects that will help me to learn some
       things and teach some others.
+
+Historias:
+  slug: stories
+  description:
+    es-419: Cuentos cortos sobre historias que he vivido
+    en: Short stories about stories I have lived
