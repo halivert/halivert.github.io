@@ -12,12 +12,12 @@ entonces trabajaba en una escuela secundaria, como maestra, y tenía eventos con
 los alumnos y padres de familia. Una de sus compañeras me parecía bonita y a
 veces bromeábamos al respecto, sin embargo mi percepción cambió esa tarde.
 
-Recuerdo con mucho cariño aquella vez, nos quedamos de ver afuera de su casa
-para tomar un taxi y asistir a una especie de baile que se organizó. Llegué y
-después de esperar unos minutos, llegó ella, tan bonita, pero me sorprendió
-verla de una manera… especial, en cualquier caso no fue un sentimiento muy
-fuerte (o eso creía); nos subimos al taxi en la parte de atrás y comenzó a
-maquillarse.
+Recuerdo con mucho cariño aquella vez<!-- Seguir leyendo -->, nos quedamos de
+ver afuera de su casa para tomar un taxi y asistir a una especie de baile que se
+organizó. Llegué y después de esperar unos minutos, llegó ella, tan bonita, pero
+me sorprendió verla de una manera… especial, en cualquier caso no fue un
+sentimiento muy fuerte (o eso creía); nos subimos al taxi en la parte de atrás y
+comenzó a maquillarse.
 
 Dicen que las mujeres no se maquillan en presencia de quién les gusta, así que
 nunca pensé que yo pudiera ser de su agrado; siempre mantuvimos una relación de
