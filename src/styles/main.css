@@ -32,7 +32,7 @@
   }
 
   :not(.dark) img {
-    @apply dark:brightness-75;
+    /* @apply dark:brightness-75; */
   }
 
   a {
@@ -40,35 +40,35 @@
   }
 
   hr {
-    @apply my-2 border-accent-600;
+    /* @apply my-2 border-accent-600; */
   }
 
   code {
-    @apply text-accent-500;
+    /* @apply text-accent-500; */
   }
 
   .tag {
-    @apply bg-background-400/60 dark:bg-background-600/60;
+    /* @apply bg-background-400/60 dark:bg-background-600/60; */
   }
 
   .content {
     ul {
-      @apply list-disc ml-8 mt-4 mb-2;
+      /* @apply list-disc ml-8 mt-4 mb-2; */
     }
 
     blockquote {
-      @apply border-l-4 border-l-accent-500 py-2 pl-4 italic;
+      /* @apply border-l-4 border-l-accent-500 py-2 pl-4 italic; */
     }
 
     p:not(:last-child),
     blockquote:not(:last-child),
     pre:not(:last-child),
     table:not(:last-child) {
-      @apply mb-4;
+      /* @apply mb-4; */
     }
 
     pre {
-      @apply py-4 px-5;
+      /* @apply py-4 px-5; */
     }
 
     sup::before {
@@ -80,27 +80,27 @@
     }
 
     h6 {
-      @apply text-lg;
+      /* @apply text-lg; */
     }
 
     h5 {
-      @apply text-lg font-semibold;
+      /* @apply text-lg font-semibold; */
     }
 
     h4 {
-      @apply text-xl font-semibold;
+      /* @apply text-xl font-semibold; */
     }
 
     h3 {
-      @apply text-2xl font-semibold;
+      /* @apply text-2xl font-semibold; */
     }
 
     h2 {
-      @apply text-3xl font-semibold;
+      /* @apply text-3xl font-semibold; */
     }
 
     h1 {
-      @apply text-4xl font-semibold;
+      /* @apply text-4xl font-semibold; */
     }
 
     h1,
@@ -109,41 +109,41 @@
     h4,
     h5,
     h6 {
-      @apply mt-4 mb-2 font-title;
+      /* @apply mt-4 mb-2 font-title; */
     }
 
     table {
-      @apply w-full border-collapse;
+      /* @apply w-full border-collapse; */
 
       caption {
-        @apply font-title text-lg;
+        /* @apply font-title text-lg; */
       }
 
       th {
-        @apply font-semibold;
+        /* @apply font-semibold; */
       }
 
       td,
       th {
-        @apply py-2 px-4;
+        /* @apply py-2 px-4; */
       }
 
       tbody,
       tfoot {
         td,
         th {
-          @apply border border-accent-700;
+          /* @apply border border-accent-700; */
         }
       }
 
       tbody {
         tr:nth-child(2n) {
-          @apply bg-accent-400/10;
+          /* @apply bg-accent-400/10; */
         }
       }
 
       tfoot {
-        @apply bg-accent-700/20;
+        /* @apply bg-accent-700/20; */
       }
     }
   }
@@ -156,7 +156,7 @@
 
   .github {
     color: #24292e;
-    @apply dark:text-white;
+    /* @apply dark:text-white; */
   }
 
   .discord {
@@ -176,6 +176,6 @@
   }
 
   .notification {
-    @apply bg-yellow-500 p-4 pl-6 rounded mb-4;
+    /* @apply bg-yellow-500 p-4 pl-6 rounded mb-4; */
   }
 }
