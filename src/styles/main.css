@@ -36,7 +36,7 @@
   }
 
   a {
-    @apply text-primary-700 dark:text-primary-400;
+    /* @apply text-primary-700 dark:text-primary-400; */
   }
 
   hr {
