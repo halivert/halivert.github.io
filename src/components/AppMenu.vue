@@ -51,7 +51,7 @@ function itemIsActive(href: string, exact?: boolean) {
       </ul>
 
       <ul
-        class="flex-grow flex justify-center flex-wrap px-2 gap-1 lg:my-1 lg:flex-col lg:justify-start"
+        class="grow flex justify-center flex-wrap px-2 gap-1 lg:my-1 lg:flex-col lg:justify-start"
       >
         <li v-for="(link, href) in links" :key="href">
           <a

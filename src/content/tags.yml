@@ -1,5 +1,5 @@
 c++: bg-blue-400 text-text-950
-creatividad: bg-gradient-to-tr from-[#70ffd4] to-[#9bff70] text-text-950
+creatividad: bg-linear-to-tr from-[#70ffd4] to-[#9bff70] text-text-950
 flask: bg-accent-400 text-text-950
 git: bg-blue-400 text-text-950
 halivert.dev: bg-emerald-500 text-text-950
