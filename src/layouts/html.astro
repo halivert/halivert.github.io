@@ -55,12 +55,6 @@ const t = useTranslations(lang)
 
 		<slot name="head" />
 
-		{
-			import.meta.env.PROD && (
-				<script is:inline src="https://cdn.splitbee.io/sb.js" />
-			)
-		}
-
 		<title>{title}</title>
 	</head>
 
