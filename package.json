@@ -11,8 +11,8 @@
   "dependencies": {
     "@astrojs/vue": "^5.1.0",
     "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.15.9",
-    "lodash": "4.17.21",
+    "astro": "5.15.9",
+    "lodash": "4.17.23",
     "lunr": "2.3.9",
     "remark-toc": "^9.0.0",
     "sharp": "^0.34.3",
