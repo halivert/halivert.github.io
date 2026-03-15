@@ -1,4 +1,5 @@
-import { defineCollection, reference, z } from "astro:content"
+import { defineCollection, reference } from "astro:content"
+import { z } from "astro/zod"
 import { glob, file } from "astro/loaders"
 import { languages } from "./i18n/ui"
 
@@ -21,7 +22,7 @@ const authors = defineCollection({
           type: z.string(),
           icon: z.string(),
           hidden: z.boolean().optional(),
-        }),
+        })
       )
       .optional(),
     telegram: z
@@ -67,7 +68,7 @@ const posts = defineCollection({
           z.object({
             short: z.enum(languages),
             post: reference("posts"),
-          }),
+          })
         )
         .optional(),
     }),
@@ -86,7 +87,7 @@ const projects = defineCollection({
           title: z.string(),
           description: z.string(),
           imageAlt: z.string().optional(),
-        }),
+        })
       ),
     }),
 })

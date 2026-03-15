@@ -17,7 +17,7 @@ export default defineConfig({
     },
   },
 
-  integrations: [vue({ devtools: true })],
+  integrations: [vue()],
 
   vite: {
     plugins: [tailwindcss()],
