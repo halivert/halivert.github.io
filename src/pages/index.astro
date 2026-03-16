@@ -15,15 +15,15 @@ const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const techStack = {
-	"fab fa-linux": "Linux",
-	"fab fa-html5": "HTML5",
-	"fab fa-css3-alt": "CSS",
-	"fab fa-js": "JS/TS",
-	"fab fa-php": "PHP",
-	"fab fa-git-alt": "Git",
-	"fab fa-vuejs": "Vue 3",
-	"fab fa-react": "React",
-	"fab fa-laravel": "Laravel",
+	"fa-brands fa-laravel": "Laravel",
+	"fa-brands fa-vuejs": "Vue 3",
+	"fa-brands fa-react": "React",
+	"fa-brands fa-linux": "Linux",
+	"fa-brands fa-html5": "HTML5",
+	"fa-brands fa-css3-alt": "CSS",
+	"fa-brands fa-typescript": "JS/TS",
+	"fa-brands fa-php": "PHP",
+	"fa-brands fa-git-alt": "Git",
 }
 ---
 
@@ -45,7 +45,9 @@ const techStack = {
 
 			<div class="space-y-4">
 				<p>
-					{t("Desarrollador web, con conocimiento en diversas tecnologías")}:
+					{t("Construyo aplicaciones web que funcionan en producción")}:
+					<br />
+					Laravel, Vue 3, React, TypeScript
 				</p>
 
 				<div>

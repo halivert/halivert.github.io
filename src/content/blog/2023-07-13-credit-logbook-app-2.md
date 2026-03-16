@@ -156,7 +156,7 @@ En nuestro caso, sabemos que `%3D` es `=`, así que lo sustituimos y agregaremos
 a un _header_ llamado `X-XSRF-TOKEN` en cada una de nuestras llamadas
 siguientes. Como ahora estamos probando con Postman, entonces hacemos algo así:
 
-![Imagen de X-XSRF-TOKEN en Postman](https://github.com/halivert/halivert.github.io/assets/16197249/61bb4b67-83bc-45e8-b4d8-79d39b3a2769)
+<img src="https://github.com/halivert/halivert.github.io/assets/16197249/61bb4b67-83bc-45e8-b4d8-79d39b3a2769" alt="Imagen de X-XSRF-TOKEN en Postman">
 
 ## Usuario
 
@@ -182,7 +182,7 @@ También corregimos una regla de nuestras validaciones 😅
 Después podemos hacer la solicitud a la url: `/register`. Agregamos los datos
 necesarios al _body_ de la solicitud y lo enviamos.
 
-![Datos de Tim y respuesta](https://github.com/halivert/halivert.github.io/assets/16197249/7e55a751-cb68-4976-a4c7-d622cafee52f)
+<img src="https://github.com/halivert/halivert.github.io/assets/16197249/7e55a751-cb68-4976-a4c7-d622cafee52f" alt="Datos de Tim y respuesta">
 
 Si todo salió bien obtendremos una respuesta 201, y sabremos que nuestro usuario
 ha sido registrado en el sistema.
@@ -205,13 +205,13 @@ Vamos a guardar el `X-XSRF-TOKEN` como una variable en Postman y luego hacemos
 la petición a la url: `/logout`. Si todo sale bien, obtendremos una respuesta
 204 como esta.
 
-![Logout](https://github.com/halivert/halivert.github.io/assets/16197249/06ac3906-cf5f-4155-a47a-87e73fd7329f)
+<img src="https://github.com/halivert/halivert.github.io/assets/16197249/06ac3906-cf5f-4155-a47a-87e73fd7329f" alt="Logout">
 
 ### _Login_
 
 Ahora probamos con la ruta `/login`. Y podremos ver algo así.
 
-![Login](https://github.com/halivert/halivert.github.io/assets/16197249/5b22345a-834d-41ec-9cac-091d91a13d40)
+<img src="https://github.com/halivert/halivert.github.io/assets/16197249/5b22345a-834d-41ec-9cac-091d91a13d40" alt="Login">
 
 Como Sanctum utiliza las _cookies_ para la autenticación, no debemos
 preocuparnos por tokens además del de csrf cuando hacemos una petición _post_,

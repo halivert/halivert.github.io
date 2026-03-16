@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
 import type { CollectionEntry } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
@@ -26,11 +25,10 @@ function getTranslation(project: Project, key: TranslationProp): string {
 			{
 				projects.map((project) => (
 					<ProjectThumbnail client:load url={Astro.url} project={project}>
-						<Image
+						<img
 							class="rounded-md"
 							src={project.data.image}
 							alt={getTranslation(project, "imageAlt") ?? "Imagen de proyecto"}
-							inferSize
 						/>
 					</ProjectThumbnail>
 				))
