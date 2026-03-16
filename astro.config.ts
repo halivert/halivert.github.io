@@ -6,20 +6,28 @@ import tailwindcss from "@tailwindcss/vite"
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.PROD ? "https://halivert.dev" : undefined,
-  i18n: { locales: ["es-419", "en"], defaultLocale: "es-419" },
+	site: import.meta.env.PROD ? "https://halivert.dev" : undefined,
+	i18n: { locales: ["es-419", "en"], defaultLocale: "es-419" },
 
-  markdown: {
-    remarkPlugins: [[remarkToc, { heading: "Índice|Index", maxDepth: 4 }]],
-    shikiConfig: {
-      themes: { light: "vitesse-light", dark: "synthwave-84" },
-      defaultColor: false,
-    },
-  },
+	image: {
+		domains: [
+			"raw.githubusercontent.com",
+			"user-images.githubusercontent.com",
+			"github.com",
+		],
+	},
 
-  integrations: [vue()],
+	markdown: {
+		remarkPlugins: [[remarkToc, { heading: "Índice|Index", maxDepth: 4 }]],
+		shikiConfig: {
+			themes: { light: "vitesse-light", dark: "synthwave-84" },
+			defaultColor: false,
+		},
+	},
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+	integrations: [vue()],
+
+	vite: {
+		plugins: [tailwindcss()],
+	},
 })
