@@ -76,10 +76,9 @@ const posts = defineCollection({
 
 const projects = defineCollection({
   loader: file("./src/content/projects.yml"),
-  schema: ({ image }) =>
-    z.object({
-      image: image(),
-      repo: z.string(),
+  schema: z.object({
+    image: z.string(),
+    repo: z.string(),
       live: z.string(),
       translations: z.record(
         z.enum(languages),
