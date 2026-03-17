@@ -3,33 +3,32 @@ import vue from "@astrojs/vue"
 import remarkToc from "remark-toc"
 
 import tailwindcss from "@tailwindcss/vite"
-
-import sitemap from "@astrojs/sitemap";
+import sitemap from "@astrojs/sitemap"
 
 // https://astro.build/config
 export default defineConfig({
-    site: import.meta.env.PROD ? "https://halivert.dev" : undefined,
-    i18n: { locales: ["es-419", "en"], defaultLocale: "es-419" },
+	site: import.meta.env.PROD ? "https://halivert.dev" : undefined,
+	i18n: { locales: ["es-419", "en"], defaultLocale: "es-419" },
 
-    image: {
-        domains: [
-            "raw.githubusercontent.com",
-            "user-images.githubusercontent.com",
-            "github.com",
-        ],
-    },
+	image: {
+		domains: [
+			"raw.githubusercontent.com",
+			"user-images.githubusercontent.com",
+			"github.com",
+		],
+	},
 
-    markdown: {
-        remarkPlugins: [[remarkToc, { heading: "Índice|Index", maxDepth: 4 }]],
-        shikiConfig: {
-            themes: { light: "vitesse-light", dark: "synthwave-84" },
-            defaultColor: false,
-        },
-    },
+	markdown: {
+		remarkPlugins: [[remarkToc, { heading: "Índice|Index", maxDepth: 4 }]],
+		shikiConfig: {
+			themes: { light: "vitesse-light", dark: "synthwave-84" },
+			defaultColor: false,
+		},
+	},
 
-    integrations: [vue(), sitemap()],
+	integrations: [vue(), sitemap()],
 
-    vite: {
-        plugins: [tailwindcss()],
-    },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 })
