@@ -79,16 +79,16 @@ const projects = defineCollection({
   schema: z.object({
     image: z.string(),
     repo: z.string(),
-      live: z.string(),
-      translations: z.record(
-        z.enum(languages),
-        z.object({
-          title: z.string(),
-          description: z.string(),
-          imageAlt: z.string().optional(),
-        })
-      ),
-    }),
+    live: z.string(),
+    translations: z.record(
+      z.enum(languages),
+      z.object({
+        title: z.string(),
+        description: z.string(),
+        imageAlt: z.string().optional(),
+      })
+    ),
+  }),
 })
 
 export const collections = { authors, posts, tags, categories, projects }
