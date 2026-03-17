@@ -3,6 +3,7 @@ import vue from "@astrojs/vue"
 import remarkToc from "remark-toc"
 
 import tailwindcss from "@tailwindcss/vite"
+import sitemap from "@astrojs/sitemap"
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +26,7 @@ export default defineConfig({
 		},
 	},
 
-	integrations: [vue()],
+	integrations: [vue(), sitemap()],
 
 	vite: {
 		plugins: [tailwindcss()],

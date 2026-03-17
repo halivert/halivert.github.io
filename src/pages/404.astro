@@ -1,5 +1,5 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getRelativeLocaleUrl } from "astro:i18n"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import HtmlLayout from "@/layouts/html.astro"
 
@@ -9,7 +9,7 @@ const t = useTranslations(lang)
 
 <HtmlLayout title={t("Página no encontrada")} hideFooter>
 	<section
-		class="z-20 bg-background-200 grid place-items-center"
+		class="z-20 bg-background-200 grid place-items-center dark:bg-background-950"
 		style="grid-area: 1 / 1 / last-line / last-column"
 	>
 		<div class="text-center">
