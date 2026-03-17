@@ -20,6 +20,12 @@
     "tailwindcss": "4.2.1",
     "vue": "3.5.18"
   },
+  "pnpm": {
+    "overrides": {
+      "rollup": ">=4.59.0",
+      "mdast-util-to-hast": ">=13.2.1"
+    }
+  },
   "prettier": {
     "semi": false,
     "tabs": true
