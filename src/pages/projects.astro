@@ -10,6 +10,8 @@ const t = useTranslations(lang)
 
 const projects = await getCollection("projects")
 
+projects.sort((a, b) => a.data.order - b.data.order)
+
 type Project = CollectionEntry<"projects">
 type Translation = Project["data"]["translations"]
 type TranslationProp = keyof NonNullable<Translation[keyof Translation]>

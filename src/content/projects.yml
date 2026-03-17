@@ -1,4 +1,5 @@
 - id: laravel-js-routes
+  order: 1
   repo: "https://github.com/halivert/laravel-js-routes"
   live: "https://github.com/halivert/laravel-js-routes"
   image: ""
@@ -13,6 +14,7 @@
       imageAlt: "laravel-js-routes repository screenshot"
 
 - id: bookmark-landing-page
+  order: 2
   image: "https://raw.githubusercontent.com/halivert/bookmark-landing-page/main/screenshot.png"
   repo: "https://github.com/halivert/bookmark-landing-page"
   live: "https://halivert.dev/bookmark-landing-page"
@@ -27,6 +29,7 @@
       description: "Full landing page made in Vue.js 3."
 
 - id: weakest-record
+  order: 3
   image: "https://github.com/user-attachments/assets/081eafc7-79e2-46ae-84f9-79a6b743479c"
   repo: "https://gitlab.com/halivert/weakest-record"
   live: "https://el-rival-mas-debil.halivert.dev/play/general/"
