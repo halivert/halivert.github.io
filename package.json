@@ -9,15 +9,15 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/sitemap": "^3.7.1",
-    "@astrojs/vue": "^6.0.0",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^6.0.4",
+    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/vue": "6.0.1",
+    "@tailwindcss/vite": "4.2.1",
+    "astro": "6.0.5",
     "lodash": "4.17.23",
     "lunr": "2.3.9",
-    "remark-toc": "^9.0.0",
-    "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.11",
+    "remark-toc": "9.0.0",
+    "sharp": "0.34.5",
+    "tailwindcss": "4.2.1",
     "vue": "3.5.18"
   },
   "prettier": {
@@ -25,12 +25,12 @@
     "tabs": true
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.13",
-    "@types/lunr": "^2.3.7",
-    "@types/node": "^22.10.2",
-    "@vue/reactivity": "^3.5.13",
-    "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1",
-    "typescript": "5.0.3"
+    "@types/lodash": "4.17.24",
+    "@types/lunr": "2.3.7",
+    "@types/node": "25.5.0",
+    "@vue/reactivity": "3.5.30",
+    "prettier": "3.8.1",
+    "prettier-plugin-astro": "0.14.1",
+    "typescript": "5.9.3"
   }
 }
