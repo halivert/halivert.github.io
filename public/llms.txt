@@ -1,0 +1,25 @@
+# Halí Velázquez - Full-Stack Developer
+
+> Full-stack developer with 7+ years of professional experience,
+> currently at IBM México. Specialized in Laravel, Vue 3, and
+> TypeScript. Based in México. Open to remote opportunities.
+
+## Blog
+
+Technical articles about Laravel, Vue 3, Linux, algorithms,
+and software development from a Mexican developer's perspective.
+
+- https://halivert.dev/blog/
+
+## Projects
+
+- https://halivert.dev/projects/
+
+## About
+
+- https://halivert.dev/about/
+
+## Contact
+
+- hali@halivert.dev
+- GitHub: https://github.com/halivert
