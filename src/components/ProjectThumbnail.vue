@@ -29,7 +29,7 @@ function getTranslation(key: TranslationProp): string {
     <div class="flex flex-col gap-2 px-4 py-3 flex-1">
       <strong>{{ getTranslation("title") }}</strong>
       <p class="flex-1 text-sm">{{ getTranslation("description") }}</p>
-      <p class="flex gap-2 text-sm">
+      <p class="flex gap-2 text-sm mt-auto">
         <a
           v-if="project.data.live"
           class="text-accent-100 bg-accent-800 py-1 px-3 rounded"
