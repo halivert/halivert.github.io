@@ -1,0 +1,16 @@
+order: 250
+repo: "https://github.com/halivert/css"
+live: "https://halivert.dev/css/"
+translations:
+  es-419:
+    title: "Hoja de estilos para prototipado rápido"
+    description: >
+      Hoja de estilos ligera para hacer prototipado rápido. Personalizable.
+      Modular y utiliza elementos semánticos de HTML.
+    imageAlt: "Sitio con elementos de prueba que usa la hoja de estilos halivert.css"
+  en:
+    title: "Classless stylesheet for rapid prototyping"
+    description: >
+      CSS stylesheet for rapid prototyping. Modular, customizable.
+      Uses semantic HTML elements.
+    imageAlt: "Test website using halivert.css stylesheet"

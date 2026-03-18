@@ -75,21 +75,22 @@ const posts = defineCollection({
 })
 
 const projects = defineCollection({
-	loader: file("./src/content/projects.yml"),
-	schema: z.object({
-		order: z.number(),
-		image: z.string(),
-		repo: z.string(),
-		live: z.string(),
-		translations: z.record(
-			z.enum(languages),
-			z.object({
-				title: z.string(),
-				description: z.string(),
-				imageAlt: z.string().optional(),
-			})
-		),
-	}),
+	loader: glob({ pattern: "**/*.yml", base: "./src/content/projects" }),
+	schema: ({ image }) =>
+		z.object({
+			order: z.number(),
+			image: image().optional(),
+			repo: z.string(),
+			live: z.string(),
+			translations: z.record(
+				z.enum(languages),
+				z.object({
+					title: z.string(),
+					description: z.string(),
+					imageAlt: z.string().optional(),
+				})
+			),
+		}),
 })
 
 export const collections = { authors, posts, tags, categories, projects }
