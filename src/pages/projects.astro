@@ -29,7 +29,7 @@ function getTranslation(project: Project, key: TranslationProp): string {
 					<ProjectThumbnail client:load url={Astro.url} project={project}>
 						{project.data.image ? (
 							<Image
-								class="rounded-md w-full aspect-video object-cover"
+								class="rounded-md w-full object-cover"
 								src={project.data.image}
 								alt={getTranslation(project, "imageAlt")}
 							/>
