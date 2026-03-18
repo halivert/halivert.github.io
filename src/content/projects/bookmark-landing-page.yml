@@ -1,0 +1,13 @@
+order: 300
+repo: "https://github.com/halivert/bookmark-landing-page"
+live: "https://halivert.dev/bookmark-landing-page"
+image: "./bookmark-landing-page.png"
+translations:
+  es-419:
+    title: "Landing page de extensión de marcadores"
+    imageAlt: "Screenshot de aplicación"
+    description: "Landing page completa hecha con Vue.js 3."
+  en:
+    title: "Bookmark extension landing page"
+    imageAlt: "App screenshot"
+    description: "Full landing page made in Vue.js 3."

@@ -1,0 +1,13 @@
+order: 400
+repo: "https://gitlab.com/halivert/weakest-record"
+live: "https://el-rival-mas-debil.halivert.dev/play/general/"
+image: "./weakest-record.png"
+translations:
+  es-419:
+    title: "El rival más débil (juego)"
+    imageAlt: "Screenshot de aplicación"
+    description: "Control para jugar al iconico juego \"El rival más debil\""
+  en:
+    title: "The Weakest Link (game)"
+    imageAlt: "Application screenshot"
+    description: "Controls to play the iconic game \"The Weakest Link\""

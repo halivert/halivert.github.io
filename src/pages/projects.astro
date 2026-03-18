@@ -1,16 +1,18 @@
 ---
+import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
-import type { CollectionEntry } from "astro:content"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils"
 import HtmlLayout from "@/layouts/html.astro"
 import ProjectThumbnail from "@/components/ProjectThumbnail.vue"
+import type { Project } from "@/types/project"
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 
 const projects = await getCollection("projects")
 
-type Project = CollectionEntry<"projects">
+projects.sort((a, b) => a.data.order - b.data.order)
+
 type Translation = Project["data"]["translations"]
 type TranslationProp = keyof NonNullable<Translation[keyof Translation]>
 
@@ -25,11 +27,15 @@ function getTranslation(project: Project, key: TranslationProp): string {
 			{
 				projects.map((project) => (
 					<ProjectThumbnail client:load url={Astro.url} project={project}>
-						<img
-							class="rounded-md"
-							src={project.data.image}
-							alt={getTranslation(project, "imageAlt") ?? "Imagen de proyecto"}
-						/>
+						{project.data.image ? (
+							<Image
+								class="rounded-md w-full object-cover"
+								src={project.data.image}
+								alt={getTranslation(project, "imageAlt")}
+							/>
+						) : (
+							<div class="rounded-md w-full aspect-video bg-background-200 dark:bg-background-800" />
+						)}
 					</ProjectThumbnail>
 				))
 			}

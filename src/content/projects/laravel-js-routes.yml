@@ -1,0 +1,13 @@
+order: 100
+repo: "https://github.com/halivert/laravel-js-routes"
+live: "https://github.com/halivert/laravel-js-routes"
+image: "./laravel-js-routes.png"
+translations:
+  es-419:
+    title: "Rutas de Laravel en JS"
+    description: "Paquete composer para utilizar rutas de Laravel en archivos JS. Archivado - el problema que resolvía fue solucionado en un paquete oficial."
+    imageAlt: "Screenshot del repo de laravel-js-routes"
+  en:
+    title: "Laravel routes in JS"
+    description: "Composer package to use Laravel routes on JS with a command. Archived - the problem solved was addressed by an official package."
+    imageAlt: "laravel-js-routes repository screenshot"

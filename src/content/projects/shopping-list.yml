@@ -1,0 +1,19 @@
+order: 200
+repo: "https://github.com/halivert/shopping-list-laravel"
+live: "https://shopping-list.halivert.dev"
+image: "./shopping-list.png"
+translations:
+  es-419:
+    title: "Lista de compras colaborativa"
+    description: >
+      Aplicación web que sirve para tener una lista de compras colaborativa,
+      actualizaciones en tiempo real. Recuerda los precios anteriores.
+      Inicia sesión con Google OAuth. Hecha con Laravel, Inertia - Vue 3.
+    imageAlt: "Screenshot de una lista de compras"
+  en:
+    title: "Collaborative shopping list"
+    description: >
+      Web application that manages a collaborative shopping list, with
+      real-time updates. It saves the last prices and you can login with
+      Google OAuth. Made with Laravel, Inertia - Vue 3.
+    imageAlt: "Shopping list screenshot"
