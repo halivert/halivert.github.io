@@ -27,12 +27,14 @@ function getTranslation(project: Project, key: TranslationProp): string {
 			{
 				projects.map((project) => (
 					<ProjectThumbnail client:load url={Astro.url} project={project}>
-						{project.data.image && (
+						{project.data.image ? (
 							<Image
-								class="rounded-md"
+								class="rounded-md w-full aspect-video object-cover"
 								src={project.data.image}
 								alt={getTranslation(project, "imageAlt")}
 							/>
+						) : (
+							<div class="rounded-md w-full aspect-video bg-background-200 dark:bg-background-800" />
 						)}
 					</ProjectThumbnail>
 				))

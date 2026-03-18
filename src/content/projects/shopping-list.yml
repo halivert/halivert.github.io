@@ -1,6 +1,7 @@
 order: 200
 repo: "https://github.com/halivert/shopping-list-laravel"
 live: "https://shopping-list.halivert.dev"
+image: "./shopping-list.png"
 translations:
   es-419:
     title: "Lista de compras colaborativa"

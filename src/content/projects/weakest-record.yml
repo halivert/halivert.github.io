@@ -1,6 +1,7 @@
 order: 400
 repo: "https://gitlab.com/halivert/weakest-record"
 live: "https://el-rival-mas-debil.halivert.dev/play/general/"
+image: "./weakest-record.png"
 translations:
   es-419:
     title: "El rival más débil (juego)"

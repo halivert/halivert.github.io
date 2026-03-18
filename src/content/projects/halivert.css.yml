@@ -1,6 +1,7 @@
 order: 250
 repo: "https://github.com/halivert/css"
 live: "https://halivert.dev/css/"
+image: "./halivert.css.png"
 translations:
   es-419:
     title: "Hoja de estilos para prototipado rápido"
