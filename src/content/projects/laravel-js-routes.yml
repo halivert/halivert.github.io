@@ -1,6 +1,6 @@
 order: 100
 repo: "https://github.com/halivert/laravel-js-routes"
-live: "https://github.com/halivert/laravel-js-routes"
+live: "https://packagist.org/packages/halivert/laravel-js-routes"
 image: "./laravel-js-routes.png"
 translations:
   es-419:
