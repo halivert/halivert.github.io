@@ -1,5 +1,5 @@
 - id: laravel-js-routes
-  order: 1
+  order: 100
   repo: "https://github.com/halivert/laravel-js-routes"
   live: "https://github.com/halivert/laravel-js-routes"
   image: ""
@@ -13,8 +13,48 @@
       description: "Composer package to use Laravel routes on JS with a command. Archived - the problem solved was addressed by an official package."
       imageAlt: "laravel-js-routes repository screenshot"
 
+- id: shopping-list
+  order: 200
+  repo: "https://github.com/halivert/shopping-list-laravel"
+  live: "https://shopping-list.halivert.dev"
+  image: ""
+  translations:
+    es-419:
+      title: "Lista de compras colaborativa"
+      description: >
+        Aplicación web que sirve para tener una lista de compras colaborativa,
+        actualizaciones en tiempo real. Recuerda los precios anteriores.
+        Inicia sesión con Google OAuth. Hecha con Laravel, Inertia - Vue 3.
+      imageAlt: "Screenshot de una lista de compras"
+    en:
+      title: "Collaborative shopping list"
+      description: >
+        Web application that manages a collaborative shopping list, with 
+        real-time updates. It saves the last prices and you can login with 
+        Google OAuth. Made with Laravel, Inertia - Vue 3.
+      imageAlt: "Shopping list screenshot"
+
+- id: halivert.css
+  order: 250
+  repo: "https://github.com/halivert/css"
+  live: "https://halivert.dev/css/"
+  image: ""
+  translations:
+    es-419:
+      title: "Hoja de estilos para prototipado rápido"
+      description: >
+        Hoja de estilos ligera para hacer prototipado rápido. Personalizable.
+        Modular y utiliza elementos semánticos de HTML.
+      imageAlt: "Sitio con elementos de prueba que usa la hoja de estilos halivert.css"
+    en:
+      title: "Classless stylesheet for rapid prototyping"
+      description: >
+        CSS stylesheet for rapid prototyping. Modular, customizable.
+        Uses semantic HTML elements.
+      imageAlt: "Test website using halivert.css stylesheet"
+
 - id: bookmark-landing-page
-  order: 2
+  order: 300
   image: "https://raw.githubusercontent.com/halivert/bookmark-landing-page/main/screenshot.png"
   repo: "https://github.com/halivert/bookmark-landing-page"
   live: "https://halivert.dev/bookmark-landing-page"
@@ -29,7 +69,7 @@
       description: "Full landing page made in Vue.js 3."
 
 - id: weakest-record
-  order: 3
+  order: 400
   image: "https://github.com/user-attachments/assets/081eafc7-79e2-46ae-84f9-79a6b743479c"
   repo: "https://gitlab.com/halivert/weakest-record"
   live: "https://el-rival-mas-debil.halivert.dev/play/general/"
