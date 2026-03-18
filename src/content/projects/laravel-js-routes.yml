@@ -5,9 +5,13 @@ image: "./laravel-js-routes.png"
 translations:
   es-419:
     title: "laravel-js-routes"
-    description: "Paquete composer para utilizar rutas de Laravel en archivos JS. Archivado - el problema que resolvía fue solucionado en un paquete oficial."
+    description: >
+      Paquete composer para utilizar rutas de Laravel en archivos JS. Más de 11
+      mil descargas en Packagist. Archivado - paquete sugerido tightenco/ziggy.
     imageAlt: "Screenshot del repo de laravel-js-routes"
   en:
     title: "laravel-js-routes"
-    description: "Composer package to use Laravel routes on JS with a command. Archived - the problem solved was addressed by an official package."
+    description: >
+      Composer package to use Laravel routes on JS with a command. 11k+ installs
+      on Packagist. Archived - succeeded by tightenco/ziggy.
     imageAlt: "laravel-js-routes repository screenshot"
